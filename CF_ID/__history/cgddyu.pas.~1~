@@ -1,0 +1,292 @@
+unit cgddyu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBTables, ppMemo, ppCtrls, ppBands, ppReport, ppSubRpt, myChkBox,
+  ppStrtch, ppRegion, ppClass, ppVar, ppPrnabl, ppCache, ppProd, ppDB,
+  ppComm, ppRelatv, ppDBPipe, ppDBBDE, ppViewr, Txcomp;
+
+type
+  Tfrmcgddy = class(TForm)
+    dslbjhm: TDataSource;
+    ppBDEPipeline1: TppBDEPipeline;
+    ppBDEPipeline1ppField1: TppField;
+    ppBDEPipeline1ppField2: TppField;
+    ppBDEPipeline1ppField3: TppField;
+    ppBDEPipeline1ppField4: TppField;
+    ppBDEPipeline1ppField5: TppField;
+    ppBDEPipeline1ppField6: TppField;
+    ppBDEPipeline1ppField7: TppField;
+    ppBDEPipeline1ppField8: TppField;
+    ppBDEPipeline1ppField9: TppField;
+    ppBDEPipeline1ppField10: TppField;
+    ppBDEPipeline1ppField11: TppField;
+    ppBDEPipeline1ppField12: TppField;
+    ppBDEPipeline1ppField13: TppField;
+    ppBDEPipeline1ppField14: TppField;
+    ppBDEPipeline1ppField15: TppField;
+    ppBDEPipeline1ppField16: TppField;
+    ppBDEPipeline1ppField17: TppField;
+    ppBDEPipeline1ppField18: TppField;
+    ppBDEPipeline1ppField19: TppField;
+    ppBDEPipeline1ppField20: TppField;
+    ppBDEPipeline1ppField21: TppField;
+    ppBDEPipeline1ppField22: TppField;
+    ppBDEPipeline1ppField23: TppField;
+    ppBDEPipeline1ppField24: TppField;
+    ppBDEPipeline1ppField25: TppField;
+    ppBDEPipeline1ppField26: TppField;
+    ppBDEPipeline1ppField27: TppField;
+    ppBDEPipeline1ppField28: TppField;
+    ppBDEPipeline1ppField29: TppField;
+    ppBDEPipeline1ppField30: TppField;
+    ppBDEPipeline1ppField31: TppField;
+    ppBDEPipeline1ppField32: TppField;
+    ppBDEPipeline1ppField33: TppField;
+    ppBDEPipeline1ppField34: TppField;
+    ppBDEPipeline1ppField35: TppField;
+    ppBDEPipeline1ppField36: TppField;
+    ppBDEPipeline1ppField37: TppField;
+    ppBDEPipeline1ppField38: TppField;
+    ppBDEPipeline1ppField39: TppField;
+    ppBDEPipeline1ppField40: TppField;
+    ppBDEPipeline1ppField41: TppField;
+    ppBDEPipeline1ppField42: TppField;
+    ppBDEPipeline1ppField43: TppField;
+    ppBDEPipeline1ppField44: TppField;
+    ppBDEPipeline1ppField45: TppField;
+    ppBDEPipeline1ppField46: TppField;
+    ppBDEPipeline1ppField47: TppField;
+    ppBDEPipeline1ppField48: TppField;
+    ppBDEPipeline1ppField49: TppField;
+    ppBDEPipeline1ppField50: TppField;
+    ppBDEPipeline1ppField51: TppField;
+    ppBDEPipeline1ppField52: TppField;
+    ppBDEPipeline1ppField53: TppField;
+    ppBDEPipeline1ppField54: TppField;
+    ppBDEPipeline1ppField55: TppField;
+    dslbjhd: TDataSource;
+    ppBDEPipeline2: TppBDEPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand2: TppHeaderBand;
+    ppLabel10: TppLabel;
+    ppLabel35: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel36: TppLabel;
+    ppLabel42: TppLabel;
+    ppDBText20: TppDBText;
+    ppSystemVariable3: TppSystemVariable;
+    ppDetailBand2: TppDetailBand;
+    ppDBText43: TppDBText;
+    ppFooterBand2: TppFooterBand;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    Region1: TppRegion;
+    ppLabel53: TppLabel;
+    ppLabel54: TppLabel;
+    ppLabel56: TppLabel;
+    ppLabel59: TppLabel;
+    ppLabel60: TppLabel;
+    ppLabel61: TppLabel;
+    ppLabel64: TppLabel;
+    ppLabel65: TppLabel;
+    ppLabel66: TppLabel;
+    ppLabel69: TppLabel;
+    wlmc: TppDBText;
+    ppLine4: TppLine;
+    ppLine6: TppLine;
+    ppLine8: TppLine;
+    ppLine10: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine17: TppLine;
+    ppLine19: TppLine;
+    ppDBText44: TppDBText;
+    zmjjs: TppLabel;
+    ppDBText25: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText27: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    ppDBText30: TppDBText;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel31: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    myDBCheckBox1: TmyDBCheckBox;
+    myDBCheckBox2: TmyDBCheckBox;
+    myDBCheckBox3: TmyDBCheckBox;
+    myDBCheckBox4: TmyDBCheckBox;
+    myDBCheckBox5: TmyDBCheckBox;
+    myDBCheckBox6: TmyDBCheckBox;
+    myDBCheckBox7: TmyDBCheckBox;
+    myDBCheckBox8: TmyDBCheckBox;
+    myDBCheckBox9: TmyDBCheckBox;
+    myDBCheckBox10: TmyDBCheckBox;
+    myDBCheckBox11: TmyDBCheckBox;
+    myDBCheckBox12: TmyDBCheckBox;
+    myDBCheckBox13: TmyDBCheckBox;
+    myDBCheckBox14: TmyDBCheckBox;
+    myDBCheckBox15: TmyDBCheckBox;
+    ppDBText9: TppDBText;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand4: TppDetailBand;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppGroup5: TppGroup;
+    ppGroupHeaderBand5: TppGroupHeaderBand;
+    ppGroupFooterBand5: TppGroupFooterBand;
+    ppGroup6: TppGroup;
+    ppGroupHeaderBand6: TppGroupHeaderBand;
+    ppGroupFooterBand6: TppGroupFooterBand;
+    ppGroup7: TppGroup;
+    ppGroupHeaderBand7: TppGroupHeaderBand;
+    ppRegion3: TppRegion;
+    ppDBText1: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText11: TppDBText;
+    ppShape1: TppShape;
+    ppShape2: TppShape;
+    ppShape3: TppShape;
+    ppShape4: TppShape;
+    ppShape6: TppShape;
+    ppShape9: TppShape;
+    ppGroupFooterBand7: TppGroupFooterBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppGroup4: TppGroup;
+    ppGroupHeaderBand4: TppGroupHeaderBand;
+    ppShape8: TppShape;
+    ppLabel55: TppLabel;
+    ppLine16: TppLine;
+    ppLabel57: TppLabel;
+    ppLine5: TppLine;
+    ppLabel63: TppLabel;
+    ppLine7: TppLine;
+    ppLabel92: TppLabel;
+    ppDBText22: TppDBText;
+    ppLabel93: TppLabel;
+    ppDBText26: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText32: TppDBText;
+    ppDBText33: TppDBText;
+    ppLabel32: TppLabel;
+    ppDBText42: TppDBText;
+    ppLine40: TppLine;
+    ppLine41: TppLine;
+    ppLine42: TppLine;
+    ppDBText45: TppDBText;
+    ppLabel83: TppLabel;
+    ppLabel84: TppLabel;
+    ppLabel85: TppLabel;
+    ppLabel86: TppLabel;
+    ppLine9: TppLine;
+    ppLine11: TppLine;
+    ppLine18: TppLine;
+    ppLine20: TppLine;
+    ppLabel87: TppLabel;
+    ppLabel88: TppLabel;
+    ppLabel89: TppLabel;
+    ppLine21: TppLine;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppLabel62: TppLabel;
+    ppLabel81: TppLabel;
+    ppLabel82: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLabel90: TppLabel;
+    ppLine24: TppLine;
+    ppLine25: TppLine;
+    ppLine26: TppLine;
+    ppLine27: TppLine;
+    ppLine28: TppLine;
+    ppLine29: TppLine;
+    ppLine30: TppLine;
+    ppLine31: TppLine;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppLine34: TppLine;
+    ppLine35: TppLine;
+    ppLine36: TppLine;
+    ppLine37: TppLine;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppMemo1: TppMemo;
+    ppGroupFooterBand4: TppGroupFooterBand;
+    Query8: TQuery;
+    Query9: TQuery;
+    Query10: TQuery;
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppGroupHeaderBand2BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcgddy: Tfrmcgddy;
+
+implementation
+uses cgdu;
+{$R *.DFM}
+
+procedure Tfrmcgddy.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppreport1.previewform.WindowState:=wsmaximized;
+  tppviewer(ppreport1.previewform.viewer).zoompercentage:=100;
+end;
+
+procedure Tfrmcgddy.ppGroupHeaderBand2BeforePrint(Sender: TObject);
+begin
+  zmjjs.caption:='';
+  if frmcgd.lbjhm.Active=true then
+  begin
+    frmcgd.query1.close;
+    frmcgd.query1.params.clear;
+    frmcgd.query1.params.createparam(ftstring,'prjno',ptinput);
+    frmcgd.query1.params.createparam(ftinteger,'xh',ptinput);
+    frmcgd.query1.params.createparam(ftstring,'wl',ptinput);
+    frmcgd.query1.commandtext:='select sum(mjs) as zmjjs from cut_lbjh2 where prjno=:prjno and xh=:xh and wl=:wl';
+    frmcgd.query1.params[0].asstring:=frmcgd.lbjhm.fieldbyname('prjno').value;
+    frmcgd.query1.params[1].asinteger:=frmcgd.lbjhm.fieldbyname('yxh').value;
+    frmcgd.query1.params[2].asstring:=frmcgd.lbjhm.fieldbyname('wl').value;
+    frmcgd.query1.open;
+    if not frmcgd.query1.fieldbyname('zmjjs').isnull then begin
+      zmjjs.caption:=formatfloat('#0.0',frmcgd.query1.fieldbyname('zmjjs').value);
+    end;
+  end;
+end;
+
+end.

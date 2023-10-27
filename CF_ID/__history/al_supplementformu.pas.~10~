@@ -1,0 +1,60 @@
+unit al_supplementformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData, ExtCtrls,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, ADODB, StdCtrls, Buttons,
+  cxCurrencyEdit, cxCalendar;
+
+type
+  Tfrmal_supplement = class(TForm)
+    cxView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    pnl2: TPanel;
+    ds_al_styles: TADODataSet;
+    ds1: TDataSource;
+    cxView1prjno: TcxGridDBColumn;
+    cxView1kh: TcxGridDBColumn;
+    cxView1sah: TcxGridDBColumn;
+    cxView1rs: TcxGridDBColumn;
+    cxView1qty: TcxGridDBColumn;
+    cxView1est_days: TcxGridDBColumn;
+    btn1: TBitBtn;
+    cxView1pline: TcxGridDBColumn;
+    cxView1exfty: TcxGridDBColumn;
+    procedure btn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmal_supplement: Tfrmal_supplement;
+
+implementation
+
+uses mainu, cmpl_actionlogformu;
+
+{$R *.dfm}
+
+procedure Tfrmal_supplement.btn1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure Tfrmal_supplement.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=caFree;
+  frmal_supplement:=nil;
+end;
+
+end.

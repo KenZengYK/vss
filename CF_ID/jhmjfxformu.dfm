@@ -1,0 +1,447 @@
+object frmjhmjfx: Tfrmjhmjfx
+  Left = 259
+  Top = 110
+  Caption = #35336#21123#22044#26550#20998#26512
+  ClientHeight = 459
+  ClientWidth = 794
+  Color = clBtnFace
+  Font.Charset = CHINESEBIG5_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = #26032#32048#26126#39636
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDefault
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 12
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 0
+    Width = 794
+    Height = 414
+    Align = alClient
+    AllowedOperations = [alopInsertEh, alopUpdateEh, alopAppendEh]
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = CHINESEBIG5_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -12
+    FooterFont.Name = #26032#32048#26126#39636
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 0
+    TitleFont.Charset = CHINESEBIG5_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = #26032#32048#26126#39636
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Prjno'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #35009#21106#27969#31243#35672#21029#30908
+        Width = 121
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Wl'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #29289#26009
+        Width = 100
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Gch'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #24037#31243#34399
+        Width = 60
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Zdh'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #35069#21934#34399
+        Width = 55
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Kh'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #27454#34399
+        Width = 80
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Sh'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #33394#34399
+        Width = 30
+      end
+      item
+        Color = clWhite
+        EditButtons = <>
+        FieldName = 'Mjfd'
+        Footers = <>
+        Title.Caption = #22044#26550#23553#24230
+        Width = 53
+      end
+      item
+        Color = clWhite
+        EditButtons = <>
+        FieldName = 'Syfd'
+        Footers = <>
+        Title.Caption = #23526#29992#23553#24230
+        Width = 54
+      end
+      item
+        EditButtons = <>
+        FieldName = 'Zds'
+        Footers = <>
+        Title.Caption = #35069#21934#25976
+        Width = 44
+      end
+      item
+        EditButtons = <>
+        FieldName = 'Mjjs'
+        Footers = <>
+        Title.Caption = #38928#35009#25976
+        Width = 43
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Dcs'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #22810#35009#30334#20998#27604
+        Width = 40
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Cacjyl'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'CAC'#20214#29992#37327
+      end
+      item
+        Color = clWhite
+        EditButtons = <>
+        FieldName = 'Jhjyl'
+        Footers = <>
+        Title.Caption = #35336#21123#20214#29992#37327
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Diff'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #20214#29992#37327#30456#24046
+        Width = 40
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Cacyl'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'CAC'#29992#37327
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Dcpercent'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #35336#21123#29992#37327
+      end
+      item
+        Color = 14086385
+        EditButtons = <>
+        FieldName = 'Ylxc'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #29992#37327#30456#24046
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 414
+    Width = 794
+    Height = 45
+    Align = alBottom
+    TabOrder = 1
+    object BitBtn1: TBitBtn
+      Left = 16
+      Top = 11
+      Width = 65
+      Height = 25
+      Caption = #24489#35069
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003333330B7FFF
+        FFB0333333777F3333773333330B7FFFFFB0333333777F3333773333330B7FFF
+        FFB0333333777F3333773333330B7FFFFFB03FFFFF777FFFFF77000000000077
+        007077777777777777770FFFFFFFF00077B07F33333337FFFF770FFFFFFFF000
+        7BB07F3FF3FFF77FF7770F00F000F00090077F77377737777F770FFFFFFFF039
+        99337F3FFFF3F7F777FF0F0000F0F09999937F7777373777777F0FFFFFFFF999
+        99997F3FF3FFF77777770F00F000003999337F773777773777F30FFFF0FF0339
+        99337F3FF7F3733777F30F08F0F0337999337F7737F73F7777330FFFF0039999
+        93337FFFF7737777733300000033333333337777773333333333}
+      NumGlyphs = 2
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 211
+      Top = 11
+      Width = 65
+      Height = 25
+      Caption = #25171#21360
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+      TabOrder = 2
+      OnClick = BitBtn2Click
+    end
+    object BitBtn3: TBitBtn
+      Left = 276
+      Top = 11
+      Width = 65
+      Height = 25
+      Caption = #36864#20986
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00388888888877
+        F7F787F8888888888333333F00004444400888FFF444448888888888F333FF8F
+        000033334D5007FFF4333388888888883338888F0000333345D50FFFF4333333
+        338F888F3338F33F000033334D5D0FFFF43333333388788F3338F33F00003333
+        45D50FEFE4333333338F878F3338F33F000033334D5D0FFFF43333333388788F
+        3338F33F0000333345D50FEFE4333333338F878F3338F33F000033334D5D0FFF
+        F43333333388788F3338F33F0000333345D50FEFE4333333338F878F3338F33F
+        000033334D5D0EFEF43333333388788F3338F33F0000333345D50FEFE4333333
+        338F878F3338F33F000033334D5D0EFEF43333333388788F3338F33F00003333
+        4444444444333333338F8F8FFFF8F33F00003333333333333333333333888888
+        8888333F00003333330000003333333333333FFFFFF3333F00003333330AAAA0
+        333333333333888888F3333F00003333330000003333333333338FFFF8F3333F
+        0000}
+      NumGlyphs = 2
+      TabOrder = 3
+      OnClick = BitBtn3Click
+    end
+    object BitBtn4: TBitBtn
+      Left = 81
+      Top = 11
+      Width = 65
+      Height = 25
+      Caption = #21152#25613#32791
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+        55555555FFFFFFFF5555555000000005555555577777777FF555550999999900
+        55555575555555775F55509999999901055557F55555557F75F5001111111101
+        105577FFFFFFFF7FF75F00000000000011057777777777775F755070FFFFFF0F
+        01105777F555557F75F75500FFFFFF0FF0105577F555FF7F57575550FF700008
+        8F0055575FF7777555775555000888888F005555777FFFFFFF77555550000000
+        0F055555577777777F7F555550FFFFFF0F05555557F5FFF57F7F555550F000FF
+        0005555557F777557775555550FFFFFF0555555557F555FF7F55555550FF7000
+        05555555575FF777755555555500055555555555557775555555}
+      NumGlyphs = 2
+      TabOrder = 1
+      OnClick = BitBtn4Click
+    end
+    object BitBtn5: TBitBtn
+      Left = 146
+      Top = 11
+      Width = 65
+      Height = 25
+      Caption = #25913#29289#26009
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333000000
+        000033333377777777773333330FFFFFFFF03FF3FF7FF33F3FF700300000FF0F
+        00F077F777773F737737E00BFBFB0FFFFFF07773333F7F3333F7E0BFBF000FFF
+        F0F077F3337773F3F737E0FBFBFBF0F00FF077F3333FF7F77F37E0BFBF00000B
+        0FF077F3337777737337E0FBFBFBFBF0FFF077F33FFFFFF73337E0BF0000000F
+        FFF077FF777777733FF7000BFB00B0FF00F07773FF77373377373330000B0FFF
+        FFF03337777373333FF7333330B0FFFF00003333373733FF777733330B0FF00F
+        0FF03333737F37737F373330B00FFFFF0F033337F77F33337F733309030FFFFF
+        00333377737FFFFF773333303300000003333337337777777333}
+      NumGlyphs = 2
+      TabOrder = 4
+      OnClick = BitBtn5Click
+    end
+    object BitBtn6: TBitBtn
+      Left = 488
+      Top = 11
+      Width = 89
+      Height = 25
+      Caption = #23436#25104#36890#30693
+      TabOrder = 5
+      OnClick = BitBtn6Click
+    end
+    object BitBtn7: TBitBtn
+      Left = 384
+      Top = 11
+      Width = 73
+      Height = 25
+      Caption = #20633#27880
+      TabOrder = 6
+      OnClick = BitBtn7Click
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 48
+    Top = 8
+  end
+  object Query1: TADODataSet
+    Connection = frmmain.ADOConnection1
+    CursorType = ctStatic
+    AfterPost = Query1AfterPost
+    CommandText = 'select * from cut_lbwl21 where zdh='#39'W399413'#39
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 20
+    Top = 9
+    object Query1Prjno: TStringField
+      FieldName = 'Prjno'
+      Size = 30
+    end
+    object Query1Sh: TStringField
+      FieldName = 'Sh'
+      Size = 3
+    end
+    object Query1Wl: TStringField
+      FieldName = 'Wl'
+    end
+    object Query1Gch: TStringField
+      FieldName = 'Gch'
+    end
+    object Query1Zdh: TStringField
+      FieldName = 'Zdh'
+      Size = 10
+    end
+    object Query1Kh: TStringField
+      FieldName = 'Kh'
+    end
+    object Query1Mjfd: TFloatField
+      FieldName = 'Mjfd'
+      DisplayFormat = '#0'
+    end
+    object Query1Syfd: TFloatField
+      FieldName = 'Syfd'
+      DisplayFormat = '#0'
+    end
+    object Query1Cacjyl: TFloatField
+      FieldName = 'Cacjyl'
+      DisplayFormat = '#0.000000'
+    end
+    object Query1Jhjyl: TFloatField
+      FieldName = 'Jhjyl'
+      OnChange = Query1ZdsChange
+      DisplayFormat = '#0.000000'
+    end
+    object Query1Diff: TFloatField
+      FieldName = 'Diff'
+      DisplayFormat = '#0.00'
+    end
+    object Query1Zds: TFloatField
+      FieldName = 'Zds'
+      OnChange = Query1ZdsChange
+    end
+    object Query1Mjjs: TFloatField
+      FieldName = 'Mjjs'
+      OnChange = Query1ZdsChange
+    end
+    object Query1Dcs: TFloatField
+      FieldName = 'Dcs'
+      DisplayFormat = '#0.00'
+    end
+    object Query1Cacyl: TFloatField
+      FieldName = 'Cacyl'
+      DisplayFormat = '#0.0000'
+    end
+    object Query1Dcpercent: TFloatField
+      FieldName = 'Dcpercent'
+      DisplayFormat = '#0.0000'
+    end
+    object Query1Ylxc: TFloatField
+      FieldName = 'Ylxc'
+      DisplayFormat = '#0.0000'
+    end
+  end
+  object Query2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 600
+    Parameters = <>
+    Left = 80
+    Top = 9
+  end
+  object Query3: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 600
+    Parameters = <>
+    Left = 104
+    Top = 9
+  end
+  object Query4: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 600
+    Parameters = <>
+    Left = 128
+    Top = 9
+  end
+  object ADOQuery1: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 600
+    Parameters = <>
+    Left = 80
+    Top = 73
+  end
+  object ADOQuery2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 600
+    Parameters = <>
+    Left = 128
+    Top = 73
+  end
+end

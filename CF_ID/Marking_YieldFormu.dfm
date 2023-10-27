@@ -1,0 +1,1004 @@
+object frmMarking_Yield: TfrmMarking_Yield
+  Left = 247
+  Top = 214
+  Caption = 'Marking Stage - Yield Meas. (Ttl Qty)'
+  ClientHeight = 391
+  ClientWidth = 977
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  PopupMenu = PopupMenu1
+  Position = poDefault
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 977
+    Height = 41
+    Align = alTop
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 32
+      Top = 12
+      Width = 29
+      Height = 13
+      Caption = 'FRN#'
+    end
+    object Label41: TLabel
+      Left = 240
+      Top = 14
+      Width = 57
+      Height = 15
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Ttl Proj  '
+    end
+    object Label42: TLabel
+      Left = 368
+      Top = 14
+      Width = 57
+      Height = 15
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Ttl Style  '
+    end
+    object Label43: TLabel
+      Left = 488
+      Top = 14
+      Width = 73
+      Height = 15
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Ttl Color  '
+    end
+    object Label44: TLabel
+      Left = 616
+      Top = 14
+      Width = 73
+      Height = 15
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Ttl WO '
+    end
+    object Label45: TLabel
+      Left = 742
+      Top = 14
+      Width = 73
+      Height = 15
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'WO Ttl Qty '
+    end
+    object Edit1: TEdit
+      Left = 64
+      Top = 12
+      Width = 89
+      Height = 21
+      ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+      ReadOnly = True
+      TabOrder = 0
+      OnChange = Edit1Change
+    end
+    object BitBtn1: TBitBtn
+      Left = 155
+      Top = 11
+      Width = 22
+      Height = 22
+      Hint = 'View FRN#'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        333333333333333333FF33333333333330003FF3FFFFF3333777003000003333
+        300077F777773F333777E00BFBFB033333337773333F7F33333FE0BFBF000333
+        330077F3337773F33377E0FBFBFBF033330077F3333FF7FFF377E0BFBF000000
+        333377F3337777773F3FE0FBFBFBFBFB039977F33FFFFFFF7377E0BF00000000
+        339977FF777777773377000BFB03333333337773FF733333333F333000333333
+        3300333777333333337733333333333333003333333333333377333333333333
+        333333333333333333FF33333333333330003333333333333777333333333333
+        3000333333333333377733333333333333333333333333333333}
+      NumGlyphs = 2
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      OnClick = BitBtn1Click
+    end
+    object DBEdit27: TDBEdit
+      Left = 300
+      Top = 14
+      Width = 41
+      Height = 21
+      Color = 11927551
+      DataField = 'ttl_gch'
+      DataSource = dsfrn_yield
+      ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+      ReadOnly = True
+      TabOrder = 2
+    end
+    object DBEdit28: TDBEdit
+      Left = 429
+      Top = 14
+      Width = 41
+      Height = 21
+      Color = 11927551
+      DataField = 'ttl_sty'
+      DataSource = dsfrn_yield
+      ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+      ReadOnly = True
+      TabOrder = 3
+    end
+    object DBEdit29: TDBEdit
+      Left = 565
+      Top = 14
+      Width = 41
+      Height = 21
+      Color = 11927551
+      DataField = 'ttl_clr'
+      DataSource = dsfrn_yield
+      ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+      ReadOnly = True
+      TabOrder = 4
+    end
+    object dbedtttl_wo: TDBEdit
+      Left = 693
+      Top = 14
+      Width = 41
+      Height = 21
+      Color = 11927551
+      DataField = 'ttl_wo'
+      DataSource = dsfrn_yield
+      ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+      ReadOnly = True
+      TabOrder = 5
+    end
+    object DBEdit31: TDBEdit
+      Left = 819
+      Top = 14
+      Width = 46
+      Height = 21
+      Color = 11927551
+      DataField = 'ttl_qty'
+      DataSource = dsfrn_yield
+      ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+      ReadOnly = True
+      TabOrder = 6
+    end
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 41
+    Width = 977
+    Height = 309
+    Align = alClient
+    PopupMenu = PopupMenu1
+    TabOrder = 1
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+    end
+    object cxView1: TcxGridDBBandedTableView
+      OnDblClick = cxView1DblClick
+      NavigatorButtons.ConfirmDelete = False
+      OnCustomDrawCell = cxView1CustomDrawCell
+      DataController.DataSource = dsfrn_yield
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <
+        item
+          Column = cxView1cfid
+        end
+        item
+          Column = cxView1wl
+        end>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.Footer = True
+      OptionsView.GroupByBox = False
+      OptionsView.HeaderAutoHeight = True
+      Styles.OnGetContentStyle = cxView1StylesGetContentStyle
+      Bands = <
+        item
+          Caption = 'Marking Stage - Yield Meas. (Ttl Qty)'
+          HeaderAlignmentVert = vaTop
+          Styles.Header = cxStyle1
+        end
+        item
+          Caption = 'CF_ID#'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 0
+          Position.ColIndex = 0
+          Styles.Header = cxStyle1
+        end
+        item
+          Caption = 'Cutting Mat'#39'l'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 0
+          Position.ColIndex = 2
+          Styles.Header = cxStyle2
+        end
+        item
+          Caption = 'Stage 1 - CS'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 0
+          Position.ColIndex = 3
+          Styles.Header = cxStyle3
+        end
+        item
+          Caption = 'Stage 2 - PU'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 0
+          Position.ColIndex = 4
+          Styles.Header = cxStyle2
+        end
+        item
+          Caption = 'Stage 3 - PD'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 0
+          Position.ColIndex = 5
+          Styles.Header = cxStyle3
+        end
+        item
+          Caption = 'WO Info'
+          Position.BandIndex = 0
+          Position.ColIndex = 1
+          Styles.Header = cxStyle1
+        end>
+      object cxView1frn_no: TcxGridDBBandedColumn
+        Caption = 'FRN#'
+        DataBinding.FieldName = 'frn_no'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle1
+        Width = 60
+        Position.BandIndex = 1
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1prjno: TcxGridDBBandedColumn
+        Caption = 'CF_ID#'
+        DataBinding.FieldName = 'prjno'
+        Visible = False
+        HeaderAlignmentHorz = taCenter
+        Position.BandIndex = 1
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1cfid: TcxGridDBBandedColumn
+        Caption = 'It'#39's suffix'
+        DataBinding.FieldName = 'cfid'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle1
+        Width = 78
+        Position.BandIndex = 1
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1wl: TcxGridDBBandedColumn
+        Caption = 'Cde'
+        DataBinding.FieldName = 'wl'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle2
+        Width = 115
+        Position.BandIndex = 2
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1cs_yy: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'(fm CAD)'
+        DataBinding.FieldName = 'cs_yy'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle3
+        Width = 62
+        Position.BandIndex = 3
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1wastage: TcxGridDBBandedColumn
+        Caption = 'Wastage'#13#10'%'#13#10'(CAC Def)'
+        DataBinding.FieldName = 'wastage'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle3
+        Width = 60
+        Position.BandIndex = 3
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1cs_ttlyy: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'Ttl'
+        DataBinding.FieldName = 'cs_ttlyy'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle4
+        Width = 60
+        Position.BandIndex = 3
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1pu_yy: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'(fm CAD)'
+        DataBinding.FieldName = 'pu_yy'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle2
+        Width = 62
+        Position.BandIndex = 4
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1pu_wst: TcxGridDBBandedColumn
+        Caption = 'Wastage'#13#10'Qty'
+        DataBinding.FieldName = 'pu_wst'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle2
+        Width = 60
+        Position.BandIndex = 4
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1pu_ttlyy: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'Ttl'
+        DataBinding.FieldName = 'pu_ttlyy'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle5
+        Width = 60
+        Position.BandIndex = 4
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1pu_diff: TcxGridDBBandedColumn
+        Caption = 'Saved'#13#10'Qty'
+        DataBinding.FieldName = 'pu_diff'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Header = cxStyle2
+        Width = 60
+        Position.BandIndex = 4
+        Position.ColIndex = 4
+        Position.RowIndex = 0
+      end
+      object cxView1pu_diffp: TcxGridDBBandedColumn
+        Caption = 'Saved'#13#10'%'
+        DataBinding.FieldName = 'pu_diffp'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle2
+        Width = 60
+        Position.BandIndex = 4
+        Position.ColIndex = 5
+        Position.RowIndex = 0
+      end
+      object cxView1pd_mt: TcxGridDBBandedColumn
+        Caption = 'Marker'#13#10'Type'#13#10'Cde'
+        DataBinding.FieldName = 'pd_mt'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle3
+        Width = 80
+        Position.BandIndex = 5
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1pd_yy: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'(fm CAD)'
+        DataBinding.FieldName = 'pd_yy'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle3
+        Width = 62
+        Position.BandIndex = 5
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1pd_wst: TcxGridDBBandedColumn
+        Caption = 'Wastage'#13#10'Qty'
+        DataBinding.FieldName = 'pd_wst'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle3
+        Width = 60
+        Position.BandIndex = 5
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1pd_ttlyy: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'Ttl'
+        DataBinding.FieldName = 'pd_ttlyy'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle4
+        Width = 60
+        Position.BandIndex = 5
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+      object cxView1pd_diff: TcxGridDBBandedColumn
+        Caption = 'Saved'#13#10'Qty'
+        DataBinding.FieldName = 'pd_diff'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle3
+        Width = 60
+        Position.BandIndex = 5
+        Position.ColIndex = 4
+        Position.RowIndex = 0
+      end
+      object cxView1pd_diffp: TcxGridDBBandedColumn
+        Caption = 'Saved'#13#10'%'
+        DataBinding.FieldName = 'pd_diffp'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle3
+        Width = 60
+        Position.BandIndex = 5
+        Position.ColIndex = 5
+        Position.RowIndex = 0
+      end
+      object cxView1gch: TcxGridDBBandedColumn
+        Caption = 'Proj#'
+        DataBinding.FieldName = 'gch'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle1
+        Width = 90
+        Position.BandIndex = 6
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1zdh: TcxGridDBBandedColumn
+        Caption = 'WO#'
+        DataBinding.FieldName = 'zdh'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle1
+        Width = 65
+        Position.BandIndex = 6
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1kh: TcxGridDBBandedColumn
+        Caption = 'Style#'
+        DataBinding.FieldName = 'kh'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle1
+        Width = 80
+        Position.BandIndex = 6
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1sh: TcxGridDBBandedColumn
+        Caption = 'Clr'#13#10'Cde'
+        DataBinding.FieldName = 'sh'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle1
+        Width = 40
+        Position.BandIndex = 6
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+      object cxView1Qty: TcxGridDBBandedColumn
+        Caption = 'CWO'#13#10'Qty'
+        DataBinding.FieldName = 'Qty'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle1
+        Width = 55
+        Position.BandIndex = 6
+        Position.ColIndex = 4
+        Position.RowIndex = 0
+      end
+      object cxView1yy1: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'(1000 pcs)'
+        DataBinding.FieldName = 'yy1'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle2
+        Position.BandIndex = 4
+        Position.ColIndex = 6
+        Position.RowIndex = 0
+      end
+      object cxView1yy2: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'(980 pcs)'
+        DataBinding.FieldName = 'yy2'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle2
+        Position.BandIndex = 4
+        Position.ColIndex = 7
+        Position.RowIndex = 0
+      end
+      object cxView1pu_ttlyy1: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'Ttl (0.98)'
+        DataBinding.FieldName = 'pu_ttlyy1'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle2
+        Width = 60
+        Position.BandIndex = 4
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxView1
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 350
+    Width = 977
+    Height = 41
+    Align = alBottom
+    TabOrder = 2
+    object SpeedButton1: TSpeedButton
+      Left = 24
+      Top = 3
+      Width = 30
+      Height = 30
+      Hint = 'Export'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
+        333333333333337FF3333333333333903333333333333377FF33333333333399
+        03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
+        99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
+        99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
+        03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
+        33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
+        33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
+        3333777777333333333333333333333333333333333333333333}
+      NumGlyphs = 2
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = SpeedButton1Click
+    end
+    object tc: TSpeedButton
+      Left = 54
+      Top = 3
+      Width = 30
+      Height = 30
+      Hint = 'Exit'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00330000000000
+        03333377777777777F333301BBBBBBBB033333773F3333337F3333011BBBBBBB
+        0333337F73F333337F33330111BBBBBB0333337F373F33337F333301110BBBBB
+        0333337F337F33337F333301110BBBBB0333337F337F33337F333301110BBBBB
+        0333337F337F33337F333301110BBBBB0333337F337F33337F333301110BBBBB
+        0333337F337F33337F333301110BBBBB0333337F337FF3337F33330111B0BBBB
+        0333337F337733337F333301110BBBBB0333337F337F33337F333301110BBBBB
+        0333337F3F7F33337F333301E10BBBBB0333337F7F7F33337F333301EE0BBBBB
+        0333337F777FFFFF7F3333000000000003333377777777777333}
+      NumGlyphs = 2
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = tcClick
+    end
+    object lbl_md: TLabel
+      Left = 728
+      Top = 8
+      Width = 3
+      Height = 13
+      Visible = False
+    end
+  end
+  object frn_yield: TADODataSet
+    Connection = frmmain.ADOConnection1
+    CursorType = ctStatic
+    LockType = ltBatchOptimistic
+    AfterOpen = frn_yieldAfterOpen
+    CommandText = 'exec phgdb..cut_yieldbyfrn '#39'B3D050S'#39
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 288
+    Top = 233
+  end
+  object dsfrn_yield: TDataSource
+    DataSet = frn_yield
+    Left = 316
+    Top = 232
+  end
+  object ADOQuery1: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 468
+    Top = 313
+  end
+  object ADOQuery2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 508
+    Top = 313
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '*.xls'
+    Filter = '*.xls|*.xls'
+    Left = 576
+    Top = 232
+  end
+  object cxStyleRepository1: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svColor, svFont]
+      Color = 15138800
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+    end
+    object cxStyle6: TcxStyle
+      AssignedValues = [svColor]
+      Color = 11977374
+    end
+  end
+  object cxStyleRepository2: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle2: TcxStyle
+      AssignedValues = [svColor, svFont]
+      Color = 16695482
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+    end
+  end
+  object cxStyleRepository3: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle3: TcxStyle
+      AssignedValues = [svColor, svFont]
+      Color = 15917006
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+    end
+  end
+  object cxStyleRepository4: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle4: TcxStyle
+      AssignedValues = [svColor, svFont]
+      Color = 15917006
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+    end
+  end
+  object cxStyleRepository5: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle5: TcxStyle
+      AssignedValues = [svColor, svFont]
+      Color = 16695482
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+    end
+  end
+  object siLang1: TsiLang
+    Version = '7.6.0.1'
+    StringsTypes.Strings = (
+      'TIB_STRINGLIST'
+      'TSTRINGLIST')
+    NumOfLanguages = 2
+    ActiveLanguage = 2
+    LangDelim = 1
+    LangNames.Strings = (
+      'Tranditional Chinese'
+      'English')
+    Language = 'English'
+    ExcludedProperties.Strings = (
+      'Category'
+      'SecondaryShortCuts'
+      'HelpKeyword'
+      'InitialDir'
+      'HelpKeyword'
+      'ActivePage'
+      'ImeName'
+      'DefaultExt'
+      'FileName'
+      'FieldName'
+      'PickList'
+      'DisplayFormat'
+      'EditMask'
+      'KeyList'
+      'LookupDisplayFields'
+      'DropDownSpecRow'
+      'TableName'
+      'DatabaseName'
+      'IndexName'
+      'MasterFields')
+    Left = 640
+    Top = 304
+    TranslationData = {
+      73007400430061007000740069006F006E0073005F0055006E00690063006F00
+      640065000D000A005400660072006D004D00610072006B0069006E0067005F00
+      5900690065006C0064000100926348728E96B56B20002D0020002875CF912C6E
+      CF91200028003D7E7865290001004D00610072006B0069006E00670020005300
+      740061006700650020002D0020005900690065006C00640020004D0065006100
+      73002E0020002800540074006C002000510074007900290001000D000A005300
+      68006F007700640065007400610069006C0031000100530068006F0077002000
+      640065007400610069006C00010001000D000A004C006100620065006C003100
+      0100460052004E002300010001000D000A006300780056006900650077003100
+      77006C000100E87DBC78010043006400650001000D000A006300780056006900
+      650077003100700072006A006E006F000100430046005F004900440023000100
+      430046005F0049004400230001000D000A006300780056006900650077003100
+      73006800010054987282010043006C00720019001A0043006400650001000D00
+      0A00630078005600690065007700310051007400790001009A5B72823652AE55
+      78650100430057004F0019001A0051007400790001000D000A00630078005600
+      6900650077003100660072006E005F006E006F000100460052004E0023000100
+      460052004E00230001000D000A00630078005600690065007700310063006600
+      690064000100835B84768C5FB47D010049007400270073002000730075006600
+      66006900780001000D000A006300780056006900650077003100700064005F00
+      6D00740001001C56B66719001A002E7A5E9819001A00E87DBC7801004D006100
+      72006B006500720019001A00540079007000650019001A004300640065000100
+      0D000A0063007800560069006500770031006700630068000100E55D0B7A5F86
+      0100500072006F006A00230001000D000A006300780056006900650077003100
+      700075005F00640069006600660070000100C07B047D19001A00250001005300
+      610076006500640019001A00250001000D000A00630078005600690065007700
+      3100700064005F00640069006600660070000100C07B047D19001A0025000100
+      5300610076006500640019001A00250001000D000A0063007800560069006500
+      77003100700064005F0064006900660066000100C07B047D19001A007865CF91
+      01005300610076006500640019001A0051007400790001000D000A0063007800
+      56006900650077003100700075005F0064006900660066000100C07B047D1900
+      1A007865CF9101005300610076006500640019001A0051007400790001000D00
+      0A0063007800560069006500770031006B00680001003E6B5F86010053007400
+      79006C006500230001000D000A004C006100620065006C003400330001004F98
+      72823D7E78650100540074006C00200043006F006C006F007200200020000100
+      0D000A004C006100620065006C00340031000100E55D0B7A3D7E786501005400
+      74006C002000500072006F006A002000200001000D000A004C00610062006500
+      6C003400320001003E6B3D7E78650100540074006C0020005300740079006C00
+      65002000200001000D000A004C006100620065006C003400340001003652AE55
+      355F78650100540074006C00200057004F00200001000D000A00630078005600
+      6900650077003100770061007300740061006700650001000D64178087731900
+      1A00250019001A002800430041004300200010982D8A29000100570061007300
+      740061006700650019001A00250019001A002800430041004300200044006500
+      6600290001000D000A006300780056006900650077003100700064005F007700
+      7300740001000D64178019001A007865CF910100570061007300740061006700
+      650019001A0051007400790001000D000A006300780056006900650077003100
+      700075005F0077007300740001000D64178019001A007865CF91010057006100
+      7300740061006700650019001A0051007400790001000D000A004C0061006200
+      65006C003400350001003D7E3652AE557865010057004F002000540074006C00
+      2000510074007900200001000D000A0063007800560069006500770031007A00
+      6400680001003652AE555F86010057004F00230001000D000A00630078005600
+      690065007700310079007900310001002875CF9119001A002800310030003000
+      30002000F64E290001005900690065006C00640019001A002800310030003000
+      30002000700063007300290001000D000A006300780056006900650077003100
+      79007900320001002875CF9119001A0028003900380030002000F64E29000100
+      5900690065006C00640019001A00280039003800300020007000630073002900
+      01000D000A006300780056006900650077003100630073005F00790079000100
+      2875CF9119001A002800864FEA81200043004100440029000100590069006500
+      6C00640019001A00280066006D002000430041004400290001000D000A006300
+      780056006900650077003100700075005F007900790001002875CF9119001A00
+      2800864FEA812000430041004400290001005900690065006C00640019001A00
+      280066006D002000430041004400290001000D000A0063007800560069006500
+      77003100700064005F007900790001002875CF9119001A002800864FEA812000
+      430041004400290001005900690065006C00640019001A00280066006D002000
+      430041004400290001000D000A00630078005600690065007700310070006400
+      5F00740074006C007900790001003D7E19001A002875CF910100590069006500
+      6C00640019001A00540074006C0001000D000A00630078005600690065007700
+      3100630073005F00740074006C007900790001003D7E19001A002875CF910100
+      5900690065006C00640019001A00540074006C0001000D000A00630078005600
+      6900650077003100700075005F00740074006C007900790001003D7E19001A00
+      2875CF9101005900690065006C00640019001A00540074006C0001000D000A00
+      6300780056006900650077003100700075005F00740074006C00790079003100
+      01003D7E2875CF9119001A00280030002E003900380029000100590069006500
+      6C00640019001A00540074006C002000280030002E0039003800290001000D00
+      0A0073007400480069006E00740073005F0055006E00690063006F0064006500
+      0D000A00420069007400420074006E0031000100560069006500770020004600
+      52004E002300010001000D000A00530070006500650064004200750074007400
+      6F006E00310001004500780070006F0072007400010001000D000A0074006300
+      01004500780069007400010001000D000A007300740044006900730070006C00
+      610079004C006100620065006C0073005F0055006E00690063006F0064006500
+      0D000A007300740046006F006E00740073005F0055006E00690063006F006400
+      65000D000A005400660072006D004D00610072006B0069006E0067005F005900
+      690065006C00640001004D0053002000530061006E0073002000530065007200
+      6900660001004D0053002000530061006E007300200053006500720069006600
+      01000D000A00630078005300740079006C006500310001004D00530020005300
+      61006E00730020005300650072006900660001005400610068006F006D006100
+      01000D000A00630078005300740079006C006500320001004D00530020005300
+      61006E00730020005300650072006900660001005400610068006F006D006100
+      01000D000A00630078005300740079006C006500330001004D00530020005300
+      61006E00730020005300650072006900660001005400610068006F006D006100
+      01000D000A00630078005300740079006C006500340001004D00530020005300
+      61006E00730020005300650072006900660001004D0053002000530061006E00
+      730020005300650072006900660001000D000A00630078005300740079006C00
+      6500350001004D0053002000530061006E007300200053006500720069006600
+      01004D0053002000530061006E00730020005300650072006900660001000D00
+      0A00630078005300740079006C006500360001005400610068006F006D006100
+      010001000D000A00730074004D0075006C00740069004C0069006E0065007300
+      5F0055006E00690063006F00640065000D000A007300740044006C0067007300
+      430061007000740069006F006E0073005F0055006E00690063006F0064006500
+      0D000A005700610072006E0069006E00670001005700610072006E0069006E00
+      6700010001000D000A004500720072006F00720001004500720072006F007200
+      010001000D000A0049006E0066006F0072006D006100740069006F006E000100
+      49006E0066006F0072006D006100740069006F006E00010001000D000A004300
+      6F006E006600690072006D00010043006F006E006600690072006D0001000100
+      0D000A0059006500730001002600590065007300010001000D000A004E006F00
+      010026004E006F00010001000D000A004F004B0001004F004B00010001000D00
+      0A00430061006E00630065006C000100430061006E00630065006C0001000100
+      0D000A00410062006F007200740001002600410062006F007200740001000100
+      0D000A0052006500740072007900010026005200650074007200790001000100
+      0D000A00490067006E006F007200650001002600490067006E006F0072006500
+      010001000D000A0041006C006C000100260041006C006C00010001000D000A00
+      4E006F00200054006F00200041006C006C0001004E0026006F00200074006F00
+      200041006C006C00010001000D000A00590065007300200054006F0020004100
+      6C006C000100590065007300200074006F002000260041006C006C0001000100
+      0D000A00480065006C00700001002600480065006C007000010001000D000A00
+      7300740053007400720069006E00670073005F0055006E00690063006F006400
+      65000D000A00730074004F00740068006500720053007400720069006E006700
+      73005F0055006E00690063006F00640065000D000A00660072006E005F007900
+      690065006C0064002E0043006F006D006D0061006E0064005400650078007400
+      010065007800650063002000700068006700640062002E002E00630075007400
+      5F007900690065006C00640062007900660072006E0020002700420033004400
+      30003500300053002700010001000D000A005300610076006500440069006100
+      6C006F00670031002E00460069006C0074006500720001002A002E0078006C00
+      73007C002A002E0078006C007300010001000D000A0044004200450064006900
+      7400320037002E0044006100740061004600690065006C006400010074007400
+      6C005F00670063006800010001000D000A004400420045006400690074003200
+      38002E0044006100740061004600690065006C0064000100740074006C005F00
+      730074007900010001000D000A00440042004500640069007400320039002E00
+      44006100740061004600690065006C0064000100740074006C005F0063006C00
+      7200010001000D000A0064006200650064007400740074006C005F0077006F00
+      2E0044006100740061004600690065006C0064000100740074006C005F007700
+      6F00010001000D000A00440042004500640069007400330031002E0044006100
+      740061004600690065006C0064000100740074006C005F007100740079000100
+      01000D000A006300780056006900650077003100630073005F00790079002E00
+      500072006F00700065007200740069006500730043006C006100730073004E00
+      61006D0065000100540063007800430075007200720065006E00630079004500
+      640069007400500072006F007000650072007400690065007300010001000D00
+      0A00630078005600690065007700310077006100730074006100670065002E00
+      500072006F00700065007200740069006500730043006C006100730073004E00
+      61006D0065000100540063007800430075007200720065006E00630079004500
+      640069007400500072006F007000650072007400690065007300010001000D00
+      0A006300780056006900650077003100630073005F00740074006C0079007900
+      2E00500072006F00700065007200740069006500730043006C00610073007300
+      4E0061006D0065000100540063007800430075007200720065006E0063007900
+      4500640069007400500072006F00700065007200740069006500730001000100
+      0D000A006300780056006900650077003100700075005F00790079002E005000
+      72006F00700065007200740069006500730043006C006100730073004E006100
+      6D0065000100540063007800430075007200720065006E006300790045006400
+      69007400500072006F007000650072007400690065007300010001000D000A00
+      6300780056006900650077003100700075005F007700730074002E0050007200
+      6F00700065007200740069006500730043006C006100730073004E0061006D00
+      65000100540063007800430075007200720065006E0063007900450064006900
+      7400500072006F007000650072007400690065007300010001000D000A006300
+      780056006900650077003100700075005F00740074006C00790079002E005000
+      72006F00700065007200740069006500730043006C006100730073004E006100
+      6D0065000100540063007800430075007200720065006E006300790045006400
+      69007400500072006F007000650072007400690065007300010001000D000A00
+      6300780056006900650077003100700075005F0064006900660066002E005000
+      72006F00700065007200740069006500730043006C006100730073004E006100
+      6D0065000100540063007800430075007200720065006E006300790045006400
+      69007400500072006F007000650072007400690065007300010001000D000A00
+      6300780056006900650077003100700075005F00640069006600660070002E00
+      500072006F00700065007200740069006500730043006C006100730073004E00
+      61006D0065000100540063007800430075007200720065006E00630079004500
+      640069007400500072006F007000650072007400690065007300010001000D00
+      0A006300780056006900650077003100700064005F00790079002E0050007200
+      6F00700065007200740069006500730043006C006100730073004E0061006D00
+      65000100540063007800430075007200720065006E0063007900450064006900
+      7400500072006F007000650072007400690065007300010001000D000A006300
+      780056006900650077003100700064005F007700730074002E00500072006F00
+      700065007200740069006500730043006C006100730073004E0061006D006500
+      0100540063007800430075007200720065006E00630079004500640069007400
+      500072006F007000650072007400690065007300010001000D000A0063007800
+      56006900650077003100700064005F00740074006C00790079002E0050007200
+      6F00700065007200740069006500730043006C006100730073004E0061006D00
+      65000100540063007800430075007200720065006E0063007900450064006900
+      7400500072006F007000650072007400690065007300010001000D000A006300
+      780056006900650077003100700064005F0064006900660066002E0050007200
+      6F00700065007200740069006500730043006C006100730073004E0061006D00
+      65000100540063007800430075007200720065006E0063007900450064006900
+      7400500072006F007000650072007400690065007300010001000D000A006300
+      780056006900650077003100700064005F00640069006600660070002E005000
+      72006F00700065007200740069006500730043006C006100730073004E006100
+      6D0065000100540063007800430075007200720065006E006300790045006400
+      69007400500072006F007000650072007400690065007300010001000D000A00
+      63007800560069006500770031007900790031002E00500072006F0070006500
+      7200740069006500730043006C006100730073004E0061006D00650001005400
+      63007800430075007200720065006E0063007900450064006900740050007200
+      6F007000650072007400690065007300010001000D000A006300780056006900
+      6500770031007900790032002E00500072006F00700065007200740069006500
+      730043006C006100730073004E0061006D006500010054006300780043007500
+      7200720065006E00630079004500640069007400500072006F00700065007200
+      7400690065007300010001000D000A0063007800560069006500770031007000
+      75005F00740074006C007900790031002E00500072006F007000650072007400
+      69006500730043006C006100730073004E0061006D0065000100540063007800
+      430075007200720065006E00630079004500640069007400500072006F007000
+      650072007400690065007300010001000D000A00730074004C006F0063006100
+      6C00650073005F0055006E00690063006F00640065000D000A00730074004300
+      6F006C006C0065006300740069006F006E0073005F0055006E00690063006F00
+      640065000D000A0063007800560069006500770031002E00420061006E006400
+      73005B0030005D002E00430061007000740069006F006E000100926348728E96
+      B56B20002D0020002875CF912C6ECF91200028003D7E7865290001004D006100
+      72006B0069006E00670020005300740061006700650020002D00200059006900
+      65006C00640020004D006500610073002E0020002800540074006C0020005100
+      74007900290001000D000A0063007800560069006500770031002E0042006100
+      6E00640073005B0031005D002E00430061007000740069006F006E000100C188
+      0B7A588B2552BC780100430046005F0049004400230001000D000A0063007800
+      560069006500770031002E00420061006E00640073005B0032005D002E004300
+      61007000740069006F006E000100C18872526972996501004300750074007400
+      69006E00670020004D006100740027006C0001000D000A006300780056006900
+      6500770031002E00420061006E00640073005B0033005D002E00430061007000
+      740069006F006E0001008E96B56B2000310020002D0020004300530001005300
+      74006100670065002000310020002D0020004300530001000D000A0063007800
+      560069006500770031002E00420061006E00640073005B0034005D002E004300
+      61007000740069006F006E0001008E96B56B2000320020002D00200050005500
+      0100530074006100670065002000320020002D0020005000550001000D000A00
+      63007800560069006500770031002E00420061006E00640073005B0035005D00
+      2E00430061007000740069006F006E0001008E96B56B2000330020002D002000
+      500044000100530074006100670065002000330020002D002000500044000100
+      0D000A0063007800560069006500770031002E00420061006E00640073005B00
+      36005D002E00430061007000740069006F006E0001003652AE55C78C99650100
+      57004F00200049006E0066006F0001000D000A00730074004300680061007200
+      53006500740073005F0055006E00690063006F00640065000D000A0054006600
+      72006D004D00610072006B0069006E0067005F005900690065006C0064000100
+      440045004600410055004C0054005F0043004800410052005300450054000100
+      440045004600410055004C0054005F0043004800410052005300450054000100
+      0D000A00630078005300740079006C0065003100010044004500460041005500
+      4C0054005F004300480041005200530045005400010044004500460041005500
+      4C0054005F00430048004100520053004500540001000D000A00630078005300
+      740079006C00650032000100440045004600410055004C0054005F0043004800
+      410052005300450054000100440045004600410055004C0054005F0043004800
+      4100520053004500540001000D000A00630078005300740079006C0065003300
+      0100440045004600410055004C0054005F004300480041005200530045005400
+      0100440045004600410055004C0054005F004300480041005200530045005400
+      01000D000A00630078005300740079006C006500340001004400450046004100
+      55004C0054005F00430048004100520053004500540001004400450046004100
+      55004C0054005F00430048004100520053004500540001000D000A0063007800
+      5300740079006C00650035000100440045004600410055004C0054005F004300
+      4800410052005300450054000100440045004600410055004C0054005F004300
+      48004100520053004500540001000D000A00630078005300740079006C006500
+      36000100440045004600410055004C0054005F00430048004100520053004500
+      5400010001000D000A00}
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 800
+    Top = 296
+    object Showdetail1: TMenuItem
+      Caption = 'Show detail'
+      ShortCut = 16507
+      Visible = False
+      OnClick = Showdetail1Click
+    end
+  end
+end

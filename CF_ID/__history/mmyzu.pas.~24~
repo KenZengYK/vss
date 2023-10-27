@@ -1,0 +1,303 @@
+unit mmyzu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, Db, DBTables, DBCtrls, ExtCtrls, DBClient, ADODB;
+
+type
+  Tfrmmmyz = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    bzmj: TDBCheckBox;
+    zbmj: TDBCheckBox;
+    twmj: TDBCheckBox;
+    pzx: TDBCheckBox;
+    yymj: TDBCheckBox;
+    dk: TDBCheckBox;
+    ds: TDBCheckBox;
+    dzd: TDBCheckBox;
+    ldz: TDBCheckBox;
+    hk: TDBCheckBox;
+    hs: TDBCheckBox;
+    hzd: TDBCheckBox;
+    lhz: TDBCheckBox;
+    yqxg: TDBCheckBox;
+    zysc: TDBCheckBox;
+    Label1: TLabel;
+    Shape2: TShape;
+    Label2: TLabel;
+    Shape3: TShape;
+    Label3: TLabel;
+    Shape4: TShape;
+    Label4: TLabel;
+    Shape1: TShape;
+    Label5: TLabel;
+    Shape5: TShape;
+    Label6: TLabel;
+    Shape6: TShape;
+    Label7: TLabel;
+    DBCheckBox1: TDBCheckBox;
+    DBCheckBox2: TDBCheckBox;
+    DBCheckBox3: TDBCheckBox;
+    DBCheckBox4: TDBCheckBox;
+    DBCheckBox5: TDBCheckBox;
+    DBCheckBox6: TDBCheckBox;
+    DBCheckBox7: TDBCheckBox;
+    DBCheckBox8: TDBCheckBox;
+    DBCheckBox9: TDBCheckBox;
+    DBCheckBox10: TDBCheckBox;
+    DBCheckBox11: TDBCheckBox;
+    DBCheckBox12: TDBCheckBox;
+    Clientdataset1: TADOQuery;
+    Clientdataset2: TADOQuery;
+    DBCheckBox13: TDBCheckBox;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmmmyz: Tfrmmmyz;
+
+implementation
+uses mainu, fcjyu, lbjhu;
+{$R *.DFM}
+
+procedure Tfrmmmyz.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmmmyz.BitBtn1Click(Sender: TObject);
+begin
+  if label1.caption='lbjh1' then begin
+    if frmlbjh.lbjh1.state=dsedit then frmlbjh.lbjh1.post;
+    if frmlbjh.fcwl2.state=dsedit then frmlbjh.fcwl2.post;
+  end else if label1.caption='fcjy1' then begin
+    if frmfcjy.fcjy1.state=dsedit then frmfcjy.fcjy1.post;
+    if frmfcjy.fcwl2.state=dsedit then frmfcjy.fcwl2.post;
+  end;
+  close;
+end;
+
+procedure Tfrmmmyz.FormShow(Sender: TObject);
+//var
+//  zd1,zd2,kh1,kh2:integer;
+begin
+    //zd1:=0; zd2:=0;
+    //kh1:=0; kh2:=0;
+  if label1.caption='fcjy1' then begin
+    frmmmyz.caption:='"MLC" Choose Necessity elements "排鋪裁"之選擇必須要素';
+    {
+    with clientdataset1 do begin
+      close;
+      sql.text:='select count(distinct zdh) as x1,count(distinct kh) as x2 from cut_fcjy3 where prjno=:x1 and wl=:x2';
+      parameters[0].value:=frmfcjy.fcjy1.fieldbyname('prjno').value;
+      parameters[1].value:=frmfcjy.fcjy1.fieldbyname('wl').value;
+      open;
+      if fieldbyname('x1').value>1 then begin zd1:=0; zd2:=1;
+      end else begin zd1:=1; zd2:=0; end;
+      if fieldbyname('x2').value>1 then begin kh1:=0; kh2:=1;
+      end else begin kh1:=1; kh2:=0; end;
+    end;
+    }
+    dzd.DataSource:=frmfcjy.dsfcwl2;
+    hzd.DataSource:=frmfcjy.dsfcwl2;
+    dk.DataSource:=frmfcjy.dsfcwl2;
+    hk.DataSource:=frmfcjy.dsfcwl2;
+    bzmj.DataSource:=frmfcjy.dsfcwl2;
+    pzx.DataSource:=frmfcjy.dsfcwl2;
+    zbmj.DataSource:=frmfcjy.dsfcwl2;
+    twmj.DataSource:=frmfcjy.dsfcwl2;
+    yymj.DataSource:=frmfcjy.dsfcwl2;
+    ldz.DataSource:=frmfcjy.dsfcwl2;
+    lhz.DataSource:=frmfcjy.dsfcwl2;
+    yqxg.DataSource:=frmfcjy.dsfcwl2;
+    pzx.Enabled:=False; zbmj.Enabled:=False; twmj.Enabled:=false; yymj.Enabled:=false;
+    DBCheckBox1.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox2.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox3.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox4.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox5.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox6.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox7.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox8.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox9.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox10.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox11.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox12.DataSource:=frmfcjy.dsfcjy1;
+    DBCheckBox13.DataSource:=frmfcjy.dsfcjy1;
+  end else if label1.caption='lbjh1' then begin
+    frmmmyz.caption:='"MLC" Revise Necessity elements "排鋪裁"之修改必須要素';
+    {
+    with clientdataset1 do begin
+      close;
+      sql.text:='select count(distinct zdh) as x1,count(distinct kh) as x2 from cut_fcjy3 where prjno=:x1 and wl=:x2';
+      parameters[0].value:=frmlbjh.lbjh1.fieldbyname('prjno').value;
+      parameters[1].value:=frmlbjh.lbjh1.fieldbyname('wl').value;
+      open;
+      if fieldbyname('x1').value>1 then begin zd1:=0; zd2:=1;
+      end else begin zd1:=1; zd2:=0; end;
+      if fieldbyname('x2').value>1 then begin kh1:=0; kh2:=1;
+      end else begin kh1:=1; kh2:=0; end;
+    end;
+    }
+    dzd.DataSource:=frmlbjh.dsfcwl2;
+    hzd.DataSource:=frmlbjh.dsfcwl2;
+    dk.DataSource:=frmlbjh.dsfcwl2;
+    hk.DataSource:=frmlbjh.dsfcwl2;
+    bzmj.DataSource:=frmlbjh.dsfcwl2;
+    pzx.DataSource:=frmlbjh.dsfcwl2;
+    zbmj.DataSource:=frmlbjh.dsfcwl2;
+    twmj.DataSource:=frmlbjh.dsfcwl2;
+    yymj.DataSource:=frmlbjh.dsfcwl2;
+    ldz.DataSource:=frmlbjh.dsfcwl2;
+    lhz.DataSource:=frmlbjh.dsfcwl2;
+    yqxg.DataSource:=frmlbjh.dsfcwl2;
+    pzx.Enabled:=True; zbmj.Enabled:=True; twmj.Enabled:=True; yymj.Enabled:=True;
+    DBCheckBox1.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox2.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox3.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox4.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox5.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox6.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox7.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox8.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox9.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox10.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox11.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox12.DataSource:=frmlbjh.dslbjh1;
+    DBCheckBox13.DataSource:=frmlbjh.dslbjh1;
+  end;
+  with ClientDataSet2 do begin
+    close;
+    SQL.text:='select * from phgdb..cut_fcwl2 where prjno=:x1 and xh=:x2 and wl=:x3';
+    if Label1.Caption='fcjy1' then begin
+      parameters[0].value:=frmfcjy.fcjy1.fieldbyname('prjno').Value;
+      parameters[1].value:=frmfcjy.fcjy1.fieldbyname('xh').Value;
+      parameters[2].value:=frmfcjy.fcjy1.fieldbyname('wl').Value;
+    end else if label1.Caption='lbjh1' then begin
+      parameters[0].value:=frmlbjh.lbjh1.fieldbyname('prjno').Value;//frmlbjh.dbedit1.text;
+      parameters[1].value:=frmlbjh.lbjh1.fieldbyname('xh').Value;//strtoint(frmlbjh.dbedit2.text);
+      parameters[2].value:=frmlbjh.lbjh1.fieldbyname('wl').Value;//frmlbjh.dbedit17.text;
+    end;
+    open;
+    if FieldByName('prjno').isnull then begin
+      with clientdataset1 do begin
+        close;
+        SQL.text:='insert into cut_fcwl2(prjno,xh,wl,bzmj,zbmj,twmj,yymj,pzx,dk,ds,dzd,ldz,hk,hs,hzd,lhz,yqxg,zysc) '
+                    +'values(:prjno,:xh,:wl,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0)';
+                    //+'values(:prjno,:xh,:wl,1,0,0,0,0,:dk,0,:dzd,0,:hk,0,:hzd,1,0,0)';
+        if Label1.Caption='fcjy1' then begin
+          parameters[0].value:=frmfcjy.fcjy1.fieldbyname('prjno').Value;
+          parameters[1].value:=frmfcjy.fcjy1.fieldbyname('xh').Value;
+          parameters[2].value:=frmfcjy.fcjy1.fieldbyname('wl').Value;
+        end else if label1.Caption='lbjh1' then begin
+          parameters[0].value:=frmlbjh.lbjh1.fieldbyname('prjno').Value;//frmlbjh.dbedit1.text;
+          parameters[1].value:=frmlbjh.lbjh1.fieldbyname('xh').Value;//strtoint(frmlbjh.dbedit2.text);
+          parameters[2].value:=frmlbjh.lbjh1.fieldbyname('wl').Value;//frmlbjh.dbedit17.text;
+        end;
+        {
+        parameters[3].value:=kh1;
+        parameters[4].value:=zd1;
+        parameters[5].value:=kh2;
+        parameters[6].value:=zd2;
+        }
+        execsql;
+      end
+    end;
+  end;
+  {
+  if frmlbjh.fcwl2.recordcount=0 then
+  begin
+    if label1.caption='lbjh1' then begin
+      with clientdataset1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        commandtext:='insert into cut_fcwl2(prjno,xh,wl,bzmj,zbmj,twmj,yymj,pzx,dk,ds,dzd,ldz,hk,hs,hzd,lhz,yqxg,zysc) '
+                    +'values(:prjno,:xh,:wl,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)';
+        params[0].asstring:=frmlbjh.dbedit1.text;
+        params[1].asinteger:=strtoint(frmlbjh.dbedit2.text);
+        params[2].asstring:=frmlbjh.dbedit17.text;
+        execute;
+      end
+    end
+    else begin
+      if label1.caption='lbjh2' then begin
+        with clientdataset1 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'prjno',ptinput);
+          params.createparam(ftinteger,'xh',ptinput);
+          params.createparam(ftstring,'wl',ptinput);
+          commandtext:='insert into cut_fcwl2(prjno,xh,wl,bzmj,zbmj,twmj,yymj,pzx,dk,ds,dzd,ldz,hk,hs,hzd,lhz,yqxg,zysc) '
+                      +'values(:prjno,:xh,:wl,1,0,0,0,0,1,1,1,0,0,0,0,1,0,0)';
+          params[0].asstring:=frmlbjh.dbedit1.text;
+          params[1].asinteger:=strtoint(frmlbjh.dbedit2.text);
+          params[2].asstring:=frmlbjh.dbedit17.text;
+          execute;
+        end
+      end
+      else begin
+        with clientdataset1 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'prjno',ptinput);
+          params.createparam(ftinteger,'xh',ptinput);
+          params.createparam(ftstring,'wl',ptinput);
+          commandtext:='insert into cut_fcwl2(prjno,xh,wl,bzmj,zbmj,twmj,yymj,pzx,dk,ds,dzd,ldz,hk,hs,hzd,lhz,yqxg,zysc) '
+                      +'values(:prjno,:xh,:wl,1,0,0,0,0,0,1,0,0,1,0,1,1,0,0)';
+          params[0].asstring:=frmlbjh.dbedit1.text;
+          params[1].asinteger:=strtoint(frmlbjh.dbedit2.text);
+          params[2].asstring:=frmlbjh.dbedit17.text;
+          execute;
+        end
+      end;
+    end;
+    }
+  if Label1.Caption='fcjy1' then begin
+    with frmfcjy.fcwl2 do begin
+      close;
+      commandtext:='select * from cut_fcwl2 where prjno=:prjno and xh=:xh and wl=:wl';
+      parameters[0].value:=frmfcjy.fcjy1.fieldbyname('prjno').Value;
+      parameters[1].value:=frmfcjy.fcjy1.fieldbyname('xh').Value;
+      parameters[2].value:=frmfcjy.fcjy1.fieldbyname('wl').Value;
+      open;
+    end;
+  end else if label1.Caption='lbjh1' then begin
+    with frmlbjh.fcwl2 do begin
+      close;
+      //params.clear;
+      //params.createparam(ftstring,'prjno',ptinput);
+      //params.createparam(ftinteger,'xh',ptinput);
+      //params.createparam(ftstring,'wl',ptinput);
+      commandtext:='select * from cut_fcwl2 where prjno=:prjno and xh=:xh and wl=:wl';
+      parameters[0].value:=frmlbjh.lbjh1.fieldbyname('prjno').Value;//frmlbjh.dbedit1.text;
+      parameters[1].value:=frmlbjh.lbjh1.fieldbyname('xh').Value;//strtoint(frmlbjh.dbedit2.text);
+      parameters[2].value:=frmlbjh.lbjh1.fieldbyname('wl').Value;//frmlbjh.dbedit17.text;
+      open;
+    end;
+  end;
+  //end;
+end;
+
+procedure Tfrmmmyz.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmmmyz:=nil;
+end;
+
+end.

@@ -1,0 +1,67 @@
+unit Rules_detailFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxContainer, cxEdit, dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinCaramel,
+  dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide, dxSkinFoggy, dxSkinGlassOceans,
+  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
+  dxSkinMcSkin, dxSkinMoneyTwins, dxSkinOffice2007Black, dxSkinOffice2007Blue,
+  dxSkinOffice2007Green, dxSkinOffice2007Pink, dxSkinOffice2007Silver,
+  dxSkinOffice2010Black, dxSkinOffice2010Blue, dxSkinOffice2010Silver,
+  dxSkinPumpkin, dxSkinSeven, dxSkinSharp, dxSkinSilver, dxSkinSpringTime,
+  dxSkinStardust, dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
+  dxSkinXmas2008Blue, cxTextEdit, cxMemo, cxRichEdit, cxDBRichEdit, StdCtrls,
+  Buttons, DB, ComCtrls, RzEdit, ExtCtrls;
+
+type
+  Tfrmrules_detail = class(TForm)
+    Memo1: TRzMemo;
+    Panel1: TPanel;
+    SpeedButton3: TSpeedButton;
+    SpeedButton5: TSpeedButton;
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmrules_detail: Tfrmrules_detail;
+
+implementation
+
+uses mainu, Calc_RulesFormu;
+
+{$R *.dfm}
+
+procedure Tfrmrules_detail.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmrules_detail:=nil;
+end;
+
+procedure Tfrmrules_detail.SpeedButton3Click(Sender: TObject);
+begin
+  //if (frmcalc_rules.cut_rules.State=dsedit) or (frmcalc_rules.cut_rules.State=dsInsert) then frmcalc_rules.cut_rules.Post;
+  if (frmcalc_rules.cut_rules.State=dsedit) or (frmcalc_rules.cut_rules.State=dsInsert) then begin
+    frmcalc_rules.cut_rules.FieldByName('rules').Value:=Memo1.Text;
+    frmcalc_rules.cut_rules.Post;
+  end else if frmcalc_rules.cut_rules.State=dsBrowse then begin
+    frmcalc_rules.cut_rules.Edit;
+    frmcalc_rules.cut_rules.FieldByName('rules').Value:=Memo1.Text;
+    frmcalc_rules.cut_rules.Post;
+  end;
+end;
+
+procedure Tfrmrules_detail.SpeedButton5Click(Sender: TObject);
+begin
+  close;
+end;
+
+end.

@@ -1,0 +1,132 @@
+object frmpu2cu_elements: Tfrmpu2cu_elements
+  Left = 0
+  Top = 0
+  Caption = 'Instructions for Step of PU Marker to CU Marker'
+  ClientHeight = 249
+  ClientWidth = 697
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 48
+    Width = 584
+    Height = 13
+    Caption = 
+      'Elements lead to re-allocation of marking branches OR adjustment' +
+      ' of marking / '#23566#33268#38656#37325#26032#20998#25903#29256' '#25110' '#35519#25972#25490#29256#30340#20803#32032': '
+  end
+  object Label2: TLabel
+    Left = 24
+    Top = 16
+    Width = 44
+    Height = 13
+    Caption = 'CF_ID#  '
+  end
+  object DBText1: TDBText
+    Left = 72
+    Top = 16
+    Width = 169
+    Height = 17
+    DataField = 'prjno'
+    DataSource = frmfcjy.dsfcjy1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 272
+    Top = 16
+    Width = 59
+    Height = 13
+    Caption = 'Be cut matl  '
+  end
+  object DBText2: TDBText
+    Left = 344
+    Top = 16
+    Width = 177
+    Height = 17
+    DataField = 'wl'
+    DataSource = frmfcjy.dsfcjy1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 608
+    Top = 16
+    Width = 31
+    Height = 13
+    Caption = 'Label4'
+    Visible = False
+  end
+  object Label5: TLabel
+    Left = 32
+    Top = 72
+    Width = 59
+    Height = 13
+    Caption = 'Cde / '#20195#34399'  '
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 192
+    Width = 75
+    Height = 25
+    Caption = 'Save'
+    TabOrder = 0
+  end
+  object BitBtn2: TBitBtn
+    Left = 120
+    Top = 192
+    Width = 75
+    Height = 25
+    Caption = 'Exit'
+    TabOrder = 1
+  end
+  object DBEdit1: TDBEdit
+    Left = 96
+    Top = 72
+    Width = 81
+    Height = 21
+    DataField = 'cde'
+    DataSource = dscut_fc_pu2cu
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object cut_fc_pu2cu: TADODataSet
+    Connection = frmmain.ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'select * from cut_fc_pu2cu'
+    CommandTimeout = 300
+    IndexFieldNames = 'cde'
+    Parameters = <>
+    Left = 32
+    Top = 145
+  end
+  object dscut_fc_pu2cu: TDataSource
+    DataSet = cut_fc_pu2cu
+    Left = 92
+    Top = 144
+  end
+  object AQuery1: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 600
+    Parameters = <>
+    Left = 160
+    Top = 145
+  end
+end

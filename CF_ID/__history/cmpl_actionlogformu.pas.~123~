@@ -1,0 +1,445 @@
+unit cmpl_actionlogformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridBandedTableView, cxGridDBBandedTableView, cxGridLevel, cxClasses,
+  cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxGrid, ExtCtrls, ADODB, StdCtrls, Buttons, cxGridExportLink, cxButtonEdit,
+  cxCalendar, cxCurrencyEdit, dxSkinBlack, dxSkinBlue, dxSkinCaramel,
+  dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide, dxSkinFoggy, dxSkinGlassOceans,
+  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
+  dxSkinMcSkin, dxSkinMoneyTwins, dxSkinOffice2007Black, dxSkinOffice2007Blue,
+  dxSkinOffice2007Green, dxSkinOffice2007Pink, dxSkinOffice2007Silver,
+  dxSkinOffice2010Black, dxSkinOffice2010Blue, dxSkinOffice2010Silver,
+  dxSkinPumpkin, dxSkinSeven, dxSkinSharp, dxSkinSilver, dxSkinSpringTime,
+  dxSkinStardust, dxSkinSummer2008, dxSkinValentine, dxSkinXmas2008Blue, Mask,
+  rxToolEdit;
+
+type
+  Tfrmcmpl_actionlog = class(TForm)
+    Panel1: TPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel2: TPanel;
+    cxView1: TcxGridDBBandedTableView;
+    al_dashboard: TADODataSet;
+    ds1: TDataSource;
+    cxView1prjno: TcxGridDBBandedColumn;
+    cxView1fcrq: TcxGridDBBandedColumn;
+    cxView1gch: TcxGridDBBandedColumn;
+    cxView1f_wl: TcxGridDBBandedColumn;
+    cxView1f_xh: TcxGridDBBandedColumn;
+    cxView1f_lbrq: TcxGridDBBandedColumn;
+    cxView1f_sah: TcxGridDBBandedColumn;
+    cxView1f_sah_d: TcxGridDBBandedColumn;
+    cxView1f_qty: TcxGridDBBandedColumn;
+    cxView1f_qty_d: TcxGridDBBandedColumn;
+    cxView1f_qty_p: TcxGridDBBandedColumn;
+    cxView1f_cmpl_estdd: TcxGridDBBandedColumn;
+    cxView1f_estday: TcxGridDBBandedColumn;
+    cxView1f_overdue: TcxGridDBBandedColumn;
+    cxView1cmpl_estdd: TcxGridDBBandedColumn;
+    cxView1sewing_f_wcrq: TcxGridDBBandedColumn;
+    cxView1sewing_l_wcrq: TcxGridDBBandedColumn;
+    cxView1ttl_wl: TcxGridDBBandedColumn;
+    cxView1aff_wl: TcxGridDBBandedColumn;
+    cxView1aff_p: TcxGridDBBandedColumn;
+    cxView1al_reason_grp: TcxGridDBBandedColumn;
+    cxView1al_reason: TcxGridDBBandedColumn;
+    cxView1seq: TcxGridDBBandedColumn;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    AQuery1: TADOQuery;
+    AQuery2: TADOQuery;
+    SaveDialog1: TSaveDialog;
+    cxView1f_cmpl_actdd: TcxGridDBBandedColumn;
+    cxView1lines: TcxGridDBBandedColumn;
+    cxView1f_cmpl_estdd1: TcxGridDBBandedColumn;
+    cxView1q1dt: TcxGridDBBandedColumn;
+    cxView1al_reason_cde: TcxGridDBBandedColumn;
+    cxView1lines1: TcxGridDBBandedColumn;
+    cxView1al_cde: TcxGridDBBandedColumn;
+    cxView1al_grp: TcxGridDBBandedColumn;
+    cxView1stage: TcxGridDBBandedColumn;
+    cxView1al_startdt: TcxGridDBBandedColumn;
+    cxView1al_cmpldt: TcxGridDBBandedColumn;
+    cxView1al_cmpl: TcxGridDBBandedColumn;
+    Label2: TLabel;
+    DateEdit1: TDateEdit;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    cxStyleRepository1: TcxStyleRepository;
+    cxStyle1: TcxStyle;
+    BitBtn7: TBitBtn;
+    cxStyle2: TcxStyle;
+    cxStyle3: TcxStyle;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure al_dashboardAfterPost(DataSet: TDataSet);
+    procedure FormShow(Sender: TObject);
+    procedure al_dashboardAfterOpen(DataSet: TDataSet);
+    procedure cxView1CellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
+    procedure cxView1CustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
+    procedure aldashboardactddchange(Sender: TField);
+    procedure cxView1Column1PropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure cxView1DataControllerFilterChanged(Sender: TObject);
+    procedure cxView1StylesGetContentStyle(Sender: TcxCustomGridTableView;
+      ARecord: TcxCustomGridRecord; AItem: TcxCustomGridTableItem;
+      out AStyle: TcxStyle);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure calc_somettl;
+  end;
+
+var
+  frmcmpl_actionlog: Tfrmcmpl_actionlog;
+  FontRedStyle: TCxStyle;
+  FontBoldRedStyle: TCxStyle;
+
+implementation
+
+uses mainu, al_supplementformu, Cause_ChooseFormu, cmpl_actionlog1formu, splitstageformu;
+
+{$R *.dfm}
+
+procedure Tfrmcmpl_actionlog.aldashboardactddchange(Sender: TField);
+begin
+  if not al_dashboard.fieldbyname('f_cmpl_actdd').isnull then
+    al_dashboard.fieldbyname('f_overdue').value:=trunc(al_dashboard.fieldbyname('f_cmpl_actdd').value)-trunc(al_dashboard.fieldbyname('f_cmpl_estdd1').value)
+  else al_dashboard.fieldbyname('f_overdue').value:=trunc(date)-trunc(al_dashboard.fieldbyname('f_cmpl_estdd1').value);
+end;
+
+procedure Tfrmcmpl_actionlog.al_dashboardAfterOpen(DataSet: TDataSet);
+begin
+  (al_dashboard.fieldbyname('f_sah') as tfloatfield).displayformat:='0.0000';
+  (al_dashboard.fieldbyname('f_qty_p') as tfloatfield).displayformat:='0.00';
+  (al_dashboard.fieldbyname('f_estday') as tfloatfield).displayformat:='0.00';
+  (al_dashboard.FieldByName('al_startdt') as TDateTimeField).DisplayFormat:='mm/dd hh:nn';
+  al_dashboard.fieldbyname('f_cmpl_actdd').onchange:=aldashboardactddchange;
+  //al_dashboard.fieldbyname('f_qty_p').onchange:=aldashboardqtypchange;
+  calc_somettl;
+end;
+
+procedure Tfrmcmpl_actionlog.al_dashboardAfterPost(DataSet: TDataSet);
+begin
+  al_dashboard.UpdateBatch(arAll);
+end;
+
+procedure Tfrmcmpl_actionlog.BitBtn1Click(Sender: TObject);
+begin
+  if al_dashboard.state=dsedit then al_dashboard.post;
+end;
+
+procedure Tfrmcmpl_actionlog.BitBtn2Click(Sender: TObject);
+begin
+  if savedialog1.Execute then begin
+    exportGridToExcel(savedialog1.filename,cxgrid1,false,true,false,'xls');
+  end;
+end;
+
+procedure Tfrmcmpl_actionlog.BitBtn3Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmcmpl_actionlog.BitBtn4Click(Sender: TObject);
+begin
+  if frmcmpl_actionlog1=nil then frmcmpl_actionlog1:=tfrmcmpl_actionlog1.create(nil);
+  with frmcmpl_actionlog1.al_dashboard do begin
+    close;
+    commandtext:='select * from cut_al_dashboard where prjno='''+al_dashboard.FieldByName('prjno').Value+'''';
+    //Parameters[0].Value:=al_dashboard.FieldByName('prjno').Value;
+    //Parameters[1].Value:=al_dashboard.FieldByName('stage_i').Value;
+    Open;
+  end;
+  frmcmpl_actionlog1.show;
+end;
+
+procedure Tfrmcmpl_actionlog.BitBtn5Click(Sender: TObject);
+begin
+    if frmal_supplement=nil then frmal_supplement:=tfrmal_supplement.create(nil);
+    with frmal_supplement.ds_al_styles do begin
+      close;
+      commandtext:='select distinct prjno,kh,sah,rs,pline,min(exfty) as exfty,sum(mjjs) as qty,sum(ts) as est_days,ts1 as est_days1 from cut_al_dashboard_styles '
+
+                  +'where mjjs>0 and prjno='''+al_dashboard.fieldbyname('prjno').value+''' and stage='''+al_dashboard.fieldbyname('stage').value+''' group by prjno,kh,sah,rs,pline,ts1';
+      open;
+    end;
+    frmal_supplement.show;
+end;
+
+procedure Tfrmcmpl_actionlog.BitBtn6Click(Sender: TObject);
+var
+  stage_i:integer;
+begin
+  with AQuery1 do begin
+    close;
+    sql.Text:='select max(stage_i) as seqi from cut_al_dashboard where prjno='''+al_dashboard.FieldByName('prjno').Value+'''';
+    Open;
+    if not FieldByName('seqi').IsNull then stage_i:=FieldByName('seqi').Value
+    else stage_i:=1;
+  end;
+  if stage_i<al_dashboard.FieldByName('stage_i').value then begin
+    ShowMessage('Can not split this flow 1 stage again!');
+  end else begin
+    if frmsplitstage=nil then frmsplitstage:=Tfrmsplitstage.Create(nil);
+    frmsplitstage.edit1.value:=al_dashboard.FieldByName('f_qty_p').Value;
+    frmsplitstage.Show;
+  end;
+end;
+
+procedure Tfrmcmpl_actionlog.BitBtn7Click(Sender: TObject);
+var
+  fty:string;
+begin
+  screen.cursor:=crSQLWait;
+  try
+    if combobox1.text='' then fty:='ALL' else fty:=combobox1.text;
+    with al_dashboard do begin
+      close;
+      commandtext:='select * from cut_al_dashboard where wc=0 and f_qty>0';
+      if fty<>'ALL' then begin
+        if fty='CN' then
+          commandtext:=commandtext+' and fty in (''SL'',''RX'')'
+        else commandtext:=commandtext+' and fty='''+fty+'''';
+      end;
+      if BitBtn7.Caption='Overdue' then begin
+        BitBtn7.Caption:='Show All';
+        commandtext:=commandtext+' and f_overdue>0';
+      end else begin
+        BitBtn7.Caption:='Overdue';
+        //commandtext:=commandtext+' and f_overdue>0';
+      end;
+      open;
+    end;
+    calc_somettl;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmcmpl_actionlog.calc_somettl;
+var
+  fty:string;
+begin
+  if combobox1.text='' then fty:='ALL' else fty:=combobox1.text;
+  with AQuery1 do begin
+    close;
+    sql.Text:='select count(distinct prjno) as x0 from cut_al_dashboard where wc=0 and f_qty>0';
+    if fty<>'ALL' then begin
+      if fty='CN' then
+        sql.text:=sql.text+' and fty in (''SL'',''RX'')'
+      else sql.text:=sql.text+' and fty='''+fty+'''';
+    end;
+    if BitBtn7.Caption='Show All' then
+      sql.text:=sql.text+' and f_overdue>0';
+    if cxview1.DataController.Filter.FilterText>'' then
+    sql.text:=sql.text+' and '+cxview1.DataController.Filter.FilterText;
+    open;
+    if not fieldbyname('x0').isnull then
+      cxView1.DataController.Summary.FooterSummaryValues[0]:=fieldbyname('x0').asstring;
+  end;
+end;
+
+procedure Tfrmcmpl_actionlog.ComboBox1Change(Sender: TObject);
+var
+  fty:string;
+begin
+  screen.cursor:=crSQLWait;
+  try
+    if combobox1.text='' then fty:='ALL' else fty:=combobox1.text;
+    with aquery1 do begin
+      close;
+      sql.text:='exec cut_gen_aldashboard :x1';
+      parameters[0].value:=fty;
+      execsql;
+    end;
+    with al_dashboard do begin
+      close;
+      commandtext:='select * from cut_al_dashboard where wc=0 and f_qty>0';
+      if fty<>'ALL' then begin
+        if fty='CN' then
+          commandtext:=commandtext+' and fty in (''SL'',''RX'')'
+        else commandtext:=commandtext+' and fty='''+fty+'''';
+      end;
+      open;
+    end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmcmpl_actionlog.cxView1CellDblClick(Sender: TcxCustomGridTableView;
+  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+  AShift: TShiftState; var AHandled: Boolean);
+begin
+  if (ACellViewInfo.Item = cxView1f_sah) then begin
+    if frmal_supplement=nil then frmal_supplement:=tfrmal_supplement.create(nil);
+    with frmal_supplement.ds_al_styles do begin
+      close;
+      commandtext:='select distinct prjno,kh,sah,rs,pline,min(exfty) as exfty,sum(mjjs) as qty,sum(ts) as est_days,ts1 as est_days1 '
+
+                  +'from cut_al_dashboard_styles where mjjs>0 and prjno='''+al_dashboard.fieldbyname('prjno').value+''' group by prjno,kh,sah,rs,pline,ts1';
+      open;
+    end;
+    frmal_supplement.show;
+  end;
+end;
+
+procedure Tfrmcmpl_actionlog.cxView1Column1PropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+begin
+  if al_dashboard.fieldbyname('al_cmpl').value=false then begin
+    if frmcause_choose=nil then frmcause_choose:=tfrmcause_choose.create(nil);
+    frmcause_choose.label1.caption:='0';
+    frmcause_choose.Show;
+  end;
+end;
+
+procedure Tfrmcmpl_actionlog.cxView1CustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+var
+  str,dt1,dt2: string;
+  str1,str2: TDate;
+begin
+  {
+  dt1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1f_cmpl_estdd1.Index],   varDate));
+  dt2:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1q1dt.Index],   varDate));
+  str1:=StrToDate(dt1);
+  str2:=StrToDate(dt2);
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1f_overdue.Index],   varString));
+  if (AViewInfo.Item = cxView1f_overdue) then begin
+    if str='' then str:='0';
+  //  if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed;
+    if strtoint(str)>0 then begin
+      if str1<str2 then begin
+        ACanvas.canvas.Font.Color   :=   clRed;
+        ACanvas.Canvas.Font.Style := [];
+      end else begin
+        ACanvas.canvas.Font.Color   :=   clRed;
+        ACanvas.Canvas.Font.Style := [fsBold];
+      end;
+    end else  ACanvas.canvas.Font.Color   :=   clBlack;
+  //  ACanvas.FillRect(ARec);
+  end;
+  }
+end;
+
+procedure Tfrmcmpl_actionlog.cxView1DataControllerFilterChanged(
+  Sender: TObject);
+begin
+  calc_somettl;
+end;
+
+procedure Tfrmcmpl_actionlog.cxView1StylesGetContentStyle(
+  Sender: TcxCustomGridTableView; ARecord: TcxCustomGridRecord;
+  AItem: TcxCustomGridTableItem; out AStyle: TcxStyle);
+var
+  str,dt1,dt2: string;
+  str1,str2: TDate;
+begin
+  //showmessage(inttostr(cxView1f_cmpl_estdd1.index));
+  if (AItem<>nil) and (AItem.ID=2) then begin
+    if ARecord.DisplayTexts[3]='' then dt1:='' else dt1:=ARecord.DisplayTexts[3];
+    if ARecord.DisplayTexts[4]='' then dt2:='' else dt2:=ARecord.DisplayTexts[4];
+    str1:=StrToDate(dt1);
+    str2:=StrToDate(dt2);
+    if ARecord.DisplayTexts[2]='' then str:='0' else str:=ARecord.DisplayTexts[2];
+    if strtoint(str)>0 then begin
+      if str1<str2 then begin
+        AStyle := FontRedStyle
+      end else begin
+        AStyle := FontBoldRedStyle;
+      end;
+    end;
+  end;
+  {
+  if (AItem<>nil) and (AItem.ID=18) then begin
+    if ARecord.DisplayTexts[4]='' then str:='0' else str:=ARecord.DisplayTexts[4];
+    if (strtoint(str)<3) and (strtoint(str)>=2) then AStyle := FontRedStyle
+    else if strtoint(str)<2 then AStyle := FontBoldRedStyle;
+  end;
+  if (AItem<>nil) and (AItem.ID=17) then begin
+    if ARecord.DisplayTexts[3]='' then str:='0' else str:=ARecord.DisplayTexts[3];
+    if (strtoint(str)<0) then AStyle := FontBoldRedStyle;
+    if ARecord.DisplayTexts[2]='' then str1:='0' else str1:=ARecord.DisplayTexts[2];
+    if strtoint(str1)<0 then AStyle := FontBoldRedStyle;
+  end;
+  //flow 2+3 -2
+  if (AItem<>nil) and (AItem.ID=3) then begin
+    if ARecord.DisplayTexts[3]='' then str:='0' else str:=ARecord.DisplayTexts[3];
+    if strtoint(str)<0 then AStyle := FontBoldRedStyle;
+  end;
+
+  dt1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1f_cmpl_estdd1.Index],   varDate));
+  dt2:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1q1dt.Index],   varDate));
+  str1:=StrToDate(dt1);
+  str2:=StrToDate(dt2);
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1f_overdue.Index],   varString));
+  if (AViewInfo.Item = cxView1f_overdue) then begin
+    if str='' then str:='0';
+  //  if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed;
+    if strtoint(str)>0 then begin
+      if str1<str2 then begin
+        ACanvas.canvas.Font.Color   :=   clRed;
+        ACanvas.Canvas.Font.Style := [];
+      end else begin
+        ACanvas.canvas.Font.Color   :=   clRed;
+        ACanvas.Canvas.Font.Style := [fsBold];
+      end;
+    end else  ACanvas.canvas.Font.Color   :=   clBlack;
+  //  ACanvas.FillRect(ARec);
+  end;
+  }
+end;
+
+procedure Tfrmcmpl_actionlog.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmcmpl_actionlog:=nil;
+end;
+
+procedure Tfrmcmpl_actionlog.FormCreate(Sender: TObject);
+begin
+  FontRedStyle := TCxStyle.Create(Self);
+  FontRedStyle.TextColor := clRed;
+  FontBoldRedStyle := TCxStyle.Create(Self);
+  FontBoldRedStyle.TextColor := clRed;
+  FontBoldRedStyle.Font.Style := [fsbold];
+end;
+
+procedure Tfrmcmpl_actionlog.FormShow(Sender: TObject);
+begin
+  dateedit1.date:=date;
+  combobox1.text:='ALL';
+  combobox1change(self);
+end;
+
+end.

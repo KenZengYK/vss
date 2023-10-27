@@ -1,0 +1,40 @@
+unit phiszdu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Grids, DBGridEh, Buttons, DBTables, Db;
+
+type
+  Tfrmphiszd = class(TForm)
+    Label1: TLabel;
+    Label3: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    DBGridEh1: TDBGridEh;
+    Edit2: TEdit;
+    Edit1: TEdit;
+    BitBtn3: TBitBtn;
+    Session1: TSession;
+    Query1: TQuery;
+    Query2: TQuery;
+    Query3: TQuery;
+    Query4: TQuery;
+    DataSource1: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmphiszd: Tfrmphiszd;
+
+implementation
+
+{$R *.DFM}
+
+end.

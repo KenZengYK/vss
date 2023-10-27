@@ -1,0 +1,1006 @@
+unit fcjyu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Mask, DBCtrls, Grids, DBGridEh, ExtCtrls, Buttons, Db, DBTables,
+  ppCache, ppDB, ppDBPipe, ppDBBDE, ppComm, ppRelatv, ppProd, ppClass,
+  ppReport, ppBands, ppPrnabl, ppCtrls, ppViewr, ppStrtch, ppRegion,
+  myChkBox, ppEndUsr, ppVar, math, DBClient, Menus, Variants, GridsEh,
+  siComp, ADODB, ppParameter;
+type
+  Tfrmfcjy = class(TForm)
+    DataSource1: TDataSource;
+    ppReport1: TppReport;
+    ppBDEPipeline1: TppBDEPipeline;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppDBText1: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    dsfcjy1: TDataSource;
+    ppShape1: TppShape;
+    ppLabel44: TppLabel;
+    ppDBText18: TppDBText;
+    ppLabel46: TppLabel;
+    ppDBText19: TppDBText;
+    ppLine19: TppLine;
+    ppLine20: TppLine;
+    ppLine21: TppLine;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppLine24: TppLine;
+    ppLine25: TppLine;
+    dsfcjy2: TDataSource;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label4: TLabel;
+    Label6: TLabel;
+    DBEdit7: TDBEdit;
+    Edit1: TEdit;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    BitBtn1: TBitBtn;
+    DBEdit6: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit9: TDBEdit;
+    Panel2: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    tc: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    SpeedButton5: TSpeedButton;
+    SpeedButton6: TSpeedButton;
+    SpeedButton7: TSpeedButton;
+    SpeedButton8: TSpeedButton;
+    SpeedButton9: TSpeedButton;
+    SpeedButton10: TSpeedButton;
+    DBNavigator1: TDBNavigator;
+    BitBtn4: TBitBtn;
+    Panel3: TPanel;
+    DBGridEh1: TDBGridEh;
+    SpeedButton11: TSpeedButton;
+    PopupMenu1: TPopupMenu;
+    N1: TMenuItem;
+    SpeedButton12: TSpeedButton;
+    BitBtn2: TBitBtn;
+    siLang1: TsiLang;
+    Label7: TLabel;
+    DBEdit10: TDBEdit;
+    AQuery1: TADOQuery;
+    AQuery2: TADOQuery;
+    fcjy1: TADODataSet;
+    fcjy2: TADODataSet;
+    fcjy2prjno: TStringField;
+    fcjy2wl: TStringField;
+    fcjy2xh: TIntegerField;
+    fcjy2kh: TStringField;
+    fcjy2gch: TStringField;
+    fcjy2zdh: TStringField;
+    fcjy2sh: TStringField;
+    fcjy2id: TIntegerField;
+    fcjy2cup: TStringField;
+    fcjy2siz1: TIntegerField;
+    fcjy2cm: TStringField;
+    fcjy2zds: TIntegerField;
+    fcjy2jy: TFloatField;
+    fcjy2sj: TFloatField;
+    fcjy2jc: TIntegerField;
+    fcjy2ys: TIntegerField;
+    fcjy2gmc: TStringField;
+    fcjy2gmt: TStringField;
+    fcjy2gm: TIntegerField;
+    fcjy2bz: TStringField;
+    fcjy2jyl: TFloatField;
+    jcly: TADOQuery;
+    Label8: TLabel;
+    DBEdit11: TDBEdit;
+    N2: TMenuItem;
+    DBEdit12: TDBEdit;
+    fcjy2sj_qty: TIntegerField;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    DBEdit3: TDBEdit;
+    SpeedButton13: TSpeedButton;
+    DBEdit13: TDBEdit;
+    Label17: TLabel;
+    Label18: TLabel;
+    DBEdit14: TDBEdit;
+    Label19: TLabel;
+    DBComboBox1: TDBComboBox;
+    FRN1: TMenuItem;
+    DBEdit29: TDBEdit;
+    Label20: TLabel;
+    SpeedButton14: TSpeedButton;
+    dsfcwl2: TDataSource;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    fcwl2: TADODataSet;
+    Edit2: TEdit;
+    Label21: TLabel;
+    Label22: TLabel;
+    DBEdit15: TDBEdit;
+    DBCheckBox1: TDBCheckBox;
+    fcjy2cm_cor: TStringField;
+    fcjy2cm_pt: TStringField;
+    fcjy2cm_rev: TStringField;
+    fcjy2zds_o: TIntegerField;
+    Label23: TLabel;
+    DBEdit16: TDBEdit;
+    N3: TMenuItem;
+    SpeedButton15: TSpeedButton;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure tcClick(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure DBGridEh1DblClick(Sender: TObject);
+    procedure SpeedButton6Click(Sender: TObject);
+    procedure SpeedButton7Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure SpeedButton8Click(Sender: TObject);
+    procedure fcjy2SjChange(Sender: TField);
+    procedure fcjy2JcChange(Sender: TField);
+    procedure dsfcjy1DataChange(Sender: TObject; Field: TField);
+    procedure fcjy1AfterPost(DataSet: TDataSet);
+    procedure fcjy2AfterPost(DataSet: TDataSet);
+    procedure SpeedButton9Click(Sender: TObject);
+    procedure SpeedButton10Click(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure fcjy2AfterOpen(DataSet: TDataSet);
+    procedure fcjy1AfterOpen(DataSet: TDataSet);
+    procedure DBEdit2KeyPress(Sender: TObject; var Key: Char);
+    procedure SpeedButton11Click(Sender: TObject);
+    procedure DBEdit2Exit(Sender: TObject);
+    procedure N1Click(Sender: TObject);
+    procedure SpeedButton12Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure N2Click(Sender: TObject);
+    procedure FRN1Click(Sender: TObject);
+    procedure SpeedButton14Click(Sender: TObject);
+    procedure fcwl2AfterPost(DataSet: TDataSet);
+    procedure N3Click(Sender: TObject);
+    procedure SpeedButton15Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmfcjy: Tfrmfcjy;
+  ifrn:string;
+
+implementation
+uses mainu, xzzdu, shlru, jcu, mjxxu, zdsu, xgtm, xgwl1u, xgkhu,
+  fcdyu, blxgformu, wlcopyu, FRN_ChooseFormu, mmyzu;
+{$R *.DFM}
+
+procedure Tfrmfcjy.SpeedButton1Click(Sender: TObject);
+var
+  prjno,wl:string;
+  xh:integer;
+begin
+  screen.cursor:=crHourglass;
+  if fcjy1.active=true then begin
+    if fcjy2.state=dsedit then fcjy2.post;
+    prjno:=fcjy1.fieldbyname('prjno').value;
+    wl:=fcjy1.fieldbyname('wl').value;
+    xh:=fcjy1.fieldbyname('xh').value;
+    if (fcjy1.fieldbyname('gjwl').isnull) or (fcjy1.fieldbyname('gjwl').value='') then begin
+      if fcjy1.fieldbyname('ys').value>0 then begin
+        if application.messagebox('Create new marking br.# 建立新的支版?','Question',mb_iconquestion+mb_okcancel)=idok then
+        begin
+          with aquery1 do begin
+            close;
+            sql.text:='exec cut_newfcjy :prjno,:wl,:xh';
+            parameters[0].value:=prjno;
+            parameters[1].value:=wl;
+            parameters[2].value:=xh;
+            execsql;
+          end;
+          with fcjy1 do begin
+            close;
+            commandtext:='select * from cut_fcjy1 where prjno=:prjno';
+            parameters[0].value:=prjno;
+            open;
+            locate('prjno;wl;xh',vararrayof([prjno,wl,xh+1]),[lopartialkey]);
+          end;
+        end;
+      end;
+    end;
+  end;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfcjy.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if frmfcdy<>nil then frmfcdy:=nil;
+  action:=cafree;
+  frmfcjy:=nil;
+end;
+
+procedure Tfrmfcjy.tcClick(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmfcjy.SpeedButton2Click(Sender: TObject);
+var
+  prjno1:string;
+begin
+  screen.cursor:=crHourglass;
+  if fcjy1.active=true then
+  begin
+    if (fcjy1.fieldbyname('gjwl').isnull) or (fcjy1.fieldbyname('gjwl').value='') then begin
+      with aquery1 do begin
+        close;
+        sql.text:='select max(xh) as xh1 from cut_fcjy1 where prjno=:prjno and wl=:wl';
+        parameters[0].value:=fcjy1.fieldbyname('prjno').value;
+        parameters[1].value:=fcjy1.fieldbyname('wl').value;
+        open;
+        if fieldbyname('xh1').value=fcjy1.fieldbyname('xh').value then begin
+          if application.messagebox('Confirm to delete this Marking br. 確定要刪除此支版?','Question',mb_iconquestion+mb_okcancel)=idok then
+          begin
+            //{
+            with aquery2 do begin
+              close;
+              sql.text:='delete from cut_fcjy2 where prjno=:prjno and wl=:wl and xh=:xh';
+              parameters[0].value:=fcjy1.fieldbyname('prjno').value;
+              parameters[1].value:=fcjy1.fieldbyname('wl').value;
+              parameters[2].value:=fcjy1.fieldbyname('xh').value;
+              execsql;
+              {
+              close;
+              sql.text:='delete from cut_fcjy1 where prjno=:prjno and wl=:wl and xh=:xh';
+              parameters[0].value:=fcjy1.fieldbyname('prjno').value;
+              parameters[1].value:=fcjy1.fieldbyname('wl').value;
+              parameters[2].value:=fcjy1.fieldbyname('xh').value;
+              execsql;
+              }
+            end;
+            fcjy1.delete;
+          end;
+        end
+        else application.messagebox('Only can delete the last Marking br. 只能刪除最后一個支版','Information',mb_iconinformation+mb_ok);
+      end;
+    end;
+  end;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfcjy.SpeedButton4Click(Sender: TObject);
+begin
+  jcly.close;
+  jcly.sql.text:='select * from cut_fcjy2 where prjno=:gch and jc>0';
+  jcly.parameters[0].value:=fcjy1.fieldbyname('prjno').value;
+  jcly.open;
+  if jcly.recordcount>0 then
+  begin
+    ppreport1.print;
+  end
+  else
+  begin
+    application.messagebox('There is not record for Fit Sz ratio 無匹配晒士比率記錄!','Information',mb_iconinformation+mb_ok);
+  end;
+end;
+
+procedure Tfrmfcjy.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppreport1.PreviewForm.WindowState:=wsmaximized;
+  tppviewer(ppreport1.previewform.viewer).zoompercentage:=100;
+end;
+
+procedure Tfrmfcjy.BitBtn1Click(Sender: TObject);
+begin
+  if ifrn='0' then begin
+  if edit1.text='' then
+  begin
+    application.messagebox('請先輸入裁程識別碼','提示信息',mb_iconinformation+mb_ok);
+    edit1.visible:=true;
+    edit1.setfocus;
+  end
+  else
+  begin
+    if frmxzzd=nil then frmxzzd:=tfrmxzzd.create(self);
+    aquery1.close;
+    aquery1.sql.text:='delete from cut_fcjh where prjno='''+edit1.text+'''';
+    //aquery1.parameters[0].value:=edit1.text;
+    aquery1.execsql;
+
+    with aquery1 do begin
+      close;
+      sql.text:='insert into cut_fcjh(prjno,gch,zdh,kh,sh,zds) select distinct prjno,gch,zdh,kh,sh,zds from cut_fcjy3 where prjno='''+edit1.text+'''';
+      //parameters[0].value:=edit1.text;
+      execsql;
+    end;
+    with frmxzzd.xzzd do begin
+      close;
+      params.clear;
+      //params.createparam(ftstring,'prjno',ptinput);
+      commandtext:='select * from cut_fcjh where prjno='''+edit1.text+'''';
+      //params[0].asstring:=edit1.text;
+      open;
+    end;
+    frmxzzd.Label5.Caption:='jy';
+    frmxzzd.show;
+  end;
+  end else if ifrn='1' then begin
+    if frmFRN_Choose=nil then frmFRN_Choose:=TfrmFRN_Choose.create(nil);
+    frmFRN_Choose.show;
+  end;
+end;
+
+procedure Tfrmfcjy.DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+var
+  gm:integer;
+  gmc:string;
+begin
+  gm:=0;gmc:='';
+  if key=#13 then
+  begin
+    sendmessage(dbgrideh1.handle,wm_keydown,vk_tab,0);
+  end
+  else
+  begin
+   {
+   if key=#48 then
+   begin
+     if dbgrideh1.selectedindex=7 then
+     begin
+       gm:=fcjy2.fieldbyname('gm').value;
+       if not fcjy2.fieldbyname('gmc').isnull then
+         gmc:=fcjy2.fieldbyname('gmc').value;
+       fcjy2.edit;
+       dbgrideh1.fields[9].value:='';
+       fcjy2.FieldByName('gm').value:=0;
+       fcjy2.fieldbyname('gmc').value:='';
+       fcjy2.fieldbyname('gmt').value:='';
+       if gmc>'' then begin
+         with aquery1 do begin
+           close;
+           sql.text:='update cut_fcjy2 set gm=gm+:gm where prjno=:prjno and wl=:wl and xh=:xh and kh=:kh and cm=:cm';
+           parameters[0].value:=gm;
+           parameters[1].value:=fcjy2.fieldbyname('prjno').value;
+           parameters[2].value:=fcjy2.fieldbyname('wl').value;
+           parameters[3].value:=fcjy2.fieldbyname('xh').value;
+           parameters[4].value:=fcjy2.fieldbyname('kh').value;
+           parameters[5].value:=gmc;
+           execsql;
+         end;
+       end;
+     end;
+   end;
+   }
+  end;
+end;
+
+procedure Tfrmfcjy.SpeedButton5Click(Sender: TObject);
+begin
+  screen.cursor:=crHourglass;
+  if application.messagebox('Confirm to delete this CF_ID 確定要刪除此裁程識別碼?','Question',mb_iconquestion+mb_okcancel)=idok then begin
+    with aquery1 do begin
+      close;
+      sql.text:='delete from cut_fcjy2 where prjno=:prjno';
+      parameters[0].value:=dbedit7.text;
+      execsql;
+      close;
+      sql.text:='delete from cut_fcjy3 where prjno=:prjno';
+      parameters[0].value:=dbedit7.text;
+      execsql;
+    end;
+    with aquery1 do begin
+      close;
+      sql.text:='delete from cut_fcjy1 where prjno=:prjno';
+      parameters[0].value:=dbedit7.text;
+      execsql;
+    end;
+    fcjy2.active:=false;
+    fcjy1.active:=false;
+    edit1.text:='';
+    edit2.Text:='';
+  end;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfcjy.DBGridEh1DblClick(Sender: TObject);
+var
+  gmc,gmt:string;
+  jc:integer;
+begin
+  gmc:='';gmt:='';jc:=0;
+  if dbgrideh1.selectedindex=7 then
+  begin
+    if not fcjy2.fieldbyname('gmc').isnull then
+      gmc:=fcjy2.fieldbyname('gmc').value;
+    if not fcjy2.fieldbyname('gmt').isnull then
+      gmt:=fcjy2.fieldbyname('gmt').value;
+    if not fcjy2.fieldbyname('jc').isnull then
+      jc:=fcjy2.fieldbyname('jc').value;
+    if frmjc=nil then frmjc:=tfrmjc.create(self);
+    if not fcjy2.fieldbyname('bz').isnull then begin
+      if fcjy2.fieldbyname('bz').value='加裁' then begin
+        frmjc.op1.checked:=true;
+        frmjc.op2.checked:=false;
+        frmjc.op3.checked:=false;
+        frmjc.Edit1.text:=inttostr(jc);
+        frmjc.edit2.text:='';
+        frmjc.edit3.text:='';
+        frmjc.combobox1.text:='';frmjc.combobox2.text:='';
+      end
+      else begin
+        if fcjy2.fieldbyname('bz').value='減裁' then begin
+          frmjc.op2.checked:=true;
+          frmjc.op1.checked:=false;
+          frmjc.op3.checked:=false;
+          frmjc.Edit2.text:=inttostr(0-jc);
+          frmjc.edit1.text:='';
+          frmjc.edit3.text:='';
+          frmjc.combobox1.text:='';frmjc.combobox2.text:='';
+        end
+        else begin
+          frmjc.op1.checked:=false;
+          frmjc.op2.checked:=true;
+          frmjc.op3.Checked:=true;
+          frmjc.edit1.text:='';
+          frmjc.edit2.text:=inttostr(0-jc);
+          frmjc.edit3.text:=inttostr(0-jc);
+          frmjc.combobox1.text:=gmc;
+          frmjc.combobox2.text:=gmt;
+        end;
+      end;
+    end
+    else begin
+      frmjc.op1.checked:=true;
+      frmjc.op2.checked:=false;
+      frmjc.op3.checked:=false;
+      frmjc.edit1.text:='';
+      frmjc.edit2.text:='';
+      frmjc.edit3.text:='';
+      frmjc.combobox1.text:='';
+      frmjc.combobox2.text:='';
+    end;
+    frmjc.show;
+  end;
+end;
+
+procedure Tfrmfcjy.SpeedButton6Click(Sender: TObject);
+begin
+  fcjy2.active:=false;
+  fcjy1.active:=false;
+  edit1.text:='';
+  edit1.setfocus;
+end;
+
+procedure Tfrmfcjy.SpeedButton7Click(Sender: TObject);
+begin
+  if frmzds=nil then frmzds:=tfrmzds.create(self);
+  frmzds.caption:='查閱裁程識別碼 Review CF_ID';
+  frmzds.label2.caption:='fcjy';
+  frmzds.show;
+end;
+
+procedure Tfrmfcjy.SpeedButton3Click(Sender: TObject);
+begin
+  screen.cursor:=crHourglass;
+  if fcjy1.active=true then begin
+    if fcjy1.state=dsedit then speedbutton9click(self);
+    if frmfcdy=nil then frmfcdy:=tfrmfcdy.create(self);
+    with frmfcdy.fcjh do begin
+      close;
+      sql.text:='select distinct a.prjno,a.wl,a.xh,a.lbzs,a.sjs/a.lbzs as mjjs,a.jhyl as jyyl,a.jhyl*a.lbzs as mjyl,b.gch,b.zdh,b.kh,b.sh from cut_fcjy1 a,cut_fcjy2 b '
+                  +'where b.prjno=a.prjno and b.wl=a.wl and b.xh=a.xh and a.prjno=:prjno and b.sj>0.00 order by a.prjno,a.wl,a.xh,b.kh';
+      parameters[0].value:=dbedit7.text;
+      open;
+      if recordcount>0 then begin
+        frmfcdy.ppreport2.print;
+      end;
+    end;
+  end;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfcjy.BitBtn4Click(Sender: TObject);
+begin
+  if fcjy1.active=true then begin
+    if frmxgwl1=nil then frmxgwl1:=tfrmxgwl1.create(self);
+    frmxgwl1.edit2.text:=dbedit7.text;
+    frmxgwl1.combobox2.text:=dbedit8.text;
+    FRMXGWL1.LABEL4.CAPTION:='FCJY';
+    frmxgwl1.show;
+  end;
+end;
+
+procedure Tfrmfcjy.SpeedButton8Click(Sender: TObject);
+begin
+  screen.cursor:=crHourglass;
+  if fcjy1.active=true then begin
+    if frmxgkh=nil then frmxgkh:=tfrmxgkh.create(self);
+    frmxgkh.edit1.text:=fcjy2.fieldbyname('prjno').value;
+    frmxgkh.edit2.text:=fcjy2.fieldbyname('kh').value;
+    frmxgkh.edit3.text:='';
+    frmxgkh.label4.caption:='fcjh';
+    frmxgkh.show;
+  end;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfcjy.fcjy2SjChange(Sender: TField);
+begin
+  if (fcjy1.fieldbyname('gjwl').isnull) or (fcjy1.fieldbyname('gjwl').value='') then begin
+    if (not fcjy2sj.IsNull) and (fcjy1.fieldbyname('lbzs').value>0) then
+    begin
+      fcjy2ys.asinteger:=fcjy2zds.asinteger+fcjy2jc.asinteger-round(fcjy2sj.value*fcjy1.fieldbyname('lbzs').value);
+      fcjy2sj_qty.value:=round(fcjy2sj.value*fcjy1.fieldbyname('lbzs').value);
+    end
+    else
+    begin
+      fcjy2sj.value:=0;
+      fcjy2sj_qty.value:=0;
+      fcjy2ys.value:=fcjy2zds.value+fcjy2jc.value;
+    end;
+  end
+  else begin
+    //if fcjy2sj.value=0 then xh1:=fcjy1.fieldbyname('xh').value;
+  end;
+end;
+
+procedure Tfrmfcjy.fcjy2JcChange(Sender: TField);
+begin
+  if (fcjy1.fieldbyname('gjwl').isnull) or (fcjy1.fieldbyname('gjwl').value='') then begin
+    if (not fcjy2jc.IsNull) and (fcjy1.fieldbyname('lbzs').value>0) then
+    begin
+      fcjy2jy.value:=(fcjy2zds.asinteger+fcjy2jc.asinteger)/fcjy1.fieldbyname('lbzs').asinteger;
+      fcjy2sj.value:=((fcjy2zds.value+fcjy2jc.value)-((fcjy2zds.value+fcjy2jc.value) mod fcjy1.fieldbyname('lbzs').value))/fcjy1.fieldbyname('lbzs').value;
+      //fcjy2sj.value:=int(fcjy2jy.value);
+      fcjy2ys.value:=fcjy2zds.asinteger+fcjy2jc.asinteger-round(fcjy2sj.value*fcjy1.fieldbyname('lbzs').value);
+    end;
+  end
+  else begin
+    //
+  end;
+end;
+
+procedure Tfrmfcjy.dsfcjy1DataChange(Sender: TObject; Field: TField);
+begin
+  if fcjy1.state=dsbrowse then begin
+    edit1.text:=fcjy1.fieldbyname('prjno').value;
+    if not fcjy1.FieldByName('ttl_ch').IsNull then
+    edit2.Text:=fcjy1.FieldByName('xh').AsString+'/'+fcjy1.FieldByName('ttl_ch').Value
+    else edit2.Text:='';
+    with fcjy2 do begin
+      close;
+      commandtext:='select * from cut_fcjy2 where prjno=:prjno and wl=:wl and xh=:xh';
+      parameters[0].value:=fcjy1.fieldbyname('prjno').value;
+      parameters[1].value:=fcjy1.fieldbyname('wl').value;
+      parameters[2].value:=fcjy1.fieldbyname('xh').value;
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmfcjy.fcjy1AfterPost(DataSet: TDataSet);
+begin
+  fcjy1.UpdateBatch(arAll);
+end;
+
+procedure Tfrmfcjy.fcjy2AfterPost(DataSet: TDataSet);
+var
+  prjno,wl,kh,cm:string;
+  xh,id1,siz1:integer;
+begin
+  fcjy2.UpdateBatch(arAll);
+  with aquery2 do begin
+    sql.text:='exec cut_fcjy2post :prjno';
+    parameters[0].value:=fcjy2.fieldbyname('prjno').value;
+    execsql;
+  end;
+  prjno:=fcjy1.fieldbyname('prjno').value;
+  wl:=fcjy1.fieldbyname('wl').value;
+  xh:=fcjy1.fieldbyname('xh').value;
+  kh:=fcjy2.fieldbyname('kh').value;
+  id1:=fcjy2.fieldbyname('id').value;
+  siz1:=fcjy2.fieldbyname('siz1').value;
+  cm:=fcjy2.fieldbyname('cm').value;
+  with fcjy1 do begin
+    close;
+    commandtext:='select * from cut_fcjy1 where prjno=:prjno';
+    parameters[0].value:=prjno;
+    open;
+    locate('prjno;wl;xh',vararrayof([prjno,wl,xh]),[]);
+  end;
+  fcjy2.locate('prjno;wl;xh;kh;id;siz1;cm',vararrayof([prjno,wl,xh,kh,id1,siz1,cm]),[]);
+end;
+
+procedure Tfrmfcjy.SpeedButton9Click(Sender: TObject);
+var
+  prjno,wl:string;
+  xh:integer;
+begin
+  screen.cursor:=crHourglass;
+  if fcjy1.state=dsedit then fcjy1.post;
+  if fcjy2.state=dsedit then fcjy2.post;
+  if not fcjy1.fieldbyname('gjwl').isnull then begin
+    if fcjy1.fieldbyname('gjwl').value>'' then begin
+      prjno:=fcjy1.fieldbyname('prjno').value;
+      wl:=fcjy1.fieldbyname('wl').value;
+      xh:=fcjy1.fieldbyname('xh').value;
+      //
+      with aquery1 do begin
+        close;
+        sql.text:='exec cut_xgsj :prjno,:wl,:xh';
+        parameters[0].value:=prjno;
+        parameters[1].value:=wl;
+        parameters[2].value:=xh;
+        execsql;
+      end;
+      //
+    end;
+  end;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfcjy.SpeedButton10Click(Sender: TObject);
+begin
+  if frmblxg=nil then frmblxg:=tfrmblxg.create(self);
+  frmblxg.label2.caption:=dbedit2.text;
+  frmblxg.edit1.text:=dbedit2.text;
+  frmblxg.show;
+end;
+
+procedure Tfrmfcjy.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if edit1.text>'' then begin
+    if key=#13 then begin
+      with fcjy1 do begin
+        close;
+        commandtext:='select * from cut_fcjy1 where prjno=:prjno';
+        parameters[0].value:=edit1.text;
+        open;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmfcjy.fcjy2AfterOpen(DataSet: TDataSet);
+begin
+  (fcjy2.fieldbyname('sj') as tfloatfield).displayformat:='#0.0';
+
+  with aquery1 do begin
+    close;
+    sql.text:='select count(distinct zdh) as s1,count(distinct kh) as s2,count(distinct cm) as s3,count(distinct cm_rev) as s4 from cut_fcjy2 where prjno=:prjno and wl=:wl';
+    parameters[0].value:=fcjy1.fieldbyname('prjno').value;
+    parameters[1].value:=fcjy1.fieldbyname('wl').value;
+    open;
+    //if not fieldbyname('s1').isnull then dbgrideh1.columns[0].footer.value:=fieldbyname('s1').asstring;
+    if not fieldbyname('s2').isnull then dbgrideh1.columns[1].footer.value:=fieldbyname('s2').asstring;
+    if not fieldbyname('s3').isnull then dbgrideh1.columns[2].footer.value:=fieldbyname('s3').asstring;
+    //if not fieldbyname('s4').isnull then dbgrideh1.columns[3].footer.value:=fieldbyname('s4').asstring;
+  end;
+  dbgrideh1.Columns[0].Footer.value:=fcjy1.fieldbyname('ttl_wo').AsString;
+  with aquery1 do begin
+    close;
+    sql.text:='select count(distinct cm_rev) as s4 from cut_fcjy2 where prjno=:prjno and wl=:wl and xh=:xh and jy>0';
+    parameters[0].value:=fcjy1.fieldbyname('prjno').value;
+    parameters[1].value:=fcjy1.fieldbyname('wl').value;
+    parameters[2].value:=fcjy1.fieldbyname('xh').value;
+    open;
+    if not fieldbyname('s4').isnull then dbgrideh1.columns[4].footer.value:=fieldbyname('s4').asstring;
+  end;
+end;
+
+procedure Tfrmfcjy.fcjy1AfterOpen(DataSet: TDataSet);
+begin
+  (fcjy1.fieldbyname('jhyl') as tfloatfield).displayformat:='#0.0000';
+  (fcjy1.fieldbyname('ttl_zyl') as tfloatfield).displayformat:='#0.00';
+  (fcjy1.fieldbyname('lbhd') as tfloatfield).displayformat:='#0.00';
+  (fcjy1.fieldbyname('cdxz') as tfloatfield).displayformat:='#0.00';
+end;
+
+procedure Tfrmfcjy.DBEdit2KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then dbedit2exit(self);
+end;
+
+procedure Tfrmfcjy.SpeedButton11Click(Sender: TObject);
+var
+  swl,twl:string;
+begin
+  screen.cursor:=crHourglass;
+  if frmwlcopy=nil then frmwlcopy:=tfrmwlcopy.create(self);
+  frmwlcopy.combobox1.items.clear;
+  with aquery1 do begin
+    close;
+    sql.text:='select distinct wl from cut_fcjy1 where prjno=:prjno and sjs>0 and wl<>:wl';
+    parameters[0].value:=fcjy1.fieldbyname('prjno').value;
+    parameters[1].value:=fcjy1.fieldbyname('wl').value;
+    open;
+    first;
+    while not eof do begin
+      if not fieldbyname('wl').isnull then frmwlcopy.combobox1.items.add(fieldbyname('wl').value);
+      next;
+    end;
+  end;
+  frmwlcopy.combobox1.text:='';
+  frmwlcopy.show;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfcjy.DBEdit2Exit(Sender: TObject);
+var
+  prjno,wl:string;
+  xh,lbzs:integer;
+begin
+  if fcjy2.state=dsedit then fcjy2.post;
+  if fcjy1.state=dsedit then begin
+    fcjy1.post;
+    if fcjy1.fieldbyname('lbzs').value>0 then begin
+      lbzs:=strtoint(dbedit2.text);
+      prjno:=fcjy1.fieldbyname('prjno').value;
+      wl:=fcjy1.fieldbyname('wl').value;
+      xh:=fcjy1.fieldbyname('xh').value;
+      with aquery2 do begin
+        close;
+        sql.text:='exec cut_xglbzs :prjno,:wl,:xh,:lbzs';
+        parameters[0].value:=prjno;
+        parameters[1].value:=wl;
+        parameters[2].value:=xh;
+        parameters[3].value:=lbzs;
+        execsql;
+      end;
+      with fcjy1 do begin
+        close;
+        commandtext:='select * from cut_fcjy1 where prjno=:prjno';
+        parameters[0].value:=prjno;
+        open;
+        locate('prjno;wl;xh',vararrayof([prjno,wl,xh]),[]);
+      end;
+    end
+    else begin
+      with aquery2 do begin
+        if dbedit2.text='' then begin
+         close;
+         sql.text:='update cut_fcjy1 set lbzs=0,jhyl=0.00 where prjno=:prjno and wl=:wl and xh=:xh';
+         parameters[0].value:=dbedit7.text;
+         parameters[1].value:=dbedit8.text;
+         parameters[2].value:=strtoint(dbedit1.text);
+         execsql;
+        end;
+        close;
+        sql.text:='update cut_fcjy2 set jy=0.00,sj=0.00,jc=0.00,gm=0.00 where prjno=:prjno and wl=:wl and xh=:xh';
+        parameters[0].value:=dbedit7.text;
+        parameters[1].value:=dbedit8.text;
+        parameters[2].value:=strtoint(dbedit1.text);
+        execsql;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmfcjy.N1Click(Sender: TObject);
+begin
+  with aquery1 do begin
+    close;
+    sql.text:='update cut_fcjy1 set gjwl=:gjwl where prjno=:prjno and wl=:wl';
+    parameters[0].value:='';
+    parameters[1].value:=fcjy1.fieldbyname('prjno').value;
+    parameters[2].value:=fcjy1.fieldbyname('wl').value;
+    execsql;
+  end;
+  fcjy1.edit;
+  fcjy1.fieldbyname('gjwl').value:='';
+  fcjy1.post;
+  showmessage('OK!');
+end;
+
+procedure Tfrmfcjy.SpeedButton12Click(Sender: TObject);
+begin
+  screen.cursor:=crHourglass;
+  if frmzds=nil then frmzds:=tfrmzds.create(self);
+  frmzds.caption:='Copy based on CF_ID 依裁程識別碼復制';
+  frmzds.label2.caption:='fcjy1';
+  frmzds.show;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfcjy.FormShow(Sender: TObject);
+begin
+  silang1.LoadAllFromFile('cutplan.sil',false);
+  silang1.ActiveLanguage:=frmmain.SpinEdit1.value;
+  ifrn:='0';
+  if uppercase(frmmain.Label1.caption)='PAUL' then begin
+    speedbutton1.Enabled:=true;
+    speedbutton2.Enabled:=true;
+    speedbutton5.Enabled:=true;
+    speedbutton6.Enabled:=true;
+    speedbutton8.Enabled:=true;
+    speedbutton9.Enabled:=true;
+    speedbutton10.Enabled:=true;
+    speedbutton11.Enabled:=true;
+    speedbutton12.Enabled:=true;
+    bitbtn1.enabled:=true;
+    bitbtn2.enabled:=true;
+    bitbtn4.enabled:=true;
+    dbedit2.ReadOnly:=false;
+    dbgrideh1.ReadOnly:=false;
+  end
+  else begin
+    speedbutton1.Enabled:=false;
+    speedbutton2.Enabled:=false;
+    speedbutton5.Enabled:=false;
+    speedbutton6.Enabled:=false;
+    speedbutton8.Enabled:=false;
+    speedbutton9.Enabled:=false;
+    speedbutton10.Enabled:=false;
+    speedbutton11.Enabled:=false;
+    speedbutton12.Enabled:=false;
+    bitbtn1.enabled:=false;
+    bitbtn2.enabled:=false;
+    bitbtn4.enabled:=false;
+    dbedit2.ReadOnly:=true;
+    dbgrideh1.ReadOnly:=true;
+  end;
+end;
+
+procedure Tfrmfcjy.BitBtn2Click(Sender: TObject);
+begin
+  screen.cursor:=crHourglass;
+  aquery1.close;
+  aquery1.sql.text:='select tm from cut_lbtz where prjno=:prjno and wl=:wl and xh=:xh';
+  aquery1.parameters[0].value:=fcjy1.fieldbyname('prjno').value;
+  aquery1.parameters[1].value:=fcjy1.fieldbyname('wl').value;
+  aquery1.parameters[2].value:=fcjy1.fieldbyname('xh').value;
+  aquery1.open;
+  if aquery1.recordcount>0 then begin
+   if aquery1.fieldbyname('tm').value=false then begin
+    if frmxgtm=nil then frmxgtm:=tfrmxgtm.create(self);
+    frmxgtm.label2.caption:='fcjh';
+    frmxgtm.show;
+   end
+   else begin
+    application.messagebox('此已為通碼!','提示信息',mb_iconinformation+mb_ok);
+   end;
+  end
+  else begin
+    if frmxgtm=nil then frmxgtm:=tfrmxgtm.create(self);
+    frmxgtm.label2.caption:='fcjh';
+    frmxgtm.show;
+  end;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfcjy.N2Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with aquery1 do begin
+    close;
+    sql.text:='exec cut_jsttlch';
+    execsql;
+  end;
+  showmessage('finished!');
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmfcjy.N3Click(Sender: TObject);
+begin
+  if Application.MessageBox('Delete this matl 刪除此物料?','Confirm 確定',MB_ICONQUESTION+mb_yesno)=ID_YES then begin
+    with aquery1 do begin
+      close;
+      sql.Text:='exec cut_dltwl :x1,:x2';
+      Parameters[0].value:=fcjy1.FieldByName('prjno').Value;
+      Parameters[1].value:=fcjy1.FieldByName('wl').Value;
+      ExecSQL;
+    end;
+    ShowMessage('Deleted, pls refresh 已刪除, 請刷新！');
+  end;
+end;
+
+procedure Tfrmfcjy.FRN1Click(Sender: TObject);
+begin
+  ifrn:='1';
+end;
+
+procedure Tfrmfcjy.SpeedButton14Click(Sender: TObject);
+begin
+  screen.cursor:=crHourglass;
+  if frmmmyz=nil then frmmmyz:=tfrmmmyz.create(self);
+  frmmmyz.label1.caption:='fcjy1';
+  frmmmyz.show;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfcjy.SpeedButton15Click(Sender: TObject);
+begin
+  if Copy(edit1.Text,13,2)='PD' then begin
+    //
+  end;
+end;
+
+procedure Tfrmfcjy.fcwl2AfterPost(DataSet: TDataSet);
+begin
+  fcwl2.UpdateBatch(arAll);
+  {
+  if fcwl2.applyupdates(-1)>0 then begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftboolean,'bzmj',ptinput);
+      params.createparam(ftboolean,'zbmj',ptinput);
+      params.createparam(ftboolean,'twmj',ptinput);
+      params.createparam(ftboolean,'pzx',ptinput);
+      params.createparam(ftboolean,'yymj',ptinput);
+      params.createparam(ftboolean,'dk',ptinput);
+      params.createparam(ftboolean,'hk',ptinput);
+      params.createparam(ftboolean,'ds',ptinput);
+      params.createparam(ftboolean,'hs',ptinput);
+      params.createparam(ftboolean,'dzd',ptinput);
+      params.createparam(ftboolean,'hzd',ptinput);
+      params.createparam(ftboolean,'ldz',ptinput);
+      params.createparam(ftboolean,'lhz',ptinput);
+      params.createparam(ftboolean,'yqxg',ptinput);
+      params.createparam(ftboolean,'zysc',ptinput);
+      params.createparam(ftstring,'prjno',ptinput);
+      params.createparam(ftstring,'wl',ptinput);
+      params.createparam(ftinteger,'xh',ptinput);
+      commandtext:='update cut_fcwl2 set bzmj=:bzmj,zbmj=:zbmj,twmj=:twmj,pzx=:pzx,yymj=:yymj,dk=:dk,hk=:hk,ds=:ds,hs=:hs,dzd=:dzd,hzd=:hzd,ldz=:ldz,lhz=:lhz,yqxg=:yqxg,zysc=:zysc '
+                  +'where prjno=:prjno and wl=:wl and xh=:xh';
+      params[0].asboolean:=fcwl2.fieldbyname('bzmj').value;
+      params[1].asboolean:=fcwl2.fieldbyname('zbmj').value;
+      params[2].asboolean:=fcwl2.fieldbyname('twmj').value;
+      params[3].asboolean:=fcwl2.fieldbyname('pzx').value;
+      params[4].asboolean:=fcwl2.fieldbyname('yymj').value;
+      params[5].asboolean:=fcwl2.fieldbyname('dk').value;
+      params[6].asboolean:=fcwl2.fieldbyname('hk').value;
+      params[7].asboolean:=fcwl2.fieldbyname('ds').value;
+      params[8].asboolean:=fcwl2.fieldbyname('hs').value;
+      params[9].asboolean:=fcwl2.fieldbyname('dzd').value;
+      params[10].asboolean:=fcwl2.fieldbyname('hzd').value;
+      params[11].asboolean:=fcwl2.fieldbyname('ldz').value;
+      params[12].asboolean:=fcwl2.fieldbyname('lhz').value;
+      params[13].asboolean:=fcwl2.fieldbyname('yqxg').value;
+      params[14].asboolean:=fcwl2.fieldbyname('zysc').value;
+      params[15].asstring:=fcwl2.fieldbyname('prjno').value;
+      params[16].asstring:=fcwl2.fieldbyname('wl').value;
+      params[17].asinteger:=fcwl2.fieldbyname('xh').value;
+      execute;
+    end;
+  end;
+  }
+end;
+
+end.

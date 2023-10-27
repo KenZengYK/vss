@@ -1,0 +1,189 @@
+unit dycgbgu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBTables, ppDB, ppProd, ppClass, ppReport, ppComm, ppRelatv,
+  ppDBPipe, ppDBBDE, ppBands, ppCache, ppPrnabl, ppCtrls, myChkBox, ppViewr,
+  ppVar, ppStrtch, ppMemo, ppRegion, DBClient;
+
+type
+  Tfrmdycgbg = class(TForm)
+    DataSource1: TDataSource;
+    ppBDEPipeline1: TppBDEPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppDBText1: TppDBText;
+    ppLabel40: TppLabel;
+    ppDBText24: TppDBText;
+    ppLabel41: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppDetailBand1: TppDetailBand;
+    ppShape2: TppShape;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLine19: TppLine;
+    ppFooterBand1: TppFooterBand;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    myDBCheckBox1: TmyDBCheckBox;
+    ppLabel3: TppLabel;
+    myDBCheckBox2: TmyDBCheckBox;
+    ppLabel4: TppLabel;
+    myDBCheckBox3: TmyDBCheckBox;
+    ppLabel5: TppLabel;
+    myDBCheckBox4: TmyDBCheckBox;
+    ppLabel6: TppLabel;
+    myDBCheckBox5: TmyDBCheckBox;
+    ppLabel7: TppLabel;
+    myDBCheckBox6: TmyDBCheckBox;
+    ppLabel8: TppLabel;
+    myDBCheckBox7: TmyDBCheckBox;
+    ppLabel9: TppLabel;
+    myDBCheckBox8: TmyDBCheckBox;
+    ppLabel10: TppLabel;
+    myDBCheckBox9: TmyDBCheckBox;
+    ppLabel11: TppLabel;
+    myDBCheckBox10: TmyDBCheckBox;
+    ppLabel12: TppLabel;
+    myDBCheckBox11: TmyDBCheckBox;
+    ppLabel13: TppLabel;
+    myDBCheckBox12: TmyDBCheckBox;
+    ppLabel14: TppLabel;
+    myDBCheckBox13: TmyDBCheckBox;
+    ppLabel15: TppLabel;
+    myDBCheckBox14: TmyDBCheckBox;
+    ppLabel16: TppLabel;
+    myDBCheckBox15: TmyDBCheckBox;
+    ppLabel17: TppLabel;
+    ppShape1: TppShape;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppDBText9: TppDBText;
+    ppLabel26: TppLabel;
+    ppDBText10: TppDBText;
+    cczp: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppLabel29: TppLabel;
+    ppLabel30: TppLabel;
+    ppLabel31: TppLabel;
+    ppLabel32: TppLabel;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppLabel33: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel35: TppLabel;
+    ppLabel36: TppLabel;
+    ppLabel37: TppLabel;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    ppLabel38: TppLabel;
+    ppLabel39: TppLabel;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppDBText23: TppDBText;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppDBText25: TppDBText;
+    ppDBText26: TppDBText;
+    ppDBText27: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText32: TppDBText;
+    ppDBText33: TppDBText;
+    ppDBText34: TppDBText;
+    ppDBText35: TppDBText;
+    ppDBText36: TppDBText;
+    ppDBText37: TppDBText;
+    ppDBText38: TppDBText;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppShape3: TppShape;
+    ppLabel42: TppLabel;
+    ppDBMemo1: TppDBMemo;
+    region1: TppRegion;
+    ppLabel43: TppLabel;
+    ppDBText39: TppDBText;
+    ppLabel44: TppLabel;
+    ppDBText40: TppDBText;
+    ppLabel45: TppLabel;
+    ppLabel46: TppLabel;
+    ppLine20: TppLine;
+    query1: TClientDataSet;
+    procedure ppGroupHeaderBand2BeforePrint(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmdycgbg: Tfrmdycgbg;
+
+implementation
+uses dlu;
+{$R *.DFM}
+
+procedure Tfrmdycgbg.ppGroupHeaderBand2BeforePrint(Sender: TObject);
+begin
+  if query1.fieldbyname('zp').value=true then
+  begin
+    cczp.Visible:=false;
+    region1.visible:=true;
+    region1.bringtofront;
+  end
+  else begin
+    region1.visible:=false;
+    cczp.visible:=false;
+  end;
+end;
+
+procedure Tfrmdycgbg.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppreport1.previewform.windowstate:=wsmaximized;
+  tppviewer(ppreport1.previewform.viewer).zoomsetting:=zs100percent;
+end;
+
+end.

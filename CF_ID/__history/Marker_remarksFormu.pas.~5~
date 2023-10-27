@@ -1,0 +1,38 @@
+unit Marker_remarksFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ADODB, DB, ExtCtrls;
+
+type
+  Tfrmmarker_remarks = class(TForm)
+    ADODataSet1: TADODataSet;
+    ADOQuery1: TADOQuery;
+    Panel1: TPanel;
+    DataSource1: TDataSource;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmmarker_remarks: Tfrmmarker_remarks;
+
+implementation
+
+uses mainu, lbjhu, jhmjfxformu;
+
+{$R *.dfm}
+
+procedure Tfrmmarker_remarks.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmmarker_remarks:=nil;
+end;
+
+end.

@@ -1,0 +1,80 @@
+unit pu2cu_elementsformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DBCtrls, GridsEh, DBGridEh, ADODB, DB, Buttons, Mask;
+
+type
+  Tfrmpu2cu_elements = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    DBText1: TDBText;
+    Label3: TLabel;
+    DBText2: TDBText;
+    Label4: TLabel;
+    cut_fc_pu2cu: TADODataSet;
+    dscut_fc_pu2cu: TDataSource;
+    AQuery1: TADOQuery;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Label5: TLabel;
+    DBEdit1: TDBEdit;
+    SpeedButton13: TSpeedButton;
+    Label6: TLabel;
+    DBEdit2: TDBEdit;
+    Label7: TLabel;
+    DBEdit3: TDBEdit;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpu2cu_elements: Tfrmpu2cu_elements;
+
+implementation
+
+uses mainu, fcjyu, lbjhu;
+
+{$R *.dfm}
+
+procedure Tfrmpu2cu_elements.BitBtn1Click(Sender: TObject);
+begin
+  if (cut_fc_pu2cu.State=dsEdit) or (cut_fc_pu2cu.State=dsInsert) then
+  cut_fc_pu2cu.Post;
+end;
+
+procedure Tfrmpu2cu_elements.BitBtn2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure Tfrmpu2cu_elements.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Action:=cafree;
+  frmpu2cu_elements:=nil;
+end;
+
+procedure Tfrmpu2cu_elements.FormShow(Sender: TObject);
+begin
+  if Label4.Caption='fc' then begin
+
+  end else if Label4.Caption='lb' then begin
+
+  end;
+  with cut_fc_pu2cu do begin
+    close;
+    CommandText:='';
+    Open;
+  end;
+end;
+
+end.

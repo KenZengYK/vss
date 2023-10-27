@@ -1,0 +1,67 @@
+unit pbzlu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Grids, DBGridEh, Mask, DBCtrls, ExtCtrls, Buttons, Db, DBTables,
+  GridsEh;
+
+type
+  Tfrmpbzl = class(TForm)
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    DBGridEh1: TDBGridEh;
+    DBNavigator1: TDBNavigator;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    tc: TSpeedButton;
+    Query1: TQuery;
+    Query2: TQuery;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    procedure DBGridEh1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumnEh; State: TGridDrawState);
+    procedure tcClick(Sender: TObject);
+    procedure DBGridEh1KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpbzl: Tfrmpbzl;
+
+implementation
+uses mainu, dmfcu;
+{$R *.DFM}
+
+procedure Tfrmpbzl.DBGridEh1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumnEh;
+  State: TGridDrawState);
+begin
+  if datacol=3 then
+  begin
+    dbgrideh1.canvas.brush.Color:=$00B5FFFF;
+    dbgrideh1.canvas.Font.Color:=clred;
+    //dbgrideh1.DefaultDrawColumnCell(rect,datacol,column,state);
+  end;
+end;
+
+procedure Tfrmpbzl.tcClick(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmpbzl.DBGridEh1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key=13 then
+  begin
+    sendmessage(dbgrideh1.handle,wm_keydown,vk_tab,0);
+  end;
+end;
+
+end.

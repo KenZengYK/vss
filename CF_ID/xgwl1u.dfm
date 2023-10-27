@@ -1,0 +1,110 @@
+object frmxgwl1: Tfrmxgwl1
+  Left = 192
+  Top = 125
+  Caption = #20462#25913#29289#26009
+  ClientHeight = 166
+  ClientWidth = 249
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 16
+    Top = 16
+    Width = 48
+    Height = 13
+    Caption = #24037#31243#32232#34399
+  end
+  object Label2: TLabel
+    Left = 16
+    Top = 56
+    Width = 36
+    Height = 13
+    Caption = #21407#29289#26009
+  end
+  object Label3: TLabel
+    Left = 16
+    Top = 96
+    Width = 36
+    Height = 13
+    Caption = #26032#29289#26009
+  end
+  object Label4: TLabel
+    Left = 96
+    Top = 160
+    Width = 3
+    Height = 13
+    Visible = False
+  end
+  object ComboBox2: TComboBox
+    Left = 72
+    Top = 53
+    Width = 169
+    Height = 21
+    TabOrder = 1
+    OnEnter = ComboBox2Enter
+  end
+  object Edit1: TEdit
+    Left = 72
+    Top = 92
+    Width = 169
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 2
+  end
+  object BitBtn1: TBitBtn
+    Left = 16
+    Top = 136
+    Width = 73
+    Height = 25
+    Caption = #30906#23450
+    DoubleBuffered = True
+    Kind = bkOK
+    ParentDoubleBuffered = False
+    TabOrder = 3
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 168
+    Top = 136
+    Width = 73
+    Height = 25
+    Caption = #21462#28040
+    DoubleBuffered = True
+    Kind = bkCancel
+    ParentDoubleBuffered = False
+    TabOrder = 4
+    OnClick = BitBtn2Click
+  end
+  object Edit2: TEdit
+    Left = 72
+    Top = 12
+    Width = 169
+    Height = 21
+    CharCase = ecUpperCase
+    Color = 11927551
+    ReadOnly = True
+    TabOrder = 0
+  end
+  object Query1: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 104
+    Top = 120
+  end
+  object Query2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 144
+    Top = 120
+  end
+end

@@ -1,0 +1,69 @@
+unit printzmd1u;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ppComm, ppRelatv, ppProd, ppClass, ppReport, ppCtrls, ppVar, ppPrnabl,
+  ppBands, ppCache, ppViewr, ppParameter;
+
+type
+  Tfrmprintzmd1 = class(TForm)
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel13: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppLabel14: TppLabel;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppSummaryBand1: TppSummaryBand;
+    ppLabel15: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    ppDBCalc3: TppDBCalc;
+    ppDBCalc4: TppDBCalc;
+    ppLine1: TppLine;
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmprintzmd1: Tfrmprintzmd1;
+
+implementation
+uses zmdu;
+{$R *.DFM}
+
+procedure Tfrmprintzmd1.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppreport1.previewform.windowstate:=wsmaximized;
+  tppviewer(ppreport1.previewform.viewer).zoompercentage:=100;
+end;
+
+end.

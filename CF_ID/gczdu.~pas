@@ -1,0 +1,72 @@
+unit gczdu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Grids, DBGridEh, StdCtrls, Db, DBTables;
+
+type
+  Tfrmgczd = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Button1: TButton;
+    Button2: TButton;
+    DataSource1: TDataSource;
+    Label1: TLabel;
+    Database1: TDatabase;
+    Query1: TQuery;
+    Label2: TLabel;
+    procedure Button2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmgczd: Tfrmgczd;
+
+implementation
+uses sczdu, sczd1u;
+{$R *.DFM}
+
+procedure Tfrmgczd.Button2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmgczd.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmgczd:=nil;
+end;
+
+procedure Tfrmgczd.Button1Click(Sender: TObject);
+begin
+  if query1.recordcount>0 then begin
+    frmsczd.edit1.text:=dbgrideh1.fields[1].asstring;
+    close;
+  end;
+end;
+
+procedure Tfrmgczd.FormShow(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    sql.clear;
+    sql.add('select distinct a.cuso40,b.word40 from oep40 a,msp40 b where b.cono40=a.cono40 and substr(b.w1rf40,1,7)=a.ordn40 ');
+    sql.add('and a.cono40=:cono40 and a.dtlc40=0 and a.stat40<>:stat40 and b.wsta40<:wsta40 order by a.cuso40,b.word40');
+    prepare;
+    params[0].asstring:=uppercase(frmsczd.edit2.text);
+    params[1].asstring:='X';
+    params[2].asstring:='8';
+    open;
+  end;
+  dbgrideh1.columns[0].title.caption:='工程號';
+  dbgrideh1.columns[1].title.caption:='制單號';
+end;
+
+end.

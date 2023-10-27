@@ -1,0 +1,97 @@
+unit lbgccxu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBTables, Grids, DBGridEh, StdCtrls, Buttons;
+
+type
+  Tfrmlbgccx = class(TForm)
+    Query1: TQuery;
+    DataSource1: TDataSource;
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Label1: TLabel;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmlbgccx: Tfrmlbgccx;
+
+implementation
+uses lbjhu, cgdu, cgbgu;
+{$R *.DFM}
+
+procedure Tfrmlbgccx.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmlbgccx.BitBtn1Click(Sender: TObject);
+begin
+  cursor:=crhourglass;
+  if not dbgrideh1.fields[0].isnull then
+  begin
+   if label1.caption='lbjh' then begin
+    frmlbjh.combobox1.text:=dbgrideh1.fields[0].value;
+    frmlbjh.ComboBox1Change(self);
+   end
+   else begin
+    if label1.caption='cgd' then begin
+      frmcgd.combobox1.text:=dbgrideh1.fields[0].value;
+      frmcgd.ComboBox1Change(self);
+    end
+    else begin
+      if label1.caption='cgbg' then begin
+        frmcgbg.combobox1.text:=dbgrideh1.fields[0].value;
+        frmcgbg.combobox1change(self);
+      end;
+    end;
+   end;
+  end;
+  close;
+  cursor:=crdefault;
+end;
+
+procedure Tfrmlbgccx.FormShow(Sender: TObject);
+begin
+  if label1.caption='lbjh' then begin
+    with query1 do begin
+      close;
+      sql.clear;
+      sql.add('select distinct prjno from fcjy1');
+      open;
+    end;
+  end
+  else begin
+   if label1.caption='cgd' then begin
+    with query1 do begin
+      close;
+      sql.clear;
+      sql.add('select distinct prjno from fcwl2');
+      open;
+    end;
+   end
+   else begin
+     if label1.caption='cgbg' then begin
+       with query1 do begin
+         close;
+         sql.clear;
+         //sql.add('select distinct prjno from cgjh1');
+         sql.add('select distinct prjno from fcwl2');
+         open;
+       end;
+     end;
+   end;
+  end;
+end;
+
+end.

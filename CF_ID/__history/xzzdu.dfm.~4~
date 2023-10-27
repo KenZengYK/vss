@@ -1,0 +1,405 @@
+object frmxzzd: Tfrmxzzd
+  Left = 78
+  Top = 75
+  Caption = #36984#25799#21046#21934' Choose WO'
+  ClientHeight = 501
+  ClientWidth = 649
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 208
+    Width = 161
+    Height = 13
+    AutoSize = False
+    Caption = #21487#36984#25799#21046#21934':'
+  end
+  object Label2: TLabel
+    Left = 352
+    Top = 48
+    Width = 137
+    Height = 13
+    AutoSize = False
+    Caption = #24050#36984#25799#21046#21934':'
+  end
+  object SpeedButton1: TSpeedButton
+    Left = 314
+    Top = 184
+    Width = 30
+    Height = 30
+    Hint = #36984#25799
+    Caption = '->'
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton1Click
+  end
+  object SpeedButton2: TSpeedButton
+    Left = 314
+    Top = 232
+    Width = 30
+    Height = 30
+    Hint = #20840#36984
+    Caption = '>>'
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton2Click
+  end
+  object SpeedButton3: TSpeedButton
+    Left = 314
+    Top = 280
+    Width = 30
+    Height = 30
+    Hint = #31227#38500
+    Caption = '<-'
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton3Click
+  end
+  object SpeedButton4: TSpeedButton
+    Left = 314
+    Top = 328
+    Width = 30
+    Height = 30
+    Hint = #20840#37096#31227#38500
+    Caption = '<<'
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton4Click
+  end
+  object SpeedButton5: TSpeedButton
+    Left = 314
+    Top = 424
+    Width = 30
+    Height = 30
+    Hint = #36864#20986
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000120B0000120B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00330000000000
+      03333377777777777F333301BBBBBBBB033333773F3333337F3333011BBBBBBB
+      0333337F73F333337F33330111BBBBBB0333337F373F33337F333301110BBBBB
+      0333337F337F33337F333301110BBBBB0333337F337F33337F333301110BBBBB
+      0333337F337F33337F333301110BBBBB0333337F337F33337F333301110BBBBB
+      0333337F337F33337F333301110BBBBB0333337F337FF3337F33330111B0BBBB
+      0333337F337733337F333301110BBBBB0333337F337F33337F333301110BBBBB
+      0333337F3F7F33337F333301E10BBBBB0333337F7F7F33337F333301EE0BBBBB
+      0333337F777FFFFF7F3333000000000003333377777777777333}
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton5Click
+  end
+  object Label3: TLabel
+    Left = 8
+    Top = 48
+    Width = 145
+    Height = 13
+    AutoSize = False
+    Caption = #36984#25799#24037#31243#34399' Choose Proj#: '
+  end
+  object SpeedButton6: TSpeedButton
+    Left = 314
+    Top = 376
+    Width = 30
+    Height = 30
+    Hint = #30906#23450
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000120B0000120B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+      555555555555555555555555555555555555555555FF55555555555559055555
+      55555555577FF5555555555599905555555555557777F5555555555599905555
+      555555557777FF5555555559999905555555555777777F555555559999990555
+      5555557777777FF5555557990599905555555777757777F55555790555599055
+      55557775555777FF5555555555599905555555555557777F5555555555559905
+      555555555555777FF5555555555559905555555555555777FF55555555555579
+      05555555555555777FF5555555555557905555555555555777FF555555555555
+      5990555555555555577755555555555555555555555555555555}
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton6Click
+  end
+  object Label4: TLabel
+    Left = 8
+    Top = 16
+    Width = 32
+    Height = 13
+    Caption = 'FRN# '
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 8
+    Top = 232
+    Width = 289
+    Height = 225
+    Color = 11927551
+    DataSource = dszdh
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    OnDblClick = SpeedButton1Click
+    Columns = <
+      item
+        Alignment = taCenter
+        EditButtons = <>
+        FieldName = 'zdh'
+        Footers = <>
+        Title.Caption = #21046#21934#34399
+        Width = 63
+      end
+      item
+        Alignment = taCenter
+        EditButtons = <>
+        FieldName = 'kh'
+        Footers = <>
+        Title.Caption = #27454#34399
+        Width = 149
+      end
+      item
+        Alignment = taCenter
+        EditButtons = <>
+        FieldName = 'sh'
+        Footers = <>
+        Title.Caption = #33394#34399
+        Width = 44
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object DBGridEh2: TDBGridEh
+    Left = 360
+    Top = 72
+    Width = 289
+    Height = 385
+    Color = 11927551
+    DataSource = dsxzzd
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    OnDblClick = SpeedButton3Click
+    Columns = <
+      item
+        Alignment = taCenter
+        EditButtons = <>
+        FieldName = 'Zdh'
+        Footers = <>
+        Title.Caption = #21046#21934#34399
+        Width = 67
+      end
+      item
+        Alignment = taCenter
+        EditButtons = <>
+        FieldName = 'Kh'
+        Footers = <>
+        Title.Caption = #27454#34399
+        Width = 150
+      end
+      item
+        Alignment = taCenter
+        EditButtons = <>
+        FieldName = 'Sh'
+        Footers = <>
+        Title.Caption = #33394#34399
+        Width = 41
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object DBGridEh3: TDBGridEh
+    Left = 8
+    Top = 72
+    Width = 289
+    Height = 129
+    Color = 11927551
+    DataSource = dsgch
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        Alignment = taCenter
+        EditButtons = <>
+        FieldName = 'gch'
+        Footers = <>
+        Title.Caption = #24037#31243#34399#13#10'Proj#'
+        Width = 256
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Edit1: TEdit
+    Left = 159
+    Top = 46
+    Width = 122
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 3
+    OnChange = Edit1Change
+  end
+  object Edit2: TEdit
+    Left = 48
+    Top = 16
+    Width = 113
+    Height = 21
+    ReadOnly = True
+    TabOrder = 4
+    OnChange = Edit2Change
+  end
+  object BitBtn3: TBitBtn
+    Left = 168
+    Top = 16
+    Width = 22
+    Height = 22
+    Hint = 'Review FRN#'
+    DoubleBuffered = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      333333333333333333FF33333333333330003FF3FFFFF3333777003000003333
+      300077F777773F333777E00BFBFB033333337773333F7F33333FE0BFBF000333
+      330077F3337773F33377E0FBFBFBF033330077F3333FF7FFF377E0BFBF000000
+      333377F3337777773F3FE0FBFBFBFBFB039977F33FFFFFFF7377E0BF00000000
+      339977FF777777773377000BFB03333333337773FF733333333F333000333333
+      3300333777333333337733333333333333003333333333333377333333333333
+      333333333333333333FF33333333333330003333333333333777333333333333
+      3000333333333333377733333333333333333333333333333333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+    OnClick = BitBtn3Click
+  end
+  object dsgch: TDataSource
+    DataSet = gch
+    OnDataChange = dsgchDataChange
+    Left = 328
+    Top = 64
+  end
+  object dszdh: TDataSource
+    DataSet = zdh
+    Left = 328
+    Top = 96
+  end
+  object dsxzzd: TDataSource
+    DataSet = xzzd
+    Left = 328
+    Top = 128
+  end
+  object gch: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select distinct gch from cut_fczd1'
+    FieldDefs = <>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'GCH'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 300
+    Top = 64
+  end
+  object zdh: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select distinct gch,zdh,kh,sh,zds from cut_fczd1'
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 300
+    Top = 96
+  end
+  object xzzd: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from cut_fcjh'
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 300
+    Top = 128
+  end
+  object Query1: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 600
+    Parameters = <>
+    Left = 512
+    Top = 40
+  end
+  object Query2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 600
+    Parameters = <>
+    Left = 544
+    Top = 40
+  end
+  object Query3: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 600
+    Parameters = <>
+    Left = 576
+    Top = 40
+  end
+  object Query4: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 600
+    Parameters = <>
+    Left = 608
+    Top = 40
+  end
+end

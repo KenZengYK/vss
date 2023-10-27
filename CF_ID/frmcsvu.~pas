@@ -1,0 +1,334 @@
+///////////////////////////////////////////////////////////////////////////////
+// Purpose: for JR-0003 to convert the CSV data from accumark system to cut plan system.
+// Author:  Simon Zhu
+// Date:    May 17, 2005
+///////////////////////////////////////////////////////////////////////////////
+unit frmcsvu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DB, DBTables;
+
+type
+  TfrmCsv = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    GroupBox1: TGroupBox;
+    Query1: TQuery;
+    DataSource1: TDataSource;
+    Database1: TDatabase;
+    procedure Button3Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    function OpenCsv(sCsvFile, sMarkerNo: String): Boolean;
+    function CreateODBC(sCsvDir: String): Boolean;
+    function RemoveODBC(sCsvDir: String): Boolean;
+    function CopyFileEx(sSourceFile, sDestFile: String): Boolean;
+    { Private declarations }
+  public
+    { Public declarations }    
+    function GetCsv(sMarkerNo: String;
+      out arRst: array of Variant): Boolean;
+  end;
+
+var
+  frmCsv: TfrmCsv; 
+  SQLConfigDataSource: function(hwndParent: HWND; fRequest: Integer; lpszDriver: PChar;
+    lpszAttributes: PChar): Integer; stdcall;
+  //================================================
+  //---values of fRequest---
+  //1{ODBC_ADD_DSN}
+  //2{ODBC_CONFIG_DSN}
+  //3{ODBC_REMOVE_DSN}
+  //4{ODBC_ADD_SYS_DSN}
+  //5{ODBC_CONFIG_SYS_DSN}
+  //6{ODBC_REMOVE_SYS_DSN}
+  //7{ODBC_REMOVE_DEFAULT_DSN}
+  //================================================
+
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCsv.Button3Click(Sender: TObject);
+begin
+  Close;
+end;
+                             
+//==========================================================================
+// Function:      GetCsv
+// Author:        Simon Zhu
+// Date:          May 17, 2005
+// Purpose:       Open the csv file for the marker no.
+// Params:        sCsvFile    String      the full path of csv file
+//                sMarkerNo   array       out, Array of variant, the results
+//                                        0 -- Marker Width
+//                                        0 -- Marker Length
+//                                        0 -- Marker Util
+//                                        0 -- Marker Per
+//                return      Boolean     If the function succeeds, the return value is true. 
+//==========================================================================
+function TfrmCsv.GetCsv(sMarkerNo: String; out arRst: array of Variant): Boolean;
+begin
+  Result := False;
+  //if not OpenDialog1.Execute then Exit;
+
+  //Result := OpenCsv(OpenDialog1.FileName, sMarkerNo);
+  Result := OpenCsv('C:\Temp\Csv\cutcsv.csv', sMarkerNo);
+
+  with Query1 do begin
+    if Eof then begin  
+      Result := False;
+      Exit;
+    end;
+    arRst[0] := FieldByName('Width').Value;
+    arRst[1] := FieldByName('Length').Value;
+    arRst[2] := FieldByName('Util').Value;
+    arRst[3] := FieldByName('P_Per').Value;
+  end;
+
+  Result := True;
+
+end;
+
+                              
+//==========================================================================
+// Function:      OpenCsv
+// Author:        Simon Zhu
+// Date:          May 17, 2005
+// Purpose:       Open the csv file for the marker no.
+// Params:        sCsvFile    String      the full path of csv file
+//                sMarkerNo   String      the marker no.
+//                return      Boolean     If the function succeeds, the return value is true. 
+//==========================================================================
+function TfrmCsv.OpenCsv(sCsvFile, sMarkerNo: String): Boolean;
+Var
+  sFileName: String;
+  sOdbcDir: String;
+begin
+  Result := False;
+
+  if not FileExists(sCsvFile) then Exit;
+
+  sOdbcDir := 'C:\Temp\Csv';
+  sFileName := sOdbcDir + '\cutplan.csv';
+
+  if not DirectoryExists(sOdbcDir) then begin
+    if not CreateDir(sOdbcDir) then begin  
+      MessageBox(self.Handle, 'Create direcotry c:\temp\csv fail.', 'Convert CSV', MB_OK or MB_ICONERROR);
+      Exit;
+    end;
+  end;
+
+  //if not CopyFile(PChar(sCsvFile), PChar(sFileName), False) then begin
+  if not CopyFileEx(PChar(sCsvFile), PChar(sFileName)) then begin
+    MessageBox(self.Handle, 'Copy file failed.', 'Convert CSV', MB_OK or MB_ICONERROR);
+    Exit;
+  end;
+
+  if not CreateODBC(sOdbcDir) then Exit;
+
+  
+  with Database1 do begin
+    Connected := False;
+    AliasName := 'csvcutplan';
+    DatabaseName := 'csvdata';
+  end;
+  with Query1 do begin
+    Close;
+    DatabaseName := 'csvdata';
+    SQL.Clear;
+    SQL.Add('select * from cutplan.csv where name='''+sMarkerNo+'''');
+    Open;
+  end;
+
+  Result := True;
+
+end;
+
+
+//==========================================================================
+// Function:      CopyFileEx
+// Author:        Simon Zhu
+// Date:          May 17, 2005
+// Purpose:       Open the csv file for the marker no.
+// Params:        sSourceFile String      the source csv file
+//                sDestFile   String      the destination file
+//                return      Boolean     If the function succeeds, the return value is true. 
+//==========================================================================
+function TfrmCsv.CopyFileEx(sSourceFile, sDestFile: String): Boolean;
+Var
+  flSrc, flDest: TextFile;
+  sBuf: String;
+begin
+  Result := False;
+
+  if not FileExists(sSourceFile) then Exit;
+
+  if FileExists(sDestFile) then begin
+    if not DeleteFile(sDestFile) then Exit;
+  end;
+
+  AssignFile(flSrc, sSourceFile);
+  //if not Assigned(flSrc) then Exit;
+
+  AssignFile(flDest, sDestFile);
+  {if not Assigned(flDest) then begin
+    CloseFile(flSrc);
+    Exit;
+  end;
+  }
+
+  try
+    Reset(flSrc);
+    Rewrite(flDest);
+
+    ReadLn(flSrc, sBuf);
+
+    while not Eof(flSrc) do begin
+      ReadLn(flSrc, sBuf);
+      WriteLn(flDest, sBuf);
+    end;
+
+  except
+    on E: Exception do begin
+      MessageBox(self.Handle, PChar(E.Message), PChar(E.HelpContext), MB_OK or MB_ICONERROR);
+      Result := False;
+      CloseFile(flSrc);
+      CloseFile(flDest);
+      Exit;
+    end;
+
+  end;
+
+  CloseFile(flSrc);
+  CloseFile(flDest);
+
+  Result := True;
+
+end;
+
+//==========================================================================
+// Function:      CreateODBC
+// Author:        Simon Zhu
+// Date:          May 17, 2005
+// Purpose:       Create ODBC DSN: csvcutplan for csv driver
+// Params:        sCsvDir     String      the path of csv file
+//                return      Boolean     If the function succeeds, the return value is true.
+//==========================================================================
+function TfrmCsv.CreateODBC(sCsvDir: String): Boolean;
+Var
+  hDll: THandle;
+  sParams: String;
+begin
+
+  Result := False;
+
+  hDll := LoadLibrary('odbccp32.dll');
+
+  SQLConfigDataSource := GetProcAddress(hDll, 'SQLConfigDataSource');
+
+  sParams := 'DSN=csvcutplan'+chr(0)
+      +'Description=csv for cut plan' + chr(0)
+      +'Extensions=txt,csv,tab,asc'+chr(0)
+      +'UserCommitSync=Yes'+chr(0)
+      +'DefaultDir='+sCsvDir+chr(0);
+
+  try
+
+    if SQLConfigDataSource(0, 4{ODBC_ADD_SYS_DSN},
+      'Microsoft Text Driver (*.txt; *.csv)',
+      PChar(sParams ) ) = 0 then
+      MessageBox(self.Handle, 'Create ODBC failed.', 'Convert CSV', MB_OK or MB_ICONERROR);
+
+  except
+    MessageBox(self.Handle, 'Create ODBC failed.', 'Convert CSV', MB_OK or MB_ICONERROR);
+    FreeLibrary(hDll);
+  end;
+
+  FreeLibrary(hDll);
+
+  Result := True;
+
+end;
+
+//==========================================================================
+// Function:      RemoveODBC
+// Author:        Joe Wang
+// Date:          May 17, 2005
+// Purpose:       Remove ODBC DSN: csvcutplan for csv driver
+// Params:        sCsvDir     String      the path of csv file
+//                return      Boolean     If the function succeeds, the return value is true.
+//==========================================================================
+function TfrmCsv.RemoveODBC(sCsvDir: String): Boolean;
+Var
+  hDll: THandle;
+  sParams: String;
+begin
+
+  Result := False;
+
+  hDll := LoadLibrary('odbccp32.dll');
+
+  SQLConfigDataSource := GetProcAddress(hDll, 'SQLConfigDataSource');
+
+  sParams := 'DSN=csvcutplan'+chr(0)
+      +'Description=csv for cut plan' + chr(0)
+      +'Extensions=txt,csv,tab,asc'+chr(0)
+      +'UserCommitSync=Yes'+chr(0)
+      +'DefaultDir='+sCsvDir+chr(0);
+
+  try
+
+    if SQLConfigDataSource(1, 6{ODBC_REMOVE_SYS_DSN},
+      'Microsoft Text Driver (*.txt; *.csv)',
+      PChar(sParams ) ) = 0 then
+      MessageBox(self.Handle, 'Delete ODBC failed.', 'Convert CSV', MB_OK or MB_ICONERROR);
+
+  except
+    MessageBox(self.Handle, 'Delete ODBC failed.', 'Convert CSV', MB_OK or MB_ICONERROR);
+    FreeLibrary(hDll);
+  end;
+
+  FreeLibrary(hDll);
+
+  Result := True;
+
+end;
+
+procedure TfrmCsv.Button2Click(Sender: TObject);
+Var
+  arRst: array of Variant;
+  i: Integer;
+begin
+
+  SetLength(arRst, 4);
+  for i := 0 to 3 do begin
+    arRst[i] := 0;
+  end;
+
+  GetCsv(Edit1.Text, arRst);
+
+  ShowMessage('Width: ' + FloatToStr(arRst[0]));
+  ShowMessage('Length: ' + FloatToStr(arRst[1]));
+  ShowMessage('Util: ' + FloatToStr(arRst[2]));
+  ShowMessage('Per: ' + FloatToStr(arRst[3]));
+
+end;
+
+procedure TfrmCsv.Button1Click(Sender: TObject);
+begin
+  //if OpenDialog1.Execute then Edit2.Text := OpenDialog1.FileName;
+  Edit2.Text := 'C:\Temp\Csv\cutcsv.csv';
+end;
+
+end.

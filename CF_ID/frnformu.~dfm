@@ -1,0 +1,866 @@
+object frmFRN: TfrmFRN
+  Left = 294
+  Top = 30
+  Width = 1070
+  Height = 704
+  Caption = 'Create FRN'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poDefault
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 1062
+    Height = 73
+    Align = alTop
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 192
+      Top = 40
+      Width = 29
+      Height = 13
+      Caption = 'FRN#'
+    end
+    object Label2: TLabel
+      Left = 8
+      Top = 8
+      Width = 65
+      Height = 13
+      AutoSize = False
+      Caption = 'Date '
+    end
+    object Label3: TLabel
+      Left = 416
+      Top = 40
+      Width = 92
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Fill-in Proj# '
+    end
+    object Label4: TLabel
+      Left = 200
+      Top = 8
+      Width = 19
+      Height = 13
+      Caption = 'Div '
+    end
+    object Label5: TLabel
+      Left = 8
+      Top = 40
+      Width = 65
+      Height = 13
+      AutoSize = False
+      Caption = 'FRN Stage '
+    end
+    object Edit1: TEdit
+      Left = 224
+      Top = 40
+      Width = 89
+      Height = 21
+      Color = 11927551
+      ReadOnly = True
+      TabOrder = 2
+    end
+    object BitBtn1: TBitBtn
+      Left = 331
+      Top = 8
+      Width = 86
+      Height = 25
+      Caption = 'Review FRN'
+      ParentShowHint = False
+      ShowHint = False
+      TabOrder = 7
+      OnClick = BitBtn1Click
+      NumGlyphs = 2
+    end
+    object DateEdit1: TDateEdit
+      Left = 76
+      Top = 8
+      Width = 89
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 0
+    end
+    object ComboBox1: TComboBox
+      Left = 224
+      Top = 8
+      Width = 49
+      Height = 21
+      CharCase = ecUpperCase
+      ItemHeight = 13
+      TabOrder = 1
+      Items.Strings = (
+        'A'
+        'B'
+        'C'
+        'D')
+    end
+    object Edit2: TEdit
+      Left = 512
+      Top = 40
+      Width = 89
+      Height = 21
+      CharCase = ecUpperCase
+      TabOrder = 5
+    end
+    object BitBtn2: TBitBtn
+      Left = 616
+      Top = 40
+      Width = 57
+      Height = 22
+      Caption = 'Save'
+      TabOrder = 6
+      OnClick = BitBtn2Click
+    end
+    object BitBtn3: TBitBtn
+      Left = 424
+      Top = 8
+      Width = 81
+      Height = 25
+      Caption = 'Create FRN'
+      TabOrder = 3
+      OnClick = BitBtn3Click
+    end
+    object BitBtn4: TBitBtn
+      Left = 512
+      Top = 8
+      Width = 89
+      Height = 25
+      Caption = 'Revise FRN'
+      TabOrder = 4
+      OnClick = BitBtn4Click
+    end
+    object BitBtn5: TBitBtn
+      Left = 680
+      Top = 40
+      Width = 121
+      Height = 22
+      Caption = 'Save to next Proj.'
+      TabOrder = 8
+      OnClick = BitBtn5Click
+    end
+    object BitBtn6: TBitBtn
+      Left = 808
+      Top = 40
+      Width = 89
+      Height = 22
+      Caption = 'Save && Exit'
+      TabOrder = 9
+      OnClick = BitBtn6Click
+    end
+    object Label6: TEdit
+      Left = 76
+      Top = 40
+      Width = 89
+      Height = 21
+      Color = 11927551
+      ReadOnly = True
+      TabOrder = 10
+    end
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 73
+    Width = 1062
+    Height = 556
+    Align = alClient
+    TabOrder = 1
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = dsfrn_detail
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.GroupByBox = False
+      object cxGrid1DBTableView1FRN_ID: TcxGridDBColumn
+        DataBinding.FieldName = 'FRN_ID'
+      end
+      object cxGrid1DBTableView1FRN_DID: TcxGridDBColumn
+        DataBinding.FieldName = 'FRN_DID'
+      end
+      object cxGrid1DBTableView1PRJNO: TcxGridDBColumn
+        DataBinding.FieldName = 'PRJNO'
+      end
+      object cxGrid1DBTableView1WONO: TcxGridDBColumn
+        DataBinding.FieldName = 'WONO'
+      end
+      object cxGrid1DBTableView1SOLINE: TcxGridDBColumn
+        DataBinding.FieldName = 'SOLINE'
+      end
+      object cxGrid1DBTableView1STYLNO: TcxGridDBColumn
+        DataBinding.FieldName = 'STYLNO'
+      end
+      object cxGrid1DBTableView1CLR: TcxGridDBColumn
+        DataBinding.FieldName = 'CLR'
+      end
+      object cxGrid1DBTableView1QTY: TcxGridDBColumn
+        DataBinding.FieldName = 'QTY'
+      end
+      object cxGrid1DBTableView1EXDT: TcxGridDBColumn
+        DataBinding.FieldName = 'EXDT'
+      end
+      object cxGrid1DBTableView1FWDT: TcxGridDBColumn
+        DataBinding.FieldName = 'FWDT'
+      end
+      object cxGrid1DBTableView1MATTYPE: TcxGridDBColumn
+        DataBinding.FieldName = 'MATTYPE'
+      end
+      object cxGrid1DBTableView1ITEMCODE: TcxGridDBColumn
+        DataBinding.FieldName = 'ITEMCODE'
+      end
+      object cxGrid1DBTableView1SUPPREF: TcxGridDBColumn
+        DataBinding.FieldName = 'SUPPREF'
+      end
+      object cxGrid1DBTableView1CACYY: TcxGridDBColumn
+        DataBinding.FieldName = 'CACYY'
+      end
+      object cxGrid1DBTableView1WASTAGE: TcxGridDBColumn
+        DataBinding.FieldName = 'WASTAGE'
+      end
+      object cxGrid1DBTableView1FRN_YY: TcxGridDBColumn
+        DataBinding.FieldName = 'FRN_YY'
+      end
+      object cxGrid1DBTableView1FRN_WST: TcxGridDBColumn
+        DataBinding.FieldName = 'FRN_WST'
+      end
+      object cxGrid1DBTableView1FRN_TTLYY: TcxGridDBColumn
+        DataBinding.FieldName = 'FRN_TTLYY'
+      end
+      object cxGrid1DBTableView1DIFF_YY: TcxGridDBColumn
+        DataBinding.FieldName = 'DIFF_YY'
+      end
+      object cxGrid1DBTableView1DIFFP: TcxGridDBColumn
+        DataBinding.FieldName = 'DIFFP'
+      end
+      object cxGrid1DBTableView1MAT_SEQ: TcxGridDBColumn
+        DataBinding.FieldName = 'MAT_SEQ'
+      end
+      object cxGrid1DBTableView1MAT_I: TcxGridDBColumn
+        DataBinding.FieldName = 'MAT_I'
+      end
+    end
+    object cxView1: TcxGridDBBandedTableView
+      NavigatorButtons.ConfirmDelete = False
+      OnCustomDrawCell = cxView1CustomDrawCell
+      DataController.DataSource = dsfrn_detail
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <
+        item
+          Column = cxView1PRJNO
+        end
+        item
+          Column = cxView1WONO
+        end
+        item
+          Column = cxView1STYLNO
+        end
+        item
+          Column = cxView1WO_QTY
+        end
+        item
+          Column = cxView1MATTYPE
+        end
+        item
+          Column = cxView1ITEMCODE
+        end
+        item
+          Column = cxView1CLR
+        end>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.Footer = True
+      OptionsView.GroupByBox = False
+      OptionsView.HeaderAutoHeight = True
+      Bands = <
+        item
+          Caption = 'WO Info'
+        end
+        item
+          Caption = 'Cutting Mat'#39'l Info'
+        end
+        item
+          Caption = 'Color Info'
+        end
+        item
+          Caption = 'Yield Meas. - Ttl Qty'
+        end
+        item
+          Caption = 'Stage 1 - CS'
+          Position.BandIndex = 3
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Stage 2 - PU'
+          Position.BandIndex = 3
+          Position.ColIndex = 1
+          Visible = False
+        end
+        item
+          Caption = 'Save'
+          Position.BandIndex = 3
+          Position.ColIndex = 2
+          Visible = False
+        end>
+      object cxView1DIFF_YY: TcxGridDBBandedColumn
+        Caption = 'Save'#13#10'Qty'
+        DataBinding.FieldName = 'DIFF_YY'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Width = 55
+        Position.BandIndex = 5
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+      object cxView1PRJNO: TcxGridDBBandedColumn
+        Caption = 'Proj#'
+        DataBinding.FieldName = 'PRJNO'
+        HeaderAlignmentHorz = taCenter
+        Width = 86
+        Position.BandIndex = 0
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1WONO: TcxGridDBBandedColumn
+        Caption = 'WO#'
+        DataBinding.FieldName = 'WONO'
+        HeaderAlignmentHorz = taCenter
+        Width = 63
+        Position.BandIndex = 0
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1STYLNO: TcxGridDBBandedColumn
+        Caption = 'Style#'
+        DataBinding.FieldName = 'STYLNO'
+        HeaderAlignmentHorz = taCenter
+        Width = 84
+        Position.BandIndex = 0
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1WO_QTY: TcxGridDBBandedColumn
+        Caption = 'WO'#13#10'Qty'
+        DataBinding.FieldName = 'WO_QTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 57
+        Position.BandIndex = 0
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+      object cxView1FWDT: TcxGridDBBandedColumn
+        Caption = 'FWS dd'
+        DataBinding.FieldName = 'FWDT'
+        HeaderAlignmentHorz = taCenter
+        Width = 65
+        Position.BandIndex = 0
+        Position.ColIndex = 4
+        Position.RowIndex = 0
+      end
+      object cxView1EXDT: TcxGridDBBandedColumn
+        Caption = 'Ex-fty dd'
+        DataBinding.FieldName = 'EXDT'
+        PropertiesClassName = 'TcxDateEditProperties'
+        Properties.ShowTime = False
+        HeaderAlignmentHorz = taCenter
+        Width = 65
+        Position.BandIndex = 0
+        Position.ColIndex = 5
+        Position.RowIndex = 0
+      end
+      object cxView1MATTYPE: TcxGridDBBandedColumn
+        Caption = 'Type'
+        DataBinding.FieldName = 'MATTYPE'
+        HeaderAlignmentHorz = taCenter
+        Width = 45
+        Position.BandIndex = 1
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1ITEMCODE: TcxGridDBBandedColumn
+        Caption = 'ERP Cde'
+        DataBinding.FieldName = 'ITEMCODE'
+        HeaderAlignmentHorz = taCenter
+        Width = 94
+        Position.BandIndex = 1
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1SUPPREF: TcxGridDBBandedColumn
+        Caption = 'Supp. Ref.'
+        DataBinding.FieldName = 'SUPPREF'
+        HeaderAlignmentHorz = taCenter
+        Width = 84
+        Position.BandIndex = 1
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1CLR: TcxGridDBBandedColumn
+        Caption = 'Clr'#13#10'Cde'
+        DataBinding.FieldName = 'CLR'
+        HeaderAlignmentHorz = taCenter
+        Width = 40
+        Position.BandIndex = 2
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1QTY: TcxGridDBBandedColumn
+        Caption = 'CWO'#13#10'Qty'
+        DataBinding.FieldName = 'QTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 55
+        Position.BandIndex = 2
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1CACYY: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'Ttl'
+        DataBinding.FieldName = 'CACYY'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle1
+        Width = 60
+        Position.BandIndex = 4
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1WASTAGE: TcxGridDBBandedColumn
+        Caption = 'Wastage'#13#10'%'#13#10'(CAC Def)'
+        DataBinding.FieldName = 'WASTAGE'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+        Position.BandIndex = 4
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1FRN_YY: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'(fm CAD)'
+        DataBinding.FieldName = 'FRN_YY'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+        Position.BandIndex = 5
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1FRN_WST: TcxGridDBBandedColumn
+        Caption = 'Wastage'#13#10'Qty'
+        DataBinding.FieldName = 'FRN_WST'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Width = 55
+        Position.BandIndex = 5
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1FRN_TTLYY: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'Ttl'
+        DataBinding.FieldName = 'FRN_TTLYY'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Styles.Header = cxStyle1
+        Width = 55
+        Position.BandIndex = 5
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1DIFFP: TcxGridDBBandedColumn
+        Caption = 'Save'#13#10'%'
+        DataBinding.FieldName = 'DIFFP'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Width = 45
+        Position.BandIndex = 5
+        Position.ColIndex = 4
+        Position.RowIndex = 0
+      end
+      object cxView1CACYY1: TcxGridDBBandedColumn
+        Caption = 'Yield'#13#10'(fm CAD)'
+        DataBinding.FieldName = 'CACYY1'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.000'
+        HeaderAlignmentHorz = taCenter
+        Width = 62
+        Position.BandIndex = 4
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxView1
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 629
+    Width = 1062
+    Height = 41
+    Align = alBottom
+    TabOrder = 2
+    object SpeedButton2: TSpeedButton
+      Left = 20
+      Top = 7
+      Width = 25
+      Height = 25
+      Hint = 'Delete'
+      Glyph.Data = {
+        E6000000424DE60000000000000076000000280000000E0000000E0000000100
+        0400000000007000000000000000000000001000000000000000000000000000
+        BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3300333333333333330033333333333333003333333333333300333333333333
+        330033333333333333003300000000003300330FFFFFFFF03300330000000000
+        3300333333333333330033333333333333003333333333333300333333333333
+        33003333333333333300}
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = SpeedButton2Click
+    end
+    object SpeedButton9: TSpeedButton
+      Left = 46
+      Top = 7
+      Width = 25
+      Height = 25
+      Hint = 'Save'
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object tc: TSpeedButton
+      Left = 98
+      Top = 7
+      Width = 25
+      Height = 25
+      Hint = 'Exit'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00330000000000
+        03333377777777777F333301BBBBBBBB033333773F3333337F3333011BBBBBBB
+        0333337F73F333337F33330111BBBBBB0333337F373F33337F333301110BBBBB
+        0333337F337F33337F333301110BBBBB0333337F337F33337F333301110BBBBB
+        0333337F337F33337F333301110BBBBB0333337F337F33337F333301110BBBBB
+        0333337F337F33337F333301110BBBBB0333337F337FF3337F33330111B0BBBB
+        0333337F337733337F333301110BBBBB0333337F337F33337F333301110BBBBB
+        0333337F3F7F33337F333301E10BBBBB0333337F7F7F33337F333301EE0BBBBB
+        0333337F777FFFFF7F3333000000000003333377777777777333}
+      NumGlyphs = 2
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = tcClick
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 72
+      Top = 7
+      Width = 25
+      Height = 25
+      Hint = 'Export'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
+        333333333333337FF3333333333333903333333333333377FF33333333333399
+        03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
+        99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
+        99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
+        03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
+        33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
+        33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
+        3333777777333333333333333333333333333333333333333333}
+      NumGlyphs = 2
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = SpeedButton1Click
+    end
+  end
+  object frn_master: TADODataSet
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 288
+    Top = 233
+  end
+  object dsfrn_master: TDataSource
+    DataSet = frn_master
+    OnDataChange = dsfrn_masterDataChange
+    Left = 316
+    Top = 232
+  end
+  object ADOQuery1: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 468
+    Top = 313
+  end
+  object ADOQuery2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 508
+    Top = 313
+  end
+  object frn_detail: TADODataSet
+    Connection = frmmain.ADOConnection1
+    CursorType = ctStatic
+    AfterOpen = frn_detailAfterOpen
+    CommandText = 'select * from phgdb..cut_frn_detail'
+    CommandTimeout = 300
+    IndexFieldNames = 'PRJNO;ITEMCODE;CLR;WONO'
+    Parameters = <>
+    Left = 344
+    Top = 233
+  end
+  object dsfrn_detail: TDataSource
+    DataSet = frn_detail
+    Left = 372
+    Top = 232
+  end
+  object Database3: TDatabase
+    AliasName = 'ZPHLIB'
+    DatabaseName = 'phlib'
+    LoginPrompt = False
+    Params.Strings = (
+      'DATABASE NAME='
+      'USER NAME=odbc'
+      'ODBC DSN=ZPHLIB'
+      'OPEN MODE=READ/WRITE'
+      'SCHEMA CACHE SIZE=8'
+      'SQLQRYMODE='
+      'LANGDRIVER='
+      'SQLPASSTHRU MODE=SHARED AUTOCOMMIT'
+      'SCHEMA CACHE TIME=-1'
+      'MAX ROWS=-1'
+      'BATCH COUNT=200'
+      'ENABLE SCHEMA CACHE=FALSE'
+      'SCHEMA CACHE DIR='
+      'ENABLE BCD=FALSE'
+      'ROWSET SIZE=20'
+      'BLOBS TO CACHE=64'
+      'PASSWORD=mq3hx6gc3t')
+    SessionName = 'Default'
+    Left = 88
+    Top = 200
+  end
+  object Query1: TQuery
+    DatabaseName = 'phlib'
+    Left = 120
+    Top = 200
+  end
+  object Query2: TQuery
+    DatabaseName = 'phlib'
+    Left = 152
+    Top = 200
+  end
+  object Query3: TQuery
+    DatabaseName = 'phlib'
+    Left = 184
+    Top = 200
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '*.xls'
+    Filter = '*.xls|*.xls'
+    Left = 576
+    Top = 232
+  end
+  object cxStyleRepository1: TcxStyleRepository
+    Left = 256
+    Top = 312
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svFont]
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+    end
+  end
+  object siLang1: TsiLang
+    Version = '6.1.0.1'
+    StringsTypes.Strings = (
+      'TIB_STRINGLIST'
+      'TSTRINGLIST')
+    NumOfLanguages = 2
+    ActiveLanguage = 2
+    LangDelim = 1
+    LangNames.Strings = (
+      'Traditional Chinese'
+      'English')
+    Language = 'English'
+    ExcludedProperties.Strings = (
+      'Category'
+      'SecondaryShortCuts'
+      'HelpKeyword'
+      'InitialDir'
+      'HelpKeyword'
+      'ActivePage'
+      'ImeName'
+      'DefaultExt'
+      'FileName'
+      'FieldName'
+      'PickList'
+      'DisplayFormat'
+      'EditMask'
+      'KeyList'
+      'LookupDisplayFields'
+      'DropDownSpecRow'
+      'TableName'
+      'DatabaseName'
+      'IndexName'
+      'MasterFields')
+    Left = 664
+    Top = 312
+    TranslationData = {
+      737443617074696F6E730D0A5466726D46524E014372656174652046524E0143
+      72656174652046524E010D0A50616E656C310101010D0A4C6162656C31014652
+      4E230146524E23010D0A4C6162656C3201A4E9B4C1014461746520010D0A4C61
+      62656C3301BFE9A44AA475B57BB8B90146696C6C2D696E2050726F6A2320010D
+      0A4C6162656C34014469762001010D0A42697442746E3101AC64BE5C46524E01
+      5265766965772046524E010D0A42697442746E3201AB4FA6730153617665010D
+      0A42697442746E3301ABD8A5DF46524E014372656174652046524E010D0A4269
+      7442746E3401ABD8A5DFADD7AD71015265766973652046524E010D0A63784772
+      69643144425461626C65566965773146524E5F49440146524E5F494401010D0A
+      6378477269643144425461626C65566965773146524E5F4449440146524E5F44
+      494401010D0A6378477269643144425461626C65566965773150524A4E4F0150
+      524A4E4F01010D0A6378477269643144425461626C655669657731574F4E4F01
+      574F4E4F01010D0A6378477269643144425461626C655669657731534F4C494E
+      4501534F4C494E4501010D0A6378477269643144425461626C65566965773153
+      54594C4E4F015354594C4E4F01010D0A6378477269643144425461626C655669
+      657731434C5201434C5201010D0A6378477269643144425461626C6556696577
+      315154590151545901010D0A6378477269643144425461626C65566965773145
+      584454014558445401010D0A6378477269643144425461626C65566965773146
+      574454014657445401010D0A6378477269643144425461626C6556696577314D
+      415454595045014D41545459504501010D0A6378477269643144425461626C65
+      56696577314954454D434F4445014954454D434F444501010D0A637847726964
+      3144425461626C65566965773153555050524546015355505052454601010D0A
+      6378477269643144425461626C65566965773143414359590143414359590101
+      0D0A6378477269643144425461626C6556696577315741535441474501574153
+      5441474501010D0A6378477269643144425461626C65566965773146524E5F59
+      590146524E5F595901010D0A6378477269643144425461626C65566965773146
+      524E5F5753540146524E5F57535401010D0A6378477269643144425461626C65
+      566965773146524E5F54544C59590146524E5F54544C595901010D0A63784772
+      69643144425461626C655669657731444946465F595901444946465F59590101
+      0D0A6378477269643144425461626C6556696577314449464650014449464650
+      01010D0A6378477269643144425461626C6556696577314D41545F534551014D
+      41545F53455101010D0A6378477269643144425461626C6556696577314D4154
+      5F49014D41545F4901010D0A6378566965773150524A4E4F01A475B57BB8B901
+      50726F6A23010D0A63785669657731574F4E4F01A8EEB3E6B8B901574F23010D
+      0A637856696577315354594C4E4F01B4DAB8B9015374796C6523010D0A637856
+      69657731574F5F51545901A8EEB3E6191ABCC601574F191A517479010D0A6378
+      56696577314657445401BC74A8EEA740B67DA96CB4C101465753206464010D0A
+      637856696577314558445401C2F7BC74B4C10145782D667479206464010D0A63
+      7856696577314D41545459504501BAD8C3FE0154797065010D0A637856696577
+      314954454D434F444501455250BD73BD580145525020436465010D0A63785669
+      6577315355505052454601A8D1C0B3B0D3AAABAEC6A657BAD901537570702E20
+      5265662E010D0A63785669657731434C5201A6E2BD5801436C72191A43646501
+      0D0A6378566965773151545901A977A6E2191AA8EEB3E6BCC60143574F191A51
+      7479010D0A63785669657731434143595901C160191AA5CEB671015969656C64
+      191A54746C010D0A637856696577315741535441474501B76CAFD3B276191A25
+      191A2843414320B977B35D290157617374616765191A25191A28434143204465
+      6629010D0A6378566965773146524E5F595901A5CEB671191A28A8D3A6DB4341
+      4429015969656C64191A28666D2043414429010D0A6378566965773146524E5F
+      57535401B76CAFD3191ABCC6B6710157617374616765191A517479010D0A6378
+      566965773146524E5F54544C595901C160191AA5CEB671015969656C64191A54
+      746C010D0A63785669657731444946465F595901B860ACF9191AA5CEB6710153
+      617665191A517479010D0A63785669657731444946465001B860ACF9191A2501
+      53617665191A25010D0A637847726964314C6576656C310101010D0A50616E65
+      6C320101010D0A5370656564427574746F6E320101010D0A5370656564427574
+      746F6E390101010D0A74630101010D0A5370656564427574746F6E310101010D
+      0A4C6162656C350146524EB6A5AC710146524E20537461676520010D0A426974
+      42746E3501AB4FA673A568A455A440ADD3A475B57B015361766520746F206E65
+      78742050726F6A2E010D0A42697442746E3601AB4FA673A8C3B068A558015361
+      76652026262045786974010D0A6378566965773143414359593101A5CEB67119
+      1A28A8D3A6DB43414429015969656C64191A28666D2043414429010D0A737448
+      696E74730D0A5466726D46524E01010D0A50616E656C310101010D0A4C616265
+      6C310101010D0A4C6162656C320101010D0A4C6162656C330101010D0A4C6162
+      656C340101010D0A45646974310101010D0A42697442746E3101526576696577
+      20657869737465642046524E2301010D0A4461746545646974310101010D0A43
+      6F6D626F426F78310101010D0A45646974320101010D0A42697442746E320101
+      010D0A42697442746E330101010D0A42697442746E340101010D0A6378477269
+      64310101010D0A50616E656C320101010D0A5370656564427574746F6E320144
+      656C65746501010D0A5370656564427574746F6E39015361766501010D0A7463
+      014578697401010D0A5370656564427574746F6E31014578706F727401010D0A
+      4C6162656C350101010D0A42697442746E350101010D0A42697442746E360101
+      010D0A4C6162656C360101010D0A7374446973706C61794C6162656C730D0A73
+      74466F6E74730D0A5466726D46524E014D532053616E73205365726966014D53
+      2053616E73205365726966010D0A63785374796C6531014D532053616E732053
+      65726966014D532053616E73205365726966010D0A73744D756C74694C696E65
+      730D0A4461746545646974312E43616C656E64617248696E74730101010D0A43
+      6F6D626F426F78312E4974656D7301412C422C432C4401010D0A41444F517565
+      7279312E53514C0101010D0A41444F5175657279322E53514C0101010D0A4461
+      746162617365332E506172616D7301224441544142415345204E414D453D222C
+      2255534552204E414D453D6F646263222C224F4442432044534E3D5A50484C49
+      42222C224F50454E204D4F44453D524541442F5752495445222C22534348454D
+      412043414348452053495A453D38222C53514C5152594D4F44453D2C4C414E47
+      4452495645523D2C2253514C5041535354485255204D4F44453D534841524544
+      204155544F434F4D4D4954222C22534348454D412043414348452054494D453D
+      2D31222C224D415820524F57533D2D31222C22424154434820434F554E543D32
+      3030222C22454E41424C4520534348454D412043414348453D46414C5345222C
+      22534348454D41204341434845204449523D222C22454E41424C45204243443D
+      46414C5345222C22524F575345542053495A453D3230222C22424C4F42532054
+      4F2043414348453D3634222C50415353574F52443D6D71336878366763337401
+      010D0A5175657279312E53514C0101010D0A5175657279322E53514C0101010D
+      0A5175657279332E53514C0101010D0A7374446C677343617074696F6E730D0A
+      5761726E696E67015761726E696E6701010D0A4572726F72014572726F720101
+      0D0A496E666F726D6174696F6E01496E666F726D6174696F6E01010D0A436F6E
+      6669726D01436F6E6669726D01010D0A596573012659657301010D0A4E6F0126
+      4E6F01010D0A4F4B014F4B01010D0A43616E63656C0143616E63656C01010D0A
+      41626F7274012641626F727401010D0A52657472790126526574727901010D0A
+      49676E6F7265012649676E6F726501010D0A416C6C0126416C6C01010D0A4E6F
+      20546F20416C6C014E266F20746F20416C6C01010D0A59657320546F20416C6C
+      0159657320746F2026416C6C01010D0A48656C70012648656C7001010D0A7374
+      537472696E67730D0A73744F74686572537472696E67730D0A5466726D46524E
+      2E48656C7046696C650101010D0A45646974312E546578740101010D0A446174
+      6545646974312E427574746F6E48696E740101010D0A4461746545646974312E
+      4469616C6F675469746C650153656C6563742061204461746501010D0A446174
+      6545646974312E5465787401202020202F20202F202001010D0A436F6D626F42
+      6F78312E546578740101010D0A45646974322E546578740101010D0A63784772
+      69643144425461626C65566965773146524E5F49442E416C7465726E61746543
+      617074696F6E0101010D0A73744C6F63616C65730D0A7374436F6C6C65637469
+      6F6E730D0A637856696577312E42616E64735B305D2E43617074696F6E01A8EE
+      B3E6B8EAAEC601574F20496E666F010D0A637856696577312E42616E64735B31
+      5D2E43617074696F6E01B5F4B3CEAAABAEC6B8EAAEC60143757474696E67204D
+      6174276C20496E666F010D0A637856696577312E42616E64735B325D2E436170
+      74696F6E01C343A6E2B8EAAEC601436F6C6F7220496E666F010D0A6378566965
+      77312E42616E64735B335D2E43617074696F6E01A5CEB671B4FAB671202D20C1
+      60BCC6015969656C64204D6561732E202D2054746C20517479010D0A63785669
+      6577312E42616E64735B345D2E43617074696F6E01B6A5AC7131202D20435301
+      53746167652031202D204353010D0A637856696577312E42616E64735B355D2E
+      43617074696F6E01B6A5AC7132202D2050550153746167652032202D20505501
+      0D0A637856696577312E42616E64735B365D2E43617074696F6E01B860ACF901
+      53617665010D0A737443686172536574730D0A5466726D46524E014445464155
+      4C545F434841525345540144454641554C545F43484152534554010D0A637853
+      74796C65310144454641554C545F434841525345540144454641554C545F4348
+      4152534554010D0A}
+  end
+end

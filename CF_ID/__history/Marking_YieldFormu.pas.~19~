@@ -1,0 +1,300 @@
+unit Marking_YieldFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridBandedTableView, cxGridDBBandedTableView, cxGridLevel, cxClasses,
+  cxGridCustomView, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxGrid, ExtCtrls, cxCurrencyEdit, ADODB, StdCtrls,
+  Buttons, cxGridExportLink, Mask, DBCtrls, siComp, Menus, dxSkinBlack,
+  dxSkinBlue, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinFoggy, dxSkinGlassOceans, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSharp, dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
+  dxSkinValentine, dxSkinXmas2008Blue;
+
+type
+  TfrmMarking_Yield = class(TForm)
+    Panel1: TPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel2: TPanel;
+    cxView1: TcxGridDBBandedTableView;
+    frn_yield: TADODataSet;
+    dsfrn_yield: TDataSource;
+    ADOQuery1: TADOQuery;
+    ADOQuery2: TADOQuery;
+    SaveDialog1: TSaveDialog;
+    cxView1frn_no: TcxGridDBBandedColumn;
+    cxView1prjno: TcxGridDBBandedColumn;
+    cxView1cfid: TcxGridDBBandedColumn;
+    cxView1wl: TcxGridDBBandedColumn;
+    cxView1cs_yy: TcxGridDBBandedColumn;
+    cxView1wastage: TcxGridDBBandedColumn;
+    cxView1cs_ttlyy: TcxGridDBBandedColumn;
+    cxView1pu_yy: TcxGridDBBandedColumn;
+    cxView1pu_wst: TcxGridDBBandedColumn;
+    cxView1pu_ttlyy: TcxGridDBBandedColumn;
+    cxView1pu_diff: TcxGridDBBandedColumn;
+    cxView1pu_diffp: TcxGridDBBandedColumn;
+    cxView1pd_mt: TcxGridDBBandedColumn;
+    cxView1pd_yy: TcxGridDBBandedColumn;
+    cxView1pd_wst: TcxGridDBBandedColumn;
+    cxView1pd_ttlyy: TcxGridDBBandedColumn;
+    cxView1pd_diff: TcxGridDBBandedColumn;
+    cxView1pd_diffp: TcxGridDBBandedColumn;
+    Label1: TLabel;
+    Edit1: TEdit;
+    BitBtn1: TBitBtn;
+    SpeedButton1: TSpeedButton;
+    tc: TSpeedButton;
+    cxStyleRepository1: TcxStyleRepository;
+    cxStyle1: TcxStyle;
+    cxStyleRepository2: TcxStyleRepository;
+    cxStyle2: TcxStyle;
+    cxStyleRepository3: TcxStyleRepository;
+    cxStyle3: TcxStyle;
+    cxStyleRepository4: TcxStyleRepository;
+    cxStyle4: TcxStyle;
+    cxStyleRepository5: TcxStyleRepository;
+    cxStyle5: TcxStyle;
+    Label41: TLabel;
+    DBEdit27: TDBEdit;
+    Label42: TLabel;
+    DBEdit28: TDBEdit;
+    Label43: TLabel;
+    DBEdit29: TDBEdit;
+    Label44: TLabel;
+    dbedtttl_wo: TDBEdit;
+    Label45: TLabel;
+    DBEdit31: TDBEdit;
+    siLang1: TsiLang;
+    PopupMenu1: TPopupMenu;
+    Showdetail1: TMenuItem;
+    lbl_md: TLabel;
+    cxView1gch: TcxGridDBBandedColumn;
+    cxView1zdh: TcxGridDBBandedColumn;
+    cxView1kh: TcxGridDBBandedColumn;
+    cxView1sh: TcxGridDBBandedColumn;
+    cxView1Qty: TcxGridDBBandedColumn;
+    cxView1yy1: TcxGridDBBandedColumn;
+    cxView1yy2: TcxGridDBBandedColumn;
+    cxView1pu_ttlyy1: TcxGridDBBandedColumn;
+    cxStyle6: TcxStyle;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure tcClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure cxView1CustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
+    procedure frn_yieldAfterOpen(DataSet: TDataSet);
+    procedure FormShow(Sender: TObject);
+    procedure Showdetail1Click(Sender: TObject);
+    procedure cxView1StylesGetContentStyle(Sender: TcxCustomGridTableView;
+      ARecord: TcxCustomGridRecord; AItem: TcxCustomGridTableItem;
+      out AStyle: TcxStyle);
+    procedure FormCreate(Sender: TObject);
+    procedure cxView1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure showdata;
+  end;
+
+var
+  frmMarking_Yield: TfrmMarking_Yield;
+  FontRedStyle: TCxStyle;
+
+implementation
+
+uses mainu, FRN_ReviewFormu, Marker_remarksFormu;
+
+{$R *.dfm}
+
+procedure TfrmMarking_Yield.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmMarking_yield:=nil;
+end;
+
+procedure TfrmMarking_Yield.FormCreate(Sender: TObject);
+begin
+  FontRedStyle := TCxStyle.Create(Self);
+  FontRedStyle.TextColor := clRed;
+end;
+
+procedure TfrmMarking_Yield.SpeedButton1Click(Sender: TObject);
+begin
+  if savedialog1.Execute then begin
+    exportGridToExcel(savedialog1.filename,cxgrid1,false,true,false,'xls');
+  end;
+end;
+
+procedure TfrmMarking_Yield.tcClick(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TfrmMarking_Yield.BitBtn1Click(Sender: TObject);
+begin
+  if frmFRN_Review=nil then frmFRN_Review:=tfrmFRN_Review.create(nil);
+  frmFRN_Review.Label3.caption:='4';
+  frmFRN_Review.show;
+end;
+
+procedure TfrmMarking_Yield.Edit1Change(Sender: TObject);
+begin
+  {
+  screen.cursor:=crSQLWait;
+  try
+    if edit1.Text>'' then begin
+      with frn_yield do begin
+        close;
+        commandtext:='exec phgdb..cut_yieldbyfrn '''+edit1.text+'''';
+        open;
+      end;
+    end;
+  finally
+    Screen.cursor:=crDefault;
+  end;
+  }
+  showdata;
+end;
+
+procedure TfrmMarking_Yield.cxView1CustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+var
+  str1:string;
+begin
+  {
+  str1:=Trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1pu_diff.Index], varString));
+  if (AViewInfo.Item = cxView1pu_diff) then begin
+    if str1='' then str1:='0';
+    if StrToFloat(str1)<0 then ACanvas.Canvas.Font.Color:=clRed
+    else ACanvas.Canvas.Font.Color:=clBlack;
+  end;
+  str1:=Trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1pu_diffp.Index], varString));
+  if (AViewInfo.Item = cxView1pu_diffp) then begin
+    if str1='' then str1:='0';
+    if StrToFloat(str1)<0 then ACanvas.Canvas.Font.Color:=clRed
+    else ACanvas.Canvas.Font.Color:=clBlack;
+  end;
+
+
+  str1:=Trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1pd_diff.Index], varString));
+  if (AViewInfo.Item = cxView1pd_diff) then begin
+    if str1='' then str1:='0';
+    if StrToFloat(str1)<0 then ACanvas.Canvas.Font.Color:=clRed
+    else ACanvas.Canvas.Font.Color:=clBlack;
+  end;
+  str1:=Trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1pd_diffp.Index], varString));
+  if (AViewInfo.Item = cxView1pd_diffp) then begin
+    if str1='' then str1:='0';
+    if StrToFloat(str1)<0 then ACanvas.Canvas.Font.Color:=clRed
+    else ACanvas.Canvas.Font.Color:=clBlack;
+  end;
+  }
+end;
+
+procedure TfrmMarking_Yield.cxView1DblClick(Sender: TObject);
+begin
+  //
+  if frmmarker_remarks=nil then frmmarker_remarks:=Tfrmmarker_remarks.Create(nil);
+  frmmarker_remarks.Show;
+end;
+
+procedure TfrmMarking_Yield.cxView1StylesGetContentStyle(
+  Sender: TcxCustomGridTableView; ARecord: TcxCustomGridRecord;
+  AItem: TcxCustomGridTableItem; out AStyle: TcxStyle);
+var
+  str:string;
+begin
+  if (AItem<>nil) and (AItem.ID=cxView1pu_diff.index) then begin
+    if ARecord.DisplayTexts[cxView1pu_diff.index]='' then str:='0' else str:=ARecord.DisplayTexts[cxView1pu_diff.index];
+    if StrToFloat(str)<0 then AStyle := FontRedStyle;
+  end;
+  if (AItem<>nil) and (AItem.ID=cxView1pu_diffp.index) then begin
+    if ARecord.DisplayTexts[cxView1pu_diffp.index]='' then str:='0' else str:=ARecord.DisplayTexts[cxView1pu_diffp.index];
+    if StrToFloat(str)<0 then AStyle := FontRedStyle;
+  end;
+  if (AItem<>nil) and (AItem.ID=cxView1pd_diff.index) then begin
+    if ARecord.DisplayTexts[cxView1pd_diff.index]='' then str:='0' else str:=ARecord.DisplayTexts[cxView1pd_diff.index];
+    if StrToFloat(str)<0 then AStyle := FontRedStyle;
+  end;
+  if (AItem<>nil) and (AItem.ID=cxView1pd_diffp.index) then begin
+    if ARecord.DisplayTexts[cxView1pd_diffp.index]='' then str:='0' else str:=ARecord.DisplayTexts[cxView1pd_diffp.index];
+    if StrToFloat(str)<0 then AStyle := FontRedStyle;
+  end;
+  //
+end;
+
+procedure TfrmMarking_Yield.frn_yieldAfterOpen(DataSet: TDataSet);
+begin
+  if not frn_yield.fieldbyname('ttl_prj').isnull then begin
+    cxView1.DataController.Summary.FooterSummaryValues[0]:=frn_yield.fieldbyname('ttl_prj').asstring;
+    cxView1.DataController.Summary.FooterSummaryValues[1]:=frn_yield.fieldbyname('ttl_wl').asstring;
+  end;
+end;
+
+procedure TfrmMarking_Yield.FormShow(Sender: TObject);
+begin
+  silang1.LoadAllFromFile('cutplan.sil',false);
+  silang1.ActiveLanguage:=frmmain.SpinEdit1.value;
+  lbl_md.Caption:='S';
+  cxView1.Bands[6].Visible:=false;
+  cxView1pu_ttlyy1.visible:=false;
+  cxView1yy1.visible:=false;
+  cxView1yy2.visible:=false;
+end;
+
+procedure TfrmMarking_Yield.Showdetail1Click(Sender: TObject);
+begin
+  if lbl_md.Caption='S' then lbl_md.Caption:='D'
+  else if lbl_md.caption='D' then lbl_md.Caption:='S';
+  showdata;
+end;
+
+procedure TfrmMarking_Yield.showdata;
+begin
+  screen.cursor:=crSQLWait;
+  try
+    if lbl_md.Caption='S' then begin
+      cxView1.Bands[6].Visible:=false;
+      cxView1pu_ttlyy1.visible:=false;
+      cxView1yy1.visible:=false;
+      cxView1yy2.visible:=false;
+    end else if lbl_md.Caption='D' then begin
+      cxView1.Bands[6].Visible:=true;
+      cxView1pu_ttlyy1.visible:=true;
+      cxView1yy1.visible:=true;
+      cxView1yy2.visible:=true;
+    end;
+    if edit1.Text>'' then begin
+      with frn_yield do begin
+        close;
+        if lbl_md.caption='S' then
+        commandtext:='exec phgdb..cut_yieldbyfrn '''+edit1.text+''''
+        else if lbl_md.Caption='D' then
+        commandtext:='exec phgdb..cut_yieldbyfrn_WO '''+edit1.text+'''';
+        open;
+      end;
+    end;
+  finally
+    Screen.cursor:=crDefault;
+  end;
+end;
+
+end.

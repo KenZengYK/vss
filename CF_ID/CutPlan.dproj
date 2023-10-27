@@ -1,0 +1,342 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{227EF674-0651-4CFD-988F-A0C96A7D8FA1}</ProjectGuid>
+			<MainSource>CutPlan.dpr</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>12.0</ProjectVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_DependencyCheckOutputName>CutPlan.exe</DCC_DependencyCheckOutputName>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_Platform>x86</DCC_Platform>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="CutPlan.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="mainu.pas">
+				<Form>frmmain</Form>
+			</DCCReference>
+			<DCCReference Include="zdlru.pas">
+				<Form>frmzdlr</Form>
+			</DCCReference>
+			<DCCReference Include="shlru.pas">
+				<Form>frmshlr</Form>
+			</DCCReference>
+			<DCCReference Include="zdsu.pas">
+				<Form>frmzds</Form>
+			</DCCReference>
+			<DCCReference Include="DMfcu.pas">
+				<Form>DMfcjh</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="fcjyu.pas">
+				<Form>frmfcjy</Form>
+			</DCCReference>
+			<DCCReference Include="pbzlu.pas">
+				<Form>frmpbzl</Form>
+			</DCCReference>
+			<DCCReference Include="lbjhu.pas">
+				<Form>frmlbjh</Form>
+			</DCCReference>
+			<DCCReference Include="lbfxu.pas">
+				<Form>frmlbfx</Form>
+			</DCCReference>
+			<DCCReference Include="lbjgu.pas">
+				<Form>frmlbjg</Form>
+			</DCCReference>
+			<DCCReference Include="zdzlu.pas">
+				<Form>frmzdzl</Form>
+			</DCCReference>
+			<DCCReference Include="dlu.pas">
+				<Form>frmxtdl</Form>
+			</DCCReference>
+			<DCCReference Include="useru.pas">
+				<Form>frmuser</Form>
+			</DCCReference>
+			<DCCReference Include="cgjhu.pas">
+				<Form>frmcgjh</Form>
+			</DCCReference>
+			<DCCReference Include="fcu.pas">
+				<Form>frmfc</Form>
+			</DCCReference>
+			<DCCReference Include="xzzdu.pas">
+				<Form>frmxzzd</Form>
+			</DCCReference>
+			<DCCReference Include="mjxxu.pas">
+				<Form>frmmjxx</Form>
+			</DCCReference>
+			<DCCReference Include="jcu.pas">
+				<Form>frmjc</Form>
+			</DCCReference>
+			<DCCReference Include="mmyzu.pas">
+				<Form>frmmmyz</Form>
+			</DCCReference>
+			<DCCReference Include="lbgccxu.pas">
+				<Form>frmlbgccx</Form>
+			</DCCReference>
+			<DCCReference Include="xgtm.pas">
+				<Form>frmxgtm</Form>
+			</DCCReference>
+			<DCCReference Include="fllru.pas">
+				<Form>frmfllr</Form>
+			</DCCReference>
+			<DCCReference Include="xgwlu.pas">
+				<Form>frmxgwl</Form>
+			</DCCReference>
+			<DCCReference Include="sczdu.pas">
+				<Form>frmsczd</Form>
+			</DCCReference>
+			<DCCReference Include="gczdu.pas">
+				<Form>frmgczd</Form>
+			</DCCReference>
+			<DCCReference Include="sclfxu.pas">
+				<Form>frmsclfx</Form>
+			</DCCReference>
+			<DCCReference Include="lhjlu.pas">
+				<Form>frmlhjl</Form>
+			</DCCReference>
+			<DCCReference Include="phiszdu.pas">
+				<Form>frmphiszd</Form>
+			</DCCReference>
+			<DCCReference Include="dycgjhu.pas">
+				<Form>frmdycgjh</Form>
+			</DCCReference>
+			<DCCReference Include="cgfxu.pas">
+				<Form>frmcgfx</Form>
+			</DCCReference>
+			<DCCReference Include="cgbgfxu.pas">
+				<Form>frmcgbgfx</Form>
+			</DCCReference>
+			<DCCReference Include="cgbgu.pas">
+				<Form>frmcgbg</Form>
+			</DCCReference>
+			<DCCReference Include="dycgbgu.pas">
+				<Form>frmdycgbg</Form>
+			</DCCReference>
+			<DCCReference Include="wwcmju.pas">
+				<Form>frmwwcmj</Form>
+			</DCCReference>
+			<DCCReference Include="wwclhu.pas">
+				<Form>frmwwclh</Form>
+			</DCCReference>
+			<DCCReference Include="drkcu.pas">
+				<Form>frmdrkc</Form>
+			</DCCReference>
+			<DCCReference Include="xgwl1u.pas">
+				<Form>frmxgwl1</Form>
+			</DCCReference>
+			<DCCReference Include="mjfdu.pas">
+				<Form>frmmjfd</Form>
+			</DCCReference>
+			<DCCReference Include="xgcmu.pas">
+				<Form>frmxgcm</Form>
+			</DCCReference>
+			<DCCReference Include="xgkhu.pas">
+				<Form>frmxgkh</Form>
+			</DCCReference>
+			<DCCReference Include="cgdu.pas">
+				<Form>frmcgd</Form>
+			</DCCReference>
+			<DCCReference Include="xglbzsu.pas">
+				<Form>frmxglbzs</Form>
+			</DCCReference>
+			<DCCReference Include="fcdyu.pas">
+				<Form>frmfcdy</Form>
+			</DCCReference>
+			<DCCReference Include="lbyldyu.pas">
+				<Form>frmlbyldy</Form>
+			</DCCReference>
+			<DCCReference Include="zmzyu.pas">
+				<Form>frmzmzy</Form>
+			</DCCReference>
+			<DCCReference Include="zmdu.pas">
+				<Form>frmzmd</Form>
+			</DCCReference>
+			<DCCReference Include="xsjlbu.pas">
+				<Form>frmxsjlb</Form>
+			</DCCReference>
+			<DCCReference Include="printzmd1u.pas">
+				<Form>frmprintzmd1</Form>
+			</DCCReference>
+			<DCCReference Include="shtzdu.pas">
+				<Form>frmprintshtzd</Form>
+			</DCCReference>
+			<DCCReference Include="xgzdformu.pas">
+				<Form>frmxgzd</Form>
+			</DCCReference>
+			<DCCReference Include="blxgformu.pas">
+				<Form>frmblxg</Form>
+			</DCCReference>
+			<DCCReference Include="lbyl1dyu.pas">
+				<Form>frmlbyl1dy</Form>
+			</DCCReference>
+			<DCCReference Include="jhmjfxformu.pas">
+				<Form>frmjhmjfx</Form>
+			</DCCReference>
+			<DCCReference Include="wlcopyu.pas">
+				<Form>frmwlcopy</Form>
+			</DCCReference>
+			<DCCReference Include="cgddyu.pas">
+				<Form>frmcgddy</Form>
+			</DCCReference>
+			<DCCReference Include="xgcm1formu.pas">
+				<Form>frmxgcm1</Form>
+			</DCCReference>
+			<DCCReference Include="qxwhu.pas">
+				<Form>frmqxwh</Form>
+			</DCCReference>
+			<DCCReference Include="xzzd1u.pas">
+				<Form>frmxzzd1</Form>
+			</DCCReference>
+			<DCCReference Include="frnformu.pas">
+				<Form>frmFRN</Form>
+			</DCCReference>
+			<DCCReference Include="FRN_ReviewFormu.pas">
+				<Form>frmFRN_review</Form>
+			</DCCReference>
+			<DCCReference Include="FRN_ChooseFormu.pas">
+				<Form>frmFRN_Choose</Form>
+			</DCCReference>
+			<DCCReference Include="Marking_YieldFormu.pas">
+				<Form>frmMarking_Yield</Form>
+			</DCCReference>
+			<DCCReference Include="AL_categoryformu.pas">
+				<Form>frmal_category</Form>
+			</DCCReference>
+			<DCCReference Include="Carte_MailFormu.pas">
+				<Form>frmCarte_Mail</Form>
+			</DCCReference>
+			<DCCReference Include="frmcsvu.pas">
+				<Form>frmCsv</Form>
+			</DCCReference>
+			<DCCReference Include="cmpl_actionlogformu.pas">
+				<Form>frmcmpl_actionlog</Form>
+			</DCCReference>
+			<DCCReference Include="al_supplementformu.pas">
+				<Form>frmal_supplement</Form>
+			</DCCReference>
+			<DCCReference Include="Cause_ChooseFormu.pas">
+				<Form>frmcause_choose</Form>
+			</DCCReference>
+			<DCCReference Include="cmpl_actionlog1formu.pas">
+				<Form>frmcmpl_actionlog1</Form>
+			</DCCReference>
+			<DCCReference Include="Grp_ActionDetailFormu.pas">
+				<Form>frmgrp_actiondetail</Form>
+			</DCCReference>
+			<DCCReference Include="splitstageformu.pas">
+				<Form>frmsplitstage</Form>
+			</DCCReference>
+			<DCCReference Include="eOrderFormu.pas">
+				<Form>frmeOrder</Form>
+			</DCCReference>
+			<DCCReference Include="xzgchu.pas">
+				<Form>frmxzgch</Form>
+			</DCCReference>
+			<DCCReference Include="fcjhformu.pas">
+				<Form>frmfcjh</Form>
+			</DCCReference>
+			<DCCReference Include="Calc_RulesFormu.pas">
+				<Form>frmcalc_rules</Form>
+			</DCCReference>
+			<DCCReference Include="Rules_detailFormu.pas">
+				<Form>frmrules_detail</Form>
+			</DCCReference>
+			<DCCReference Include="Marker_remarksFormu.pas">
+				<Form>frmmarker_remarks</Form>
+			</DCCReference>
+			<DCCReference Include="pkeorder_dtlformu.pas">
+				<Form>frmpkeorder_dtl</Form>
+			</DCCReference>
+			<DCCReference Include="pu2cuformu.pas">
+				<Form>frmpu2cuele</Form>
+			</DCCReference>
+			<DCCReference Include="pu2cu_elementsformu.pas">
+				<Form>frmpu2cu_elements</Form>
+			</DCCReference>
+			<DCCReference Include="choosepu2cuformu.pas">
+				<Form>frmchoosepu2cu</Form>
+			</DCCReference>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">CutPlan.dpr</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1028</VersionInfo>
+						<VersionInfo Name="CodePage">950</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+				</Delphi.Personality>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

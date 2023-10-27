@@ -1,0 +1,469 @@
+object frmzds: Tfrmzds
+  Left = 918
+  Top = 156
+  Caption = #20998#24202#24314#35696'----'#24037#31243#32232#34399#26597#35426
+  ClientHeight = 439
+  ClientWidth = 609
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  PopupMenu = PopupMenu1
+  Position = poScreenCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object tc: TSpeedButton
+    Left = 61
+    Top = 392
+    Width = 23
+    Height = 23
+    Hint = #36864#20986
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = tcClick
+  end
+  object Label1: TLabel
+    Left = 74
+    Top = 72
+    Width = 97
+    Height = 26
+    AutoSize = False
+    Caption = 'CF_ID#'#13#10#35009#31243#35672#21029#30908':'
+  end
+  object SpeedButton1: TSpeedButton
+    Left = 24
+    Top = 392
+    Width = 23
+    Height = 23
+    Hint = #30906#23450
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton1Click
+  end
+  object Label2: TLabel
+    Left = 198
+    Top = 392
+    Width = 3
+    Height = 13
+    Visible = False
+  end
+  object Label3: TLabel
+    Left = 74
+    Top = 16
+    Width = 97
+    Height = 13
+    AutoSize = False
+    Caption = 'Factory '#24288': '
+  end
+  object Label4: TLabel
+    Left = 74
+    Top = 40
+    Width = 97
+    Height = 33
+    AutoSize = False
+    Caption = 'Marking Stage'#13#10#25490#29256#38542#27573': '
+    WordWrap = True
+  end
+  object Label5: TLabel
+    Left = 316
+    Top = 40
+    Width = 96
+    Height = 33
+    AutoSize = False
+    Caption = 'Marker Type Cde'#13#10#22044#26550#39006#21029': '
+    WordWrap = True
+  end
+  object SpeedButton2: TSpeedButton
+    Left = 117
+    Top = 392
+    Width = 23
+    Height = 23
+    Hint = 'Export'
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton2Click
+  end
+  object Label6: TLabel
+    Left = 486
+    Top = 8
+    Width = 45
+    Height = 13
+    Visible = False
+  end
+  object Label7: TLabel
+    Left = 24
+    Top = 16
+    Width = 48
+    Height = 13
+    AutoSize = False
+    Caption = 'Step 1.0'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Height = -9
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 24
+    Top = 40
+    Width = 48
+    Height = 13
+    AutoSize = False
+    Caption = 'Step 2.1'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Height = -9
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label9: TLabel
+    Left = 264
+    Top = 40
+    Width = 48
+    Height = 13
+    AutoSize = False
+    Caption = 'Step 2.2'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Height = -9
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 24
+    Top = 72
+    Width = 48
+    Height = 13
+    AutoSize = False
+    Caption = 'Step 3.0'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Height = -9
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object SpeedButton3: TSpeedButton
+    Left = 552
+    Top = 39
+    Width = 23
+    Height = 23
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 24
+    Top = 120
+    Width = 257
+    Height = 233
+    Color = 11927551
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = ANSI_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    FooterRowCount = 1
+    ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    RowDetailPanel.Color = clBtnFace
+    SumList.Active = True
+    TabOrder = 3
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    OnDblClick = SpeedButton1Click
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'prjno'
+        Footer.ValueType = fvtCount
+        Footers = <>
+        Title.Caption = #35009#21106#27969#31243#35672#21029#30908' / Cutting Flow ID#'
+        Width = 242
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Edit1: TEdit
+    Left = 186
+    Top = 71
+    Width = 169
+    Height = 21
+    CharCase = ecUpperCase
+    ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+    TabOrder = 2
+    OnChange = Edit1Change
+    OnKeyPress = Edit1KeyPress
+  end
+  object ComboBox1: TComboBox
+    Left = 186
+    Top = 16
+    Width = 57
+    Height = 21
+    ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+    ItemIndex = 0
+    TabOrder = 0
+    Text = 'ALL'
+    Items.Strings = (
+      'ALL'
+      'SL'
+      'RX'
+      'CL')
+  end
+  object ComboBox2: TComboBox
+    Left = 186
+    Top = 40
+    Width = 57
+    Height = 21
+    ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+    TabOrder = 1
+    Text = 'ALL'
+    Items.Strings = (
+      'ALL'
+      'PU'
+      'PD')
+  end
+  object ComboBox3: TComboBox
+    Left = 418
+    Top = 40
+    Width = 113
+    Height = 21
+    ImeName = #20013#25991' ('#31616#20307') - '#35895#27468#25340#38899#36755#20837#27861
+    TabOrder = 4
+    Text = 'ALL'
+    OnEnter = ComboBox3Enter
+    Items.Strings = (
+      'ALL'
+      '1 = CU or PU'
+      '2 = CU + TP'
+      '3 = CU + PP'
+      '4 = CU + TP + PP')
+  end
+  object cxGrid1: TcxGrid
+    Left = 24
+    Top = 104
+    Width = 561
+    Height = 273
+    TabOrder = 5
+    object cxView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <
+        item
+          Kind = skCount
+          Column = cxView1prjno
+        end>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.Deleting = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      OptionsView.Footer = True
+      OptionsView.GroupByBox = False
+      OptionsView.HeaderAutoHeight = True
+      object cxView1prjno: TcxGridDBColumn
+        Caption = 'CF_ID#'#13#10#35009#31243#35672#21029#30908
+        DataBinding.FieldName = 'prjno'
+        HeaderAlignmentHorz = taCenter
+        Styles.Content = cxStyle1
+        Width = 148
+      end
+      object cxView1gch: TcxGridDBColumn
+        Caption = 'Proj#'#13#10#24037#31243#34399
+        DataBinding.FieldName = 'gch'
+        HeaderAlignmentHorz = taCenter
+        Styles.Content = cxStyle1
+        Width = 170
+      end
+      object cxView1fcrq: TcxGridDBColumn
+        Caption = 'CF_ID'#13#10'Create dd'#13#10#21109#24314#26085#26399
+        DataBinding.FieldName = 'fcrq'
+        PropertiesClassName = 'TcxDateEditProperties'
+        Properties.ShowTime = False
+        HeaderAlignmentHorz = taCenter
+        Styles.Content = cxStyle1
+        Width = 76
+      end
+      object cxView1rq: TcxGridDBColumn
+        Caption = 'Marker'#13#10'Create dd'#13#10#22044#26550#13#10#21109#24314#26085#26399
+        DataBinding.FieldName = 'rq'
+        PropertiesClassName = 'TcxDateEditProperties'
+        Properties.ShowTime = False
+        HeaderAlignmentHorz = taCenter
+        Styles.Content = cxStyle1
+        Width = 75
+      end
+      object cxView1mjh_ttl: TcxGridDBColumn
+        Caption = 'CAD Marker'#13#10'Ttl'#13#10#22044#26550#32317#25976
+        DataBinding.FieldName = 'mjh_ttl'
+        Visible = False
+        HeaderAlignmentHorz = taCenter
+        Width = 58
+      end
+      object cxView1dued: TcxGridDBColumn
+        Caption = 'Due'#13#10'days'#13#10#26399#38480
+        DataBinding.FieldName = 'dued'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0'
+        HeaderAlignmentHorz = taCenter
+        Styles.Content = cxStyle1
+        Width = 46
+      end
+    end
+    object cxGrid1DBBandedTableView1: TcxGridDBBandedTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <
+        item
+          Format = '#0'
+          Kind = skCount
+          Column = cxGrid1DBBandedTableView1Column1
+        end>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.Footer = True
+      OptionsView.GroupByBox = False
+      OptionsView.HeaderAutoHeight = True
+      Bands = <
+        item
+          Caption = 'CF_ID '#35009#31243#35672#21029
+          HeaderAlignmentVert = vaTop
+        end
+        item
+          Caption = 'Marker '#22044#26550
+          HeaderAlignmentVert = vaTop
+        end>
+      object cxGrid1DBBandedTableView1Column1: TcxGridDBBandedColumn
+        Caption = '#'
+        DataBinding.FieldName = 'prjno'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Content = cxStyle1
+        Width = 145
+        Position.BandIndex = 0
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1Column2: TcxGridDBBandedColumn
+        Caption = 'Proj#'#13#10#24037#31243#34399
+        DataBinding.FieldName = 'gch'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Content = cxStyle1
+        Width = 165
+        Position.BandIndex = 0
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1Column3: TcxGridDBBandedColumn
+        Caption = 'Create dd'#13#10#24314#31435#26085#26399
+        DataBinding.FieldName = 'fcrq'
+        PropertiesClassName = 'TcxDateEditProperties'
+        Properties.ShowTime = False
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Content = cxStyle1
+        Width = 70
+        Position.BandIndex = 0
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1Column4: TcxGridDBBandedColumn
+        Caption = 'Create dd'#13#10#24314#31435#26085#26399
+        DataBinding.FieldName = 'rq'
+        PropertiesClassName = 'TcxDateEditProperties'
+        Properties.ShowTime = False
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Content = cxStyle1
+        Width = 70
+        Position.BandIndex = 1
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1Column5: TcxGridDBBandedColumn
+        Caption = 'Create Ttl days'#13#10#24314#31435#32317#22825#25976
+        DataBinding.FieldName = 'dued'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Content = cxStyle1
+        Width = 80
+        Position.BandIndex = 1
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBBandedTableView1
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = ClientDataSet1
+    Left = 306
+    Top = 376
+  end
+  object clientdataset2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 336
+    Top = 232
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'prjno'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 274
+    Top = 376
+  end
+  object cxStyleRepository1: TcxStyleRepository
+    Left = 280
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svColor]
+      Color = 11927551
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '*.xls'
+    Filter = '*.xls|*.xls'
+    Left = 392
+    Top = 65528
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 336
+    object Reviewhistory1: TMenuItem
+      Caption = 'Review history'
+      ShortCut = 16505
+      Visible = False
+      OnClick = Reviewhistory1Click
+    end
+  end
+end

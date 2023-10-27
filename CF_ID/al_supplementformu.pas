@@ -1,0 +1,122 @@
+unit al_supplementformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData, ExtCtrls,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, ADODB, StdCtrls, Buttons,
+  cxCurrencyEdit, cxCalendar, cxGridExportLink, dxSkinBlack, dxSkinBlue,
+  dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky,
+  dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinPumpkin, dxSkinSeven, dxSkinSharp, dxSkinSilver,
+  dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinValentine,
+  dxSkinXmas2008Blue;
+
+type
+  Tfrmal_supplement = class(TForm)
+    cxView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    pnl2: TPanel;
+    ds_al_styles: TADODataSet;
+    ds1: TDataSource;
+    cxView1prjno: TcxGridDBColumn;
+    cxView1kh: TcxGridDBColumn;
+    cxView1sah: TcxGridDBColumn;
+    cxView1rs: TcxGridDBColumn;
+    cxView1qty: TcxGridDBColumn;
+    cxView1est_days: TcxGridDBColumn;
+    btn1: TBitBtn;
+    cxView1pline: TcxGridDBColumn;
+    cxView1exfty: TcxGridDBColumn;
+    dlgSave1: TSaveDialog;
+    btn2: TBitBtn;
+    qryAQuery1: TADOQuery;
+    qryAQuery2: TADOQuery;
+    cxView1est_days1: TcxGridDBColumn;
+    cxView1pline_seq: TcxGridDBColumn;
+    procedure btn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btn2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure cxView1CustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmal_supplement: Tfrmal_supplement;
+
+implementation
+
+uses mainu, cmpl_actionlogformu;
+
+{$R *.dfm}
+
+procedure Tfrmal_supplement.btn1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure Tfrmal_supplement.btn2Click(Sender: TObject);
+begin
+  if dlgsave1.Execute then begin
+    exportGridToExcel(dlgsave1.filename,cxgrid1,false,true,false,'xls');
+  end;
+end;
+
+procedure Tfrmal_supplement.cxView1CustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+var
+  m_s,i1:integer;
+  str:string;
+begin
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[cxView1pline_seq.Index],   varString));
+  if str='' then str:='0';
+  m_s:=strtoint(str);//AViewInfo.GridRecord.Values[TcxGridDBTableView(Sender).GetColumnbyFieldName('pline_seq').index];
+  i1:=m_s mod 2;
+  if i1=0 then begin
+    ACanvas.Canvas.Brush.Color:=$00FFE8E1;
+    ACanvas.Canvas.Font.Color:=clBlack;
+  end else if i1=1 then begin
+    ACanvas.Canvas.Brush.Color:=$00FFFCDF;
+    ACanvas.Canvas.Font.Color:=clBlack;
+  end;
+end;
+
+procedure Tfrmal_supplement.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=caFree;
+  frmal_supplement:=nil;
+end;
+
+procedure Tfrmal_supplement.FormShow(Sender: TObject);
+begin
+  with qryaquery1 do begin
+    close;
+    sql.text:='select count(distinct pline) as x1,count(distinct exfty) as x2,count(distinct kh) as x3 '
+             +'from cut_al_dashboard_styles where mjjs>0 and prjno='''+frmcmpl_actionlog.al_dashboard.fieldbyname('prjno').value+'''';
+    open;
+    if not fieldbyname('x1').isnull then
+      cxView1.DataController.Summary.FooterSummaryValues[0]:=fieldbyname('x1').asstring;;
+    if not fieldbyname('x2').isnull then
+      cxView1.DataController.Summary.FooterSummaryValues[4]:=fieldbyname('x2').asstring;;
+    if not fieldbyname('x3').isnull then
+      cxView1.DataController.Summary.FooterSummaryValues[2]:=fieldbyname('x3').asstring;;
+  end;
+end;
+
+end.

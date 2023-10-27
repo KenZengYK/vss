@@ -1,0 +1,156 @@
+object frmchoosepu2cu: Tfrmchoosepu2cu
+  Left = 0
+  Top = 0
+  Caption = 
+    'Elements lead to re-allocation of marking branches OR adjustment' +
+    ' of marking'
+  ClientHeight = 253
+  ClientWidth = 696
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 0
+    Width = 696
+    Height = 212
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = -30
+    ExplicitWidth = 726
+    ExplicitHeight = 242
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+    end
+    object cxView1: TcxGridDBBandedTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = dspu2cu
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.GroupByBox = False
+      Bands = <
+        item
+        end>
+      object cxView1cde: TcxGridDBBandedColumn
+        Caption = 'Cde'
+        DataBinding.FieldName = 'cde'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+        Position.BandIndex = 0
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1desc_e: TcxGridDBBandedColumn
+        Caption = 'Desc. (EN)'
+        DataBinding.FieldName = 'des_e'
+        HeaderAlignmentHorz = taCenter
+        Width = 600
+        Position.BandIndex = 0
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1desc_c: TcxGridDBBandedColumn
+        Caption = 'Desc. (CN)'
+        DataBinding.FieldName = 'des_c'
+        HeaderAlignmentHorz = taCenter
+        Width = 500
+        Position.BandIndex = 0
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1Column1: TcxGridDBBandedColumn
+        Caption = 'Show Details'
+        PropertiesClassName = 'TcxButtonEditProperties'
+        Properties.Buttons = <
+          item
+            Default = True
+            Kind = bkEllipsis
+          end>
+        Properties.ReadOnly = True
+        Properties.ViewStyle = vsButtonsAutoWidth
+        Visible = False
+        HeaderAlignmentHorz = taCenter
+        Options.ShowEditButtons = isebAlways
+        Width = 70
+        Position.BandIndex = 0
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxView1
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 212
+    Width = 696
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitLeft = -30
+    ExplicitWidth = 726
+    object btn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 82
+      Height = 25
+      Caption = 'Choose '#36984#25799
+      TabOrder = 0
+    end
+    object btn2: TBitBtn
+      Left = 112
+      Top = 8
+      Width = 89
+      Height = 25
+      Caption = 'Exit '#36864#20986
+      TabOrder = 1
+      OnClick = btn2Click
+    end
+  end
+  object cut_pu2cu: TADODataSet
+    Connection = frmmain.ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'select * from cut_pu2cu_ele'
+    CommandTimeout = 300
+    IndexFieldNames = 'cde'
+    Parameters = <>
+    Left = 280
+    Top = 153
+  end
+  object dspu2cu: TDataSource
+    DataSet = cut_pu2cu
+    Left = 340
+    Top = 152
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '*.xls'
+    Filter = '*.xls|*.xls'
+    Left = 568
+    Top = 152
+  end
+  object ADOQuery1: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 460
+    Top = 233
+  end
+  object ADOQuery2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 500
+    Top = 233
+  end
+end

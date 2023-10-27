@@ -1,0 +1,1597 @@
+object frmzmd: Tfrmzmd
+  Left = 30
+  Top = 33
+  Caption = #22519#30908#28165#21934
+  ClientHeight = 493
+  ClientWidth = 731
+  Color = clBtnFace
+  Font.Charset = CHINESEBIG5_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = #26032#32048#26126#39636
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 731
+    Height = 105
+    Align = alTop
+    TabOrder = 0
+    ExplicitWidth = 739
+    object Label1: TLabel
+      Left = 227
+      Top = 13
+      Width = 26
+      Height = 13
+      Caption = #35069#21934
+    end
+    object Label2: TLabel
+      Left = 416
+      Top = 13
+      Width = 26
+      Height = 13
+      Caption = #33394#34399
+    end
+    object Label5: TLabel
+      Left = 16
+      Top = 13
+      Width = 39
+      Height = 13
+      Caption = #24037#31243#34399
+    end
+    object Label6: TLabel
+      Left = 16
+      Top = 45
+      Width = 71
+      Height = 13
+      Caption = #22519#30908#26085#26399'  '#24478
+    end
+    object Label7: TLabel
+      Left = 240
+      Top = 45
+      Width = 13
+      Height = 13
+      Caption = #21040
+    end
+    object Label8: TLabel
+      Left = 376
+      Top = 45
+      Width = 71
+      Height = 13
+      Caption = #22519#30908#26178#38291'  '#24478
+    end
+    object Label9: TLabel
+      Left = 584
+      Top = 45
+      Width = 13
+      Height = 13
+      Caption = #21040
+    end
+    object Label10: TLabel
+      Left = 16
+      Top = 77
+      Width = 84
+      Height = 13
+      Caption = #38651#33126#39131#32232#34399'  '#24478
+    end
+    object Label11: TLabel
+      Left = 240
+      Top = 77
+      Width = 13
+      Height = 13
+      Caption = #21040
+    end
+    object SpeedButton3: TSpeedButton
+      Left = 671
+      Top = 73
+      Width = 26
+      Height = 27
+      Hint = #30906#23450
+      Glyph.Data = {
+        F2010000424DF201000000000000760000002800000024000000130000000100
+        0400000000007C01000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333334433333
+        3333333333388F3333333333000033334224333333333333338338F333333333
+        0000333422224333333333333833338F33333333000033422222243333333333
+        83333338F3333333000034222A22224333333338F33F33338F33333300003222
+        A2A2224333333338F383F3338F33333300003A2A222A222433333338F8333F33
+        38F33333000034A22222A22243333338833333F3338F333300004222A2222A22
+        2433338F338F333F3338F3330000222A3A2224A22243338F3838F338F3338F33
+        0000A2A333A2224A2224338F83338F338F3338F300003A33333A2224A2224338
+        333338F338F3338F000033333333A2224A2243333333338F338F338F00003333
+        33333A2224A2233333333338F338F83300003333333333A2224A333333333333
+        8F338F33000033333333333A222433333333333338F338F30000333333333333
+        A224333333333333338F38F300003333333333333A223333333333333338F8F3
+        000033333333333333A3333333333333333383330000}
+      NumGlyphs = 2
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = SpeedButton3Click
+    end
+    object ComboBox1: TComboBox
+      Left = 256
+      Top = 10
+      Width = 97
+      Height = 21
+      TabOrder = 1
+      OnEnter = ComboBox1Enter
+    end
+    object ComboBox2: TComboBox
+      Left = 448
+      Top = 10
+      Width = 97
+      Height = 21
+      TabOrder = 2
+      OnEnter = ComboBox2Enter
+    end
+    object opt1: TRadioButton
+      Left = 376
+      Top = 78
+      Width = 89
+      Height = 17
+      Caption = #26410#22519#30908#36039#26009
+      Checked = True
+      TabOrder = 9
+      TabStop = True
+      OnClick = SpeedButton3Click
+    end
+    object opt2: TRadioButton
+      Left = 480
+      Top = 78
+      Width = 89
+      Height = 17
+      Caption = #24050#22519#30908#36039#26009
+      TabOrder = 10
+      OnClick = SpeedButton3Click
+    end
+    object opt3: TRadioButton
+      Left = 584
+      Top = 78
+      Width = 73
+      Height = 17
+      Caption = #20840#37096#36039#26009
+      TabOrder = 11
+      OnClick = SpeedButton3Click
+    end
+    object ComboBox3: TComboBox
+      Left = 104
+      Top = 10
+      Width = 97
+      Height = 21
+      TabOrder = 0
+      OnEnter = ComboBox3Enter
+    end
+    object DateEdit1: TDateEdit
+      Left = 104
+      Top = 42
+      Width = 97
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 3
+    end
+    object DateEdit2: TDateEdit
+      Left = 256
+      Top = 42
+      Width = 97
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 4
+    end
+    object MaskEdit1: TMaskEdit
+      Left = 448
+      Top = 43
+      Width = 97
+      Height = 21
+      EditMask = '99:99:99;1;_'
+      MaxLength = 8
+      TabOrder = 5
+      Text = '  :  :  '
+      OnKeyPress = MaskEdit1KeyPress
+    end
+    object MaskEdit2: TMaskEdit
+      Left = 600
+      Top = 43
+      Width = 97
+      Height = 21
+      EditMask = '99:99:99;1;_'
+      MaxLength = 8
+      TabOrder = 6
+      Text = '  :  :  '
+    end
+    object Edit3: TEdit
+      Left = 104
+      Top = 75
+      Width = 97
+      Height = 21
+      TabOrder = 7
+      OnKeyPress = Edit3KeyPress
+    end
+    object Edit4: TEdit
+      Left = 256
+      Top = 75
+      Width = 97
+      Height = 21
+      TabOrder = 8
+      OnKeyPress = Edit4KeyPress
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 452
+    Width = 731
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitTop = 456
+    ExplicitWidth = 739
+    object SpeedButton2: TSpeedButton
+      Left = 40
+      Top = 6
+      Width = 30
+      Height = 30
+      Hint = #20445#23384
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = SpeedButton2Click
+    end
+    object SpeedButton4: TSpeedButton
+      Left = 70
+      Top = 6
+      Width = 30
+      Height = 30
+      Hint = #25171#21360#22519#30908#28165#21934
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = SpeedButton4Click
+    end
+    object SpeedButton5: TSpeedButton
+      Left = 130
+      Top = 6
+      Width = 30
+      Height = 30
+      Hint = #36864#20986
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00388888888877
+        F7F787F8888888888333333F00004444400888FFF444448888888888F333FF8F
+        000033334D5007FFF4333388888888883338888F0000333345D50FFFF4333333
+        338F888F3338F33F000033334D5D0FFFF43333333388788F3338F33F00003333
+        45D50FEFE4333333338F878F3338F33F000033334D5D0FFFF43333333388788F
+        3338F33F0000333345D50FEFE4333333338F878F3338F33F000033334D5D0FFF
+        F43333333388788F3338F33F0000333345D50FEFE4333333338F878F3338F33F
+        000033334D5D0EFEF43333333388788F3338F33F0000333345D50FEFE4333333
+        338F878F3338F33F000033334D5D0EFEF43333333388788F3338F33F00003333
+        4444444444333333338F8F8FFFF8F33F00003333333333333333333333888888
+        8888333F00003333330000003333333333333FFFFFF3333F00003333330AAAA0
+        333333333333888888F3333F00003333330000003333333333338FFFF8F3333F
+        0000}
+      NumGlyphs = 2
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = SpeedButton5Click
+    end
+    object SpeedButton6: TSpeedButton
+      Left = 164
+      Top = 6
+      Width = 30
+      Height = 30
+      Hint = #25171#21360#22519#30908#24037#20316#23433#25490
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+      ParentShowHint = False
+      ShowHint = True
+      Visible = False
+      OnClick = SpeedButton6Click
+    end
+    object SpeedButton7: TSpeedButton
+      Left = 100
+      Top = 6
+      Width = 30
+      Height = 30
+      Hint = #25171#21360#25910#36008#36890#30693
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = SpeedButton7Click
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 137
+    Width = 731
+    Height = 315
+    Align = alClient
+    TabOrder = 2
+    ExplicitWidth = 739
+    ExplicitHeight = 319
+    object DBGridEh1: TDBGridEh
+      Left = 1
+      Top = 1
+      Width = 737
+      Height = 317
+      Align = alClient
+      AllowedOperations = [alopUpdateEh]
+      DataSource = DataSource1
+      Flat = False
+      FooterColor = clWindow
+      FooterFont.Charset = CHINESEBIG5_CHARSET
+      FooterFont.Color = clWindowText
+      FooterFont.Height = -13
+      FooterFont.Name = #26032#32048#26126#39636
+      FooterFont.Style = []
+      RowDetailPanel.Color = clBtnFace
+      TabOrder = 0
+      TitleFont.Charset = CHINESEBIG5_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -13
+      TitleFont.Name = #26032#32048#26126#39636
+      TitleFont.Style = []
+      UseMultiTitle = True
+      Columns = <
+        item
+          Color = 11927551
+          EditButtons = <>
+          FieldName = 'Gch'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #24037#31243#34399
+          Width = 88
+        end
+        item
+          Color = 11927551
+          EditButtons = <>
+          FieldName = 'Zdh'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #35069#21934
+          Width = 71
+        end
+        item
+          Color = 11927551
+          EditButtons = <>
+          FieldName = 'Kh'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #27454#34399
+          Width = 124
+        end
+        item
+          Color = 11927551
+          EditButtons = <>
+          FieldName = 'Sh'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #33394#34399
+          Width = 39
+        end
+        item
+          Color = 11927551
+          EditButtons = <>
+          FieldName = 'Siz'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #23610#30908
+          Width = 45
+        end
+        item
+          Color = 11927551
+          EditButtons = <>
+          FieldName = 'Xjs'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #31665#20214#25976
+          Width = 52
+        end
+        item
+          Color = 11927551
+          EditButtons = <>
+          FieldName = 'Fh'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #39131#20180#32232#34399
+          Width = 81
+        end
+        item
+          Color = 11927551
+          EditButtons = <>
+          FieldName = 'Bxjs'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = #27599#24373#39131#20214#25976
+          Width = 71
+        end
+        item
+          EditButtons = <>
+          FieldName = 'Yzm'
+          Footers = <>
+          Title.Caption = #24050#22519#30908
+          Width = 49
+        end>
+      object RowDetailData: TRowDetailPanelControlEh
+      end
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Top = 105
+    Width = 731
+    Height = 32
+    Align = alTop
+    TabOrder = 3
+    ExplicitWidth = 739
+    object Label3: TLabel
+      Left = 16
+      Top = 8
+      Width = 84
+      Height = 13
+      Caption = #38651#33126#39131#32232#34399'  '#24478
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 416
+      Top = 3
+      Width = 161
+      Height = 27
+      Caption = #30906#23450#36889#20123#39131#20180#24050#22519#30908
+      Glyph.Data = {
+        96010000424D9601000000000000760000002800000018000000180000000100
+        0400000000002001000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00888888888888
+        8888888888888888888888888888888888888844444444444444444444888877
+        373737373737373737888889173BBB43B3B3B3337888888117B3B4F433374037
+        8888888917334FFF43474078888888811734FFFFF474408888888889174FF6FF
+        FF47408888888891117FFF0778844048888888991118FF8F7077407488888891
+        11186F88B3077407488888991118F6F3BB307740748888911118FF8F3BB30400
+        4888879911186FFFF3BB300078888879917FF6FFFF3BB3008888888717F6FF6F
+        FF73BB308888888991FF6FF8F7443B871888888995FFF6FF877447F891888887
+        97CFFFFF8777477D95888888872CFFFF87744087788888888222C8F877744088
+        8888888888278777778747888888888888888888888888888888}
+      OnClick = SpeedButton1Click
+    end
+    object Label4: TLabel
+      Left = 240
+      Top = 8
+      Width = 13
+      Height = 13
+      Caption = #21040
+    end
+    object Edit1: TEdit
+      Left = 104
+      Top = 6
+      Width = 97
+      Height = 21
+      TabOrder = 0
+      OnKeyPress = Edit1KeyPress
+    end
+    object Edit2: TEdit
+      Left = 256
+      Top = 6
+      Width = 97
+      Height = 21
+      TabOrder = 1
+      OnKeyPress = Edit2KeyPress
+    end
+  end
+  object zmd: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from xsb where yzm=false'
+    Params = <>
+    ProviderName = 'dspcutplan'
+    AfterPost = zmdAfterPost
+    Left = 312
+    Top = 432
+    object zmdGch: TStringField
+      FieldName = 'Gch'
+      Size = 10
+    end
+    object zmdZdh: TStringField
+      FieldName = 'Zdh'
+      Size = 8
+    end
+    object zmdKh: TStringField
+      FieldName = 'Kh'
+      Size = 15
+    end
+    object zmdSh: TStringField
+      FieldName = 'Sh'
+      Size = 3
+    end
+    object zmdId: TIntegerField
+      FieldName = 'Id'
+    end
+    object zmdCup: TStringField
+      FieldName = 'Cup'
+      Size = 3
+    end
+    object zmdSiz1: TIntegerField
+      FieldName = 'Siz1'
+    end
+    object zmdSiz: TStringField
+      FieldName = 'Siz'
+      Size = 5
+    end
+    object zmdXh: TIntegerField
+      FieldName = 'Xh'
+    end
+    object zmdZds: TIntegerField
+      FieldName = 'Zds'
+    end
+    object zmdYcs: TIntegerField
+      FieldName = 'Ycs'
+    end
+    object zmdXjs: TIntegerField
+      FieldName = 'Xjs'
+    end
+    object zmdZxs: TIntegerField
+      FieldName = 'Zxs'
+    end
+    object zmdXs: TIntegerField
+      FieldName = 'Xs'
+    end
+    object zmdBxjs: TIntegerField
+      FieldName = 'Bxjs'
+    end
+    object zmdFh: TIntegerField
+      FieldName = 'Fh'
+    end
+    object zmdCh: TIntegerField
+      FieldName = 'Ch'
+    end
+    object zmdBcxs: TIntegerField
+      FieldName = 'Bcxs'
+    end
+    object zmdYzm: TBooleanField
+      FieldName = 'Yzm'
+      OnChange = zmdYzmChange
+    end
+    object zmdGjzds: TBooleanField
+      FieldName = 'Gjzds'
+    end
+    object zmdZmrq: TDateField
+      FieldName = 'Zmrq'
+    end
+    object zmdZmsj: TTimeField
+      FieldName = 'Zmsj'
+    end
+    object zmdCs: TIntegerField
+      FieldName = 'Cs'
+    end
+  end
+  object query1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspcutplan'
+    Left = 368
+    Top = 432
+  end
+  object query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspcutplan'
+    Left = 396
+    Top = 432
+  end
+  object query3: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from xsb'
+    Params = <>
+    ProviderName = 'dspcutplan'
+    Left = 424
+    Top = 432
+  end
+  object DataSource1: TDataSource
+    DataSet = zmd
+    Left = 340
+    Top = 432
+  end
+  object DataSource2: TDataSource
+    DataSet = query3
+    Left = 452
+    Top = 432
+  end
+  object ppBDEPipeline1: TppBDEPipeline
+    DataSource = DataSource2
+    UserName = 'BDEPipeline1'
+    Left = 480
+    Top = 432
+  end
+  object ppReport1: TppReport
+    AutoStop = False
+    DataPipeline = ppBDEPipeline1
+    PassSetting = psTwoPass
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.SaveDeviceSettings = False
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 297000
+    PrinterSetup.mmPaperWidth = 210000
+    PrinterSetup.PaperSize = 9
+    Units = utMillimeters
+    AllowPrintToFile = True
+    DeviceType = 'Screen'
+    EmailSettings.ReportFormat = 'PDF'
+    OnPreviewFormCreate = ppReport1PreviewFormCreate
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = False
+    OutlineSettings.Visible = False
+    PDFSettings.EmbedFontOptions = []
+    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.Enabled = False
+    Left = 508
+    Top = 432
+    Version = '11.07'
+    mmColumnWidth = 197300
+    DataPipelineName = 'ppBDEPipeline1'
+    object ppHeaderBand1: TppHeaderBand
+      mmBottomOffset = 0
+      mmHeight = 21960
+      mmPrintPosition = 0
+      object ppLabel1: TppLabel
+        UserName = 'Label1'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #22519'  '#30908'  '#28165'  '#21934
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 18
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 7673
+        mmLeft = 80963
+        mmTop = 1852
+        mmWidth = 35454
+        BandType = 0
+      end
+      object lbl1: TppLabel
+        UserName = 'lbl1'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #35069#21934':'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 41275
+        mmTop = 12435
+        mmWidth = 6879
+        BandType = 0
+      end
+      object lbl2: TppLabel
+        UserName = 'lbl2'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #27454#34399':'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 80963
+        mmTop = 12435
+        mmWidth = 6879
+        BandType = 0
+      end
+      object lbl3: TppLabel
+        UserName = 'lbl3'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #33394#34399':'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 139965
+        mmTop = 12435
+        mmWidth = 6879
+        BandType = 0
+      end
+      object lbl4: TppLabel
+        UserName = 'lbl4'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #31665#20214#25976':'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 168805
+        mmTop = 12435
+        mmWidth = 9790
+        BandType = 0
+      end
+      object ppDBText3: TppDBText
+        UserName = 'DBText3'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'Zdh'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 50006
+        mmTop = 12435
+        mmWidth = 5027
+        BandType = 0
+      end
+      object ppDBText4: TppDBText
+        UserName = 'DBText4'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'Kh'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 90752
+        mmTop = 12435
+        mmWidth = 3704
+        BandType = 0
+      end
+      object ppDBText5: TppDBText
+        UserName = 'DBText5'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'Sh'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 148961
+        mmTop = 12435
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppDBText6: TppDBText
+        UserName = 'DBText6'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'Xjs'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 180711
+        mmTop = 12435
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppLabel8: TppLabel
+        UserName = 'Label8'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #24037#31243#34399':'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 2117
+        mmTop = 12435
+        mmWidth = 9790
+        BandType = 0
+      end
+      object ppDBText7: TppDBText
+        UserName = 'DBText7'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'Gch'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 13494
+        mmTop = 12435
+        mmWidth = 5027
+        BandType = 0
+      end
+      object ppLabel2: TppLabel
+        UserName = 'Label2'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #23610#30908
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold, fsUnderline]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 3440
+        mmTop = 17727
+        mmWidth = 5821
+        BandType = 0
+      end
+      object ppLabel3: TppLabel
+        UserName = 'Label3'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #35069#21934#25976
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold, fsUnderline]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 23548
+        mmTop = 17727
+        mmWidth = 8731
+        BandType = 0
+      end
+      object ppLabel4: TppLabel
+        UserName = 'Label4'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #32317#31665#25976
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold, fsUnderline]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 46038
+        mmTop = 17727
+        mmWidth = 8731
+        BandType = 0
+      end
+      object ppLabel11: TppLabel
+        UserName = 'Label11'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #25171#21360#26178#38291':'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 143934
+        mmTop = 7408
+        mmWidth = 12700
+        BandType = 0
+      end
+      object ppSystemVariable1: TppSystemVariable
+        UserName = 'SystemVariable1'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        VarType = vtDateTime
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 160338
+        mmTop = 7408
+        mmWidth = 29633
+        BandType = 0
+      end
+      object ppLabel12: TppLabel
+        UserName = 'Label12'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #38913#30908':'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 143934
+        mmTop = 2910
+        mmWidth = 6879
+        BandType = 0
+      end
+      object ppSystemVariable2: TppSystemVariable
+        UserName = 'SystemVariable2'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        VarType = vtPageSet
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 160338
+        mmTop = 2910
+        mmWidth = 6615
+        BandType = 0
+      end
+      object ppLabel5: TppLabel
+        UserName = 'Label5'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #32317#20214#25976
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold, fsUnderline]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 68792
+        mmTop = 17727
+        mmWidth = 8731
+        BandType = 0
+      end
+      object ppLabel7: TppLabel
+        UserName = 'Label7'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #22519#30908#32317#31665#25976
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold, fsUnderline]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 89429
+        mmTop = 17727
+        mmWidth = 14552
+        BandType = 0
+      end
+      object ppLabel9: TppLabel
+        UserName = 'Label9'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #22519#30908#32317#20214#25976
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold, fsUnderline]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 114300
+        mmTop = 17727
+        mmWidth = 14552
+        BandType = 0
+      end
+      object ppLabel10: TppLabel
+        UserName = 'Label10'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #26410#23436#25104#32317#31665#25976
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold, fsUnderline]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 139965
+        mmTop = 17727
+        mmWidth = 17463
+        BandType = 0
+      end
+      object ppLabel13: TppLabel
+        UserName = 'Label13'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #26410#23436#25104#32317#20214#25976
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold, fsUnderline]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 171715
+        mmTop = 17727
+        mmWidth = 17463
+        BandType = 0
+      end
+    end
+    object ppDetailBand1: TppDetailBand
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+    object ppFooterBand1: TppFooterBand
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+    object ppSummaryBand1: TppSummaryBand
+      AlignToBottom = False
+      mmBottomOffset = 0
+      mmHeight = 4763
+      mmPrintPosition = 0
+      object ppLabel6: TppLabel
+        UserName = 'Label6'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = #32317#35336':'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 3175
+        mmTop = 794
+        mmWidth = 6879
+        BandType = 7
+      end
+      object ppDBCalc1: TppDBCalc
+        UserName = 'DBCalc1'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'Zds'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 18785
+        mmTop = 794
+        mmWidth = 11906
+        BandType = 7
+      end
+      object ppDBCalc2: TppDBCalc
+        UserName = 'DBCalc2'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'Xs'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 91811
+        mmTop = 794
+        mmWidth = 10583
+        BandType = 7
+      end
+      object ppDBCalc4: TppDBCalc
+        UserName = 'DBCalc4'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'Zxs'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 41275
+        mmTop = 794
+        mmWidth = 11906
+        BandType = 7
+      end
+      object ppDBCalc5: TppDBCalc
+        UserName = 'DBCalc5'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'Xgsl'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 63236
+        mmTop = 794
+        mmWidth = 12700
+        BandType = 7
+      end
+      object ppDBCalc3: TppDBCalc
+        UserName = 'DBCalc3'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'bxjs'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 114829
+        mmTop = 794
+        mmWidth = 12435
+        BandType = 7
+      end
+      object ppDBCalc6: TppDBCalc
+        UserName = 'DBCalc6'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'wxs'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 142082
+        mmTop = 794
+        mmWidth = 11906
+        BandType = 7
+      end
+      object ppDBCalc7: TppDBCalc
+        UserName = 'DBCalc7'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'wxjs'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 3440
+        mmLeft = 171715
+        mmTop = 794
+        mmWidth = 12965
+        BandType = 7
+      end
+    end
+    object ppGroup1: TppGroup
+      BreakName = 'Cm'
+      DataPipeline = ppBDEPipeline1
+      KeepTogether = True
+      OutlineSettings.CreateNode = True
+      NewFile = False
+      StartOnOddPage = False
+      UserName = 'Group1'
+      mmNewColumnThreshold = 0
+      mmNewPageThreshold = 0
+      DataPipelineName = 'ppBDEPipeline1'
+      object ppGroupHeaderBand1: TppGroupHeaderBand
+        mmBottomOffset = 0
+        mmHeight = 0
+        mmPrintPosition = 0
+      end
+      object ppGroupFooterBand1: TppGroupFooterBand
+        PrintHeight = phDynamic
+        HideWhenOneDetail = False
+        mmBottomOffset = 0
+        mmHeight = 4498
+        mmPrintPosition = 0
+        object ppDBText1: TppDBText
+          UserName = 'DBText1'
+          HyperlinkColor = clBlue
+          AutoSize = True
+          Border.BorderPositions = []
+          Border.Color = clBlack
+          Border.Style = psSolid
+          Border.Visible = False
+          DataField = 'Siz'
+          DataPipeline = ppBDEPipeline1
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Times New Roman'
+          Font.Size = 8
+          Font.Style = []
+          Transparent = True
+          DataPipelineName = 'ppBDEPipeline1'
+          mmHeight = 3440
+          mmLeft = 3704
+          mmTop = 529
+          mmWidth = 3704
+          BandType = 5
+          GroupNo = 0
+        end
+        object zds: TppDBText
+          UserName = 'zds'
+          HyperlinkColor = clBlue
+          AutoSize = True
+          Border.BorderPositions = []
+          Border.Color = clBlack
+          Border.Style = psSolid
+          Border.Visible = False
+          DataField = 'Zds'
+          DataPipeline = ppBDEPipeline1
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Times New Roman'
+          Font.Size = 8
+          Font.Style = []
+          TextAlignment = taRightJustified
+          Transparent = True
+          DataPipelineName = 'ppBDEPipeline1'
+          mmHeight = 3440
+          mmLeft = 26458
+          mmTop = 529
+          mmWidth = 4233
+          BandType = 5
+          GroupNo = 0
+        end
+        object ppDBText2: TppDBText
+          UserName = 'DBText2'
+          HyperlinkColor = clBlue
+          AutoSize = True
+          Border.BorderPositions = []
+          Border.Color = clBlack
+          Border.Style = psSolid
+          Border.Visible = False
+          DataField = 'Zxs'
+          DataPipeline = ppBDEPipeline1
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Times New Roman'
+          Font.Size = 8
+          Font.Style = []
+          TextAlignment = taRightJustified
+          Transparent = True
+          DataPipelineName = 'ppBDEPipeline1'
+          mmHeight = 3440
+          mmLeft = 48948
+          mmTop = 529
+          mmWidth = 4233
+          BandType = 5
+          GroupNo = 0
+        end
+        object ppDBText8: TppDBText
+          UserName = 'DBText8'
+          HyperlinkColor = clBlue
+          AutoSize = True
+          Border.BorderPositions = []
+          Border.Color = clBlack
+          Border.Style = psSolid
+          Border.Visible = False
+          DataField = 'Xgsl'
+          DataPipeline = ppBDEPipeline1
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Times New Roman'
+          Font.Size = 8
+          Font.Style = []
+          TextAlignment = taRightJustified
+          Transparent = True
+          DataPipelineName = 'ppBDEPipeline1'
+          mmHeight = 3440
+          mmLeft = 70644
+          mmTop = 529
+          mmWidth = 5292
+          BandType = 5
+          GroupNo = 0
+        end
+        object ppDBText9: TppDBText
+          UserName = 'DBText9'
+          HyperlinkColor = clBlue
+          AutoSize = True
+          Border.BorderPositions = []
+          Border.Color = clBlack
+          Border.Style = psSolid
+          Border.Visible = False
+          DataField = 'xs'
+          DataPipeline = ppBDEPipeline1
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Times New Roman'
+          Font.Size = 8
+          Font.Style = []
+          TextAlignment = taRightJustified
+          Transparent = True
+          DataPipelineName = 'ppBDEPipeline1'
+          mmHeight = 3440
+          mmLeft = 99748
+          mmTop = 529
+          mmWidth = 2646
+          BandType = 5
+          GroupNo = 0
+        end
+        object ppDBText10: TppDBText
+          UserName = 'DBText10'
+          HyperlinkColor = clBlue
+          AutoSize = True
+          Border.BorderPositions = []
+          Border.Color = clBlack
+          Border.Style = psSolid
+          Border.Visible = False
+          DataField = 'bxjs'
+          DataPipeline = ppBDEPipeline1
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Times New Roman'
+          Font.Size = 8
+          Font.Style = []
+          TextAlignment = taRightJustified
+          Transparent = True
+          DataPipelineName = 'ppBDEPipeline1'
+          mmHeight = 3440
+          mmLeft = 122502
+          mmTop = 529
+          mmWidth = 4763
+          BandType = 5
+          GroupNo = 0
+        end
+        object ppDBText11: TppDBText
+          UserName = 'DBText11'
+          HyperlinkColor = clBlue
+          AutoSize = True
+          Border.BorderPositions = []
+          Border.Color = clBlack
+          Border.Style = psSolid
+          Border.Visible = False
+          DataField = 'wxs'
+          DataPipeline = ppBDEPipeline1
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Times New Roman'
+          Font.Size = 8
+          Font.Style = []
+          TextAlignment = taRightJustified
+          Transparent = True
+          DataPipelineName = 'ppBDEPipeline1'
+          mmHeight = 3440
+          mmLeft = 149490
+          mmTop = 529
+          mmWidth = 4498
+          BandType = 5
+          GroupNo = 0
+        end
+        object ppDBText12: TppDBText
+          UserName = 'DBText101'
+          HyperlinkColor = clBlue
+          AutoSize = True
+          Border.BorderPositions = []
+          Border.Color = clBlack
+          Border.Style = psSolid
+          Border.Visible = False
+          DataField = 'wxjs'
+          DataPipeline = ppBDEPipeline1
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Times New Roman'
+          Font.Size = 8
+          Font.Style = []
+          TextAlignment = taRightJustified
+          Transparent = True
+          DataPipelineName = 'ppBDEPipeline1'
+          mmHeight = 3440
+          mmLeft = 179388
+          mmTop = 529
+          mmWidth = 5292
+          BandType = 5
+          GroupNo = 0
+        end
+      end
+    end
+    object ppParameterList1: TppParameterList
+    end
+  end
+end

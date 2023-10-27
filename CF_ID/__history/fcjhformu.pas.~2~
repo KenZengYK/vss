@@ -1,0 +1,34 @@
+unit fcjhformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, DBCtrls, ExtCtrls;
+
+type
+  Tfrmfcjh = class(TForm)
+    Panel1: TPanel;
+    Label5: TLabel;
+    Label18: TLabel;
+    DBEdit7: TDBEdit;
+    Edit1: TEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    DBEdit14: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmfcjh: Tfrmfcjh;
+
+implementation
+
+uses mainu, xzzdu;
+
+{$R *.dfm}
+
+end.

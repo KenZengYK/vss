@@ -1,0 +1,97 @@
+program CutPlan;
+
+uses
+  Forms,
+  Windows,
+  mainu in 'mainu.pas' {frmmain},
+  zdlru in 'zdlru.pas' {frmzdlr},
+  shlru in 'shlru.pas' {frmshlr},
+  zdsu in 'zdsu.pas' {frmzds},
+  DMfcu in 'DMfcu.pas' {DMfcjh: TDataModule},
+  fcjyu in 'fcjyu.pas' {frmfcjy},
+  pbzlu in 'pbzlu.pas' {frmpbzl},
+  lbjhu in 'lbjhu.pas' {frmlbjh},
+  lbfxu in 'lbfxu.pas' {frmlbfx},
+  lbjgu in 'lbjgu.pas' {frmlbjg},
+  zdzlu in 'zdzlu.pas' {frmzdzl},
+  dlu in 'dlu.pas' {frmxtdl},
+  useru in 'useru.pas' {frmuser},
+  cgjhu in 'cgjhu.pas' {frmcgjh},
+  fcu in 'fcu.pas' {frmfc},
+  xzzdu in 'xzzdu.pas' {frmxzzd},
+  mjxxu in 'mjxxu.pas' {frmmjxx},
+  jcu in 'jcu.pas' {frmjc},
+  mmyzu in 'mmyzu.pas' {frmmmyz},
+  lbgccxu in 'lbgccxu.pas' {frmlbgccx},
+  xgtm in 'xgtm.pas' {frmxgtm},
+  fllru in 'fllru.pas' {frmfllr},
+  xgwlu in 'xgwlu.pas' {frmxgwl},
+  sczdu in 'sczdu.pas' {frmsczd},
+  gczdu in 'gczdu.pas' {frmgczd},
+  sclfxu in 'sclfxu.pas' {frmsclfx},
+  lhjlu in 'lhjlu.pas' {frmlhjl},
+  phiszdu in 'phiszdu.pas' {frmphiszd},
+  dycgjhu in 'dycgjhu.pas' {frmdycgjh},
+  cgfxu in 'cgfxu.pas' {frmcgfx},
+  cgbgfxu in 'cgbgfxu.pas' {frmcgbgfx},
+  cgbgu in 'cgbgu.pas' {frmcgbg},
+  dycgbgu in 'dycgbgu.pas' {frmdycgbg},
+  wwcmju in 'wwcmju.pas' {frmwwcmj},
+  wwclhu in 'wwclhu.pas' {frmwwclh},
+  drkcu in 'drkcu.pas' {frmdrkc},
+  xgwl1u in 'xgwl1u.pas' {frmxgwl1},
+  mjfdu in 'mjfdu.pas' {frmmjfd},
+  xgcmu in 'xgcmu.pas' {frmxgcm},
+  xgkhu in 'xgkhu.pas' {frmxgkh},
+  cgdu in 'cgdu.pas' {frmcgd},
+  xglbzsu in 'xglbzsu.pas' {frmxglbzs},
+  fcdyu in 'fcdyu.pas' {frmfcdy},
+  lbyldyu in 'lbyldyu.pas' {frmlbyldy},
+  zmzyu in 'zmzyu.pas' {frmzmzy},
+  zmdu in 'zmdu.pas' {frmzmd},
+  xsjlbu in 'xsjlbu.pas' {frmxsjlb},
+  printzmd1u in 'printzmd1u.pas' {frmprintzmd1},
+  shtzdu in 'shtzdu.pas' {frmprintshtzd},
+  xgzdformu in 'xgzdformu.pas' {frmxgzd},
+  blxgformu in 'blxgformu.pas' {frmblxg},
+  lbyl1dyu in 'lbyl1dyu.pas' {frmlbyl1dy},
+  jhmjfxformu in 'jhmjfxformu.pas' {frmjhmjfx},
+  wlcopyu in 'wlcopyu.pas' {frmwlcopy},
+  cgddyu in 'cgddyu.pas' {frmcgddy},
+  xgcm1formu in 'xgcm1formu.pas' {frmxgcm1},
+  qxwhu in 'qxwhu.pas' {frmqxwh},
+  xzzd1u in 'xzzd1u.pas' {frmxzzd1},
+  frnformu in 'frnformu.pas' {frmFRN},
+  FRN_ReviewFormu in 'FRN_ReviewFormu.pas' {frmFRN_review},
+  FRN_ChooseFormu in 'FRN_ChooseFormu.pas' {frmFRN_Choose},
+  Marking_YieldFormu in 'Marking_YieldFormu.pas' {frmMarking_Yield},
+  AL_categoryformu in 'AL_categoryformu.pas' {frmal_category},
+  Carte_MailFormu in 'Carte_MailFormu.pas' {frmCarte_Mail},
+  frmcsvu in 'frmcsvu.pas' {frmCsv},
+  cmpl_actionlogformu in 'cmpl_actionlogformu.pas' {frmcmpl_actionlog},
+  al_supplementformu in 'al_supplementformu.pas' {frmal_supplement},
+  Cause_ChooseFormu in 'Cause_ChooseFormu.pas' {frmcause_choose},
+  cmpl_actionlog1formu in 'cmpl_actionlog1formu.pas' {frmcmpl_actionlog1},
+  Grp_ActionDetailFormu in 'Grp_ActionDetailFormu.pas' {frmgrp_actiondetail},
+  splitstageformu in 'splitstageformu.pas' {frmsplitstage},
+  eOrderFormu in 'eOrderFormu.pas' {frmeOrder},
+  xzgchu in 'xzgchu.pas' {frmxzgch},
+  fcjhformu in 'fcjhformu.pas' {frmfcjh},
+  Calc_RulesFormu in 'Calc_RulesFormu.pas' {frmcalc_rules},
+  Rules_detailFormu in 'Rules_detailFormu.pas' {frmrules_detail},
+  Marker_remarksFormu in 'Marker_remarksFormu.pas' {frmmarker_remarks},
+  pkeorder_dtlformu in 'pkeorder_dtlformu.pas' {frmpkeorder_dtl};
+
+var
+  myapp: THandle;
+
+{$R *.RES}
+
+begin
+  //myapp:=CreateMutex(nil,false,'Cutting  Plan');
+  //if waitforsingleobject(myapp,0)<>wait_timeout then begin
+  Application.Initialize;
+  Application.CreateForm(Tfrmmain, frmmain);
+  Application.Run;
+  //end;
+end.

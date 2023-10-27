@@ -1,0 +1,81 @@
+unit choosepu2cuformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinCaramel, dxSkinCoffee,
+  dxSkinDarkRoom, dxSkinDarkSide, dxSkinFoggy, dxSkinGlassOceans,
+  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
+  dxSkinMcSkin, dxSkinMoneyTwins, dxSkinOffice2007Black, dxSkinOffice2007Blue,
+  dxSkinOffice2007Green, dxSkinOffice2007Pink, dxSkinOffice2007Silver,
+  dxSkinOffice2010Black, dxSkinOffice2010Blue, dxSkinOffice2010Silver,
+  dxSkinPumpkin, dxSkinSeven, dxSkinSharp, dxSkinSilver, dxSkinSpringTime,
+  dxSkinStardust, dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
+  dxSkinXmas2008Blue, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxEdit, DB, cxDBData, cxButtonEdit, StdCtrls, Buttons, ADODB,
+  ExtCtrls, cxGridLevel, cxGridCustomTableView, cxGridTableView,
+  cxGridBandedTableView, cxGridDBBandedTableView, cxClasses, cxGridCustomView,
+  cxGridDBTableView, cxGrid;
+
+type
+  Tfrmchoosepu2cu = class(TForm)
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxView1: TcxGridDBBandedTableView;
+    cxView1cde: TcxGridDBBandedColumn;
+    cxView1desc_e: TcxGridDBBandedColumn;
+    cxView1desc_c: TcxGridDBBandedColumn;
+    cxView1Column1: TcxGridDBBandedColumn;
+    cxGrid1Level1: TcxGridLevel;
+    Panel1: TPanel;
+    cut_pu2cu: TADODataSet;
+    dspu2cu: TDataSource;
+    SaveDialog1: TSaveDialog;
+    ADOQuery1: TADOQuery;
+    ADOQuery2: TADOQuery;
+    btn1: TBitBtn;
+    btn2: TBitBtn;
+    procedure btn2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmchoosepu2cu: Tfrmchoosepu2cu;
+
+implementation
+
+uses mainu, pu2cu_elementsformu;
+
+{$R *.dfm}
+
+procedure Tfrmchoosepu2cu.btn1Click(Sender: TObject);
+begin
+  with frmpu2cu_elements.cut_fc_pu2cu do begin
+    edit;
+    FieldByName('cde').Value:=cut_pu2cu.FieldByName('cde').Value;
+    FieldByName('des_c').Value:=cut_pu2cu.FieldByName('des_c').Value;
+    FieldByName('des_e').Value:=cut_pu2cu.FieldByName('des_e').Value;
+    post;
+  end;
+  close;
+end;
+
+procedure Tfrmchoosepu2cu.btn2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure Tfrmchoosepu2cu.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=caFree;
+  frmchoosepu2cu:=nil;
+end;
+
+end.

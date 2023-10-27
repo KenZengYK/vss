@@ -1,0 +1,143 @@
+unit zdfzu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, Db, DBClient, Variants;
+
+type
+  Tfrmzdfz = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Label3: TLabel;
+    Edit3: TEdit;
+    Label4: TLabel;
+    Edit4: TEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    ClientDataSet1: TClientDataSet;
+    ClientDataSet2: TClientDataSet;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmzdfz: Tfrmzdfz;
+
+implementation
+uses dlu, fcu;
+{$R *.DFM}
+
+procedure Tfrmzdfz.BitBtn1Click(Sender: TObject);
+var
+  ogch,ozdh,okh,osh,ngch,nzdh,nkh,nsh:string;
+begin
+  screen.cursor:=crHourglass;
+  ogch:=frmfc.fczd1.fieldbyname('gch').value;
+  ozdh:=frmfc.fczd1.fieldbyname('zdh').value;
+  okh:=frmfc.fczd1.fieldbyname('kh').value;
+  osh:=frmfc.fczd1.fieldbyname('sh').value;
+  ngch:=edit1.text;
+  nzdh:=edit2.text;
+  nkh:=edit3.text;
+  nsh:=edit4.text;
+  if ((ogch<>ngch) or (ozdh<>nzdh) or (okh<>nkh) or (osh<>nsh)) and ((ngch<>'') and (nzdh<>'') and (nkh<>'') and (nsh<>'')) then begin
+    with clientdataset1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'gch',ptinput);
+      params.createparam(ftstring,'zdh',ptinput);
+      params.createparam(ftstring,'kh',ptinput);
+      params.createparam(ftstring,'sh',ptinput);
+      commandtext:='select * from fczd1 where gch=:gch and zdh=:zdh and kh=:kh and sh=:sh';
+      params[0].asstring:=ngch;
+      params[1].asstring:=nzdh;
+      params[2].asstring:=nkh;
+      params[3].asstring:=nsh;
+      open;
+      if recordcount>0 then begin
+        if application.MessageBox('此製單已存在,是否要覆蓋?','提示',mb_iconquestion+mb_okcancel)=idok then begin
+          with clientdataset2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'gch',ptinput);
+            params.createparam(ftstring,'zdh',ptinput);
+            params.createparam(ftstring,'kh',ptinput);
+            params.createparam(ftstring,'sh',ptinput);
+            commandtext:='delete from fczd1 where gch=:gch and zdh=:zdh and kh=:kh and sh=:sh';
+            params[0].asstring:=ngch;
+            params[1].asstring:=nzdh;
+            params[2].asstring:=nkh;
+            params[3].asstring:=nsh;
+            execute;
+            close;
+            params.clear;
+            params.createparam(ftstring,'gch',ptinput);
+            params.createparam(ftstring,'zdh',ptinput);
+            params.createparam(ftstring,'kh',ptinput);
+            params.createparam(ftstring,'sh',ptinput);
+            commandtext:='delete from fczd2 where gch=:gch and zdh=:zdh and kh=:kh and sh=:sh';
+            params[0].asstring:=ngch;
+            params[1].asstring:=nzdh;
+            params[2].asstring:=nkh;
+            params[3].asstring:=nsh;
+            execute;
+            close;
+            params.clear;
+            params.createparam(ftstring,'gch',ptinput);
+            params.createparam(ftstring,'zdh',ptinput);
+            params.createparam(ftstring,'kh',ptinput);
+            params.createparam(ftstring,'sh',ptinput);
+            commandtext:='delete from fcwl where gch=:gch and zdh=:zdh and kh=:kh and sh=:sh';
+            params[0].asstring:=ngch;
+            params[1].asstring:=nzdh;
+            params[2].asstring:=nkh;
+            params[3].asstring:=nsh;
+            execute;
+          end;
+          //frmxtdl.SocketConnection1.AppServer.cpygch(ogch,ozdh,okh,osh,ngch,nzdh,nkh,nsh);
+          with frmfc.fczd1 do begin
+            close;
+            params.clear;
+            commandtext:='select * from fczd1';
+            open;
+            locate('gch;zdh;kh;sh',vararrayof([ngch,nzdh,nkh,nsh]),[lopartialkey]);
+          end;
+        end;
+      end
+      else begin
+        //frmxtdl.SocketConnection1.appserver.cpygch(ogch,ozdh,okh,osh,ngch,nzdh,nkh,nsh);
+        with frmfc.fczd1 do begin
+          close;
+          params.clear;
+          commandtext:='select * from fczd1';
+          open;
+          locate('gch;zdh;kh;sh',vararrayof([ngch,nzdh,nkh,nsh]),[lopartialkey]);
+        end;
+      end;
+    end;
+  end;
+  close;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmzdfz.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmzdfz.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmzdfz:=nil;
+end;
+
+end.

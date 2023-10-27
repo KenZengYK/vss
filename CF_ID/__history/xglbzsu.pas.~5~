@@ -1,0 +1,712 @@
+unit xglbzsu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, Db, DBTables, DBClient, Variants, ADODB;
+
+type
+  Tfrmxglbzs = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Label3: TLabel;
+    query1: TClientDataSet;
+    query2: TClientDataSet;
+    query3: TClientDataSet;
+    ADOQuery1: TADOQuery;
+    ADOQuery2: TADOQuery;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmxglbzs: Tfrmxglbzs;
+
+implementation
+uses mainu, lbjhu, cgdu;
+{$R *.DFM}
+
+procedure Tfrmxglbzs.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmxglbzs.BitBtn1Click(Sender: TObject);
+var
+  prjno,wl:string;
+  xh:integer;
+  xh1,i1,i2,i3,i4,i:integer;
+begin
+  screen.cursor:=crHourglass;
+  if edit2.text<>'' then begin
+   if label3.caption='lbjh' then begin
+     prjno:=frmlbjh.lbjh1.fieldbyname('prjno').value;
+     wl:=frmlbjh.lbjh1.fieldbyname('wl').value;
+     xh:=frmlbjh.lbjh1.fieldbyname('xh').value;
+     {
+     with query1 do begin
+       close;
+       params.clear;
+       params.createparam(ftinteger,'mjjs',ptinput);
+       params.createparam(ftstring,'prjno',ptinput);
+       params.createparam(ftstring,'wl',ptinput);
+       params.createparam(ftinteger,'xh',ptinput);
+       commandtext:='update cut_lbjh2 set mjjs=mjs*:mjjs where prjno=:prjno and wl=:wl and xh=:xh';
+       params[0].asinteger:=strtoint(edit2.text);
+       params[1].asstring:=prjno;
+       params[2].asstring:=wl;
+       params[3].asinteger:=xh;
+       execute;
+       close;
+       params.clear;
+       params.createparam(ftinteger,'jhlbzs',ptinput);
+       params.createparam(ftstring,'prjno',ptinput);
+       params.createparam(ftstring,'wl',ptinput);
+       params.createparam(ftinteger,'xh',ptinput);
+       commandtext:='update cut_lbjh3 set jhlbzs=:jhlbzs,jhwlcd=jhlbzs*jhdzlbcd where prjno=:prjno and wl=:wl and xh=:xh';
+       params[0].asinteger:=strtoint(edit2.text);
+       params[1].asstring:=prjno;
+       params[2].asstring:=wl;
+       params[3].asinteger:=xh;
+       execute;
+       close;
+       params.clear;
+       params.createparam(ftinteger,'lbzs',ptinput);
+       params.createparam(ftstring,'prjno',ptinput);
+       params.createparam(ftstring,'wl',ptinput);
+       params.createparam(ftinteger,'xh',ptinput);
+       commandtext:='update cut_lbjh1 set lbzs=:lbzs where prjno=:prjno and wl=:wl and xh=:xh';
+       params[0].asinteger:=strtoint(edit2.text);
+       params[1].asstring:=prjno;
+       params[2].asstring:=wl;
+       params[3].asinteger:=xh;
+       execute;
+     end;
+     }
+     with adoquery1 do begin
+       close;
+       sql.text:='update cut_lbjh2 set mjjs=mjs*:mjjs where prjno=:prjno and wl=:wl and xh=:xh';
+       parameters[0].value:=strtoint(edit2.text);
+       parameters[1].value:=prjno;
+       parameters[2].value:=wl;
+       parameters[3].value:=xh;
+       execsql;
+       close;
+       commandtext:='update cut_lbjh3 set jhlbzs=:jhlbzs,jhwlcd=jhlbzs*jhdzlbcd where prjno=:prjno and wl=:wl and xh=:xh';
+       parameters[0].value:=strtoint(edit2.text);
+       parameters[1].value:=prjno;
+       parameters[2].value:=wl;
+       parameters[3].value:=xh;
+       execsql;
+       close;
+       commandtext:='update cut_lbjh1 set lbzs=:lbzs where prjno=:prjno and wl=:wl and xh=:xh';
+       parameters[0].value:=strtoint(edit2.text);
+       parameters[1].value:=prjno;
+       parameters[2].value:=wl;
+       parameters[3].value:=xh;
+       execsql;
+     end;
+
+     with frmlbjh.lbjh1 do begin
+       close;
+       //params.clear;
+       //params.createparam(ftstring,'prjno',ptinput);
+       commandtext:='select * from cut_lbjh1 where prjno=:prjno';
+       parameters[0].value:=prjno;
+       open;
+       locate('prjno;wl;xh',vararrayof([prjno,wl,xh]),[lopartialkey]);
+     end;
+   end
+   else begin
+    {prjno:=frmcgd.cgd1.fieldbyname('prjno').value;
+    wl:=frmcgd.cgd1.fieldbyname('wl').value;
+    xh:=frmcgd.cgd1.fieldbyname('xh').value;
+    i1:=strtoint(edit1.text);
+    i2:=strtoint(edit2.text);
+    if i2<i1 then begin
+      i3:=(i1 div i2);
+      if i2*i3<i1 then begin
+        i4:=i3;
+        i3:=i1-i2*i3;
+      end
+      else begin i4:=i3-1;i3:=i2;end;
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        commandtext:='select max(xh) as xh1 from cgd1 where prjno=:prjno and wl=:wl';
+        params[0].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[1].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        open;
+        xh1:=fieldbyname('xh1').value;
+      end;
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'ylbzs',ptinput);
+        params.createparam(ftinteger,'lbzs',ptinput);
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        commandtext:='update cgd1 set ylbzs=:ylbzs,jhwlzc=jhwlzc/:lbzs where prjno=:prjno and wl=:wl and xh=:xh';
+        params[0].asinteger:=i2;
+        params[1].asfloat:=i1/i2;
+        params[2].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[3].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        params[4].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+        execute;
+      end;
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'mjjs',ptinput);
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        commandtext:='update cgd2 set mjjs=mjs*:mjjs where prjno=:prjno and wl=:wl and xh=:xh';
+        params[0].asinteger:=i2;
+        params[1].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[2].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        params[3].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+        execute;
+      end;
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'ylbzs',ptinput);
+        params.createparam(ftinteger,'lbzs',ptinput);
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        commandtext:='update cgd3 set jhlbzs=:ylbzs,jhwlcd=jhdzlbcd*:lbzs where prjno=:prjno and wl=:wl and xh=:xh';
+        params[0].asinteger:=i2;
+        params[1].asinteger:=i2;
+        params[2].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[3].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        params[4].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+        execute;
+      end;
+
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        params.createparam(ftinteger,'lbzs',ptinput);
+        params.createparam(ftinteger,'ylbzs',ptinput);
+        params.createparam(ftinteger,'sjlb',ptinput);
+        params.createparam(ftdate,'rq',ptinput);
+        params.createparam(ftfloat,'pjmjfd',ptinput);
+        params.createparam(ftfloat,'ybl',ptinput);
+        params.createparam(ftfloat,'mjzcd',ptinput);
+        params.createparam(ftfloat,'mjypzbzc',ptinput);
+        params.createparam(ftfloat,'jhdzlbzc',ptinput);
+        params.createparam(ftfloat,'jhwlzc',ptinput);
+        params.createparam(ftfloat,'jhcgzsj',ptinput);
+        params.createparam(ftfloat,'jhscsh',ptinput);
+        params.createparam(ftfloat,'sjdzlbzc',ptinput);
+        params.createparam(ftfloat,'sjwlzc',ptinput);
+        params.createparam(ftfloat,'sjscsh',ptinput);
+        params.createparam(ftfloat,'sjcgzsj',ptinput);
+        params.createparam(ftfloat,'pbl',ptinput);
+        params.createparam(ftfloat,'zdypcd',ptinput);
+        params.createparam(ftfloat,'ysmjfd',ptinput);
+        params.createparam(ftfloat,'dzmjps',ptinput);
+        params.createparam(ftfloat,'mjyl',ptinput);
+        params.createparam(ftboolean,'zp',ptinput);
+        params.createparam(ftstring,'mjstatus',ptinput);
+        commandtext:='insert into cgd1(prjno,wl,xh,lbzs,ylbzs,sjlb,rq,pjmjfd,ybl,mjzcd,mjypzbzc,jhdzlbzc,jhwlzc,jhcgzsj,jhscsh,sjdzlbzc,sjwlzc,sjscsh,sjcgzsj,pbl,zdypcd,ysmjfd,dzmjps,mjyl,zp,mjstatus) '
+                    +'values(:prjno,:wl,:xh,:lbzs,:ylbzs,:sjlb,:rq,:pjmjfd,:ybl,:mjzcd,:mjypzbzc,:jhdzlbzc,:jhwlzc,:jhcgzsj,:jhscsh,:sjdzlbzc,:sjwlzc,:sjscsh,:sjcgzsj,:pbl,:zdypcd,:ysmjfd,:dzmjps,:mjyl,:zp,:mjstatus)';
+        params[0].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[1].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        params[2].asinteger:=xh1+i4;
+        params[3].asinteger:=frmcgd.cgd1.fieldbyname('lbzs').value;
+        params[4].asinteger:=i3;
+        params[5].asinteger:=frmcgd.cgd1.fieldbyname('sjlb').value;
+        params[6].asdate:=date;
+        params[7].asfloat:=frmcgd.cgd1.fieldbyname('pjmjfd').value;
+        params[8].asfloat:=frmcgd.cgd1.fieldbyname('ybl').value;
+        params[9].asfloat:=frmcgd.cgd1.fieldbyname('mjzcd').value;
+        params[10].asfloat:=frmcgd.cgd1.fieldbyname('mjypzbzc').value;
+        params[11].asfloat:=frmcgd.cgd1.fieldbyname('jhdzlbzc').value;
+        params[12].asfloat:=frmcgd.cgd1.fieldbyname('jhwlzc').value/i1*i3;
+        params[13].asfloat:=frmcgd.cgd1.fieldbyname('jhcgzsj').value;
+        params[14].asfloat:=frmcgd.cgd1.fieldbyname('jhscsh').value;
+        params[15].asfloat:=frmcgd.cgd1.fieldbyname('sjdzlbzc').value;
+        params[16].asfloat:=frmcgd.cgd1.fieldbyname('sjwlzc').value;
+        params[17].asfloat:=frmcgd.cgd1.fieldbyname('sjscsh').value;
+        params[18].asfloat:=frmcgd.cgd1.fieldbyname('sjcgzsj').value;
+        params[19].asfloat:=frmcgd.cgd1.fieldbyname('pbl').value;
+        params[20].asfloat:=frmcgd.cgd1.fieldbyname('zdypcd').value;
+        params[21].asfloat:=frmcgd.cgd1.fieldbyname('ysmjfd').value;
+        params[22].asfloat:=frmcgd.cgd1.fieldbyname('dzmjps').value;
+        params[23].asfloat:=frmcgd.cgd1.fieldbyname('mjyl').value;
+        params[24].asboolean:=frmcgd.cgd1.fieldbyname('zp').value;
+        if not frmcgd.cgd1.fieldbyname('mjstatus').isnull then
+        params[25].asstring:=frmcgd.cgd1.fieldbyname('mjstatus').value
+        else params[25].asstring:='';
+        execute;
+      end;
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        commandtext:='select * from cgd2 where prjno=:prjno and wl=:wl and xh=:xh order by kh,id';
+        params[0].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[1].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        params[2].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+        open;
+        first;
+        while not eof do begin
+          with query2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'prjno',ptinput);
+            params.createparam(ftstring,'wl',ptinput);
+            params.createparam(ftinteger,'xh',ptinput);
+            params.createparam(ftstring,'kh',ptinput);
+            params.createparam(ftstring,'gch',ptinput);
+            params.createparam(ftstring,'zdh',ptinput);
+            params.createparam(ftstring,'sh',ptinput);
+            params.createparam(ftstring,'cm',ptinput);
+            params.createparam(ftinteger,'zds',ptinput);
+            params.createparam(ftinteger,'mjjs',ptinput);
+            params.createparam(ftfloat,'mjs',ptinput);
+            params.createparam(ftinteger,'jc',ptinput);
+            params.createparam(ftinteger,'ys',ptinput);
+            params.createparam(ftfloat,'cacyl',ptinput);
+            params.createparam(ftstring,'bz',ptinput);
+            commandtext:='insert into cgd2(prjno,wl,xh,kh,gch,zdh,sh,cm,zds,mjjs,mjs,jc,ys,cacyl,bz) '
+                        +'values(:prjno,:wl,:xh,:kh,:gch,:zdh,:sh,:cm,:zds,:mjjs,:mjs,:jc,:ys,:cacyl,:bz)';
+            params[0].asstring:=query1.fieldbyname('prjno').value;
+            params[1].asstring:=query1.fieldbyname('wl').value;
+            params[2].asinteger:=xh1+i4;
+            params[3].asstring:=query1.fieldbyname('kh').value;
+            params[4].asstring:=query1.fieldbyname('gch').value;
+            params[5].asstring:=query1.fieldbyname('zdh').value;
+            params[6].asstring:=query1.fieldbyname('sh').value;
+            params[7].asstring:=query1.fieldbyname('cm').value;
+            params[8].asinteger:=query1.fieldbyname('zds').value;
+            params[9].asinteger:=round(query1.fieldbyname('mjs').value*i3);
+            params[10].asfloat:=query1.fieldbyname('mjs').value;
+            params[11].asinteger:=query1.fieldbyname('jc').value;
+            params[12].asinteger:=query1.fieldbyname('ys').value;
+            params[13].asfloat:=query1.fieldbyname('cacyl').value;
+            if not query1.fieldbyname('bz').isnull then
+            params[14].asstring:=query1.fieldbyname('bz').value
+            else params[14].asstring:='';
+            execute;
+          end;
+          application.ProcessMessages;
+          next;
+        end;
+      end;
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        commandtext:='select * from cgd3 where prjno=:prjno and wl=:wl and xh=:xh';
+        params[0].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[1].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        params[2].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+        open;
+        if recordcount>0 then begin
+          with query2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'prjno',ptinput);
+            params.createparam(ftstring,'wl',ptinput);
+            params.createparam(ftinteger,'xh',ptinput);
+            params.createparam(ftstring,'mjh',ptinput);
+            params.createparam(ftfloat,'ybl',ptinput);
+            params.createparam(ftinteger,'mjfd',ptinput);
+            params.createparam(ftfloat,'mjcd',ptinput);
+            params.createparam(ftfloat,'mjypzbc',ptinput);
+            params.createparam(ftinteger,'jhlbzs',ptinput);
+            params.createparam(ftfloat,'jhdzlbcd',ptinput);
+            params.createparam(ftfloat,'jhcgsj',ptinput);
+            params.createparam(ftfloat,'jhwlcd',ptinput);
+            commandtext:='insert into cgd3(prjno,wl,xh,mjh,ybl,mjfd,mjcd,mjypzbc,jhlbzs,jhdzlbcd,jhcgsj,jhwlcd) '
+                        +'values(:prjno,:wl,:xh,:mjh,:ybl,:mjfd,:mjcd,:mjypzbc,:jhlbzs,:jhdzlbcd,:jhcgsj,:jhwlcd)';
+            params[0].asstring:=query1.fieldbyname('prjno').value;
+            params[1].asstring:=query1.fieldbyname('wl').value;
+            params[2].asinteger:=xh1+i4;
+            params[3].asstring:=query1.fieldbyname('mjh').value;
+            params[4].asfloat:=query1.fieldbyname('ybl').value;
+            params[5].asinteger:=query1.fieldbyname('mjfd').value;
+            params[6].asfloat:=query1.fieldbyname('mjcd').value;
+            params[7].asfloat:=query1.fieldbyname('mjypzbc').value;
+            params[8].asinteger:=i3;
+            params[9].asfloat:=query1.fieldbyname('jhdzlbcd').value;
+            params[10].asfloat:=query1.fieldbyname('jhcgsj').value;
+            params[11].asfloat:=i3*query1.fieldbyname('jhdzlbcd').value;
+            execute;
+          end;
+        end;
+      end;
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        commandtext:='select * from cgdwl where prjno=:prjno and wl=:wl and xh=:xh';
+        params[0].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[1].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        params[2].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+        open;
+        if recordcount>0 then begin
+          with query2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'prjno',ptinput);
+            params.createparam(ftstring,'wl',ptinput);
+            params.createparam(ftinteger,'xh',ptinput);
+            params.createparam(ftboolean,'bzmj',ptinput);
+            params.createparam(ftboolean,'zbmj',ptinput);
+            params.createparam(ftboolean,'twmj',ptinput);
+            params.createparam(ftboolean,'pzx',ptinput);
+            params.createparam(ftboolean,'yymj',ptinput);
+            params.createparam(ftboolean,'dk',ptinput);
+            params.createparam(ftboolean,'hk',ptinput);
+            params.createparam(ftboolean,'ds',ptinput);
+            params.createparam(ftboolean,'hs',ptinput);
+            params.createparam(ftboolean,'dzd',ptinput);
+            params.createparam(ftboolean,'hzd',ptinput);
+            params.createparam(ftboolean,'ldz',ptinput);
+            params.createparam(ftboolean,'lhz',ptinput);
+            params.createparam(ftboolean,'yqxg',ptinput);
+            params.createparam(ftboolean,'zysc',ptinput);
+            commandtext:='insert into cgdwl(prjno,wl,xh,bzmj,zbmj,twmj,pzx,yymj,dk,hk,ds,hs,dzd,hzd,ldz,lhz,yqxg,zysc) '
+                        +'values(:prjno,:wl,:xh,:bzmj,:zbmj,:twmj,:pzx,:yymj,:dk,:hk,:ds,:hs,:dzd,:hzd,:ldz,:lhz,:yqxg,:zysc)';
+            params[0].asstring:=query1.fieldbyname('prjno').value;
+            params[1].asstring:=query1.fieldbyname('wl').value;
+            params[2].asinteger:=xh1+i4;
+            params[3].asboolean:=query1.fieldbyname('bzmj').value;
+            params[4].asboolean:=query1.fieldbyname('zbmj').value;
+            params[5].asboolean:=query1.fieldbyname('twmj').value;
+            params[6].asboolean:=query1.fieldbyname('pzx').value;
+            params[7].asboolean:=query1.fieldbyname('yymj').value;
+            params[8].asboolean:=query1.fieldbyname('dk').value;
+            params[9].asboolean:=query1.fieldbyname('hk').value;
+            params[10].asboolean:=query1.fieldbyname('ds').value;
+            params[11].asboolean:=query1.fieldbyname('hs').value;
+            params[12].asboolean:=query1.fieldbyname('dzd').value;
+            params[13].asboolean:=query1.fieldbyname('hzd').value;
+            params[14].asboolean:=query1.fieldbyname('ldz').value;
+            params[15].asboolean:=query1.fieldbyname('lhz').value;
+            params[16].asboolean:=query1.fieldbyname('yqxg').value;
+            params[17].asboolean:=query1.fieldbyname('zysc').value;
+            execute;
+          end;
+        end;
+      end;
+
+      for i:=1 to i4-1 do begin
+        with query1 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'prjno',ptinput);
+          params.createparam(ftstring,'wl',ptinput);
+          params.createparam(ftinteger,'xh',ptinput);
+          params.createparam(ftinteger,'lbzs',ptinput);
+          params.createparam(ftinteger,'ylbzs',ptinput);
+          params.createparam(ftinteger,'sjlb',ptinput);
+          params.createparam(ftdate,'rq',ptinput);
+          params.createparam(ftfloat,'pjmjfd',ptinput);
+          params.createparam(ftfloat,'ybl',ptinput);
+          params.createparam(ftfloat,'mjzcd',ptinput);
+          params.createparam(ftfloat,'mjypzbzc',ptinput);
+          params.createparam(ftfloat,'jhdzlbzc',ptinput);
+          params.createparam(ftfloat,'jhwlzc',ptinput);
+          params.createparam(ftfloat,'jhcgzsj',ptinput);
+          params.createparam(ftfloat,'jhscsh',ptinput);
+          params.createparam(ftfloat,'sjdzlbzc',ptinput);
+          params.createparam(ftfloat,'sjwlzc',ptinput);
+          params.createparam(ftfloat,'sjscsh',ptinput);
+          params.createparam(ftfloat,'sjcgzsj',ptinput);
+          params.createparam(ftfloat,'pbl',ptinput);
+          params.createparam(ftfloat,'zdypcd',ptinput);
+          params.createparam(ftfloat,'ysmjfd',ptinput);
+          params.createparam(ftfloat,'dzmjps',ptinput);
+          params.createparam(ftfloat,'mjyl',ptinput);
+          params.createparam(ftboolean,'zp',ptinput);
+          params.createparam(ftstring,'mjstatus',ptinput);
+          commandtext:='insert into cgd1(prjno,wl,xh,lbzs,ylbzs,sjlb,rq,pjmjfd,ybl,mjzcd,mjypzbzc,jhdzlbzc,jhwlzc,jhcgzsj,jhscsh,sjdzlbzc,sjwlzc,sjscsh,sjcgzsj,pbl,zdypcd,ysmjfd,dzmjps,mjyl,zp,mjstatus) '
+                      +'values(:prjno,:wl,:xh,:lbzs,:ylbzs,:sjlb,:rq,:pjmjfd,:ybl,:mjzcd,:mjypzbzc,:jhdzlbzc,:jhwlzc,:jhcgzsj,:jhscsh,:sjdzlbzc,:sjwlzc,:sjscsh,:sjcgzsj,:pbl,:zdypcd,:ysmjfd,:dzmjps,:mjyl,:zp,:mjstatus)';
+          params[0].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+          params[1].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+          params[2].asinteger:=xh1+i;
+          params[3].asinteger:=frmcgd.cgd1.fieldbyname('lbzs').value;
+          params[4].asinteger:=i2;
+          params[5].asinteger:=frmcgd.cgd1.fieldbyname('sjlb').value;
+          params[6].asdate:=date;
+          params[7].asfloat:=frmcgd.cgd1.fieldbyname('pjmjfd').value;
+          params[8].asfloat:=frmcgd.cgd1.fieldbyname('ybl').value;
+          params[9].asfloat:=frmcgd.cgd1.fieldbyname('mjzcd').value;
+          params[10].asfloat:=frmcgd.cgd1.fieldbyname('mjypzbzc').value;
+          params[11].asfloat:=frmcgd.cgd1.fieldbyname('jhdzlbzc').value;
+          params[12].asfloat:=frmcgd.cgd1.fieldbyname('jhwlzc').value;
+          params[13].asfloat:=frmcgd.cgd1.fieldbyname('jhcgzsj').value;
+          params[14].asfloat:=frmcgd.cgd1.fieldbyname('jhscsh').value;
+          params[15].asfloat:=frmcgd.cgd1.fieldbyname('sjdzlbzc').value;
+          params[16].asfloat:=frmcgd.cgd1.fieldbyname('sjwlzc').value/i1*i2;
+          params[17].asfloat:=frmcgd.cgd1.fieldbyname('sjscsh').value;
+          params[18].asfloat:=frmcgd.cgd1.fieldbyname('sjcgzsj').value;
+          params[19].asfloat:=frmcgd.cgd1.fieldbyname('pbl').value;
+          params[20].asfloat:=frmcgd.cgd1.fieldbyname('zdypcd').value;
+          params[21].asfloat:=frmcgd.cgd1.fieldbyname('ysmjfd').value;
+          params[22].asfloat:=frmcgd.cgd1.fieldbyname('dzmjps').value;
+          params[23].asfloat:=frmcgd.cgd1.fieldbyname('mjyl').value;
+          params[24].asboolean:=frmcgd.cgd1.fieldbyname('zp').value;
+          if not frmcgd.cgd1.fieldbyname('mjstatus').isnull then
+          params[25].asstring:=frmcgd.cgd1.fieldbyname('mjstatus').value
+          else params[25].asstring:='';
+          execute;
+        end;
+        with query1 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'prjno',ptinput);
+          params.createparam(ftstring,'wl',ptinput);
+          params.createparam(ftinteger,'xh',ptinput);
+          commandtext:='select * from cgd2 where prjno=:prjno and wl=:wl and xh=:xh order by kh,id';
+          params[0].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+          params[1].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+          params[2].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+          open;
+          first;
+          while not eof do begin
+            with query2 do begin
+              close;
+              params.clear;
+              params.createparam(ftstring,'prjno',ptinput);
+              params.createparam(ftstring,'wl',ptinput);
+              params.createparam(ftinteger,'xh',ptinput);
+              params.createparam(ftstring,'kh',ptinput);
+              params.createparam(ftstring,'gch',ptinput);
+              params.createparam(ftstring,'zdh',ptinput);
+              params.createparam(ftstring,'sh',ptinput);
+              params.createparam(ftstring,'cm',ptinput);
+              params.createparam(ftinteger,'zds',ptinput);
+              params.createparam(ftinteger,'mjjs',ptinput);
+              params.createparam(ftfloat,'mjs',ptinput);
+              params.createparam(ftinteger,'jc',ptinput);
+              params.createparam(ftinteger,'ys',ptinput);
+              params.createparam(ftfloat,'cacyl',ptinput);
+              params.createparam(ftstring,'bz',ptinput);
+              commandtext:='insert into cgd2(prjno,wl,xh,kh,gch,zdh,sh,cm,zds,mjjs,mjs,jc,ys,cacyl,bz) '
+                          +'values(:prjno,:wl,:xh,:kh,:gch,:zdh,:sh,:cm,:zds,:mjjs,:mjs,:jc,:ys,:cacyl,:bz)';
+              params[0].asstring:=query1.fieldbyname('prjno').value;
+              params[1].asstring:=query1.fieldbyname('wl').value;
+              params[2].asinteger:=xh1+i;
+              params[3].asstring:=query1.fieldbyname('kh').value;
+              params[4].asstring:=query1.fieldbyname('gch').value;
+              params[5].asstring:=query1.fieldbyname('zdh').value;
+              params[6].asstring:=query1.fieldbyname('sh').value;
+              params[7].asstring:=query1.fieldbyname('cm').value;
+              params[8].asinteger:=query1.fieldbyname('zds').value;
+              params[9].asinteger:=round(query1.fieldbyname('mjs').value*i2);
+              params[10].asfloat:=query1.fieldbyname('mjs').value;
+              params[11].asinteger:=query1.fieldbyname('jc').value;
+              params[12].asinteger:=query1.fieldbyname('ys').value;
+              params[13].asfloat:=query1.fieldbyname('cacyl').value;
+              if not query1.fieldbyname('bz').isnull then
+              params[14].asstring:=query1.fieldbyname('bz').value
+              else params[14].asstring:='';
+              execute;
+            end;
+            application.ProcessMessages;
+            next;
+          end;
+        end;
+        with query1 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'prjno',ptinput);
+          params.createparam(ftstring,'wl',ptinput);
+          params.createparam(ftinteger,'xh',ptinput);
+          commandtext:='select * from cgd3 where prjno=:prjno and wl=:wl and xh=:xh';
+          params[0].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+          params[1].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+          params[2].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+          open;
+          if recordcount>0 then begin
+            with query2 do begin
+              close;
+              params.clear;
+              params.createparam(ftstring,'prjno',ptinput);
+              params.createparam(ftstring,'wl',ptinput);
+              params.createparam(ftinteger,'xh',ptinput);
+              params.createparam(ftstring,'mjh',ptinput);
+              params.createparam(ftfloat,'ybl',ptinput);
+              params.createparam(ftinteger,'mjfd',ptinput);
+              params.createparam(ftfloat,'mjcd',ptinput);
+              params.createparam(ftfloat,'mjypzbc',ptinput);
+              params.createparam(ftinteger,'jhlbzs',ptinput);
+              params.createparam(ftfloat,'jhdzlbcd',ptinput);
+              params.createparam(ftfloat,'jhcgsj',ptinput);
+              params.createparam(ftfloat,'jhwlcd',ptinput);
+              commandtext:='insert into cgd3(prjno,wl,xh,mjh,ybl,mjfd,mjcd,mjypzbc,jhlbzs,jhdzlbcd,jhcgsj,jhwlcd) '
+                          +'values(:prjno,:wl,:xh,:mjh,:ybl,:mjfd,:mjcd,:mjypzbc,:jhlbzs,:jhdzlbcd,:jhcgsj,:jhwlcd)';
+              params[0].asstring:=query1.fieldbyname('prjno').value;
+              params[1].asstring:=query1.fieldbyname('wl').value;
+              params[2].asinteger:=xh1+i;
+              params[3].asstring:=query1.fieldbyname('mjh').value;
+              params[4].asfloat:=query1.fieldbyname('ybl').value;
+              params[5].asinteger:=query1.fieldbyname('mjfd').value;
+              params[6].asfloat:=query1.fieldbyname('mjcd').value;
+              params[7].asfloat:=query1.fieldbyname('mjypzbc').value;
+              params[8].asinteger:=i2;
+              params[9].asfloat:=query1.fieldbyname('jhdzlbcd').value;
+              params[10].asfloat:=query1.fieldbyname('jhcgsj').value;
+              params[11].asfloat:=i2*query1.fieldbyname('jhdzlbcd').value;
+              execute;
+            end;
+          end;
+        end;
+        with query1 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'prjno',ptinput);
+          params.createparam(ftstring,'wl',ptinput);
+          params.createparam(ftinteger,'xh',ptinput);
+          commandtext:='select * from cgdwl where prjno=:prjno and wl=:wl and xh=:xh';
+          params[0].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+          params[1].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+          params[2].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+          open;
+          if recordcount>0 then begin
+            with query2 do begin
+              close;
+              params.clear;
+              params.createparam(ftstring,'prjno',ptinput);
+              params.createparam(ftstring,'wl',ptinput);
+              params.createparam(ftinteger,'xh',ptinput);
+              params.createparam(ftboolean,'bzmj',ptinput);
+              params.createparam(ftboolean,'zbmj',ptinput);
+              params.createparam(ftboolean,'twmj',ptinput);
+              params.createparam(ftboolean,'pzx',ptinput);
+              params.createparam(ftboolean,'yymj',ptinput);
+              params.createparam(ftboolean,'dk',ptinput);
+              params.createparam(ftboolean,'hk',ptinput);
+              params.createparam(ftboolean,'ds',ptinput);
+              params.createparam(ftboolean,'hs',ptinput);
+              params.createparam(ftboolean,'dzd',ptinput);
+              params.createparam(ftboolean,'hzd',ptinput);
+              params.createparam(ftboolean,'ldz',ptinput);
+              params.createparam(ftboolean,'lhz',ptinput);
+              params.createparam(ftboolean,'yqxg',ptinput);
+              params.createparam(ftboolean,'zysc',ptinput);
+              commandtext:='insert into cgdwl(prjno,wl,xh,bzmj,zbmj,twmj,pzx,yymj,dk,hk,ds,hs,dzd,hzd,ldz,lhz,yqxg,zysc) '
+                          +'values(:prjno,:wl,:xh,:bzmj,:zbmj,:twmj,:pzx,:yymj,:dk,:hk,:ds,:hs,:dzd,:hzd,:ldz,:lhz,:yqxg,:zysc)';
+              params[0].asstring:=query1.fieldbyname('prjno').value;
+              params[1].asstring:=query1.fieldbyname('wl').value;
+              params[2].asinteger:=xh1+i;
+              params[3].asboolean:=query1.fieldbyname('bzmj').value;
+              params[4].asboolean:=query1.fieldbyname('zbmj').value;
+              params[5].asboolean:=query1.fieldbyname('twmj').value;
+              params[6].asboolean:=query1.fieldbyname('pzx').value;
+              params[7].asboolean:=query1.fieldbyname('yymj').value;
+              params[8].asboolean:=query1.fieldbyname('dk').value;
+              params[9].asboolean:=query1.fieldbyname('hk').value;
+              params[10].asboolean:=query1.fieldbyname('ds').value;
+              params[11].asboolean:=query1.fieldbyname('hs').value;
+              params[12].asboolean:=query1.fieldbyname('dzd').value;
+              params[13].asboolean:=query1.fieldbyname('hzd').value;
+              params[14].asboolean:=query1.fieldbyname('ldz').value;
+              params[15].asboolean:=query1.fieldbyname('lhz').value;
+              params[16].asboolean:=query1.fieldbyname('yqxg').value;
+              params[17].asboolean:=query1.fieldbyname('zysc').value;
+              execute;
+            end;
+          end;
+        end;
+      end;
+    end
+    else begin
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'ylbzs',ptinput);
+        params.createparam(ftinteger,'lbzs',ptinput);
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        commandtext:='update cgd1 set ylbzs=:ylbzs,jhwlzc=jhwlzc/ylbzs*:lbzs where prjno=:prjno and wl=:wl and xh=:xh';
+        params[0].asinteger:=i2;
+        params[1].asinteger:=i2;
+        params[2].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[3].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        params[4].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+        execute;
+      end;
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'mjjs',ptinput);
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        commandtext:='update cgd2 set mjjs=mjs*:mjjs where prjno=:prjno and wl=:wl and xh=:xh';
+        params[0].asinteger:=i2;
+        params[1].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[2].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        params[3].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+        execute;
+      end;
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'ylbzs',ptinput);
+        params.createparam(ftinteger,'lbzs',ptinput);
+        params.createparam(ftstring,'prjno',ptinput);
+        params.createparam(ftstring,'wl',ptinput);
+        params.createparam(ftinteger,'xh',ptinput);
+        commandtext:='update cgd3 set jhlbzs=:ylbzs,jhwlcd=jhdzlbcd*:lbzs where prjno=:prjno and wl=:wl and xh=:xh';
+        params[0].asinteger:=i2;
+        params[1].asinteger:=i2;
+        params[2].asstring:=frmcgd.cgd1.fieldbyname('prjno').value;
+        params[3].asstring:=frmcgd.cgd1.fieldbyname('wl').value;
+        params[4].asinteger:=frmcgd.cgd1.fieldbyname('xh').value;
+        execute;
+      end;
+    end;
+    with frmcgd.cgd1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'prjno',ptinput);
+      commandtext:='select * from cgd1 where prjno=:prjno';
+      params[0].asstring:=prjno;
+      open;
+      locate('prjno;wl;xh',vararrayof([prjno,wl,xh]),[lopartialkey]);
+    end;}
+   end;
+  end;
+  close;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmxglbzs.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmxglbzs:=nil;
+end;
+
+end.

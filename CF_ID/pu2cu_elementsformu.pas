@@ -1,0 +1,97 @@
+unit pu2cu_elementsformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DBCtrls, GridsEh, DBGridEh, ADODB, DB, Buttons, Mask;
+
+type
+  Tfrmpu2cu_elements = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    DBText1: TDBText;
+    Label3: TLabel;
+    DBText2: TDBText;
+    Label4: TLabel;
+    cut_fc_pu2cu: TADODataSet;
+    dscut_fc_pu2cu: TDataSource;
+    AQuery1: TADOQuery;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Label5: TLabel;
+    DBEdit1: TDBEdit;
+    SpeedButton13: TSpeedButton;
+    Label6: TLabel;
+    DBEdit2: TDBEdit;
+    Label7: TLabel;
+    DBEdit3: TDBEdit;
+    AQuery2: TADOQuery;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure SpeedButton13Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpu2cu_elements: Tfrmpu2cu_elements;
+
+implementation
+
+uses mainu, fcjyu, lbjhu, choosepu2cuformu;
+
+{$R *.dfm}
+
+procedure Tfrmpu2cu_elements.BitBtn1Click(Sender: TObject);
+begin
+  if (cut_fc_pu2cu.State=dsEdit) or (cut_fc_pu2cu.State=dsInsert) then
+  cut_fc_pu2cu.Post;
+end;
+
+procedure Tfrmpu2cu_elements.BitBtn2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure Tfrmpu2cu_elements.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Action:=cafree;
+  frmpu2cu_elements:=nil;
+end;
+
+procedure Tfrmpu2cu_elements.FormShow(Sender: TObject);
+begin
+  with AQuery1 do begin
+    close;
+    sql.Text:='select * from cut_fc_pu2cu where prjno='''+DBText1.DataSource.DataSet.FieldByName('prjno').Value+''' and wl='''+DBText1.DataSource.DataSet.FieldByName('wl').Value+'''';
+    Open;
+    if FieldByName('prjno').IsNull then begin
+      with aquery2 do begin
+        close;
+        SQL.Text:='insert into cut_fc_pu2cu(prjno,wl) values(:x1,:x2)';
+        Parameters[0].Value:=DBText1.DataSource.DataSet.FieldByName('prjno').Value;
+        Parameters[1].Value:=DBText1.DataSource.DataSet.FieldByName('wl').Value;
+        ExecSQL;
+      end;
+    end;
+  end;
+  with cut_fc_pu2cu do begin
+    close;
+    CommandText:='select * from cut_fc_pu2cu where prjno='''+DBText1.DataSource.DataSet.FieldByName('prjno').Value+''' and wl='''+DBText1.DataSource.DataSet.FieldByName('wl').Value+'''';
+    Open;
+  end;
+end;
+
+procedure Tfrmpu2cu_elements.SpeedButton13Click(Sender: TObject);
+begin
+  if frmchoosepu2cu=nil then frmchoosepu2cu:=Tfrmchoosepu2cu.Create(nil);
+  frmchoosepu2cu.Show;
+end;
+
+end.

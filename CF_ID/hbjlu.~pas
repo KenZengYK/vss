@@ -1,0 +1,245 @@
+unit hbjlu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBTables, Menus, StdCtrls, ComCtrls, wwriched, wwrichedspell,
+  ExtCtrls, DBCtrls, Grids, DBGridEh, Buttons, Mask;
+
+type
+  Tfrmhbjl = class(TForm)
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label34: TLabel;
+    Label19: TLabel;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    BitBtn4: TBitBtn;
+    DBComboBox1: TDBComboBox;
+    DBComboBox2: TDBComboBox;
+    DBEdit32: TDBEdit;
+    DBGridEh1: TDBGridEh;
+    BitBtn3: TBitBtn;
+    DBEdit22: TDBEdit;
+    TabSheet2: TTabSheet;
+    Label14: TLabel;
+    Label13: TLabel;
+    Label11: TLabel;
+    Label35: TLabel;
+    Label39: TLabel;
+    Label55: TLabel;
+    Label57: TLabel;
+    Label29: TLabel;
+    DBEdit14: TDBEdit;
+    DBEdit9: TDBEdit;
+    DBEdit11: TDBEdit;
+    DBEdit33: TDBEdit;
+    DBEdit37: TDBEdit;
+    DBEdit53: TDBEdit;
+    DBEdit55: TDBEdit;
+    DBEdit27: TDBEdit;
+    TabSheet3: TTabSheet;
+    Label6: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label27: TLabel;
+    Label36: TLabel;
+    Label40: TLabel;
+    Label43: TLabel;
+    Label45: TLabel;
+    Label47: TLabel;
+    Label49: TLabel;
+    Label51: TLabel;
+    Label65: TLabel;
+    Label67: TLabel;
+    Label22: TLabel;
+    Label79: TLabel;
+    DBEdit6: TDBEdit;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit25: TDBEdit;
+    DBEdit34: TDBEdit;
+    DBEdit38: TDBEdit;
+    DBEdit41: TDBEdit;
+    DBEdit43: TDBEdit;
+    DBEdit45: TDBEdit;
+    DBEdit47: TDBEdit;
+    DBEdit49: TDBEdit;
+    DBEdit63: TDBEdit;
+    DBEdit65: TDBEdit;
+    TabSheet4: TTabSheet;
+    Label37: TLabel;
+    Label41: TLabel;
+    Label3: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    DBEdit35: TDBEdit;
+    DBEdit39: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBGridEh2: TDBGridEh;
+    DBEdit18: TDBEdit;
+    DBComboBox3: TDBComboBox;
+    TabSheet5: TTabSheet;
+    Label9: TLabel;
+    Label38: TLabel;
+    Label42: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    DBGrid1: TDBGridEh;
+    DBEdit10: TDBEdit;
+    DBEdit36: TDBEdit;
+    DBEdit40: TDBEdit;
+    DBEdit20: TDBEdit;
+    DBComboBox4: TDBComboBox;
+    TabSheet6: TTabSheet;
+    Label30: TLabel;
+    Label31: TLabel;
+    Label32: TLabel;
+    Label33: TLabel;
+    Label28: TLabel;
+    Label53: TLabel;
+    Label58: TLabel;
+    Label59: TLabel;
+    Label60: TLabel;
+    Label61: TLabel;
+    Label62: TLabel;
+    Label63: TLabel;
+    Label64: TLabel;
+    Label71: TLabel;
+    Label72: TLabel;
+    Label73: TLabel;
+    Label74: TLabel;
+    zl: TLabel;
+    hd: TLabel;
+    sxld: TLabel;
+    mcld: TLabel;
+    hzld: TLabel;
+    jhs: TLabel;
+    whs: TLabel;
+    jsc: TLabel;
+    wsc: TLabel;
+    jsh: TLabel;
+    wsh: TLabel;
+    DBEdit28: TDBEdit;
+    DBEdit29: TDBEdit;
+    DBEdit30: TDBEdit;
+    DBEdit31: TDBEdit;
+    DBEdit26: TDBEdit;
+    DBEdit51: TDBEdit;
+    DBEdit56: TDBEdit;
+    DBEdit57: TDBEdit;
+    DBEdit58: TDBEdit;
+    DBEdit59: TDBEdit;
+    DBEdit60: TDBEdit;
+    DBEdit61: TDBEdit;
+    DBEdit62: TDBEdit;
+    DBEdit15: TDBEdit;
+    DBEdit16: TDBEdit;
+    DBEdit17: TDBEdit;
+    DBCheckBox1: TDBCheckBox;
+    DBCheckBox2: TDBCheckBox;
+    TabSheet7: TTabSheet;
+    Shape1: TShape;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label75: TLabel;
+    Label76: TLabel;
+    Label77: TLabel;
+    Label78: TLabel;
+    DBEdit69: TDBEdit;
+    DBEdit70: TDBEdit;
+    DBEdit71: TDBEdit;
+    xx1: TCheckBox;
+    xx4: TCheckBox;
+    xx3: TCheckBox;
+    xx5: TCheckBox;
+    xx2: TCheckBox;
+    xx6: TCheckBox;
+    xx7: TCheckBox;
+    xx8: TCheckBox;
+    xx9: TCheckBox;
+    xx10: TCheckBox;
+    xx11: TCheckBox;
+    xx12: TCheckBox;
+    xx13: TCheckBox;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    TabSheet8: TTabSheet;
+    Label12: TLabel;
+    Label82: TLabel;
+    Label83: TLabel;
+    Label84: TLabel;
+    wwDBRichEditMSWord1: TwwDBRichEditMSWord;
+    DBEdit21: TDBEdit;
+    DBEdit54: TDBEdit;
+    wwDBRichEditMSWord2: TwwDBRichEditMSWord;
+    DataSource2: TDataSource;
+    DataSource3: TDataSource;
+    DataSource1: TDataSource;
+    Label56: TLabel;
+    Label8: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label44: TLabel;
+    Label46: TLabel;
+    Label48: TLabel;
+    Label50: TLabel;
+    Label52: TLabel;
+    Label66: TLabel;
+    Label68: TLabel;
+    DBEdit8: TDBEdit;
+    DBEdit23: TDBEdit;
+    DBEdit24: TDBEdit;
+    DBEdit42: TDBEdit;
+    DBEdit44: TDBEdit;
+    DBEdit46: TDBEdit;
+    DBEdit48: TDBEdit;
+    DBEdit50: TDBEdit;
+    DBEdit64: TDBEdit;
+    DBEdit66: TDBEdit;
+    Label7: TLabel;
+    DBEdit7: TDBEdit;
+    Label10: TLabel;
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmhbjl: Tfrmhbjl;
+
+implementation
+uses hbbgu, idcxu, impqcdm;
+{$R *.DFM}
+
+procedure Tfrmhbjl.BitBtn4Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmhbjl.BitBtn3Click(Sender: TObject);
+begin
+  if frmidcx=nil then frmidcx:=tfrmidcx.create(self);
+  frmidcx.MaskEdit1.text:='      -S    ';
+  frmidcx.label2.caption:='yhb';   
+  frmidcx.show;
+end;
+
+procedure Tfrmhbjl.FormShow(Sender: TObject);
+begin
+  (table2.fieldbyname('jbshl') as tfloatfield).displayformat:='#####0.00';
+  (table2.fieldbyname('fsshl') as tfloatfield).displayformat:='#####0.00';
+  (table2.fieldbyname('shl') as tfloatfield).displayformat:='#####0.00';
+  (table2.fieldbyname('jcsh') as tfloatfield).displayformat:='#####0.00';
+end;
+
+end.
