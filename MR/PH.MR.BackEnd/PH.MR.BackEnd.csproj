@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A22FDFA7-2EC7-4104-B030-831257820D91}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.MR.BackEnd</RootNamespace>
+    <AssemblyName>PH.MR.BackEnd</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Common, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PHSQLServerInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Job\JobFinalMR.cs" />
+    <Compile Include="Job\JobKBPPWsReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Job\JobKBPPWsReport.Designer.cs">
+      <DependentUpon>JobKBPPWsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job\JobMidcHSCodeWithMR.cs" />
+    <Compile Include="Job\JobMRReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Job\JobMRReport.Designer.cs">
+      <DependentUpon>JobMRReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job\JobKBMRReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Job\JobKBMRReport.Designer.cs">
+      <DependentUpon>JobKBMRReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job\JobPackingWithMR.cs" />
+    <Compile Include="Job\JobFinalMRReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Job\JobFinalMRReport.Designer.cs">
+      <DependentUpon>JobFinalMRReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DetailListingCMT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\DetailListingCMT.Designer.cs">
+      <DependentUpon>DetailListingCMT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FinalMRReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\FinalMRReport.Designer.cs">
+      <DependentUpon>FinalMRReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSSumRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSSumRpt.Designer.cs">
+      <DependentUpon>HSSumRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWoBO.cs" />
+    <Compile Include="Report\HSWOIssue\HSIssueBO.cs" />
+    <Compile Include="Report\HSWOIssue\HSIssueSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSIssueSummaryReport.Designer.cs">
+      <DependentUpon>HSIssueSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWOIssueBalanceDetailRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWOIssueBalanceDetailRpt.Designer.cs">
+      <DependentUpon>HSWOIssueBalanceDetailRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWOIssueBalanceRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWOIssueBalanceRpt.Designer.cs">
+      <DependentUpon>HSWOIssueBalanceRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWOIssueDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWOIssueDetailReport.Designer.cs">
+      <DependentUpon>HSWOIssueDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWOIssueSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWOIssueSummaryReport.Designer.cs">
+      <DependentUpon>HSWOIssueSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSIssueItemSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSIssueItemSummaryReport.Designer.cs">
+      <DependentUpon>HSIssueItemSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSIssueStyleSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSIssueStyleSummaryReport.Designer.cs">
+      <DependentUpon>HSIssueStyleSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWOReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSWOIssue\HSWOReport.Designer.cs">
+      <DependentUpon>HSWOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MidcHSCodeMRReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MidcHSCodeMRReport.Designer.cs">
+      <DependentUpon>MidcHSCodeMRReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\StyleWeightCompareRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\StyleWeightCompareRpt.Designer.cs">
+      <DependentUpon>StyleWeightCompareRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SumListingCMT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\SumListingCMT.Designer.cs">
+      <DependentUpon>SumListingCMT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DetailListingPPWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\DetailListingPPWs.Designer.cs">
+      <DependentUpon>DetailListingPPWs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DetailListingMR.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\DetailListingMR.Designer.cs">
+      <DependentUpon>DetailListingMR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DetailListingQN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\DetailListingQN.Designer.cs">
+      <DependentUpon>DetailListingQN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DetailListingRMR.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\DetailListingRMR.Designer.cs">
+      <DependentUpon>DetailListingRMR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\SumBreakDownListing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\SumBreakDownListing.Designer.cs">
+      <DependentUpon>SumBreakDownListing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SumListing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\SumListing.Designer.cs">
+      <DependentUpon>SumListing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MidcHSCodeByMRDetailReort.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MidcHSCodeByMRDetailReort.Designer.cs">
+      <DependentUpon>MidcHSCodeByMRDetailReort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MidcHSCodeByMRSummaryReort.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MidcHSCodeByMRSummaryReort.Designer.cs">
+      <DependentUpon>MidcHSCodeByMRSummaryReort.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Job\JobKBPPWsReport.resx">
+      <DependentUpon>JobKBPPWsReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Job\JobMRReport.resx">
+      <DependentUpon>JobMRReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Job\JobKBMRReport.resx">
+      <DependentUpon>JobKBMRReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Job\JobFinalMRReport.resx">
+      <DependentUpon>JobFinalMRReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DetailListingCMT.resx">
+      <DependentUpon>DetailListingCMT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FinalMRReport.resx">
+      <DependentUpon>FinalMRReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSWOIssue\HSIssueSummaryReport.resx">
+      <DependentUpon>HSIssueSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSWOIssue\HSSumRpt.resx">
+      <DependentUpon>HSSumRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSWOIssue\HSWOReport.resx">
+      <DependentUpon>HSWOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSWOIssue\HSWOIssueBalanceDetailRpt.resx">
+      <DependentUpon>HSWOIssueBalanceDetailRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSWOIssue\HSWOIssueBalanceRpt.resx">
+      <DependentUpon>HSWOIssueBalanceRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSWOIssue\HSWOIssueDetailReport.resx">
+      <DependentUpon>HSWOIssueDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSWOIssue\HSWOIssueSummaryReport.resx">
+      <DependentUpon>HSWOIssueSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSWOIssue\HSIssueItemSummaryReport.resx">
+      <DependentUpon>HSIssueItemSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSWOIssue\HSIssueStyleSummaryReport.resx">
+      <DependentUpon>HSIssueStyleSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MidcHSCodeMRReport.resx">
+      <DependentUpon>MidcHSCodeMRReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\StyleWeightCompareRpt.resx">
+      <DependentUpon>StyleWeightCompareRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SumListingCMT.resx">
+      <DependentUpon>SumListingCMT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DetailListingPPWs.resx">
+      <DependentUpon>DetailListingPPWs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DetailListingMR.resx">
+      <DependentUpon>DetailListingMR.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DetailListingQN.resx">
+      <DependentUpon>DetailListingQN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\DetailListingRMR.resx">
+      <DependentUpon>DetailListingRMR.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Report\SumBreakDownListing.resx">
+      <DependentUpon>SumBreakDownListing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SumListing.resx">
+      <DependentUpon>SumListing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MidcHSCodeByMRDetailReort.resx">
+      <DependentUpon>MidcHSCodeByMRDetailReort.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MidcHSCodeByMRSummaryReort.resx">
+      <DependentUpon>MidcHSCodeByMRSummaryReort.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.MR.BO\PH.MR.BO.csproj">
+      <Project>{A4B1A009-C1F8-494B-88A7-D7890BBBC7A7}</Project>
+      <Name>PH.MR.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.MR.BackEnd.Report.HSWOIssue.HSWoBO.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BackEnd.Report.HSWOIssue.HSWOIssueBalance.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.AnticipantMR_Packing.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.MRHSCodeDetailRptBO.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.MRHSCodeRptBO.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.MRHSCodeStyleBO.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.MRHSCodeSummaryRptBO.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.MRHSCodeWeightEntity.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.MRReport.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.MRStyleWeightCompare_Packing.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.P_GetHSWOIssueSummary_Result.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

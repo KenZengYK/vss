@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="Detail.Name" xml:space="preserve">
+    <value>Detail</value>
+  </metadata>
+  <metadata name="xrTable2.Name" xml:space="preserve">
+    <value>xrTable2</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrTable2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 0</value>
+  </data>
+  <metadata name="xrTableRow3.Name" xml:space="preserve">
+    <value>xrTableRow3</value>
+  </metadata>
+  <metadata name="xrTableCell32.Name" xml:space="preserve">
+    <value>xrTableCell32</value>
+  </metadata>
+  <metadata name="bsMRRpt.Name" xml:space="preserve">
+    <value>bsMRRpt</value>
+  </metadata>
+  <metadata name="bsMRRpt.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="xrTableCell32.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrTableCell32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 25</value>
+  </data>
+  <metadata name="xrTableCell33.Name" xml:space="preserve">
+    <value>xrTableCell33</value>
+  </metadata>
+  <data name="xrTableCell33.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell33.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 0</value>
+  </data>
+  <data name="xrTableCell33.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 25</value>
+  </data>
+  <metadata name="xrTableCell34.Name" xml:space="preserve">
+    <value>xrTableCell34</value>
+  </metadata>
+  <data name="xrTableCell34.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell34.Location" type="System.Drawing.Point, System.Drawing">
+    <value>101, 0</value>
+  </data>
+  <data name="xrTableCell34.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 25</value>
+  </data>
+  <metadata name="xrTableCell35.Name" xml:space="preserve">
+    <value>xrTableCell35</value>
+  </metadata>
+  <data name="xrTableCell35.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell35.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 0</value>
+  </data>
+  <data name="xrTableCell35.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 25</value>
+  </data>
+  <metadata name="xrTableCell36.Name" xml:space="preserve">
+    <value>xrTableCell36</value>
+  </metadata>
+  <data name="xrTableCell36.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell36.Location" type="System.Drawing.Point, System.Drawing">
+    <value>276, 0</value>
+  </data>
+  <data name="xrTableCell36.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 25</value>
+  </data>
+  <metadata name="xrTableCell37.Name" xml:space="preserve">
+    <value>xrTableCell37</value>
+  </metadata>
+  <data name="xrTableCell37.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell37.Location" type="System.Drawing.Point, System.Drawing">
+    <value>317, 0</value>
+  </data>
+  <data name="xrTableCell37.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <metadata name="xrTableCell38.Name" xml:space="preserve">
+    <value>xrTableCell38</value>
+  </metadata>
+  <data name="xrTableCell38.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell38.Location" type="System.Drawing.Point, System.Drawing">
+    <value>367, 0</value>
+  </data>
+  <data name="xrTableCell38.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 25</value>
+  </data>
+  <metadata name="xrTableCell30.Name" xml:space="preserve">
+    <value>xrTableCell30</value>
+  </metadata>
+  <data name="xrTableCell30.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>422, 0</value>
+  </data>
+  <data name="xrTableCell30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 25</value>
+  </data>
+  <metadata name="xrTableCell39.Name" xml:space="preserve">
+    <value>xrTableCell39</value>
+  </metadata>
+  <data name="xrTableCell39.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell39.Location" type="System.Drawing.Point, System.Drawing">
+    <value>459, 0</value>
+  </data>
+  <data name="xrTableCell39.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 25</value>
+  </data>
+  <metadata name="xrTableCell40.Name" xml:space="preserve">
+    <value>xrTableCell40</value>
+  </metadata>
+  <data name="xrTableCell40.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell40.Location" type="System.Drawing.Point, System.Drawing">
+    <value>526, 0</value>
+  </data>
+  <data name="xrTableCell40.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 25</value>
+  </data>
+  <metadata name="xrTableCell41.Name" xml:space="preserve">
+    <value>xrTableCell41</value>
+  </metadata>
+  <data name="xrTableCell41.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell41.Location" type="System.Drawing.Point, System.Drawing">
+    <value>583, 0</value>
+  </data>
+  <data name="xrTableCell41.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 25</value>
+  </data>
+  <metadata name="xrTableCell42.Name" xml:space="preserve">
+    <value>xrTableCell42</value>
+  </metadata>
+  <data name="xrTableCell42.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell42.Location" type="System.Drawing.Point, System.Drawing">
+    <value>642, 0</value>
+  </data>
+  <data name="xrTableCell42.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 25</value>
+  </data>
+  <metadata name="xrTableCell31.Name" xml:space="preserve">
+    <value>xrTableCell31</value>
+  </metadata>
+  <data name="xrTableCell31.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 6.75pt</value>
+  </data>
+  <data name="xrTableCell31.Location" type="System.Drawing.Point, System.Drawing">
+    <value>712, 0</value>
+  </data>
+  <data name="xrTableCell31.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 25</value>
+  </data>
+  <data name="xrTableRow3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 25</value>
+  </data>
+  <data name="xrTable2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 25</value>
+  </data>
+  <metadata name="PageHeader.Name" xml:space="preserve">
+    <value>PageHeader</value>
+  </metadata>
+  <metadata name="xrTable1.Name" xml:space="preserve">
+    <value>xrTable1</value>
+  </metadata>
+  <data name="xrTable1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <metadata name="xrTableRow2.Name" xml:space="preserve">
+    <value>xrTableRow2</value>
+  </metadata>
+  <metadata name="xrTableCell29.Name" xml:space="preserve">
+    <value>xrTableCell29</value>
+  </metadata>
+  <data name="xrTableCell29.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell29.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrTableCell29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 51</value>
+  </data>
+  <data name="xrTableCell29.Text" xml:space="preserve">
+    <value>Work 
+Order
+Number</value>
+  </data>
+  <metadata name="xrTableCell7.Name" xml:space="preserve">
+    <value>xrTableCell7</value>
+  </metadata>
+  <data name="xrTableCell7.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 0</value>
+  </data>
+  <data name="xrTableCell7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 51</value>
+  </data>
+  <data name="xrTableCell7.Text" xml:space="preserve">
+    <value>Parent
+ Color 
+Code</value>
+  </data>
+  <metadata name="xrTableCell9.Name" xml:space="preserve">
+    <value>xrTableCell9</value>
+  </metadata>
+  <data name="xrTableCell9.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>101, 0</value>
+  </data>
+  <data name="xrTableCell9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 51</value>
+  </data>
+  <data name="xrTableCell9.Text" xml:space="preserve">
+    <value>Work 
+Order 
+Quantity</value>
+  </data>
+  <metadata name="xrTableCell17.Name" xml:space="preserve">
+    <value>xrTableCell17</value>
+  </metadata>
+  <data name="xrTableCell17.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell17.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 0</value>
+  </data>
+  <data name="xrTableCell17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 51</value>
+  </data>
+  <data name="xrTableCell17.Text" xml:space="preserve">
+    <value>Vendor
+ Item 
+Code</value>
+  </data>
+  <metadata name="xrTableCell11.Name" xml:space="preserve">
+    <value>xrTableCell11</value>
+  </metadata>
+  <data name="xrTableCell11.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>276, 0</value>
+  </data>
+  <data name="xrTableCell11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 51</value>
+  </data>
+  <data name="xrTableCell11.Text" xml:space="preserve">
+    <value>Item
+Color
+ Code</value>
+  </data>
+  <metadata name="xrTableCell14.Name" xml:space="preserve">
+    <value>xrTableCell14</value>
+  </metadata>
+  <data name="xrTableCell14.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>317, 0</value>
+  </data>
+  <data name="xrTableCell14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 51</value>
+  </data>
+  <data name="xrTableCell14.Text" xml:space="preserve">
+    <value>Wst
+%</value>
+  </data>
+  <metadata name="xrTableCell13.Name" xml:space="preserve">
+    <value>xrTableCell13</value>
+  </metadata>
+  <data name="xrTableCell13.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell13.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>367, 0</value>
+  </data>
+  <data name="xrTableCell13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 51</value>
+  </data>
+  <data name="xrTableCell13.Text" xml:space="preserve">
+    <value>Quantity
+ Per</value>
+  </data>
+  <metadata name="xrTableCell5.Name" xml:space="preserve">
+    <value>xrTableCell5</value>
+  </metadata>
+  <data name="xrTableCell5.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>422, 0</value>
+  </data>
+  <data name="xrTableCell5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 51</value>
+  </data>
+  <data name="xrTableCell5.Text" xml:space="preserve">
+    <value>UOM</value>
+  </data>
+  <metadata name="xrTableCell19.Name" xml:space="preserve">
+    <value>xrTableCell19</value>
+  </metadata>
+  <data name="xrTableCell19.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell19.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>459, 0</value>
+  </data>
+  <data name="xrTableCell19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 51</value>
+  </data>
+  <data name="xrTableCell19.Text" xml:space="preserve">
+    <value>Required Quantity</value>
+  </data>
+  <metadata name="xrTableCell21.Name" xml:space="preserve">
+    <value>xrTableCell21</value>
+  </metadata>
+  <data name="xrTableCell21.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell21.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>526, 0</value>
+  </data>
+  <data name="xrTableCell21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 51</value>
+  </data>
+  <data name="xrTableCell21.Text" xml:space="preserve">
+    <value>Reserved Stock</value>
+  </data>
+  <metadata name="xrTableCell23.Name" xml:space="preserve">
+    <value>xrTableCell23</value>
+  </metadata>
+  <data name="xrTableCell23.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell23.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>583, 0</value>
+  </data>
+  <data name="xrTableCell23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 51</value>
+  </data>
+  <data name="xrTableCell23.Text" xml:space="preserve">
+    <value>Reserved 
+for re-dye</value>
+  </data>
+  <metadata name="xrTableCell25.Name" xml:space="preserve">
+    <value>xrTableCell25</value>
+  </metadata>
+  <data name="xrTableCell25.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell25.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>642, 0</value>
+  </data>
+  <data name="xrTableCell25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 51</value>
+  </data>
+  <data name="xrTableCell25.Text" xml:space="preserve">
+    <value>Reserved 
+P/O s</value>
+  </data>
+  <metadata name="xrTableCell6.Name" xml:space="preserve">
+    <value>xrTableCell6</value>
+  </metadata>
+  <data name="xrTableCell6.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="xrTableCell6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>712, 0</value>
+  </data>
+  <data name="xrTableCell6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 51</value>
+  </data>
+  <data name="xrTableRow2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 51</value>
+  </data>
+  <metadata name="xrTableRow1.Name" xml:space="preserve">
+    <value>xrTableRow1</value>
+  </metadata>
+  <metadata name="xrTableCell1.Name" xml:space="preserve">
+    <value>xrTableCell1</value>
+  </metadata>
+  <data name="xrTableCell1.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrTableCell1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 49</value>
+  </data>
+  <data name="xrTableCell1.Text" xml:space="preserve">
+    <value>WO 
+No.</value>
+  </data>
+  <metadata name="xrTableCell8.Name" xml:space="preserve">
+    <value>xrTableCell8</value>
+  </metadata>
+  <data name="xrTableCell8.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 0</value>
+  </data>
+  <data name="xrTableCell8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 49</value>
+  </data>
+  <data name="xrTableCell8.Text" xml:space="preserve">
+    <value>Clr
+ Code</value>
+  </data>
+  <metadata name="xrTableCell10.Name" xml:space="preserve">
+    <value>xrTableCell10</value>
+  </metadata>
+  <data name="xrTableCell10.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>101, 0</value>
+  </data>
+  <data name="xrTableCell10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 49</value>
+  </data>
+  <data name="xrTableCell10.Text" xml:space="preserve">
+    <value>WO
+ Qty</value>
+  </data>
+  <metadata name="xrTableCell18.Name" xml:space="preserve">
+    <value>xrTableCell18</value>
+  </metadata>
+  <data name="xrTableCell18.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell18.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 0</value>
+  </data>
+  <data name="xrTableCell18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 49</value>
+  </data>
+  <data name="xrTableCell18.Text" xml:space="preserve">
+    <value>Supplier
+ Item
+ Code</value>
+  </data>
+  <metadata name="xrTableCell12.Name" xml:space="preserve">
+    <value>xrTableCell12</value>
+  </metadata>
+  <data name="xrTableCell12.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>276, 0</value>
+  </data>
+  <data name="xrTableCell12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 49</value>
+  </data>
+  <data name="xrTableCell12.Text" xml:space="preserve">
+    <value>Item 
+Clr 
+Code</value>
+  </data>
+  <metadata name="xrTableCell15.Name" xml:space="preserve">
+    <value>xrTableCell15</value>
+  </metadata>
+  <data name="xrTableCell15.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell15.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>317, 0</value>
+  </data>
+  <data name="xrTableCell15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 49</value>
+  </data>
+  <data name="xrTableCell15.Text" xml:space="preserve">
+    <value>Wastage 
+%</value>
+  </data>
+  <metadata name="xrTableCell16.Name" xml:space="preserve">
+    <value>xrTableCell16</value>
+  </metadata>
+  <data name="xrTableCell16.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell16.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>367, 0</value>
+  </data>
+  <data name="xrTableCell16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 49</value>
+  </data>
+  <data name="xrTableCell16.Text" xml:space="preserve">
+    <value>YY
+ Per</value>
+  </data>
+  <metadata name="xrTableCell2.Name" xml:space="preserve">
+    <value>xrTableCell2</value>
+  </metadata>
+  <data name="xrTableCell2.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>422, 0</value>
+  </data>
+  <data name="xrTableCell2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 49</value>
+  </data>
+  <data name="xrTableCell2.Text" xml:space="preserve">
+    <value>Item's UOM</value>
+  </data>
+  <metadata name="xrTableCell20.Name" xml:space="preserve">
+    <value>xrTableCell20</value>
+  </metadata>
+  <data name="xrTableCell20.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell20.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>459, 0</value>
+  </data>
+  <data name="xrTableCell20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 49</value>
+  </data>
+  <data name="xrTableCell20.Text" xml:space="preserve">
+    <value>Total
+ Item 
+Qty</value>
+  </data>
+  <metadata name="xrTableCell22.Name" xml:space="preserve">
+    <value>xrTableCell22</value>
+  </metadata>
+  <data name="xrTableCell22.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell22.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>526, 0</value>
+  </data>
+  <data name="xrTableCell22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 49</value>
+  </data>
+  <data name="xrTableCell22.Text" xml:space="preserve">
+    <value>Reserved
+physical open stock</value>
+  </data>
+  <metadata name="xrTableCell24.Name" xml:space="preserve">
+    <value>xrTableCell24</value>
+  </metadata>
+  <data name="xrTableCell24.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell24.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>583, 0</value>
+  </data>
+  <data name="xrTableCell24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 49</value>
+  </data>
+  <data name="xrTableCell24.Text" xml:space="preserve">
+    <value>Reserved physical
+ open stock for re-dye</value>
+  </data>
+  <metadata name="xrTableCell26.Name" xml:space="preserve">
+    <value>xrTableCell26</value>
+  </metadata>
+  <data name="xrTableCell26.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell26.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>642, 0</value>
+  </data>
+  <data name="xrTableCell26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 49</value>
+  </data>
+  <data name="xrTableCell26.Text" xml:space="preserve">
+    <value>Reserved 
+open PO</value>
+  </data>
+  <metadata name="xrTableCell3.Name" xml:space="preserve">
+    <value>xrTableCell3</value>
+  </metadata>
+  <data name="xrTableCell3.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="xrTableCell3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8.25pt</value>
+  </data>
+  <data name="xrTableCell3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>712, 0</value>
+  </data>
+  <data name="xrTableCell3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 49</value>
+  </data>
+  <data name="xrTableCell3.Text" xml:space="preserve">
+    <value>Outstanding Qty for purchase</value>
+  </data>
+  <data name="xrTableRow1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 49</value>
+  </data>
+  <data name="xrTable1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 100</value>
+  </data>
+  <metadata name="xrlPrintDate.Name" xml:space="preserve">
+    <value>xrlPrintDate</value>
+  </metadata>
+  <data name="xrlPrintDate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8pt</value>
+  </data>
+  <data name="xrlPrintDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>375, 83</value>
+  </data>
+  <data name="xrlPrintDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 15</value>
+  </data>
+  <metadata name="xrLabel1.Name" xml:space="preserve">
+    <value>xrLabel1</value>
+  </metadata>
+  <data name="xrLabel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8pt</value>
+  </data>
+  <data name="xrLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 83</value>
+  </data>
+  <data name="xrLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 15</value>
+  </data>
+  <data name="xrLabel1.Text" xml:space="preserve">
+    <value>Print Date.:</value>
+  </data>
+  <metadata name="xrProject.Name" xml:space="preserve">
+    <value>xrProject</value>
+  </metadata>
+  <data name="xrProject.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8pt</value>
+  </data>
+  <data name="xrProject.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 83</value>
+  </data>
+  <data name="xrProject.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 15</value>
+  </data>
+  <data name="xrProject.Text" xml:space="preserve">
+    <value>Project No.:</value>
+  </data>
+  <metadata name="xrHeader.Name" xml:space="preserve">
+    <value>xrHeader</value>
+  </metadata>
+  <data name="xrHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 24pt, style=Bold</value>
+  </data>
+  <data name="xrHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 17</value>
+  </data>
+  <data name="xrHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>500, 40</value>
+  </data>
+  <data name="xrHeader.Text" xml:space="preserve">
+    <value>Anticipated Working MR In Qty</value>
+  </data>
+  <metadata name="PageFooter.Name" xml:space="preserve">
+    <value>PageFooter</value>
+  </metadata>
+  <metadata name="TopMargin.Name" xml:space="preserve">
+    <value>TopMargin</value>
+  </metadata>
+  <metadata name="xrlProj.Name" xml:space="preserve">
+    <value>xrlProj</value>
+  </metadata>
+  <data name="xrlProj.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8pt</value>
+  </data>
+  <data name="xrlProj.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 83</value>
+  </data>
+  <data name="xrlProj.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 15</value>
+  </data>
+  <metadata name="xrPageInfo1.Name" xml:space="preserve">
+    <value>xrPageInfo1</value>
+  </metadata>
+  <data name="xrPageInfo1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 8pt</value>
+  </data>
+  <data name="xrPageInfo1.Format" xml:space="preserve">
+    <value>Page {0} of {1}</value>
+  </data>
+  <data name="xrPageInfo1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>658, 83</value>
+  </data>
+  <data name="xrPageInfo1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 15</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>Chinese (Traditional)</value>
+  </metadata>
+  <metadata name="$this.Name" xml:space="preserve">
+    <value>MR_InQty_Report</value>
+  </metadata>
+  <metadata name="$this.PreviewRowCount" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>95</value>
+  </metadata>
+</root>

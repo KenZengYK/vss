@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6EBC2DE8-7DF1-45E2-9370-4AFEF16CCCE4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.MR.UI</RootNamespace>
+    <AssemblyName>PH.MR.UI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AS400Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraNavBar.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichTextEdit.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="IBInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="OracleServerInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.BasicInfo.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Common.Report.v8.1, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Common, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Lang.BO, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.UI, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.WorkFlow.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.RWO.BO3.0, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PHSQLServerInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PhSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=85b79d01a4777437, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Action\ActionReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Action\ActionReport1.designer.cs">
+      <DependentUpon>ActionReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSContract\CopyContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HSContract\CopyContractForm.Designer.cs">
+      <DependentUpon>CopyContractForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSContract\FrmRptCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HSContract\FrmRptCondition.Designer.cs">
+      <DependentUpon>FrmRptCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSContract\FrmWoDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HSContract\FrmWoDetail.Designer.cs">
+      <DependentUpon>FrmWoDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FinalMRReportQueryForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\FinalMRReportQueryForm.Designer.cs">
+      <DependentUpon>FinalMRReportQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FinalMRReportQueryProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FinalMRReportQueryProjectForm.Designer.cs">
+      <DependentUpon>FinalMRReportQueryProjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSReciveListRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSReciveListRpt.Designer.cs">
+      <DependentUpon>HSReciveListRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Commons.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FRN\FrmPrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRN\FrmPrintForm.Designer.cs">
+      <DependentUpon>FrmPrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRN\FrmProjectSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRN\FrmProjectSelect.Designer.cs">
+      <DependentUpon>FrmProjectSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRN\FRNDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FRN\FRNDetailForm.Designer.cs">
+      <DependentUpon>FRNDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRN\FRNListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FRN\FRNListForm.Designer.cs">
+      <DependentUpon>FRNListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRN\ProjectDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FRN\ProjectDetailForm.Designer.cs">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRN\ProjectListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FRN\ProjectListForm.Designer.cs">
+      <DependentUpon>ProjectListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSContract\DateRangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HSContract\DateRangeForm.Designer.cs">
+      <DependentUpon>DateRangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSContract\HSContractDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HSContract\HSContractDetailDetailForm.Designer.cs">
+      <DependentUpon>HSContractDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSContract\HSContractDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HSContract\HSContractDetailListForm.Designer.cs">
+      <DependentUpon>HSContractDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSContract\HSContractHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HSContract\HSContractHeaderDetailForm.Designer.cs">
+      <DependentUpon>HSContractHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSContract\HSContractHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HSContract\HSContractHeaderListForm.Designer.cs">
+      <DependentUpon>HSContractHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSContract\HSContractReciveListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HSContract\HSContractReciveListForm.Designer.cs">
+      <DependentUpon>HSContractReciveListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSContract\MRWOChoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HSContract\MRWOChoiceForm.Designer.cs">
+      <DependentUpon>MRWOChoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSWOIssue\FormMsg.cs" />
+    <Compile Include="HSWOIssue\IssueSumRptDialogForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HSWOIssue\IssueSumRptDialogForm.Designer.cs">
+      <DependentUpon>IssueSumRptDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSWOIssue\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HSWOIssue\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSWOIssue\LoadingFormHelper.cs" />
+    <Compile Include="Modules\MRTaskListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\MRTaskListForm.Designer.cs">
+      <DependentUpon>MRTaskListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ProjectDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ProjectDetailForm.Designer.cs">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ProjectListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Action\MR_Action.cs" />
+    <Compile Include="OtherForm\frmCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\frmCompare.Designer.cs">
+      <DependentUpon>frmCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherForm\frmHistoryNotepad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\frmHistoryNotepad.Designer.cs">
+      <DependentUpon>frmHistoryNotepad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherForm\frmMRHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\frmRoundMR.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OtherForm\frmSaveRemark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\frmSaveRemark.Designer.cs">
+      <DependentUpon>frmSaveRemark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherForm\frmSelectProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\frmSelectProject.designer.cs">
+      <DependentUpon>frmSelectProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherForm\frmSelectQNNO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\frmSelectQNNO.designer.cs">
+      <DependentUpon>frmSelectQNNO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherForm\frmSelectRWONO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\frmSelectRWONO.designer.cs">
+      <DependentUpon>frmSelectRWONO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherForm\frmSelectWONO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\frmSelectWONO.designer.cs">
+      <DependentUpon>frmSelectWONO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherForm\GenerateMRForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\GenerateMRForm.designer.cs">
+      <DependentUpon>GenerateMRForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\MRHelper.cs" />
+    <Compile Include="OtherForm\ReportCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherForm\ReportCreatorForm.designer.cs">
+      <DependentUpon>ReportCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packing\GetMRFromERP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Packing\GetMRFromERP.Designer.cs">
+      <DependentUpon>GetMRFromERP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packing\ProjectBO.cs" />
+    <Compile Include="Packing\ProjectChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packing\ProjectChooseForm.Designer.cs">
+      <DependentUpon>ProjectChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packing\ProjectSelectEnume.cs" />
+    <Compile Include="Packing\StyleChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packing\StyleChooseForm.Designer.cs">
+      <DependentUpon>StyleChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packing\StyleWeightDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Packing\StyleWeightDetailForm.Designer.cs">
+      <DependentUpon>StyleWeightDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packing\StyleWeightListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Packing\StyleWeightListForm.Designer.cs">
+      <DependentUpon>StyleWeightListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\AnticipantReportAsync.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\AnticipantReportAsync.Designer.cs">
+      <DependentUpon>AnticipantReportAsync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\KBPPWsReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\KBPPWsReport.Designer.cs">
+      <DependentUpon>KBPPWsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\KBMRReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\KBMRReport.Designer.cs">
+      <DependentUpon>KBMRReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MidcHSCodeByMRReort.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\MidcHSCodeByMRReort.Designer.cs">
+      <DependentUpon>MidcHSCodeByMRReort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MRReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\MRReport.Designer.cs">
+      <DependentUpon>MRReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MRSummaryWithProjectWorkOrder .cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MRSummaryWithProjectWorkOrder .Designer.cs">
+      <DependentUpon>MRSummaryWithProjectWorkOrder .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MR_InQty_Report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MR_InQty_Report.Designer.cs">
+      <DependentUpon>MR_InQty_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MR_InValues_Report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MR_InValues_Report.Designer.cs">
+      <DependentUpon>MR_InValues_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\AnticipantReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\AnticipantReport.Designer.cs">
+      <DependentUpon>AnticipantReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MR_InValues_Report1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MR_InValues_Report1.Designer.cs">
+      <DependentUpon>MR_InValues_Report1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RptContractWo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\RptContractWo.Designer.cs">
+      <DependentUpon>RptContractWo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RptFRN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\RptFRN.Designer.cs">
+      <DependentUpon>RptFRN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RptFRN1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\RptFRN1.Designer.cs">
+      <DependentUpon>RptFRN1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleSizeWeight\StyleSizeWeightListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSizeWeight\StyleSizeWeightListForm.Designer.cs">
+      <DependentUpon>StyleSizeWeightListForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\app.ico" />
+    <Content Include="Images\images16x16.bmp" />
+    <Content Include="Images\images32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Action\ActionReport1.resx">
+      <DependentUpon>ActionReport1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSContract\CopyContractForm.resx">
+      <DependentUpon>CopyContractForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSContract\FrmRptCondition.resx">
+      <DependentUpon>FrmRptCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSContract\FrmWoDetail.resx">
+      <DependentUpon>FrmWoDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FinalMRReportQueryForm.resx">
+      <DependentUpon>FinalMRReportQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FinalMRReportQueryProjectForm.resx">
+      <DependentUpon>FinalMRReportQueryProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSReciveListRpt.resx">
+      <DependentUpon>HSReciveListRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRN\FrmPrintForm.resx">
+      <DependentUpon>FrmPrintForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRN\FrmProjectSelect.resx">
+      <DependentUpon>FrmProjectSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRN\FRNDetailForm.resx">
+      <DependentUpon>FRNDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRN\FRNListForm.resx">
+      <DependentUpon>FRNListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRN\ProjectDetailForm.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRN\ProjectListForm.resx">
+      <DependentUpon>ProjectListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSContract\DateRangeForm.resx">
+      <DependentUpon>DateRangeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSContract\HSContractDetailDetailForm.resx">
+      <DependentUpon>HSContractDetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSContract\HSContractDetailListForm.resx">
+      <DependentUpon>HSContractDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSContract\HSContractHeaderDetailForm.resx">
+      <DependentUpon>HSContractHeaderDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSContract\HSContractHeaderListForm.resx">
+      <DependentUpon>HSContractHeaderListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSContract\HSContractReciveListForm.resx">
+      <DependentUpon>HSContractReciveListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSContract\MRWOChoiceForm.resx">
+      <DependentUpon>MRWOChoiceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSWOIssue\IssueSumRptDialogForm.resx">
+      <DependentUpon>IssueSumRptDialogForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSWOIssue\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\MRTaskListForm.resx">
+      <DependentUpon>MRTaskListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ProjectDetailForm.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ProjectListForm.resx">
+      <DependentUpon>ProjectListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\frmCompare.resx">
+      <DependentUpon>frmCompare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\frmHistoryNotepad.resx">
+      <DependentUpon>frmHistoryNotepad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\frmMRHistory.resx">
+      <DependentUpon>frmMRHistory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\frmRoundMR.resx">
+      <DependentUpon>frmRoundMR.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\frmSaveRemark.resx">
+      <DependentUpon>frmSaveRemark.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\frmSelectProject.resx">
+      <DependentUpon>frmSelectProject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\frmSelectQNNO.resx">
+      <DependentUpon>frmSelectQNNO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\frmSelectRWONO.resx">
+      <DependentUpon>frmSelectRWONO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\frmSelectWONO.resx">
+      <DependentUpon>frmSelectWONO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\GenerateMRForm.resx">
+      <DependentUpon>GenerateMRForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherForm\ReportCreatorForm.resx">
+      <DependentUpon>ReportCreatorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing\GetMRFromERP.resx">
+      <DependentUpon>GetMRFromERP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing\ProjectChooseForm.resx">
+      <DependentUpon>ProjectChooseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing\StyleChooseForm.resx">
+      <DependentUpon>StyleChooseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing\StyleWeightDetailForm.resx">
+      <DependentUpon>StyleWeightDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing\StyleWeightListForm.resx">
+      <DependentUpon>StyleWeightListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Report\AnticipantReportAsync.resx">
+      <DependentUpon>AnticipantReportAsync.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\KBPPWsReport.resx">
+      <DependentUpon>KBPPWsReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\KBMRReport.resx">
+      <DependentUpon>KBMRReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MidcHSCodeByMRReort.resx">
+      <DependentUpon>MidcHSCodeByMRReort.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MRReport.resx">
+      <DependentUpon>MRReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MRSummaryWithProjectWorkOrder .resx">
+      <DependentUpon>MRSummaryWithProjectWorkOrder .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MR_InQty_Report.resx">
+      <DependentUpon>MR_InQty_Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MR_InValues_Report.resx">
+      <DependentUpon>MR_InValues_Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AnticipantReport.resx">
+      <DependentUpon>AnticipantReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MR_InValues_Report.zh-CHT.resx">
+      <DependentUpon>MR_InValues_Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MR_InValues_Report1.resx">
+      <DependentUpon>MR_InValues_Report1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RptContractWo.resx">
+      <DependentUpon>RptContractWo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RptFRN.resx">
+      <DependentUpon>RptFRN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RptFRN.zh-CHT.resx">
+      <DependentUpon>RptFRN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RptFRN1.resx">
+      <DependentUpon>RptFRN1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RptFRN1.zh-CHT.resx">
+      <DependentUpon>RptFRN1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleSizeWeight\StyleSizeWeightListForm.resx">
+      <DependentUpon>StyleSizeWeightListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.MR.BackEnd\PH.MR.BackEnd.csproj">
+      <Project>{A22FDFA7-2EC7-4104-B030-831257820D91}</Project>
+      <Name>PH.MR.BackEnd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PH.MR.BO\PH.MR.BO.csproj">
+      <Project>{A4B1A009-C1F8-494B-88A7-D7890BBBC7A7}</Project>
+      <Name>PH.MR.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.MR.BO.AnticipantMR.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.AnticipantMR_HSCodeHeader.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.AnticipantMR_Packing.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.FinalMRReportClass.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.FinalMRReportQueryProjectClass.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.FRNReport.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.FRN_DetailInfo.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.FRN_MasterInfo.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.HSContractDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.HSContractHeader.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.HSWOIssueDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.HSWOIssueHeader.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.HSWOIssueMaterialType.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.MRHSCodeSummaryRptBO.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.MRStyleWeightCompare_Packing.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.ReciveListResult.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.ReciveWoDetailt.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.StyleSizeWeight.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.V_ProjectNO.datasource" />
+    <None Include="Properties\DataSources\PH.MR.BO.V_StyleNO.datasource" />
+    <None Include="Properties\DataSources\PH.MR.UI.HSWOIssue.IdoInfo.datasource" />
+    <None Include="Properties\DataSources\PH.MR.UI.Packing.ProjectChooseForm+projectBO.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

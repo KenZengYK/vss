@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PH.MR" Class="MRDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=S99VF403\SQLSERVER2005;Initial Catalog=PH.MR;Persist Security Info=True;User ID=ituser" SettingsObjectName="PH.MR.BO.Properties.Settings" SettingsPropertyName="PH_MRConnectionString4" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.FRN_MasterInfo" Member="FRN_MasterInfos">
+    <Type Name="FRN_MasterInfo">
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectNo" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="SaleOrder" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FRNNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="FRNDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Method" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Reson" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="PlanMasterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PreparedBy" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="MarkerManager" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="OAManager" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Association Name="FRN_MasterInfo_FRN_DetailInfo" Member="FRN_DetailInfos" ThisKey="MasterID" OtherKey="MasterID" Type="FRN_DetailInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FRN_DetailInfo" Member="FRN_DetailInfos">
+    <Type Name="FRN_DetailInfo">
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DetailID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectNo" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkOrder" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCode" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ex_FtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SupplierItem" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="WO_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Color_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FRN_YY" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="Wastage_Per" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="Original_YY" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Association Name="FRN_MasterInfo_FRN_DetailInfo" Member="FRN_MasterInfo" ThisKey="MasterID" OtherKey="MasterID" Type="FRN_MasterInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AnticipantMR" Member="AnticipantMRs">
+    <Type Name="AnticipantMR">
+      <Column Name="Salesorder" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="Projectno" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Workorderno" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Wo_status" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="SO_line_ref" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Styleno" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="Style_color" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Itemno" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Item_ref" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Item_color" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="Wastage" Type="System.Decimal" DbType="Decimal(6,3)" CanBeNull="true" />
+      <Column Name="WO_Qty" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="MR_Qty" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="QTY_PER" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_stock" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_redye" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_PO" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="UPX" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="USERID" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="DT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JOBNO" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="PARENTWO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="StyleCost" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AnticipantMR_Packing" Member="AnticipantMR_Packings">
+    <Type Name="AnticipantMR_Packing">
+      <Column Name="Salesorder" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="Projectno" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Workorderno" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Wo_status" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="SO_line_ref" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Styleno" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="Style_color" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Itemno" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Item_ref" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Item_color" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="Wastage" Type="System.Decimal" DbType="Decimal(6,3)" CanBeNull="true" />
+      <Column Name="WO_Qty" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="MR_Qty" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="QTY_PER" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_stock" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_redye" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_PO" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="UPX" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="USERID" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="DT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JOBNO" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="PARENTWO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="StyleCost" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_StyleNO" Member="V_StyleNOs">
+    <Type Name="V_StyleNO">
+      <Column Name="SalesOrder" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="ProjectNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="StyleNO" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ProjectNO" Member="V_ProjectNOs">
+    <Type Name="V_ProjectNO">
+      <Column Name="SalesOrder" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="ProjectNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MRStyleWeightCompare_Packing" Member="MRStyleWeightCompare_Packings">
+    <Type Name="MRStyleWeightCompare_Packing">
+      <Column Name="SalesOrder" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectNO" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNO" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StyleNO" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Weight_MR" Type="System.Decimal" DbType="Decimal(18,9)" CanBeNull="true" />
+      <Column Name="WorkQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StyleTotalWeight" Type="System.Decimal" DbType="Decimal(18,9)" CanBeNull="true" />
+      <Column Name="UpdateCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HSWOIssueHeader" Member="HSWOIssueHeaders">
+    <Type Name="HSWOIssueHeader">
+      <Column Name="IDO" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ProjectNO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="GATEPASS" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CustStyle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IssueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WareHouseCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Association Name="HSWOIssueHeader_HSWOIssueDetail" Member="HSWOIssueDetails" ThisKey="IDO" OtherKey="IDO" Type="HSWOIssueDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HSWOIssueDetail" Member="HSWOIssueDetails">
+    <Type Name="HSWOIssueDetail">
+      <Column Name="IDO" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HSContractID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HSContractNO" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="WorkOrderNO" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HSCodeSeq" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HSCode" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HSName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IssuedWeightRMB" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="IssuedWeightOther" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="HSWOIssueHeader_HSWOIssueDetail" Member="HSWOIssueHeader" ThisKey="IDO" OtherKey="IDO" Type="HSWOIssueHeader" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HSContractHeader" Member="HSContractHeaders">
+    <Type Name="HSContractHeader">
+      <Column Name="HSContractID" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HScontractNO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IsConfirm" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="HSContractHeader_HSContractDetail" Member="HSContractDetails" ThisKey="HSContractID" OtherKey="HSContractID" Type="HSContractDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHP72T" Member="PHP72Ts">
+    <Type Name="PHP72T">
+      <Column Name="CONO72" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="JOBN72" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="ORDN72" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="CUSO72" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DTDR72" Type="System.Decimal" DbType="Decimal(7,0)" CanBeNull="true" />
+      <Column Name="PSTL72" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="PSIZ72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PCOL72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RTCD72" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="MATP72" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="PITP72" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="MATD72" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CSTL72" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="CCOL72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CSIZ72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CMPD72" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="LEVL72" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="CFLG72" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="SSTL72" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="SCOL72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SSIZ72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SCMD72" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="MWTH72" Type="System.Decimal" DbType="Decimal(11,4)" CanBeNull="true" />
+      <Column Name="CCGC72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHDF72" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PRJF72" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SUC172" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="QPER72" Type="System.Decimal" DbType="Decimal(15,6)" CanBeNull="true" />
+      <Column Name="CORQ72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="ISTR72" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="IUNT72" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="COIS72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="COOS72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="RSVP72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="RSVS72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="RSRS72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="ALOC72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="WORD72" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="OPSQ72" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+      <Column Name="DESM72" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DSTL72" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="QTOR72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="EUOM72" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="MINQ72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="MLTQ72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="UPRC72" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="VCAT01" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tPHP72T" Member="tPHP72Ts">
+    <Type Name="tPHP72T">
+      <Column Name="CONO72" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="JOBN72" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="ORDN72" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="CUSO72" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DTDR72" Type="System.Decimal" DbType="Decimal(7,0)" CanBeNull="true" />
+      <Column Name="PSTL72" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="PSIZ72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PCOL72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RTCD72" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="MATP72" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="PITP72" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="MATD72" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CSTL72" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="CCOL72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CSIZ72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CMPD72" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="LEVL72" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="CFLG72" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="SSTL72" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="SCOL72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SSIZ72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SCMD72" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="MWTH72" Type="System.Decimal" DbType="Decimal(11,4)" CanBeNull="true" />
+      <Column Name="CCGC72" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHDF72" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PRJF72" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SUC172" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="QPER72" Type="System.Decimal" DbType="Decimal(15,6)" CanBeNull="true" />
+      <Column Name="CORQ72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="ISTR72" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="IUNT72" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="COIS72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="COOS72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="RSVP72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="RSVS72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="RSRS72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="ALOC72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="WORD72" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="OPSQ72" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+      <Column Name="DESM72" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DSTL72" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="QTOR72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="EUOM72" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="MINQ72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="MLTQ72" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="UPRC72" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="VCAT01" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tAnticipantMR" Member="tAnticipantMRs">
+    <Type Name="tAnticipantMR">
+      <Column Name="Salesorder" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="Projectno" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Workorderno" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Wo_status" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="SO_line_ref" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Styleno" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="Style_color" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Itemno" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Item_ref" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Item_color" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="Wastage" Type="System.Decimal" DbType="Decimal(6,3)" CanBeNull="true" />
+      <Column Name="WO_Qty" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="MR_Qty" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="QTY_PER" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_stock" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_redye" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_PO" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="UPX" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="USERID" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="DT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JOBNO" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="PARENTWO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="StyleCost" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AnticipantMR_HSCodeHeader" Member="AnticipantMR_HSCodeHeaders">
+    <Type Name="AnticipantMR_HSCodeHeader">
+      <Column Name="TaskNO" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FromDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ActionFromTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActionEndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="AnticipantMR_HSCodeHeader_AnticipantMR_HSCodeDetail" Member="AnticipantMR_HSCodeDetails" ThisKey="TaskNO" OtherKey="TaskNO" Type="AnticipantMR_HSCodeDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AnticipantMR_HSCodeDetail" Member="AnticipantMR_HSCodeDetails">
+    <Type Name="AnticipantMR_HSCodeDetail">
+      <Column Name="Salesorder" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="Projectno" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Workorderno" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Wo_status" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="SO_line_ref" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Styleno" Type="System.String" DbType="VarChar(9) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Style_color" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Itemno" Type="System.String" DbType="VarChar(9) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Item_ref" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Item_color" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="Wastage" Type="System.Decimal" DbType="Decimal(6,3)" CanBeNull="true" />
+      <Column Name="WO_Qty" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="MR_Qty" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="QTY_PER" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_stock" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_redye" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="Res_PO" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="UPX" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="USERID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="JOBNO" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="PARENTWO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="StyleCost" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="TaskNO" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FabricRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="AnticipantMR_HSCodeHeader_AnticipantMR_HSCodeDetail" Member="AnticipantMR_HSCodeHeader" ThisKey="TaskNO" OtherKey="TaskNO" Type="AnticipantMR_HSCodeHeader" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StyleSizeWeight" Member="StyleSizeWeights">
+    <Type Name="StyleSizeWeight">
+      <Column Name="StyleNO" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHSize" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHCup" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustSize" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustCup" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PHStyleNo" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HSContractDetail" Member="HSContractDetails">
+    <Type Name="HSContractDetail">
+      <Column Name="HSContractID" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectNO" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkNO" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SeqNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnitPX" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CustomSeqNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="ProdCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="HSContractHeader_HSContractDetail" Member="HSContractHeader" ThisKey="HSContractID" OtherKey="HSContractID" Type="HSContractHeader" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.P_GenerateStyle_Packing" Method="P_GenerateStyle_Packing">
+    <Parameter Name="Projects" Parameter="projects" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="NVarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.P_GetWOFty" Method="P_GetWOFty">
+    <Parameter Name="WONO" Parameter="wONO" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Fty" Parameter="fty" Type="System.String" DbType="NVarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.P_GetStyleSizeInfo" Method="P_GetStyleSizeInfo">
+    <Parameter Name="CreateUser" Parameter="createUser" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
