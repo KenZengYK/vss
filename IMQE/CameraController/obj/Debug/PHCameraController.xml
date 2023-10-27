@@ -1,0 +1,240 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PHCameraController
+</name>
+</assembly>
+<members>
+<member name="T:PHCameraController.TakePictureCommand">
+	<summary>
+ Xsj:相机拍照指令
+ </summary>
+	<remarks></remarks>
+</member><member name="P:PHCameraController.CameraActionProperty.IsAuto">
+	<summary>
+ Xsj:是否自动拍照
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:PHCameraController.CameraActionProperty.ClientSavePath">
+	<summary>
+ Xsj:图片保存路径
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:PHCameraController.CameraActionProperty.dbConnectString">
+	<summary>
+ Xsj:數據庫連接
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:PHCameraController.CameraActionProperty.ManagerPwd">
+	<summary>
+ Xsj:管理員密碼
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:PHCameraController.CameraActionProperty">
+	<summary>
+ Xsj:相機照片操作的相關參數 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.ItemSavePath.CreatetemSavePath">
+	<summary>
+ Xsj:創建当前Item的图片保存路径
+ </summary>
+	<remarks></remarks>
+</member><member name="T:PHCameraController.ItemSavePath">
+	<summary>
+ Xsj:該類用於記錄照片的相關信息
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.CameraController.setCameraModel(PHCameraController.CameraModel)">
+	<summary>
+ Xsj:设置当前CameraController的CameraModel
+ </summary>
+	<param name="model"></param>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.CameraController.run">
+	<summary>
+ Xsj:运行CameraController的指令执行线程
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.CameraController.StoreAsync(PHCameraController.Command)">
+	<summary>
+ Xsj:向CameraControl的指令线程中添加指令
+ </summary>
+	<param name="command"></param>
+	<remarks></remarks>
+</member><member name="T:PHCameraController.CameraController">
+	<summary>
+ Xsj:相機控制器
+ </summary>
+	<remarks></remarks>
+</member><member name="F:PHCameraController.CameraModel.camera">
+	<summary>
+ Xsj:当前CameraModel对应的相机
+ </summary>
+	<remarks></remarks>
+</member><member name="T:PHCameraController.CameraModel">
+	<summary>
+ Xsj:設置當前相機的運行參數
+ </summary>
+	<remarks></remarks>
+</member><member name="T:PHCameraController.CameraProperty">
+	<summary>
+ 相机属性参数
+ </summary>
+	<remarks></remarks>
+</member><member name="T:PHCameraController.CameraStatus">
+ 
+Xsj:相机状态
+ 
+
+</member><member name="P:PHCameraController.OperaterObj.ImgName">
+	<summary>
+ Xsj:图片名称
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:PHCameraController.OperaterObj.Img">
+	<summary>
+ Xsj:抓取的图片
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:PHCameraController.OperaterObj.FabricInspPictureBO">
+	<summary>
+ Xsj:照片所屬的的PH.FabricInspection.BO.Fabric_Insp_Picture
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:PHCameraController.OperaterObj">
+	<summary>
+ Xsj:拍取的照片所屬的實體對像
+ </summary>
+	<remarks></remarks>
+</member><member name="T:PHCameraController.DownloadCommand">
+	<summary>
+ Xsj:相机下载图片指令
+ </summary>
+	<remarks></remarks>
+</member><member name="P:PHCameraController.MyPHCameraController.ItemPhotoSavePath">
+	<summary>
+ Xsj20121220:add
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.MyPHCameraController.#ctor(System.Int32)">
+	<summary>
+ Xsj20121220:版本构造构数
+ </summary>
+	<param name="NewVersion"></param>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.MyPHCameraController.#ctor(System.Collections.Generic.List{System.String})">
+	<summary>
+ 構造函數
+ </summary>
+	<param name="ItemSavePath">圖片名稱</param>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.MyPHCameraController.SetPhotoSavePath(System.Collections.Generic.List{System.String})">
+	<summary>
+ Xsj20121220:设置图片保存路径
+ </summary>
+	<param name="SavePath"></param>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.MyPHCameraController.ClearPhotoSavePath">
+	<summary>
+ Xsj20121220:清除图片保存路径
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.MyPHCameraController.cameraModelFactory(System.IntPtr,PHCameraController.EDSDKTypes.EdsDeviceInfo)">
+	<summary>
+ Xsj:根據不同的協議,彩用不同的運行參數
+ </summary>
+	<param name="camera"></param>
+	<param name="deviceInfo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.MyPHCameraController.CameraAction(PH.FabricInspection.BO.Fabric_Insp_Picture,System.String)">
+	<summary>
+ Xsj:相机拍照动作
+ </summary>
+	<param name="FabricInspPictureBO"></param>
+	<param name="PicName"></param>
+	<remarks></remarks>
+</member><member name="F:PHCameraController.MyPHCameraController.CameraControllerList">
+	<summary>
+ Xsj:當前已連接到電腦的相機集合
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.OpenSessionCommand.execute">
+	<summary>
+ Xsj:进程相机连接
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:PHCameraController.OpenSessionCommand">
+	<summary>
+ Xsj:与相机进行连接的指令
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.Processor.Finalize">
+	<summary>
+ Xsj:重写析构函数，释放指令队列
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.Processor.enqueue(PHCameraController.Command)">
+	<summary>
+ 'Xsj:向指令队列尾部添加指令
+ </summary>
+	<param name="command"></param>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.Processor.stopTh">
+	<summary>
+ Xsj:置指令运行标识running=false
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.Processor.join">
+	<summary>
+ Xsj:中止线程
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.Processor.clear">
+	<summary>
+ Xsj:清除指令队列中所有指令
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.Processor.start">
+	<summary>
+ Xsj:启动线程，执行指令队列中的指令
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.Processor.run">
+	<summary>
+ Xsj:线程对应的执行逻辑
+ </summary>
+	<remarks></remarks>
+</member><member name="M:PHCameraController.Processor.take">
+	<summary>
+ Xsj:从指令队列中取出第一个指令
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:PHCameraController.Processor">
+	<summary>
+ Xsj:每个CameraControl对应执行指令的线程管理类
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

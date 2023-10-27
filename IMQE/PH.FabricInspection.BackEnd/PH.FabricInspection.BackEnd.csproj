@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4CE5FA96-1D90-42A6-85B2-2C820DA82381}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.FabricInspection.BackEnd</RootNamespace>
+    <AssemblyName>PH.FabricInspection.BackEnd</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\PHWinApp\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AS400Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="PH.MIDc.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.ExtendLibrary, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ByPieceByLotBackEndReport.cs" />
+    <Compile Include="RNBackEndReport.cs" />
+    <Compile Include="SupplierQABackEndReport1.cs" />
+    <Compile Include="MaterialQABackEndReport1.cs" />
+    <Compile Include="Report\MaterialQAReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MaterialQAReport1.designer.cs">
+      <DependentUpon>MaterialQAReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SupplierAnalyseReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\SupplierAnalyseReport1.designer.cs">
+      <DependentUpon>SupplierAnalyseReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierQABackEndReport.cs" />
+    <Compile Include="Report\MaterialQAReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MaterialQAReport.designer.cs">
+      <DependentUpon>MaterialQAReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialQABackEndReport.cs" />
+    <Compile Include="Util\DictionaryDataSource.cs" />
+    <Compile Include="Util\RNDetailByReport.cs" />
+    <Compile Include="Util\RNHeaderByReport.cs" />
+    <Compile Include="Util\RNReportUtil.cs" />
+    <Compile Include="Util\DateTimeUtil.cs" />
+    <Compile Include="Util\ByPieceByLotReportUtil.cs" />
+    <Compile Include="Util\MasterTableUtil.cs" />
+    <Compile Include="Util\MaterialByLot.cs" />
+    <Compile Include="Util\MaterialByPiece.cs" />
+    <Compile Include="Util\PartDefectInfo.cs" />
+    <Compile Include="Util\PartDefectInfoForReportByPiece.cs" />
+    <Compile Include="Util\PH984Field.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\RecordStatus.cs" />
+    <Compile Include="Util\SpreadDefectInfoByReport.cs" />
+    <Compile Include="Util\SpreadDefectInfoForReportByPiece.cs" />
+    <Compile Include="Util\SpreadDefectProcSolutionByReport.cs" />
+    <Compile Include="Report\SupplierAnalyseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\SupplierAnalyseReport.designer.cs">
+      <DependentUpon>SupplierAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\TwoColumnsWidthDetailForReportPiece.cs" />
+    <Compile Include="Util\WidthDetailForReportPiece.cs" />
+    <Compile Include="Report\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\MaterialQAReport.resx">
+      <DependentUpon>MaterialQAReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Report\MaterialQAReport1.resx">
+      <DependentUpon>MaterialQAReport1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SupplierAnalyseReport.resx">
+      <DependentUpon>SupplierAnalyseReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SupplierAnalyseReport1.resx">
+      <DependentUpon>SupplierAnalyseReport1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.FabricInspection.BO\PH.FabricInspection.BO.csproj">
+      <Project>{8B18599F-62F0-4099-9211-7460369630FC}</Project>
+      <Name>PH.FabricInspection.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

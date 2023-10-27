@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 22.5, 23.25" name="FabricInspection">
+  <DataContextMoniker Name="/FabricInspectionDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a7f783a4-283f-4bdd-acdc-666421b45897" isExpanded="false" absoluteBounds="3.5, 3.875, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/Fabric_Insp_PartDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f7f2556-9678-44e3-88c5-28cd49f7901b" absoluteBounds="3.5150000000000006, 4.3350000000000009, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d6676701-1b75-4324-ac4e-992d83d59ead" isExpanded="false" absoluteBounds="3.5, 2.25, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/Fabric_Insp_Picture" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ce8534c-6ce1-4928-875b-7cff4838264a" absoluteBounds="3.515, 2.71, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0a20ac09-bb33-4dd9-b01c-0b50b4823136" isExpanded="false" absoluteBounds="6.125, 3, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/Fabric_Sys_Parameter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d180e25-c48d-4f09-a5a4-ce6a3544b69e" absoluteBounds="6.1400000000000006, 3.4600000000000009, 1.9700000000000002, 1.7756245930989583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="873f2634-52f8-4b13-8534-281930b39f54" isExpanded="false" absoluteBounds="6.25, 5.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/View_InspectionDate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2cc86b0e-e826-474a-98bf-05a0f848e19c" absoluteBounds="6.2650000000000006, 6.0850000000000009, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6498edf5-7b15-4151-a868-ef08083af5a7" isExpanded="false" absoluteBounds="3.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/view_RNSelectItemNo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b5b0f74c-e118-4780-bf5e-95bde323c4f5" absoluteBounds="3.515, 0.96, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0d6a73f-56b6-47b0-adf3-b4f61d631641" isExpanded="false" absoluteBounds="6.125, 2.25, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/Fabric_Defect_File" />
+      <nestedChildShapes>
+        <elementListCompartment Id="91f65fd7-88fa-469d-ae9c-6bdca8290007" absoluteBounds="6.14, 2.7100000000000009, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa75f3bf-1cb9-49fe-a616-20ffac4df794" isExpanded="false" absoluteBounds="8.875, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/PHQCDefectPHDefectClass" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22a01d6b-e445-4fa6-8130-bd578182b18d" absoluteBounds="8.89, 2.5850000000000009, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="68230aba-e822-4c23-8da3-28c2da2e3896" isExpanded="false" absoluteBounds="8.875, 3.125, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/DepartmentalTree" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68260816-6e57-449e-92c5-205a27320234" absoluteBounds="8.89, 3.5850000000000009, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.875 : 3.125); (9.875 : 2.575)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/DepartmentalTree/DepartmentalTree_PHQCDefectPHDefectClass" />
+      <nodes>
+        <classShapeMoniker Id="68230aba-e822-4c23-8da3-28c2da2e3896" />
+        <classShapeMoniker Id="fa75f3bf-1cb9-49fe-a616-20ffac4df794" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2e16e5cb-fb8d-4a6a-922a-82f239b5f1bc" isExpanded="false" absoluteBounds="6.25, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/RN_Header" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d0a373ce-9662-4592-964e-18db997a7bee" absoluteBounds="6.265, 1.085, 1.9700000000000002, 5.787038167317708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="18ccefda-dd9b-4f7e-aa27-ebdfbd569a7f" isExpanded="false" absoluteBounds="0.625, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/SupplierBatchInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1fab4e7-abcf-4e99-891f-8ddb44a0c896" absoluteBounds="0.64000000000000012, 0.96, 1.9700000000000002, 2.348683675130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1df6fb11-f979-49d4-afdd-f923339ab7d7" isExpanded="false" absoluteBounds="3.5, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/Fabric_Insp_Width" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59e8919c-76ac-4404-87b8-674459570656" absoluteBounds="3.515, 1.71, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="adc36685-875e-4fe9-b0a1-a12a88d42dfa" isExpanded="false" absoluteBounds="6.25, 6.25, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/BulkSubmission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d7677a6-cbc5-49a6-9040-5256bdd9095d" absoluteBounds="6.2650000000000006, 6.7100000000000009, 1.9700000000000002, 3.8768412272135415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5833be16-0ac8-4c4f-af27-7cda6c533265" isExpanded="false" absoluteBounds="8.875, 7.125, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ActionLogEmail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ababb3a2-b1b0-44b4-8852-707a3ece9f1f" absoluteBounds="8.89, 7.585, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bbc47319-818e-4d9c-9d05-41c6835e60c9" isExpanded="false" absoluteBounds="8.875, 4.75, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/Email" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e951dea3-578f-4be9-be49-c5767e7b0231" absoluteBounds="8.89, 5.21, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c3ff05f3-db2b-44fb-9594-14dce3b41567" isExpanded="false" absoluteBounds="6.125, 3.875, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/OverallFailReason" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59b5a054-d18d-4d1e-b780-7a32c06e3d06" absoluteBounds="6.1400000000000006, 4.3350000000000009, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8d6e9b79-86dd-4b6b-a1c8-d7c10f03f192" isExpanded="false" absoluteBounds="8.875, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/PHQCDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f96612a8-ea32-499f-8035-3f9f5e29f5e9" absoluteBounds="8.89, 1.7100000000000009, 1.9700000000000002, 5.0229593912760411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.875 : 1.7); (9.875 : 2.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/PHQCDefect/PHQCDefect_PHQCDefectPHDefectClass" />
+      <nodes>
+        <classShapeMoniker Id="8d6e9b79-86dd-4b6b-a1c8-d7c10f03f192" />
+        <classShapeMoniker Id="fa75f3bf-1cb9-49fe-a616-20ffac4df794" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="28801daf-1063-4e60-aec2-23929b86ae14" isExpanded="false" absoluteBounds="8.875, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/RN_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="def98624-67ed-48ba-abab-7d26fd0568f3" absoluteBounds="8.89, 1.085, 1.9700000000000002, 3.685821533203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 0.85); (8.875 : 0.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/RN_Header/RN_Header_RN_Detail" />
+      <nodes>
+        <classShapeMoniker Id="2e16e5cb-fb8d-4a6a-922a-82f239b5f1bc" />
+        <classShapeMoniker Id="28801daf-1063-4e60-aec2-23929b86ae14" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bafcb522-e0c2-4dce-ab00-eb2cd03e5d5f" isExpanded="false" absoluteBounds="6.25, 6.875, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/CrossCupGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2746b95e-8a33-4bbc-9c41-543c81567162" absoluteBounds="6.2650000000000006, 7.3350000000000009, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="85f281e6-4411-48ea-ade9-bf4fa6a029a3" isExpanded="false" absoluteBounds="9, 3.875, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/DataDict" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce64afc6-9376-4e50-98d2-7ef6bde1ef5b" absoluteBounds="9.015, 4.3350000000000009, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="18576917-60f2-4f0f-bf14-b8778144849d" isExpanded="false" absoluteBounds="3.5, 4.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/BandLaceSpotDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3954a0f1-50b6-48aa-9a1d-9e71c3a0ad12" absoluteBounds="3.5149999999999997, 5.0850000000000009, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="07c3e321-222f-473f-99bd-7d571910ce8a" isExpanded="false" absoluteBounds="3.625, 8.75, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ElasticSpotDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a81dd154-1c2f-4a74-a7c8-2a7669a9a3ab" absoluteBounds="3.6400000000000006, 9.21, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2498d780-2a8f-44b4-85f9-2aedff2da620" isExpanded="false" absoluteBounds="3.625, 9.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ElasticChainDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="add265fe-349d-4837-b210-e43b9157a480" absoluteBounds="3.6400000000000006, 10.085, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c225deb-d19e-4310-925f-efbf1e1c8d7b" isExpanded="false" absoluteBounds="8.875, 6.5, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ActionLogSubjectCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72c2568c-fe25-4a32-b1ee-fc3d2fa3d028" absoluteBounds="8.89, 6.96, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="09471e88-950a-49a3-9d2c-a8909999cbb7" isExpanded="false" absoluteBounds="9, 11.125, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/AccessoryDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="760548bb-1b5b-4877-8627-ed1fa2e91b8e" absoluteBounds="9.015, 11.585, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a153394f-6c55-4905-b4b3-c51c91ebd1a0" isExpanded="false" absoluteBounds="9.125, 12.125, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/AccessoryCasingDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73d38784-eb23-485b-b0dd-0f99fd91079b" absoluteBounds="9.14, 12.585, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="482283b4-f3bd-41d2-86fa-2078709116ba" isExpanded="false" absoluteBounds="6.25, 8.375, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ConvertSupp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77299faf-26c2-41a5-b1f6-55de5b1de9a1" absoluteBounds="6.2650000000000006, 8.835, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e7af836d-c7d5-46ec-bbeb-f39492079569" isExpanded="false" absoluteBounds="6.25, 10, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/RejectNotice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca54508f-1058-4d16-8471-5a7610a248c4" absoluteBounds="6.2650000000000006, 10.46, 1.9700000000000002, 1.7756245930989583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8aa31f7b-c1e7-4715-b954-21880e0465ea" isExpanded="false" absoluteBounds="3.5, 6.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/BandLandWidth" />
+      <nestedChildShapes>
+        <elementListCompartment Id="925f4582-2eb0-4b9a-9147-fde7ea79b546" absoluteBounds="3.5149999999999997, 7.0850000000000009, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8fd211a6-c2d2-4f42-8d40-fec5c3e4c668" isExpanded="false" absoluteBounds="6.25, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/GridViewHeaderBackColor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9a8948f3-4c2f-412b-bc57-e6af75831a42" absoluteBounds="6.2650000000000006, 5.3350000000000009, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bc1ea015-e5e2-42fa-93b6-627d98197e40" isExpanded="false" absoluteBounds="3.25, 11, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/BraCupDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="efbe58ce-bea8-4c76-a3b7-8495d9af1bd2" absoluteBounds="3.2650000000000006, 11.46, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f349a423-4e25-4e79-989c-41a585e84f49" isExpanded="false" absoluteBounds="3.25, 11.875, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/BraCupCasingDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="408b406e-ebf1-4927-92cb-ab5a0c7e7a2f" absoluteBounds="3.2650000000000006, 12.335, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="68d82ba6-f505-44ca-9a16-3caeaaa1c298" isExpanded="false" absoluteBounds="3.5, 6, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/BandLandPatternShapeRepeat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="02f81e93-10fe-4a87-ab02-f86725bf7171" absoluteBounds="3.515, 6.46, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3d1c7ac1-e827-492f-a5ec-bdba8346219a" isExpanded="false" absoluteBounds="3.5, 7.25, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/BandLandSkewnessBow" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57134538-578d-4399-8b0c-1894fc4fb8c0" absoluteBounds="3.515, 7.71, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9ffe86ed-c2e2-4def-bf5c-62fbd72eec3a" isExpanded="false" absoluteBounds="9, 7.875, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ActionLogCompleteReason" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7bb3535-fccf-4038-9124-d0518313aee6" absoluteBounds="9.015, 8.335, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ce430381-b7ed-46b3-b68a-c72c9ca2225f" isExpanded="false" absoluteBounds="3.25, 12.875, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/WaitQAItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a47b7e2d-cdd4-4fd0-85eb-a2f524bc0dc4" absoluteBounds="3.265, 13.335, 1.9700000000000002, 4.831939697265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bee8b8df-aab5-4b11-9fa1-186e4ed47c54" isExpanded="false" absoluteBounds="3.25, 13.5, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ExclueMaterial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9488d108-83c0-4db9-b634-d6e567855247" absoluteBounds="3.265, 13.96, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d1e39c92-040e-42c4-bc81-1735576b9ccf" isExpanded="false" absoluteBounds="6.375, 12.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/SupplierBatchInfoBandLace" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b71b6e42-6cc9-4f58-a42e-46fda9401ba4" absoluteBounds="6.39, 13.085, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="148d9f86-0087-4293-9a35-826b7f695974" isExpanded="false" absoluteBounds="3.5, 3, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/Fabric_Insp_SpreadDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bdc19fa8-498e-49bc-af6a-000b5ed37ffb" absoluteBounds="3.515, 3.46, 1.9700000000000002, 3.8768412272135415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="13182dce-5fed-40d4-9e33-d8ac3536f2b9" isExpanded="false" absoluteBounds="3.5, 5.375, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/BandLaceChainDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8036a57-5c84-4ff5-9048-7cf13b8e60e9" absoluteBounds="3.515, 5.835, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="686fc439-272f-4719-97cf-48a24a724c77" isExpanded="false" absoluteBounds="6.5, 13.5, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ErrorCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b1c81d8-5080-4133-aafa-a0d2c1ba5871" absoluteBounds="6.5150000000000006, 13.96, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2d049f4e-9dbc-46d5-8a13-4425dfbde42e" isExpanded="false" absoluteBounds="12.375, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sFabric_Insp_Header" />
+      <nestedChildShapes>
+        <elementListCompartment Id="964e2b8e-a874-4966-beff-af01260131f1" absoluteBounds="12.39, 3.21, 1.9700000000000002, 37.878346761067704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e131d0d8-8a8c-46c9-9362-4bf1ba52de48" isExpanded="false" absoluteBounds="15.5, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sFabric_Insp_PartDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bfddc6d7-1bfc-4b2a-b49b-0c4c2fd7367b" absoluteBounds="15.515, 4.0850000000000009, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f6f3437c-4f84-4217-818d-67f98e657917" isExpanded="false" absoluteBounds="15.5, 4.5, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sFabric_Insp_Picture" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f36ca09-ad10-4b38-976b-c33fdef39d72" absoluteBounds="15.515, 4.9600000000000009, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66aa9b88-ee63-448a-9bf6-949f51880be2" isExpanded="false" absoluteBounds="15.5, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sFabric_Insp_SpreadDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a8c322f-ecb5-45ed-ac30-b4c264ecf7d5" absoluteBounds="15.515, 5.9600000000000009, 1.9700000000000002, 3.8768412272135415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b9a05e14-b1cb-4852-a71a-ee0bced25d38" isExpanded="false" absoluteBounds="15.5, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sFabric_Insp_Width" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6610c384-ed2b-443d-8ca0-65e8b4889245" absoluteBounds="15.515, 3.2100000000000009, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.9159217602539 : 3.2); (12.9159217602539 : 3.85); (15.5 : 3.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sFabric_Insp_Header/sFabric_Insp_Header_sFabric_Insp_PartDefect" />
+      <nodes>
+        <classShapeMoniker Id="2d049f4e-9dbc-46d5-8a13-4425dfbde42e" />
+        <classShapeMoniker Id="e131d0d8-8a8c-46c9-9362-4bf1ba52de48" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.5193485205078 : 3.2); (13.5193485205078 : 4.725); (13.8950934269206 : 4.725 : JumpStart); (14.0617600935872 : 4.725 : JumpEnd); (15.5 : 4.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sFabric_Insp_Header/sFabric_Insp_Header_sFabric_Insp_Picture" />
+      <nodes>
+        <classShapeMoniker Id="2d049f4e-9dbc-46d5-8a13-4425dfbde42e" />
+        <classShapeMoniker Id="f6f3437c-4f84-4217-818d-67f98e657917" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.9784267602539 : 3.2); (13.9784267602539 : 5.725); (15.5 : 5.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sFabric_Insp_Header/sFabric_Insp_Header_sFabric_Insp_SpreadDefect" />
+      <nodes>
+        <classShapeMoniker Id="2d049f4e-9dbc-46d5-8a13-4425dfbde42e" />
+        <classShapeMoniker Id="66aa9b88-ee63-448a-9bf6-949f51880be2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.375 : 2.975); (15.5 : 2.975)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sFabric_Insp_Header/sFabric_Insp_Header_sFabric_Insp_Width" />
+      <nodes>
+        <classShapeMoniker Id="2d049f4e-9dbc-46d5-8a13-4425dfbde42e" />
+        <classShapeMoniker Id="b9a05e14-b1cb-4852-a71a-ee0bced25d38" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e0731f58-4a28-42b9-ae95-d800863e3b78" isExpanded="false" absoluteBounds="12.25, 6.375, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sBandLaceHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="024b880d-8c13-4d95-ab36-029f334177db" absoluteBounds="12.265, 6.835, 1.9700000000000002, 27.754302978515625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="18978190-175e-48a5-958b-58c756733e7e" isExpanded="false" absoluteBounds="15, 6.375, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sBandLaceSpotDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="15c9d957-91f4-4876-bb4c-2b6011b4952a" absoluteBounds="15.015, 6.835, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.25 : 6.6); (15 : 6.6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sBandLaceHeader/sBandLaceHeader_sBandLaceSpotDefect" />
+      <nodes>
+        <classShapeMoniker Id="e0731f58-4a28-42b9-ae95-d800863e3b78" />
+        <classShapeMoniker Id="18978190-175e-48a5-958b-58c756733e7e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8ffc815d-df4d-4766-8e6a-2a7d2764df67" isExpanded="false" absoluteBounds="15, 7.125, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sBandLaceChainDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a12b8a2-e56c-48c4-9cb1-49f0bb723b89" absoluteBounds="15.015, 7.585, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.25 : 6.825); (15 : 7.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sBandLaceHeader/sBandLaceHeader_sBandLaceChainDefect" />
+      <nodes>
+        <classShapeMoniker Id="e0731f58-4a28-42b9-ae95-d800863e3b78" />
+        <classShapeMoniker Id="8ffc815d-df4d-4766-8e6a-2a7d2764df67" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="138ba5f6-bee1-40b6-9311-be5f4b2d6464" isExpanded="false" absoluteBounds="15, 7.75, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sBandLandWidth" />
+      <nestedChildShapes>
+        <elementListCompartment Id="31ed7e73-7d3d-4b55-b3ac-b06bf163bb26" absoluteBounds="15.015, 8.21, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.28320078125 : 6.825); (13.28320078125 : 7.975); (15 : 7.975)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sBandLaceHeader/sBandLaceHeader_sBandLandWidth" />
+      <nodes>
+        <classShapeMoniker Id="e0731f58-4a28-42b9-ae95-d800863e3b78" />
+        <classShapeMoniker Id="138ba5f6-bee1-40b6-9311-be5f4b2d6464" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5a66ee52-4f1b-4eb7-b7ec-56a7cc6d991c" isExpanded="false" absoluteBounds="15, 8.5, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sBandLandPatternShapeRepeat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f45dec0b-c2d7-4a37-ad3d-dba6bc43a91f" absoluteBounds="15.015, 8.96, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.8632803125 : 6.825); (13.8632803125 : 8.725); (15 : 8.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sBandLaceHeader/sBandLaceHeader_sBandLandPatternShapeRepeat" />
+      <nodes>
+        <classShapeMoniker Id="e0731f58-4a28-42b9-ae95-d800863e3b78" />
+        <classShapeMoniker Id="5a66ee52-4f1b-4eb7-b7ec-56a7cc6d991c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="685a96b5-d325-428c-83e3-57481d9f4e2c" isExpanded="false" absoluteBounds="15, 9.25, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sBandLandSkewnessBow" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c190c3aa-7412-4374-84a7-65cfefba60b2" absoluteBounds="15.015, 9.71, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.735347890625 : 6.825); (12.735347890625 : 9.475); (15 : 9.475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sBandLaceHeader/sBandLaceHeader_sBandLandSkewnessBow" />
+      <nodes>
+        <classShapeMoniker Id="e0731f58-4a28-42b9-ae95-d800863e3b78" />
+        <classShapeMoniker Id="685a96b5-d325-428c-83e3-57481d9f4e2c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="133e3b24-59f9-4f0d-a7c5-564c6664707a" isExpanded="false" absoluteBounds="17.875, 6.375, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sElasticHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="20ff6d5b-7408-4acc-b28e-b0f4c70f4e84" absoluteBounds="17.89, 6.835, 1.9700000000000002, 19.922495524088539" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="308f7f5b-d13b-4b24-aacc-65468c5f6a1a" isExpanded="false" absoluteBounds="20.25, 6.375, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sElasticSpotDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bab6cc81-cea3-47ad-9e93-cad85c7c3c1f" absoluteBounds="20.265, 6.835, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(19.875 : 6.6); (20.25 : 6.6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sElasticHeader/sElasticHeader_sElasticSpotDefect" />
+      <nodes>
+        <classShapeMoniker Id="133e3b24-59f9-4f0d-a7c5-564c6664707a" />
+        <classShapeMoniker Id="308f7f5b-d13b-4b24-aacc-65468c5f6a1a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2e222c52-8f29-4e61-85dd-9526f21a523a" isExpanded="false" absoluteBounds="20.25, 7.25, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sElasticChainDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="32c602b5-140d-4d33-98b1-9313dafe09fe" absoluteBounds="20.265, 7.7100000000000009, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(19.875 : 6.825); (20.25 : 7.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sElasticHeader/sElasticHeader_sElasticChainDefect" />
+      <nodes>
+        <classShapeMoniker Id="133e3b24-59f9-4f0d-a7c5-564c6664707a" />
+        <classShapeMoniker Id="2e222c52-8f29-4e61-85dd-9526f21a523a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9f7094b7-6529-4cb8-affe-ee75b13e1a0c" isExpanded="false" absoluteBounds="15.625, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sFabric_Defect_File" />
+      <nestedChildShapes>
+        <elementListCompartment Id="310d6cf0-afa6-4e01-95d1-3f8e490eacfc" absoluteBounds="15.64, 2.21, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9fa1e69-1c1f-427d-86f0-6e55c00d85ee" isExpanded="false" absoluteBounds="12.75, 10.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sAccessoryHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="193a09f1-2e09-4d60-b200-117856701a25" absoluteBounds="12.765, 11.085, 1.9700000000000002, 23.360850016276039" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="10939d2b-fa2e-46d9-909c-b0617c8b841a" isExpanded="false" absoluteBounds="15.375, 10.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sAccessoryDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1ce272f-6bbf-45dd-8f6c-c683854c803e" absoluteBounds="15.39, 11.085, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.75 : 10.8187475); (15.375 : 10.8187475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sAccessoryHeader/sAccessoryHeader_sAccessoryDefect" />
+      <nodes>
+        <classShapeMoniker Id="a9fa1e69-1c1f-427d-86f0-6e55c00d85ee" />
+        <classShapeMoniker Id="10939d2b-fa2e-46d9-909c-b0617c8b841a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e9833968-ceff-46c4-a0bb-9bd89cc9b229" isExpanded="false" absoluteBounds="15.5, 11.5, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sAccessoryCasingDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fbe33dae-1d30-4dc7-8734-28a744295fd4" absoluteBounds="15.515, 11.96, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.75 : 11.075); (15.5 : 11.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sAccessoryHeader/sAccessoryHeader_sAccessoryCasingDefect" />
+      <nodes>
+        <classShapeMoniker Id="a9fa1e69-1c1f-427d-86f0-6e55c00d85ee" />
+        <classShapeMoniker Id="e9833968-ceff-46c4-a0bb-9bd89cc9b229" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d1bf827e-6d1b-4038-8f61-4ccd95d15fa1" isExpanded="false" absoluteBounds="12.875, 12.875, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sBraCupHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f893458a-7cc6-4fca-ad41-aa360065546d" absoluteBounds="12.89, 13.335, 1.9700000000000002, 23.169830322265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b7b36545-fcf7-4578-8c68-0d65a68400a0" isExpanded="false" absoluteBounds="15.75, 12.75, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sBraCupDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4cce5f9c-93f0-4a73-a3a1-5f5958cd02b5" absoluteBounds="15.765, 13.21, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.875 : 13.0375); (15.75 : 13.0375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sBraCupHeader/sBraCupHeader_sBraCupDefect" />
+      <nodes>
+        <classShapeMoniker Id="d1bf827e-6d1b-4038-8f61-4ccd95d15fa1" />
+        <classShapeMoniker Id="b7b36545-fcf7-4578-8c68-0d65a68400a0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3579700f-cc07-4b30-83b1-4d507e802738" isExpanded="false" absoluteBounds="15.75, 13.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/sBraCupCasingDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="977ea0ef-2165-42fe-a0ee-bda09b990917" absoluteBounds="15.765, 14.085, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.875 : 13.325); (15.75 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/sBraCupHeader/sBraCupHeader_sBraCupCasingDefect" />
+      <nodes>
+        <classShapeMoniker Id="d1bf827e-6d1b-4038-8f61-4ccd95d15fa1" />
+        <classShapeMoniker Id="3579700f-cc07-4b30-83b1-4d507e802738" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bdf3c3db-f262-4e25-b743-d8968a4884b4" isExpanded="false" absoluteBounds="6.375, 9.25, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/DebitNote" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d1a74302-e8d3-45e2-b891-a52dc349995f" absoluteBounds="6.39, 9.71, 1.9700000000000002, 4.831939697265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed457f80-0528-48d5-b3dd-4e393e1a42f4" isExpanded="false" absoluteBounds="3.125, 14.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/S21QCResultAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d812ba5-ded6-44ad-9920-f3f1c622dc9d" absoluteBounds="3.14, 15.085, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3737d1b6-276b-46a0-a7da-53f6a8d01466" absoluteBounds="2.75, 15.5, 2, 3.0997033691406273">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ActionLogDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0f8cdaed-d030-4671-addf-2a00749d4728" absoluteBounds="2.7650000000000006, 15.96, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="edc98a47-46dd-4234-a41d-1fdb60deaa56" isExpanded="false" absoluteBounds="0.5, 3, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/Fabric_Insp_Header" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c960cbd4-2fd9-4613-8dfc-a4756eaaa0d1" absoluteBounds="0.515, 3.46, 1.9700000000000002, 39.788543701171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 3.45); (1.5 : 4.1); (3.5 : 4.1)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FabricInspectionDataContext/Fabric_Insp_Header/Fabric_Insp_Header_Fabric_Insp_PartDefect" />
+      <nodes>
+        <classShapeMoniker Id="edc98a47-46dd-4234-a41d-1fdb60deaa56" />
+        <classShapeMoniker Id="a7f783a4-283f-4bdd-acdc-666421b45897" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5 : 3); (1.5 : 2.475); (1.94791916666667 : 2.475 : JumpStart); (2.11458583333333 : 2.475 : JumpEnd); (3.5 : 2.475)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FabricInspectionDataContext/Fabric_Insp_Header/Fabric_Insp_Header_Fabric_Insp_Picture" />
+      <nodes>
+        <classShapeMoniker Id="edc98a47-46dd-4234-a41d-1fdb60deaa56" />
+        <classShapeMoniker Id="d6676701-1b75-4324-ac4e-992d83d59ead" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.0312525 : 3); (2.0312525 : 1.475); (3.5 : 1.475)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FabricInspectionDataContext/Fabric_Insp_Header/Fabric_Insp_Header_Fabric_Insp_Width" />
+      <nodes>
+        <classShapeMoniker Id="edc98a47-46dd-4234-a41d-1fdb60deaa56" />
+        <classShapeMoniker Id="1df6fb11-f979-49d4-afdd-f923339ab7d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 3.225); (3.5 : 3.225)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FabricInspectionDataContext/Fabric_Insp_Header/Fabric_Insp_Header_Fabric_Insp_SpreadDefect" />
+      <nodes>
+        <classShapeMoniker Id="edc98a47-46dd-4234-a41d-1fdb60deaa56" />
+        <classShapeMoniker Id="148d9f86-0087-4293-9a35-826b7f695974" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="996e374b-2b88-4f95-95f0-a40adddbe6d7" isExpanded="false" absoluteBounds="0.625, 4.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/BandLaceHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="557c5170-57c4-4c29-9d80-9cae55b48566" absoluteBounds="0.64, 5.085, 1.9700000000000002, 29.473480224609375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 4.85); (3.5 : 4.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/BandLaceHeader/BandLaceHeader_BandLaceSpotDefect" />
+      <nodes>
+        <classShapeMoniker Id="996e374b-2b88-4f95-95f0-a40adddbe6d7" />
+        <classShapeMoniker Id="18576917-60f2-4f0f-bf14-b8778144849d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.625 : 5.075); (1.625 : 6.85); (3.5 : 6.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/BandLaceHeader/BandLaceHeader_BandLandWidth" />
+      <nodes>
+        <classShapeMoniker Id="996e374b-2b88-4f95-95f0-a40adddbe6d7" />
+        <classShapeMoniker Id="8aa31f7b-c1e7-4715-b954-21880e0465ea" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.1562525 : 5.075); (2.1562525 : 6.225); (3.5 : 6.225)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/BandLaceHeader/BandLaceHeader_BandLandPatternShapeRepeat" />
+      <nodes>
+        <classShapeMoniker Id="996e374b-2b88-4f95-95f0-a40adddbe6d7" />
+        <classShapeMoniker Id="68d82ba6-f505-44ca-9a16-3caeaaa1c298" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.0937475 : 5.075); (1.0937475 : 7.475); (3.5 : 7.475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/BandLaceHeader/BandLaceHeader_BandLandSkewnessBow" />
+      <nodes>
+        <classShapeMoniker Id="996e374b-2b88-4f95-95f0-a40adddbe6d7" />
+        <classShapeMoniker Id="3d1c7ac1-e827-492f-a5ec-bdba8346219a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 5.075); (3.5 : 5.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/BandLaceHeader/BandLaceHeader_BandLaceChainDefect" />
+      <nodes>
+        <classShapeMoniker Id="996e374b-2b88-4f95-95f0-a40adddbe6d7" />
+        <classShapeMoniker Id="13182dce-5fed-40d4-9e33-d8ac3536f2b9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="631215ec-41e4-4328-a80c-c36bb8847bdd" isExpanded="false" absoluteBounds="1.125, 8.625, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ElasticHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e10e36e8-1795-40d8-a98e-2e57580e7863" absoluteBounds="1.1400000000000001, 9.085, 1.9700000000000002, 21.832692464192707" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 8.9125); (3.625 : 8.9125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/ElasticHeader/ElasticHeader_ElasticSpotDefect" />
+      <nodes>
+        <classShapeMoniker Id="631215ec-41e4-4328-a80c-c36bb8847bdd" />
+        <classShapeMoniker Id="07c3e321-222f-473f-99bd-7d571910ce8a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.125 : 9.075); (3.625 : 9.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/ElasticHeader/ElasticHeader_ElasticChainDefect" />
+      <nodes>
+        <classShapeMoniker Id="631215ec-41e4-4328-a80c-c36bb8847bdd" />
+        <classShapeMoniker Id="2498d780-2a8f-44b4-85f9-2aedff2da620" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a203cec5-35ed-442f-b18e-7699a6c9a0c8" isExpanded="false" absoluteBounds="1, 10.875, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/BraCupHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f4ab2ec-433f-4dd3-95c9-c92af4c699e8" absoluteBounds="1.0150000000000001, 11.335, 1.9700000000000002, 25.271046956380207" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 11.1625); (3.25 : 11.1625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/BraCupHeader/BraCupHeader_BraCupDefect" />
+      <nodes>
+        <classShapeMoniker Id="a203cec5-35ed-442f-b18e-7699a6c9a0c8" />
+        <classShapeMoniker Id="bc1ea015-e5e2-42fa-93b6-627d98197e40" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 11.325); (3.25 : 11.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/BraCupHeader/BraCupHeader_BraCupCasingDefect" />
+      <nodes>
+        <classShapeMoniker Id="a203cec5-35ed-442f-b18e-7699a6c9a0c8" />
+        <classShapeMoniker Id="f349a423-4e25-4e79-989c-41a585e84f49" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2acc9032-2278-4cd6-b3f7-2caf509e2ce3" isExpanded="false" absoluteBounds="6.875, 11.125, 2, 0.45">
+      <DataClassMoniker Name="/FabricInspectionDataContext/AccessoryHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b42a68d-b31d-473a-826c-d90c8662f9e4" absoluteBounds="6.89, 11.585, 1.9700000000000002, 25.271046956380207" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.875 : 11.35); (9 : 11.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/AccessoryHeader/AccessoryHeader_AccessoryDefect" />
+      <nodes>
+        <classShapeMoniker Id="2acc9032-2278-4cd6-b3f7-2caf509e2ce3" />
+        <classShapeMoniker Id="09471e88-950a-49a3-9d2c-a8909999cbb7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.875 : 11.575); (9.125 : 12.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FabricInspectionDataContext/AccessoryHeader/AccessoryHeader_AccessoryCasingDefect" />
+      <nodes>
+        <classShapeMoniker Id="2acc9032-2278-4cd6-b3f7-2caf509e2ce3" />
+        <classShapeMoniker Id="a153394f-6c55-4905-b4b3-c51c91ebd1a0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0709f9e8-b12d-44ba-a8fe-de2dfb406577" absoluteBounds="5.5, 15.5, 2, 2.3356245930989585">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ActionLogIMQE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="454eaacb-25e0-4f3b-bd40-22e6b87d7fc6" absoluteBounds="5.515, 15.96, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4f21881c-885a-4a18-b2a4-80ceae5da274" absoluteBounds="0.5, 15.5, 2, 7.4931563313802076">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ActionLogHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dc308236-a5ec-4d75-beb5-4147415d3fa9" absoluteBounds="0.515, 15.96, 1.9700000000000002, 6.933156331380208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="30182bee-f83d-4156-93b8-d222b855ed52" absoluteBounds="9, 5.5, 2, 2.9086836751302081">
+      <DataClassMoniker Name="/FabricInspectionDataContext/ActionLogCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c59b370-f062-4a1a-8f52-778792922872" absoluteBounds="9.015, 5.96, 1.9700000000000002, 2.348683675130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
