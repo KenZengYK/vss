@@ -1,0 +1,983 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03EAE994-C263-45D3-8AE1-8024100B3C73}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.BasicInfo.UI</RootNamespace>
+    <AssemblyName>PH.BasicInfo.UI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\PHWinApp\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="PH.MIDc.BO, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.MIDc.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.ExtendLibrary, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.Misc.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.UI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bdowndimension\DNChildEditFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bdowndimension\DNChildEditFrm.Designer.cs">
+      <DependentUpon>DNChildEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bdowndimension\DNParentListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bdowndimension\DNParentListFrm.Designer.cs">
+      <DependentUpon>DNParentListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comm.cs" />
+    <Compile Include="Config\CurrencyDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\CurrencyDetailForm.designer.cs">
+      <DependentUpon>CurrencyDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\CurrencyListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\CurrencyListForm.designer.cs">
+      <DependentUpon>CurrencyListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ProductRangeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ProductRangeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\TradeMethodTransformDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\TradeMethodTransformDetailForm.Designer.cs">
+      <DependentUpon>TradeMethodTransformDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\TradeMethodTransformListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\TradeMethodTransformListForm.Designer.cs">
+      <DependentUpon>TradeMethodTransformListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\CustomerDetailForm.designer.cs">
+      <DependentUpon>CustomerDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\CustomerListForm.designer.cs">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DestinationPHKey\FrameListEditFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DestinationPHKey\FrameListEditFrm.Designer.cs">
+      <DependentUpon>FrameListEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DestinationPHKey\FrameListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DestinationPHKey\FrameListFrm.Designer.cs">
+      <DependentUpon>FrameListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DestinationPHKey\PEParentChildFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DestinationPHKey\PEParentChildFrm.Designer.cs">
+      <DependentUpon>PEParentChildFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DestinationPHKey\PHKeyParentListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DestinationPHKey\PHKeyParentListFrm.Designer.cs">
+      <DependentUpon>PHKeyParentListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Incoterms\ImListEditFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Incoterms\ImListEditFrm.Designer.cs">
+      <DependentUpon>ImListEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeUser\EmployeeUserDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeUser\EmployeeUserDetailForm.Designer.cs">
+      <DependentUpon>EmployeeUserDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeUser\EmployeeUserListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeUser\EmployeeUserListForm.Designer.cs">
+      <DependentUpon>EmployeeUserListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeDetailForm.Designer.cs">
+      <DependentUpon>EmployeeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeListForm.Designer.cs">
+      <DependentUpon>EmployeeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeMasterListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeMasterListForm.Designer.cs">
+      <DependentUpon>EmployeeMasterListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeMasterSubForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeMasterSubForm.Designer.cs">
+      <DependentUpon>EmployeeMasterSubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeSubAttachForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeSubAttachForm.Designer.cs">
+      <DependentUpon>EmployeeSubAttachForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeSubListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeSubListForm.Designer.cs">
+      <DependentUpon>EmployeeSubListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeUserDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeUserDetailForm.Designer.cs">
+      <DependentUpon>EmployeeUserDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeUserListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeUserListForm.Designer.cs">
+      <DependentUpon>EmployeeUserListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\UserListClass.cs" />
+    <Compile Include="Incoterms\ImParentListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Incoterms\ImParentListFrm.Designer.cs">
+      <DependentUpon>ImParentListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\CoGroupMainDiffDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\CoGroupMainDiffDetailForm.Designer.cs">
+      <DependentUpon>CoGroupMainDiffDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\CoGroupMainDiffListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\CoGroupMainDiffListForm.Designer.cs">
+      <DependentUpon>CoGroupMainDiffListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\EmailNotifyDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\EmailNotifyDetailForm.Designer.cs">
+      <DependentUpon>EmailNotifyDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\EmailNotifyListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\EmailNotifyListForm.Designer.cs">
+      <DependentUpon>EmailNotifyListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\IncotermMasterDBDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\IncotermMasterDBDetailForm.Designer.cs">
+      <DependentUpon>IncotermMasterDBDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\IncotermMasterDBListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\IncotermMasterDBListForm.Designer.cs">
+      <DependentUpon>IncotermMasterDBListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\PaymentTermsDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\PaymentTermsDetailForm.Designer.cs">
+      <DependentUpon>PaymentTermsDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\PaymentTermsListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\PaymentTermsListForm.Designer.cs">
+      <DependentUpon>PaymentTermsListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\POFormNoDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\POFormNoDetailForm.Designer.cs">
+      <DependentUpon>POFormNoDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\POFormNoListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\POFormNoListForm.Designer.cs">
+      <DependentUpon>POFormNoListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\SupplierRegionDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\SupplierRegionDetailForm.Designer.cs">
+      <DependentUpon>SupplierRegionDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\SupplierRegionListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\SupplierRegionListForm.Designer.cs">
+      <DependentUpon>SupplierRegionListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\TimeFrameIICompanyDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\TimeFrameIICompanyDetailForm.Designer.cs">
+      <DependentUpon>TimeFrameIICompanyDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\TimeFrameIICompanyListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\TimeFrameIICompanyListForm.Designer.cs">
+      <DependentUpon>TimeFrameIICompanyListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\TimeFrameIIDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\TimeFrameIIDetailForm.Designer.cs">
+      <DependentUpon>TimeFrameIIDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\TimeFrameIIListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\TimeFrameIIListForm.Designer.cs">
+      <DependentUpon>TimeFrameIIListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\TradeMethodDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\TradeMethodDetailForm.Designer.cs">
+      <DependentUpon>TradeMethodDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\TradeMethodListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\TradeMethodListForm.Designer.cs">
+      <DependentUpon>TradeMethodListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\Controller.cs" />
+    <Compile Include="Other\PublicServices.cs" />
+    <Compile Include="Organization\OrganizationDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Organization\OrganizationDetailForm.Designer.cs">
+      <DependentUpon>OrganizationDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Organization\OrganizationListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Organization\OrganizationListForm.Designer.cs">
+      <DependentUpon>OrganizationListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Organization\OrganizationMasterListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Organization\OrganizationMasterListForm.Designer.cs">
+      <DependentUpon>OrganizationMasterListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Organization\OrganizationMasterSubForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Organization\OrganizationMasterSubForm.Designer.cs">
+      <DependentUpon>OrganizationMasterSubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Organization\OrganizationTypeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Organization\OrganizationTypeDetailForm.Designer.cs">
+      <DependentUpon>OrganizationTypeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Organization\OrganizationTypeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Organization\OrganizationTypeListForm.Designer.cs">
+      <DependentUpon>OrganizationTypeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Organization\OrgEmployeeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Organization\OrgEmployeeDetailForm.Designer.cs">
+      <DependentUpon>OrgEmployeeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Organization\OrgEmployeeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Organization\OrgEmployeeListForm.Designer.cs">
+      <DependentUpon>OrgEmployeeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Organization\OrgEmployeeSubAttachForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Organization\OrgEmployeeSubAttachForm.Designer.cs">
+      <DependentUpon>OrgEmployeeSubAttachForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Organization\OrgEmployeeSubListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Organization\OrgEmployeeSubListForm.Designer.cs">
+      <DependentUpon>OrgEmployeeSubListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Organization\ParaClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SupplierProfileForAEORpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\SupplierProfileForAEORpt.Designer.cs">
+      <DependentUpon>SupplierProfileForAEORpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SupplierProfileForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\SupplierProfileForm.Designer.cs">
+      <DependentUpon>SupplierProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierProfileSetup\BaseDataParentListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SupplierProfileSetup\BaseDataParentListForm.Designer.cs">
+      <DependentUpon>BaseDataParentListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestUpdateCurrency.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestUpdateCurrency.Designer.cs">
+      <DependentUpon>TestUpdateCurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\DimensionDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\DimensionDetailForm.Designer.cs">
+      <DependentUpon>DimensionDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\DimensionDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\DimensionDetailListForm.Designer.cs">
+      <DependentUpon>DimensionDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\ElementsOfTransportationCost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\ElementsOfTransportationCost.Designer.cs">
+      <DependentUpon>ElementsOfTransportationCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\PerformanceDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\PerformanceDetailForm.Designer.cs">
+      <DependentUpon>PerformanceDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\PerformanceListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\PerformanceListForm.Designer.cs">
+      <DependentUpon>PerformanceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\PerformanceItemDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\PerformanceItemDetailForm.Designer.cs">
+      <DependentUpon>PerformanceItemDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\PerformanceItemListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\PerformanceItemListForm.Designer.cs">
+      <DependentUpon>PerformanceItemListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\SelectRegionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeElement\SelectRegionForm.Designer.cs">
+      <DependentUpon>SelectRegionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\SupplierContactModeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\SupplierContactModeForm.designer.cs">
+      <DependentUpon>SupplierContactModeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\SupplierListCheckForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\SupplierListCheckForm.designer.cs">
+      <DependentUpon>SupplierListCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\SupplierListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\SupplierListForm.designer.cs">
+      <DependentUpon>SupplierListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\SupplierPerformance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\SupplierPerformance.Designer.cs">
+      <DependentUpon>SupplierPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\SupplierFactoryDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\SupplierFactoryDetailForm.Designer.cs">
+      <DependentUpon>SupplierFactoryDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\SupplierFactoryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\SupplierFactoryListForm.Designer.cs">
+      <DependentUpon>SupplierFactoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\ChildListx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\ChildListx.Designer.cs">
+      <DependentUpon>ChildListx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\ChildListXEditFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\ChildListXEditFrm.Designer.cs">
+      <DependentUpon>ChildListXEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\ShipmentLeadtimeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\ShipmentLeadtimeDetailForm.designer.cs">
+      <DependentUpon>ShipmentLeadtimeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\ShipmentLeadtimeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\ShipmentLeadtimeListForm.designer.cs">
+      <DependentUpon>ShipmentLeadtimeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\SupplierProductRangeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\SupplierProductRangeDetailForm.designer.cs">
+      <DependentUpon>SupplierProductRangeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\SupplierProductRangeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\SupplierProductRangeListForm.designer.cs">
+      <DependentUpon>SupplierProductRangeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\SupplierDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\SupplierDetailForm.designer.cs">
+      <DependentUpon>SupplierDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\TransitModeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\TransitModeDetailForm.designer.cs">
+      <DependentUpon>TransitModeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\TransitModeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\TransitModeListForm.Designer.cs">
+      <DependentUpon>TransitModeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\PrepareSupplierListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\PrepareSupplierListForm.designer.cs">
+      <DependentUpon>PrepareSupplierListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\ConfirmSupplierListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\ConfirmSupplierListForm.designer.cs">
+      <DependentUpon>ConfirmSupplierListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\ApprovalSupplierListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\ApprovalSupplierListForm.designer.cs">
+      <DependentUpon>ApprovalSupplierListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeElement\TransportationCostListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeElement\TransportationCostListForm.Designer.cs">
+      <DependentUpon>TransportationCostListForm.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Bdowndimension\DNChildEditFrm.resx">
+      <DependentUpon>DNChildEditFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bdowndimension\DNParentListFrm.resx">
+      <DependentUpon>DNParentListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CurrencyDetailForm.resx">
+      <DependentUpon>CurrencyDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CurrencyListForm.resx">
+      <DependentUpon>CurrencyListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ProductRangeDetailForm.resx">
+      <DependentUpon>ProductRangeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ProductRangeListForm.resx">
+      <DependentUpon>ProductRangeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\TradeMethodTransformDetailForm.resx">
+      <DependentUpon>TradeMethodTransformDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\TradeMethodTransformListForm.resx">
+      <DependentUpon>TradeMethodTransformListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\CustomerDetailForm.resx">
+      <DependentUpon>CustomerDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DestinationPHKey\FrameListEditFrm.resx">
+      <DependentUpon>FrameListEditFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DestinationPHKey\FrameListFrm.resx">
+      <DependentUpon>FrameListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DestinationPHKey\PEParentChildFrm.resx">
+      <DependentUpon>PEParentChildFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DestinationPHKey\PHKeyParentListFrm.resx">
+      <DependentUpon>PHKeyParentListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeDetailForm.resx">
+      <DependentUpon>EmployeeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeListForm.resx">
+      <DependentUpon>EmployeeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeMasterListForm.resx">
+      <DependentUpon>EmployeeMasterListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeMasterSubForm.resx">
+      <DependentUpon>EmployeeMasterSubForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeSubAttachForm.resx">
+      <DependentUpon>EmployeeSubAttachForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeSubListForm.resx">
+      <DependentUpon>EmployeeSubListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeUserListForm.resx">
+      <DependentUpon>EmployeeUserListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Incoterms\ImListEditFrm.resx">
+      <DependentUpon>ImListEditFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Incoterms\ImParentListFrm.resx">
+      <DependentUpon>ImParentListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\CoGroupMainDiffDetailForm.resx">
+      <DependentUpon>CoGroupMainDiffDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\CoGroupMainDiffListForm.resx">
+      <DependentUpon>CoGroupMainDiffListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\EmailNotifyDetailForm.resx">
+      <DependentUpon>EmailNotifyDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\EmailNotifyListForm.resx">
+      <DependentUpon>EmailNotifyListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\IncotermMasterDBDetailForm.resx">
+      <DependentUpon>IncotermMasterDBDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\IncotermMasterDBListForm.resx">
+      <DependentUpon>IncotermMasterDBListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\PaymentTermsDetailForm.resx">
+      <DependentUpon>PaymentTermsDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\PaymentTermsListForm.resx">
+      <DependentUpon>PaymentTermsListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\POFormNoDetailForm.resx">
+      <DependentUpon>POFormNoDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\POFormNoListForm.resx">
+      <DependentUpon>POFormNoListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\SupplierRegionDetailForm.resx">
+      <DependentUpon>SupplierRegionDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\SupplierRegionListForm.resx">
+      <DependentUpon>SupplierRegionListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\TimeFrameIICompanyDetailForm.resx">
+      <DependentUpon>TimeFrameIICompanyDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\TimeFrameIICompanyListForm.resx">
+      <DependentUpon>TimeFrameIICompanyListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\TimeFrameIIDetailForm.resx">
+      <DependentUpon>TimeFrameIIDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\TimeFrameIIListForm.resx">
+      <DependentUpon>TimeFrameIIListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\TradeMethodDetailForm.resx">
+      <DependentUpon>TradeMethodDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\TradeMethodListForm.resx">
+      <DependentUpon>TradeMethodListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Organization\OrganizationDetailForm.resx">
+      <DependentUpon>OrganizationDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Organization\OrganizationListForm.resx">
+      <DependentUpon>OrganizationListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Organization\OrganizationMasterListForm.resx">
+      <DependentUpon>OrganizationMasterListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Organization\OrganizationMasterSubForm.resx">
+      <DependentUpon>OrganizationMasterSubForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Organization\OrganizationTypeDetailForm.resx">
+      <DependentUpon>OrganizationTypeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Organization\OrganizationTypeListForm.resx">
+      <DependentUpon>OrganizationTypeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Organization\OrgEmployeeListForm.resx">
+      <DependentUpon>OrgEmployeeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Organization\OrgEmployeeSubAttachForm.resx">
+      <DependentUpon>OrgEmployeeSubAttachForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Organization\OrgEmployeeSubListForm.resx">
+      <DependentUpon>OrgEmployeeSubListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SupplierProfileForAEORpt.resx">
+      <DependentUpon>SupplierProfileForAEORpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SupplierProfileForm.resx">
+      <DependentUpon>SupplierProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestUpdateCurrency.resx">
+      <DependentUpon>TestUpdateCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\DimensionDetailForm.resx">
+      <DependentUpon>DimensionDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\DimensionDetailListForm.resx">
+      <DependentUpon>DimensionDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\ElementsOfTransportationCost.resx">
+      <DependentUpon>ElementsOfTransportationCost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\PerformanceDetailForm.resx">
+      <DependentUpon>PerformanceDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\PerformanceListForm.resx">
+      <DependentUpon>PerformanceListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\PerformanceItemDetailForm.resx">
+      <DependentUpon>PerformanceItemDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\PerformanceItemListForm.resx">
+      <DependentUpon>PerformanceItemListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\SelectRegionForm.resx">
+      <DependentUpon>SelectRegionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\SupplierContactModeForm.resx">
+      <DependentUpon>SupplierContactModeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\SupplierListCheckForm.resx">
+      <DependentUpon>SupplierListCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\SupplierListForm.resx">
+      <DependentUpon>SupplierListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\SupplierPerformance.resx">
+      <DependentUpon>SupplierPerformance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\SupplierFactoryDetailForm.resx">
+      <DependentUpon>SupplierFactoryDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\SupplierFactoryListForm.resx">
+      <DependentUpon>SupplierFactoryListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\ChildListx.resx">
+      <DependentUpon>ChildListx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\ChildListXEditFrm.resx">
+      <DependentUpon>ChildListXEditFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\ShipmentLeadtimeDetailForm.resx">
+      <DependentUpon>ShipmentLeadtimeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\ShipmentLeadtimeListForm.resx">
+      <DependentUpon>ShipmentLeadtimeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\SupplierProductRangeDetailForm.resx">
+      <DependentUpon>SupplierProductRangeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\SupplierProductRangeListForm.resx">
+      <DependentUpon>SupplierProductRangeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\SupplierDetailForm.resx">
+      <DependentUpon>SupplierDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\TransitModeDetailForm.resx">
+      <DependentUpon>TransitModeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\TransitModeListForm.resx">
+      <DependentUpon>TransitModeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\PrepareSupplierListForm.resx">
+      <DependentUpon>PrepareSupplierListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\ConfirmSupplierListForm.resx">
+      <DependentUpon>ConfirmSupplierListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\ApprovalSupplierListForm.resx">
+      <DependentUpon>ApprovalSupplierListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeElement\TransportationCostListForm.resx">
+      <DependentUpon>TransportationCostListForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.IncontermsTransitDay.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.Incoterm.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.Dimension.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.EndPointFactoryFrame.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.EndPointFactoryFrame1.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.ForPointDeliveryofDestinationPHKey.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.MaterialTypeDimension.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.Performance.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.PerformanceItem.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.SupplierFactory.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.SupplierProfile.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.TransitModeTransitPointChange.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.TransportationCostElement.datasource" />
+    <None Include="Properties\DataSources\PH.Platform.Misc.BO.Misc_DataDictionary.datasource" />
+    <None Include="Resources\print_16x16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.BasicInfo.BackEnd\PH.BasicInfo.BackEnd.csproj">
+      <Project>{3F1E62AE-BC5D-4EDD-965B-8B6B189665D3}</Project>
+      <Name>PH.BasicInfo.BackEnd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PH.BasicInfo.BO\PH.BasicInfo.BO.csproj">
+      <Project>{851B44A1-9826-4E66-9599-189D89254BE6}</Project>
+      <Name>PH.BasicInfo.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.CoGroupMainDiff.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.EmailNotify.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.IncotermMasterDB.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.POFormNo.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.SupplierRegion.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.TimeFrameII.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.TimeFrameIICompany.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.TradeMethod.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.TradeMethodTransform.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.TransitPointArea.datasource" />
+    <None Include="Properties\DataSources\PH.BasicInfo.UI.TimeElement.TransportationCostResult.datasource" />
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

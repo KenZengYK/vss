@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F1E62AE-BC5D-4EDD-965B-8B6B189665D3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.BasicInfo.BackEnd</RootNamespace>
+    <AssemblyName>PH.BasicInfo.BackEnd</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BackEnd.UI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Email.BO, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Mail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Job\JobChangeCurrencyRate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Incoterms\CHIRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Incoterms\CHIRpt.Designer.cs">
+      <DependentUpon>CHIRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Incoterms\CHITipSubRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Incoterms\CHITipSubRpt.Designer.cs">
+      <DependentUpon>CHITipSubRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Incoterms\ENGRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Incoterms\ENGRpt.Designer.cs">
+      <DependentUpon>ENGRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Incoterms\ENGTipSubRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Incoterms\ENGTipSubRpt.Designer.cs">
+      <DependentUpon>ENGTipSubRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DestinationPHKey\BuyerCargoRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DestinationPHKey\BuyerCargoRpt.Designer.cs">
+      <DependentUpon>BuyerCargoRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierProfile\Incoterms6PReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupplierProfile\Incoterms6PReport.Designer.cs">
+      <DependentUpon>Incoterms6PReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierProfile\MaterialTypeDimensionRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupplierProfile\MaterialTypeDimensionRpt.Designer.cs">
+      <DependentUpon>MaterialTypeDimensionRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierProfile\SupplierProfilePOPCNReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupplierProfile\SupplierProfilePOPCNReport.Designer.cs">
+      <DependentUpon>SupplierProfilePOPCNReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierProfile\PCNAndPOSupplementSheetRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupplierProfile\PCNAndPOSupplementSheetRpt.Designer.cs">
+      <DependentUpon>PCNAndPOSupplementSheetRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierProfile\SupplierWithAffiliatePartnersGroupRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupplierProfile\SupplierWithAffiliatePartnersGroupRpt.Designer.cs">
+      <DependentUpon>SupplierWithAffiliatePartnersGroupRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierProfile\SupplierWithAffiliatePartnersRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupplierProfile\SupplierWithAffiliatePartnersRpt.Designer.cs">
+      <DependentUpon>SupplierWithAffiliatePartnersRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierProfile\SupplierProfileMIDcReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupplierProfile\SupplierProfileMIDcReport.Designer.cs">
+      <DependentUpon>SupplierProfileMIDcReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierProfile\TransportationCostElementsRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupplierProfile\TransportationCostElementsRpt.Designer.cs">
+      <DependentUpon>TransportationCostElementsRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierProfile\SupplierProfileMIDcNReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupplierProfile\SupplierProfileMIDcNReport.Designer.cs">
+      <DependentUpon>SupplierProfileMIDcNReport.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Incoterms\CHIRpt.resx">
+      <DependentUpon>CHIRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Incoterms\CHITipSubRpt.resx">
+      <DependentUpon>CHITipSubRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Incoterms\ENGRpt.resx">
+      <DependentUpon>ENGRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Incoterms\ENGTipSubRpt.resx">
+      <DependentUpon>ENGTipSubRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DestinationPHKey\BuyerCargoRpt.resx">
+      <DependentUpon>BuyerCargoRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="SupplierProfile\Incoterms6PReport.resx">
+      <DependentUpon>Incoterms6PReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierProfile\MaterialTypeDimensionRpt.resx">
+      <DependentUpon>MaterialTypeDimensionRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierProfile\SupplierProfilePOPCNReport.resx">
+      <DependentUpon>SupplierProfilePOPCNReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierProfile\PCNAndPOSupplementSheetRpt.resx">
+      <DependentUpon>PCNAndPOSupplementSheetRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierProfile\SupplierWithAffiliatePartnersGroupRpt.resx">
+      <DependentUpon>SupplierWithAffiliatePartnersGroupRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierProfile\SupplierWithAffiliatePartnersRpt.resx">
+      <DependentUpon>SupplierWithAffiliatePartnersRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierProfile\SupplierProfileMIDcReport.resx">
+      <DependentUpon>SupplierProfileMIDcReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierProfile\TransportationCostElementsRpt.resx">
+      <DependentUpon>TransportationCostElementsRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierProfile\SupplierProfileMIDcNReport.resx">
+      <DependentUpon>SupplierProfileMIDcNReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.BasicInfo.BO\PH.BasicInfo.BO.csproj">
+      <Project>{851B44A1-9826-4E66-9599-189D89254BE6}</Project>
+      <Name>PH.BasicInfo.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.TransportationCostElement.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
