@@ -1,0 +1,1386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F9A22DEC-5840-4531-BB4A-8727759A257C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.RWO.UI</RootNamespace>
+    <AssemblyName>PH.RWO.UI3.0</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <StartupObject>
+    </StartupObject>
+    <TargetFrameworkSubset>Full</TargetFrameworkSubset>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Release\PH.Platform.AuthMgr.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Release\PH.Platform.BackEnd.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Release\PH.Platform.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.Email.BO, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.ExtendLibrary, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Lang.BO, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.UI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Release\PH.Platform.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.SPC.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderDetailsDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderDetailsDetailForm.Designer.cs">
+      <DependentUpon>RoundWorkOrderDetailsDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderDetailsListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderDetailsListForm.Designer.cs">
+      <DependentUpon>RoundWorkOrderDetailsListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WO\WorkOrdersListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\WorkOrdersListForm.Designer.cs">
+      <DependentUpon>WorkOrdersListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderDetailTemp1ListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderDetailTemp1ListForm.Designer.cs">
+      <DependentUpon>RoundWorkOrderDetailTemp1ListForm.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RoundWorkOrderDetailsDetailForm.resx">
+      <DependentUpon>RoundWorkOrderDetailsDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RoundWorkOrderDetailsListForm.resx">
+      <DependentUpon>RoundWorkOrderDetailsListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\WorkOrdersListForm.resx">
+      <DependentUpon>WorkOrdersListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RoundWorkOrderDetailTemp1ListForm.resx">
+      <DependentUpon>RoundWorkOrderDetailTemp1ListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.RWO.BO.RoundWorkOrderDetail.datasource" />
+    <None Include="Properties\DataSources\PH.RWO_SOPC.BO.SOPC_Customer.datasource" />
+    <None Include="Properties\DataSources\PH.RWO_SOPC.BO.SOPC_Factroy.datasource" />
+    <None Include="Properties\DataSources\PH.RWO_SOPC.BO.WorkOrder.datasource" />
+    <EmbeddedResource Include="Amend\AmendDetailForm.resx">
+      <DependentUpon>AmendDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Amend\AmendItemList.resx">
+      <DependentUpon>AmendItemList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Amend\AmendListForm.resx">
+      <DependentUpon>AmendListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Amend\AmendWoDetail.resx">
+      <DependentUpon>AmendWoDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Amend\EmailDetail.resx">
+      <DependentUpon>EmailDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Amend\EmailListForm.resx">
+      <DependentUpon>EmailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Amend\FrmConfirm.resx">
+      <DependentUpon>FrmConfirm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AutoCalcWOForm.resx">
+      <DependentUpon>AutoCalcWOForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\ExportToRFIDDataByRange.resx">
+      <DependentUpon>ExportToRFIDDataByRange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\ExportToRFIDData.resx">
+      <DependentUpon>ExportToRFIDData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetAS400Data.resx">
+      <DependentUpon>GetAS400Data.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetDataForm.resx">
+      <DependentUpon>GetDataForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\CustomerProfileListForm.resx">
+      <DependentUpon>CustomerProfileListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\PaymentTermDetailForm.resx">
+      <DependentUpon>PaymentTermDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\PaymentTermListForm.resx">
+      <DependentUpon>PaymentTermListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\PaymentTermsDetailListForm.resx">
+      <DependentUpon>PaymentTermsDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\SelectPaymentTermsForm.resx">
+      <DependentUpon>SelectPaymentTermsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\WOIncompleteReasonDetailForm.resx">
+      <DependentUpon>WOIncompleteReasonDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\WOIncompleteReasonListForm.resx">
+      <DependentUpon>WOIncompleteReasonListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project\ProjectDetailForm.resx">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project\ProjectListForm.resx">
+      <DependentUpon>ProjectListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project\DateRangeForm.resx">
+      <DependentUpon>DateRangeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AmendReport.resx">
+      <DependentUpon>AmendReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AmendReport_New.resx">
+      <DependentUpon>AmendReport_New.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ConfirmListReport.resx">
+      <DependentUpon>ConfirmListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ProductPurchReport.resx">
+      <DependentUpon>ProductPurchReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\WOSummaryReport.resx">
+      <DependentUpon>WOSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ExReport.resx">
+      <DependentUpon>ExReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\OrderDetailReport.resx">
+      <DependentUpon>OrderDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RWOReport.resx">
+      <DependentUpon>RWOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\WOReport.resx">
+      <DependentUpon>WOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWOII\RoundWorkOrderIIDetailForm.resx">
+      <DependentUpon>RoundWorkOrderIIDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWOII\RoundWorkOrderIIDetailsDetailForm.resx">
+      <DependentUpon>RoundWorkOrderIIDetailsDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWOII\RoundWorkOrderIIDetailsListForm.resx">
+      <DependentUpon>RoundWorkOrderIIDetailsListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWOII\RoundWorkOrderIIListForm.resx">
+      <DependentUpon>RoundWorkOrderIIListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWOII\RWOIIConfirmListForm.resx">
+      <DependentUpon>RWOIIConfirmListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RWOSpecialFactoryListForm.resx">
+      <DependentUpon>RWOSpecialFactoryListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\SelectShipmentSchedule.resx">
+      <DependentUpon>SelectShipmentSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\ShipmentScheduleListForm.resx">
+      <DependentUpon>ShipmentScheduleListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\AddNewCustomerForm.resx">
+      <DependentUpon>AddNewCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\WONotepadReasonDetailForm.resx">
+      <DependentUpon>WONotepadReasonDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\WONotepadReasonListForm.resx">
+      <DependentUpon>WONotepadReasonListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\AutoCalcWOForm.resx">
+      <DependentUpon>AutoCalcWOForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\BatchUpdatePrice.resx">
+      <DependentUpon>BatchUpdatePrice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\BulkSampleForm.resx">
+      <DependentUpon>BulkSampleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\PrintWOReportForm.resx">
+      <DependentUpon>PrintWOReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\SelectWONotepadReasonForm.resx">
+      <DependentUpon>SelectWONotepadReasonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\WOProductPriceList.resx">
+      <DependentUpon>WOProductPriceList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RWOTransitEntranceKey.resx">
+      <DependentUpon>RWOTransitEntranceKey.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RwoAssignQtyForm.resx">
+      <DependentUpon>RwoAssignQtyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\SelectRWOForm.resx">
+      <DependentUpon>SelectRWOForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RWOEntranceKey.resx">
+      <DependentUpon>RWOEntranceKey.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RWOT3ListForm.resx">
+      <DependentUpon>RWOT3ListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RoundWorkOrderDetailForm.resx">
+      <DependentUpon>RoundWorkOrderDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RoundWorkOrderListForm.resx">
+      <DependentUpon>RoundWorkOrderListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\SplitQtyForm.resx">
+      <DependentUpon>SplitQtyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\ChoiceUsers.resx">
+      <DependentUpon>ChoiceUsers.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\ConfirmRightListForm.resx">
+      <DependentUpon>ConfirmRightListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\PackingCategoryListForm.resx">
+      <DependentUpon>PackingCategoryListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\PackingCategoryParentChildForm.resx">
+      <DependentUpon>PackingCategoryParentChildForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\PackingCupListForm.resx">
+      <DependentUpon>PackingCupListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\PackingLabelListForm.resx">
+      <DependentUpon>PackingLabelListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\PackingMethodListForm.resx">
+      <DependentUpon>PackingMethodListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\RWOIITimeRuleListForm.resx">
+      <DependentUpon>RWOIITimeRuleListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\CustomerCodeDetailForm.resx">
+      <DependentUpon>CustomerCodeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\InputNumber.resx">
+      <DependentUpon>InputNumber.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\CustomerCommissionDetailForm.resx">
+      <DependentUpon>CustomerCommissionDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\CustomerCommissionListForm.resx">
+      <DependentUpon>CustomerCommissionListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\MutiLangDetailForm.resx">
+      <DependentUpon>MutiLangDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\MutiLangListForm.resx">
+      <DependentUpon>MutiLangListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\OrdersListForm.resx">
+      <DependentUpon>OrdersListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RoundWorkOrderDetailTemp1DetailForm.resx">
+      <DependentUpon>RoundWorkOrderDetailTemp1DetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\CustomerCodeListForm.resx">
+      <DependentUpon>CustomerCodeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\ConfirmRightDetailForm.resx">
+      <DependentUpon>ConfirmRightDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\RWOConfirmListForm.resx">
+      <DependentUpon>RWOConfirmListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOSS\SOSSForm.resx">
+      <DependentUpon>SOSSForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Style\MRAttachForm.resx">
+      <DependentUpon>MRAttachForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Style\Report\COSTANALYSISCERTIFICATE.resx">
+      <DependentUpon>COSTANALYSISCERTIFICATE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Style\Report\PackagingMaterialRpt.resx">
+      <DependentUpon>PackagingMaterialRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Style\StylePackingDetailEditForm.resx">
+      <DependentUpon>StylePackingDetailEditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Style\StylePackingDetailListForm.resx">
+      <DependentUpon>StylePackingDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Style\StylePackingParentDetailForm.resx">
+      <DependentUpon>StylePackingParentDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\SampleListForQCForm.resx">
+      <DependentUpon>SampleListForQCForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\SampleQueryForm.resx">
+      <DependentUpon>SampleQueryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\WorkOrderSampleQueryListForm.resx">
+      <DependentUpon>WorkOrderSampleQueryListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\WOcRWOListForm.resx">
+      <DependentUpon>WOcRWOListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\WOcListForm.resx">
+      <DependentUpon>WOcListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\ConfirmAT3Form.resx">
+      <DependentUpon>ConfirmAT3Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RWO\TransitDateListForm.resx">
+      <DependentUpon>TransitDateListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\WOFWOptionChooseListForm.resx">
+      <DependentUpon>WOFWOptionChooseListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\InputLineNumber.resx">
+      <DependentUpon>InputLineNumber.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\WOFWOptionListForm.resx">
+      <DependentUpon>WOFWOptionListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\frmAgreedFW.resx">
+      <DependentUpon>frmAgreedFW.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\GenerateSPCform.resx">
+      <DependentUpon>GenerateSPCform.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\PackingBrandCategoryListForm.resx">
+      <DependentUpon>PackingBrandCategoryListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\PackingWOCategoryParentChildForm.resx">
+      <DependentUpon>PackingWOCategoryParentChildForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\PackingWOCupsListForm.resx">
+      <DependentUpon>PackingWOCupsListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\PackingWOLabelingListForm.resx">
+      <DependentUpon>PackingWOLabelingListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\PackingWOPackMethodListForm.resx">
+      <DependentUpon>PackingWOPackMethodListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\StyleForm.resx">
+      <DependentUpon>StyleForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\PackingWOQueryForm.resx">
+      <DependentUpon>PackingWOQueryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\WOConfirmListForm.resx">
+      <DependentUpon>WOConfirmListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Style\StyleDetailForm.resx">
+      <DependentUpon>StyleDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Style\StyleListForm.resx">
+      <DependentUpon>StyleListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Style\StyleRationListForm.resx">
+      <DependentUpon>StyleRationListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\GetSampleType.resx">
+      <DependentUpon>GetSampleType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\WorkOrderSampleListForm.resx">
+      <DependentUpon>WorkOrderSampleListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\WorkOrderColorListForm.resx">
+      <DependentUpon>WorkOrderColorListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\WorkOrderColorSKUListForm.resx">
+      <DependentUpon>WorkOrderColorSKUListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\WorkOrderColorDetailForm.resx">
+      <DependentUpon>WorkOrderColorDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WOc\WorkOrderColorSKUDetailForm.resx">
+      <DependentUpon>WorkOrderColorSKUDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\WorkOrderIncompleteListForm.resx">
+      <DependentUpon>WorkOrderIncompleteListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\WOSpecialFactoryListForm.resx">
+      <DependentUpon>WOSpecialFactoryListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\WOT3ListForm.resx">
+      <DependentUpon>WOT3ListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\WorkOrderDetailForm.resx">
+      <DependentUpon>WorkOrderDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WO\WOVersionChangedReasonForm.resx">
+      <DependentUpon>WOVersionChangedReasonForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Amend\AmendDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Amend\AmendDetailForm.Designer.cs">
+      <DependentUpon>AmendDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Amend\AmendItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Amend\AmendItemList.Designer.cs">
+      <DependentUpon>AmendItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Amend\AmendListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Amend\AmendListForm.Designer.cs">
+      <DependentUpon>AmendListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Amend\AmendWoDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Amend\AmendWoDetail.Designer.cs">
+      <DependentUpon>AmendWoDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Amend\EmailDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Amend\EmailDetail.Designer.cs">
+      <DependentUpon>EmailDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Amend\EmailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Amend\EmailListForm.Designer.cs">
+      <DependentUpon>EmailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Amend\FrmConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Amend\FrmConfirm.Designer.cs">
+      <DependentUpon>FrmConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoCalcWOForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AutoCalcWOForm.Designer.cs">
+      <DependentUpon>AutoCalcWOForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="Export\ExportToRFIDDataByRange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Export\ExportToRFIDDataByRange.Designer.cs">
+      <DependentUpon>ExportToRFIDDataByRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\CustomerProfileListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\CustomerProfileListForm.Designer.cs">
+      <DependentUpon>CustomerProfileListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\PaymentTermDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\PaymentTermDetailForm.Designer.cs">
+      <DependentUpon>PaymentTermDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\PaymentTermListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\PaymentTermListForm.Designer.cs">
+      <DependentUpon>PaymentTermListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\PaymentTermsDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\PaymentTermsDetailListForm.Designer.cs">
+      <DependentUpon>PaymentTermsDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\SelectPaymentTermsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterDB\SelectPaymentTermsForm.Designer.cs">
+      <DependentUpon>SelectPaymentTermsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\WOIncompleteReasonDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\WOIncompleteReasonDetailForm.Designer.cs">
+      <DependentUpon>WOIncompleteReasonDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\WOIncompleteReasonListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\WOIncompleteReasonListForm.Designer.cs">
+      <DependentUpon>WOIncompleteReasonListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project\DateRangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project\DateRangeForm.Designer.cs">
+      <DependentUpon>DateRangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\AmendReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\AmendReport.Designer.cs">
+      <DependentUpon>AmendReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\AmendReport_New.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\AmendReport_New.Designer.cs">
+      <DependentUpon>AmendReport_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ConfirmListReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ConfirmListReport.Designer.cs">
+      <DependentUpon>ConfirmListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ProductPurchReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ProductPurchReport.Designer.cs">
+      <DependentUpon>ProductPurchReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WOSummaryReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\WOSummaryReport.Designer.cs">
+      <DependentUpon>WOSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWOII\RoundWorkOrderIIDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWOII\RoundWorkOrderIIDetailForm.Designer.cs">
+      <DependentUpon>RoundWorkOrderIIDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWOII\RoundWorkOrderIIDetailsDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWOII\RoundWorkOrderIIDetailsDetailForm.Designer.cs">
+      <DependentUpon>RoundWorkOrderIIDetailsDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWOII\RoundWorkOrderIIDetailsListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWOII\RoundWorkOrderIIDetailsListForm.Designer.cs">
+      <DependentUpon>RoundWorkOrderIIDetailsListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWOII\RoundWorkOrderIIListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWOII\RoundWorkOrderIIListForm.Designer.cs">
+      <DependentUpon>RoundWorkOrderIIListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWOII\RWOIIConfirmListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWOII\RWOIIConfirmListForm.Designer.cs">
+      <DependentUpon>RWOIIConfirmListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RWOSpecialFactoryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWO\RWOSpecialFactoryListForm.Designer.cs">
+      <DependentUpon>RWOSpecialFactoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\SelectShipmentSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RWO\SelectShipmentSchedule.Designer.cs">
+      <DependentUpon>SelectShipmentSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\ShipmentScheduleListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWO\ShipmentScheduleListForm.Designer.cs">
+      <DependentUpon>ShipmentScheduleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\AddNewCustomerForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\AddNewCustomerForm.Designer.cs">
+      <DependentUpon>AddNewCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\WONotepadReasonDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\WONotepadReasonDetailForm.Designer.cs">
+      <DependentUpon>WONotepadReasonDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\WONotepadReasonListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\WONotepadReasonListForm.Designer.cs">
+      <DependentUpon>WONotepadReasonListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\AutoCalcWOForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WO\AutoCalcWOForm.Designer.cs">
+      <DependentUpon>AutoCalcWOForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\BatchUpdatePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WO\BatchUpdatePrice.Designer.cs">
+      <DependentUpon>BatchUpdatePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\BulkSampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WO\BulkSampleForm.Designer.cs">
+      <DependentUpon>BulkSampleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\PrintWOReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\PrintWOReportForm.Designer.cs">
+      <DependentUpon>PrintWOReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\SelectWONotepadReasonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WO\SelectWONotepadReasonForm.Designer.cs">
+      <DependentUpon>SelectWONotepadReasonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\WOProductPriceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\WOProductPriceList.Designer.cs">
+      <DependentUpon>WOProductPriceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RWOTransitEntranceKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RWO\RWOTransitEntranceKey.Designer.cs">
+      <DependentUpon>RWOTransitEntranceKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RwoAssignQtyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RWO\RwoAssignQtyForm.Designer.cs">
+      <DependentUpon>RwoAssignQtyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\SelectRWOForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RWO\SelectRWOForm.Designer.cs">
+      <DependentUpon>SelectRWOForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RWOEntranceKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RWO\RWOEntranceKey.Designer.cs">
+      <DependentUpon>RWOEntranceKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\SplitQtyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RWO\SplitQtyForm.Designer.cs">
+      <DependentUpon>SplitQtyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\PackingCategoryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\PackingCategoryListForm.Designer.cs">
+      <DependentUpon>PackingCategoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\PackingCategoryParentChildForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\PackingCategoryParentChildForm.Designer.cs">
+      <DependentUpon>PackingCategoryParentChildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\PackingCupListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\PackingCupListForm.Designer.cs">
+      <DependentUpon>PackingCupListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\PackingLabelListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\PackingLabelListForm.Designer.cs">
+      <DependentUpon>PackingLabelListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\PackingMethodListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\PackingMethodListForm.Designer.cs">
+      <DependentUpon>PackingMethodListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\RWOIITimeRuleListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\RWOIITimeRuleListForm.Designer.cs">
+      <DependentUpon>RWOIITimeRuleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\CustomerCommissionDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\CustomerCommissionDetailForm.Designer.cs">
+      <DependentUpon>CustomerCommissionDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\CustomerCommissionListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\CustomerCommissionListForm.Designer.cs">
+      <DependentUpon>CustomerCommissionListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export\ExportToRFIDData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Export\ExportToRFIDData.Designer.cs">
+      <DependentUpon>ExportToRFIDData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetAS400Data.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GetAS400Data.Designer.cs">
+      <DependentUpon>GetAS400Data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetDataForm.Designer.cs">
+      <DependentUpon>GetDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="Project\ProjectDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Project\ProjectDetailForm.Designer.cs">
+      <DependentUpon>ProjectDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project\ProjectListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Project\ProjectListForm.Designer.cs">
+      <DependentUpon>ProjectListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ExReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ExReport.Designer.cs">
+      <DependentUpon>ExReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\OrderDetailReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\OrderDetailReport.Designer.cs">
+      <DependentUpon>OrderDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RWOReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\RWOReport.Designer.cs">
+      <DependentUpon>RWOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WOReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\WOReport.Designer.cs">
+      <DependentUpon>WOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RWOT3ListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWO\RWOT3ListForm.Designer.cs">
+      <DependentUpon>RWOT3ListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderDetailForm.Designer.cs">
+      <DependentUpon>RoundWorkOrderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderListForm.Designer.cs">
+      <DependentUpon>RoundWorkOrderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\ChoiceUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\ChoiceUsers.Designer.cs">
+      <DependentUpon>ChoiceUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\ConfirmRightListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\ConfirmRightListForm.Designer.cs">
+      <DependentUpon>ConfirmRightListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\MutiLangDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\MutiLangDetailForm.Designer.cs">
+      <DependentUpon>MutiLangDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\MutiLangListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\MutiLangListForm.Designer.cs">
+      <DependentUpon>MutiLangListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RWOConfirmListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWO\RWOConfirmListForm.Designer.cs">
+      <DependentUpon>RWOConfirmListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\CustomerCodeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\CustomerCodeDetailForm.Designer.cs">
+      <DependentUpon>CustomerCodeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\InputNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RWO\InputNumber.Designer.cs">
+      <DependentUpon>InputNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\OrdersDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\OrdersDetailForm.Designer.cs">
+      <DependentUpon>OrdersDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\OrdersListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\OrdersListForm.Designer.cs">
+      <DependentUpon>OrdersListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\RoundWorkOrderDetailTemp1DetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SendMail.cs" />
+    <Compile Include="Setting\CustomerCodeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\CustomerCodeListForm.designer.cs">
+      <DependentUpon>CustomerCodeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOSS\SOSSForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SOSS\SOSSForm.Designer.cs">
+      <DependentUpon>SOSSForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Style\MRAttachForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Style\MRAttachForm.Designer.cs">
+      <DependentUpon>MRAttachForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Style\Report\COSTANALYSISCERTIFICATE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Style\Report\COSTANALYSISCERTIFICATE.Designer.cs">
+      <DependentUpon>COSTANALYSISCERTIFICATE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Style\Report\PackagingMaterialRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Style\Report\PackagingMaterialRpt.Designer.cs">
+      <DependentUpon>PackagingMaterialRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Style\StylePackingDetailEditForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Style\StylePackingDetailEditForm.Designer.cs">
+      <DependentUpon>StylePackingDetailEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Style\StylePackingDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Style\StylePackingDetailListForm.Designer.cs">
+      <DependentUpon>StylePackingDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Style\StylePackingParentDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Style\StylePackingParentDetailForm.Designer.cs">
+      <DependentUpon>StylePackingParentDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\SampleListForQCForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WOc\SampleListForQCForm.Designer.cs">
+      <DependentUpon>SampleListForQCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\SampleQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WOc\SampleQueryForm.Designer.cs">
+      <DependentUpon>SampleQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\WorkOrderSampleQueryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WOc\WorkOrderSampleQueryListForm.Designer.cs">
+      <DependentUpon>WorkOrderSampleQueryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\WOcRWOListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WOc\WOcRWOListForm.Designer.cs">
+      <DependentUpon>WOcRWOListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\WOcListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WOc\WOcListForm.Designer.cs">
+      <DependentUpon>WOcListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\ConfirmAT3Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WO\ConfirmAT3Form.Designer.cs">
+      <DependentUpon>ConfirmAT3Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RWO\TransitDateListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RWO\TransitDateListForm.Designer.cs">
+      <DependentUpon>TransitDateListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\WOFWOptionChooseListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\WOFWOptionChooseListForm.Designer.cs">
+      <DependentUpon>WOFWOptionChooseListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\InputLineNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WO\InputLineNumber.Designer.cs">
+      <DependentUpon>InputLineNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\WOFWOptionListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\WOFWOptionListForm.Designer.cs">
+      <DependentUpon>WOFWOptionListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\frmAgreedFW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WO\frmAgreedFW.Designer.cs">
+      <DependentUpon>frmAgreedFW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\GenerateSPCform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WO\GenerateSPCform.Designer.cs">
+      <DependentUpon>GenerateSPCform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\PackingBrandCategoryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\PackingBrandCategoryListForm.Designer.cs">
+      <DependentUpon>PackingBrandCategoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\PackingWOCategoryParentChildForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\PackingWOCategoryParentChildForm.Designer.cs">
+      <DependentUpon>PackingWOCategoryParentChildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\PackingWOCupsListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\PackingWOCupsListForm.Designer.cs">
+      <DependentUpon>PackingWOCupsListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\PackingWOLabelingListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\PackingWOLabelingListForm.Designer.cs">
+      <DependentUpon>PackingWOLabelingListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\PackingWOPackMethodListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\PackingWOPackMethodListForm.Designer.cs">
+      <DependentUpon>PackingWOPackMethodListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\StyleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\StyleForm.Designer.cs">
+      <DependentUpon>StyleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\PackingWOQueryForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\PackingWOQueryForm.Designer.cs">
+      <DependentUpon>PackingWOQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\WOConfirmListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\WOConfirmListForm.Designer.cs">
+      <DependentUpon>WOConfirmListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Style\StyleDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Style\StyleDetailForm.designer.cs">
+      <DependentUpon>StyleDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Style\StyleListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Style\StyleListForm.designer.cs">
+      <DependentUpon>StyleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Style\StyleRationListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Style\StyleRationListForm.Designer.cs">
+      <DependentUpon>StyleRationListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sys.cs" />
+    <Compile Include="Setting\ConfirmRightDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\ConfirmRightDetailForm.Designer.cs">
+      <DependentUpon>ConfirmRightDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\GetSampleType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WOc\GetSampleType.Designer.cs">
+      <DependentUpon>GetSampleType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\WorkOrderSampleListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WOc\WorkOrderSampleListForm.Designer.cs">
+      <DependentUpon>WorkOrderSampleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\WorkOrderColorSKUListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WOc\WorkOrderColorSKUListForm.Designer.cs">
+      <DependentUpon>WorkOrderColorSKUListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\WorkOrderColorDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WOc\WorkOrderColorDetailForm.Designer.cs">
+      <DependentUpon>WorkOrderColorDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\WorkOrderColorListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WOc\WorkOrderColorListForm.Designer.cs">
+      <DependentUpon>WorkOrderColorListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOc\WorkOrderColorSKUDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WOc\WorkOrderColorSKUDetailForm.Designer.cs">
+      <DependentUpon>WorkOrderColorSKUDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\WorkOrderIncompleteListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\WorkOrderIncompleteListForm.Designer.cs">
+      <DependentUpon>WorkOrderIncompleteListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\WOSpecialFactoryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\WOSpecialFactoryListForm.Designer.cs">
+      <DependentUpon>WOSpecialFactoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\WOT3ListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\WOT3ListForm.Designer.cs">
+      <DependentUpon>WOT3ListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\WorkOrderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WO\WorkOrderDetailForm.Designer.cs">
+      <DependentUpon>WorkOrderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WO\WOVersionChangedReasonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WO\WOVersionChangedReasonForm.Designer.cs">
+      <DependentUpon>WOVersionChangedReasonForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.MaterialStandby.BO.Style.datasource" />
+    <None Include="Properties\DataSources\PH.Platform.Lang.BO.Lang_Record.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.CustomerBrand.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.CustomerBrandCategory.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.CustomerCode.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.CustomerCommission.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.CustomerCup.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.CustomerLabeling.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.CustomerPacking.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.MR.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.PackagingMaterial.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.Project.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.RoundWorkOrder.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.RoundWorkOrderII.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.RWOIITimeRule.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.Style.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.View_RWOConfirm.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.View_WOConfirm.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WOChooseFW.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrder.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrderCategory.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrderCategoryCup.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrderCategoryLabeling.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrderCategoryPacking.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrderColor.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrderSKU.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WOSKURatio.datasource" />
+    <None Include="Resources\print16_h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log.xml" />
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\PH.RWO.BO.AmendDetail.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.AmendMaster.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.LWPM_Calendar.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.PaymentTerm.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.PaymentTermsDetail.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.SelectPaymentTermsResult.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.ShipmentSchedule.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.ShipmentSchedule1.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.SOSSDetail.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.TempFWChoose.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.TempRWOSKU.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.TempSplitRWO.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.TempWOc.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WONotepadReason.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrderSample.datasource" />
+    <None Include="Resources\arrow_up.png" />
+    <None Include="Resources\accept.png" />
+    <Content Include="Resources\Printrwo.png" />
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.RWO.BackEnd\PH.RWO.BackEnd.csproj">
+      <Project>{B137ED06-396B-4FAD-8B8D-D72587AE1BBB}</Project>
+      <Name>PH.RWO.BackEnd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PH.RWO.BO\PH.RWO.BO.csproj">
+      <Project>{48059482-E5DC-4A8D-BF12-589D90F89898}</Project>
+      <Name>PH.RWO.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

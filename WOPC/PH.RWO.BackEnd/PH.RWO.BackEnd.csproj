@@ -1,0 +1,976 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B137ED06-396B-4FAD-8B8D-D72587AE1BBB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.RWO.BackEnd</RootNamespace>
+    <AssemblyName>PH.RWO.BackEnd3.0</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AS400Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\Release\AS400Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.Office.Tools.Excel.v9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Release\PH.Platform.BackEnd.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Common, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Email.BO, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Lang.BO, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Report.PivotGrid, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\Release\PH.Platform.Report.PivotGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.UI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Release\PH.Platform.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PhSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=85b79d01a4777437, processorArchitecture=MSIL">
+      <HintPath>..\..\Release\PhSys.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AS400DB\Common\DB.cs" />
+    <Compile Include="AS400DB\Common\UISetting.cs" />
+    <Compile Include="JobAutoCalcWO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobAutoCalcWO.Designer.cs">
+      <DependentUpon>JobAutoCalcWO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobExportToRFIDByRange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobExportToRFIDByRange.Designer.cs">
+      <DependentUpon>JobExportToRFIDByRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PcxFile.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="JobExportToRFID.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobExportToRFID.Designer.cs">
+      <DependentUpon>JobExportToRFID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PcxImage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobWOSummaryReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobWOSummaryReport.Designer.cs">
+      <DependentUpon>JobWOSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobConfirmListReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobConfirmListReport.Designer.cs">
+      <DependentUpon>JobConfirmListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobRWOIIReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobRWOIIReport.Designer.cs">
+      <DependentUpon>JobRWOIIReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobOrderDetail.cs" />
+    <Compile Include="ReportJob\JobRWOReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobRWOReport.Designer.cs">
+      <DependentUpon>JobRWOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobRoundWorkOrderKBReport.cs" />
+    <Compile Include="ReportJob\JobWOReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobWOReport.Designer.cs">
+      <DependentUpon>JobWOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobWorkOrderKBReport.cs" />
+    <Compile Include="ReportJob\JobRoundWorkOrderReport.cs" />
+    <Compile Include="ReportJob\JobWorkOrderReport.cs" />
+    <Compile Include="ReportJob\OrderDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\OrderDetail.Designer.cs">
+      <DependentUpon>OrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\Packing\JobCustomerLocationReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\Packing\JobCustomerLocationReport.Designer.cs">
+      <DependentUpon>JobCustomerLocationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\Packing\JobCustomerRequestReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\Packing\JobCustomerRequestReport.Designer.cs">
+      <DependentUpon>JobCustomerRequestReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\Packing\JobPackingLocationReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\Packing\JobPackingLocationReport.Designer.cs">
+      <DependentUpon>JobPackingLocationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\Packing\JobPackingRequestReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\Packing\JobPackingRequestReport.Designer.cs">
+      <DependentUpon>JobPackingRequestReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\Packing\JobPackingWOSupplementReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\Packing\JobPackingWOSupplementReport.Designer.cs">
+      <DependentUpon>JobPackingWOSupplementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\Packing\TH\JobPackingLocationTaiReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\Packing\TH\JobPackingLocationTaiReport.Designer.cs">
+      <DependentUpon>JobPackingLocationTaiReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\Packing\TH\JobPackingRequestTaiReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\Packing\TH\JobPackingRequestTaiReport.Designer.cs">
+      <DependentUpon>JobPackingRequestTaiReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\Packing\TH\JobPackingWOSupplementTaiReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\Packing\TH\JobPackingWOSupplementTaiReport.Designer.cs">
+      <DependentUpon>JobPackingWOSupplementTaiReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\SelectCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportJob\SelectCustomerForm.Designer.cs">
+      <DependentUpon>SelectCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\AgreedRWOShipWindowReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\AgreedRWOShipWindowReport.Designer.cs">
+      <DependentUpon>AgreedRWOShipWindowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\RWONonShipWindowFCLReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\RWONonShipWindowFCLReport.designer.cs">
+      <DependentUpon>RWONonShipWindowFCLReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\RWONonShipWindowLCLReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\RWONonShipWindowLCLReport.designer.cs">
+      <DependentUpon>RWONonShipWindowLCLReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\RWOProcessingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\RWOProcessingReport.Designer.cs">
+      <DependentUpon>RWOProcessingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\RWOReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\RWOReport.designer.cs">
+      <DependentUpon>RWOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\RWOShipWindowReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\RWO\RWOShipWindowReport.designer.cs">
+      <DependentUpon>RWOShipWindowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\WO\AgreedWOShipWindowReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\WO\AgreedWOShipWindowReport.Designer.cs">
+      <DependentUpon>AgreedWOShipWindowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WONonShipWindowFCLReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WONonShipWindowFCLReport.Designer.cs">
+      <DependentUpon>WONonShipWindowFCLReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WONonShipWindowLCLReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WONonShipWindowLCLReport.Designer.cs">
+      <DependentUpon>WONonShipWindowLCLReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WOProcessingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WOProcessingReport.Designer.cs">
+      <DependentUpon>WOProcessingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WOReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WOReport.Designer.cs">
+      <DependentUpon>WOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WOShipWindowReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WOShipWindowReport.Designer.cs">
+      <DependentUpon>WOShipWindowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WOStyleMakingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WOStyleMakingReport.Designer.cs">
+      <DependentUpon>WOStyleMakingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WOStyleMakingReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KB\WO\WOStyleMakingReport1.Designer.cs">
+      <DependentUpon>WOStyleMakingReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\OrderDtail\OrderDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\OrderDtail\OrderDetail.Designer.cs">
+      <DependentUpon>OrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\OrderDtail\OrderDetailShip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\OrderDtail\OrderDetailShip.Designer.cs">
+      <DependentUpon>OrderDetailShip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Packing\CustomerLocationReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Packing\CustomerLocationReport.Designer.cs">
+      <DependentUpon>CustomerLocationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Packing\CustomerRequestReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Packing\CustomerRequestReport.Designer.cs">
+      <DependentUpon>CustomerRequestReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Packing\PackingLocationReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Packing\PackingLocationReport.Designer.cs">
+      <DependentUpon>PackingLocationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Packing\PackingRequestReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Packing\PackingRequestReport.Designer.cs">
+      <DependentUpon>PackingRequestReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Packing\PackingWOSupplementReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Packing\PackingWOSupplementReport.Designer.cs">
+      <DependentUpon>PackingWOSupplementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POBody\RptPODetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POBody\RptPODetail.Designer.cs">
+      <DependentUpon>RptPODetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POBody\RptPODetail_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POBody\RptPODetail_Sub.Designer.cs">
+      <DependentUpon>RptPODetail_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POBody\RptPODetail_Sub1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POBody\RptPODetail_Sub1.Designer.cs">
+      <DependentUpon>RptPODetail_Sub1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POFooter\RptPOFooter_Domestic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POFooter\RptPOFooter_Domestic.Designer.cs">
+      <DependentUpon>RptPOFooter_Domestic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POFooter\RptPOFooter_Foreign.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POFooter\RptPOFooter_Foreign.Designer.cs">
+      <DependentUpon>RptPOFooter_Foreign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POHeader\RptPOHeader_Domestic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POHeader\RptPOHeader_Domestic.Designer.cs">
+      <DependentUpon>RptPOHeader_Domestic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POHeader\RptPOHeader_Foreign.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\PO\POHeader\RptPOHeader_Foreign.Designer.cs">
+      <DependentUpon>RptPOHeader_Foreign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\PO\RptPOWhole.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\PO\RptPOWhole.Designer.cs">
+      <DependentUpon>RptPOWhole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\PO\RptPOWhole_A.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\PO\RptPOWhole_A.Designer.cs">
+      <DependentUpon>RptPOWhole_A.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWOII\RWONonShipWindowFCLReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWOII\RWONonShipWindowFCLReport.designer.cs">
+      <DependentUpon>RWONonShipWindowFCLReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWOII\RWONonShipWindowLCLReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWOII\RWONonShipWindowLCLReport.designer.cs">
+      <DependentUpon>RWONonShipWindowLCLReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWOII\RWOProcessingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWOII\RWOProcessingReport.Designer.cs">
+      <DependentUpon>RWOProcessingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWOII\RWOReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWOII\RWOReport.designer.cs">
+      <DependentUpon>RWOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\AgreedRWOShipWindowReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\AgreedRWOShipWindowReport.Designer.cs">
+      <DependentUpon>AgreedRWOShipWindowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\AgreedRWOShipWindowReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\AgreedRWOShipWindowReport1.Designer.cs">
+      <DependentUpon>AgreedRWOShipWindowReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\POPCRWOReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\POPCRWOReport.Designer.cs">
+      <DependentUpon>POPCRWOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWONonShipWindowLCLReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWONonShipWindowLCLReport1.Designer.cs">
+      <DependentUpon>RWONonShipWindowLCLReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWOReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWOReport.designer.cs">
+      <DependentUpon>RWOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWOProcessingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWOProcessingReport.Designer.cs">
+      <DependentUpon>RWOProcessingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\AgreedWOShipWindowReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\AgreedWOShipWindowReport.Designer.cs">
+      <DependentUpon>AgreedWOShipWindowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOStatusReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOStatusReport.Designer.cs">
+      <DependentUpon>WOStatusReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOSampleReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOSampleReport.Designer.cs">
+      <DependentUpon>WOSampleReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\POPCWOReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\POPCWOReport.Designer.cs">
+      <DependentUpon>POPCWOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WorkOrderSample.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WorkOrderSample.Designer.cs">
+      <DependentUpon>WorkOrderSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOSummaryReport.Designer.cs">
+      <DependentUpon>WOSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOProcessingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOProcessingReport.Designer.cs">
+      <DependentUpon>WOProcessingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOStyleMakingReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOStyleMakingReport1.Designer.cs">
+      <DependentUpon>WOStyleMakingReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WONonShipWindowFCLReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WONonShipWindowFCLReport.Designer.cs">
+      <DependentUpon>WONonShipWindowFCLReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOShipWindowReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOShipWindowReport.Designer.cs">
+      <DependentUpon>WOShipWindowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWOShipWindowReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWOShipWindowReport.designer.cs">
+      <DependentUpon>RWOShipWindowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWONonShipWindowLCLReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWONonShipWindowLCLReport.designer.cs">
+      <DependentUpon>RWONonShipWindowLCLReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWONonShipWindowFCLReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\RWO\RWONonShipWindowFCLReport.designer.cs">
+      <DependentUpon>RWONonShipWindowFCLReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WONonShipWindowLCLReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WONonShipWindowLCLReport.Designer.cs">
+      <DependentUpon>WONonShipWindowLCLReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOReport.Designer.cs">
+      <DependentUpon>WOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOStyleMakingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SL\WO\WOStyleMakingReport.Designer.cs">
+      <DependentUpon>WOStyleMakingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobGetAS400Data.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobGetAS400Data.Designer.cs">
+      <DependentUpon>JobGetAS400Data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SOSS\SOSSReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SOSS\SOSSReport.Designer.cs">
+      <DependentUpon>SOSSReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SubContractCycleTimeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SubContractCycleTimeReport.Designer.cs">
+      <DependentUpon>SubContractCycleTimeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Packing\TH\PackingLocationTaiReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Packing\TH\PackingLocationTaiReport.Designer.cs">
+      <DependentUpon>PackingLocationTaiReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Packing\TH\PackingRequestTaiReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Packing\TH\PackingRequestTaiReport.Designer.cs">
+      <DependentUpon>PackingRequestTaiReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Packing\TH\PackingRequestTHReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Packing\TH\PackingRequestTHReport.Designer.cs">
+      <DependentUpon>PackingRequestTHReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Packing\TH\PackingWOSupplementTaiReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Packing\TH\PackingWOSupplementTaiReport.Designer.cs">
+      <DependentUpon>PackingWOSupplementTaiReport.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="JobAutoCalcWO.resx">
+      <DependentUpon>JobAutoCalcWO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobExportToRFIDByRange.resx">
+      <DependentUpon>JobExportToRFIDByRange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobExportToRFID.resx">
+      <DependentUpon>JobExportToRFID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\JobWOSummaryReport.resx">
+      <DependentUpon>JobWOSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\JobConfirmListReport.resx">
+      <DependentUpon>JobConfirmListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\JobRWOIIReport.resx">
+      <DependentUpon>JobRWOIIReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\JobRWOReport.resx">
+      <DependentUpon>JobRWOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\JobWOReport.resx">
+      <DependentUpon>JobWOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\OrderDetail.resx">
+      <DependentUpon>OrderDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\Packing\JobCustomerLocationReport.resx">
+      <DependentUpon>JobCustomerLocationReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\Packing\JobCustomerRequestReport.resx">
+      <DependentUpon>JobCustomerRequestReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\Packing\JobPackingLocationReport.resx">
+      <DependentUpon>JobPackingLocationReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\Packing\JobPackingRequestReport.resx">
+      <DependentUpon>JobPackingRequestReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\Packing\JobPackingWOSupplementReport.resx">
+      <DependentUpon>JobPackingWOSupplementReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\Packing\TH\JobPackingLocationTaiReport.resx">
+      <DependentUpon>JobPackingLocationTaiReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\Packing\TH\JobPackingRequestTaiReport.resx">
+      <DependentUpon>JobPackingRequestTaiReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\Packing\TH\JobPackingWOSupplementTaiReport.resx">
+      <DependentUpon>JobPackingWOSupplementTaiReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\SelectCustomerForm.resx">
+      <DependentUpon>SelectCustomerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\RWO\AgreedRWOShipWindowReport.resx">
+      <DependentUpon>AgreedRWOShipWindowReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\RWO\RWONonShipWindowFCLReport.resx">
+      <DependentUpon>RWONonShipWindowFCLReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\RWO\RWONonShipWindowLCLReport.resx">
+      <DependentUpon>RWONonShipWindowLCLReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\RWO\RWOProcessingReport.resx">
+      <DependentUpon>RWOProcessingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\RWO\RWOReport.resx">
+      <DependentUpon>RWOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\RWO\RWOShipWindowReport.resx">
+      <DependentUpon>RWOShipWindowReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\WO\AgreedWOShipWindowReport.resx">
+      <DependentUpon>AgreedWOShipWindowReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\WO\WONonShipWindowFCLReport.resx">
+      <DependentUpon>WONonShipWindowFCLReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\WO\WONonShipWindowLCLReport.resx">
+      <DependentUpon>WONonShipWindowLCLReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\WO\WOProcessingReport.resx">
+      <DependentUpon>WOProcessingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\WO\WOReport.resx">
+      <DependentUpon>WOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\WO\WOShipWindowReport.resx">
+      <DependentUpon>WOShipWindowReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\WO\WOStyleMakingReport.resx">
+      <DependentUpon>WOStyleMakingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KB\WO\WOStyleMakingReport1.resx">
+      <DependentUpon>WOStyleMakingReport1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\OrderDtail\OrderDetail.resx">
+      <DependentUpon>OrderDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\OrderDtail\OrderDetailShip.resx">
+      <DependentUpon>OrderDetailShip.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Packing\CustomerLocationReport.resx">
+      <DependentUpon>CustomerLocationReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Packing\CustomerRequestReport.resx">
+      <DependentUpon>CustomerRequestReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Packing\PackingLocationReport.resx">
+      <DependentUpon>PackingLocationReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Packing\PackingRequestReport.resx">
+      <DependentUpon>PackingRequestReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Packing\PackingWOSupplementReport.resx">
+      <DependentUpon>PackingWOSupplementReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\PO\POBody\RptPODetail.resx">
+      <DependentUpon>RptPODetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\PO\POBody\RptPODetail_Sub.resx">
+      <DependentUpon>RptPODetail_Sub.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\PO\POBody\RptPODetail_Sub1.resx">
+      <DependentUpon>RptPODetail_Sub1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\PO\POFooter\RptPOFooter_Domestic.resx">
+      <DependentUpon>RptPOFooter_Domestic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\PO\POFooter\RptPOFooter_Foreign.resx">
+      <DependentUpon>RptPOFooter_Foreign.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\PO\POHeader\RptPOHeader_Domestic.resx">
+      <DependentUpon>RptPOHeader_Domestic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\PO\POHeader\RptPOHeader_Foreign.resx">
+      <DependentUpon>RptPOHeader_Foreign.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\PO\RptPOWhole.resx">
+      <DependentUpon>RptPOWhole.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\PO\RptPOWhole_A.resx">
+      <DependentUpon>RptPOWhole_A.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWOII\RWONonShipWindowFCLReport.resx">
+      <DependentUpon>RWONonShipWindowFCLReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWOII\RWONonShipWindowLCLReport.resx">
+      <DependentUpon>RWONonShipWindowLCLReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWOII\RWOProcessingReport.resx">
+      <DependentUpon>RWOProcessingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWOII\RWOReport.resx">
+      <DependentUpon>RWOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWO\AgreedRWOShipWindowReport.resx">
+      <DependentUpon>AgreedRWOShipWindowReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWO\AgreedRWOShipWindowReport1.resx">
+      <DependentUpon>AgreedRWOShipWindowReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWO\POPCRWOReport.resx">
+      <DependentUpon>POPCRWOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWO\RWONonShipWindowLCLReport1.resx">
+      <DependentUpon>RWONonShipWindowLCLReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWO\RWOReport.resx">
+      <DependentUpon>RWOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWO\RWOProcessingReport.resx">
+      <DependentUpon>RWOProcessingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\AgreedWOShipWindowReport.resx">
+      <DependentUpon>AgreedWOShipWindowReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WOStatusReport.resx">
+      <DependentUpon>WOStatusReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WOSampleReport.resx">
+      <DependentUpon>WOSampleReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\POPCWOReport.resx">
+      <DependentUpon>POPCWOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WorkOrderSample.resx">
+      <DependentUpon>WorkOrderSample.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WOSummaryReport.resx">
+      <DependentUpon>WOSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WOProcessingReport.resx">
+      <DependentUpon>WOProcessingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WOStyleMakingReport1.resx">
+      <DependentUpon>WOStyleMakingReport1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WONonShipWindowFCLReport.resx">
+      <DependentUpon>WONonShipWindowFCLReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WOShipWindowReport.resx">
+      <DependentUpon>WOShipWindowReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWO\RWOShipWindowReport.resx">
+      <DependentUpon>RWOShipWindowReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWO\RWONonShipWindowLCLReport.resx">
+      <DependentUpon>RWONonShipWindowLCLReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\RWO\RWONonShipWindowFCLReport.resx">
+      <DependentUpon>RWONonShipWindowFCLReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WONonShipWindowLCLReport.resx">
+      <DependentUpon>WONonShipWindowLCLReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WOReport.resx">
+      <DependentUpon>WOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SL\WO\WOStyleMakingReport.resx">
+      <DependentUpon>WOStyleMakingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobGetAS400Data.resx">
+      <DependentUpon>JobGetAS400Data.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SOSS\SOSSReport.resx">
+      <DependentUpon>SOSSReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SubContractCycleTimeReport.resx">
+      <DependentUpon>SubContractCycleTimeReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Packing\TH\PackingLocationTaiReport.resx">
+      <DependentUpon>PackingLocationTaiReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Packing\TH\PackingRequestTaiReport.resx">
+      <DependentUpon>PackingRequestTaiReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Packing\TH\PackingRequestTHReport.resx">
+      <DependentUpon>PackingRequestTHReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Packing\TH\PackingWOSupplementTaiReport.resx">
+      <DependentUpon>PackingWOSupplementTaiReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\PH.MaterialStandby.BO.Style.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.CustomerBrandCategory.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.CustomerBrandCategory1.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.OrderDetail.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.OrderDetailShip.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.RoundWorkOrder.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.RoundWorkOrderDetail.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.RoundWorkOrderII.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.RWOIITimeRule.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.View_Export.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.View_RWOConfirm.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.View_WOConfirm.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrder.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrderCategory.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.RWO.BO\PH.RWO.BO.csproj">
+      <Project>{48059482-E5DC-4A8D-BF12-589D90F89898}</Project>
+      <Name>PH.RWO.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.RWO.BO.CustomerCode.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.Project.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.SOSSHeader.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.Sp_CostingReportResult.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrderSample.datasource" />
+    <None Include="Resources\Print2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

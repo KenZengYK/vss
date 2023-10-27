@@ -1,0 +1,1516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PH.RWO1" Class="RWOSOPCDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.2.1.10;Initial Catalog=PH.RWO1;User ID=ituser" SettingsObjectName="PH.RWO.BO.Properties.Settings" SettingsPropertyName="PH_RWO1ConnectionString20" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.WOSKURatio" Member="WOSKURatios">
+    <Type Name="WOSKURatio">
+      <Column Name="RatioID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SytleNo" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ratio" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerCommission" Member="CustomerCommissions">
+    <Type Name="CustomerCommission">
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomerCodeF" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Commission" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="CustomerCode_CustomerCommission" Member="CustomerCode" ThisKey="Customer,CustomerCodeF" OtherKey="Customer,CustomerCode1" Type="CustomerCode" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoundWorkOrderDetail" Member="RoundWorkOrderDetails">
+    <Type Name="RoundWorkOrderDetail">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BulkQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ratio" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="CustSize" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="RoundWorkOrder_RoundWorkOrderDetail" Member="RoundWorkOrder" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" Type="RoundWorkOrder" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoundWorkOrderDetailII" Member="RoundWorkOrderDetailIIs">
+    <Type Name="RoundWorkOrderDetailII">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SubFactory" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BulkQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ratio" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="CustSize" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="RoundWorkOrderII_RoundWorkOrderDetailII" Member="RoundWorkOrderII" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo,SubFactory" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo,SubFactory" Type="RoundWorkOrderII" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoundWorkOrderDetailTemp1" Member="RoundWorkOrderDetailTemp1s">
+    <Type Name="RoundWorkOrderDetailTemp1">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BulkQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ratio" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="CustSize" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RwoOrders" Member="RwoOrders">
+    <Type Name="RwoOrder">
+      <Column Name="OrderId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Orders" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkOrderSKU" Member="WorkOrderSKUs">
+    <Type Name="WorkOrderSKU">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CustSize" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CustCup" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DespatchQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="WorkOrderSKU_WorkOrderSample" Member="WorkOrderSamples" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,Cup,Size" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,Cup,Size" Type="WorkOrderSample" />
+      <Association Name="WorkOrderColor_WorkOrderSKU" Member="WorkOrderColor" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode" Type="WorkOrderColor" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_AS400RwoColorSize" Member="View_AS400RwoColorSizes">
+    <Type Name="View_AS400RwoColorSize">
+      <Column Name="DT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TM" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+      <Column Name="CustSIZE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustCup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SIZE" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
+      <Column Name="Cup" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
+      <Column Name="DespatchQty" Type="System.Decimal" DbType="Decimal(11,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_AS400RwoColorSizeQty" Member="View_AS400RwoColorSizeQties">
+    <Type Name="View_AS400RwoColorSizeQty">
+      <Column Name="DT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TM" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+      <Column Name="CustSize" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustCup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SIZE" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
+      <Column Name="Cup" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
+      <Column Name="DespatchQty" Type="System.Decimal" DbType="Decimal(11,3) NOT NULL" CanBeNull="false" />
+      <Column Name="BulkQty" Type="System.Decimal" DbType="Decimal(11,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_Calendar" Member="View_Calendars">
+    <Type Name="View_Calendar">
+      <Column Name="TPLANT" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="DATE1" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="WKNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SECTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SECTT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SECTC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WDAY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SECTT1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OSECT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WeekDay" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="WeekOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.view_CustomerProfile" Member="view_CustomerProfiles">
+    <Type Name="view_CustomerProfile">
+      <Column Name="CUST" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LST2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="LST2D" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SEQ" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TPLANT" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="FRST" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="EXFWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EXFTM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="EXFDAY" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="LSTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="BZJS" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PMTH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CJSWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CJSSJ" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="REMK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AEXFWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AEXFTM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ACJSWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ACJSSJ" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LPORT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ALPORT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="FCUST" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PGRP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AGT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ADDR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PORTL" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="LMTH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SDUE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IRATIO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TTIME" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ITIME" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ATTIME" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ETD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AETD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GRP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="YSZQ" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="RQTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BZNY" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ACT" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RLINE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RQTY1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CGRP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="YSZQ1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ORDDAY" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PSP1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PSP2" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MPUR1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MPUR2" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ01" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ0" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="SP1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="TCT1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="TCT2" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AB2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AB3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ORDDAY_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PSP1_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PSP2_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MPUR1_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MPUR2_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="FRST_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="LSTR_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ1_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ0_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ01_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="SP1_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="TCT1_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="TCT2_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="LPORT1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="EXFWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EXFTM1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CJSWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CJSSJ1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ETD1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TTIME1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ALPORT1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AEXFWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AEXFTM1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ACJSWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ACJSSJ1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AETD1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ATTIME1" Type="System.Single" DbType="Real" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_Export" Member="View_Exports">
+    <Type Name="View_Export">
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="WOStatus" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="WOc" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ManufactureCode" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerStyleNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="BulkQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_RwoColorSize" Member="View_RwoColorSizes">
+    <Type Name="View_RwoColorSize">
+      <Column Name="CustSIZE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustCup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SIZE" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
+      <Column Name="Cup" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
+      <Column Name="DespatchQty" Type="System.Decimal" DbType="Decimal(11,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_RwoColorSizeQty" Member="View_RwoColorSizeQties">
+    <Type Name="View_RwoColorSizeQty">
+      <Column Name="CustSize" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustCup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SIZE" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
+      <Column Name="Cup" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
+      <Column Name="DespatchQty" Type="System.Decimal" DbType="Decimal(11,3) NOT NULL" CanBeNull="false" />
+      <Column Name="BulkQty" Type="System.Decimal" DbType="Decimal(11,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_WeekOrder" Member="View_WeekOrders">
+    <Type Name="View_WeekOrder">
+      <Column Name="WeekDay" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="WeekOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_WOc_RWO" Member="View_WOc_RWOs">
+    <Type Name="View_WOc_RWO">
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="CustomerStyleNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="WOc" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="RWO" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="AmendDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AjustT3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstStationStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FactoryWorkStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOReviseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OAConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OAConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="BulkQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="OriginalSampleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CustSize" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CustCup" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SizeOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CupOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_WOc_RWO_PPWs" Member="View_WOc_RWO_PPWs">
+    <Type Name="View_WOc_RWO_PPW">
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="CustomerStyleNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="WOc" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="RWO" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="AmendDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AjustT3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstStationStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FactoryWorkStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOReviseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OAConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OAConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="BulkQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustSize" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CustCup" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SizeOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CupOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_WorkOrderCustomerProfile" Member="View_WorkOrderCustomerProfiles">
+    <Type Name="View_WorkOrderCustomerProfile">
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cust" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="YSZQ" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ShipMode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FTY" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EXFWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EXFTM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="EXFDAY" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="CJSWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CJSSJ" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LSTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AEXFWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AEXFTM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ACJSWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ACJSSJ" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="EXFWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EXFTM1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CJSWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CJSSJ1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AEXFWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AEXFTM1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ACJSWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ACJSSJ1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RWOIITimeRule" Member="RWOIITimeRules">
+    <Type Name="RWOIITimeRule">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Operation" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CalcDateType" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StartFactory" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EndFactory" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Days" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Seq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="RWOIITimeRule_CycleTimeProcess" Member="CycleTimeProcesses" ThisKey="Code,CalcDateType,StartFactory,EndFactory" OtherKey="Code,CalcDateType,StartFactory,EndFactory" Type="CycleTimeProcess" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CycleTimeProcess" Member="CycleTimeProcesses">
+    <Type Name="CycleTimeProcess">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CalcDateType" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StartFactory" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EndFactory" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Process" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsFront" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Direct" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Days" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsWorkingDay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Seq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="RWOIITimeRule_CycleTimeProcess" Member="RWOIITimeRule" ThisKey="Code,CalcDateType,StartFactory,EndFactory" OtherKey="Code,CalcDateType,StartFactory,EndFactory" Type="RWOIITimeRule" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkOrderVersion" Member="WorkOrderVersions">
+    <Type Name="WorkOrderVersion">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ChangedCause" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="WorkOrder_WorkOrderVersion" Member="WorkOrder" ThisKey="Company,SalesOrderNo,WorkOrderNo" OtherKey="Company,SalesOrderNo,WorkOrderNo" Type="WorkOrder" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Right]" Member="Rights">
+    <Type Name="Right">
+      <Column Name="CustomerCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Customers" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Users" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Team" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="Next" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Current]" Member="Current" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Phase" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsRWO" Type="System.Boolean" DbType="Bit NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_ConfirmWorkFlow" Member="View_ConfirmWorkFlows">
+    <Type Name="View_ConfirmWorkFlow">
+      <Column Name="CustomerCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customers" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Users" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Team" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="Next" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Current]" Member="Current" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Phase" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UsersEmail" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="SendTo" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="CC" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="IsRWO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_ConfirmWorkFlow" Member="View_ConfirmWorkFlow1s">
+    <Type Name="View_ConfirmWorkFlow1">
+      <Column Name="CustomerCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customers" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Users" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Team" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="Next" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Current]" Member="Current" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Phase" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UsersEmail" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="SendTo" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="CC" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="IsRWO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PackagingMaterial" Member="PackagingMaterials">
+    <Type Name="PackagingMaterial">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(9) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHMaterial" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MRGroup" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MRCode" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="SuppRef" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Specifications" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="QtyPer" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PHUnit" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="WastageOnCAC" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="UOM" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="ExRate" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="AllInPrice" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="MinOrder" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ColorRange" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SizeRange" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CupRange" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Style_PackagingMaterial" Member="Style" ThisKey="Company,StyleNo" OtherKey="Company,StyleNo" Type="Style" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerBrandCategory" Member="CustomerBrandCategories">
+    <Type Name="CustomerBrandCategory">
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Brand" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="StyleNo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StyleDesc" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FlatOrHalfFold" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hookandeye" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShoulderStrapAdjustment" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SizeDispatching" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="BasicRequisition1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BasicRequisition2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BasicRequisition3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ProwBoard" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ExportCtnMeasurement" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CartonBeltRequisition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InnerBoxMeasurement" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Sky_SingleDouble" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Sky_Desc" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="Boat_SingleDouble" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Boat_Desc" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="SideMark_SingleDouble" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SideMark_Desc" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="SideMarkPaper_SingleDouble" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SideMarkPaper_Desc" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="InnerBoxMark_SingleDouble" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InnerBoxMark_Desc" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="MarkerA" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MarkerB" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MarkerC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MarkerD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MarkerE" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BrandA" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BrandB" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BrandC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BrandD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsA" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsB" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsE" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsF" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PlasticBags_Material" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PlasticBags_Depth" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PlasticNeedleStyle" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PlasticNeedleLength" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ClothesHorseStyle" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PackReference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LabelReference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PackMethod" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Img" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="CustomerBrandCategory_CustomerCup" Member="CustomerCups" ThisKey="Customer,CustCode,GID" OtherKey="Customer,CustCode,GID" Type="CustomerCup" />
+      <Association Name="CustomerBrandCategory_CustomerLabeling" Member="CustomerLabelings" ThisKey="Customer,CustCode,GID" OtherKey="Customer,CustCode,GID" Type="CustomerLabeling" />
+      <Association Name="CustomerBrandCategory_CustomerPacking" Member="CustomerPackings" ThisKey="Customer,CustCode,GID" OtherKey="Customer,CustCode,GID" Type="CustomerPacking" />
+      <Association Name="CustomerCode_CustomerBrandCategory" Member="CustomerCode" ThisKey="Customer,CustCode" OtherKey="Customer,CustomerCode1" Type="CustomerCode" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerCup" Member="CustomerCups">
+    <Type Name="CustomerCup">
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClrCode" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cups" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(15,0)" CanBeNull="true" />
+      <Association Name="CustomerBrandCategory_CustomerCup" Member="CustomerBrandCategory" ThisKey="Customer,CustCode,GID" OtherKey="Customer,CustCode,GID" Type="CustomerBrandCategory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerLabeling" Member="CustomerLabelings">
+    <Type Name="CustomerLabeling">
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LabelDescEN" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LabelDescCH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LabelDescTH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Association Name="CustomerBrandCategory_CustomerLabeling" Member="CustomerBrandCategory" ThisKey="Customer,CustCode,GID" OtherKey="Customer,CustCode,GID" Type="CustomerBrandCategory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerPacking" Member="CustomerPackings">
+    <Type Name="CustomerPacking">
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PackDescEN" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="PackDescCH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="PackDescTH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Association Name="CustomerBrandCategory_CustomerPacking" Member="CustomerBrandCategory" ThisKey="Customer,CustCode,GID" OtherKey="Customer,CustCode,GID" Type="CustomerBrandCategory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkOrderCategoryCup" Member="WorkOrderCategoryCups">
+    <Type Name="WorkOrderCategoryCup">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductCategory" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClrCode" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cups" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(15,0)" CanBeNull="true" />
+      <Association Name="WorkOrderCategory_WorkOrderCategoryCup" Member="WorkOrderCategory" ThisKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" OtherKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" Type="WorkOrderCategory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkOrderCategoryLabeling" Member="WorkOrderCategoryLabelings">
+    <Type Name="WorkOrderCategoryLabeling">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductCategory" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LabelDescEN" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LabelDescCH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LabelDescTH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Association Name="WorkOrderCategory_WorkOrderCategoryLabeling" Member="WorkOrderCategory" ThisKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" OtherKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" Type="WorkOrderCategory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkOrderCategoryPacking" Member="WorkOrderCategoryPackings">
+    <Type Name="WorkOrderCategoryPacking">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductCategory" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PackDescEN" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="PackDescCH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="PackDescTH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Association Name="WorkOrderCategory_WorkOrderCategoryPacking" Member="WorkOrderCategory" ThisKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" OtherKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" Type="WorkOrderCategory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WOChooseFW" Member="WOChooseFWs">
+    <Type Name="WOChooseFW">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Seq" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstStation" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FactoryWork" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LineWork" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Chosen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ChosenPerson" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ChosenDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AgreedFWPerson" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AgreedFWDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="WorkOrder_WOChooseFW" Member="WorkOrder" ThisKey="Company,SalesOrderNo,WorkOrderNo" OtherKey="Company,SalesOrderNo,WorkOrderNo" Type="WorkOrder" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoundWorkOrderII" Member="RoundWorkOrderIIs">
+    <Type Name="RoundWorkOrderII">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SubFactory" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RWOCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOReviseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AmendDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FactoryWorkStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LineWorkStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AjustT3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AjustT3DateConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="RoundWorkOrderExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstStationStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstQNStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastQNExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CycleTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OAConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OAConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HeaderConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="HeaderConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TopConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="TopConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PPCConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="PPCConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DirectOperation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RWOVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActionStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActionStatusDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstStation" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="RoundWorkOrderII_RoundWorkOrderDetailII" Member="RoundWorkOrderDetailIIs" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo,SubFactory" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo,SubFactory" Type="RoundWorkOrderDetailII" />
+      <Association Name="RoundWorkOrder_RoundWorkOrderII" Member="RoundWorkOrder" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" Type="RoundWorkOrder" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkOrderColor" Member="WorkOrderColors">
+    <Type Name="WorkOrderColor">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FWOpt2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FWOpt4" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="WorkOrderColor_WorkOrderSKU" Member="WorkOrderSKUs" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode" Type="WorkOrderSKU" />
+      <Association Name="WorkOrderColor_RoundWorkOrder" Member="RoundWorkOrders" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode" Type="RoundWorkOrder" />
+      <Association Name="WorkOrder_WorkOrderColor" Member="WorkOrder" ThisKey="Company,SalesOrderNo,WorkOrderNo" OtherKey="Company,SalesOrderNo,WorkOrderNo" Type="WorkOrder" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_RejectWorkFlow" Member="View_RejectWorkFlows">
+    <Type Name="View_RejectWorkFlow">
+      <Column Name="CustomerCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customers" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Users" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Team" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="Next" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Current]" Member="Current" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Phase" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UsersEmail" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="ParentCurrent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SendTo" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="CC" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="IsRWO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RWOChooseFW" Member="RWOChooseFWs">
+    <Type Name="RWOChooseFW">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Seq" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstStation" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FactoryWork" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LineWork" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Chosen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ChosenPerson" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ChosenDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AgreedFWPerson" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AgreedFWDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="RoundWorkOrder_RWOChooseFW" Member="RoundWorkOrder" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" Type="RoundWorkOrder" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_RWOIIConfirm" Member="View_RWOIIConfirms">
+    <Type Name="View_RWOIIConfirm">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SubFactory" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="CustomerStyleNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RWOCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AmendDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOReviseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FactoryWorkStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CurrRWOVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RWOVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LineWorkStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AjustT3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AjustT3DateConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="FCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OAConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OAConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HeaderConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="HeaderConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TopConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="AppliedToALL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AppliedToPhaseII" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TopConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PPCConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="PPCConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Users" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Next" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Current]" Member="Current" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActionStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WCRoundNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WCRoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BulkQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Project" Member="Projects">
+    <Type Name="Project">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoIssueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Season" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Curr" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="PaymentTerm" Type="System.String" DbType="NVarChar(72)" CanBeNull="true" />
+      <Column Name="DeliveryTerm" Type="System.String" DbType="NVarChar(72)" CanBeNull="true" />
+      <Column Name="ExRate" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="Suspension" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SalesMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PDNDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryAddress" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSEQ" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="Project_WorkOrder" Member="WorkOrders" ThisKey="Company,SalesOrderNo" OtherKey="Company,SalesOrderNo" Type="WorkOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AmendMaster" Member="AmendMasters">
+    <Type Name="AmendMaster">
+      <Column Name="AmendNo" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AmenddReason" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AmendContent" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Confirm_OA" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DT_OA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Confirm_Manager" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DT_Manager" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Confirm_PPC" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DT_PPC" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Confirm_CAD" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DT_CAD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Confirm_Packing" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DT_Packing" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Confirm_Sewing" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DT_Sewing" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="AmendMaster_AmendDetail" Member="AmendDetails" ThisKey="AmendNo,VerId" OtherKey="AmendNo,VerId" Type="AmendDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AmendDetail" Member="AmendDetails">
+    <Type Name="AmendDetail">
+      <Column Name="AmendNo" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="AmendMaster_AmendDetail" Member="AmendMaster" ThisKey="AmendNo,VerId" OtherKey="AmendNo,VerId" Type="AmendMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoundWorkOrder" Member="RoundWorkOrders">
+    <Type Name="RoundWorkOrder">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RWOCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOReviseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AmendDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FactoryWorkStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LineWorkStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AjustT3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AjustT3DateConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="RoundWorkOrderExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstStationStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstQNStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastQNExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CycleTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OAConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OAConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HeaderConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="HeaderConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TopConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="TopConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PPCConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="PPCConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AppliedToPhaseII" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AppliedToALL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AppliedUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AppliedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActionStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActionStatusDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstStation" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NumberOfLine" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ActualDeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TransitDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TransitDateB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TransitDateHK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TransitDateNZ" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TransitDateUK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TransitDateUSA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PlannedShptQtyB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlannedShptQtyHK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlannedShptQtyNZ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlannedShptQtyUK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlannedShptQtyUSA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActualShptQtyB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActualShptQtyHK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActualShptQtyNZ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActualShptQtyUK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActualShptQtyUSA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SpecialFactory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NeedAdjustT3Date" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="aT3DateAccept" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="RoundWorkOrder_RoundWorkOrderDetail" Member="RoundWorkOrderDetails" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" Type="RoundWorkOrderDetail" />
+      <Association Name="RoundWorkOrder_RoundWorkOrderII" Member="RoundWorkOrderIIs" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" Type="RoundWorkOrderII" />
+      <Association Name="RoundWorkOrder_RWOChooseFW" Member="RWOChooseFWs" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,RoundNo" Type="RWOChooseFW" />
+      <Association Name="WorkOrderColor_RoundWorkOrder" Member="WorkOrderColor" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode" Type="WorkOrderColor" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LWPM_Calendar" Member="LWPM_Calendars">
+    <Type Name="LWPM_Calendar">
+      <Column Name="TPLANT" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DATE1" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WKNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SECTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SECTT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SECTC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WDAY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SECTT1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OSECT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WeekDay" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="WeekOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ShipmentSchedule" Member="ShipmentSchedules">
+    <Type Name="ShipmentSchedule">
+      <Column Name="Item" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Style" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Product" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerPO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Client" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Curr" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ETD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClientPrice" Type="System.Decimal" DbType="Decimal(10,4)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CMTPrice" Type="System.Decimal" DbType="Decimal(10,4)" CanBeNull="true" />
+      <Column Name="MaterialPrice" Type="System.Decimal" DbType="Decimal(10,4)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkOrderCategory" Member="WorkOrderCategories">
+    <Type Name="WorkOrderCategory">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductCategory" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Brand" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FlatOrHalfFold" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hookandeye" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShoulderStrapAdjustment" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SizeDispatching" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="BasicRequisition1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BasicRequisition2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BasicRequisition3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ProwBoard" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ExportCtnMeasurement" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CartonBeltRequisition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InnerBoxMeasurement" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Sky_SingleDouble" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Sky_Desc" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="Boat_SingleDouble" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Boat_Desc" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="SideMark_SingleDouble" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SideMark_Desc" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="SideMarkPaper_SingleDouble" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SideMarkPaper_Desc" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="InnerBoxMark_SingleDouble" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InnerBoxMark_Desc" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="MarkerA" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MarkerB" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MarkerC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MarkerD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MarkerE" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BrandA" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BrandB" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BrandC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BrandD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsA" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsB" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsE" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomDecalsF" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PlasticBags_Material" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PlasticBags_Depth" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PlasticNeedleStyle" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PlasticNeedleLength" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ClothesHorseStyle" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PackReference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LabelReference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PackMethod" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Img" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="StyleNo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="StyleDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CasingMethod" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="WorkOrderCategory_WorkOrderCategoryCup" Member="WorkOrderCategoryCups" ThisKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" OtherKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" Type="WorkOrderCategoryCup" />
+      <Association Name="WorkOrderCategory_WorkOrderCategoryLabeling" Member="WorkOrderCategoryLabelings" ThisKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" OtherKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" Type="WorkOrderCategoryLabeling" />
+      <Association Name="WorkOrderCategory_WorkOrderCategoryPacking" Member="WorkOrderCategoryPackings" ThisKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" OtherKey="Company,SalesOrderNo,WorkOrderNo,ProductCategory" Type="WorkOrderCategoryPacking" />
+      <Association Name="WorkOrder_WorkOrderCategory" Member="WorkOrder" ThisKey="Company,SalesOrderNo,WorkOrderNo" OtherKey="Company,SalesOrderNo,WorkOrderNo" Type="WorkOrder" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectDeleteLog" Member="ProjectDeleteLogs">
+    <Type Name="ProjectDeleteLog">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DeleteMan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_WOConfirm" Member="View_WOConfirms">
+    <Type Name="View_WOConfirm">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Users" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Next" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Current]" Member="Current" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsRWO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ActionStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="CustomerStyleNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AmendmentNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShipMode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PackingMethod" Type="System.String" DbType="NVarChar(72)" CanBeNull="true" />
+      <Column Name="WOCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOReviseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3ShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3Adjust" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AjustT3DateConfirm" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="DeliveryShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LCLExFtyShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCLExFtyShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LineWorkStartShip" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LineWorkShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FactoryWorkShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OAConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OAConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HeaderConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="HeaderConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TopConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="TopConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PPCConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="PPCConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="BulkQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LineWorkStartShip_SpecialFactory" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LineWorkShipCompleted_SpecialFactory" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ChosenOption" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_RWOConfirm" Member="View_RWOConfirms">
+    <Type Name="View_RWOConfirm">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="CustomerStyleNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RWOCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AmendDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOReviseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FactoryWorkStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CurrWOVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WOVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LineWorkStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AjustT3Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AjustT3DateConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="FCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LCLExFtyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OAConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OAConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HeaderConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="HeaderConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TopConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="TopConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PPCConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="PPCConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Users" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Next" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsRWO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[Current]" Member="Current" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RoundNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActionStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WCRoundNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WCRoundTotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BulkQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LineWorkStartDate_SpecialFactory" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ChosenOption" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Style" Member="Styles">
+    <Type Name="Style">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(9) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaterialContrastColor" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaterialVariousWidth" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaterialOthers" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaterialOthersRemark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="MaterialDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaterialConfirm" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CuttingBackPart" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CuttingCoverButton" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CuttingMixStyles" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CuttingNotch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CuttingFabircRelax" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CuttingFabircRelaxHours" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cutting1stLace" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Cutting1stLaceClass" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cutting1stLaceWastage" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Cutting2ndLace" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Cutting2ndLaceClass" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cutting2ndLaceWastage" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CuttingOthers" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CuttingOthersRemark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="CuttingDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CuttingConfirm" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TestWashing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestAZO" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestShrinkage" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestFusing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestOEKO" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestElongation" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestOthers" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestOthersRemark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="TestDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TestConfirm" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CustomerStyleNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EndCustCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BrandName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CustomerCollection" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ColorRange" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SizeRange" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CupRange" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CADOthers" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CADOthersRemark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="CADDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Style_PackagingMaterial" Member="PackagingMaterials" ThisKey="Company,StyleNo" OtherKey="Company,StyleNo" Type="PackagingMaterial" />
+      <Association Name="Style_WorkOrder" Member="WorkOrders" ThisKey="Company,StyleNo" OtherKey="Company,StyleNo" Type="WorkOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Email" Member="Emails">
+    <Type Name="Email">
+      <Column Name="OID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Dept" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="EmailTo" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EmailCc" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerCode" Member="CustomerCodes">
+    <Type Name="CustomerCode">
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomerCode" Member="CustomerCode1" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Team" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SizeSystem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerAlias" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Association Name="CustomerCode_CustomerCommission" Member="CustomerCommissions" ThisKey="Customer,CustomerCode1" OtherKey="Customer,CustomerCodeF" Type="CustomerCommission" />
+      <Association Name="CustomerCode_CustomerBrandCategory" Member="CustomerBrandCategories" ThisKey="Customer,CustomerCode1" OtherKey="Customer,CustCode" Type="CustomerBrandCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkOrder" Member="WorkOrders">
+    <Type Name="WorkOrder">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderLine" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="CustomerStyleNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerPO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustStyleTrackingNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerCollection" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AmendmentNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonRange" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShipMode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PackingMethod" Type="System.String" DbType="NVarChar(72)" CanBeNull="true" />
+      <Column Name="WOStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CatNo" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="Destination" Type="System.String" DbType="NVarChar(72)" CanBeNull="true" />
+      <Column Name="BrandName" Type="System.String" DbType="NVarChar(72)" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="HKPrice" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="StyleUPX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DBC" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="ETADate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DCDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CommitmentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PODate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ConfirmedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ratio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxOvershipQtyRatio" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="BulkvsSOQty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StyleOrder" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StyleRevision" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SAH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BaseSize" Type="System.String" DbType="NVarChar(72)" CanBeNull="true" />
+      <Column Name="SizeMatrix" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Composition" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="Notepad" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="OAConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OAConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HeaderConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="HeaderConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TopConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="TopConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PPCConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="PPCConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryStartShip" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ClosingStartShip" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ClosingShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOReviseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FactoryWorkStartShip" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FactoryWorkShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LineWorkStartShip" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LineWorkShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3StartShip" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3ShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="T3Adjust" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AjustT3DateConfirm" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="LCLExFtyStartShip" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LCLExFtyShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCLExFtyStartShip" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCLExFtyShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TestWashing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestAZO" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestShrinkage" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestFusing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestOEKO" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestElongation" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestOthers" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestOthersRemark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="TestDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TestConfirm" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CuttingMixStyles" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CuttingOthers" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CuttingOthersRemark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SampleDesptachQtyAndDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ActionStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActionStatusDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PackReference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LabelReference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FirstStationStartShip" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstStationShipCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NumberOfLine" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EFF" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CU" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WF" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ShipModeChangeRemark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Line_SAH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TransitDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ProductPrice" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="SpecialFactory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AssignFactory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CasingMethod" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BulkShipmentQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BulkSampleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BulkSampleQty_PPWs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BulkSampleQty_Sewing" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleIsArranged" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SampleOrderNOs" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="SampleOrderNOCreater" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SampleOrderNOCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WOQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IncompleteWOReasonCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="WorkOrder_WorkOrderVersion" Member="WorkOrderVersions" ThisKey="Company,SalesOrderNo,WorkOrderNo" OtherKey="Company,SalesOrderNo,WorkOrderNo" Type="WorkOrderVersion" />
+      <Association Name="WorkOrder_WOChooseFW" Member="WOChooseFWs" ThisKey="Company,SalesOrderNo,WorkOrderNo" OtherKey="Company,SalesOrderNo,WorkOrderNo" Type="WOChooseFW" />
+      <Association Name="WorkOrder_WorkOrderColor" Member="WorkOrderColors" ThisKey="Company,SalesOrderNo,WorkOrderNo" OtherKey="Company,SalesOrderNo,WorkOrderNo" Type="WorkOrderColor" />
+      <Association Name="WorkOrder_WorkOrderCategory" Member="WorkOrderCategories" ThisKey="Company,SalesOrderNo,WorkOrderNo" OtherKey="Company,SalesOrderNo,WorkOrderNo" Type="WorkOrderCategory" />
+      <Association Name="Project_WorkOrder" Member="Project" ThisKey="Company,SalesOrderNo" OtherKey="Company,SalesOrderNo" Type="Project" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Style_WorkOrder" Member="Style" ThisKey="Company,StyleNo" OtherKey="Company,StyleNo" Type="Style" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WONotepadReason" Member="WONotepadReasons">
+    <Type Name="WONotepadReason">
+      <Column Name="OID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Seq" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NameEN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="NameCN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkOrderSample" Member="WorkOrderSamples">
+    <Type Name="WorkOrderSample">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkOrderNo" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SampleID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SampleType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WorkShop" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="SampleDespatchDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SampleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AddressTo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Symbol" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ActualSampleDespatchDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ApproveDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="KeepQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleDespatchDate_Next" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActualSampleDespatchDate_Next" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ApproveDate_Next" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ApproveStatus" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ApproveStatus_Next" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="WorkOrderSKU_WorkOrderSample" Member="WorkOrderSKU" ThisKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,Cup,Size" OtherKey="Company,SalesOrderNo,WorkOrderNo,ColorCode,Cup,Size" Type="WorkOrderSKU" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PaymentTerms" Member="PaymentTerms">
+    <Type Name="PaymentTerm">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Explanation" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Association Name="PaymentTerm_PaymentTermsDetail" Member="PaymentTermsDetails" ThisKey="OID" OtherKey="PaymentTermsOID" Type="PaymentTermsDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PaymentTermsDetail" Member="PaymentTermsDetails">
+    <Type Name="PaymentTermsDetail">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PaymentTermsOID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Explanation" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Association Name="PaymentTerm_PaymentTermsDetail" Member="PaymentTerm" ThisKey="PaymentTermsOID" OtherKey="OID" Type="PaymentTerm" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LWPM_CustomerProfile" Member="LWPM_CustomerProfiles">
+    <Type Name="LWPM_CustomerProfile">
+      <Column Name="SEQ" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SeqNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CUST" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="LST2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TPLANT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PMTH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="LST2D" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FRST" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="EXFWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EXFTM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="EXFDAY" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="LSTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="BZJS" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="CJSWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CJSSJ" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="REMK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AEXFWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AEXFTM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ACJSWK" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ACJSSJ" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LPORT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ALPORT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="FCUST" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PGRP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AGT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ADDR" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PORTL" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="LMTH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SDUE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IRATIO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TTIME" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ITIME" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ATTIME" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ETD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AETD" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="GRP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="YSZQ" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="RQTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BZNY" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ACT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RLINE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RQTY1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CGRP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="YSZQ1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ORDDAY" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PSP1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PSP2" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MPUR1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MPUR2" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ01" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ0" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="SP1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="TCT1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="TCT2" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AB2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AB3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ORDDAY_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PSP1_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PSP2_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MPUR1_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MPUR2_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="FRST_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="LSTR_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ1_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ0_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="YSZQ01_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="SP1_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="TCT1_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="TCT2_R" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="LPORT1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="EXFWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EXFTM1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CJSWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CJSSJ1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ETD1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TTIME1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ALPORT1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AEXFWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AEXFTM1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ACJSWK1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ACJSSJ1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AETD1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ATTIME1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="T3CT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SEWBOND" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="OSP" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ITDT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ACDT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DTDIFF" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DSEQ" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PORTL1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PersonInCharge" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ShippedGmtsAcceptableShortShip" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OceanLCLOutboundHandlingLoading" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OceanLCLOutboundHandlingBoarding" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OceanFCLOutboundHandlingLoading" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OceanFCLOutboundHandlingBoarding" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AirLCLOutboundHandlingLoading" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AirLCLOutboundHandlingBoarding" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SWW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentTermsCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PaymentTermsDescription" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CT2RepeatDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentTermsFromCustPO" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PaymentTermsFromCustPOExplanation" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="OceanLCLExftWkFlag" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="OceanLCLClosingWkFlag" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AirLCLExftWkFlag" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AirLCLClosingWkFlag" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="StatusDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="RegionCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MobilePhone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AttnPerson" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AgentName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

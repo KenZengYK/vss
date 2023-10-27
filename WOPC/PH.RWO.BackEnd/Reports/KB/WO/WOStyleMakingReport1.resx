@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="Detail.Name" xml:space="preserve">
+    <value>Detail</value>
+  </metadata>
+  <metadata name="lbTips.Name" xml:space="preserve">
+    <value>lbTips</value>
+  </metadata>
+  <data name="lbTips.Text" xml:space="preserve">
+    <value>Tips/ข้อมูลเสริม:
+
+1)The samples qty made in PWs, will add a mark " * " b4 sample type on Work Order report.   For example, CMS, SH,...
+  จำนวนตัวอย่างที่เย็บในไลน์ จะมีการเพิ่ม ดาว " * " ที่ด้านหน้าโค้ดชนิดของตัวอย่าง บน เอกสารใบสั่งผลิต (ใบ เวิร์คออเดอร์)  .   ยกตัวอย่าง เช่น ตัวอย่าง ตัวอย่าง CMS , ตัวอย่างออกของชิบเม้นท์SH ...
+
+2)The samples qty just for material reserves, but no need make, will add a mark " ** " b4 sample type on Work Order report.    For example, Trim Card,...
+  จำนวนตัวอย่างที่มีการสั่งวัตถุดิบรวมใน เอ็มอาร์ แต่ไม่ต้องเย็บจริง จะมีการเพิ่มสองดาว " ** " ด้านหน้าโค้ดชนิดของตัวอย่าง  บน เอกสารใบสั่งผลิต (ใบ เวิร์คออเดอร์)  .    ยกตัวอย่าง เช่น เอกสารติดตัวอย่างวัตถุดิบเย็บ , เป็นต้น  ,.......
+
+3)The samples qty made in PPWs, the material also reserves, but PPC will arrange to cut for PPWs b4 bulk production, so will not add any marks on Work Order report.    For example, Pilot Sample, PP sample...
+  จำนวนตัวอย่างเย็บในห้องตัวอย่าง , วัตถุดิบมีการสี่งรวมในเอ็มอาร์ แต่ทาง พีพีซีวางแผนให้ตัดก่อน ฉะนั้นไม่ต้องวางมาร์กเกอร์รวมกับงานเย็บในไลน์.    ยกตัวอย่าง เช่น ตัวอย่างไพล็อต์, ตัวอย่างทดลองก่อนผลิต , เป็นต้น ...</value>
+  </data>
+  <metadata name="lblCuttingMixStyles1.Name" xml:space="preserve">
+    <value>lblCuttingMixStyles1</value>
+  </metadata>
+  <metadata name="lblCuttingBackPart.Name" xml:space="preserve">
+    <value>lblCuttingBackPart</value>
+  </metadata>
+  <metadata name="lblTestNon.Name" xml:space="preserve">
+    <value>lblTestNon</value>
+  </metadata>
+  <metadata name="ckbTestNon.Name" xml:space="preserve">
+    <value>ckbTestNon</value>
+  </metadata>
+  <metadata name="lblCuttingDate.Name" xml:space="preserve">
+    <value>lblCuttingDate</value>
+  </metadata>
+  <metadata name="lblMaterialDate.Name" xml:space="preserve">
+    <value>lblMaterialDate</value>
+  </metadata>
+  <metadata name="lblCuttingNon.Name" xml:space="preserve">
+    <value>lblCuttingNon</value>
+  </metadata>
+  <metadata name="ckbCuttingNon.Name" xml:space="preserve">
+    <value>ckbCuttingNon</value>
+  </metadata>
+  <metadata name="lblTestDate.Name" xml:space="preserve">
+    <value>lblTestDate</value>
+  </metadata>
+  <metadata name="lblMaterialNon.Name" xml:space="preserve">
+    <value>lblMaterialNon</value>
+  </metadata>
+  <metadata name="ckbMaterialNon.Name" xml:space="preserve">
+    <value>ckbMaterialNon</value>
+  </metadata>
+  <metadata name="lblTestOthersRemark.Name" xml:space="preserve">
+    <value>lblTestOthersRemark</value>
+  </metadata>
+  <metadata name="lblTestOthers.Name" xml:space="preserve">
+    <value>lblTestOthers</value>
+  </metadata>
+  <metadata name="ckbTestOthers.Name" xml:space="preserve">
+    <value>ckbTestOthers</value>
+  </metadata>
+  <metadata name="lblTestElongation.Name" xml:space="preserve">
+    <value>lblTestElongation</value>
+  </metadata>
+  <metadata name="ckbTestElongation.Name" xml:space="preserve">
+    <value>ckbTestElongation</value>
+  </metadata>
+  <metadata name="lblTestOEKO.Name" xml:space="preserve">
+    <value>lblTestOEKO</value>
+  </metadata>
+  <metadata name="ckbTestOEKO.Name" xml:space="preserve">
+    <value>ckbTestOEKO</value>
+  </metadata>
+  <metadata name="lblTestFusing.Name" xml:space="preserve">
+    <value>lblTestFusing</value>
+  </metadata>
+  <metadata name="ckbTestFusing.Name" xml:space="preserve">
+    <value>ckbTestFusing</value>
+  </metadata>
+  <metadata name="lblTestShrinkage.Name" xml:space="preserve">
+    <value>lblTestShrinkage</value>
+  </metadata>
+  <metadata name="ckbTestShrinkage.Name" xml:space="preserve">
+    <value>ckbTestShrinkage</value>
+  </metadata>
+  <metadata name="lblTestAZO.Name" xml:space="preserve">
+    <value>lblTestAZO</value>
+  </metadata>
+  <metadata name="ckbTestAZO.Name" xml:space="preserve">
+    <value>ckbTestAZO</value>
+  </metadata>
+  <metadata name="lblTestWashing.Name" xml:space="preserve">
+    <value>lblTestWashing</value>
+  </metadata>
+  <metadata name="ckbTestWashing.Name" xml:space="preserve">
+    <value>ckbTestWashing</value>
+  </metadata>
+  <metadata name="lblTest.Name" xml:space="preserve">
+    <value>lblTest</value>
+  </metadata>
+  <metadata name="lblCuttingFabircRelax.Name" xml:space="preserve">
+    <value>lblCuttingFabircRelax</value>
+  </metadata>
+  <metadata name="ckbCuttingFabircRelax.Name" xml:space="preserve">
+    <value>ckbCuttingFabircRelax</value>
+  </metadata>
+  <metadata name="lblCuttingNotch.Name" xml:space="preserve">
+    <value>lblCuttingNotch</value>
+  </metadata>
+  <metadata name="ckbCuttingNotch.Name" xml:space="preserve">
+    <value>ckbCuttingNotch</value>
+  </metadata>
+  <metadata name="lblCuttingMixStyles.Name" xml:space="preserve">
+    <value>lblCuttingMixStyles</value>
+  </metadata>
+  <metadata name="ckbCuttingMixStyles.Name" xml:space="preserve">
+    <value>ckbCuttingMixStyles</value>
+  </metadata>
+  <metadata name="lblCuttingCoverButton.Name" xml:space="preserve">
+    <value>lblCuttingCoverButton</value>
+  </metadata>
+  <metadata name="ckbCuttingCoverButton.Name" xml:space="preserve">
+    <value>ckbCuttingCoverButton</value>
+  </metadata>
+  <metadata name="lblCuttingBackPart1.Name" xml:space="preserve">
+    <value>lblCuttingBackPart1</value>
+  </metadata>
+  <metadata name="ckbCuttingBackPart.Name" xml:space="preserve">
+    <value>ckbCuttingBackPart</value>
+  </metadata>
+  <metadata name="lblCutting.Name" xml:space="preserve">
+    <value>lblCutting</value>
+  </metadata>
+  <metadata name="lblCuttingOthersRemark.Name" xml:space="preserve">
+    <value>lblCuttingOthersRemark</value>
+  </metadata>
+  <metadata name="lblCuttingOthers.Name" xml:space="preserve">
+    <value>lblCuttingOthers</value>
+  </metadata>
+  <metadata name="ckbCuttingOthers.Name" xml:space="preserve">
+    <value>ckbCuttingOthers</value>
+  </metadata>
+  <metadata name="lblCutting2ndLace.Name" xml:space="preserve">
+    <value>lblCutting2ndLace</value>
+  </metadata>
+  <metadata name="ckbCutting2ndLace.Name" xml:space="preserve">
+    <value>ckbCutting2ndLace</value>
+  </metadata>
+  <metadata name="lblCutting1stLace.Name" xml:space="preserve">
+    <value>lblCutting1stLace</value>
+  </metadata>
+  <metadata name="ckbCutting1stLace.Name" xml:space="preserve">
+    <value>ckbCutting1stLace</value>
+  </metadata>
+  <metadata name="lblMaterialOthersRemark.Name" xml:space="preserve">
+    <value>lblMaterialOthersRemark</value>
+  </metadata>
+  <metadata name="lblMaterialOthers.Name" xml:space="preserve">
+    <value>lblMaterialOthers</value>
+  </metadata>
+  <metadata name="ckbMaterialOthers.Name" xml:space="preserve">
+    <value>ckbMaterialOthers</value>
+  </metadata>
+  <metadata name="lblMaterialVariousWidth.Name" xml:space="preserve">
+    <value>lblMaterialVariousWidth</value>
+  </metadata>
+  <metadata name="ckbMaterialVariousWidth.Name" xml:space="preserve">
+    <value>ckbMaterialVariousWidth</value>
+  </metadata>
+  <metadata name="lblMaterialContrastColor.Name" xml:space="preserve">
+    <value>lblMaterialContrastColor</value>
+  </metadata>
+  <metadata name="ckbMaterialContrastColor.Name" xml:space="preserve">
+    <value>ckbMaterialContrastColor</value>
+  </metadata>
+  <metadata name="lblMaterial.Name" xml:space="preserve">
+    <value>lblMaterial</value>
+  </metadata>
+  <metadata name="xrLabel12.Name" xml:space="preserve">
+    <value>xrLabel12</value>
+  </metadata>
+  <metadata name="xrCrossBandBox1.Name" xml:space="preserve">
+    <value>xrCrossBandBox1</value>
+  </metadata>
+  <metadata name="csHeader1.Name" xml:space="preserve">
+    <value>csHeader1</value>
+  </metadata>
+  <metadata name="csHeaderCheckBox.Name" xml:space="preserve">
+    <value>csHeaderCheckBox</value>
+  </metadata>
+  <metadata name="csDetail1.Name" xml:space="preserve">
+    <value>csDetail1</value>
+  </metadata>
+  <metadata name="csDetail2.Name" xml:space="preserve">
+    <value>csDetail2</value>
+  </metadata>
+  <metadata name="csDetailCheckBox.Name" xml:space="preserve">
+    <value>csDetailCheckBox</value>
+  </metadata>
+  <metadata name="csDetail3.Name" xml:space="preserve">
+    <value>csDetail3</value>
+  </metadata>
+  <metadata name="csFooter.Name" xml:space="preserve">
+    <value>csFooter</value>
+  </metadata>
+  <metadata name="csTitle.Name" xml:space="preserve">
+    <value>csTitle</value>
+  </metadata>
+  <metadata name="bindingSource1.Name" xml:space="preserve">
+    <value>bindingSource1</value>
+  </metadata>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Name" xml:space="preserve">
+    <value>WOStyleMakingReport1</value>
+  </metadata>
+  <metadata name="$this.SnapToGrid" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+</root>
