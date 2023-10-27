@@ -1,0 +1,33 @@
+unit styleimgformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxContainer, cxEdit, ExtDlgs, StdCtrls, Buttons, Mask, DBCtrls, ExtCtrls,
+  cxImage;
+
+type
+  Tfrmstyleimg = class(TForm)
+    cxImage1: TcxImage;
+    Panel1: TPanel;
+    Label11: TLabel;
+    SpeedButton6: TSpeedButton;
+    DBEdit8: TDBEdit;
+    BitBtn1: TBitBtn;
+    OpenPictureDialog1: TOpenPictureDialog;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmstyleimg: Tfrmstyleimg;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,180 @@
+unit SampleReport1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ppMemo, ppBands, ppCtrls, myChkBox, ppPrnabl, ppClass, ppStrtch,
+  ppRegion, ppCache, ppComm, ppRelatv, ppProd, ppReport,ppViewr, variants;
+
+type
+  TFrmsampleReport1 = class(TForm)
+    ppReport2: TppReport;
+    ppHeaderBand2: TppHeaderBand;
+    ppRegion7: TppRegion;
+    ppShape53: TppShape;
+    ppShape51: TppShape;
+    ppShape52: TppShape;
+    ppShape43: TppShape;
+    ppShape44: TppShape;
+    ppLine5: TppLine;
+    ppLabel60: TppLabel;
+    ppLabel61: TppLabel;
+    ppLabel62: TppLabel;
+    ppLabel63: TppLabel;
+    myDBCheckBox1: TmyDBCheckBox;
+    ppLabel64: TppLabel;
+    myDBCheckBox2: TmyDBCheckBox;
+    ppLabel65: TppLabel;
+    ppLabel71: TppLabel;
+    ppLabel72: TppLabel;
+    ppLabel73: TppLabel;
+    ppLabel74: TppLabel;
+    ppLabel75: TppLabel;
+    ppLabel76: TppLabel;
+    ppLabel77: TppLabel;
+    ppLabel78: TppLabel;
+    ppLabel79: TppLabel;
+    ppLabel80: TppLabel;
+    ppLabel81: TppLabel;
+    ppLabel82: TppLabel;
+    ppLabel83: TppLabel;
+    ppLabel84: TppLabel;
+    ppLabel85: TppLabel;
+    ppLine7: TppLine;
+    ppDBText126: TppDBText;
+    ppDBText127: TppDBText;
+    ppDBText128: TppDBText;
+    ppDBText129: TppDBText;
+    ppDBText130: TppDBText;
+    ppDBText131: TppDBText;
+    ppDBText132: TppDBText;
+    ppDBText133: TppDBText;
+    ppDBText134: TppDBText;
+    ppDBText135: TppDBText;
+    ppDBText136: TppDBText;
+    ppDBText137: TppDBText;
+    ppLine6: TppLine;
+    ppLabel315: TppLabel;
+    ppLabel316: TppLabel;
+    ppLabel53: TppLabel;
+    ppLabel54: TppLabel;
+    ppLine14: TppLine;
+    ppLabel55: TppLabel;
+    ppRegion36: TppRegion;
+    ppShape97: TppShape;
+    ppShape98: TppShape;
+    ppShape117: TppShape;
+    ppLine34: TppLine;
+    ppLabel56: TppLabel;
+    ppLabel57: TppLabel;
+    ppLabel58: TppLabel;
+    ppLabel59: TppLabel;
+    ppLabel136: TppLabel;
+    ppShape120: TppShape;
+    ppDBText95: TppDBText;
+    ppDBText96: TppDBText;
+    ppDBText117: TppDBText;
+    ppDBText118: TppDBText;
+    ppDBText119: TppDBText;
+    ppLabel344: TppLabel;
+    ppDBText120: TppDBText;
+    ppLine51: TppLine;
+    ppLine52: TppLine;
+    ppLine53: TppLine;
+    ppLine54: TppLine;
+    ppLine55: TppLine;
+    ppLine56: TppLine;
+    ppDetailBand2: TppDetailBand;
+    ppRegion8: TppRegion;
+    ppDBText121: TppDBText;
+    ppShape50: TppShape;
+    ppDBText122: TppDBText;
+    ppDBText123: TppDBText;
+    ppShape65: TppShape;
+    ppDBText124: TppDBText;
+    ppDBText125: TppDBText;
+    ppDBText150: TppDBText;
+    ppShape68: TppShape;
+    ppShape69: TppShape;
+    ppShape70: TppShape;
+    ppDBText151: TppDBText;
+    ppDBText152: TppDBText;
+    ppDBText153: TppDBText;
+    ppDBText154: TppDBText;
+    ppDBText155: TppDBText;
+    ppDBText156: TppDBText;
+    ppDBText209: TppDBText;
+    ppFooterBand2: TppFooterBand;
+    ppSummaryBand3: TppSummaryBand;
+    ppRegion9: TppRegion;
+    ppLabel88: TppLabel;
+    ppMemo6: TppMemo;
+    ppLabel89: TppLabel;
+    ppLabel90: TppLabel;
+    ppLabel91: TppLabel;
+    ppLabel92: TppLabel;
+    ppLabel303: TppLabel;
+    ppLabel340: TppLabel;
+    ppLabel341: TppLabel;
+    ppLabel342: TppLabel;
+    ppLabel343: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppRegion1: TppRegion;
+    ppImage1: TppImage;
+    ppRegion2: TppRegion;
+    ppImage2: TppImage;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    procedure ppSummaryBand3BeforePrint(Sender: TObject);
+    procedure ppReport2PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmsampleReport1: TFrmsampleReport1;
+
+implementation
+
+uses print2u, sampletblu;
+
+{$R *.DFM}
+
+procedure TFrmsampleReport1.ppSummaryBand3BeforePrint(Sender: TObject);
+var
+  i:integer;
+begin
+  ppmemo6.Lines.clear;
+  for i:=0 to frmsampletbl.DBMemo1.Lines.Count-1 do
+  begin
+    if not (frmsampletbl.dbmemo1.lines[i]=null) then
+    ppmemo6.Lines.add(frmsampletbl.dbmemo1.lines[i]);
+  end;
+end;
+
+procedure TFrmsampleReport1.ppReport2PreviewFormCreate(Sender: TObject);
+begin
+  ppReport2.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport2.PreviewForm.Viewer).ZoomSetting:=zs100percent;
+end;
+
+end.

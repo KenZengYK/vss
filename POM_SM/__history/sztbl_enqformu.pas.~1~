@@ -1,0 +1,26 @@
+unit sztbl_enqformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  Tfrm_sztbl_enq = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_sztbl_enq: Tfrm_sztbl_enq;
+
+implementation
+
+uses mainu, libraryu;
+
+{$R *.dfm}
+
+end.

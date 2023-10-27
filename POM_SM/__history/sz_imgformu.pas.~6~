@@ -1,0 +1,73 @@
+unit sz_imgformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, graphicex, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxContainer, cxEdit, cxImage, StdCtrls, Buttons,
+  Mask, DBCtrls, ExtCtrls, ExtDlgs, RzBckgnd;
+
+type
+  Tfrmsz_img = class(TForm)
+    cxImage1: TcxImage;
+    Panel1: TPanel;
+    Label11: TLabel;
+    DBEdit8: TDBEdit;
+    SpeedButton6: TSpeedButton;
+    BitBtn1: TBitBtn;
+    OpenPictureDialog1: TOpenPictureDialog;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBEdit8Change(Sender: TObject);
+    procedure SpeedButton6Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsz_img: Tfrmsz_img;
+
+implementation
+
+uses mainu, libraryu;
+
+{$R *.dfm}
+
+procedure Tfrmsz_img.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmsz_img:=nil;
+end;
+
+procedure Tfrmsz_img.DBEdit8Change(Sender: TObject);
+begin
+  if dbedit8.Text>'' then cximage1.Picture.LoadFromFile(dbedit8.text);
+end;
+
+procedure Tfrmsz_img.SpeedButton6Click(Sender: TObject);
+begin
+  if frmlibrary.lblr8.caption='R8' then begin
+    if openpicturedialog1.Execute then begin
+      frmlibrary.Table1.Edit;
+      frmlibrary.Table1.fieldbyname('img').value:=openpicturedialog1.FileName;
+      frmlibrary.Table1.fieldbyname('img1').value:='Y';
+    end;
+  end;
+end;
+
+procedure Tfrmsz_img.FormShow(Sender: TObject);
+begin
+  try
+    if not frmlibrary.Table1.fieldbyname('img').isnull then begin
+      if frmlibrary.table1.fieldbyname('img').value>'' then
+      cximage1.Picture.LoadFromFile(frmlibrary.Table1.fieldbyname('img').value);
+    end;
+  except
+
+  end;
+end;
+
+end.

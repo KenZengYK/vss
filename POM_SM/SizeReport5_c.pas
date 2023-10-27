@@ -1,0 +1,162 @@
+unit SizeReport5_c;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ppMemo, ppBands, ppCtrls, ppStrtch, ppRegion, ppPrnabl, ppClass, ppCache,
+  ppComm, ppRelatv, ppProd, ppReport,ppViewr, variants;
+
+type
+  TFrmSizeReport5_c = class(TForm)
+    ppReport3: TppReport;
+    ppHeaderBand3: TppHeaderBand;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppDBText59: TppDBText;
+    ppLabel29: TppLabel;
+    ppDBText60: TppDBText;
+    ppLabel30: TppLabel;
+    ppDBText61: TppDBText;
+    ppRegion4: TppRegion;
+    ppShape26: TppShape;
+    ppShape27: TppShape;
+    ppShape28: TppShape;
+    ppShape29: TppShape;
+    ppShape30: TppShape;
+    ppShape31: TppShape;
+    ppLabel31: TppLabel;
+    ppLabel32: TppLabel;
+    ppLabel33: TppLabel;
+    ppShape32: TppShape;
+    ppLabel34: TppLabel;
+    ppLabel35: TppLabel;
+    ppLabel36: TppLabel;
+    ppLabel37: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel39: TppLabel;
+    ppLabel40: TppLabel;
+    ppLabel41: TppLabel;
+    ppLabel42: TppLabel;
+    ppLabel43: TppLabel;
+    ppLabel44: TppLabel;
+    ppLabel45: TppLabel;
+    ppLabel46: TppLabel;
+    ppLabel47: TppLabel;
+    ppLabel48: TppLabel;
+    ppDBText62: TppDBText;
+    ppDBText63: TppDBText;
+    ppDBText64: TppDBText;
+    ppDBText65: TppDBText;
+    ppDBText66: TppDBText;
+    ppDBText67: TppDBText;
+    ppDBText68: TppDBText;
+    ppDBText69: TppDBText;
+    ppDBText70: TppDBText;
+    ppDBText71: TppDBText;
+    ppDBText72: TppDBText;
+    ppDBText73: TppDBText;
+    ppDBText74: TppDBText;
+    ppDBText75: TppDBText;
+    ppDBText76: TppDBText;
+    ppDBText77: TppDBText;
+    ppLabel309: TppLabel;
+    ppLabel310: TppLabel;
+    ppLabel93: TppLabel;
+    ppLine11: TppLine;
+    ppLabel307: TppLabel;
+    ppRegion25: TppRegion;
+    ppLine41: TppLine;
+    ppRegion27: TppRegion;
+    ppShape58: TppShape;
+    ppShape57: TppShape;
+    ppShape48: TppShape;
+    ppLine31: TppLine;
+    ppLabel325: TppLabel;
+    ppLabel326: TppLabel;
+    ppLabel327: TppLabel;
+    ppLabel328: TppLabel;
+    ppLabel329: TppLabel;
+    ppShape59: TppShape;
+    ppLine39: TppLine;
+    ppLine40: TppLine;
+    ppDetailBand3: TppDetailBand;
+    ppRegion5: TppRegion;
+    ppShape33: TppShape;
+    ppDBText94: TppDBText;
+    ldwz: TppDBText;
+    ppShape34: TppShape;
+    ppShape35: TppShape;
+    ppShape36: TppShape;
+    ppShape37: TppShape;
+    ppShape38: TppShape;
+    ppDBText97: TppDBText;
+    mthd3: TppDBText;
+    ppDBText99: TppDBText;
+    ppDBText100: TppDBText;
+    ppDBText101: TppDBText;
+    ppDBText102: TppDBText;
+    ppDBText103: TppDBText;
+    ppDBText104: TppDBText;
+    ppDBText105: TppDBText;
+    ppDBText106: TppDBText;
+    ppDBText107: TppDBText;
+    ppFooterBand3: TppFooterBand;
+    ppSummaryBand2: TppSummaryBand;
+    ppRegion6: TppRegion;
+    ppLabel52: TppLabel;
+    ppMemo2: TppMemo;
+    ppLabel49: TppLabel;
+    ppLabel50: TppLabel;
+    ppLabel51: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    procedure ppSummaryBand2BeforePrint(Sender: TObject);
+    procedure ppDetailBand3BeforePrint(Sender: TObject);
+    procedure ppReport3PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmSizeReport5_c: TFrmSizeReport5_c;
+
+implementation
+
+uses siztblu, print2u;
+
+{$R *.DFM}
+
+procedure TFrmSizeReport5_c.ppSummaryBand2BeforePrint(Sender: TObject);
+var
+  i:integer;
+begin
+  ppmemo2.Lines.clear;
+  for i:=0 to frmsiztbl.DBMemo1.Lines.Count-1 do
+  begin
+    if not (frmsiztbl.dbmemo1.lines[i]=null) then
+    ppmemo2.Lines.add(frmsiztbl.dbmemo1.lines[i]);
+  end;
+end;
+
+procedure TFrmSizeReport5_c.ppDetailBand3BeforePrint(Sender: TObject);
+begin
+  if length(ppdbtext100.text)>4 then ppdbtext100.font.size:=6 else ppdbtext100.font.size:=8;
+  if length(ppdbtext101.text)>4 then ppdbtext101.font.size:=6 else ppdbtext101.font.size:=8;
+  if length(ppdbtext102.text)>4 then ppdbtext102.font.size:=6 else ppdbtext102.font.size:=8;
+  if length(ppdbtext103.text)>4 then ppdbtext103.font.size:=6 else ppdbtext103.font.size:=8;
+  if length(ppdbtext104.text)>4 then ppdbtext104.font.size:=6 else ppdbtext104.font.size:=8;
+  if length(ppdbtext105.text)>4 then ppdbtext105.font.size:=6 else ppdbtext105.font.size:=8;
+  if length(ppdbtext106.text)>4 then ppdbtext106.font.size:=6 else ppdbtext106.font.size:=8;
+  if length(ppdbtext107.text)>4 then ppdbtext107.font.size:=6 else ppdbtext107.font.size:=8;
+end;
+
+procedure TFrmSizeReport5_c.ppReport3PreviewFormCreate(Sender: TObject);
+begin
+  ppReport3.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport3.PreviewForm.Viewer).zoompercentage:=100;
+end;
+
+end.

@@ -1,0 +1,260 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{BE46C99B-8654-46E5-B65A-A19F77492538}</ProjectGuid>
+			<MainSource>POM_SM.dpr</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>12.0</ProjectVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_UsePackage>VCL50;VCLX50;VCLSMP50;VCLDB50;VCLADO50;ibevnt50;VCLBDE50;VCLDBX50;QRPT50;TEEUI50;TEEDB50;TEE50;DSS50;TEEQR50;VCLIB50;VCLMID50;VCLIE50;INETDB50;INET50;NMFAST50;WEBMID50;dclocx50;dclaxserver50;mtQRd5;ip50client_d5;IP50_D5;IP50WORD_D5;RBCIDE55;RBIDE55;RBRCL55;RBBDE55;RBUSER55;RBTDBC51;RBRIDE55;RBRAP55;RBDBDE55;RBDAD55;RBDIDE55;RXCTL5;RXDB5;RXBDE5;CPORTLIB5</DCC_UsePackage>
+			<DCC_UNSAFE_TYPE>true</DCC_UNSAFE_TYPE>
+			<DCC_UNSAFE_CODE>true</DCC_UNSAFE_CODE>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;WinTypes=Windows;WinProcs=Windows;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_Platform>x86</DCC_Platform>
+			<DCC_DependencyCheckOutputName>POM_SM.exe</DCC_DependencyCheckOutputName>
+			<DCC_UNSAFE_CAST>true</DCC_UNSAFE_CAST>
+			<DCC_K>false</DCC_K>
+			<DCC_N>true</DCC_N>
+			<DCC_S>false</DCC_S>
+			<DCC_F>false</DCC_F>
+			<DCC_WriteableConstants>true</DCC_WriteableConstants>
+			<DCC_SymbolReferenceInfo>1</DCC_SymbolReferenceInfo>
+			<DCC_E>false</DCC_E>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="POM_SM.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="mainu.pas">
+				<Form>frmmain</Form>
+			</DCCReference>
+			<DCCReference Include="libraryu.pas">
+				<Form>frmlibrary</Form>
+			</DCCReference>
+			<DCCReference Include="sampletblu.pas">
+				<Form>frmsampletbl</Form>
+			</DCCReference>
+			<DCCReference Include="siztblu.pas">
+				<Form>frmsiztbl</Form>
+			</DCCReference>
+			<DCCReference Include="printu.pas">
+				<Form>frmprint</Form>
+			</DCCReference>
+			<DCCReference Include="wzxzu.pas">
+				<Form>frmwzxz</Form>
+			</DCCReference>
+			<DCCReference Include="usru.pas">
+				<Form>frmusr</Form>
+			</DCCReference>
+			<DCCReference Include="athru.pas">
+				<Form>frmathr</Form>
+			</DCCReference>
+			<DCCReference Include="loginu.pas">
+				<Form>frmlogin</Form>
+			</DCCReference>
+			<DCCReference Include="stcpy1u.pas">
+				<Form>frmstcpy1</Form>
+			</DCCReference>
+			<DCCReference Include="mtolu.pas">
+				<Form>frmmtol</Form>
+			</DCCReference>
+			<DCCReference Include="print2u.pas">
+				<Form>frmprint2</Form>
+			</DCCReference>
+			<DCCReference Include="stylu.pas">
+				<Form>frmstyl</Form>
+			</DCCReference>
+			<DCCReference Include="prdprintu.pas">
+				<Form>frmprdprint</Form>
+			</DCCReference>
+			<DCCReference Include="prdprint1u.pas">
+				<Form>frmprdprint1</Form>
+			</DCCReference>
+			<DCCReference Include="insertsizu.pas">
+				<Form>frminsertsiz</Form>
+			</DCCReference>
+			<DCCReference Include="insertsiz1u.pas">
+				<Form>frminsertsiz1</Form>
+			</DCCReference>
+			<DCCReference Include="SizeReport3.pas">
+				<Form>FrmSizeReport3</Form>
+			</DCCReference>
+			<DCCReference Include="SampleReport3.pas">
+				<Form>FrmsampleReport3</Form>
+			</DCCReference>
+			<DCCReference Include="SizeReport3_c.pas">
+				<Form>FrmSizeReport3_c</Form>
+			</DCCReference>
+			<DCCReference Include="SampleReport3_c.pas">
+				<Form>frmSampleReport3_c</Form>
+			</DCCReference>
+			<DCCReference Include="SampleReport2.pas">
+				<Form>FrmsampleReport2</Form>
+			</DCCReference>
+			<DCCReference Include="SampleReport5.pas">
+				<Form>FrmsampleReport5</Form>
+			</DCCReference>
+			<DCCReference Include="SampleReport1_c.pas">
+				<Form>frmSampleReport1_c</Form>
+			</DCCReference>
+			<DCCReference Include="SampleReport2_c.pas">
+				<Form>frmSampleReport2_c</Form>
+			</DCCReference>
+			<DCCReference Include="SizeReport2.pas">
+				<Form>FrmSizeReport2</Form>
+			</DCCReference>
+			<DCCReference Include="SizeReport1.pas">
+				<Form>FrmSizeReport1</Form>
+			</DCCReference>
+			<DCCReference Include="SizeReport2_c.pas">
+				<Form>FrmSizeReport2_c</Form>
+			</DCCReference>
+			<DCCReference Include="SizeReport5_c.pas">
+				<Form>FrmSizeReport5_c</Form>
+			</DCCReference>
+			<DCCReference Include="SampleReport1.pas">
+				<Form>FrmsampleReport1</Form>
+			</DCCReference>
+			<DCCReference Include="SampleReport4.pas">
+				<Form>FrmsampleReport4</Form>
+			</DCCReference>
+			<DCCReference Include="SampleReport4_c.pas">
+				<Form>frmSampleReport4_c</Form>
+			</DCCReference>
+			<DCCReference Include="SampleReport5_c.pas">
+				<Form>frmSampleReport5_c</Form>
+			</DCCReference>
+			<DCCReference Include="SizeReport4.pas">
+				<Form>FrmSizeReport4</Form>
+			</DCCReference>
+			<DCCReference Include="SizeReport5.pas">
+				<Form>FrmSizeReport5</Form>
+			</DCCReference>
+			<DCCReference Include="SizeReport4_c.pas">
+				<Form>FrmSizeReport4_c</Form>
+			</DCCReference>
+			<DCCReference Include="SizeReport1_c.pas">
+				<Form>FrmSizeReport1_c</Form>
+			</DCCReference>
+			<DCCReference Include="stcpyu.pas">
+				<Form>frmstcpy</Form>
+			</DCCReference>
+			<DCCReference Include="sz_imgformu.pas">
+				<Form>frmsz_img</Form>
+			</DCCReference>
+			<DCCReference Include="sz_bascustformu.pas">
+				<Form>frmsz_bascust</Form>
+			</DCCReference>
+			<DCCReference Include="sz_export1formu.pas">
+				<Form>frmsz_export1</Form>
+			</DCCReference>
+			<DCCReference Include="custpomformu.pas">
+				<Form>frmcustpom</Form>
+			</DCCReference>
+			<DCCReference Include="styleimgformu.pas">
+				<Form>frmstyleimg</Form>
+			</DCCReference>
+			<DCCReference Include="querenformu.pas">
+				<Form>frmqueren</Form>
+			</DCCReference>
+			<DCCReference Include="pdn_mailformu.pas">
+				<Form>frmpdn_mail</Form>
+			</DCCReference>
+			<DCCReference Include="szapprformu.pas">
+				<Form>frmszappr</Form>
+			</DCCReference>
+			<DCCReference Include="dss_client.pas"/>
+			<DCCReference Include="sz_partsformu.pas">
+				<Form>frmsz_parts</Form>
+			</DCCReference>
+			<DCCReference Include="HistoryFormu.pas">
+				<Form>frmhistory</Form>
+			</DCCReference>
+			<DCCReference Include="sztbl_enqformu.pas">
+				<Form>frm_sztbl_enq</Form>
+			</DCCReference>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">POM_SM.dpr</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1028</VersionInfo>
+						<VersionInfo Name="CodePage">950</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+				</Delphi.Personality>
+				<DataSnapProxy>
+					<dss_client>Port=8213;HostName=127.0.0.1;</dss_client>
+				</DataSnapProxy>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

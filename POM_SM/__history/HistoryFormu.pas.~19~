@@ -1,0 +1,184 @@
+﻿unit HistoryFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxButtonEdit, cxDropDownEdit, cxCalendar, Buttons, DBClient, ExtCtrls,
+  cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridBandedTableView,
+  cxGridDBBandedTableView, cxClasses, cxGridCustomView, cxGridDBTableView,
+  cxGrid, cxContainer, cxImage, StdCtrls, DBCtrls, Mask;
+
+type
+  Tfrmhistory = class(TForm)
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1DBBandedTableView1: TcxGridDBBandedTableView;
+    cxGrid1Cde: TcxGridDBBandedColumn;
+    cxGrid1cxmcd: TcxGridDBBandedColumn;
+    cxGrid1Cmeas: TcxGridDBBandedColumn;
+    cxGrid1Emeas: TcxGridDBBandedColumn;
+    cxGrid1Uom: TcxGridDBBandedColumn;
+    cxGrid1Methd: TcxGridDBBandedColumn;
+    cxGrid1Emethd: TcxGridDBBandedColumn;
+    cxGrid1Tolerence: TcxGridDBBandedColumn;
+    cxGrid1Ptyp: TcxGridDBBandedColumn;
+    cxGrid1App: TcxGridDBBandedColumn;
+    cxGrid1App_usr: TcxGridDBBandedColumn;
+    cxGrid1App_dt: TcxGridDBBandedColumn;
+    cxGrid1Marks: TcxGridDBBandedColumn;
+    cxGrid1Img1: TcxGridDBBandedColumn;
+    cxGrid1cxseq: TcxGridDBBandedColumn;
+    cxGrid1Src: TcxGridDBBandedColumn;
+    cxGrid1Emeas_n: TcxGridDBBandedColumn;
+    cxGrid1Img_app: TcxGridDBBandedColumn;
+    cxGrid1Newdt: TcxGridDBBandedColumn;
+    cxGrid1Level1: TcxGridLevel;
+    Panel1: TPanel;
+    Table1: TClientDataSet;
+    Table1Id: TIntegerField;
+    Table1Cde: TStringField;
+    Table1Cmeas: TStringField;
+    Table1Emeas: TStringField;
+    Table1Uom: TStringField;
+    Table1Methd: TStringField;
+    Table1Tolerence: TStringField;
+    Table1Emethd: TStringField;
+    Table1mcd: TStringField;
+    Table1newdt: TDateTimeField;
+    Table1ptyp: TStringField;
+    Table1app: TBooleanField;
+    Table1app_usr: TStringField;
+    Table1app_dt: TDateTimeField;
+    Table1img: TStringField;
+    Table1marks: TStringField;
+    Table1img1: TStringField;
+    Table1seq: TStringField;
+    Table1src: TStringField;
+    Table1pod_cd: TStringField;
+    Table1emeas_n: TIntegerField;
+    Table1img_app: TBooleanField;
+    Table1img_appu: TStringField;
+    Table1app_s: TStringField;
+    Table1img_app_s: TStringField;
+    Table1parts: TBooleanField;
+    Table1operation: TBooleanField;
+    Table1garment: TBooleanField;
+    DataSource1: TDataSource;
+    btn3: TSpeedButton;
+    btn1: TSpeedButton;
+    cxGrid1statu_dt: TcxGridDBBandedColumn;
+    Query1: TClientDataSet;
+    Table1statu: TStringField;
+    Table1statu_dt: TDateTimeField;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    btn2: TSpeedButton;
+    lblr8: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    btn4: TSpeedButton;
+    lblr7: TLabel;
+    dbedtCde: TDBEdit;
+    dbedtCmeas: TDBEdit;
+    dbedtEmeas: TDBEdit;
+    dbedtTolerence: TDBEdit;
+    dbcbbMethd: TDBComboBox;
+    dbcbbEmethd: TDBComboBox;
+    dbedtmcd: TDBEdit;
+    dbcbbUom: TDBComboBox;
+    dbcbbptyp: TDBComboBox;
+    dbedtmarks: TDBEdit;
+    dbchkapp: TDBCheckBox;
+    dbedtimg: TDBEdit;
+    cxImage1: TcxImage;
+    dbedtseq: TDBEdit;
+    dbchkimg_app: TDBCheckBox;
+    dbcbbsrc: TDBComboBox;
+    dbchkparts: TDBCheckBox;
+    dbchkoperation: TDBCheckBox;
+    dbchkgarment: TDBCheckBox;
+    btn5: TSpeedButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btn1Click(Sender: TObject);
+    procedure btn3Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Table1AfterPost(DataSet: TDataSet);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmhistory: Tfrmhistory;
+
+implementation
+
+uses loginu, mainu, libraryu;
+
+{$R *.dfm}
+
+procedure Tfrmhistory.btn1Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmhistory.btn3Click(Sender: TObject);
+begin
+  if application.messagebox('確定將此POM轉爲正常記錄？','Confirmation',mb_iconquestion+mb_yesno)=idyes then begin
+    table1.edit;
+    table1.fieldbyname('statu').value:=null;
+    table1.fieldbyname('statu_dt').value:=null;
+    table1.post;
+    table1.close;
+    table1.open;
+    frmlibrary.table1.close;
+    frmlibrary.table1.open;
+  end;
+end;
+
+procedure Tfrmhistory.DataSource1DataChange(Sender: TObject; Field: TField);
+begin
+  try
+    if table1.state=dsbrowse then begin
+      if table1.fieldbyname('img1').value='Y' then begin
+        if table1.fieldbyname('img').value>'' then
+        cximage1.Picture.LoadFromFile(table1.fieldbyname('img').value);
+      end else cximage1.Picture:=nil;
+    end;
+  except
+
+  end;
+end;
+
+procedure Tfrmhistory.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmhistory:=nil;
+end;
+
+procedure Tfrmhistory.FormShow(Sender: TObject);
+begin
+  table1.close;
+  table1.open;
+end;
+
+procedure Tfrmhistory.Table1AfterPost(DataSet: TDataSet);
+begin
+  DataSetAfterPost(DataSet);
+end;
+
+end.

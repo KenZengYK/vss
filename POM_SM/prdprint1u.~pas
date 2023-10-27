@@ -1,0 +1,155 @@
+unit prdprint1u;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ppBands, ppClass, ppCtrls, ppPrnabl, ppStrtch, ppRegion, ppCache, ppComm,
+  ppRelatv, ppProd, ppReport, ppViewr;
+
+type
+  Tfrmprdprint1 = class(TForm)
+    ppReport2: TppReport;
+    ppTitleBand2: TppTitleBand;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppRegion1: TppRegion;
+    ppShape1: TppShape;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppShape2: TppShape;
+    ppShape3: TppShape;
+    ppShape4: TppShape;
+    ppShape5: TppShape;
+    ppShape6: TppShape;
+    ppShape7: TppShape;
+    ppShape8: TppShape;
+    ppShape9: TppShape;
+    ppShape10: TppShape;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppDBText23: TppDBText;
+    ppDBText24: TppDBText;
+    ppLine7: TppLine;
+    ppDBText25: TppDBText;
+    ppDBText26: TppDBText;
+    ppLine8: TppLine;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppRegion2: TppRegion;
+    ppLabel6: TppLabel;
+    ppDBText27: TppDBText;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppRegion3: TppRegion;
+    ppShape11: TppShape;
+    ppShape12: TppShape;
+    ppShape13: TppShape;
+    ppShape14: TppShape;
+    ppShape15: TppShape;
+    ppShape16: TppShape;
+    ppShape17: TppShape;
+    ppShape18: TppShape;
+    ppShape19: TppShape;
+    ppShape20: TppShape;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppShape21: TppShape;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText32: TppDBText;
+    ppDBText33: TppDBText;
+    ppDBText34: TppDBText;
+    ppDBText35: TppDBText;
+    ppDBText36: TppDBText;
+    ppDBText37: TppDBText;
+    ppDBText38: TppDBText;
+    ppDBText39: TppDBText;
+    ppDBText40: TppDBText;
+    ppDBText41: TppDBText;
+    ppDBText42: TppDBText;
+    ppDBText43: TppDBText;
+    ppDBText44: TppDBText;
+    ppDBText45: TppDBText;
+    ppDBText46: TppDBText;
+    ppDBText47: TppDBText;
+    ppDBText48: TppDBText;
+    ppDBText49: TppDBText;
+    ppDBText50: TppDBText;
+    ppDBText51: TppDBText;
+    ppDBText52: TppDBText;
+    ppDBText53: TppDBText;
+    ppDBText54: TppDBText;
+    ppDBText55: TppDBText;
+    ppDBText56: TppDBText;
+    ppDBText57: TppDBText;
+    ppDBText58: TppDBText;
+    ppDBText95: TppDBText;
+    ppLabel23: TppLabel;
+    ppLine11: TppLine;
+    ppLabel24: TppLabel;
+    ppLine12: TppLine;
+    ppLabel25: TppLabel;
+    ppDBText96: TppDBText;
+    ppLabel26: TppLabel;
+    ppDBText117: TppDBText;
+    ppLabel27: TppLabel;
+    ppDBText118: TppDBText;
+    ppLabel32: TppLabel;
+    ppDBText119: TppDBText;
+    ppLabel5: TppLabel;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    procedure ppReport2PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmprdprint1: Tfrmprdprint1;
+
+implementation
+uses siztblu;
+{$R *.DFM}
+
+procedure Tfrmprdprint1.ppReport2PreviewFormCreate(Sender: TObject);
+begin
+  ppreport2.PreviewForm.WindowState:=wsmaximized;
+  tppviewer(ppreport2.PreviewForm.Viewer).zoomsetting:=zs100percent;
+end;
+
+end.

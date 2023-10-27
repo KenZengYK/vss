@@ -1,0 +1,61 @@
+program POM_SM;
+
+uses
+  Forms,
+  mainu in 'mainu.pas' {frmmain},
+  libraryu in 'libraryu.pas' {frmlibrary},
+  sampletblu in 'sampletblu.pas' {frmsampletbl},
+  siztblu in 'siztblu.pas' {frmsiztbl},
+  printu in 'printu.pas' {frmprint},
+  wzxzu in 'wzxzu.pas' {frmwzxz},
+  usru in 'usru.pas' {frmusr},
+  athru in 'athru.pas' {frmathr},
+  loginu in 'loginu.pas' {frmlogin},
+  stcpy1u in 'stcpy1u.pas' {frmstcpy1},
+  mtolu in 'mtolu.pas' {frmmtol},
+  print2u in 'print2u.pas' {frmprint2},
+  stylu in 'stylu.pas' {frmstyl},
+  prdprintu in 'prdprintu.pas' {frmprdprint},
+  prdprint1u in 'prdprint1u.pas' {frmprdprint1},
+  insertsizu in 'insertsizu.pas' {frminsertsiz},
+  insertsiz1u in 'insertsiz1u.pas' {frminsertsiz1},
+  SizeReport3 in 'SizeReport3.pas' {FrmSizeReport3},
+  SampleReport3 in 'SampleReport3.pas' {FrmsampleReport3},
+  SizeReport3_c in 'SizeReport3_c.pas' {FrmSizeReport3_c},
+  SampleReport3_c in 'SampleReport3_c.pas' {frmSampleReport3_c},
+  SampleReport2 in 'SampleReport2.pas' {FrmsampleReport2},
+  SampleReport5 in 'SampleReport5.pas' {FrmsampleReport5},
+  SampleReport1_c in 'SampleReport1_c.pas' {frmSampleReport1_c},
+  SampleReport2_c in 'SampleReport2_c.pas' {frmSampleReport2_c},
+  SizeReport2 in 'SizeReport2.pas' {FrmSizeReport2},
+  SizeReport1 in 'SizeReport1.pas' {FrmSizeReport1},
+  SizeReport2_c in 'SizeReport2_c.pas' {FrmSizeReport2_c},
+  SizeReport5_c in 'SizeReport5_c.pas' {FrmSizeReport5_c},
+  SampleReport1 in 'SampleReport1.pas' {FrmsampleReport1},
+  SampleReport4 in 'SampleReport4.pas' {FrmsampleReport4},
+  SampleReport4_c in 'SampleReport4_c.pas' {frmSampleReport4_c},
+  SampleReport5_c in 'SampleReport5_c.pas' {frmSampleReport5_c},
+  SizeReport4 in 'SizeReport4.pas' {FrmSizeReport4},
+  SizeReport5 in 'SizeReport5.pas' {FrmSizeReport5},
+  SizeReport4_c in 'SizeReport4_c.pas' {FrmSizeReport4_c},
+  SizeReport1_c in 'SizeReport1_c.pas' {FrmSizeReport1_c},
+  stcpyu in 'stcpyu.pas' {frmstcpy},
+  sz_imgformu in 'sz_imgformu.pas' {frmsz_img},
+  sz_bascustformu in 'sz_bascustformu.pas' {frmsz_bascust},
+  sz_export1formu in 'sz_export1formu.pas' {frmsz_export1},
+  custpomformu in 'custpomformu.pas' {frmcustpom},
+  styleimgformu in 'styleimgformu.pas' {frmstyleimg},
+  querenformu in 'querenformu.pas' {frmqueren},
+  pdn_mailformu in 'pdn_mailformu.pas' {frmpdn_mail},
+  szapprformu in 'szapprformu.pas' {frmszappr},
+  dss_client in 'dss_client.pas',
+  sz_partsformu in 'sz_partsformu.pas' {frmsz_parts},
+  HistoryFormu in 'HistoryFormu.pas' {frmhistory};
+
+{$R *.RES}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(Tfrmmain, frmmain);
+  Application.Run;
+end.

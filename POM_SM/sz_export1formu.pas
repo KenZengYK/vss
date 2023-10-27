@@ -1,0 +1,92 @@
+unit sz_export1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Buttons, StdCtrls, DB, DBClient;
+
+type
+  Tfrmsz_export1 = class(TForm)
+    xh1: TRadioButton;
+    xh2: TRadioButton;
+    ComboBox1: TComboBox;
+    xh3: TRadioButton;
+    SpeedButton5: TSpeedButton;
+    Query1: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure xh2Click(Sender: TObject);
+    procedure xh1Click(Sender: TObject);
+    procedure xh3Click(Sender: TObject);
+    procedure ComboBox1Enter(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsz_export1: Tfrmsz_export1;
+
+implementation
+
+uses mainu, libraryu;
+
+{$R *.dfm}
+
+procedure Tfrmsz_export1.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmsz_export1:=nil;
+end;
+
+procedure Tfrmsz_export1.FormShow(Sender: TObject);
+begin
+  xh1.checked:=true;
+  combobox1.enabled:=false;
+end;
+
+procedure Tfrmsz_export1.xh2Click(Sender: TObject);
+begin
+  if xh2.checked then combobox1.enabled:=true;
+end;
+
+procedure Tfrmsz_export1.xh1Click(Sender: TObject);
+begin
+  if xh1.checked then combobox1.Enabled:=false;
+end;
+
+procedure Tfrmsz_export1.xh3Click(Sender: TObject);
+begin
+  if xh3.checked then combobox1.Enabled:=false;
+end;
+
+procedure Tfrmsz_export1.ComboBox1Enter(Sender: TObject);
+begin
+  combobox1.items.clear;
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct cust from sz_bastbl_cust where cust>''''';
+    open;
+    first;
+    while not eof do begin
+      combobox1.items.add(fieldbyname('cust').value);
+      application.processmessages;
+      next;
+    end;
+  end;
+end;
+
+procedure Tfrmsz_export1.SpeedButton5Click(Sender: TObject);
+begin
+  if xh1.checked then frmlibrary.export1
+  else if xh2.Checked then begin
+    if combobox1.Text>'' then frmlibrary.export2(combobox1.text);
+  end else if xh3.Checked then frmlibrary.export3;
+end;
+
+end.

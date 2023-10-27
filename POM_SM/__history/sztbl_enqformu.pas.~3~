@@ -1,0 +1,28 @@
+unit sztbl_enqformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, StdCtrls, Buttons;
+
+type
+  Tfrm_sztbl_enq = class(TForm)
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_sztbl_enq: Tfrm_sztbl_enq;
+
+implementation
+
+uses mainu, libraryu;
+
+{$R *.dfm}
+
+end.

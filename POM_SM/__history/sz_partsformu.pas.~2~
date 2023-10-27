@@ -1,0 +1,29 @@
+unit sz_partsformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, Mask, DBCtrls;
+
+type
+  Tfrmsz_parts = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsz_parts: Tfrmsz_parts;
+
+implementation
+
+uses mainu, siztblu;
+
+{$R *.dfm}
+
+end.

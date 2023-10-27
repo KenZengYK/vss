@@ -1,0 +1,678 @@
+﻿unit libraryu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Bde, Classes, Graphics, Controls, Forms, Dialogs,
+  Buttons, ExtCtrls, DBCtrls, Grids, DBGridEh, Db, DBTables, StdCtrls, Mask,
+  ppProd, ppClass, ppReport, ppComm, ppRelatv, ppCache, ppDB, ppDBPipe,
+  ppDBBDE, ppCtrls, ppStrtch, ppRegion, ppVar, ppPrnabl, ppBands, ppViewr,
+  DBClient, GridsEh, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxStyles, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxEdit, cxDBData, cxGridCustomTableView, cxGridTableView,
+  cxGridBandedTableView, cxGridDBBandedTableView, cxGridLevel, cxClasses,
+  cxGridCustomView, cxGridDBTableView, cxGrid, cxDropDownEdit, cxGridExportLink,
+  cxCheckBox, cxContainer, cxImage, cxButtonEdit, Menus, cxCalendar, ppParameter;
+
+type
+  Tfrmlibrary = class(TForm)
+    DataSource1: TDataSource;
+    DBGridEh1: TDBGridEh;
+    ppBDEPipeline1: TppBDEPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppRegion1: TppRegion;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppShape1: TppShape;
+    ppShape2: TppShape;
+    ppSystemVariable2: TppSystemVariable;
+    Query1: TClientDataSet;
+    Table1: TClientDataSet;
+    Table1Cde: TStringField;
+    Table1Id: TIntegerField;
+    Table1Cmeas: TStringField;
+    Table1Emeas: TStringField;
+    Table1Uom: TStringField;
+    Table1Methd: TStringField;
+    Table1Tolerence: TStringField;
+    Table1Emethd: TStringField;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Table1mcd: TStringField;
+    cxGrid1DBBandedTableView1: TcxGridDBBandedTableView;
+    cxCde: TcxGridDBBandedColumn;
+    cxCmeas: TcxGridDBBandedColumn;
+    cxEmeas: TcxGridDBBandedColumn;
+    cxUom: TcxGridDBBandedColumn;
+    cxMethd: TcxGridDBBandedColumn;
+    cxTolerence: TcxGridDBBandedColumn;
+    cxEmethd: TcxGridDBBandedColumn;
+    cxmcd: TcxGridDBBandedColumn;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBComboBox1: TDBComboBox;
+    DBComboBox2: TDBComboBox;
+    DBEdit5: TDBEdit;
+    Panel2: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    DBNavigator1: TDBNavigator;
+    SaveDialog1: TSaveDialog;
+    SpeedButton5: TSpeedButton;
+    Table1newdt: TDateTimeField;
+    DBEdit4: TDBComboBox;
+    Table1ptyp: TStringField;
+    Label9: TLabel;
+    DBComboBox3: TDBComboBox;
+    cxPtyp: TcxGridDBBandedColumn;
+    Table1app: TBooleanField;
+    Table1app_usr: TStringField;
+    Table1app_dt: TDateTimeField;
+    Table1img: TStringField;
+    Table1marks: TStringField;
+    cxApp: TcxGridDBBandedColumn;
+    cxApp_usr: TcxGridDBBandedColumn;
+    cxApp_dt: TcxGridDBBandedColumn;
+    cxMarks: TcxGridDBBandedColumn;
+    Label10: TLabel;
+    DBEdit7: TDBEdit;
+    DBCheckBox1: TDBCheckBox;
+    DBEdit8: TDBEdit;
+    SpeedButton6: TSpeedButton;
+    lblr8: TLabel;
+    cxImage1: TcxImage;
+    cxImg1: TcxGridDBBandedColumn;
+    Table1img1: TStringField;
+    Label11: TLabel;
+    DBEdit9: TDBEdit;
+    cxseq: TcxGridDBBandedColumn;
+    Table1seq: TStringField;
+    Table1src: TStringField;
+    Label12: TLabel;
+    cxSrc: TcxGridDBBandedColumn;
+    SpeedButton7: TSpeedButton;
+    query2: TClientDataSet;
+    DataSource2: TDataSource;
+    Table1pod_cd: TStringField;
+    Table1emeas_n: TIntegerField;
+    Table1img_app: TBooleanField;
+    Table1img_appu: TStringField;
+    DBCheckBox2: TDBCheckBox;
+    cxEmeas_n: TcxGridDBBandedColumn;
+    cxImg_app: TcxGridDBBandedColumn;
+    PopupMenu1: TPopupMenu;
+    N1: TMenuItem;
+    Table1app_s: TStringField;
+    Table1img_app_s: TStringField;
+    cxGrid2: TcxGrid;
+    cxGridDBTableView1: TcxGridDBTableView;
+    cxGridDBBandedTableView1: TcxGridDBBandedTableView;
+    cxGridDBBandedColumn1: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn2: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn3: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn4: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn5: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn6: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn7: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn8: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn9: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn10: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn11: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn12: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn13: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn14: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn15: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn16: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn17: TcxGridDBBandedColumn;
+    cxGridDBBandedColumn18: TcxGridDBBandedColumn;
+    cxGridLevel1: TcxGridLevel;
+    cxNewdt: TcxGridDBBandedColumn;
+    DBEdit10: TDBComboBox;
+    chk_parts: TDBCheckBox;
+    Table1parts: TBooleanField;
+    Table1operation: TBooleanField;
+    Table1garment: TBooleanField;
+    chk_operation: TDBCheckBox;
+    chk_garment: TDBCheckBox;
+    N2: TMenuItem;
+    btn1: TSpeedButton;
+    btn2: TSpeedButton;
+    btn3: TSpeedButton;
+    lblr7: TLabel;
+    Table1statu: TStringField;
+    Table1statu_dt: TDateTimeField;
+    btn4: TSpeedButton;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure Table1AfterPost(DataSet: TDataSet);
+    procedure DBEdit1KeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit2KeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit3KeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit4KeyPress(Sender: TObject; var Key: Char);
+    procedure DBComboBox1KeyPress(Sender: TObject; var Key: Char);
+    procedure DBComboBox2KeyPress(Sender: TObject; var Key: Char);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure Table1BeforeDelete(DataSet: TDataSet);
+    procedure Table1NewRecord(DataSet: TDataSet);
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure Table1MethdChange(Sender: TField);
+    procedure Table1appChange(Sender: TField);
+    procedure SpeedButton6Click(Sender: TObject);
+    procedure Table1imgChange(Sender: TField);
+    procedure cxImage1DblClick(Sender: TObject);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+    procedure cxEmeasPropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure SpeedButton7Click(Sender: TObject);
+    procedure Table1img_appChange(Sender: TField);
+    procedure N1Click(Sender: TObject);
+    procedure DBEdit10Enter(Sender: TObject);
+    procedure N2Click(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
+    procedure btn3Click(Sender: TObject);
+    procedure btn4Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure export1;
+    procedure export2(const cust: string);
+    procedure export3;
+  end;
+
+var
+  frmlibrary: Tfrmlibrary;
+
+implementation
+
+uses loginu, mainu, sz_imgformu, sz_bascustformu, sz_export1formu, HistoryFormu,
+sztbl_enqformu;
+
+{$R *.DFM}
+
+procedure Tfrmlibrary.SpeedButton1Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmlibrary.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  //if (table1.state=dsinsert) or (table1.state=dsedit) then table1.post;
+  action:=cafree;
+  frmlibrary:=nil;
+end;
+
+procedure Tfrmlibrary.FormShow(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  lblr8.caption:='';
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='exec sp_sz_updbastbl_emeasn';
+    execute; 
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    //params.createparam(ftstring,'usr',ptinput);
+    commandtext:='select r2,r4,r8,r7 from SZ_athtbl where usr='''+frmmain.combobox1.text+'''';
+    //params[0].asstring:=frmmain.combobox1.text;
+    open;
+    if fieldbyname('r7').value=true then lblr7.caption:='R7' else lblr7.caption:='';
+    if fieldbyname('r8').value=true then begin
+      speedbutton3.Enabled:=true;speedbutton4.Enabled:=true;
+      //dbedit1.readonly:=false;
+      dbedit2.readonly:=false;dbedit3.readonly:=false;
+      dbedit4.readonly:=false;dbedit6.readonly:=false;dbedit5.ReadOnly:=false;
+      dbcombobox1.readonly:=false;dbcombobox3.readonly:=false;
+      dbedit7.ReadOnly:=false;dbcheckbox1.ReadOnly:=true;dbcheckbox2.ReadOnly:=true;
+      dbedit9.ReadOnly:=false;dbedit10.readonly:=false;
+      lblr8.caption:='R8';
+      if uppercase(frmmain.combobox1.text)<>'ADMIN' then begin
+        //cxcde.Options.Editing:=false;
+        cxmcd.Options.Editing:=false;
+        cxcmeas.Options.Editing:=false;
+        cxemeas.properties.Readonly:=true;
+        cxuom.Options.Editing:=false;
+        cxmethd.Options.Editing:=false;
+        cxemethd.Options.Editing:=false;
+        cxtolerence.Options.Editing:=false;
+        cxptyp.Options.Editing:=false;
+        cxseq.Options.Editing:=false;
+        cxsrc.Options.Editing:=false;
+        chk_parts.readonly:=false; chk_operation.readonly:=false; chk_garment.readonly:=false;
+      end else begin
+        //cxcde.Options.Editing:=true;
+        cxmcd.Options.Editing:=true;
+        cxcmeas.Options.Editing:=true;
+        cxemeas.properties.Readonly:=false;
+        cxuom.Options.Editing:=true;
+        cxmethd.Options.Editing:=true;
+        cxemethd.Options.Editing:=false;
+        cxtolerence.Options.Editing:=true;
+        cxptyp.Options.Editing:=true;
+        cxseq.Options.Editing:=true;
+        cxSrc.Options.Editing:=true;
+        chk_parts.readonly:=true; chk_operation.readonly:=true; chk_garment.readonly:=true;
+      end;
+      if fieldbyname('r2').value=true then begin
+        dbedit7.ReadOnly:=false;dbcheckbox1.ReadOnly:=false;dbcheckbox2.ReadOnly:=false;
+      end;
+      if fieldbyname('r7').value=true then btn2.enabled:=true else btn2.enabled:=false;
+      if fieldbyname('r7').value=true then btn4.enabled:=true else btn4.enabled:=false;
+    end else if fieldbyname('r2').value=true then begin
+      speedbutton3.Enabled:=false;speedbutton4.Enabled:=false;
+      //dbedit1.readonly:=true;
+      dbedit2.readonly:=true;dbedit3.readonly:=true;
+      dbedit4.readonly:=true;dbedit6.readonly:=true;dbedit5.readonly:=true;
+      dbcombobox1.readonly:=true;dbcombobox3.readonly:=true;
+      dbedit7.readonly:=false;dbcheckbox1.ReadOnly:=false;dbcheckbox2.ReadOnly:=false;
+      dbedit9.ReadOnly:=true;dbedit10.ReadOnly:=true;
+      chk_parts.readonly:=true; chk_operation.readonly:=true; chk_garment.readonly:=true;
+      //cxcde.Options.Editing:=false;
+      cxmcd.Options.Editing:=false;
+      cxcmeas.Options.Editing:=false;
+      cxemeas.properties.Readonly:=true;
+      cxuom.Options.Editing:=false;
+      cxmethd.Options.Editing:=false;
+      cxemethd.Options.Editing:=false;
+      cxtolerence.Options.Editing:=false;
+      cxptyp.Options.Editing:=false;
+      cxseq.Options.Editing:=false;
+      cxsrc.Options.Editing:=false;
+    end else if fieldbyname('r4').value=true then begin
+      speedbutton3.Enabled:=false;speedbutton4.Enabled:=false;
+      //dbedit1.readonly:=true;
+      dbedit2.readonly:=true;dbedit3.readonly:=true;
+      dbedit4.readonly:=true;dbedit6.readonly:=true;dbedit5.readonly:=true;
+      dbcombobox1.readonly:=true;dbcombobox3.readonly:=true;
+      dbedit7.readonly:=true;dbcheckbox1.ReadOnly:=true;dbcheckbox2.ReadOnly:=true;
+      dbedit9.ReadOnly:=true;dbedit10.ReadOnly:=false;
+      chk_parts.readonly:=false; chk_operation.readonly:=false; chk_garment.readonly:=false;
+      //cxcde.Options.Editing:=false;
+      cxmcd.Options.Editing:=false;
+      cxcmeas.Options.Editing:=false;
+      cxemeas.properties.Readonly:=true;
+      cxuom.Options.Editing:=false;
+      cxmethd.Options.Editing:=false;
+      cxemethd.Options.Editing:=false;
+      cxtolerence.Options.Editing:=false;
+      cxptyp.Options.Editing:=false;
+      cxseq.Options.Editing:=false;
+      cxsrc.Options.Editing:=false;
+      lblr8.caption:='R8';
+    end else begin
+      speedbutton3.Enabled:=false;speedbutton4.Enabled:=false;
+      //dbedit1.readonly:=true;
+      dbedit2.readonly:=true;dbedit3.readonly:=true;
+      dbedit4.readonly:=true;dbedit6.readonly:=true;dbedit5.readonly:=true;
+      dbcombobox1.readonly:=true;dbcombobox3.readonly:=true;
+      dbedit7.readonly:=true;dbcheckbox1.ReadOnly:=true;dbcheckbox2.ReadOnly:=true;
+      dbedit9.ReadOnly:=true;dbedit10.ReadOnly:=true;
+      chk_parts.readonly:=true; chk_operation.readonly:=true; chk_garment.readonly:=true;
+      //cxcde.Options.Editing:=false;
+      cxmcd.Options.Editing:=false;
+      cxcmeas.Options.Editing:=false;
+      cxemeas.properties.Readonly:=true;
+      cxuom.Options.Editing:=false;
+      cxmethd.Options.Editing:=false;
+      cxemethd.Options.Editing:=false;
+      cxtolerence.Options.Editing:=false;
+      cxptyp.Options.Editing:=false;
+      cxseq.Options.Editing:=false;
+      cxsrc.Options.Editing:=false;
+    end;
+  end;
+  table1.close;
+  table1.open;  
+  dbedit9.setfocus;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmlibrary.Table1AfterPost(DataSet: TDataSet);
+begin
+  DataSetAfterPost(DataSet);
+end;
+
+procedure Tfrmlibrary.DBEdit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then dbedit2.setfocus;
+end;
+
+procedure Tfrmlibrary.DBEdit2KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then dbedit3.setfocus;
+end;
+
+procedure Tfrmlibrary.DBEdit3KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then dbedit4.setfocus;
+end;
+
+procedure Tfrmlibrary.DBEdit4KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then dbcombobox1.setfocus;
+end;
+
+procedure Tfrmlibrary.DBComboBox1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then dbcombobox2.setfocus;
+end;
+
+procedure Tfrmlibrary.DBComboBox2KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then dbedit6.setfocus;
+end;
+
+procedure Tfrmlibrary.SpeedButton2Click(Sender: TObject);
+begin
+  table1.close;
+  table1.open;
+  if table1.recordcount>0 then
+    ppreport1.print;
+end;
+
+procedure Tfrmlibrary.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppreport1.PreviewForm.WindowState:=wsmaximized;
+  tppviewer(ppreport1.previewform.viewer).zoompercentage:=100;
+end;
+
+procedure Tfrmlibrary.SpeedButton3Click(Sender: TObject);
+begin
+  table1.append;
+  dbedit9.setfocus;
+end;
+
+procedure Tfrmlibrary.SpeedButton4Click(Sender: TObject);
+begin
+  //if dbedit1.text<>'' then
+  //begin
+    if application.messagebox('要刪除此記錄嗎?','提示信息',mb_iconquestion+mb_okcancel)=idok then
+    begin
+      table1.delete;
+    end;
+  //end;
+end;
+
+procedure Tfrmlibrary.Table1BeforeDelete(DataSet: TDataSet);
+begin
+  DataSetBeforeDelete(DataSet);
+end;
+
+procedure Tfrmlibrary.Table1NewRecord(DataSet: TDataSet);
+begin
+  DataSet.fieldbyname('id').value:=GetSeq('sz_bastbl','id');
+  DataSet.fieldbyname('newdt').value:=date;
+  dataset.fieldbyname('img1').value:='N';
+  dataset.fieldbyname('app_s').value:='N';
+  dataset.fieldbyname('img_app_s').value:='N';
+  dataset.fieldbyname('parts').value:=false;
+  dataset.fieldbyname('operation').value:=false;
+  dataset.fieldbyname('garment').value:=false;
+end;
+
+procedure Tfrmlibrary.SpeedButton5Click(Sender: TObject);
+begin
+  {
+  try
+    if savedialog1.Execute then
+    ExportGridToExcel(savedialog1.FileName,cxGrid1,true,true,false,'xls');
+  finally
+    showmessage('Succeeded!');
+  end;
+  }
+  if frmsz_export1=nil then frmsz_export1:=tfrmsz_export1.create(nil);
+  frmsz_export1.show;
+end;
+
+procedure Tfrmlibrary.Table1MethdChange(Sender: TField);
+begin
+  if not table1methd.IsNull then
+  begin
+    if table1methd.value='直線度' then table1emethd.value:='Strgt'
+    else if table1methd.value='沿邊度' then table1emethd.value:='Edge'
+    else if table1methd.value='手拉度' then table1emethd.value:='H.Strch'
+    else if table1methd.value='弧線度' then table1emethd.value:='Curve'
+    else if table1methd.value='機拉度' then table1emethd.value:='M.Strch'
+    else if table1methd.value='秤拉度' then table1emethd.value:='S.Strch'
+    else if table1methd.value='n.a.' then table1emethd.value:='n.a.';
+  end else table1emethd.value:='';
+end;
+
+procedure Tfrmlibrary.Table1appChange(Sender: TField);
+var
+  usr:string;
+begin
+  if table1.fieldbyname('app').value=true then begin
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select usr from sz_usrtbl where upper(usr)='''+frmmain.combobox1.text+'''';
+      open;
+      usr:=fieldbyname('usr').value;
+    end;
+    table1.fieldbyname('app_usr').value:=usr;
+    table1.fieldbyname('app_dt').value:=date;
+    table1.fieldbyname('app_s').value:='Y';
+  end else begin
+    table1.fieldbyname('app_usr').value:='';
+    table1.fieldbyname('app_s').value:='N';
+    //table1.fieldbyname('app_dt').value:=date-date;
+  end;
+end;
+
+procedure Tfrmlibrary.SpeedButton6Click(Sender: TObject);
+begin
+  if frmsz_img=nil then frmsz_img:=tfrmsz_img.create(nil);
+  frmsz_img.show;
+end;
+
+procedure Tfrmlibrary.Table1imgChange(Sender: TField);
+begin
+  if not table1.fieldbyname('img').isnull then
+  cximage1.picture.loadfromfile(table1.fieldbyname('img').value); 
+end;
+
+procedure Tfrmlibrary.cxImage1DblClick(Sender: TObject);
+begin
+  if frmsz_img=nil then frmsz_img:=tfrmsz_img.create(nil);
+  frmsz_img.show;
+end;
+
+procedure Tfrmlibrary.DataSource1DataChange(Sender: TObject;
+  Field: TField);
+begin
+  try
+    if table1.state=dsbrowse then begin
+      if table1.fieldbyname('img1').value='Y' then begin
+        if table1.fieldbyname('img').value>'' then
+        cximage1.Picture.LoadFromFile(table1.fieldbyname('img').value);
+      end else cximage1.Picture:=nil;
+    end;
+  except
+
+  end;
+end;
+
+procedure Tfrmlibrary.btn1Click(Sender: TObject);
+begin
+  if frm_sztbl_enq=nil then frm_sztbl_enq:=tfrm_sztbl_enq.create(nil);
+  with frm_sztbl_enq.query1 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct a.cust,a.stylno,a.cstyle,a.mdate from sz_lsize a,sz_lsize1 b,sz_bastbl c where a.stylno=b.stylno and (b.cmeas=c.cmeas or b.emeas=c.emeas and c.emeas<>''*'') and c.id='+table1.fieldbyname('id').asstring+' order by a.mdate desc';
+    open;
+  end;
+  frm_sztbl_enq.show;
+end;
+
+procedure Tfrmlibrary.btn2Click(Sender: TObject);
+begin
+  if application.messagebox('確定將此POM轉爲歷史記錄？','Confirmation',mb_iconquestion+mb_yesno)=idyes then begin
+    table1.edit;
+    table1.fieldbyname('statu').value:='s';
+    table1.fieldbyname('statu_dt').value:=date;
+    table1.post;
+    table1.close;
+    table1.open;
+  end;
+end;
+
+procedure Tfrmlibrary.btn3Click(Sender: TObject);
+begin
+  if frmhistory=nil then frmhistory:=tfrmhistory.create(nil);
+  frmhistory.show;
+end;
+
+procedure Tfrmlibrary.btn4Click(Sender: TObject);
+begin
+  if application.messagebox('確定將這些POM轉爲歷史記錄？','Confirmation',mb_iconquestion+mb_yesno)=idyes then begin
+    //table1.edit;
+    //table1.fieldbyname('statu').value:='s';
+    //table1.fieldbyname('statu_dt').value:=date;
+    //table1.post;
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='update phgdb..sz_bastbl set statu=''s'',statu_dt=:x1 where statu is null and '+cxgrid1dbbandedtableview1.DataController.Filter.FilterText;
+      params[0].asdatetime:=now;
+      showmessage(commandtext);
+      //execute;
+    end;
+    table1.close;
+    table1.open;
+  end;
+end;
+
+procedure Tfrmlibrary.cxEmeasPropertiesButtonClick(Sender: TObject;
+  AButtonIndex: Integer);
+begin
+  if frmsz_bascust=nil then frmsz_bascust:=tfrmsz_bascust.Create(nil);
+  frmsz_bascust.show;
+end;
+
+procedure Tfrmlibrary.SpeedButton7Click(Sender: TObject);
+begin
+  if frmsz_bascust=nil then frmsz_bascust:=tfrmsz_bascust.Create(nil);
+  frmsz_bascust.show;
+end;
+
+procedure Tfrmlibrary.export1;
+begin
+  try
+    if savedialog1.Execute then
+    ExportGridToExcel(savedialog1.FileName,cxGrid1,true,true,false,'xls');
+  finally
+    showmessage('Succeeded!');
+  end;
+end;
+
+procedure Tfrmlibrary.export2(const cust: string);
+begin
+  //
+end;
+
+procedure Tfrmlibrary.export3;
+begin
+  //
+end;
+
+procedure Tfrmlibrary.Table1img_appChange(Sender: TField);
+var
+  usr:string;
+begin
+  if table1.fieldbyname('img_app').value=true then begin
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select usr from sz_usrtbl where upper(usr)='''+frmmain.combobox1.text+'''';
+      open;
+      usr:=fieldbyname('usr').value;
+    end;
+    table1.fieldbyname('img_appu').value:=usr;
+    table1.fieldbyname('img_app_s').value:='Y';
+  end else begin
+    table1.fieldbyname('img_appu').value:='';
+    table1.fieldbyname('img_app_s').value:='N';
+  end;
+end;
+
+procedure Tfrmlibrary.N1Click(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='exec SP_SZ_UPDBASTBL_EMEASN';
+    execute;
+  end;
+  showmessage('OK!');
+end;
+
+procedure Tfrmlibrary.N2Click(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='update sz_bastbl set img=null where id='+table1.fieldbyname('id').asstring;
+    execute;
+  end;
+end;
+
+procedure Tfrmlibrary.DBEdit10Enter(Sender: TObject);
+begin
+  dbedit10.Items.clear;
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct src from sz_bastbl where src>''''';
+    open;
+    first;
+    while not eof do begin
+      dbedit10.items.add(fieldbyname('src').value);
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+end;
+
+end.

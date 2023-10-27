@@ -1,0 +1,192 @@
+object frmstcpy: Tfrmstcpy
+  Left = 175
+  Top = 151
+  BorderIcons = [biSystemMenu]
+  Caption = #35079#21046#23610#23544#34920
+  ClientHeight = 309
+  ClientWidth = 361
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 13
+    Top = 9
+    Width = 36
+    Height = 16
+    Caption = #23450#20301#65109
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 13
+    Top = 272
+    Width = 48
+    Height = 16
+    Caption = #26032#27454#34399#65109
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Edit1: TEdit
+    Left = 68
+    Top = 5
+    Width = 189
+    Height = 23
+    Color = clAqua
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    OnChange = Edit1Change
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 34
+    Top = 32
+    Width = 225
+    Height = 233
+    Color = 11927551
+    DataSource = DataSource1
+    Flat = False
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+    ParentFont = False
+    ReadOnly = True
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -13
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'stylno'
+        Footers = <>
+        Title.Alignment = taCenter
+        Title.Caption = #27454#34399
+        Width = 184
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 272
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'OK'
+    DoubleBuffered = True
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000120B0000120B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+      555555555555555555555555555555555555555555FF55555555555559055555
+      55555555577FF5555555555599905555555555557777F5555555555599905555
+      555555557777FF5555555559999905555555555777777F555555559999990555
+      5555557777777FF5555557990599905555555777757777F55555790555599055
+      55557775555777FF5555555555599905555555555557777F5555555555559905
+      555555555555777FF5555555555559905555555555555777FF55555555555579
+      05555555555555777FF5555555555557905555555555555777FF555555555555
+      5990555555555555577755555555555555555555555555555555}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    ParentFont = False
+    TabOrder = 2
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 272
+    Top = 56
+    Width = 75
+    Height = 25
+    Caption = 'Cancel'
+    DoubleBuffered = True
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      333333333333333333333333333333333333333FFF33FF333FFF339993370733
+      999333777FF37FF377733339993000399933333777F777F77733333399970799
+      93333333777F7377733333333999399933333333377737773333333333990993
+      3333333333737F73333333333331013333333333333777FF3333333333910193
+      333333333337773FF3333333399000993333333337377737FF33333399900099
+      93333333773777377FF333399930003999333337773777F777FF339993370733
+      9993337773337333777333333333333333333333333333333333333333333333
+      3333333333333333333333333333333333333333333333333333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    ParentFont = False
+    TabOrder = 3
+    OnClick = BitBtn2Click
+  end
+  object Edit2: TEdit
+    Left = 68
+    Top = 268
+    Width = 189
+    Height = 23
+    Color = clWhite
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+  end
+  object DataSource1: TDataSource
+    DataSet = ClientDataSet1
+    Left = 144
+    Top = 120
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select stylno from sz_lsize'
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 115
+    Top = 120
+  end
+end

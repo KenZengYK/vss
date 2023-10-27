@@ -1,0 +1,127 @@
+unit wzxzu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, Grids, DBGridEh, Db, DBTables, DBClient, GridsEh,
+  cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxDBData,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel,
+  cxClasses, cxGridCustomView, cxGrid;
+
+type
+  Tfrmwzxz = class(TForm)
+    DataSource1: TDataSource;
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Label1: TLabel;
+    Query1: TClientDataSet;
+    Label2: TLabel;
+    Edit1: TEdit;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1cde: TcxGridDBColumn;
+    cxGrid1DBTableView1cmeas: TcxGridDBColumn;
+    xh1: TCheckBox;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmwzxz: Tfrmwzxz;
+
+implementation
+uses mainu, sampletblu, siztblu;
+{$R *.DFM}
+
+procedure Tfrmwzxz.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmwzxz.BitBtn1Click(Sender: TObject);
+begin
+  if not query1.fieldbyname('cmeas').isnull then
+  begin
+    if label1.caption='siztbl' then
+    begin
+      frmsiztbl.Table3.edit;
+      //frmsiztbl.table3cde.value:=query1.fieldbyname('cde').value;
+      frmsiztbl.Table3Cmeas.value:=query1.fieldbyname('cmeas').value;
+      if not query1.fieldbyname('emeas').isnull then
+      frmsiztbl.table3emeas.value:=query1.fieldbyname('emeas').value;
+      if xh1.Checked=false then begin
+        if not query1.fieldbyname('uom').isnull then
+        frmsiztbl.table3uom.value:=query1.fieldbyname('uom').value;
+        if not query1.fieldbyname('methd').isnull then
+        frmsiztbl.table3methd.value:=query1.fieldbyname('methd').value;
+        if not query1.fieldbyname('tolerence').isnull then
+        frmsiztbl.Table3Tolerence.value:=query1.fieldbyname('tolerence').value;
+      end;
+      frmsiztbl.table3jobno.value:='';
+      frmsiztbl.table3.post;
+    end
+    else
+    begin
+      frmsampletbl.Table3.edit;
+      frmsampletbl.Table3Cmeas.value:=query1.fieldbyname('cmeas').value;
+      if not query1.fieldbyname('emeas').isnull then
+      frmsampletbl.table3emeas.value:=query1.fieldbyname('emeas').value;
+      if not query1.fieldbyname('uom').isnull then
+      frmsampletbl.table3uom.value:=query1.fieldbyname('uom').value;
+      if not query1.fieldbyname('methd').isnull then
+      frmsampletbl.table3methd.value:=query1.fieldbyname('methd').value;
+      if not query1.fieldbyname('tolerence').isnull then
+      frmsampletbl.Table3Tolerence.value:=query1.fieldbyname('tolerence').value;
+      frmsampletbl.table3.post;
+    end;
+  end;
+  close;
+end;
+
+procedure Tfrmwzxz.FormShow(Sender: TObject);
+begin
+  if label1.caption='siztbl' then
+  begin
+    query1.close;
+    query1.params.clear;
+    //query1.params.createparam(ftstring,'cde',ptinput);
+    query1.commandtext:='select cde,cmeas,emeas,uom,methd,tolerence from SZ_bastbl order by cmeas';
+//    query1.prepare;
+    //query1.params[0].asstring:=frmsiztbl.table3cde.value;
+    query1.open;
+  end
+  else
+  begin
+    query1.close;
+    query1.params.clear;
+    //query1.params.createparam(ftstring,'cde',ptinput);
+    query1.commandtext:='select cde,cmeas,emeas,uom,methd,tolerence from SZ_bastbl where cde='''+frmsampletbl.table3cde.value+'''';
+//    query1.prepare;
+    //query1.params[0].asstring:=frmsampletbl.table3cde.value;
+    query1.open;
+  end;
+end;
+
+procedure Tfrmwzxz.Edit1Change(Sender: TObject);
+begin
+  if edit1.text>'' then query1.FindNearest([edit1.text]);
+end;
+
+procedure Tfrmwzxz.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmwzxz:=nil;
+end;
+
+end.
