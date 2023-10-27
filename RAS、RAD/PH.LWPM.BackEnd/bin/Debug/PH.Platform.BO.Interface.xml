@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Platform.BO.Interface</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Platform.BO.Interface.IBaseEntity">
+            <summary>
+            Base Entity Interface
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.AddNew">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.Delete">
+            <summary>
+            刪除
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.Cancel">
+            <summary>
+            取消
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.Edit">
+            <summary>
+            編輯
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.Save">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.DeepClone(System.Object)">
+            <summary>
+            克隆(深拷貝)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.ShallowClone">
+            <summary>
+            克隆(淺拷貝)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.NewVersion(System.String)">
+            <summary>
+            新增一個版本
+            </summary>
+            <param name="AVersionBOColunmName">Version的BO屬性名(一般對應表的字段名)</param>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.NewAmendVersion(System.String)">
+            <summary>
+            新增一個改善改本
+            </summary>
+            <param name="ANewAmendVersion">Amend Version的BO屬性名(一般對應表的字段名</param>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.Undo">
+            <summary>
+            撤消
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntity.Redo">
+            <summary>
+            重復
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.Interface.IBaseEntity.BOWorkMode">
+            <summary>
+            当前BO的工作模式
+            </summary>
+        </member>
+        <member name="T:PH.Platform.BO.Interface.WorkMode">
+            <summary>
+            BO Work Mode
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.Interface.WorkMode.New">
+            <summary>
+            新增模式
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.Interface.WorkMode.Edit">
+            <summary>
+            编辑模式
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.Interface.WorkMode.Read">
+            <summary>
+            只读模式
+            </summary>
+        </member>
+        <member name="T:PH.Platform.BO.Interface.IBaseEntityList`2">
+            <summary>
+            BaseEntityList Interface(用於封裝商業邏輯的類必須實現本接口)
+            </summary>
+            <typeparam name="TEntity">Linq Entity</typeparam>
+            <typeparam name="TDataContext">Linq DataContext</typeparam>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntityList`2.GetAllData">
+            <summary>
+            得到所有數據
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.Interface.IBaseEntityList`2.GetDataByCondition(System.String)">
+            <summary>
+            得到符合指定條件的數據
+            </summary>
+            <param name="ACondition">篩選條件(條件與SQL語法保持一致如: FieldA = 'AA' AND FieldB = 123)</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

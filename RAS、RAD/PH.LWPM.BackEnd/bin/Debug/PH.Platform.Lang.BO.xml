@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Platform.Lang.BO</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Platform.Lang.BO.LangHelper">
+            <summary>
+            多语言公共类
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Lang.BO.LangHelper.Convert(System.String,PH.Platform.Lang.BO.LANGUAGETYPE)">
+            多语言转换
+             <summary>
+             根据传传入的类型str_Type将str_Convert转换成对应的简繁体
+             注：此方法只适应简繁体的转换，其他转换将不起作用。
+             </summary>
+             <param name="str_Convert">要转换的字符串</param>
+             <param name="str_Type">转换类型</param>
+             <returns>转换后的字符</returns>
+        </member>
+        <member name="F:PH.Platform.Lang.BO.LANGUAGETYPE.CN">
+            <summary>
+            简体
+            </summary>
+        </member>
+        <member name="F:PH.Platform.Lang.BO.LANGUAGETYPE.TW">
+            <summary>
+            繁体
+            </summary>
+        </member>
+        <member name="F:PH.Platform.Lang.BO.LANGUAGETYPE.EN">
+            <summary>
+            英文
+            </summary>
+        </member>
+        <member name="F:PH.Platform.Lang.BO.LANGUAGETYPE.JP">
+            <summary>
+            日文
+            </summary>
+        </member>
+        <member name="F:PH.Platform.Lang.BO.LANGUAGETYPE.TH">
+            <summary>
+            泰文
+            </summary>
+        </member>
+        <member name="T:PH.Platform.Lang.BO.Lang_LanguageTypeList">
+            <summary>
+            多语言类型业务层
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Lang.BO.Lang_LanguageTypeList.GetAllLang_Item">
+            获取所有的多语言类型
+             <summary>
+             获取所有的多语言类型
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:PH.Platform.Lang.BO.Lang_ItemList.SaveItemList(System.Collections.Generic.List{PH.Platform.Lang.BO.Lang_Item})">
+            <summary>
+            手工绑定数据
+            </summary>
+            <param name="listI"></param>
+        </member>
+        <member name="M:PH.Platform.Lang.BO.Lang_ItemAllTextBusiness.AllTextConvertItem(System.Collections.Generic.List{PH.Platform.Lang.BO.Lang_ItemAllTextEntity})">
+            根据Lang_ItemAllText，转为Lang_Item
+            <summary>
+            根据Lang_ItemAllText，转为Lang_Item
+            </summary>
+            <param name="listIAT"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Platform.Lang.BO.Lang_ItemAllTextEntity">
+            <summary>
+            某多语言信息全显示实体
+            </summary>
+        </member>
+        <member name="P:PH.Platform.Lang.BO.Lang_ItemAllTextEntity.CNText">
+            简体
+            <summary>
+            简体
+            </summary>
+        </member>
+        <member name="P:PH.Platform.Lang.BO.Lang_ItemAllTextEntity.TWText">
+            繁体
+            <summary>
+            繁体
+            </summary>
+        </member>
+        <member name="P:PH.Platform.Lang.BO.Lang_ItemAllTextEntity.ENText">
+            英语
+            <summary>
+            英语
+            </summary>
+        </member>
+        <member name="P:PH.Platform.Lang.BO.Lang_ItemAllTextEntity.THText">
+            泰语
+            <summary>
+            泰语
+            </summary>
+        </member>
+        <member name="P:PH.Platform.Lang.BO.Lang_ItemAllTextEntity.JPText">
+            日语
+            <summary>
+            日语
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Lang.BO.LangMiscHelper.GetLanguageText(System.String,System.String)">
+            <summary>
+            獲取非繼承自平台BaseForm基類的UI中,需要實現用多語言顯示的情況
+            </summary>
+            <param name="keyid">自定義的多語言訊息ID號</param>
+            <param name="messagecode">上傳Assembly時使用的SideProgramID號</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.Lang.BO.LangMiscHelper.GetLanguageText(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="langid">當前環境語言ID</param>
+            <param name="keyid">自定義的多語言訊息ID號</param>
+            <param name="sideprogramid">上傳Assembly時使用的SideProgramID號</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

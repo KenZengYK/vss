@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="Detail.Name" xml:space="preserve">
+    <value>Detail</value>
+  </metadata>
+  <metadata name="xrTable1.Name" xml:space="preserve">
+    <value>xrTable1</value>
+  </metadata>
+  <metadata name="XtraRow1.Name" xml:space="preserve">
+    <value>XtraRow1</value>
+  </metadata>
+  <metadata name="cell_team.Name" xml:space="preserve">
+    <value>cell_team</value>
+  </metadata>
+  <metadata name="cell_name.Name" xml:space="preserve">
+    <value>cell_name</value>
+  </metadata>
+  <metadata name="cell_wftype.Name" xml:space="preserve">
+    <value>cell_wftype</value>
+  </metadata>
+  <metadata name="cell_isspec.Name" xml:space="preserve">
+    <value>cell_isspec</value>
+  </metadata>
+  <metadata name="cell_years.Name" xml:space="preserve">
+    <value>cell_years</value>
+  </metadata>
+  <metadata name="xrTableCell34.Name" xml:space="preserve">
+    <value>xrTableCell34</value>
+  </metadata>
+  <metadata name="xrTableCell37.Name" xml:space="preserve">
+    <value>xrTableCell37</value>
+  </metadata>
+  <metadata name="xrTableCell39.Name" xml:space="preserve">
+    <value>xrTableCell39</value>
+  </metadata>
+  <metadata name="cell_sahtotal.Name" xml:space="preserve">
+    <value>cell_sahtotal</value>
+  </metadata>
+  <metadata name="cell_perflag.Name" xml:space="preserve">
+    <value>cell_perflag</value>
+  </metadata>
+  <metadata name="cell_perv.Name" xml:space="preserve">
+    <value>cell_perv</value>
+  </metadata>
+  <metadata name="cell_sahteam.Name" xml:space="preserve">
+    <value>cell_sahteam</value>
+  </metadata>
+  <metadata name="cell_orderteam.Name" xml:space="preserve">
+    <value>cell_orderteam</value>
+  </metadata>
+  <metadata name="cell_sahline.Name" xml:space="preserve">
+    <value>cell_sahline</value>
+  </metadata>
+  <metadata name="cell_orderline.Name" xml:space="preserve">
+    <value>cell_orderline</value>
+  </metadata>
+  <metadata name="cell_carDetial.Name" xml:space="preserve">
+    <value>cell_carDetial</value>
+  </metadata>
+  <metadata name="cell_DouDetial.Name" xml:space="preserve">
+    <value>cell_DouDetial</value>
+  </metadata>
+  <metadata name="cell_peoDetial.Name" xml:space="preserve">
+    <value>cell_peoDetial</value>
+  </metadata>
+  <metadata name="cell_AndDetial.Name" xml:space="preserve">
+    <value>cell_AndDetial</value>
+  </metadata>
+  <metadata name="cell_single.Name" xml:space="preserve">
+    <value>cell_single</value>
+  </metadata>
+  <metadata name="cell_calldetial.Name" xml:space="preserve">
+    <value>cell_calldetial</value>
+  </metadata>
+  <metadata name="cell_handdetial.Name" xml:space="preserve">
+    <value>cell_handdetial</value>
+  </metadata>
+  <metadata name="cell_skill_Mat.Name" xml:space="preserve">
+    <value>cell_skill_Mat</value>
+  </metadata>
+  <metadata name="xrPictureBox1.Name" xml:space="preserve">
+    <value>xrPictureBox1</value>
+  </metadata>
+  <metadata name="xrTableCell55.Name" xml:space="preserve">
+    <value>xrTableCell55</value>
+  </metadata>
+  <metadata name="PageHeader.Name" xml:space="preserve">
+    <value>PageHeader</value>
+  </metadata>
+  <metadata name="xrPageInfo1.Name" xml:space="preserve">
+    <value>xrPageInfo1</value>
+  </metadata>
+  <metadata name="xrTable7.Name" xml:space="preserve">
+    <value>xrTable7</value>
+  </metadata>
+  <metadata name="xrTableRow20.Name" xml:space="preserve">
+    <value>xrTableRow20</value>
+  </metadata>
+  <metadata name="xrTableCell178.Name" xml:space="preserve">
+    <value>xrTableCell178</value>
+  </metadata>
+  <metadata name="xrTableCell147.Name" xml:space="preserve">
+    <value>xrTableCell147</value>
+  </metadata>
+  <metadata name="xrTableCell115.Name" xml:space="preserve">
+    <value>xrTableCell115</value>
+  </metadata>
+  <metadata name="xrTableCell190.Name" xml:space="preserve">
+    <value>xrTableCell190</value>
+  </metadata>
+  <metadata name="xrTableCell166.Name" xml:space="preserve">
+    <value>xrTableCell166</value>
+  </metadata>
+  <metadata name="xrTableCell196.Name" xml:space="preserve">
+    <value>xrTableCell196</value>
+  </metadata>
+  <metadata name="xrTableCell116.Name" xml:space="preserve">
+    <value>xrTableCell116</value>
+  </metadata>
+  <metadata name="xrTableCell242.Name" xml:space="preserve">
+    <value>xrTableCell242</value>
+  </metadata>
+  <metadata name="xrTableCell172.Name" xml:space="preserve">
+    <value>xrTableCell172</value>
+  </metadata>
+  <metadata name="xrTableCell258.Name" xml:space="preserve">
+    <value>xrTableCell258</value>
+  </metadata>
+  <metadata name="xrTableCell21.Name" xml:space="preserve">
+    <value>xrTableCell21</value>
+  </metadata>
+  <metadata name="xrTableCell194.Name" xml:space="preserve">
+    <value>xrTableCell194</value>
+  </metadata>
+  <metadata name="xrTableCell106.Name" xml:space="preserve">
+    <value>xrTableCell106</value>
+  </metadata>
+  <metadata name="xrTableCell261.Name" xml:space="preserve">
+    <value>xrTableCell261</value>
+  </metadata>
+  <metadata name="xrTableCell1.Name" xml:space="preserve">
+    <value>xrTableCell1</value>
+  </metadata>
+  <metadata name="cell_car.Name" xml:space="preserve">
+    <value>cell_car</value>
+  </metadata>
+  <metadata name="cell_dobNodle.Name" xml:space="preserve">
+    <value>cell_dobNodle</value>
+  </metadata>
+  <metadata name="cell_people.Name" xml:space="preserve">
+    <value>cell_people</value>
+  </metadata>
+  <metadata name="cell_Anddone.Name" xml:space="preserve">
+    <value>cell_Anddone</value>
+  </metadata>
+  <metadata name="cell_SingleNeedle.Name" xml:space="preserve">
+    <value>cell_SingleNeedle</value>
+  </metadata>
+  <metadata name="cell_call.Name" xml:space="preserve">
+    <value>cell_call</value>
+  </metadata>
+  <metadata name="cell_hand.Name" xml:space="preserve">
+    <value>cell_hand</value>
+  </metadata>
+  <metadata name="cell_skill.Name" xml:space="preserve">
+    <value>cell_skill</value>
+  </metadata>
+  <metadata name="cell_ree.Name" xml:space="preserve">
+    <value>cell_ree</value>
+  </metadata>
+  <metadata name="L_Title.Name" xml:space="preserve">
+    <value>L_Title</value>
+  </metadata>
+  <metadata name="PageFooter.Name" xml:space="preserve">
+    <value>PageFooter</value>
+  </metadata>
+  <metadata name="xrTableCell15.Name" xml:space="preserve">
+    <value>xrTableCell15</value>
+  </metadata>
+  <metadata name="xrTableCell14.Name" xml:space="preserve">
+    <value>xrTableCell14</value>
+  </metadata>
+  <metadata name="xrTableCell13.Name" xml:space="preserve">
+    <value>xrTableCell13</value>
+  </metadata>
+  <metadata name="xrTableCell12.Name" xml:space="preserve">
+    <value>xrTableCell12</value>
+  </metadata>
+  <metadata name="xrTableCell11.Name" xml:space="preserve">
+    <value>xrTableCell11</value>
+  </metadata>
+  <metadata name="xrTableCell10.Name" xml:space="preserve">
+    <value>xrTableCell10</value>
+  </metadata>
+  <metadata name="xrTableCell9.Name" xml:space="preserve">
+    <value>xrTableCell9</value>
+  </metadata>
+  <metadata name="xrTableCell8.Name" xml:space="preserve">
+    <value>xrTableCell8</value>
+  </metadata>
+  <metadata name="xrTableCell7.Name" xml:space="preserve">
+    <value>xrTableCell7</value>
+  </metadata>
+  <metadata name="xrTableCell6.Name" xml:space="preserve">
+    <value>xrTableCell6</value>
+  </metadata>
+  <metadata name="xrTableCell5.Name" xml:space="preserve">
+    <value>xrTableCell5</value>
+  </metadata>
+  <metadata name="xrTableCell4.Name" xml:space="preserve">
+    <value>xrTableCell4</value>
+  </metadata>
+  <metadata name="xrTableCell3.Name" xml:space="preserve">
+    <value>xrTableCell3</value>
+  </metadata>
+  <metadata name="xrTableCell2.Name" xml:space="preserve">
+    <value>xrTableCell2</value>
+  </metadata>
+  <metadata name="GroupHeader1.Expanded" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="GroupHeader1.Name" xml:space="preserve">
+    <value>GroupHeader1</value>
+  </metadata>
+  <metadata name="GroupHeader2.Expanded" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="GroupHeader2.Name" xml:space="preserve">
+    <value>GroupHeader2</value>
+  </metadata>
+  <metadata name="GroupFooter1.Name" xml:space="preserve">
+    <value>GroupFooter1</value>
+  </metadata>
+  <metadata name="GroupFooter2.Name" xml:space="preserve">
+    <value>GroupFooter2</value>
+  </metadata>
+  <metadata name="xrTable2.Name" xml:space="preserve">
+    <value>xrTable2</value>
+  </metadata>
+  <metadata name="xrTableRow1.Name" xml:space="preserve">
+    <value>xrTableRow1</value>
+  </metadata>
+  <metadata name="cell_addTeam.Name" xml:space="preserve">
+    <value>cell_addTeam</value>
+  </metadata>
+  <metadata name="cell_addName.Name" xml:space="preserve">
+    <value>cell_addName</value>
+  </metadata>
+  <metadata name="cell_addType.Name" xml:space="preserve">
+    <value>cell_addType</value>
+  </metadata>
+  <metadata name="cell_addisspec.Name" xml:space="preserve">
+    <value>cell_addisspec</value>
+  </metadata>
+  <metadata name="cell_addYear.Name" xml:space="preserve">
+    <value>cell_addYear</value>
+  </metadata>
+  <metadata name="cell_addOpera.Name" xml:space="preserve">
+    <value>cell_addOpera</value>
+  </metadata>
+  <metadata name="cell_addOPerNm.Name" xml:space="preserve">
+    <value>cell_addOPerNm</value>
+  </metadata>
+  <metadata name="cell_addSah.Name" xml:space="preserve">
+    <value>cell_addSah</value>
+  </metadata>
+  <metadata name="cell_addSahTotal.Name" xml:space="preserve">
+    <value>cell_addSahTotal</value>
+  </metadata>
+  <metadata name="cell_AddPerflag.Name" xml:space="preserve">
+    <value>cell_AddPerflag</value>
+  </metadata>
+  <metadata name="cell_addPerdiv.Name" xml:space="preserve">
+    <value>cell_addPerdiv</value>
+  </metadata>
+  <metadata name="cell_addTeamSah.Name" xml:space="preserve">
+    <value>cell_addTeamSah</value>
+  </metadata>
+  <metadata name="cell_addOr_Team.Name" xml:space="preserve">
+    <value>cell_addOr_Team</value>
+  </metadata>
+  <metadata name="cell_addSahLine.Name" xml:space="preserve">
+    <value>cell_addSahLine</value>
+  </metadata>
+  <metadata name="cell_addOr_Line.Name" xml:space="preserve">
+    <value>cell_addOr_Line</value>
+  </metadata>
+  <metadata name="cell_addCAR.Name" xml:space="preserve">
+    <value>cell_addCAR</value>
+  </metadata>
+  <metadata name="cell_addDouble.Name" xml:space="preserve">
+    <value>cell_addDouble</value>
+  </metadata>
+  <metadata name="cell_addPeople.Name" xml:space="preserve">
+    <value>cell_addPeople</value>
+  </metadata>
+  <metadata name="cell_Done.Name" xml:space="preserve">
+    <value>cell_Done</value>
+  </metadata>
+  <metadata name="cell_addSingle.Name" xml:space="preserve">
+    <value>cell_addSingle</value>
+  </metadata>
+  <metadata name="cell_addCall.Name" xml:space="preserve">
+    <value>cell_addCall</value>
+  </metadata>
+  <metadata name="cell_addHand.Name" xml:space="preserve">
+    <value>cell_addHand</value>
+  </metadata>
+  <metadata name="cell_addSkill.Name" xml:space="preserve">
+    <value>cell_addSkill</value>
+  </metadata>
+  <metadata name="cell_addRemark.Name" xml:space="preserve">
+    <value>cell_addRemark</value>
+  </metadata>
+  <metadata name="ReportHeader.Name" xml:space="preserve">
+    <value>ReportHeader</value>
+  </metadata>
+  <metadata name="ReportFooter.Name" xml:space="preserve">
+    <value>ReportFooter</value>
+  </metadata>
+  <metadata name="xrSubreport1.Name" xml:space="preserve">
+    <value>xrSubreport1</value>
+  </metadata>
+  <metadata name="imageList1.Name" xml:space="preserve">
+    <value>imageList1</value>
+  </metadata>
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>114, 17</value>
+  </metadata>
+  <data name="imageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAO
+        CgAAAk1TRnQBSQFMAgEBAgEAAQQBAAEEAQABHgEAARkBAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABeAMAARkDAAEBAQABCAUAAbgBCxgAAYACAAGAAwACgAEAAYADAAGAAQABgAEAAoACAAPAAQABwAHc
+        AcABAAHwAcoBpgEAATMFAAEzAQABMwEAATMBAAIzAgADFgEAAxwBAAMiAQADKQEAA1UBAANNAQADQgEA
+        AzkBAAGAAXwB/wEAAlAB/wEAAZMBAAHWAQAB/wHsAcwBAAHGAdYB7wEAAdYC5wEAAZABqQGtAgAB/wEz
+        AwABZgMAAZkDAAHMAgABMwMAAjMCAAEzAWYCAAEzAZkCAAEzAcwCAAEzAf8CAAFmAwABZgEzAgACZgIA
+        AWYBmQIAAWYBzAIAAWYB/wIAAZkDAAGZATMCAAGZAWYCAAKZAgABmQHMAgABmQH/AgABzAMAAcwBMwIA
+        AcwBZgIAAcwBmQIAAswCAAHMAf8CAAH/AWYCAAH/AZkCAAH/AcwBAAEzAf8CAAH/AQABMwEAATMBAAFm
+        AQABMwEAAZkBAAEzAQABzAEAATMBAAH/AQAB/wEzAgADMwEAAjMBZgEAAjMBmQEAAjMBzAEAAjMB/wEA
+        ATMBZgIAATMBZgEzAQABMwJmAQABMwFmAZkBAAEzAWYBzAEAATMBZgH/AQABMwGZAgABMwGZATMBAAEz
+        AZkBZgEAATMCmQEAATMBmQHMAQABMwGZAf8BAAEzAcwCAAEzAcwBMwEAATMBzAFmAQABMwHMAZkBAAEz
+        AswBAAEzAcwB/wEAATMB/wEzAQABMwH/AWYBAAEzAf8BmQEAATMB/wHMAQABMwL/AQABZgMAAWYBAAEz
+        AQABZgEAAWYBAAFmAQABmQEAAWYBAAHMAQABZgEAAf8BAAFmATMCAAFmAjMBAAFmATMBZgEAAWYBMwGZ
+        AQABZgEzAcwBAAFmATMB/wEAAmYCAAJmATMBAANmAQACZgGZAQACZgHMAQABZgGZAgABZgGZATMBAAFm
+        AZkBZgEAAWYCmQEAAWYBmQHMAQABZgGZAf8BAAFmAcwCAAFmAcwBMwEAAWYBzAGZAQABZgLMAQABZgHM
+        Af8BAAFmAf8CAAFmAf8BMwEAAWYB/wGZAQABZgH/AcwBAAHMAQAB/wEAAf8BAAHMAQACmQIAAZkBMwGZ
+        AQABmQEAAZkBAAGZAQABzAEAAZkDAAGZAjMBAAGZAQABZgEAAZkBMwHMAQABmQEAAf8BAAGZAWYCAAGZ
+        AWYBMwEAAZkBMwFmAQABmQFmAZkBAAGZAWYBzAEAAZkBMwH/AQACmQEzAQACmQFmAQADmQEAApkBzAEA
+        ApkB/wEAAZkBzAIAAZkBzAEzAQABZgHMAWYBAAGZAcwBmQEAAZkCzAEAAZkBzAH/AQABmQH/AgABmQH/
+        ATMBAAGZAcwBZgEAAZkB/wGZAQABmQH/AcwBAAGZAv8BAAHMAwABmQEAATMBAAHMAQABZgEAAcwBAAGZ
+        AQABzAEAAcwBAAGZATMCAAHMAjMBAAHMATMBZgEAAcwBMwGZAQABzAEzAcwBAAHMATMB/wEAAcwBZgIA
+        AcwBZgEzAQABmQJmAQABzAFmAZkBAAHMAWYBzAEAAZkBZgH/AQABzAGZAgABzAGZATMBAAHMAZkBZgEA
+        AcwCmQEAAcwBmQHMAQABzAGZAf8BAALMAgACzAEzAQACzAFmAQACzAGZAQADzAEAAswB/wEAAcwB/wIA
+        AcwB/wEzAQABmQH/AWYBAAHMAf8BmQEAAcwB/wHMAQABzAL/AQABzAEAATMBAAH/AQABZgEAAf8BAAGZ
+        AQABzAEzAgAB/wIzAQAB/wEzAWYBAAH/ATMBmQEAAf8BMwHMAQAB/wEzAf8BAAH/AWYCAAH/AWYBMwEA
+        AcwCZgEAAf8BZgGZAQAB/wFmAcwBAAHMAWYB/wEAAf8BmQIAAf8BmQEzAQAB/wGZAWYBAAH/ApkBAAH/
+        AZkBzAEAAf8BmQH/AQAB/wHMAgAB/wHMATMBAAH/AcwBZgEAAf8BzAGZAQAB/wLMAQAB/wHMAf8BAAL/
+        ATMBAAHMAf8BZgEAAv8BmQEAAv8BzAEAAmYB/wEAAWYB/wFmAQABZgL/AQAB/wJmAQAB/wFmAf8BAAL/
+        AWYBAAEhAQABpQEAA18BAAN3AQADhgEAA5YBAAPLAQADsgEAA9cBAAPdAQAD4wEAA+oBAAPxAQAD+AEA
+        AfAB+wH/AQABpAKgAQADgAMAAf8CAAH/AwAC/wEAAf8DAAH/AQAB/wEAAv8CAAP/AQAe9B3zAfI8AB7/
+        AfQBvBvvAQc8AB7/AbwB7BsVAew8AA7/AfYB8wHCDf8BBwH3G+0B7zwADv8B8wFyAQgB9Az/AQcB8hv/
+        AfM8AA3/AfYBCAFJAXIB8wz/AQcB8hv/AfM8AAv/AfQC/wGYAkkBGwHzC/8BBwHyDP8BvQGUAb0M/wHz
+        PAAN/wHzAZgCSQHCAfML/wEHAfIM/wGUAfkBlAz/AfM8AAr/AfYB/wH0AfMBcgJJAZgB9Av/AQcB8gz/
+        AZQB+QEWDP8B8zwACv8B9gH0AfMB8AFJASgBSQFyAfQL/wEHAfIK/wHzAb0B4wH5AeMBvQHzCv8B8zwA
+        Cv8B8wH2Af8B7AJJAU8BSQHCC/8BBwHyCv8BvQHjAUcB+QFHAeMBvQr/AfM8AAr/AfYC9AEIAUkBKAFy
+        AUkBwgH0AfYJ/wEHAfIK/wGUAUcD+QFHAZQK/wHzPAAK/wH2Af8B9AHzAnIBeAFJAZgB9Ar/AQcB8gr/
+        AZQF+QGUCv8B8zwACv8B9gL/AfMB9ALCAUkBEQHzAf8D9gb/AQcB8gr/AZQF+QGUCv8B8zwACv8B9gP/
+        AfQCwgGYAUkBCAH0AfYB9AH2Bv8BBwHyCv8BlAX5AZQK/wHzPAAN/wL2AfMBGwEIAUkBcgHzAfYC9Ab/
+        AQcB8gr/AZQBFwP5ARcBlAr/AfM8AA7/AfYC9AEbAW0BFAG8AfYB/wHzBv8BBwHyCv8C8wEWAfkB4wLz
+        Cv8B8zwAD/8B9AH/AfQB8wESAewB8wj/AQcB8gz/AZQB+QEWDP8B8zwAEf8B9AH/AW0BEgHzCP8BBwHy
+        DP8BlAH5ARYM/wHzPAAR/wH0AfMB9wHrAe8B9Af/AQcB8gz/AZQB+QEWDP8B8zwAEf8B9AHwAfQB7wFt
+        AfEH/wEHAfIM/wGUAfkBFgz/AfM8ABH/AfQB9gHzAfEB8AL0Bv8BBwHyDP8BlAFHAZQM/wHzPAAQ/wH0
+        Af8B9ALzAvQB9gb/AQcB8gz/AfQBvQH0DP8B8zwAEP8B9AH/AfME9Af/AQcB8Q3zAfIN8wHyPAAP/wH0
+        Av8B9gP0CP8dBwG8PAABQgFNAT4HAAE+AwABKAMAAXgDAAEZAwABAQEAAQEFAAGQAQEWAAP//wCSAAs=
+</value>
+  </data>
+  <metadata name="bsLsbSah.Name" xml:space="preserve">
+    <value>bsLsbSah</value>
+  </metadata>
+  <metadata name="bsLsbSah.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Name" xml:space="preserve">
+    <value>LBSAHReport</value>
+  </metadata>
+</root>

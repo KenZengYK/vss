@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Platform.Common</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Platform.Common.SysParamHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:PH.Platform.Common.Randomizer">
+            <summary>
+            隨機數字或字符生成類
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Common.Randomizer.getRandomizer(System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            自定义随机字符串(其中可包含数字,符号,大小写字母)的生成方法
+            </summary>
+            <param name="intLength">需要位数</param>
+            <param name="booNumber">是否生成数字</param>
+            <param name="booSign">是否生成符号</param>
+            <param name="booSmallword">是否生成小写字母</param>
+            <param name="booBigword">是否生成大写字母</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.Common.ConfigReader.ReadConfig(System.String,System.String,System.String,System.String)">
+             <summary>
+            得到與PH.Platform.Common.dll文件同一目錄下的的XML文件中指定配置節中,指定Key的內容
+             </summary>
+             <param name="filename">配置文件名稱(xml)</param>
+             <param name="section">配置節名稱</param>
+             <param name="appKey">Key的名稱</param>
+             <param name="attributeName">屬性名稱</param>
+             <returns></returns>
+        </member>
+        <member name="T:PH.Platform.Common.StringEncryptHelper">
+            <summary>
+            字符串加解密
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Common.StringEncryptHelper.EncryptDES(System.String)">
+            <summary>
+            DES加密字符串
+            </summary>
+            <param name="encryptString">待加密的字符串</param>
+            <returns>加密成功返回加密後的字符串，失敗返回原串</returns>
+        </member>
+        <member name="M:PH.Platform.Common.StringEncryptHelper.DecryptDES(System.String)">
+            <summary>
+            DES解密字符串
+            </summary>
+            <param name="decryptString">待解密的字符串</param>
+            <returns>解密成功返回解密後的字符串,失敗返回源串</returns>
+        </member>
+    </members>
+</doc>

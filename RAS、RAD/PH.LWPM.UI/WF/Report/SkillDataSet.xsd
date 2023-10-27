@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SkillDataSet" targetNamespace="http://tempuri.org/SkillDataSet.xsd" xmlns:mstns="http://tempuri.org/SkillDataSet.xsd" xmlns="http://tempuri.org/SkillDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PH_LWPM_WPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PH_LWPM_WPConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PH.LWPM.UI.Properties.Settings.GlobalReference.Default.PH_LWPM_WPConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WorkForceTableAdapter" GeneratorDataComponentClassName="WorkForceTableAdapter" Name="WorkForce" UserDataComponentName="WorkForceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PH_LWPM_WPConnectionString (Settings)" DbObjectName="[PH.LWPM.WP].dbo.WorkForce" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Id, NameCn, NameEn, Sex, Factory, Dept, NextDept, DeptName, LineCode, NextLineCode, Location, NextLocation, JPDate, JLDate, REDate, ClsName, ShortClass, WorkerType, WFLevel, Region, Area, Seniority, JobTitleEn, JobTitleCn, dWF, InActive, IsRegistAuxiliary, AuxiliaryJobTitle, Matrix_Skill, Matrix_Attendance, Matrix_Adaptability, Matrix_Adoptability, Matrix_Speed, Matrix_Strength, Matrix_Staminal, Matrix_Teamplayer, Matrix_Quality, MTM, LongLeave, LongLeaveStartDate, LongLeaveEndDate, TechType FROM dbo.WorkForce</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="NameCn" DataSetColumn="NameCn" />
+              <Mapping SourceColumn="NameEn" DataSetColumn="NameEn" />
+              <Mapping SourceColumn="Sex" DataSetColumn="Sex" />
+              <Mapping SourceColumn="Factory" DataSetColumn="Factory" />
+              <Mapping SourceColumn="Dept" DataSetColumn="Dept" />
+              <Mapping SourceColumn="NextDept" DataSetColumn="NextDept" />
+              <Mapping SourceColumn="DeptName" DataSetColumn="DeptName" />
+              <Mapping SourceColumn="LineCode" DataSetColumn="LineCode" />
+              <Mapping SourceColumn="NextLineCode" DataSetColumn="NextLineCode" />
+              <Mapping SourceColumn="Location" DataSetColumn="Location" />
+              <Mapping SourceColumn="NextLocation" DataSetColumn="NextLocation" />
+              <Mapping SourceColumn="JPDate" DataSetColumn="JPDate" />
+              <Mapping SourceColumn="JLDate" DataSetColumn="JLDate" />
+              <Mapping SourceColumn="REDate" DataSetColumn="REDate" />
+              <Mapping SourceColumn="ClsName" DataSetColumn="ClsName" />
+              <Mapping SourceColumn="ShortClass" DataSetColumn="ShortClass" />
+              <Mapping SourceColumn="WorkerType" DataSetColumn="WorkerType" />
+              <Mapping SourceColumn="WFLevel" DataSetColumn="WFLevel" />
+              <Mapping SourceColumn="Region" DataSetColumn="Region" />
+              <Mapping SourceColumn="Area" DataSetColumn="Area" />
+              <Mapping SourceColumn="Seniority" DataSetColumn="Seniority" />
+              <Mapping SourceColumn="JobTitleEn" DataSetColumn="JobTitleEn" />
+              <Mapping SourceColumn="JobTitleCn" DataSetColumn="JobTitleCn" />
+              <Mapping SourceColumn="dWF" DataSetColumn="dWF" />
+              <Mapping SourceColumn="InActive" DataSetColumn="InActive" />
+              <Mapping SourceColumn="IsRegistAuxiliary" DataSetColumn="IsRegistAuxiliary" />
+              <Mapping SourceColumn="AuxiliaryJobTitle" DataSetColumn="AuxiliaryJobTitle" />
+              <Mapping SourceColumn="Matrix_Skill" DataSetColumn="Matrix_Skill" />
+              <Mapping SourceColumn="Matrix_Attendance" DataSetColumn="Matrix_Attendance" />
+              <Mapping SourceColumn="Matrix_Adaptability" DataSetColumn="Matrix_Adaptability" />
+              <Mapping SourceColumn="Matrix_Adoptability" DataSetColumn="Matrix_Adoptability" />
+              <Mapping SourceColumn="Matrix_Speed" DataSetColumn="Matrix_Speed" />
+              <Mapping SourceColumn="Matrix_Strength" DataSetColumn="Matrix_Strength" />
+              <Mapping SourceColumn="Matrix_Staminal" DataSetColumn="Matrix_Staminal" />
+              <Mapping SourceColumn="Matrix_Teamplayer" DataSetColumn="Matrix_Teamplayer" />
+              <Mapping SourceColumn="Matrix_Quality" DataSetColumn="Matrix_Quality" />
+              <Mapping SourceColumn="MTM" DataSetColumn="MTM" />
+              <Mapping SourceColumn="LongLeave" DataSetColumn="LongLeave" />
+              <Mapping SourceColumn="LongLeaveStartDate" DataSetColumn="LongLeaveStartDate" />
+              <Mapping SourceColumn="LongLeaveEndDate" DataSetColumn="LongLeaveEndDate" />
+              <Mapping SourceColumn="TechType" DataSetColumn="TechType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OpSkillTableAdapter" GeneratorDataComponentClassName="OpSkillTableAdapter" Name="OpSkill" UserDataComponentName="OpSkillTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PH_LWPM_WPConnectionString (Settings)" DbObjectName="[PH.LWPM.WP].dbo.OpSkill" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[OpSkill] WHERE (([Factory] = @Original_Factory) AND ([Id] = @Original_Id) AND ([Guid] = @Original_Guid) AND ((@IsNull_SEQ = 1 AND [SEQ] IS NULL) OR ([SEQ] = @Original_SEQ)) AND ((@IsNull_ThisPartialStyle_Code = 1 AND [ThisPartialStyle_Code] IS NULL) OR ([ThisPartialStyle_Code] = @Original_ThisPartialStyle_Code)) AND ((@IsNull_ThisPartialStyle_Name = 1 AND [ThisPartialStyle_Name] IS NULL) OR ([ThisPartialStyle_Name] = @Original_ThisPartialStyle_Name)) AND ((@IsNull_Attach = 1 AND [Attach] IS NULL) OR ([Attach] = @Original_Attach)) AND ((@IsNull_ThisMed_Code = 1 AND [ThisMed_Code] IS NULL) OR ([ThisMed_Code] = @Original_ThisMed_Code)) AND ((@IsNull_DegreeOfDifficult = 1 AND [DegreeOfDifficult] IS NULL) OR ([DegreeOfDifficult] = @Original_DegreeOfDifficult)) AND ((@IsNull_ThisMed_Name = 1 AND [ThisMed_Name] IS NULL) OR ([ThisMed_Name] = @Original_ThisMed_Name)) AND ((@IsNull_ThisGeneralOpCode = 1 AND [ThisGeneralOpCode] IS NULL) OR ([ThisGeneralOpCode] = @Original_ThisGeneralOpCode)) AND ((@IsNull_ThisGeneralOpName = 1 AND [ThisGeneralOpName] IS NULL) OR ([ThisGeneralOpName] = @Original_ThisGeneralOpName)) AND ((@IsNull_ThisOp = 1 AND [ThisOp] IS NULL) OR ([ThisOp] = @Original_ThisOp)) AND ((@IsNull_ThisOp_Code = 1 AND [ThisOp_Code] IS NULL) OR ([ThisOp_Code] = @Original_ThisOp_Code)) AND ((@IsNull_ThisOp_Name = 1 AND [ThisOp_Name] IS NULL) OR ([ThisOp_Name] = @Original_ThisOp_Name)) AND ((@IsNull_GsdSah = 1 AND [GsdSah] IS NULL) OR ([GsdSah] = @Original_GsdSah)) AND ((@IsNull_TimesForHundredUnits = 1 AND [TimesForHundredUnits] IS NULL) OR ([TimesForHundredUnits] = @Original_TimesForHundredUnits)) AND ((@IsNull_OptLineStyle = 1 AND [OptLineStyle] IS NULL) OR ([OptLineStyle] = @Original_OptLineStyle)) AND ((@IsNull_LineIsStraight = 1 AND [LineIsStraight] IS NULL) OR ([LineIsStraight] = @Original_LineIsStraight)) AND ((@IsNull_LineIsArc = 1 AND [LineIsArc] IS NULL) OR ([LineIsArc] = @Original_LineIsArc)) AND ((@IsNull_OptLength = 1 AND [OptLength] IS NULL) OR ([OptLength] = @Original_OptLength)) AND ((@IsNull_OptRaiseAndFall = 1 AND [OptRaiseAndFall] IS NULL) OR ([OptRaiseAndFall] = @Original_OptRaiseAndFall)) AND ((@IsNull_FabIsScrolled = 1 AND [FabIsScrolled] IS NULL) OR ([FabIsScrolled] = @Original_FabIsScrolled)) AND ((@IsNull_FabThickNess = 1 AND [FabThickNess] IS NULL) OR ([FabThickNess] = @Original_FabThickNess)) AND ((@IsNull_FabRange = 1 AND [FabRange] IS NULL) OR ([FabRange] = @Original_FabRange)) AND ((@IsNull_MtmProj = 1 AND [MtmProj] IS NULL) OR ([MtmProj] = @Original_MtmProj)) AND ((@IsNull_MtmCurr = 1 AND [MtmCurr] IS NULL) OR ([MtmCurr] = @Original_MtmCurr)) AND ((@IsNull_IsConfirmed = 1 AND [IsConfirmed] IS NULL) OR ([IsConfirmed] = @Original_IsConfirmed)) AND ((@IsNull_ConfirmTime = 1 AND [ConfirmTime] IS NULL) OR ([ConfirmTime] = @Original_ConfirmTime)) AND ((@IsNull_confirmUser = 1 AND [confirmUser] IS NULL) OR ([confirmUser] = @Original_confirmUser)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Factory" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Factory" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_Guid" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="Guid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SEQ" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SEQ" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_SEQ" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SEQ" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisPartialStyle_Code" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Code" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ThisPartialStyle_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisPartialStyle_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisPartialStyle_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Attach" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Attach" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Attach" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Attach" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisMed_Code" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisMed_Code" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ThisMed_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisMed_Code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DegreeOfDifficult" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DegreeOfDifficult" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_DegreeOfDifficult" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="DegreeOfDifficult" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisMed_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisMed_Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisMed_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisMed_Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisGeneralOpCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisGeneralOpCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ThisGeneralOpCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisGeneralOpCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisGeneralOpName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisGeneralOpName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisGeneralOpName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisGeneralOpName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisOp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisOp" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisOp" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisOp" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisOp_Code" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisOp_Code" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ThisOp_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisOp_Code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisOp_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisOp_Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisOp_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisOp_Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GsdSah" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="GsdSah" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GsdSah" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="GsdSah" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TimesForHundredUnits" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TimesForHundredUnits" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_TimesForHundredUnits" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TimesForHundredUnits" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OptLineStyle" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptLineStyle" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_OptLineStyle" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="OptLineStyle" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LineIsStraight" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LineIsStraight" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_LineIsStraight" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="LineIsStraight" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LineIsArc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LineIsArc" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_LineIsArc" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="LineIsArc" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OptLength" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptLength" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_OptLength" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptLength" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OptRaiseAndFall" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptRaiseAndFall" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_OptRaiseAndFall" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptRaiseAndFall" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FabIsScrolled" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FabIsScrolled" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_FabIsScrolled" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="FabIsScrolled" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FabThickNess" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FabThickNess" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_FabThickNess" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="FabThickNess" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FabRange" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FabRange" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_FabRange" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FabRange" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MtmProj" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmProj" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MtmProj" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmProj" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MtmCurr" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmCurr" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MtmCurr" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmCurr" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IsConfirmed" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IsConfirmed" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_IsConfirmed" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IsConfirmed" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ConfirmTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ConfirmTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ConfirmTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ConfirmTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_confirmUser" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="confirmUser" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_confirmUser" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="confirmUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[OpSkill] ([Factory], [Id], [Guid], [SEQ], [ThisPartialStyle_Code], [ThisPartialStyle_Name], [Attach], [ThisMed_Code], [DegreeOfDifficult], [ThisMed_Name], [ThisGeneralOpCode], [ThisGeneralOpName], [ThisOp], [ThisOp_Code], [ThisOp_Name], [GsdSah], [TimesForHundredUnits], [OptLineStyle], [LineIsStraight], [LineIsArc], [OptLength], [OptRaiseAndFall], [FabIsScrolled], [FabThickNess], [FabRange], [MtmProj], [MtmCurr], [IsConfirmed], [ConfirmTime], [confirmUser]) VALUES (@Factory, @Id, @Guid, @SEQ, @ThisPartialStyle_Code, @ThisPartialStyle_Name, @Attach, @ThisMed_Code, @DegreeOfDifficult, @ThisMed_Name, @ThisGeneralOpCode, @ThisGeneralOpName, @ThisOp, @ThisOp_Code, @ThisOp_Name, @GsdSah, @TimesForHundredUnits, @OptLineStyle, @LineIsStraight, @LineIsArc, @OptLength, @OptRaiseAndFall, @FabIsScrolled, @FabThickNess, @FabRange, @MtmProj, @MtmCurr, @IsConfirmed, @ConfirmTime, @confirmUser);
+SELECT Factory, Id, Guid, SEQ, ThisPartialStyle_Code, ThisPartialStyle_Name, Attach, ThisMed_Code, DegreeOfDifficult, ThisMed_Name, ThisGeneralOpCode, ThisGeneralOpName, ThisOp, ThisOp_Code, ThisOp_Name, GsdSah, TimesForHundredUnits, OptLineStyle, LineIsStraight, LineIsArc, OptLength, OptRaiseAndFall, FabIsScrolled, FabThickNess, FabRange, MtmProj, MtmCurr, IsConfirmed, ConfirmTime, confirmUser FROM OpSkill WHERE (Factory = @Factory) AND (Guid = @Guid) AND (Id = @Id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Factory" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Factory" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Guid" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="Guid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@SEQ" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SEQ" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ThisPartialStyle_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisPartialStyle_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Attach" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Attach" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ThisMed_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisMed_Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@DegreeOfDifficult" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="DegreeOfDifficult" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisMed_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisMed_Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ThisGeneralOpCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisGeneralOpCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisGeneralOpName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisGeneralOpName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisOp" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisOp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ThisOp_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisOp_Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisOp_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisOp_Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GsdSah" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="GsdSah" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@TimesForHundredUnits" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TimesForHundredUnits" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@OptLineStyle" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="OptLineStyle" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@LineIsStraight" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="LineIsStraight" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@LineIsArc" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="LineIsArc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@OptLength" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptLength" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@OptRaiseAndFall" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptRaiseAndFall" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@FabIsScrolled" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="FabIsScrolled" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@FabThickNess" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="FabThickNess" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@FabRange" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FabRange" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MtmProj" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmProj" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MtmCurr" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmCurr" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@IsConfirmed" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IsConfirmed" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ConfirmTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ConfirmTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@confirmUser" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="confirmUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Factory, Id, Guid, SEQ, ThisPartialStyle_Code, ThisPartialStyle_Name, Attach, ThisMed_Code, DegreeOfDifficult, ThisMed_Name, ThisGeneralOpCode, ThisGeneralOpName, ThisOp, ThisOp_Code, ThisOp_Name, GsdSah, TimesForHundredUnits, OptLineStyle, LineIsStraight, LineIsArc, OptLength, OptRaiseAndFall, FabIsScrolled, FabThickNess, FabRange, MtmProj, MtmCurr, IsConfirmed, ConfirmTime, confirmUser FROM dbo.OpSkill</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[OpSkill] SET [Factory] = @Factory, [Id] = @Id, [Guid] = @Guid, [SEQ] = @SEQ, [ThisPartialStyle_Code] = @ThisPartialStyle_Code, [ThisPartialStyle_Name] = @ThisPartialStyle_Name, [Attach] = @Attach, [ThisMed_Code] = @ThisMed_Code, [DegreeOfDifficult] = @DegreeOfDifficult, [ThisMed_Name] = @ThisMed_Name, [ThisGeneralOpCode] = @ThisGeneralOpCode, [ThisGeneralOpName] = @ThisGeneralOpName, [ThisOp] = @ThisOp, [ThisOp_Code] = @ThisOp_Code, [ThisOp_Name] = @ThisOp_Name, [GsdSah] = @GsdSah, [TimesForHundredUnits] = @TimesForHundredUnits, [OptLineStyle] = @OptLineStyle, [LineIsStraight] = @LineIsStraight, [LineIsArc] = @LineIsArc, [OptLength] = @OptLength, [OptRaiseAndFall] = @OptRaiseAndFall, [FabIsScrolled] = @FabIsScrolled, [FabThickNess] = @FabThickNess, [FabRange] = @FabRange, [MtmProj] = @MtmProj, [MtmCurr] = @MtmCurr, [IsConfirmed] = @IsConfirmed, [ConfirmTime] = @ConfirmTime, [confirmUser] = @confirmUser WHERE (([Factory] = @Original_Factory) AND ([Id] = @Original_Id) AND ([Guid] = @Original_Guid) AND ((@IsNull_SEQ = 1 AND [SEQ] IS NULL) OR ([SEQ] = @Original_SEQ)) AND ((@IsNull_ThisPartialStyle_Code = 1 AND [ThisPartialStyle_Code] IS NULL) OR ([ThisPartialStyle_Code] = @Original_ThisPartialStyle_Code)) AND ((@IsNull_ThisPartialStyle_Name = 1 AND [ThisPartialStyle_Name] IS NULL) OR ([ThisPartialStyle_Name] = @Original_ThisPartialStyle_Name)) AND ((@IsNull_Attach = 1 AND [Attach] IS NULL) OR ([Attach] = @Original_Attach)) AND ((@IsNull_ThisMed_Code = 1 AND [ThisMed_Code] IS NULL) OR ([ThisMed_Code] = @Original_ThisMed_Code)) AND ((@IsNull_DegreeOfDifficult = 1 AND [DegreeOfDifficult] IS NULL) OR ([DegreeOfDifficult] = @Original_DegreeOfDifficult)) AND ((@IsNull_ThisMed_Name = 1 AND [ThisMed_Name] IS NULL) OR ([ThisMed_Name] = @Original_ThisMed_Name)) AND ((@IsNull_ThisGeneralOpCode = 1 AND [ThisGeneralOpCode] IS NULL) OR ([ThisGeneralOpCode] = @Original_ThisGeneralOpCode)) AND ((@IsNull_ThisGeneralOpName = 1 AND [ThisGeneralOpName] IS NULL) OR ([ThisGeneralOpName] = @Original_ThisGeneralOpName)) AND ((@IsNull_ThisOp = 1 AND [ThisOp] IS NULL) OR ([ThisOp] = @Original_ThisOp)) AND ((@IsNull_ThisOp_Code = 1 AND [ThisOp_Code] IS NULL) OR ([ThisOp_Code] = @Original_ThisOp_Code)) AND ((@IsNull_ThisOp_Name = 1 AND [ThisOp_Name] IS NULL) OR ([ThisOp_Name] = @Original_ThisOp_Name)) AND ((@IsNull_GsdSah = 1 AND [GsdSah] IS NULL) OR ([GsdSah] = @Original_GsdSah)) AND ((@IsNull_TimesForHundredUnits = 1 AND [TimesForHundredUnits] IS NULL) OR ([TimesForHundredUnits] = @Original_TimesForHundredUnits)) AND ((@IsNull_OptLineStyle = 1 AND [OptLineStyle] IS NULL) OR ([OptLineStyle] = @Original_OptLineStyle)) AND ((@IsNull_LineIsStraight = 1 AND [LineIsStraight] IS NULL) OR ([LineIsStraight] = @Original_LineIsStraight)) AND ((@IsNull_LineIsArc = 1 AND [LineIsArc] IS NULL) OR ([LineIsArc] = @Original_LineIsArc)) AND ((@IsNull_OptLength = 1 AND [OptLength] IS NULL) OR ([OptLength] = @Original_OptLength)) AND ((@IsNull_OptRaiseAndFall = 1 AND [OptRaiseAndFall] IS NULL) OR ([OptRaiseAndFall] = @Original_OptRaiseAndFall)) AND ((@IsNull_FabIsScrolled = 1 AND [FabIsScrolled] IS NULL) OR ([FabIsScrolled] = @Original_FabIsScrolled)) AND ((@IsNull_FabThickNess = 1 AND [FabThickNess] IS NULL) OR ([FabThickNess] = @Original_FabThickNess)) AND ((@IsNull_FabRange = 1 AND [FabRange] IS NULL) OR ([FabRange] = @Original_FabRange)) AND ((@IsNull_MtmProj = 1 AND [MtmProj] IS NULL) OR ([MtmProj] = @Original_MtmProj)) AND ((@IsNull_MtmCurr = 1 AND [MtmCurr] IS NULL) OR ([MtmCurr] = @Original_MtmCurr)) AND ((@IsNull_IsConfirmed = 1 AND [IsConfirmed] IS NULL) OR ([IsConfirmed] = @Original_IsConfirmed)) AND ((@IsNull_ConfirmTime = 1 AND [ConfirmTime] IS NULL) OR ([ConfirmTime] = @Original_ConfirmTime)) AND ((@IsNull_confirmUser = 1 AND [confirmUser] IS NULL) OR ([confirmUser] = @Original_confirmUser)));
+SELECT Factory, Id, Guid, SEQ, ThisPartialStyle_Code, ThisPartialStyle_Name, Attach, ThisMed_Code, DegreeOfDifficult, ThisMed_Name, ThisGeneralOpCode, ThisGeneralOpName, ThisOp, ThisOp_Code, ThisOp_Name, GsdSah, TimesForHundredUnits, OptLineStyle, LineIsStraight, LineIsArc, OptLength, OptRaiseAndFall, FabIsScrolled, FabThickNess, FabRange, MtmProj, MtmCurr, IsConfirmed, ConfirmTime, confirmUser FROM OpSkill WHERE (Factory = @Factory) AND (Guid = @Guid) AND (Id = @Id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Factory" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Factory" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Guid" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="Guid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@SEQ" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SEQ" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ThisPartialStyle_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisPartialStyle_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Attach" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Attach" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ThisMed_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisMed_Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@DegreeOfDifficult" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="DegreeOfDifficult" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisMed_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisMed_Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ThisGeneralOpCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisGeneralOpCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisGeneralOpName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisGeneralOpName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisOp" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisOp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ThisOp_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisOp_Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ThisOp_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisOp_Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GsdSah" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="GsdSah" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@TimesForHundredUnits" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TimesForHundredUnits" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@OptLineStyle" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="OptLineStyle" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@LineIsStraight" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="LineIsStraight" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@LineIsArc" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="LineIsArc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@OptLength" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptLength" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@OptRaiseAndFall" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptRaiseAndFall" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@FabIsScrolled" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="FabIsScrolled" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@FabThickNess" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="FabThickNess" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@FabRange" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FabRange" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MtmProj" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmProj" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MtmCurr" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmCurr" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@IsConfirmed" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IsConfirmed" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ConfirmTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ConfirmTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@confirmUser" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="confirmUser" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Factory" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Factory" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_Guid" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="Guid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SEQ" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SEQ" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_SEQ" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SEQ" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisPartialStyle_Code" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Code" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ThisPartialStyle_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisPartialStyle_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisPartialStyle_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisPartialStyle_Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Attach" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Attach" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Attach" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Attach" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisMed_Code" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisMed_Code" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ThisMed_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisMed_Code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DegreeOfDifficult" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DegreeOfDifficult" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_DegreeOfDifficult" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="DegreeOfDifficult" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisMed_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisMed_Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisMed_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisMed_Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisGeneralOpCode" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisGeneralOpCode" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ThisGeneralOpCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisGeneralOpCode" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisGeneralOpName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisGeneralOpName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisGeneralOpName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisGeneralOpName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisOp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisOp" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisOp" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisOp" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisOp_Code" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisOp_Code" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ThisOp_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ThisOp_Code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ThisOp_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ThisOp_Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ThisOp_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ThisOp_Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GsdSah" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="GsdSah" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GsdSah" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="GsdSah" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TimesForHundredUnits" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TimesForHundredUnits" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_TimesForHundredUnits" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TimesForHundredUnits" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OptLineStyle" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptLineStyle" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_OptLineStyle" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="OptLineStyle" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LineIsStraight" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LineIsStraight" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_LineIsStraight" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="LineIsStraight" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LineIsArc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LineIsArc" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_LineIsArc" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="LineIsArc" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OptLength" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptLength" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_OptLength" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptLength" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OptRaiseAndFall" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptRaiseAndFall" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_OptRaiseAndFall" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OptRaiseAndFall" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FabIsScrolled" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FabIsScrolled" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_FabIsScrolled" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="FabIsScrolled" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FabThickNess" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FabThickNess" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_FabThickNess" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="FabThickNess" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FabRange" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FabRange" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_FabRange" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FabRange" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MtmProj" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmProj" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MtmProj" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmProj" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MtmCurr" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmCurr" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MtmCurr" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MtmCurr" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IsConfirmed" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IsConfirmed" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_IsConfirmed" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IsConfirmed" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ConfirmTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ConfirmTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ConfirmTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ConfirmTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_confirmUser" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="confirmUser" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_confirmUser" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="confirmUser" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Factory" DataSetColumn="Factory" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Guid" DataSetColumn="Guid" />
+              <Mapping SourceColumn="SEQ" DataSetColumn="SEQ" />
+              <Mapping SourceColumn="ThisPartialStyle_Code" DataSetColumn="ThisPartialStyle_Code" />
+              <Mapping SourceColumn="ThisPartialStyle_Name" DataSetColumn="ThisPartialStyle_Name" />
+              <Mapping SourceColumn="Attach" DataSetColumn="Attach" />
+              <Mapping SourceColumn="ThisMed_Code" DataSetColumn="ThisMed_Code" />
+              <Mapping SourceColumn="DegreeOfDifficult" DataSetColumn="DegreeOfDifficult" />
+              <Mapping SourceColumn="ThisMed_Name" DataSetColumn="ThisMed_Name" />
+              <Mapping SourceColumn="ThisGeneralOpCode" DataSetColumn="ThisGeneralOpCode" />
+              <Mapping SourceColumn="ThisGeneralOpName" DataSetColumn="ThisGeneralOpName" />
+              <Mapping SourceColumn="ThisOp" DataSetColumn="ThisOp" />
+              <Mapping SourceColumn="ThisOp_Code" DataSetColumn="ThisOp_Code" />
+              <Mapping SourceColumn="ThisOp_Name" DataSetColumn="ThisOp_Name" />
+              <Mapping SourceColumn="GsdSah" DataSetColumn="GsdSah" />
+              <Mapping SourceColumn="TimesForHundredUnits" DataSetColumn="TimesForHundredUnits" />
+              <Mapping SourceColumn="OptLineStyle" DataSetColumn="OptLineStyle" />
+              <Mapping SourceColumn="LineIsStraight" DataSetColumn="LineIsStraight" />
+              <Mapping SourceColumn="LineIsArc" DataSetColumn="LineIsArc" />
+              <Mapping SourceColumn="OptLength" DataSetColumn="OptLength" />
+              <Mapping SourceColumn="OptRaiseAndFall" DataSetColumn="OptRaiseAndFall" />
+              <Mapping SourceColumn="FabIsScrolled" DataSetColumn="FabIsScrolled" />
+              <Mapping SourceColumn="FabThickNess" DataSetColumn="FabThickNess" />
+              <Mapping SourceColumn="FabRange" DataSetColumn="FabRange" />
+              <Mapping SourceColumn="MtmProj" DataSetColumn="MtmProj" />
+              <Mapping SourceColumn="MtmCurr" DataSetColumn="MtmCurr" />
+              <Mapping SourceColumn="IsConfirmed" DataSetColumn="IsConfirmed" />
+              <Mapping SourceColumn="ConfirmTime" DataSetColumn="ConfirmTime" />
+              <Mapping SourceColumn="confirmUser" DataSetColumn="confirmUser" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SkillDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="SkillDataSet" msprop:Generator_DataSetName="SkillDataSet" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="WorkForce" msprop:Generator_UserTableName="WorkForce" msprop:Generator_RowDeletedName="WorkForceRowDeleted" msprop:Generator_RowChangedName="WorkForceRowChanged" msprop:Generator_RowClassName="WorkForceRow" msprop:Generator_RowChangingName="WorkForceRowChanging" msprop:Generator_RowEvArgName="WorkForceRowChangeEvent" msprop:Generator_RowEvHandlerName="WorkForceRowChangeEventHandler" msprop:Generator_TableClassName="WorkForceDataTable" msprop:Generator_TableVarName="tableWorkForce" msprop:Generator_RowDeletingName="WorkForceRowDeleting" msprop:Generator_TablePropName="WorkForce">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInTable="IdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NameCn" msprop:Generator_UserColumnName="NameCn" msprop:Generator_ColumnPropNameInRow="NameCn" msprop:Generator_ColumnVarNameInTable="columnNameCn" msprop:Generator_ColumnPropNameInTable="NameCnColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NameEn" msprop:Generator_UserColumnName="NameEn" msprop:Generator_ColumnPropNameInRow="NameEn" msprop:Generator_ColumnVarNameInTable="columnNameEn" msprop:Generator_ColumnPropNameInTable="NameEnColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sex" msprop:Generator_UserColumnName="Sex" msprop:Generator_ColumnPropNameInRow="Sex" msprop:Generator_ColumnVarNameInTable="columnSex" msprop:Generator_ColumnPropNameInTable="SexColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Factory" msprop:Generator_UserColumnName="Factory" msprop:Generator_ColumnPropNameInRow="Factory" msprop:Generator_ColumnVarNameInTable="columnFactory" msprop:Generator_ColumnPropNameInTable="FactoryColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dept" msprop:Generator_UserColumnName="Dept" msprop:Generator_ColumnPropNameInRow="Dept" msprop:Generator_ColumnVarNameInTable="columnDept" msprop:Generator_ColumnPropNameInTable="DeptColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NextDept" msprop:Generator_UserColumnName="NextDept" msprop:Generator_ColumnPropNameInRow="NextDept" msprop:Generator_ColumnVarNameInTable="columnNextDept" msprop:Generator_ColumnPropNameInTable="NextDeptColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeptName" msprop:Generator_UserColumnName="DeptName" msprop:Generator_ColumnPropNameInRow="DeptName" msprop:Generator_ColumnVarNameInTable="columnDeptName" msprop:Generator_ColumnPropNameInTable="DeptNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LineCode" msprop:Generator_UserColumnName="LineCode" msprop:Generator_ColumnPropNameInRow="LineCode" msprop:Generator_ColumnVarNameInTable="columnLineCode" msprop:Generator_ColumnPropNameInTable="LineCodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NextLineCode" msprop:Generator_UserColumnName="NextLineCode" msprop:Generator_ColumnPropNameInRow="NextLineCode" msprop:Generator_ColumnVarNameInTable="columnNextLineCode" msprop:Generator_ColumnPropNameInTable="NextLineCodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Location" msprop:Generator_UserColumnName="Location" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInTable="LocationColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NextLocation" msprop:Generator_UserColumnName="NextLocation" msprop:Generator_ColumnPropNameInRow="NextLocation" msprop:Generator_ColumnVarNameInTable="columnNextLocation" msprop:Generator_ColumnPropNameInTable="NextLocationColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JPDate" msprop:Generator_UserColumnName="JPDate" msprop:Generator_ColumnPropNameInRow="JPDate" msprop:Generator_ColumnVarNameInTable="columnJPDate" msprop:Generator_ColumnPropNameInTable="JPDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JLDate" msprop:Generator_UserColumnName="JLDate" msprop:Generator_ColumnPropNameInRow="JLDate" msprop:Generator_ColumnVarNameInTable="columnJLDate" msprop:Generator_ColumnPropNameInTable="JLDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="REDate" msprop:Generator_UserColumnName="REDate" msprop:Generator_ColumnPropNameInRow="REDate" msprop:Generator_ColumnVarNameInTable="columnREDate" msprop:Generator_ColumnPropNameInTable="REDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ClsName" msprop:Generator_UserColumnName="ClsName" msprop:Generator_ColumnPropNameInRow="ClsName" msprop:Generator_ColumnVarNameInTable="columnClsName" msprop:Generator_ColumnPropNameInTable="ClsNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShortClass" msprop:Generator_UserColumnName="ShortClass" msprop:Generator_ColumnPropNameInRow="ShortClass" msprop:Generator_ColumnVarNameInTable="columnShortClass" msprop:Generator_ColumnPropNameInTable="ShortClassColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WorkerType" msprop:Generator_UserColumnName="WorkerType" msprop:Generator_ColumnPropNameInRow="WorkerType" msprop:Generator_ColumnVarNameInTable="columnWorkerType" msprop:Generator_ColumnPropNameInTable="WorkerTypeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WFLevel" msprop:Generator_UserColumnName="WFLevel" msprop:Generator_ColumnPropNameInRow="WFLevel" msprop:Generator_ColumnVarNameInTable="columnWFLevel" msprop:Generator_ColumnPropNameInTable="WFLevelColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Region" msprop:Generator_UserColumnName="Region" msprop:Generator_ColumnPropNameInRow="Region" msprop:Generator_ColumnVarNameInTable="columnRegion" msprop:Generator_ColumnPropNameInTable="RegionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Area" msprop:Generator_UserColumnName="Area" msprop:Generator_ColumnPropNameInRow="Area" msprop:Generator_ColumnVarNameInTable="columnArea" msprop:Generator_ColumnPropNameInTable="AreaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Seniority" msprop:Generator_UserColumnName="Seniority" msprop:Generator_ColumnPropNameInRow="Seniority" msprop:Generator_ColumnVarNameInTable="columnSeniority" msprop:Generator_ColumnPropNameInTable="SeniorityColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="JobTitleEn" msprop:Generator_UserColumnName="JobTitleEn" msprop:Generator_ColumnPropNameInRow="JobTitleEn" msprop:Generator_ColumnVarNameInTable="columnJobTitleEn" msprop:Generator_ColumnPropNameInTable="JobTitleEnColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JobTitleCn" msprop:Generator_UserColumnName="JobTitleCn" msprop:Generator_ColumnPropNameInRow="JobTitleCn" msprop:Generator_ColumnVarNameInTable="columnJobTitleCn" msprop:Generator_ColumnPropNameInTable="JobTitleCnColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dWF" msprop:Generator_UserColumnName="dWF" msprop:Generator_ColumnPropNameInRow="dWF" msprop:Generator_ColumnVarNameInTable="columndWF" msprop:Generator_ColumnPropNameInTable="dWFColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="InActive" msprop:Generator_UserColumnName="InActive" msprop:Generator_ColumnPropNameInRow="InActive" msprop:Generator_ColumnVarNameInTable="columnInActive" msprop:Generator_ColumnPropNameInTable="InActiveColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsRegistAuxiliary" msprop:Generator_UserColumnName="IsRegistAuxiliary" msprop:Generator_ColumnPropNameInRow="IsRegistAuxiliary" msprop:Generator_ColumnVarNameInTable="columnIsRegistAuxiliary" msprop:Generator_ColumnPropNameInTable="IsRegistAuxiliaryColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="AuxiliaryJobTitle" msprop:Generator_UserColumnName="AuxiliaryJobTitle" msprop:Generator_ColumnPropNameInRow="AuxiliaryJobTitle" msprop:Generator_ColumnVarNameInTable="columnAuxiliaryJobTitle" msprop:Generator_ColumnPropNameInTable="AuxiliaryJobTitleColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Matrix_Skill" msprop:Generator_UserColumnName="Matrix_Skill" msprop:Generator_ColumnPropNameInRow="Matrix_Skill" msprop:Generator_ColumnVarNameInTable="columnMatrix_Skill" msprop:Generator_ColumnPropNameInTable="Matrix_SkillColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Matrix_Attendance" msprop:Generator_UserColumnName="Matrix_Attendance" msprop:Generator_ColumnPropNameInRow="Matrix_Attendance" msprop:Generator_ColumnVarNameInTable="columnMatrix_Attendance" msprop:Generator_ColumnPropNameInTable="Matrix_AttendanceColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Matrix_Adaptability" msprop:Generator_UserColumnName="Matrix_Adaptability" msprop:Generator_ColumnPropNameInRow="Matrix_Adaptability" msprop:Generator_ColumnVarNameInTable="columnMatrix_Adaptability" msprop:Generator_ColumnPropNameInTable="Matrix_AdaptabilityColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Matrix_Adoptability" msprop:Generator_UserColumnName="Matrix_Adoptability" msprop:Generator_ColumnPropNameInRow="Matrix_Adoptability" msprop:Generator_ColumnVarNameInTable="columnMatrix_Adoptability" msprop:Generator_ColumnPropNameInTable="Matrix_AdoptabilityColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Matrix_Speed" msprop:Generator_UserColumnName="Matrix_Speed" msprop:Generator_ColumnPropNameInRow="Matrix_Speed" msprop:Generator_ColumnVarNameInTable="columnMatrix_Speed" msprop:Generator_ColumnPropNameInTable="Matrix_SpeedColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Matrix_Strength" msprop:Generator_UserColumnName="Matrix_Strength" msprop:Generator_ColumnPropNameInRow="Matrix_Strength" msprop:Generator_ColumnVarNameInTable="columnMatrix_Strength" msprop:Generator_ColumnPropNameInTable="Matrix_StrengthColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Matrix_Staminal" msprop:Generator_UserColumnName="Matrix_Staminal" msprop:Generator_ColumnPropNameInRow="Matrix_Staminal" msprop:Generator_ColumnVarNameInTable="columnMatrix_Staminal" msprop:Generator_ColumnPropNameInTable="Matrix_StaminalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Matrix_Teamplayer" msprop:Generator_UserColumnName="Matrix_Teamplayer" msprop:Generator_ColumnPropNameInRow="Matrix_Teamplayer" msprop:Generator_ColumnVarNameInTable="columnMatrix_Teamplayer" msprop:Generator_ColumnPropNameInTable="Matrix_TeamplayerColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Matrix_Quality" msprop:Generator_UserColumnName="Matrix_Quality" msprop:Generator_ColumnPropNameInRow="Matrix_Quality" msprop:Generator_ColumnVarNameInTable="columnMatrix_Quality" msprop:Generator_ColumnPropNameInTable="Matrix_QualityColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MTM" msprop:Generator_UserColumnName="MTM" msprop:Generator_ColumnPropNameInRow="MTM" msprop:Generator_ColumnVarNameInTable="columnMTM" msprop:Generator_ColumnPropNameInTable="MTMColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="LongLeave" msprop:Generator_UserColumnName="LongLeave" msprop:Generator_ColumnPropNameInRow="LongLeave" msprop:Generator_ColumnVarNameInTable="columnLongLeave" msprop:Generator_ColumnPropNameInTable="LongLeaveColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="LongLeaveStartDate" msprop:Generator_UserColumnName="LongLeaveStartDate" msprop:Generator_ColumnPropNameInRow="LongLeaveStartDate" msprop:Generator_ColumnVarNameInTable="columnLongLeaveStartDate" msprop:Generator_ColumnPropNameInTable="LongLeaveStartDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LongLeaveEndDate" msprop:Generator_UserColumnName="LongLeaveEndDate" msprop:Generator_ColumnPropNameInRow="LongLeaveEndDate" msprop:Generator_ColumnVarNameInTable="columnLongLeaveEndDate" msprop:Generator_ColumnPropNameInTable="LongLeaveEndDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TechType" msprop:Generator_UserColumnName="TechType" msprop:Generator_ColumnPropNameInRow="TechType" msprop:Generator_ColumnVarNameInTable="columnTechType" msprop:Generator_ColumnPropNameInTable="TechTypeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OpSkill" msprop:Generator_UserTableName="OpSkill" msprop:Generator_RowDeletedName="OpSkillRowDeleted" msprop:Generator_RowChangedName="OpSkillRowChanged" msprop:Generator_RowClassName="OpSkillRow" msprop:Generator_RowChangingName="OpSkillRowChanging" msprop:Generator_RowEvArgName="OpSkillRowChangeEvent" msprop:Generator_RowEvHandlerName="OpSkillRowChangeEventHandler" msprop:Generator_TableClassName="OpSkillDataTable" msprop:Generator_TableVarName="tableOpSkill" msprop:Generator_RowDeletingName="OpSkillRowDeleting" msprop:Generator_TablePropName="OpSkill">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Factory" msprop:Generator_UserColumnName="Factory" msprop:Generator_ColumnPropNameInRow="Factory" msprop:Generator_ColumnVarNameInTable="columnFactory" msprop:Generator_ColumnPropNameInTable="FactoryColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInTable="IdColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Guid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="Guid" msprop:Generator_ColumnPropNameInRow="Guid" msprop:Generator_ColumnVarNameInTable="columnGuid" msprop:Generator_ColumnPropNameInTable="GuidColumn" type="xs:string" />
+              <xs:element name="SEQ" msprop:Generator_UserColumnName="SEQ" msprop:Generator_ColumnPropNameInRow="SEQ" msprop:Generator_ColumnVarNameInTable="columnSEQ" msprop:Generator_ColumnPropNameInTable="SEQColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="ThisPartialStyle_Code" msprop:Generator_UserColumnName="ThisPartialStyle_Code" msprop:Generator_ColumnPropNameInRow="ThisPartialStyle_Code" msprop:Generator_ColumnVarNameInTable="columnThisPartialStyle_Code" msprop:Generator_ColumnPropNameInTable="ThisPartialStyle_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ThisPartialStyle_Name" msprop:Generator_UserColumnName="ThisPartialStyle_Name" msprop:Generator_ColumnPropNameInRow="ThisPartialStyle_Name" msprop:Generator_ColumnVarNameInTable="columnThisPartialStyle_Name" msprop:Generator_ColumnPropNameInTable="ThisPartialStyle_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Attach" msprop:Generator_UserColumnName="Attach" msprop:Generator_ColumnPropNameInRow="Attach" msprop:Generator_ColumnVarNameInTable="columnAttach" msprop:Generator_ColumnPropNameInTable="AttachColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ThisMed_Code" msprop:Generator_UserColumnName="ThisMed_Code" msprop:Generator_ColumnPropNameInRow="ThisMed_Code" msprop:Generator_ColumnVarNameInTable="columnThisMed_Code" msprop:Generator_ColumnPropNameInTable="ThisMed_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DegreeOfDifficult" msprop:Generator_UserColumnName="DegreeOfDifficult" msprop:Generator_ColumnPropNameInRow="DegreeOfDifficult" msprop:Generator_ColumnVarNameInTable="columnDegreeOfDifficult" msprop:Generator_ColumnPropNameInTable="DegreeOfDifficultColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ThisMed_Name" msprop:Generator_UserColumnName="ThisMed_Name" msprop:Generator_ColumnPropNameInRow="ThisMed_Name" msprop:Generator_ColumnVarNameInTable="columnThisMed_Name" msprop:Generator_ColumnPropNameInTable="ThisMed_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ThisGeneralOpCode" msprop:Generator_UserColumnName="ThisGeneralOpCode" msprop:Generator_ColumnPropNameInRow="ThisGeneralOpCode" msprop:Generator_ColumnVarNameInTable="columnThisGeneralOpCode" msprop:Generator_ColumnPropNameInTable="ThisGeneralOpCodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ThisGeneralOpName" msprop:Generator_UserColumnName="ThisGeneralOpName" msprop:Generator_ColumnPropNameInRow="ThisGeneralOpName" msprop:Generator_ColumnVarNameInTable="columnThisGeneralOpName" msprop:Generator_ColumnPropNameInTable="ThisGeneralOpNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ThisOp" msprop:Generator_UserColumnName="ThisOp" msprop:Generator_ColumnPropNameInRow="ThisOp" msprop:Generator_ColumnVarNameInTable="columnThisOp" msprop:Generator_ColumnPropNameInTable="ThisOpColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ThisOp_Code" msprop:Generator_UserColumnName="ThisOp_Code" msprop:Generator_ColumnPropNameInRow="ThisOp_Code" msprop:Generator_ColumnVarNameInTable="columnThisOp_Code" msprop:Generator_ColumnPropNameInTable="ThisOp_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ThisOp_Name" msprop:Generator_UserColumnName="ThisOp_Name" msprop:Generator_ColumnPropNameInRow="ThisOp_Name" msprop:Generator_ColumnVarNameInTable="columnThisOp_Name" msprop:Generator_ColumnPropNameInTable="ThisOp_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="400" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GsdSah" msprop:Generator_UserColumnName="GsdSah" msprop:Generator_ColumnPropNameInRow="GsdSah" msprop:Generator_ColumnVarNameInTable="columnGsdSah" msprop:Generator_ColumnPropNameInTable="GsdSahColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TimesForHundredUnits" msprop:Generator_UserColumnName="TimesForHundredUnits" msprop:Generator_ColumnPropNameInRow="TimesForHundredUnits" msprop:Generator_ColumnVarNameInTable="columnTimesForHundredUnits" msprop:Generator_ColumnPropNameInTable="TimesForHundredUnitsColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="OptLineStyle" msprop:Generator_UserColumnName="OptLineStyle" msprop:Generator_ColumnPropNameInRow="OptLineStyle" msprop:Generator_ColumnVarNameInTable="columnOptLineStyle" msprop:Generator_ColumnPropNameInTable="OptLineStyleColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LineIsStraight" msprop:Generator_UserColumnName="LineIsStraight" msprop:Generator_ColumnPropNameInRow="LineIsStraight" msprop:Generator_ColumnVarNameInTable="columnLineIsStraight" msprop:Generator_ColumnPropNameInTable="LineIsStraightColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="LineIsArc" msprop:Generator_UserColumnName="LineIsArc" msprop:Generator_ColumnPropNameInRow="LineIsArc" msprop:Generator_ColumnVarNameInTable="columnLineIsArc" msprop:Generator_ColumnPropNameInTable="LineIsArcColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OptLength" msprop:Generator_UserColumnName="OptLength" msprop:Generator_ColumnPropNameInRow="OptLength" msprop:Generator_ColumnVarNameInTable="columnOptLength" msprop:Generator_ColumnPropNameInTable="OptLengthColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="OptRaiseAndFall" msprop:Generator_UserColumnName="OptRaiseAndFall" msprop:Generator_ColumnPropNameInRow="OptRaiseAndFall" msprop:Generator_ColumnVarNameInTable="columnOptRaiseAndFall" msprop:Generator_ColumnPropNameInTable="OptRaiseAndFallColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="FabIsScrolled" msprop:Generator_UserColumnName="FabIsScrolled" msprop:Generator_ColumnPropNameInRow="FabIsScrolled" msprop:Generator_ColumnVarNameInTable="columnFabIsScrolled" msprop:Generator_ColumnPropNameInTable="FabIsScrolledColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="FabThickNess" msprop:Generator_UserColumnName="FabThickNess" msprop:Generator_ColumnPropNameInRow="FabThickNess" msprop:Generator_ColumnVarNameInTable="columnFabThickNess" msprop:Generator_ColumnPropNameInTable="FabThickNessColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FabRange" msprop:Generator_UserColumnName="FabRange" msprop:Generator_ColumnPropNameInRow="FabRange" msprop:Generator_ColumnVarNameInTable="columnFabRange" msprop:Generator_ColumnPropNameInTable="FabRangeColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="MtmProj" msprop:Generator_UserColumnName="MtmProj" msprop:Generator_ColumnPropNameInRow="MtmProj" msprop:Generator_ColumnVarNameInTable="columnMtmProj" msprop:Generator_ColumnPropNameInTable="MtmProjColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="MtmCurr" msprop:Generator_UserColumnName="MtmCurr" msprop:Generator_ColumnPropNameInRow="MtmCurr" msprop:Generator_ColumnVarNameInTable="columnMtmCurr" msprop:Generator_ColumnPropNameInTable="MtmCurrColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="IsConfirmed" msprop:Generator_UserColumnName="IsConfirmed" msprop:Generator_ColumnPropNameInRow="IsConfirmed" msprop:Generator_ColumnVarNameInTable="columnIsConfirmed" msprop:Generator_ColumnPropNameInTable="IsConfirmedColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ConfirmTime" msprop:Generator_UserColumnName="ConfirmTime" msprop:Generator_ColumnPropNameInRow="ConfirmTime" msprop:Generator_ColumnVarNameInTable="columnConfirmTime" msprop:Generator_ColumnPropNameInTable="ConfirmTimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="confirmUser" msprop:Generator_UserColumnName="confirmUser" msprop:Generator_ColumnPropNameInRow="confirmUser" msprop:Generator_ColumnVarNameInTable="columnconfirmUser" msprop:Generator_ColumnPropNameInTable="confirmUserColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:WorkForce" />
+      <xs:field xpath="mstns:Id" />
+      <xs:field xpath="mstns:Factory" />
+    </xs:unique>
+    <xs:unique name="OpSkill_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:OpSkill" />
+      <xs:field xpath="mstns:Factory" />
+      <xs:field xpath="mstns:Id" />
+      <xs:field xpath="mstns:Guid" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_OpSkill_WorkForce" msdata:parent="WorkForce" msdata:child="OpSkill" msdata:parentkey="Id Factory" msdata:childkey="Id Factory" msprop:Generator_UserRelationName="FK_OpSkill_WorkForce" msprop:Generator_RelationVarName="relationFK_OpSkill_WorkForce" msprop:Generator_UserChildTable="OpSkill" msprop:Generator_UserParentTable="WorkForce" msprop:Generator_ParentPropName="WorkForceRowParent" msprop:Generator_ChildPropName="GetOpSkillRows" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

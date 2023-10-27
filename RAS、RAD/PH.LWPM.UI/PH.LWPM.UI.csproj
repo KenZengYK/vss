@@ -1,0 +1,2793 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4ACFA062-D822-4048-BD50-14F7278E3803}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.LWPM.UI</RootNamespace>
+    <AssemblyName>PH.LWPM.UI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1.UI, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v8.1" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="PH.BasicInfo.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.LineBalanceII.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.LineBalanceII.UI, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.MachineLayoutChart, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Common, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Email.BO, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Email.UI, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.ExtendLibrary, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Lang.BO, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.UI, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionLog\ActionLogDetailDetailForm.cs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogDetailDetailForm.cs.Designer.cs">
+      <DependentUpon>ActionLogDetailDetailForm.cs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogDetailListForm.cs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogDetailListForm.cs.Designer.cs">
+      <DependentUpon>ActionLogDetailListForm.cs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogHeaderDetailForm.Designer.cs">
+      <DependentUpon>ActionLogHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogHeaderListForm.Designer.cs">
+      <DependentUpon>ActionLogHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\SendEmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionLog\SendEmailForm.Designer.cs">
+      <DependentUpon>SendEmailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Committee\CommitteeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Committee\CommitteeDetailForm.Designer.cs">
+      <DependentUpon>CommitteeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Committee\CommitteeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Committee\CommitteeListForm.Designer.cs">
+      <DependentUpon>CommitteeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Committee\CommitteeMemberDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Committee\CommitteeMemberDetailForm.Designer.cs">
+      <DependentUpon>CommitteeMemberDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Committee\CommitteeMemberListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Committee\CommitteeMemberListForm.Designer.cs">
+      <DependentUpon>CommitteeMemberListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Committee\SelectEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Committee\SelectEmployeeForm.Designer.cs">
+      <DependentUpon>SelectEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EQ\EQBaseCodeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EQ\EQBaseCodeDetailForm.Designer.cs">
+      <DependentUpon>EQBaseCodeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EQ\EQBaseCodeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EQ\EQBaseCodeListForm.Designer.cs">
+      <DependentUpon>EQBaseCodeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EQ\EquipmentDetailForm.cs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EQ\EquipmentDetailForm.cs.Designer.cs">
+      <DependentUpon>EquipmentDetailForm.cs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EQ\EquipmentListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EQ\EquipmentListForm.Designer.cs">
+      <DependentUpon>EquipmentListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceFile\IFactionFace.cs" />
+    <Compile Include="IRepository\IPublicLibrary.cs" />
+    <Compile Include="IRepository\IWFPList.cs" />
+    <Compile Include="IRepository\IWorkForceTrim.cs" />
+    <Compile Include="LB4\AlertLogCategoryChoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\AlertLogCategoryChoiceForm.Designer.cs">
+      <DependentUpon>AlertLogCategoryChoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\AlertLogCategoryDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\AlertLogCategoryDetailForm.Designer.cs">
+      <DependentUpon>AlertLogCategoryDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\AlertLogCategoryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\AlertLogCategoryListForm.Designer.cs">
+      <DependentUpon>AlertLogCategoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\BatchAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\BatchAddForm.Designer.cs">
+      <DependentUpon>BatchAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\ChangeLineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\ChangeLineForm.Designer.cs">
+      <DependentUpon>ChangeLineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\AlertLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\AlertLogForm.Designer.cs">
+      <DependentUpon>AlertLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\EmailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\EmailDetailForm.Designer.cs">
+      <DependentUpon>EmailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\EmailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\EmailListForm.Designer.cs">
+      <DependentUpon>EmailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\frmSetFieldValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\frmSetFieldValue.Designer.cs">
+      <DependentUpon>frmSetFieldValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\LB4AuditCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\LB4AuditCondition.Designer.cs">
+      <DependentUpon>LB4AuditCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\LB4AuditFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\LB4AuditFrm.Designer.cs">
+      <DependentUpon>LB4AuditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\LB4ChildEditFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\LB4ChildEditFrm.Designer.cs">
+      <DependentUpon>LB4ChildEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\LB4ChildFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\LB4ChildFrm.Designer.cs">
+      <DependentUpon>LB4ChildFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\CopyWFMCFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\CopyWFMCFrm.Designer.cs">
+      <DependentUpon>CopyWFMCFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\LB4ChildListA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\LB4ChildListA.Designer.cs">
+      <DependentUpon>LB4ChildListA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\LB4ChildListDemo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\LB4ChildListDemo.Designer.cs">
+      <DependentUpon>LB4ChildListDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\LockAndReserveFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\LockAndReserveFrm.Designer.cs">
+      <DependentUpon>LockAndReserveFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\MCFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\MCFrm.designer.cs">
+      <DependentUpon>MCFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\LB4PListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\LB4PListFrm.Designer.cs">
+      <DependentUpon>LB4PListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\OpsPermitSignDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\OpsPermitSignDetailForm.Designer.cs">
+      <DependentUpon>OpsPermitSignDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\OpsPermitSignListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\OpsPermitSignListForm.Designer.cs">
+      <DependentUpon>OpsPermitSignListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\RedQNListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\RedQNListForm.Designer.cs">
+      <DependentUpon>RedQNListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\ReportHelper.cs" />
+    <Compile Include="LB4\Report\LBSAHReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\Report\LBSAHReport.designer.cs">
+      <DependentUpon>LBSAHReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\Report\MatchingRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\Report\MatchingRpt.Designer.cs">
+      <DependentUpon>MatchingRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\Report\McAuditRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\Report\McAuditRpt.Designer.cs">
+      <DependentUpon>McAuditRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\Report\ProofRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\Report\ProofRpt.Designer.cs">
+      <DependentUpon>ProofRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\Report\SummaryRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\Report\SummaryRpt.Designer.cs">
+      <DependentUpon>SummaryRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\Report\SuspectPlanRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\Report\SuspectPlanRpt.Designer.cs">
+      <DependentUpon>SuspectPlanRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\Report\SuspectReportConditin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB4\Report\SuspectReportConditin.Designer.cs">
+      <DependentUpon>SuspectReportConditin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\AlertLogSendEmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\AlertLogSendEmailForm.Designer.cs">
+      <DependentUpon>AlertLogSendEmailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport.Designer.cs">
+      <DependentUpon>StyleMasterListFormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport2.Designer.cs">
+      <DependentUpon>StyleMasterListFormReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport3.Designer.cs">
+      <DependentUpon>StyleMasterListFormReport3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport_B1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport_B1.Designer.cs">
+      <DependentUpon>StyleMasterListFormReport_B1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport_B2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport_B2.Designer.cs">
+      <DependentUpon>StyleMasterListFormReport_B2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport_B3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB4\StyleMasterListFormReport_B3.Designer.cs">
+      <DependentUpon>StyleMasterListFormReport_B3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\LB5ChildEditFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB5\LB5ChildEditFrm.Designer.cs">
+      <DependentUpon>LB5ChildEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\LB5ChildListY1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB5\LB5ChildListY1.Designer.cs">
+      <DependentUpon>LB5ChildListY1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\LB5MatchingLogListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB5\LB5MatchingLogListForm.Designer.cs">
+      <DependentUpon>LB5MatchingLogListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\ProcessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB5\ProcessForm.Designer.cs">
+      <DependentUpon>ProcessForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\ProposalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB5\ProposalForm.Designer.cs">
+      <DependentUpon>ProposalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\ProposalWorkSheetForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB5\ProposalWorkSheetForm.Designer.cs">
+      <DependentUpon>ProposalWorkSheetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\Report\WFMCCountRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB5\Report\WFMCCountRpt.Designer.cs">
+      <DependentUpon>WFMCCountRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB4\WFFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB4\WFFrm.designer.cs">
+      <DependentUpon>WFFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\LB5ChildFrmM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB5\LB5ChildFrmM.Designer.cs">
+      <DependentUpon>LB5ChildFrmM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\LB5ChildFrmN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB5\LB5ChildFrmN.Designer.cs">
+      <DependentUpon>LB5ChildFrmN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\LB5ChildListX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB5\LB5ChildListX.Designer.cs">
+      <DependentUpon>LB5ChildListX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\LockAndReserveFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB5\LockAndReserveFrm.Designer.cs">
+      <DependentUpon>LockAndReserveFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\MCFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB5\MCFrm.designer.cs">
+      <DependentUpon>MCFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\LB5PListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LB5\LB5PListFrm.Designer.cs">
+      <DependentUpon>LB5PListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\Report\MatchingRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB5\Report\MatchingRpt.Designer.cs">
+      <DependentUpon>MatchingRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\LB5WFFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB5\LB5WFFrm.designer.cs">
+      <DependentUpon>LB5WFFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\Step5DeploymentReArrangingAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB5\Step5DeploymentReArrangingAddForm.Designer.cs">
+      <DependentUpon>Step5DeploymentReArrangingAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\Step5DeploymentReArrangingNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB5\Step5DeploymentReArrangingNote.Designer.cs">
+      <DependentUpon>Step5DeploymentReArrangingNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\Step5DeploymentReArrangingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB5\Step5DeploymentReArrangingReport.Designer.cs">
+      <DependentUpon>Step5DeploymentReArrangingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\Step5DeploymentReArrangingReportSub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LB5\Step5DeploymentReArrangingReportSub.Designer.cs">
+      <DependentUpon>Step5DeploymentReArrangingReportSub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LB5\Step5DeploymentReArrangingSelectWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LB5\Step5DeploymentReArrangingSelectWF.Designer.cs">
+      <DependentUpon>Step5DeploymentReArrangingSelectWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\BaseCodeEditForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\BaseCodeEditForm.Designer.cs">
+      <DependentUpon>BaseCodeEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\BaseCodeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\BaseCodeListForm.Designer.cs">
+      <DependentUpon>BaseCodeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\BaseCodeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterDB\BaseCodeReport.Designer.cs">
+      <DependentUpon>BaseCodeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\CountryRegionEditForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\CountryRegionEditForm.Designer.cs">
+      <DependentUpon>CountryRegionEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\CountryRegionListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\CountryRegionListForm.Designer.cs">
+      <DependentUpon>CountryRegionListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentalPrintSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentalPrintSetupForm.Designer.cs">
+      <DependentUpon>DepartmentalPrintSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentalReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentalReport.Designer.cs">
+      <DependentUpon>DepartmentalReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentEditForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentEditForm.Designer.cs">
+      <DependentUpon>DepartmentEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentListForm.Designer.cs">
+      <DependentUpon>DepartmentListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentPageForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentPageForm.Designer.cs">
+      <DependentUpon>DepartmentPageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentReport.Designer.cs">
+      <DependentUpon>DepartmentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\EmployeeCostEditForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\EmployeeCostEditForm.Designer.cs">
+      <DependentUpon>EmployeeCostEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\EmployeeCostListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\EmployeeCostListForm.Designer.cs">
+      <DependentUpon>EmployeeCostListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\EmployeePageForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\EmployeePageForm.Designer.cs">
+      <DependentUpon>EmployeePageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\HWCategoryEditForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\HWCategoryEditForm.Designer.cs">
+      <DependentUpon>HWCategoryEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\HWCategoryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\HWCategoryListForm.Designer.cs">
+      <DependentUpon>HWCategoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\HWCategoryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterDB\HWCategoryReport.Designer.cs">
+      <DependentUpon>HWCategoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\HWCostReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterDB\HWCostReport.Designer.cs">
+      <DependentUpon>HWCostReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\HWGroupListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\HWGroupListForm.Designer.cs">
+      <DependentUpon>HWGroupListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\HWGroupReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterDB\HWGroupReport.Designer.cs">
+      <DependentUpon>HWGroupReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\HWPageForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\HWPageForm.Designer.cs">
+      <DependentUpon>HWPageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\HWTypeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\HWTypeListForm.Designer.cs">
+      <DependentUpon>HWTypeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\HWTypeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterDB\HWTypeReport.Designer.cs">
+      <DependentUpon>HWTypeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\JobTitleListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\JobTitleListForm.Designer.cs">
+      <DependentUpon>JobTitleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\JobTitleReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterDB\JobTitleReport.Designer.cs">
+      <DependentUpon>JobTitleReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\RECRoleEditForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\RECRoleEditForm.Designer.cs">
+      <DependentUpon>RECRoleEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\RECRoleListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\RECRoleListForm.Designer.cs">
+      <DependentUpon>RECRoleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\RECRoleReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterDB\RECRoleReport.Designer.cs">
+      <DependentUpon>RECRoleReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\ClassDetailEditFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\ClassDetailEditFrm.Designer.cs">
+      <DependentUpon>ClassDetailEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\FrmCopyMc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MC\FrmCopyMc.Designer.cs">
+      <DependentUpon>FrmCopyMc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\LCShipmentDateListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\LCShipmentDateListForm.Designer.cs">
+      <DependentUpon>LCShipmentDateListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Maintain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\Maintain.Designer.cs">
+      <DependentUpon>Maintain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\MaintainChild.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\MaintainChild.Designer.cs">
+      <DependentUpon>MaintainChild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\McChildFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\McChildFrm.Designer.cs">
+      <DependentUpon>McChildFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\McChildFrm_Projection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\McChildFrm_Projection.Designer.cs">
+      <DependentUpon>McChildFrm_Projection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\McClassList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\McClassList.Designer.cs">
+      <DependentUpon>McClassList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\MCFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MC\MCFilter.Designer.cs">
+      <DependentUpon>MCFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\MCGroupDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\MCGroupDetailForm.Designer.cs">
+      <DependentUpon>MCGroupDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\MCGroupListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\MCGroupListForm.Designer.cs">
+      <DependentUpon>MCGroupListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\McPListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\McPListFrm.Designer.cs">
+      <DependentUpon>McPListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\McPListFrm_Projection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\McPListFrm_Projection.Designer.cs">
+      <DependentUpon>McPListFrm_Projection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\MCTypeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\MCTypeDetailForm.Designer.cs">
+      <DependentUpon>MCTypeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\QuatationDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\QuatationDetailForm.Designer.cs">
+      <DependentUpon>QuatationDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\QuatationListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\QuatationListForm.Designer.cs">
+      <DependentUpon>QuatationListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\QuatationPhaseForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\QuatationPhaseForm.Designer.cs">
+      <DependentUpon>QuatationPhaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\QuatationPivotTableForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\QuatationPivotTableForm.Designer.cs">
+      <DependentUpon>QuatationPivotTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\ReportMC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\ReportMC.Designer.cs">
+      <DependentUpon>ReportMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCDeptSummarySub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCDeptSummarySub.Designer.cs">
+      <DependentUpon>MCDeptSummarySub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCDeptSummaryForChineseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCDeptSummaryForChineseReport.Designer.cs">
+      <DependentUpon>MCDeptSummaryForChineseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCSummyByDepartRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCSummyByDepartRpt.Designer.cs">
+      <DependentUpon>MCSummyByDepartRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCSummyByGroupRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCSummyByGroupRpt.Designer.cs">
+      <DependentUpon>MCSummyByGroupRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCSummyByRegionRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCSummyByRegionRpt.Designer.cs">
+      <DependentUpon>MCSummyByRegionRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeSummaryForChineseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeSummaryForChineseReport.Designer.cs">
+      <DependentUpon>MCTypeSummaryForChineseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MachinePoolRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MachinePoolRpt.Designer.cs">
+      <DependentUpon>MachinePoolRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MachinePoolSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MachinePoolSummary.Designer.cs">
+      <DependentUpon>MachinePoolSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MachineRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MachineRpt.designer.cs">
+      <DependentUpon>MachineRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MaMcDataSet.cs">
+      <DependentUpon>MaMcDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MaMcDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MaMcDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MC\MachineFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MC\MachineFilter.Designer.cs">
+      <DependentUpon>MachineFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\McClass.cs" />
+    <Compile Include="McBrand\BrandChildFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="McBrand\BrandChildFrm.Designer.cs">
+      <DependentUpon>BrandChildFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="McBrand\BrandPListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="McBrand\BrandPListFrm.Designer.cs">
+      <DependentUpon>BrandPListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\McBrandReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\McBrandReport.designer.cs">
+      <DependentUpon>McBrandReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCDeptSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCDeptSummaryReport.Designer.cs">
+      <DependentUpon>MCDeptSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\McPoolBefore.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\McPoolBefore.Designer.cs">
+      <DependentUpon>McPoolBefore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeSummaryReport.Designer.cs">
+      <DependentUpon>MCTypeSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeSummyByRegionRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeSummyByRegionRpt.Designer.cs">
+      <DependentUpon>MCTypeSummyByRegionRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeTotalSub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeTotalSub.Designer.cs">
+      <DependentUpon>MCTypeTotalSub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeSummyByRegionRpt_CN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeSummyByRegionRpt_CN.Designer.cs">
+      <DependentUpon>MCTypeSummyByRegionRpt_CN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeSummyByRegionRpt_OS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\MCTypeSummyByRegionRpt_OS.Designer.cs">
+      <DependentUpon>MCTypeSummyByRegionRpt_OS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\rptMcClass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\rptMcClass.Designer.cs">
+      <DependentUpon>rptMcClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\Report\Sub_MCTypeSummyByRegionRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MC\Report\Sub_MCTypeSummyByRegionRpt.Designer.cs">
+      <DependentUpon>Sub_MCTypeSummyByRegionRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\SummyByRegionFilter2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\SummyByRegionFilter2.Designer.cs">
+      <DependentUpon>SummyByRegionFilter2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\SummyByRegionFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\SummyByRegionFilter.Designer.cs">
+      <DependentUpon>SummyByRegionFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\VendorDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\VendorDetailForm.Designer.cs">
+      <DependentUpon>VendorDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\VendorListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\VendorListForm.Designer.cs">
+      <DependentUpon>VendorListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PC\ImportPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PC\ImportPO.Designer.cs">
+      <DependentUpon>ImportPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PC\PCDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PC\PCDetailDetailForm.Designer.cs">
+      <DependentUpon>PCDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PC\PCDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PC\PCDetailListForm.Designer.cs">
+      <DependentUpon>PCDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PC\PCHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PC\PCHeaderDetailForm.Designer.cs">
+      <DependentUpon>PCHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PC\PCHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PC\PCHeaderListForm.Designer.cs">
+      <DependentUpon>PCHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PC\PCReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PC\PCReport.Designer.cs">
+      <DependentUpon>PCReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PC\PCReport_OtherItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PC\PCReport_OtherItem.Designer.cs">
+      <DependentUpon>PCReport_OtherItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PI\PIDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PI\PIDetailDetailForm.Designer.cs">
+      <DependentUpon>PIDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PI\PIDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PI\PIDetailListForm.Designer.cs">
+      <DependentUpon>PIDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PI\PIDetail_OtherItemDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PI\PIDetail_OtherItemDetailForm.Designer.cs">
+      <DependentUpon>PIDetail_OtherItemDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PI\PIDetail_OtherItemListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PI\PIDetail_OtherItemListForm.Designer.cs">
+      <DependentUpon>PIDetail_OtherItemListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PI\PIHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PI\PIHeaderDetailForm.Designer.cs">
+      <DependentUpon>PIHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PI\PIHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PI\PIHeaderListForm.Designer.cs">
+      <DependentUpon>PIHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PI\PIReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PI\PIReport.Designer.cs">
+      <DependentUpon>PIReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PI\PISubReport_OtherItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PI\PISubReport_OtherItem.Designer.cs">
+      <DependentUpon>PISubReport_OtherItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\BuyerDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\BuyerDetailForm.Designer.cs">
+      <DependentUpon>BuyerDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\BuyerListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\BuyerListForm.Designer.cs">
+      <DependentUpon>BuyerListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\ImportEquipmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PO\ImportEquipmentForm.Designer.cs">
+      <DependentUpon>ImportEquipmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\ImportMachineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PO\ImportMachineForm.Designer.cs">
+      <DependentUpon>ImportMachineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\PODetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\PODetailDetailForm.Designer.cs">
+      <DependentUpon>PODetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\PODetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\PODetailListForm.Designer.cs">
+      <DependentUpon>PODetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\PODetail_OtherItemDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\PODetail_OtherItemDetailForm.Designer.cs">
+      <DependentUpon>PODetail_OtherItemDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\PODetail_OtherItemListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\PODetail_OtherItemListForm.Designer.cs">
+      <DependentUpon>PODetail_OtherItemListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\POHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\POHeaderDetailForm.Designer.cs">
+      <DependentUpon>POHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\POHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\POHeaderListForm.Designer.cs">
+      <DependentUpon>POHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\POReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\POReport.Designer.cs">
+      <DependentUpon>POReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\POReport_CN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\POReport_CN.Designer.cs">
+      <DependentUpon>POReport_CN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\POReport_EN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\POReport_EN.Designer.cs">
+      <DependentUpon>POReport_EN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\POStatusDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\POStatusDetailForm.Designer.cs">
+      <DependentUpon>POStatusDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\POStatusListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\POStatusListForm.Designer.cs">
+      <DependentUpon>POStatusListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\POSubReport_OtherItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\POSubReport_OtherItem.Designer.cs">
+      <DependentUpon>POSubReport_OtherItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\POSubSupplement_EN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\POSubSupplement_EN.Designer.cs">
+      <DependentUpon>POSubSupplement_EN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\POTypes.cs" />
+    <Compile Include="PO\PrintSetupPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PO\PrintSetupPO.Designer.cs">
+      <DependentUpon>PrintSetupPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasePlan\PurchasePlanDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PurchasePlan\PurchasePlanDetailDetailForm.Designer.cs">
+      <DependentUpon>PurchasePlanDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasePlan\PurchasePlanDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PurchasePlan\PurchasePlanDetailListForm.Designer.cs">
+      <DependentUpon>PurchasePlanDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasePlan\PurchasePlanHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PurchasePlan\PurchasePlanHeaderDetailForm.Designer.cs">
+      <DependentUpon>PurchasePlanHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasePlan\PurchasePlanHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PurchasePlan\PurchasePlanHeaderListForm.Designer.cs">
+      <DependentUpon>PurchasePlanHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasePlan\SelectHWTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchasePlan\SelectHWTypeForm.Designer.cs">
+      <DependentUpon>SelectHWTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasePlan\SelectModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchasePlan\SelectModelForm.Designer.cs">
+      <DependentUpon>SelectModelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasePlan\SelectSellerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchasePlan\SelectSellerForm.Designer.cs">
+      <DependentUpon>SelectSellerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasePlan\SelectVendorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchasePlan\SelectVendorForm.Designer.cs">
+      <DependentUpon>SelectVendorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\dWFListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\dWFListReport.Designer.cs">
+      <DependentUpon>dWFListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\dWFListReport_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\dWFListReport_Sub.Designer.cs">
+      <DependentUpon>dWFListReport_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\OpsSummaryStep3PartA_WFReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\OpsSummaryStep3PartA_WFReport.Designer.cs">
+      <DependentUpon>OpsSummaryStep3PartA_WFReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\OpsSummaryStep3PartB_HWBondingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\OpsSummaryStep3PartB_HWBondingReport.Designer.cs">
+      <DependentUpon>OpsSummaryStep3PartB_HWBondingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\OpsSummaryStep3PartB_HWHeatPressUltrasonicReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\OpsSummaryStep3PartB_HWHeatPressUltrasonicReport.Designer.cs">
+      <DependentUpon>OpsSummaryStep3PartB_HWHeatPressUltrasonicReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\OpsSummaryStep3PartB_HWStitchingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\OpsSummaryStep3PartB_HWStitchingReport.Designer.cs">
+      <DependentUpon>OpsSummaryStep3PartB_HWStitchingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\OpsSummaryStep3PartA_WFSignReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\OpsSummaryStep3PartA_WFSignReport.Designer.cs">
+      <DependentUpon>OpsSummaryStep3PartA_WFSignReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\sHWListReportByFactorySub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\sHWListReportByFactorySub.Designer.cs">
+      <DependentUpon>sHWListReportByFactorySub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\sHWListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\sHWListReport.Designer.cs">
+      <DependentUpon>sHWListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\sHWListReportByGroupSub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\sHWListReportByGroupSub.Designer.cs">
+      <DependentUpon>sHWListReportByGroupSub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WFListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\WFListReport.Designer.cs">
+      <DependentUpon>WFListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WFListReport_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\WFListReport_Sub.Designer.cs">
+      <DependentUpon>WFListReport_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\PublicLibrary.cs" />
+    <Compile Include="Repository\WFPList.cs" />
+    <Compile Include="Repository\WorkForceTrim.cs" />
+    <Compile Include="MasterDB\DepartmentalListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\DepartmentalListForm.Designer.cs">
+      <DependentUpon>DepartmentalListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm1.Designer.cs">
+      <DependentUpon>TestForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\AppointedDepartmentalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\AppointedDepartmentalForm.Designer.cs">
+      <DependentUpon>AppointedDepartmentalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\BaseCodeEdtFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\BaseCodeEdtFrm.Designer.cs">
+      <DependentUpon>BaseCodeEdtFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\BaseCodeListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\BaseCodeListFrm.Designer.cs">
+      <DependentUpon>BaseCodeListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\DepartalSortListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\DepartalSortListFrm.Designer.cs">
+      <DependentUpon>DepartalSortListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\FrmCopySelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\FrmCopySelect.Designer.cs">
+      <DependentUpon>FrmCopySelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\InpurtRestoreWorkerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\InpurtRestoreWorkerFrm.Designer.cs">
+      <DependentUpon>InpurtRestoreWorkerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\InputAttendanceExcelFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\InputAttendanceExcelFrm.Designer.cs">
+      <DependentUpon>InputAttendanceExcelFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\InputChangeInfoExcelFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\InputChangeInfoExcelFrm.Designer.cs">
+      <DependentUpon>InputChangeInfoExcelFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\InputExlFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\InputExlFrm.Designer.cs">
+      <DependentUpon>InputExlFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\InputInActiveExcelFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\InputInActiveExcelFrm.Designer.cs">
+      <DependentUpon>InputInActiveExcelFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MC\McClassDetailFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MC\McClassDetailFrm.Designer.cs">
+      <DependentUpon>McClassDetailFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\MCCategoryDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\MCCategoryDetailForm.Designer.cs">
+      <DependentUpon>MCCategoryDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\MCPartDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\MCPartDetailForm.Designer.cs">
+      <DependentUpon>MCPartDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\MCPartListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\MCPartListForm.Designer.cs">
+      <DependentUpon>MCPartListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\OSChartDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\OSChartDetailForm.Designer.cs">
+      <DependentUpon>OSChartDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\OSChartListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\OSChartListForm.Designer.cs">
+      <DependentUpon>OSChartListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\DepartmentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\DepartmentReport.Designer.cs">
+      <DependentUpon>DepartmentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\dWFSummaryRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\dWFSummaryRpt.designer.cs">
+      <DependentUpon>dWFSummaryRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\EmployeeInfoSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\Report\EmployeeInfoSelect.Designer.cs">
+      <DependentUpon>EmployeeInfoSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\Formtest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\Report\Formtest.Designer.cs">
+      <DependentUpon>Formtest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\GSDReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\GSDReport.Designer.cs">
+      <DependentUpon>GSDReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\LaborInHandListRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\LaborInHandListRpt.Designer.cs">
+      <DependentUpon>LaborInHandListRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\LaborPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\Report\LaborPrint.Designer.cs">
+      <DependentUpon>LaborPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\MFTitleSummarySub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\MFTitleSummarySub.Designer.cs">
+      <DependentUpon>MFTitleSummarySub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\PerformanceSummaryRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\PerformanceSummaryRpt.Designer.cs">
+      <DependentUpon>PerformanceSummaryRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\RECReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\RECReport.Designer.cs">
+      <DependentUpon>RECReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\RegionSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\RegionSummaryReport.Designer.cs">
+      <DependentUpon>RegionSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\ReportWF.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\Report\ReportWF.Designer.cs">
+      <DependentUpon>ReportWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\Report_GSD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\Report\Report_GSD.Designer.cs">
+      <DependentUpon>Report_GSD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\RptBaseData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\RptBaseData.Designer.cs">
+      <DependentUpon>RptBaseData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\RptJobTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\RptJobTitle.Designer.cs">
+      <DependentUpon>RptJobTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\SenioritySummaryRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\SenioritySummaryRpt.Designer.cs">
+      <DependentUpon>SenioritySummaryRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\SkillDataSet.cs">
+      <DependentUpon>SkillDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\SkillDataSet.designer.cs">
+      <DependentUpon>SkillDataSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\SkillDataSet1.Designer.cs">
+      <DependentUpon>SkillDataSet.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="WF\Report\WFExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\Report\WFExcel.Designer.cs">
+      <DependentUpon>WFExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\WFPoolReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\WFPoolReport.designer.cs">
+      <DependentUpon>WFPoolReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\WFSummaryTotalRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\WFSummaryTotalRpt.Designer.cs">
+      <DependentUpon>WFSummaryTotalRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\WFSummeryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\WFSummeryReport.Designer.cs">
+      <DependentUpon>WFSummeryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\WFSummerySub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\WFSummerySub.designer.cs">
+      <DependentUpon>WFSummerySub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\WFTypeSummyByRegionRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\WFTypeSummyByRegionRpt.Designer.cs">
+      <DependentUpon>WFTypeSummyByRegionRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\WorkForcePoolSewingSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\WorkForcePoolSewingSummary.Designer.cs">
+      <DependentUpon>WorkForcePoolSewingSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\WFTypeSummyByRegionRpt_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\WFTypeSummyByRegionRpt_Sub.Designer.cs">
+      <DependentUpon>WFTypeSummyByRegionRpt_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\SecondmendListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\SecondmendListForm.Designer.cs">
+      <DependentUpon>SecondmendListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\SecondmentDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\SecondmentDetailForm.Designer.cs">
+      <DependentUpon>SecondmentDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\SelectDepartmentalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\SelectDepartmentalForm.Designer.cs">
+      <DependentUpon>SelectDepartmentalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\SelectJobTitleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\SelectJobTitleForm.Designer.cs">
+      <DependentUpon>SelectJobTitleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\SelectRegionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\SelectRegionForm.Designer.cs">
+      <DependentUpon>SelectRegionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\WFCarEfencyDetialFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\WFCarEfencyDetialFrm.Designer.cs">
+      <DependentUpon>WFCarEfencyDetialFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\WFCarEfencyListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\WFCarEfencyListFrm.Designer.cs">
+      <DependentUpon>WFCarEfencyListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\WFChildFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\WFChildFrm.designer.cs">
+      <DependentUpon>WFChildFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\WFChildFrm_Projection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\WFChildFrm_Projection.designer.cs">
+      <DependentUpon>WFChildFrm_Projection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\WFChildList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\WFChildList.Designer.cs">
+      <DependentUpon>WFChildList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\WFFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\WFFilter.Designer.cs">
+      <DependentUpon>WFFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\IdcSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\IdcSummaryReport.Designer.cs">
+      <DependentUpon>IdcSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\WFPoolReportNew.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\WFPoolReportNew.Designer.cs">
+      <DependentUpon>WFPoolReportNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\Report\WFrpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WF\Report\WFrpt.Designer.cs">
+      <DependentUpon>WFrpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\WFPListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\WFPListFrm.designer.cs">
+      <DependentUpon>WFPListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\WFPListFrm_Projection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\WFPListFrm_Projection.designer.cs">
+      <DependentUpon>WFPListFrm_Projection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\WFWorkHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WF\WFWorkHistory.Designer.cs">
+      <DependentUpon>WFWorkHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF\WorkFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF\WorkFilter.Designer.cs">
+      <DependentUpon>WorkFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkForce\RestoreWorkForeInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkForce\RestoreWorkForeInformation.Designer.cs">
+      <DependentUpon>RestoreWorkForeInformation.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ActionLog\ActionLogDetailDetailForm.cs.resx">
+      <DependentUpon>ActionLogDetailDetailForm.cs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\ActionLogDetailListForm.cs.resx">
+      <DependentUpon>ActionLogDetailListForm.cs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\ActionLogHeaderDetailForm.resx">
+      <DependentUpon>ActionLogHeaderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\ActionLogHeaderListForm.resx">
+      <DependentUpon>ActionLogHeaderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\SendEmailForm.resx">
+      <DependentUpon>SendEmailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Committee\CommitteeDetailForm.resx">
+      <DependentUpon>CommitteeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Committee\CommitteeListForm.resx">
+      <DependentUpon>CommitteeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Committee\CommitteeMemberDetailForm.resx">
+      <DependentUpon>CommitteeMemberDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Committee\CommitteeMemberListForm.resx">
+      <DependentUpon>CommitteeMemberListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Committee\SelectEmployeeForm.resx">
+      <DependentUpon>SelectEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EQ\EQBaseCodeDetailForm.resx">
+      <DependentUpon>EQBaseCodeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EQ\EQBaseCodeListForm.resx">
+      <DependentUpon>EQBaseCodeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EQ\EquipmentDetailForm.cs.resx" />
+    <EmbeddedResource Include="EQ\EquipmentListForm.resx">
+      <DependentUpon>EquipmentListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\AlertLogCategoryChoiceForm.resx">
+      <DependentUpon>AlertLogCategoryChoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\AlertLogCategoryDetailForm.resx">
+      <DependentUpon>AlertLogCategoryDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\AlertLogCategoryListForm.resx">
+      <DependentUpon>AlertLogCategoryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\BatchAddForm.resx">
+      <DependentUpon>BatchAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\ChangeLineForm.resx">
+      <DependentUpon>ChangeLineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\AlertLogForm.resx">
+      <DependentUpon>AlertLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\EmailDetailForm.resx">
+      <DependentUpon>EmailDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\EmailListForm.resx">
+      <DependentUpon>EmailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\frmSetFieldValue.resx">
+      <DependentUpon>frmSetFieldValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\LB4AuditCondition.resx">
+      <DependentUpon>LB4AuditCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\LB4AuditFrm.resx">
+      <DependentUpon>LB4AuditFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\LB4ChildEditFrm.resx">
+      <DependentUpon>LB4ChildEditFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\LB4ChildFrm.resx">
+      <DependentUpon>LB4ChildFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\CopyWFMCFrm.resx">
+      <DependentUpon>CopyWFMCFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\LB4ChildListA.resx">
+      <DependentUpon>LB4ChildListA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\LB4ChildListDemo.resx">
+      <DependentUpon>LB4ChildListDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\LockAndReserveFrm.resx">
+      <DependentUpon>LockAndReserveFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\MCFrm.resx">
+      <DependentUpon>MCFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\LB4PListFrm.resx">
+      <DependentUpon>LB4PListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\OpsPermitSignDetailForm.resx">
+      <DependentUpon>OpsPermitSignDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\OpsPermitSignListForm.resx">
+      <DependentUpon>OpsPermitSignListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\RedQNListForm.resx">
+      <DependentUpon>RedQNListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\Report\LBSAHReport.resx">
+      <DependentUpon>LBSAHReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\Report\MatchingRpt.resx">
+      <DependentUpon>MatchingRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\Report\McAuditRpt.resx">
+      <DependentUpon>McAuditRpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\Report\ProofRpt.resx">
+      <DependentUpon>ProofRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\Report\SummaryRpt.resx">
+      <DependentUpon>SummaryRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\Report\SuspectPlanRpt.resx">
+      <DependentUpon>SuspectPlanRpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\Report\SuspectReportConditin.resx">
+      <DependentUpon>SuspectReportConditin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\AlertLogSendEmailForm.resx">
+      <DependentUpon>AlertLogSendEmailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\StyleMasterListFormReport.resx">
+      <DependentUpon>StyleMasterListFormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\StyleMasterListFormReport2.resx">
+      <DependentUpon>StyleMasterListFormReport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\StyleMasterListFormReport3.resx">
+      <DependentUpon>StyleMasterListFormReport3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\StyleMasterListFormReport_B1.resx">
+      <DependentUpon>StyleMasterListFormReport_B1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\StyleMasterListFormReport_B2.resx">
+      <DependentUpon>StyleMasterListFormReport_B2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\StyleMasterListFormReport_B3.resx">
+      <DependentUpon>StyleMasterListFormReport_B3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\LB5ChildEditFrm.resx">
+      <DependentUpon>LB5ChildEditFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\LB5ChildListY1.resx">
+      <DependentUpon>LB5ChildListY1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\LB5MatchingLogListForm.resx">
+      <DependentUpon>LB5MatchingLogListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\ProcessForm.resx">
+      <DependentUpon>ProcessForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\ProposalForm.resx">
+      <DependentUpon>ProposalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\ProposalWorkSheetForm.resx">
+      <DependentUpon>ProposalWorkSheetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\Report\WFMCCountRpt.resx">
+      <DependentUpon>WFMCCountRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB4\WFFrm.resx">
+      <DependentUpon>WFFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\LB5ChildFrmM.resx">
+      <DependentUpon>LB5ChildFrmM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\LB5ChildFrmN.resx">
+      <DependentUpon>LB5ChildFrmN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\LB5ChildListX.resx">
+      <DependentUpon>LB5ChildListX.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\LockAndReserveFrm.resx">
+      <DependentUpon>LockAndReserveFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\MCFrm.resx">
+      <DependentUpon>MCFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\LB5PListFrm.resx">
+      <DependentUpon>LB5PListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\Report\MatchingRpt.resx">
+      <DependentUpon>MatchingRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\LB5WFFrm.resx">
+      <DependentUpon>LB5WFFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\Step5DeploymentReArrangingAddForm.resx">
+      <DependentUpon>Step5DeploymentReArrangingAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\Step5DeploymentReArrangingNote.resx">
+      <DependentUpon>Step5DeploymentReArrangingNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\Step5DeploymentReArrangingReport.resx">
+      <DependentUpon>Step5DeploymentReArrangingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\Step5DeploymentReArrangingReportSub.resx">
+      <DependentUpon>Step5DeploymentReArrangingReportSub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LB5\Step5DeploymentReArrangingSelectWF.resx">
+      <DependentUpon>Step5DeploymentReArrangingSelectWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\BaseCodeEditForm.resx">
+      <DependentUpon>BaseCodeEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\BaseCodeListForm.resx">
+      <DependentUpon>BaseCodeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\BaseCodeReport.resx">
+      <DependentUpon>BaseCodeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\CountryRegionEditForm.resx">
+      <DependentUpon>CountryRegionEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\CountryRegionListForm.resx">
+      <DependentUpon>CountryRegionListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\DepartmentalPrintSetupForm.resx">
+      <DependentUpon>DepartmentalPrintSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\DepartmentalReport.resx">
+      <DependentUpon>DepartmentalReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\DepartmentEditForm.resx">
+      <DependentUpon>DepartmentEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\DepartmentListForm.resx">
+      <DependentUpon>DepartmentListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\DepartmentPageForm.resx">
+      <DependentUpon>DepartmentPageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\DepartmentReport.resx">
+      <DependentUpon>DepartmentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\EmployeeCostEditForm.resx">
+      <DependentUpon>EmployeeCostEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\EmployeeCostListForm.resx">
+      <DependentUpon>EmployeeCostListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\EmployeePageForm.resx">
+      <DependentUpon>EmployeePageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\HWCategoryEditForm.resx">
+      <DependentUpon>HWCategoryEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\HWCategoryListForm.resx">
+      <DependentUpon>HWCategoryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\HWCategoryReport.resx">
+      <DependentUpon>HWCategoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\HWCostReport.resx">
+      <DependentUpon>HWCostReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\HWGroupListForm.resx">
+      <DependentUpon>HWGroupListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\HWGroupReport.resx">
+      <DependentUpon>HWGroupReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\HWPageForm.resx">
+      <DependentUpon>HWPageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\HWTypeListForm.resx">
+      <DependentUpon>HWTypeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\HWTypeReport.resx">
+      <DependentUpon>HWTypeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\JobTitleListForm.resx">
+      <DependentUpon>JobTitleListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\JobTitleReport.resx">
+      <DependentUpon>JobTitleReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\RECRoleEditForm.resx">
+      <DependentUpon>RECRoleEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\RECRoleListForm.resx">
+      <DependentUpon>RECRoleListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\RECRoleReport.resx">
+      <DependentUpon>RECRoleReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\ClassDetailEditFrm.resx">
+      <DependentUpon>ClassDetailEditFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\FrmCopyMc.resx">
+      <DependentUpon>FrmCopyMc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\LCShipmentDateListForm.resx">
+      <DependentUpon>LCShipmentDateListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Maintain.resx">
+      <DependentUpon>Maintain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\MaintainChild.resx">
+      <DependentUpon>MaintainChild.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\MachineFilter.resx">
+      <DependentUpon>MachineFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\McChildFrm.resx">
+      <DependentUpon>McChildFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\McChildFrm_Projection.resx">
+      <DependentUpon>McChildFrm_Projection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\McClassList.resx">
+      <DependentUpon>McClassList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\MCFilter.resx">
+      <DependentUpon>MCFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="McBrand\BrandChildFrm.resx">
+      <DependentUpon>BrandChildFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="McBrand\BrandPListFrm.resx">
+      <DependentUpon>BrandPListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\MCGroupDetailForm.resx">
+      <DependentUpon>MCGroupDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\MCGroupListForm.resx">
+      <DependentUpon>MCGroupListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\McPListFrm.resx">
+      <DependentUpon>McPListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\McPListFrm_Projection.resx">
+      <DependentUpon>McPListFrm_Projection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\MCTypeDetailForm.resx">
+      <DependentUpon>MCTypeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\QuatationDetailForm.resx">
+      <DependentUpon>QuatationDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\QuatationListForm.resx">
+      <DependentUpon>QuatationListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\QuatationPhaseForm.resx">
+      <DependentUpon>QuatationPhaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\QuatationPivotTableForm.resx">
+      <DependentUpon>QuatationPivotTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\ReportMC.resx">
+      <DependentUpon>ReportMC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCDeptSummarySub.resx">
+      <DependentUpon>MCDeptSummarySub.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCDeptSummaryForChineseReport.resx">
+      <DependentUpon>MCDeptSummaryForChineseReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCSummyByDepartRpt.resx">
+      <DependentUpon>MCSummyByDepartRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCSummyByGroupRpt.resx">
+      <DependentUpon>MCSummyByGroupRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCSummyByRegionRpt.resx">
+      <DependentUpon>MCSummyByRegionRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCTypeSummaryForChineseReport.resx">
+      <DependentUpon>MCTypeSummaryForChineseReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MachinePoolRpt.resx">
+      <DependentUpon>MachinePoolRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MachinePoolSummary.resx">
+      <DependentUpon>MachinePoolSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MachineRpt.resx">
+      <DependentUpon>MachineRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\McBrandReport.resx">
+      <DependentUpon>McBrandReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCDeptSummaryReport.resx">
+      <DependentUpon>MCDeptSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\McPoolBefore.resx">
+      <DependentUpon>McPoolBefore.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCTypeSummaryReport.resx">
+      <DependentUpon>MCTypeSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCTypeSummyByRegionRpt.resx">
+      <DependentUpon>MCTypeSummyByRegionRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCTypeTotalSub.resx">
+      <DependentUpon>MCTypeTotalSub.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCTypeSummyByRegionRpt_CN.resx">
+      <DependentUpon>MCTypeSummyByRegionRpt_CN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\MCTypeSummyByRegionRpt_OS.resx">
+      <DependentUpon>MCTypeSummyByRegionRpt_OS.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\rptMcClass.resx">
+      <DependentUpon>rptMcClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\Report\Sub_MCTypeSummyByRegionRpt.resx">
+      <DependentUpon>Sub_MCTypeSummyByRegionRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\SummyByRegionFilter2.resx">
+      <DependentUpon>SummyByRegionFilter2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\SummyByRegionFilter.resx">
+      <DependentUpon>SummyByRegionFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\VendorDetailForm.resx">
+      <DependentUpon>VendorDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\VendorListForm.resx">
+      <DependentUpon>VendorListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PC\ImportPO.resx">
+      <DependentUpon>ImportPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PC\PCDetailDetailForm.resx">
+      <DependentUpon>PCDetailDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PC\PCDetailListForm.resx">
+      <DependentUpon>PCDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PC\PCHeaderDetailForm.resx">
+      <DependentUpon>PCHeaderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PC\PCHeaderListForm.resx">
+      <DependentUpon>PCHeaderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PC\PCReport.resx">
+      <DependentUpon>PCReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PC\PCReport_OtherItem.resx">
+      <DependentUpon>PCReport_OtherItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PI\PIDetailDetailForm.resx">
+      <DependentUpon>PIDetailDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PI\PIDetailListForm.resx">
+      <DependentUpon>PIDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PI\PIDetail_OtherItemDetailForm.resx">
+      <DependentUpon>PIDetail_OtherItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PI\PIDetail_OtherItemListForm.resx">
+      <DependentUpon>PIDetail_OtherItemListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PI\PIHeaderDetailForm.resx">
+      <DependentUpon>PIHeaderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PI\PIHeaderListForm.resx">
+      <DependentUpon>PIHeaderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PI\PIReport.resx">
+      <DependentUpon>PIReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PI\PISubReport_OtherItem.resx">
+      <DependentUpon>PISubReport_OtherItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\BuyerDetailForm.resx">
+      <DependentUpon>BuyerDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\BuyerListForm.resx">
+      <DependentUpon>BuyerListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\ImportEquipmentForm.resx">
+      <DependentUpon>ImportEquipmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\ImportMachineForm.resx">
+      <DependentUpon>ImportMachineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\PODetailDetailForm.resx">
+      <DependentUpon>PODetailDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\PODetailListForm.resx">
+      <DependentUpon>PODetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\PODetail_OtherItemDetailForm.resx">
+      <DependentUpon>PODetail_OtherItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\PODetail_OtherItemListForm.resx">
+      <DependentUpon>PODetail_OtherItemListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\POHeaderDetailForm.resx">
+      <DependentUpon>POHeaderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\POHeaderListForm.resx">
+      <DependentUpon>POHeaderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\POReport.resx">
+      <DependentUpon>POReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\POReport_CN.resx">
+      <DependentUpon>POReport_CN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\POReport_EN.resx">
+      <DependentUpon>POReport_EN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\POStatusDetailForm.resx">
+      <DependentUpon>POStatusDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\POStatusListForm.resx">
+      <DependentUpon>POStatusListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\POSubReport_OtherItem.resx">
+      <DependentUpon>POSubReport_OtherItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\POSubSupplement_EN.resx">
+      <DependentUpon>POSubSupplement_EN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\PrintSetupPO.resx">
+      <DependentUpon>PrintSetupPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasePlan\PurchasePlanDetailDetailForm.resx">
+      <DependentUpon>PurchasePlanDetailDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasePlan\PurchasePlanDetailListForm.resx">
+      <DependentUpon>PurchasePlanDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasePlan\PurchasePlanHeaderDetailForm.resx">
+      <DependentUpon>PurchasePlanHeaderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasePlan\PurchasePlanHeaderListForm.resx">
+      <DependentUpon>PurchasePlanHeaderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasePlan\SelectHWTypeForm.resx">
+      <DependentUpon>SelectHWTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasePlan\SelectModelForm.resx">
+      <DependentUpon>SelectModelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasePlan\SelectSellerForm.resx">
+      <DependentUpon>SelectSellerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasePlan\SelectVendorForm.resx">
+      <DependentUpon>SelectVendorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\dWFListReport.resx">
+      <DependentUpon>dWFListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\dWFListReport_Sub.resx">
+      <DependentUpon>dWFListReport_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\OpsSummaryStep3PartA_WFReport.resx">
+      <DependentUpon>OpsSummaryStep3PartA_WFReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\OpsSummaryStep3PartB_HWBondingReport.resx">
+      <DependentUpon>OpsSummaryStep3PartB_HWBondingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\OpsSummaryStep3PartB_HWHeatPressUltrasonicReport.resx">
+      <DependentUpon>OpsSummaryStep3PartB_HWHeatPressUltrasonicReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\OpsSummaryStep3PartB_HWStitchingReport.resx">
+      <DependentUpon>OpsSummaryStep3PartB_HWStitchingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\OpsSummaryStep3PartA_WFSignReport.resx">
+      <DependentUpon>OpsSummaryStep3PartA_WFSignReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\DepartmentalListForm.resx">
+      <DependentUpon>DepartmentalListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\sHWListReportByFactorySub.resx">
+      <DependentUpon>sHWListReportByFactorySub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\sHWListReport.resx">
+      <DependentUpon>sHWListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\sHWListReportByGroupSub.resx">
+      <DependentUpon>sHWListReportByGroupSub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\WFListReport.resx">
+      <DependentUpon>WFListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\WFListReport_Sub.resx">
+      <DependentUpon>WFListReport_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm1.resx">
+      <DependentUpon>TestForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\AppointedDepartmentalForm.resx">
+      <DependentUpon>AppointedDepartmentalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\BaseCodeEdtFrm.resx">
+      <DependentUpon>BaseCodeEdtFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\BaseCodeListFrm.resx">
+      <DependentUpon>BaseCodeListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\DepartalSortListFrm.resx">
+      <DependentUpon>DepartalSortListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\FrmCopySelect.resx">
+      <DependentUpon>FrmCopySelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\InpurtRestoreWorkerFrm.resx">
+      <DependentUpon>InpurtRestoreWorkerFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\InputAttendanceExcelFrm.resx">
+      <DependentUpon>InputAttendanceExcelFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\InputChangeInfoExcelFrm.resx">
+      <DependentUpon>InputChangeInfoExcelFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\InputExlFrm.resx">
+      <DependentUpon>InputExlFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\InputInActiveExcelFrm.resx">
+      <DependentUpon>InputInActiveExcelFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MC\McClassDetailFrm.resx">
+      <DependentUpon>McClassDetailFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\MCCategoryDetailForm.resx">
+      <DependentUpon>MCCategoryDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\MCPartDetailForm.resx">
+      <DependentUpon>MCPartDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\MCPartListForm.resx">
+      <DependentUpon>MCPartListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\OSChartDetailForm.resx">
+      <DependentUpon>OSChartDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\OSChartListForm.resx">
+      <DependentUpon>OSChartListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\DepartmentReport.resx">
+      <DependentUpon>DepartmentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\dWFSummaryRpt.resx">
+      <DependentUpon>dWFSummaryRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\EmployeeInfoSelect.resx">
+      <DependentUpon>EmployeeInfoSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\Formtest.resx">
+      <DependentUpon>Formtest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\GSDReport.resx">
+      <DependentUpon>GSDReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\LaborInHandListRpt.resx">
+      <DependentUpon>LaborInHandListRpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\LaborPrint.resx">
+      <DependentUpon>LaborPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\MFTitleSummarySub.resx">
+      <DependentUpon>MFTitleSummarySub.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\PerformanceSummaryRpt.resx">
+      <DependentUpon>PerformanceSummaryRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\RECReport.resx">
+      <DependentUpon>RECReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\RegionSummaryReport.resx">
+      <DependentUpon>RegionSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\ReportWF.resx">
+      <DependentUpon>ReportWF.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\Report_GSD.resx">
+      <DependentUpon>Report_GSD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\RptBaseData.resx">
+      <DependentUpon>RptBaseData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\RptJobTitle.resx">
+      <DependentUpon>RptJobTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\SenioritySummaryRpt.resx">
+      <DependentUpon>SenioritySummaryRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\WFExcel.resx">
+      <DependentUpon>WFExcel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\WFPoolReport.resx">
+      <DependentUpon>WFPoolReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\WFTypeSummyByRegionRpt_Sub.resx">
+      <DependentUpon>WFTypeSummyByRegionRpt_Sub.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\WFSummaryTotalRpt.resx">
+      <DependentUpon>WFSummaryTotalRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\WFSummeryReport.resx">
+      <DependentUpon>WFSummeryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\WFSummerySub.resx">
+      <DependentUpon>WFSummerySub.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\WFTypeSummyByRegionRpt.resx">
+      <DependentUpon>WFTypeSummyByRegionRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\WorkForcePoolSewingSummary.resx">
+      <DependentUpon>WorkForcePoolSewingSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\SecondmendListForm.resx">
+      <DependentUpon>SecondmendListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\SecondmentDetailForm.resx">
+      <DependentUpon>SecondmentDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\SelectDepartmentalForm.resx">
+      <DependentUpon>SelectDepartmentalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\SelectJobTitleForm.resx">
+      <DependentUpon>SelectJobTitleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\SelectRegionForm.resx">
+      <DependentUpon>SelectRegionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\WFCarEfencyDetialFrm.resx">
+      <DependentUpon>WFCarEfencyDetialFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\WFCarEfencyListFrm.resx">
+      <DependentUpon>WFCarEfencyListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\WFChildFrm.resx">
+      <DependentUpon>WFChildFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\WFChildFrm_Projection.resx">
+      <DependentUpon>WFChildFrm_Projection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\WFChildList.resx">
+      <DependentUpon>WFChildList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\WFFilter.resx">
+      <DependentUpon>WFFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\IdcSummaryReport.resx">
+      <DependentUpon>IdcSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\WFPoolReportNew.resx">
+      <DependentUpon>WFPoolReportNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\Report\WFrpt.resx">
+      <DependentUpon>WFrpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\WFPListFrm.resx">
+      <DependentUpon>WFPListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\WFPListFrm_Projection.resx">
+      <DependentUpon>WFPListFrm_Projection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\WFWorkHistory.resx">
+      <DependentUpon>WFWorkHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF\WorkFilter.resx">
+      <DependentUpon>WorkFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkForce\RestoreWorkForeInformation.resx">
+      <DependentUpon>RestoreWorkForeInformation.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy_16x16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graph2_16x16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\McP.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextSeq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previousSeq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print_16x16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo2_16x16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MC\Report\MaMcDataSet.xsc">
+      <DependentUpon>MaMcDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MC\Report\MaMcDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MaMcDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="MC\Report\MaMcDataSet.xss">
+      <DependentUpon>MaMcDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\PH.LWPM.BO.WorkForce.datasource" />
+    <None Include="Resources\user3_%28add%29_16x16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.ActionLogDetail.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.ActionLogEmail.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.ActionLogHeader.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.AlertLogCategory.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.AlertLogHeader.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.BaseCode.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.Buyer1.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.CarEfficiency.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.Committee.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.CommitteeMember.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.DepartalSort.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.dWFListResult.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.Email.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.FactoryLines.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetdWFSummary.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetdWFSummaryEnAndCn.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetFactoryTotalSummary.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetMadeSummary.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetMCDeptSummary.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetMCResult.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetMCSummary.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetMCTypeSummary.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetPerSenSummary.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetPerSenSummary1.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetRegionSummary.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetSenioritySummary.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetSummaryResult1.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GetWFResult.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.GSDreport.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.Lb5Matching.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.LB5MatchingLog.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.LB5MatchingProposal.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.LCShipmentDate.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.Machine.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.mamc.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.Master_data_For_Job_Title.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.Matching.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.McBrand.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.McClassDetail.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.McSummaryByDept.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.McSummaryByGroup.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.McSummaryByRegionResult.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.McSummaryByRegionSub.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.MFSummaryByRegionResult.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.MFSummaryByRegionResult_Sub.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.OpsPermitSign.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.OpsSpecSheetMaster.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.OpsSpecSheetMaster2.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.OpsSpecSheetMaster3.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.OpsSummaryStep3PartAWF.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.OpsSummaryStep3PartAWFSign.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.OpsSummaryStep3PartBHW.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.OSChart.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PCDetail.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PCHeader.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PCReportMerge.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PIDetail.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PIDetail_OtherItem.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PIHeader.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PODetail.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PODetail_OtherItem.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.POHeader.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PurchasePlanDetail.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PurchasePlanHeader.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.PurchaseProcess.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.QuatationInfo.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.QuatationInfo1.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.RedQN.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.RptMcClass.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.SelectMachine.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.Step5DeploymentReArranging.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.SummarysHWGroupHeaderResult.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.SummarysHWGroupSubReportResult1.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.SummarysHWGroupSubReportResult2.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.SuspectRpt.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.Vendor.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.vw_workhistory.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.WFListReportResult.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.WFListReportSubReportResult1.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.WFListReportSubReportResult2.datasource" />
+    <None Include="Properties\DataSources\PH.LWPM.BO.WPMaster1.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\plugin_add.png" />
+    <None Include="WF\Report\SkillDataSet.xsc">
+      <DependentUpon>SkillDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="WF\Report\SkillDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SkillDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="WF\Report\SkillDataSet.xss">
+      <DependentUpon>SkillDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\high.jpg" />
+    <Content Include="Resources\highdd.jpg" />
+    <Content Include="Resources\Lower.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.LWPM.BO\PH.LWPM.BO.csproj">
+      <Project>{23A3B100-AA51-49F3-9760-B7508E965601}</Project>
+      <Name>PH.LWPM.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="Service\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Platform.Misc.BO</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Platform.Misc.BO.Misc_FacotryList">
+            <summary>
+            取得Misc_Facotry集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_FacotryList.GetAllMisc_Facotry">
+            <summary>
+            取得Misc_Facotry的全部記錄
+            </summary>
+            <returns>Misc_Facotry的全部記錄</returns>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_FacotryList.GetMisc_OrganizationByUserID(System.String)">
+            <summary>
+            根據用戶代碼取得其所在的組織代碼
+            </summary>
+            <param name="sUserID">用戶代碼</param>
+            <returns>組織結構記錄</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.Misc_SequenceList">
+            <summary>
+            取得Misc_Sequence集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_SequenceList.GetAllMisc_Sequence">
+            <summary>
+            取得Misc_Sequence的全部記錄
+            </summary>
+            <returns>Misc_Sequence的全部記錄</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.Misc_DataDictionaryTypeList">
+            <summary>
+            取得Misc_DataDictionaryType集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_DataDictionaryTypeList.GetAllMisc_DataDictionaryType">
+            <summary>
+            取得Misc_DataDictionaryType集合的全部記錄
+            </summary>
+            <returns>Misc_DataDictionaryType的全部記錄</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.Misc_DataDictionaryList">
+            <summary>
+            取得Misc_DataDictionary集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_DataDictionaryList.GetAllMisc_DataDictionary">
+            <summary>
+            取得Misc_DataDictionary集合的全部記錄
+            </summary>
+            <returns>Misc_DataDictionary的全部記錄</returns>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_DataDictionaryList.GetAllMisc_DataDictionaryByCondition(System.String)">
+            <summary>
+            根據條件返回Misc_DataDictionary部份記錄
+            </summary>
+            <param name="sCondition">提供的DataType名稱</param>
+            <returns>返回Misc_DataDictionary滿足條件的部份記錄</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.Misc_EmployeeList">
+            <summary>
+            取得Misc_Employee集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_EmployeeList.GetAllMisc_Employee">
+            <summary>
+            取得Misc_Employee集合的全部記錄
+            </summary>
+            <returns>Misc_Employee的全部記錄</returns>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_EmployeeList.GetEmployeeByOrgCode(System.String)">
+            <summary>
+            根據組織結構代碼取得該組織下的人員名單
+            </summary>
+            <param name="sOrgCode">組織結構代碼</param>
+            <returns>該組織下的人員名單</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.Misc_ErrorMessageList">
+            <summary>
+            取得Misc_ErrorMessage全部集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_ErrorMessageList.GetAllMisc_ErrorMessage">
+            <summary>
+            取得Misc_ErrorMessage全部集合
+            </summary>
+            <returns>取得Misc_ErrorMessage全部集合</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.Misc_HelpList">
+            <summary>
+            取得Misc_Help集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_HelpList.GetAllMisc_Help">
+            <summary>
+            取得Misc_Help集合
+            </summary>
+            <returns>返回Misc_Help全部記錄</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.Misc_OrganizationTypeList">
+            <summary>
+            取得Misc_OrganizationType集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_OrganizationTypeList.GetAllMisc_OrganizationType">
+            <summary>
+            取得Misc_OrganizationType集合
+            </summary>
+            <returns>返回Misc_OrganizationType全部記錄</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.Misc_OrganizationList">
+            <summary>
+            取得Misc_Organization集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_OrganizationList.GetAllMisc_Organization">
+            <summary>
+            取得Misc_Organization集合
+            </summary>
+            <returns>返回Misc_Organization全部記錄</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.Misc_SysLogList">
+            <summary>
+            取得Misc_SysLog集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_SysLogList.GetAllMisc_SysLog">
+            <summary>
+            取得Misc_SysLog集合
+            </summary>
+            <returns>返回Misc_SysLog集合</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.Misc_SystemParameterList">
+            <summary>
+            取得Misc_SystemParameter集合
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.Misc_SystemParameterList.GetAllMisc_SystemParameter">
+            <summary>
+            取得Misc_SystemParameter集合
+            </summary>
+            <returns>返回Misc_SystemParameter全部記錄</returns>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.AutoNumber.IDMaker">
+            <summary>
+            取得自動編號
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.SysLogManager.SysLogHelper.AddLog(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存用戶操作UI的動作日志，用於未登陸用戶。
+            </summary>
+            <param name="sSideProgramID">程序集編號</param>
+            <param name="sFileID">文件名編號，即DLL文件名</param>
+            <param name="sFormName">被操作記錄的表單名稱</param>
+            <param name="sLogText">操作動作描述</param>
+            <param name="sOperator">操作員編號</param>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.SysLogManager.SysLogHelper.DeleteLog(System.Int64)">
+            <summary>
+            根據提供的日志ID號刪除用戶操作UI的動作日志
+            </summary>
+            <param name="lID">要刪除的日志的ID號</param>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.SysLogManager.SysLogHelper.DeleteLog(System.String)">
+            <summary>
+             根據提供的操作員編號刪除用戶操作UI的動作日志
+            </summary>
+            <param name="sOperator">要刪除的日志的操作員編號</param>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.SysLogManager.SysLogHelper.DeleteLog(System.DateTime,System.DateTime)">
+            <summary>
+            根據提供的日期時間范圍刪除用戶操作UI的動作日志
+            </summary>
+            <param name="dtFrom">要刪除的日志的開始時間</param>
+            <param name="dtTo">要刪除的日志的結束時間</param>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.SysLogManager.SysLogHelper.DeleteLog(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            根據提供的操作員編號、日期時間范圍刪除用戶操作UI的動作日志
+            </summary>
+            <param name="sOperator">要刪除的日志的操作員編號</param>
+            <param name="dtFrom">要刪除的日志的開始時間</param>
+            <param name="dtTo">要刪除的日志的結束時間</param>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.SysLogManager.SysLogHelper.DeleteLogSPID(System.String)">
+            <summary>
+            根據提供的程序集編號刪除用戶操作UI的動作日志
+            </summary>
+            <param name="sSideProgramID">要刪除的日志的程序集編號</param>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.SysLogManager.SysLogHelper.DeleteLogFileID(System.String)">
+            <summary>
+            根據提供的文件名編號，即DLL文件名刪除用戶操作UI的動作日志
+            </summary>
+            <param name="sFileID">要刪除的日志的文件名編號，即DLL文件名</param>
+        </member>
+        <member name="T:PH.Platform.Misc.BO.ErrorMessages.ErrorMessageManager">
+            <summary>
+            Error Message Manager
+            </summary>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.ErrorMessages.ErrorMessageManager.GetErrorMessage(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            返回多語言環境下顯示錯誤的消息
+            </summary>
+            <param name="ASideProgram">SideProgram名稱</param>
+            <param name="AFileID">文件名稱</param>
+            <param name="AFormName">表單名稱</param>
+            <param name="AErrorMessageNo">錯誤消息編號</param>
+            <param name="ALangID">所要顯示的語言種類</param>
+            <returns>返回要顯示的錯誤消息</returns>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.ErrorMessages.ErrorMessageManager.GetErrorMessage(System.String,System.String,System.String,System.String)">
+            <summary>
+            返回多語言環境下顯示錯誤的消息
+            </summary>
+            <param name="ASideProgram">SideProgram名稱</param>
+            <param name="AFormName">表單名稱</param>
+            <param name="AErrorMessageNo">錯誤消息編號</param>
+            <param name="ALangID">所要顯示的語言種類</param>
+            <returns>返回要顯示的錯誤消息</returns>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.ErrorMessages.ErrorMessageManager.ShowMessage(System.String,System.String,System.String,System.String,System.String)">
+             <summary>
+            多語言環境下顯示錯誤的消息
+             </summary>
+             <param name="ASideProgram">SideProgram名稱</param>
+             <param name="AFileID">文件名稱</param>
+             <param name="AFormName">表單名稱</param>
+             <param name="AErrorMessageNo">錯誤消息編號</param>
+             <param name="ALangID">所要顯示的語言種類</param>
+             <returns></returns>
+        </member>
+        <member name="M:PH.Platform.Misc.BO.ErrorMessages.ErrorMessageManager.ShowMessage(System.String,System.String,System.String,System.String,System.String,System.String[])">
+             <summary>
+            多語言環境下顯示錯誤的消息
+             </summary>
+             <param name="ASideProgram">SideProgram名稱</param>
+             <param name="AFileID">文件名稱</param>
+             <param name="AFormName">表單名稱</param>
+             <param name="AErrorMessageNo">錯誤消息編號</param>
+             <param name="ALangID">所要顯示的語言種類</param>
+             <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,839 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Platform.BO</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Platform.BO.PivotTable.PivotSortItem">
+            <summary>
+            PivotTable排序参数
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotSortItem.SortKeyField">
+            <summary>
+            排序键值字段的名字
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotSortItem.BoKeyField">
+            <summary>
+            组成PivotTable的BO的键值字段的名字。系统按照该字段的值查找排序列表(SortList)中SortKeyField的值，
+            找到之后，按照SortValueField的值进行排序
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotSortItem.SortValueField">
+            <summary>
+            排序实际值字段的名字
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotSortItem.ASC">
+            <summary>
+            true为升序，否则为降序
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotAbstractItem.ItemType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.PivotTable.PivotItemBase.IsInitializing">
+            <summary>
+            是否处于初始化阶段
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:PH.Platform.BO.CloneHelper`1" -->
+        <member name="M:PH.Platform.BO.CloneHelper`1.Clone(`0)">
+            <summary>
+            Clone an object with Deep Cloning or with a custom strategy 
+            such as ShallowCloning and/or DeepCloning combined (use the CloneAttribute)
+            </summary>
+            <param name="obj">Object to perform cloning on.</param>
+            <returns>Cloned object.</returns>
+        </member>
+        <member name="M:PH.Platform.BO.CloneHelper`1.Clone(`0,PH.Platform.BO.CloneType)">
+            <summary>
+            Clone an object with one strategy (DeepClone or ShallowClone)
+            </summary>
+            <param name="obj">Object to perform cloning on.</param>
+            <param name="cloneType">Type of cloning</param>
+            <returns>Cloned object.</returns>
+            <exception cref="T:System.InvalidOperationException">When a wrong enum for cloningtype is passed.</exception>
+        </member>
+        <member name="M:PH.Platform.BO.CloneHelper`1.CloneObjectWithILShallow(`0)">
+            <summary>    
+            Generic cloning method that clones an object using IL.    
+            Only the first call of a certain type will hold back performance.    
+            After the first call, the compiled IL is executed.    
+            </summary>    
+            <typeparam name="T">Type of object to clone</typeparam>    
+            <param name="myObject">Object to clone</param>    
+            <returns>Cloned object (shallow)</returns>    
+        </member>
+        <member name="M:PH.Platform.BO.CloneHelper`1.CloneObjectWithILDeep(`0)">
+            <summary>
+            Generic cloning method that clones an object using IL.
+            Only the first call of a certain type will hold back performance.
+            After the first call, the compiled IL is executed. 
+            </summary>
+            <param name="myObject">Type of object to clone</param>
+            <returns>Cloned object (deeply cloned)</returns>
+        </member>
+        <member name="M:PH.Platform.BO.CloneHelper`1.CopyReferenceType(System.Reflection.Emit.ILGenerator,System.Reflection.Emit.LocalBuilder,System.Reflection.FieldInfo)">
+            <summary>
+            Helper method to clone a reference type.
+            This method clones IList and IEnumerables and other reference types (classes)
+            Arrays are not yet supported (ex. string[])
+            </summary>
+            <param name="generator">IL generator to emit code to.</param>
+            <param name="cloneVar">Local store wheren the clone object is located. (or child of)</param>
+            <param name="field">Field definition of the reference type to clone.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:PH.Platform.BO.CloneHelper`1.CloneList(System.Reflection.Emit.ILGenerator,System.Reflection.FieldInfo,System.Type,System.Reflection.Emit.LocalBuilder)" -->
+        <member name="M:PH.Platform.BO.CloneHelper`1.GetCloneTypeForField(System.Reflection.FieldInfo)">
+            <summary>
+            Returns the type of cloning to apply on a certain field when in custom mode.
+            Otherwise the main cloning method is returned.
+            You can invoke custom mode by invoking the method Clone(T obj)
+            </summary>
+            <param name="field">Field to examine</param>
+            <returns>Type of cloning to use for this field.</returns>
+        </member>
+        <member name="T:PH.Platform.BO.PivotTable.PivotItemType">
+            <summary>
+            透视项的类型
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.PivotTable.PivotItemType.Header1">
+            <summary>
+            头1
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.PivotTable.PivotItemType.Header2">
+            <summary>
+            头2
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.PivotTable.PivotItemType.Header3">
+            <summary>
+            头2
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.PivotTable.PivotItemType.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.CustomeException.RecordLockedException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="errmsg">錯誤訊息</param>
+            <param name="boname">沒有權限的BO名稱</param>
+            <param name="action">動作名稱(add,edit,delete,set bo language等操作)</param>
+        </member>
+        <member name="M:PH.Platform.BO.CustomeException.NoPermissionException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="errmsg">錯誤訊息</param>
+            <param name="boname">沒有權限的BO名稱</param>
+            <param name="action">動作名稱(add,edit,delete,set bo language等操作)</param>
+        </member>
+        <member name="T:PH.Platform.BO.ContextBuilder">
+            <summary>
+            Linq DataContect Builder管理類
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.ContextBuilder.ConnectionStringDict">
+            <summary>
+            用于保存使用過的DB連接串，不用頻繁去表里取連接串，提高訪問效率，由David加入2018-09-04
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.ContextBuilder.CreateContext``1">
+             <summary>
+            開發員傳DataContext類型參數,得到一個該類型的DataContext實例;
+            T:表示具體的DataContext的類型,比如下面的AuthMgrDataContext
+             </summary>
+             <typeparam name="T"></typeparam>
+             <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.ContextBuilder.GetConnectionString(System.Type)">
+            <summary>
+            得到DataContext的數據庫連接串
+            </summary>
+            <param name="contextType">DataContextType</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.ContextBuilder.GetAssemblyConfig(System.String,System.String,System.String)">
+             <summary>
+            strExecutablePath:Assembly文件(可以是.exe,.dll等)路徑;
+            appKey:配置節名稱;
+            attributeName:配置節中屬性的名字;
+            返回值:此屬性的值 
+             </summary>
+             <param name="strExecutablePath"></param>
+             <param name="appKey"></param>
+             <param name="attributeName"></param>
+             <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.ContextBuilder.GetAuthMgrConfig(System.String,System.String)">
+             <summary>
+            得到AuthMgr配置文件中的數據庫連接字串
+             </summary>
+             <param name="strExecutablePath"></param>
+             <param name="appKey"></param>
+             <param name="attributeName"></param>
+             <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.ContextBuilder.GetConnectionString(System.String)">
+            <summary>
+            根據Auth_File中的BOConnectionString得到解密後的數據連接字串
+            </summary>
+            <param name="BOConnectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.ContextBuilder.StrConnenction(System.String)">
+            <summary>
+            替換連接串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.ContextBuilder.ReplaceConfigStr(System.String)">
+            <summary>
+            替換連接串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.ContextBuilder.GetErrorMessagae(System.String,System.String[])">
+            <summary>
+            從Misc_ErrorMessage表中獲取平臺中所使用的相關提示訊息
+            </summary>
+            <param name="msgcode">提示訊息代碼</param>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Platform.BO.BaseEntity">
+            <summary>
+            Entity基类
+            </summary> 
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:PH.Platform.BO.BaseObject" -->
+        <member name="M:PH.Platform.BO.BaseObject.Clone">
+            <summary>
+            Clone the object, and returning a reference to a cloned object.
+            </summary>
+            <returns>Reference to the new cloned object.</returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.GetDataRightSQLString(System.String)">
+            <summary>
+            返回用戶對應的數據權限字串
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="userid"></param>
+            <param name="programid"></param>
+            <param name="fileid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.DeepClone(System.Object)">
+            <summary>
+            深拷贝
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.ShallowClone">
+            <summary>
+            浅拷贝
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.NewVersion(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="AVersionBOColunmName"></param>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.NewAmendVersion(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ANewAmendVersion"></param>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.AddNew">
+            <summary>
+            在BindingSource中新增一筆記錄同時檢查是否有addnew權限
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.InitEntity">
+            <summary>
+            初始化Entity,對新增的Entity的屬性賦初始值
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.AddNew(System.Data.Linq.DataContext,System.Windows.Forms.BindingSource)">
+            <summary>
+            AddNew重載方法
+            ACurrentDataContext:用於獲取當前數據源的DataContext對象
+            ACurrentBindingSource : 當前需要新增數據的BindingSource對象
+            </summary>
+            <param name="?"></param>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.Edit">
+            <summary>
+            編輯
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.CheckDataSource">
+            <summary>
+            當調用基類的Add,Edit,Delete方法時,檢查DataContext和BindingSource是否為空
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.Delete">
+             <summary>
+            刪除一筆記錄並更新到數據庫
+             </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.Delete(System.Data.Linq.DataContext,System.Windows.Forms.BindingSource)">
+             <summary>
+            刪除方法重載
+             ACurrentDataContext:用於獲取當前數據源的DataContext對象
+             ACurrentBindingSource : 當前需要刪除數據的BindingSource對象        
+             </summary>
+             <param name="ACurrentDataContext"></param>
+             <param name="ACurrentBindingSource"></param>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.Cancel">
+            <summary>
+            取消當前正在進行的新增,修改操作
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.Cancel(System.Data.Linq.DataContext,System.Windows.Forms.BindingSource)">
+            <summary>
+            取消方法重載
+            ACurrentDataContext:用於獲取當前數據源的DataContext對象
+            ACurrentBindingSource : 當前取消操作所對應的BindingSource對象 
+            </summary>
+            <param name="ACurrentDataContext"></param>
+            <param name="ACurrentBindingSource"></param>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.Save(System.Data.Linq.DataContext,System.Windows.Forms.BindingSource)">
+             <summary>
+            保存當前正在新增,修改的數據到數據庫 
+            ADataContext：提交數據所使用的DataContext;ABindingSource :所提交記錄所在的BindingSource
+             </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.Save">
+             <summary>
+            重載保存方法:將當前對象保存到數據庫
+             </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.Undo">
+            <summary>
+            Undo方法(尚未實現)
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.Redo">
+            <summary>
+            Redo方法(尚未實現)
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.GetMainKey">
+            <summary>
+            通過BaseEntity對象,得到相應實體表的所有主Key字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.CloneObject(System.Object)">
+            <summary>
+            利用序列化的方法克隆一個對象
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.CheckPermission(System.String)">
+            <summary>
+            根據UserID,BO名稱判斷用戶對於當前BO是否具有下列操作權限(addnew,delete,update)
+            </summary>
+            <param name="permission">操作權限字串(addnew,delete,update)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.CheckLanguagePermission(System.String)">
+            <summary>
+            檢查當前用戶對當前BO是否具有設置BO多語言的權限 
+            </summary>
+            <param name="boname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.GetImage(System.Object,System.String)">
+            <summary>
+            用於平臺通用Image處理(本方法只能在平臺通用Image處理的屬性的Get訪問器中調用)
+            </summary>
+            <param name="ACurrentEntity">需要調用平臺Image處理的Entity</param>
+            <param name="APropertyName">需要調用平臺Image處理的自定義屬性</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.GetNotePad(System.Object,System.String)">
+            <summary>
+            用於平臺通用NotePad類型字段處理(本方法只能在平臺通用NotePad處理的屬性的Get訪問器中調用)
+            </summary>
+            <param name="ACurrentEntity">需要調用平臺NotePad處理的Entity</param>
+            <param name="APropertyName">需要調用平臺NotePad處理的自定義屬性</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.GetCustomerAttribut">
+            <summary>
+            獲取當前BaseEntity中所有PHImage或PHNotePad字段對應的PropertyName和ColumnName,以PropertyName為Key,保存到hashtable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntity.GetProgramID">
+            <summary>
+            得到BO所屬的SideProgramID和FileID
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.BaseEntity.curDocID">
+            <summary>
+            處理記錄鎖定
+            </summary>
+            <returns></returns>      
+        </member>
+        <member name="P:PH.Platform.BO.BaseEntity.BOWorkMode">
+            <summary>
+            BO的工作模式
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.BaseEntity.AllowSetLanguagePermission">
+             <summary>
+            此只讀屬性用於判斷當前用戶對於當前BO有無設置BO多語言的權限 
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="T:PH.Platform.BO.BaseEntityList`2">
+            <summary>
+            BO層業務邏輯取數基類
+            </summary>
+            <typeparam name="TEntity">Entity</typeparam>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntityList`2.#ctor">
+            <summary>
+            構造函數
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntityList`2.GetAllData">
+            <summary>
+            根據數據權限讀取BO的所有數據
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntityList`2.GetAllData(System.String)">
+            <summary>
+            得到當前Entity的所有數據
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntityList`2.GetDataByCondition(System.String)">
+            <summary>
+            得到符合指定條件的數據 
+            </summary>
+            <param name="ACondition">篩選條件(條件與SQL語法保持一致如: FieldA = 'AA' AND FieldB = 123)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntityList`2.GetDataByCondition(System.Func{`0,System.Boolean})">
+            <summary>
+             得到符合指定的Lambda條件表達式的數據
+            </summary>
+            <param name="AFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.BaseEntityList`2.HasReadPermission">
+            <summary>
+            檢查用戶對當前BO是否有讀取權限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:PH.Platform.BO.BaseEntityList`2.CurrentDataContext">
+            <summary>
+            當前工作的DataContext
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:PH.Platform.BO.DynamicQueryable.AsDataRightTable``1(System.Data.Linq.Table{``0})" -->
+        <member name="M:PH.Platform.BO.DataContextFactory.NewContextFromEntityType(System.Type)">
+            <summary>
+            返回一個新的datacontext對象,而不是從datacontext集合中返回
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextFactory.GetConnectionString(System.Type)">
+            <summary>
+            將datacontext對象及datacontext中包含的所有Table信息(metaTable對象)保存到相應的集合列表中
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextFactory.RegisterDataContext(System.Data.Linq.DataContext)">
+            <summary>
+            將datacontext對象及datacontext中包含的所有Table信息(metaTable對象)保存到相應的集合列表中
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextFactory.MetaTableFromEntity(System.Object)">
+            <summary>
+            通過entity類型從_metaTableList中返回與entity類相應的MetaTable對象
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.OpenConnection(System.Data.Linq.DataContext)">
+            <summary>
+            Opens a connection to the database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.CloseConnection(System.Data.Linq.DataContext)">
+            <summary>
+            Opens the connection on this data context
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.CreateCommand(System.Data.Linq.DataContext,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Creates a new SQL Command
+            </summary>
+            <param name="sqlCommand"></param>
+            <param name="dbParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.CreateParameter(System.Data.Linq.DataContext,System.String,System.Object)">
+            <summary>
+            Creates a new SQL Parameter
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.CreateParameter(System.Data.Linq.DataContext,System.String,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            Creates a new SQL Parameter
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteReader(System.Data.Linq.DataContext,System.Data.Common.DbCommand,System.Data.Common.DbParameter[])">
+            <summary>
+            Returns a DbDataReader from a SQL statement.
+            
+            Note:
+            Reader is created with CommandBehavior.CloseConnection
+            </summary>
+            <param name="sqlCommand"></param>
+            <param name="dbParameters"></param>
+            <returns>DataReader or Null.</returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteReader(System.Data.Linq.DataContext,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Returns a DbDataReader from a SQL statement.
+            
+            Note:
+            Reader is created with CommandBehavior.CloseConnection
+            </summary>
+            <param name="sql"></param>
+            <param name="dbParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteReader(System.Data.Linq.DataContext,System.Linq.IQueryable)">
+            <summary>
+            Executes a LINQ to SQL query and returns the results as a DataReader.
+            </summary>
+            <param name="query">LINQ query object</param>        
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteDataTable(System.Data.Linq.DataContext,System.Data.Common.DbCommand,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Executes a SQL command and retrieves a DataTable of the result
+            </summary>
+            <param name="sqlCommand"></param>
+            <param name="tableName"></param>
+            <param name="dbParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteDataTable(System.Data.Linq.DataContext,System.String,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Executes a SQL command from a string and retrieves a DataTable of the result
+            </summary>
+            <param name="sql"></param>
+            <param name="tableName"></param>
+            <param name="dbParameters"></param>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteDataTable(System.Data.Linq.DataContext,System.Linq.IQueryable,System.String)">
+            <summary>
+            Creates a DataTable from a Linq Query expression
+            </summary>
+            <param name="query">A LINQ to SQL query object</param>
+            <param name="tableName">The resulting table name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteDataSet(System.Data.Linq.DataContext,System.Data.Common.DbCommand,System.Data.DataSet,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Runs a query and returns a table in a DataSet either passed in or
+            by creating a new one.
+            </summary>
+            <param name="sqlCommand">SQL Command object</param>
+            <param name="dataSet">Dataset to add table to</param>
+            <param name="tableName">Name of the result table</param>
+            <param name="dbParameters">Optional SQL statement parameters</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteDataSet(System.Data.Linq.DataContext,System.String,System.Data.DataSet,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Runs a query and returns a table in a DataSet either passed in or
+            by creating a new one.
+            </summary>
+            <param name="sqlCommand">SQL string to execute</param>
+            <param name="dataSet">Dataset to add table to</param>
+            <param name="tableName">Name of the result table</param>
+            <param name="dbParameters">Optional SQL statement parameters</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteDataSet(System.Data.Linq.DataContext,System.Linq.IQueryable,System.Data.DataSet,System.String)">
+            <summary>
+            Runs a query and returns a table in a DataSet either passed in or
+            by creating a new one.
+            </summary>
+            <param name="sqlCommand">SQL string to execute</param>
+            <param name="dataSet">Dataset to add table to</param>
+            <param name="tableName">Name of the result table</param>
+            <param name="dbParameters">Optional SQL statement parameters</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteNonQuery(System.Data.Linq.DataContext,System.Data.Common.DbCommand,System.Data.Common.DbParameter[])">
+            <summary>
+            Executes a raw Sql Command against the server that doesn't return
+            a result set.
+            </summary>
+            <param name="sqlCommand"></param>
+            <param name="dbParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.ExecuteNonQuery(System.Data.Linq.DataContext,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            Executes a raw Sql Command against the server that doesn't return
+            a result set.
+            </summary>
+            <param name="sqlCommand"></param>
+            <param name="dbParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.NewContextFromEntityType(System.Type)">
+            <summary>
+            返回一個新的datacontext對象,而不是從datacontext集合中返回
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.RegisterDataContext(System.Data.Linq.DataContext)">
+            <summary>
+            將datacontext對象及datacontext中包含的所有Table信息(metaTable對象)保存到相應的集合列表中
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.BO.DataContextExtend.MetaTableFromEntity(System.Object)">
+            <summary>
+            通過entity類型從_metaTableList中返回與entity類相應的MetaTable對象
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Platform.BO.PivotTable.PivotTable">
+            <summary>
+            透视表
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.PivotTable.PivotTable.SortRField``1(System.Collections.Generic.List{``0},System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            对R字段进行排序
+            </summary>
+            <typeparam name="SortBoType">排序数据源Item的ClassType</typeparam>
+            <param name="sortList">排序数据源</param>
+            <param name="sortValueField">排序数据源的排序字段</param>
+            <param name="sortKeyField">排序数据源的排序键值字段</param>
+            <param name="aRField">R字段的名称</param>
+            <param name="ASC">true为升序，否则降序</param>
+            <returns>排序后的R字段</returns>
+        </member>
+        <member name="M:PH.Platform.BO.PivotTable.PivotTable.NewContentData">
+            <summary>
+            新增一条内容记录
+            </summary>
+            <returns>新增的内容，程序员可以在调用NewContentData后修改新增记录的内容。</returns>
+        </member>
+        <member name="M:PH.Platform.BO.PivotTable.PivotTable.CreatePivotTable(System.Collections.IList,System.Data.Linq.DataContext,System.Windows.Forms.CurrencyManager,System.Type,System.String,System.String,System.String[],System.String[],System.String[],System.String[],System.String)">
+            <summary>
+            生成PivotTable
+            </summary>
+            <param name="source">源数据</param>
+            <param name="context">用于保存PivotTable的DataContenxt</param>
+            <param name="currencyManager">CurrencyManager</param>
+            <param name="boType">BO的Class Type</param>
+            <param name="headerLabel_1">控件1的标题</param>
+            <param name="headerLabel_2">控件2的标题</param>
+            <param name="lFields">L字段</param>
+            <param name="lLabels">L字段的标题</param>
+            <param name="rFields">R字段</param>
+            <param name="rSubTotalLabels">R字段小计的项的标题</param>
+            <param name="rValueField">对R进行透视的值</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:PH.Platform.BO.PivotTable.PivotTable.Sort``1(System.Collections.Generic.List{``0},System.String,System.String,System.String[],System.String,System.Boolean[])" -->
+        <member name="M:PH.Platform.BO.PivotTable.PivotTable.Sort(System.String,System.Boolean)">
+            <summary>
+            对PivotTable按指定的字段进行排序
+            </summary>       
+            <param name="boSortKeyField">BO的排序字段</param>
+            <param name="ASC">升序/降序。true为升序，否则为降序</param>
+        </member>
+        <member name="M:PH.Platform.BO.PivotTable.PivotTable.ReCountSubTotal">
+            <summary>
+            刷新统计项的值。
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.PivotTable.PivotTable.Save">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.PivotTable.PivotTable.ValidateHeader">
+            <summary>
+            校验控件3中的R值
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.PivotTable.PivotTable.EmptyRValue(System.String)">
+            <summary>
+            清空R值
+            </summary>
+            <param name="RProperty">R列名称</param>
+        </member>
+        <member name="F:PH.Platform.BO.PivotTable.PivotTable.LFields">
+            <summary>
+            L字段
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.PivotTable.PivotTable.LLabels">
+            <summary>
+            L字段的标题
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.PivotTable.PivotTable.RFields">
+            <summary>
+            R字段
+            </summary>
+        </member>
+        <member name="F:PH.Platform.BO.PivotTable.PivotTable.RSubTotalLabels">
+            <summary>
+            R字段的小计标题
+            </summary>
+        </member>
+        <member name="M:PH.Platform.BO.PivotTable.PivotTable.GetLFieldNameBySourceName(System.String)">
+            <summary>
+            通过BO的字段名称获取对应的PivotTable的字段名
+            </summary>
+            <param name="fieldName">BO的字段名</param>
+            <returns>PivotTable对应的字段名</returns>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotTable.MaxL">
+            <summary>
+            最后一个L列的索引
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotTable.MaxR">
+            <summary>
+            最后一个R列的索引
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotTable.HeaderItems">
+            <summary>
+            Header_3
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotTable.ContentItems">
+            <summary>
+            内容项
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotTable.Header_2">
+            <summary>
+            控件2的标题
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotTable.Header_1">
+            <summary>
+            控件1的标题
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotTable.HeaderLabel_1">
+            <summary>
+            标题1
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotTable.HeaderLabel_2">
+            <summary>
+            标题2
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PivotTable.PivotTable.RValueField">
+            <summary>
+            透视字段
+            </summary>
+        </member>
+        <member name="T:PH.Platform.BO.PHImage">
+            <summary>
+            PH.Platform中Image通用處理專用Attribute，用於定義新包裝的屬性
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PHImage.DocID">
+            <summary>
+            DocID字段名稱(一般為當前使用Table中的GUID字段)
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PHImage.ColumnName">
+            <summary>
+            用於保存Image的字段名稱
+            </summary>
+        </member>
+        <member name="T:PH.Platform.BO.PHNotepad">
+            <summary>
+            PH.Platform中Notepad通用處理專用Attribute，用於定義新包裝的屬性
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PHNotepad.DocID">
+            <summary>
+            DocID字段名稱(一般為當前使用Table中的GUID字段)
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PHNotepad.ColumnName">
+            <summary>
+            用於保存Image的字段名稱
+            </summary>
+        </member>
+        <member name="T:PH.Platform.BO.PHTimestamp">
+            <summary>
+            PH.Platform中用於標識Timestamp類型字段的專用Attribute
+            </summary>
+        </member>
+        <member name="P:PH.Platform.BO.PHTimestamp.DocID">
+            <summary>
+            DocID字段名稱(一般為當前使用Table中的GUID字段)
+            </summary>
+        </member>
+        <member name="T:PH.Platform.BO.CloneAttribute">
+            <summary>
+            CloningAttribute for specifying the cloneproperties of a field.
+            </summary>
+        </member>
+    </members>
+</doc>

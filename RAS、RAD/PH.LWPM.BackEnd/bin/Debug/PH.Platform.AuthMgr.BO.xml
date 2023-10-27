@@ -1,0 +1,1633 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Platform.AuthMgr.BO</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Platform.AuthMgr.BO.FileHelper">
+            <summary>
+            提供文件相關操作的方法
+            Date:2009-01-12
+            Author:Ray
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.FileHelper.list">
+            <summary>
+            獲取語言類型
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.UploadFile(PH.Platform.AuthMgr.BO.Auth_File,System.String)">
+            <summary>
+            將文件轉成二進制存儲到數據庫
+            </summary>
+            <param name="file">Auth_File實例</param>
+            <param name="fullpath">要轉換的文件對象</param>
+            <returns>UploadFileStatus</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.UploadFile(PH.Platform.AuthMgr.BO.Auth_File,System.String,System.Boolean)">
+            <summary>
+            將文件轉成二進制存儲到數據庫
+            </summary>
+            <param name="file">Auth_File實例</param>
+            <param name="fullpath">要轉換的文件對象</param>
+            <param name="needmessage">是否需要信息提示</param>
+            <returns>UploadFileStatus</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.ExistDLLFile(System.String)">
+            <summary>
+            是否己經存在該文件
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>true of false</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.GetFileList(System.Int32)">
+            <summary>
+            獲取File列表。
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:PH.Platform.AuthMgr.BO.FileHelper.GetFileList" -->
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.UpdateFile(PH.Platform.AuthMgr.BO.Auth_File)">
+            <summary>
+            更新本地文件
+            </summary>
+            <param name="assembly">SideAssembly實體</param>
+            <param name="path">要存放文件的本地路徑</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.UpdateFile">
+            <summary>
+            更新文件
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.WriteLog(PH.Platform.AuthMgr.BO.Auth_UpdateLog)">
+            <summary>
+            更新日志
+            </summary>
+            <param name="log">Log 實體</param>
+            <param name="env">更新環境參數</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.Compared(System.String,PH.Platform.AuthMgr.BO.Auth_File)">
+            <summary>
+            比較本地的文件版本和日期
+            </summary>
+            <param name="file">文件</param>
+            <param name="assembly">SideAssembly 實體</param>
+            <returns>true or flase</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.Compared(System.String[],System.String[],System.Boolean@)">
+            <summary>
+            
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.GetUIFileList">
+            <summary>
+            獲取UI FileList
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.GetBOFileList">
+            <summary>
+            獲取BO FileList
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.GetBackFileList">
+            <summary>
+            獲取後台FileList()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.ScanBOFile(System.String)">
+            <summary>
+            掃描BO文件相關信息
+            </summary>
+            <param name="fullpath">文件路徑</param>
+            <returns>ScanBOFileStatus</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.ScanFile(System.String)">
+            <summary>
+            掃描BO文件相關信息
+            </summary>
+            <param name="fullpath">文件路徑</param>
+            <returns>ScanBOFileStatus</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.ScanUIType">
+            <summary>
+            獲取DLL文件對應的ClassType全名稱
+            </summary>
+            <returns>The List of ClassType</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.ScanUIType(System.Reflection.Assembly)">
+            <summary>
+            掃描UI文件
+            </summary>
+            <param name="asm">Assembly</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.ScanBOType(System.Reflection.Assembly,PH.Platform.AuthMgr.BO.Auth_File)">
+            <summary>
+            掃描BO文件
+            </summary>
+            <param name="asm">Assembly</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.ScanBOType(PH.Platform.AuthMgr.BO.Auth_File)">
+            <summary>
+            掃描BO文件
+            </summary>
+            <param name="file"> The file will be scaned</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.ScanBOType">
+            <summary>
+            Scan the BO file
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.InsertBOLang(System.Object,PH.Platform.AuthMgr.BO.Auth_BO)">
+            <summary>
+            插入BO對應的多語言
+            </summary>
+            <param name="BO">BO</param>
+            <param name="BOProperty">BO對象</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.InsertBOLang(PH.Platform.AuthMgr.BO.Auth_BO,System.String)">
+            <summary>
+            插入BO屬性對應的多語言
+            </summary>
+            <param name="BO">BO對象</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.SaveLangItem(PH.Platform.AuthMgr.BO.Auth_BO,System.String,System.String)">
+            <summary>
+            根據多語言項目，插入BO多語言數據
+            </summary>
+            <param name="BO">BO</param>
+            <param name="property">屬性</param>
+            <param name="langid">多語言ITEM</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.InsertBOProperty(PH.Platform.AuthMgr.BO.Auth_BO,System.String)">
+            <summary>
+            插入BO屬性
+            </summary>
+            <param name="BO">需要掃描的BO</param>
+            <param name="property">屬性</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.InsertBO(PH.Platform.AuthMgr.BO.Auth_BO)">
+            <summary>
+            插入BO信息
+            </summary>
+            <param name="BO">BO實體對象</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.InsertBORight(PH.Platform.AuthMgr.BO.Auth_BO)">
+            <summary>
+            根據SysBORight對應的插入對應的 BO RIGHT
+            </summary>
+            <param name="BO"></param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.FileHelper.InsertFile(PH.Platform.AuthMgr.BO.Auth_File)">
+            <summary>
+            插入File信息
+            </summary>
+            <param name="file"></param>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.FileHelper.NeedShowMessage">
+            <summary>
+            是否需要即時提示信息
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_RoleBORight.GetRoleBORightList">
+            <summary>
+            獲取BO的列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.Auth_RoleBORight._filename">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_RoleBORight.GetBORightList">
+            <summary>
+            獲取BORight
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleBORight.SideProgramName">
+            <summary>
+            SideProgram Name
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleBORight.BORightValue">
+            <summary>
+            BORight Value
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Field.FieldName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Field.DataType">
+            <summary>
+            數據類型
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.QueryItem.PrevFlag">
+            <summary>
+            (
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.QueryItem.AfterFlag">
+            <summary>
+            )
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:PH.Platform.AuthMgr.BO.QueryItem.ExpFlag" -->
+        <member name="P:PH.Platform.AuthMgr.BO.QueryItem.AndOrFlag">
+            <summary>
+            And or OR
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.QueryItem.FieldName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.QueryItem.FieldValue1">
+            <summary>
+            值1
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.QueryItem.FieldValue2">
+            <summary>
+            值2
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.QueryItem.Order">
+            <summary>
+            順序
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO.Auth_User">
+            <summary>
+            用户类
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.SetUserPassword(System.String,System.String)">
+            <summary>
+            重置用戶的密碼
+            </summary>
+            <param name="newpassword">新密碼</param>
+            <param name="newpassword1">新密碼</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetUserCSMenus">
+            <summary>
+            當前用戶所擁有的CS菜單項。
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetUserBSMenus">
+            <summary>
+            當前用戶所擁有的BS菜單項。
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.CanAccessPage(System.Int64)">
+            <summary>
+            透過MenuId判斷是否有相關權限
+            </summary>
+            <param name="MenuID">the value of Auth_MenuTree's MenuID</param>
+            <returns>if have right will return true otherwise will return flase;</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.CanAccessPage(System.String)">
+            <summary>
+            透過WebLink判斷是否有相關權限。
+            </summary>
+            <param name="webLink">the value of Auth_MenuTree's WebLink</param>
+            <returns>if have right will return true otherwise will return flase;</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetUserMenus(System.String)">
+            <summary>
+            獲取菜單項目
+            </summary>
+            <param name="platform">平台</param>
+            <returns>菜單項</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetBORight(System.String)">
+            <summary>
+            獲取用名戶BO權限
+            </summary>
+            <param name="BOName">BO名稱</param>
+            <returns>Auth_RoleBORight實體</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetRoleBORight(System.String)">
+            <summary>
+            穫取角色BO權限
+            </summary>
+            <param name="BOName">BO名稱</param>
+            <returns>Auth_RoleBORight</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetBORight">
+            <summary>
+            獲得BO權限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetBODataRightString(System.String,System.String,System.String)">
+            <summary>
+            得到BO的數据權限的條件
+            </summary>
+            <param name="BOName">BO名稱</param>
+            <param name="fileID">文件的ID</param>
+            <param name="sideProgramID">Side Program ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetRoleBORight">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetBOPropertyRight(System.String)">
+            <summary>
+            獲取用戶BO權限
+            </summary>
+            <param name="BOName">BO名稱</param>
+            <returns>Auth_RoleBORight實體</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetBOPropertyRight(System.String,System.String)">
+            <summary>
+            獲取用戶BO權限
+            </summary>
+            <param name="BOName">BO名稱</param>
+            <param name="Property">屬性名稱</param>
+            <returns>Auth_RoleBORight實體</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetFunRight(System.Int64)">
+            <summary>
+            返回操作權限
+            </summary>
+            <param name="MenuId">菜單ID</param>
+            <returns>用戶權限</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetFunRight">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetFunRight(System.Int64,System.String)">
+            <summary>
+            獲取功能權限
+            </summary>
+            <param name="menuid">菜單ID</param>
+            <param name="funright">權限名稱</param>
+            <returns>功能權限實體</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetDataRight(System.String)">
+            <summary>
+            獲取用戶對應BO的數據權限
+            </summary>
+            <param name="BOName">BO名</param>
+            <returns>角色數據權限</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.IfExistUser(System.String)">
+            <summary>
+            是否存在該用戶
+            </summary>
+            <param name="UserID">用戶ID</param>
+            <returns>True or flase</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetUserByID(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="UserID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_User.GetNotInUserRoles">
+            <summary>
+            獲取不在Role中的用戶
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.Auth_User._department">
+            <summary>
+            得到用戶所屬部門
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_User.Roles">
+            <summary>
+            用戶所對應的角色
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_User.IsAdministrator">
+            <summary>
+            是否是超級管理員
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_RoleFuncRight.GetFunRight">
+            <summary>
+            獲取功能權限列表
+            </summary>
+            <returns>the list of funright</returns>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleFuncRight.MenuName">
+            <summary>
+            菜單名
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleFuncRight.RoleName">
+            <summary>
+            角色名
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleFuncRight.MenuFunction">
+            <summary>
+            菜單/功能
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleFuncRight.MenuFunctionValue">
+            <summary>
+            菜單/功能
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO.LoginUserStatus">
+            <summary>
+            Login狀態
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.LoginUserStatus.InvalidCredentials">
+            <summary>
+            沒有通過認證
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.LoginUserStatus.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.LoginUserStatus.UserBanned">
+            <summary>
+            用戶己取消/過期
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.LoginUserStatus.UserDisapproved">
+            <summary>
+            用戶未許可
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.LoginUserStatus.UserNotFound">
+            <summary>
+            未找到用戶
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.LoginUserStatus.UnknownError">
+            <summary>
+            未知錯誤
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO.ChangePassWordStatus">
+            <summary>
+            修改密碼狀態勢
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ChangePassWordStatus.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ChangePassWordStatus.PasswordInconsistent">
+            <summary>
+            密碼不一致
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ChangePassWordStatus.PasswordIsWrong">
+            <summary>
+            密碼錯誤
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO.UploadFileStatus">
+            <summary>
+            文件上傳狀態
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.UploadFileStatus.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.UploadFileStatus.FileNotExisits">
+            <summary>
+            文件不存在
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.UploadFileStatus.Failure">
+            <summary>
+            失敗
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ScanBOFileStatus.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ScanBOFileStatus.FileNotExisits">
+            <summary>
+            文件不存在
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ScanBOFileStatus.NoBoFile">
+            <summary>
+            不是BO文件
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ScanBOFileStatus.Failure">
+            <summary>
+            失敗
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ScanUIFileStatus.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ScanUIFileStatus.FileNotExisits">
+            <summary>
+            文件不存在
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ScanUIFileStatus.NoUIFile">
+            <summary>
+            不是BO文件
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.ScanUIFileStatus.Failure">
+            <summary>
+            失敗
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_RoleDataRight.GetBOList">
+            <summary>
+            獲取BO的列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleDataRight.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleDataRight.RoleName">
+            <summary>
+            角色名稱
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleDataRight.SideProgramName">
+            <summary>
+            SideProgram名稱
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleDataRight.BOValue">
+            <summary>
+            BO值
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_FunRight.GetFunRight">
+            <summary>
+            獲取最新
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_FunRight.AddFunRight(System.Int64,System.String)">
+            <summary>
+            添加功能權限項
+            </summary>
+            <param name="menuid">菜單ID</param>
+            <param name="funcright">功能權限項</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_FunRight.AddFunRight(System.Int64,System.String,System.String)">
+            <summary>
+            添加功能權限項
+            </summary>
+            <param name="menuid">菜單ID</param>
+            <param name="funcright">功能權限項</param>
+            <param name="desc">描述</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_FunRight.GetMenuList">
+            <summary>
+            獲取菜單列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_FunRight.MenuName">
+            <summary>
+            菜單名
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO.DictionaryInfo">
+            <summary>
+            字典信息
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DictionaryInfo.GetFileType">
+            <summary>
+            獲取文件類型
+            </summary>
+            <returns>數據庫字典列表</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DictionaryInfo.GetLocation">
+            <summary>
+            獲取地域類型
+            </summary>
+            <returns>數據庫字典列表</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DictionaryInfo.GetMenuType(System.Boolean)">
+            <summary>
+            獲取菜單類型
+            </summary>
+            <returns>數據字典列表</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DictionaryInfo.GetMenuType(System.Boolean,System.String)">
+            <summary>
+            獲取菜單類型
+            </summary>
+            <returns>數據字典列表</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DictionaryInfo.GetMenuWorkType">
+            <summary>
+            獲取菜單工作類型。
+            </summary>
+            <returns>數據字典列表</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DictionaryInfo.GetMenuIConType">
+            <summary>
+            獲取菜單圖標列表。
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DictionaryInfo.GetFlag">
+            <summary>
+            獲取SideProgram標識
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DictionaryInfo.GetStatus">
+            <summary>
+            獲取SideProgram狀態
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DictionaryInfo.GetDictionary(System.String)">
+            <summary>
+            獲取字典信息
+            </summary>
+            <param name="datatype">數據類型</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DictionaryInfo.GetParametersLocation">
+            <summary>
+            獲取地域類型
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Common.GetAutoNumber(System.String)">
+            <summary>
+            調用序號生成方法
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Common.GetVersion(System.String,System.String@,System.String@)">
+            <summary>
+            獲取產品版本
+            </summary>
+            <param name="path">文件路徑</param>
+            <param name="pversion">版本號</param>
+            <param name="fversion">版本號</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Common.GetVersion(System.Reflection.Assembly,System.String@,System.String@)">
+            <summary>
+            獲取文件的版號
+            </summary>
+            <param name="a">Assembly</param>
+            <param name="pversion">產品版本號</param>
+            <param name="fversion"></param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Common.TranslateVersionToInt(System.String)">
+            <summary>
+            將版本號轉為整形 
+            </summary>
+            <param name="version">版本</param>
+            <returns>整形</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Common.GetItemsForListing``1(System.String,System.Data.Linq.DataContext)">
+            <summary>
+            獲取對象數組[執行有返回結果集的Sql命令]
+            </summary>
+            <typeparam name="sqlSql">SqlCommand</typeparam>
+            <returns>對象數組</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Common.GetLocalIP">
+            <summary>
+            獲取本地的所有IP
+            </summary>
+            <returns>IP地址</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_SysBORight.GetSysBORight">
+            <summary>
+            獲取SysBORight數據列表
+            </summary>
+            <returns>the list of BORight</returns>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_BOLang.Description">
+            <summary>
+            BOProperty描述
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.Auth_File._BOConectionDescrypt">
+            <summary>
+            解密數據連接字符串
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.Auth_File.datacontext">
+            <summary>
+            DataContext
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_File.GetFileList">
+            <summary>
+            獲取File的列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_File.GetFileList(System.Boolean)">
+            <summary>
+            列出所有的BO文件
+            </summary>
+            <param name="onlyBO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_File.StrConnenction">
+            <summary>
+            替換連接串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_File.CellConnenction">
+            <summary>
+            合並成連接串
+            </summary>
+            <returns>連接串</returns>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.Auth_File._DataBase">
+            <summary>
+            數據庫
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.Auth_File._UserID">
+            <summary>
+            用戶ID
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.Auth_File._Password">
+            <summary>
+            用戶密碼
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_File.GetDataConnection">
+            <summary>
+            獲取PH.Platform.AuthMgr.BO的數據庫連接串
+            </summary>
+            <returns>數據庫連接串</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_File.GetRunFlag">
+            <summary>
+            設置運行控件標志
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_File.DataSource">
+            <summary>
+            數據源
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_File.SideProgramName">
+            <summary>
+            SideProgram Name
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Environment.CurrentUser">
+            <summary>
+            當前操作用戶
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Environment.ServerIP">
+            <summary>
+            IP
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Environment.DBName">
+            <summary>
+            數據庫名
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Environment.UserLanguage">
+             <summary>
+            語言類型
+             </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_RoleBOPropertyRight.GetList">
+            <summary>
+            獲取BO屬性權限列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_RoleBOPropertyRight.GetSideProgram">
+            <summary>
+            獲取SideProgram
+            </summary>
+            <returns>the list of sideprogram</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_RoleBOPropertyRight.GetFileBySideProgram(System.String)">
+            <summary>
+            獲取SideProgram的Files
+            </summary>
+            <param name="sideprogramid">SideProgram's ID</param>
+            <returns>this files list of sideprogram</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_RoleBOPropertyRight.GetBOByFileID(System.String)">
+            <summary>
+            獲取File的BOs
+            </summary>
+            <param name="fileid">File's ID</param>
+            <returns>the BOs list of file</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_RoleBOPropertyRight.GetBOProperty(System.String,System.String)">
+            <summary>
+            獲取BO屬性
+            </summary>
+            <param name="fileid">The id of file</param>
+            <param name="BO">bo</param>
+            <returns>the list of BOProperty</returns>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleBOPropertyRight.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetBOList">
+            <summary>
+            獲取BO數據列表
+            </summary>
+            <returns>this list of BO</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetSideProgramList">
+            <summary>
+            獲取SideProgram列表
+            </summary>
+            <returns>this list of SideProgram </returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetFunRightList">
+            <summary>
+            獲取功能權限列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetSysBORightList">
+            <summary>
+            獲取SysBORight列表
+            </summary>
+            <returns>this list of BO Right</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetUserList">
+            <summary>
+            獲收用戶列表
+            </summary>
+            <returns>the list of user</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetRoleList">
+            <summary>
+            獲取角色列表
+            </summary>
+            <returns>the list of role</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetMenuTreeList">
+            <summary>
+            獲取菜單列表
+            </summary>
+            <returns>the list of Menutree</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetMenuTreeList(System.String)">
+            <summary>
+            獲取菜單列表
+            </summary>
+            <returns>the list of Menutree</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetSysFunRight">
+            <summary>
+            獲取功能權限的列表
+            </summary>
+            <returns>the list of SysFunRight</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetFileList">
+            <summary>
+            獲取文件列表
+            </summary>
+            <returns>the list of file</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.DataListHelper.GetFileList(System.Int32)">
+            <summary>
+            獲取文件列表 
+            </summary>
+            <param name="filetype">文件類型</param>
+            <returns>the list of file</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_SideProgram.getList">
+            <summary>
+            獲取SideProgramList！
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_Role.GetList">
+            <summary>
+            獲取角色列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_Role.GetNotInRolesUsers">
+            <summary>
+            獲取不在Role中的用戶
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_Role.GetNotInRolesBORights">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_Role.GetRoleBORight(System.String)">
+            <summary>
+            根據BOName獲取對應的BORight(2009_05_06)
+            </summary>
+            <param name="BOName">BO Name</param>
+            <returns>the list of Auth_RoleBORight</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_Role.GetRoleBOPropertyRight(System.String)">
+            <summary>
+            根據BOName 獲取對應的BOPropertyRight(2009_05_06)
+            </summary>
+            <param name="BOName">BO Name</param>
+            <returns>the list of Auth_BOPropertyRight</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_Role.GetFunRightList">
+            <summary>
+            獲取功能權限
+            </summary>
+            <returns>the list of funright</returns>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_Role.Users">
+            <summary>
+            當前Role所有用戶
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_Role.RoleDataRights">
+            <summary>
+            角色對應的數據權限
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_Role.RoleBOPropertyRight">
+            <summary>
+            角色擁有的BO屬性權限
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_Role.RoleBORight">
+            <summary>
+            角色擁有的BO權限
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_Role.RoleFuncRight">
+            <summary>
+            角色對應的功能權限
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_Role.MenuTree">
+            <summary>
+            角色所擁有的菜單
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_UserRole.UserName">
+            <summary>
+            用戶名
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_UserRole.RoleName">
+            <summary>
+            角色名
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_UserRole.Department">
+            <summary>
+            部門名稱
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_MenuTree_Lang.GetLanguageTypes">
+            <summary>
+            獲取多語言類型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_BODataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_BOLangDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_BORightDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_FileDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_FunRightDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_MenuTreeDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleBOPropertyRightDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleBORightDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleDataRightDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleFuncRightDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleMenuRightDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_SideProgramDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_SysBORightDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_SysFunRightDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_UserDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_UserRoleDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_BORow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_BOLangRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_BORightRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_FileRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_FunRightRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_MenuTreeRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleBOPropertyRightRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleBORightRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleDataRightRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleFuncRightRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleMenuRightRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_SideProgramRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_SysBORightRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_SysFunRightRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_UserRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_UserRoleRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_BORowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_BOLangRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_BORightRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_FileRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_FunRightRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_MenuTreeRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleBOPropertyRightRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleBORightRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleDataRightRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleFuncRightRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_RoleMenuRightRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_SideProgramRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_SysBORightRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_SysFunRightRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_UserRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet.Auth_UserRoleRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_BOTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_BOLangTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_BORightTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_FileTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_FunRightTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_MenuTreeTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_RoleTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_RoleBOPropertyRightTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_RoleBORightTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_RoleDataRightTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_RoleFuncRightTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_RoleMenuRightTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_SideProgramTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_SysBORightTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_SysFunRightTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_UserTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.Auth_UserRoleTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.TableAdapterManager.UpdateAll(PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSet)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO._PH_Platform_AuthMgrDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO.SerializeHelper">
+            <summary>
+            序列化类,
+            Modifier:ray 
+            Date:2009-1-7
+            支持序列化其它類
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.SerializeHelper.DeserializeEntity``1(System.String)">
+            <summary>
+            使用反序列化方式读取信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.SerializeHelper.SerializeEntity``1(``0,System.String)">
+            
+            <summary>
+            序列化UserInfo对象
+            </summary>
+            <param name="ui">传入要序列化的UserInfo对象</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.SerializeHelper.DeserializeList``1(System.String)">
+            
+            <summary>
+            反序列化UserInfo泛型集合对象
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:PH.Platform.AuthMgr.BO.SerializeHelper.SerializeList``1(System.Collections.Generic.List{``0},System.String)" -->
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleMenuRight.PID">
+            <summary>
+            父節點
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_RoleMenuRight.MenuName">
+            <summary>
+            父節點
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO.UserInfo">
+            
+            <summary>
+            緩存用户信息类
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.UserInfo.username">
+            <summary>
+            用戶名
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.UserInfo.password">
+            <summary>
+            密碼
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.UserInfo.languagecode">
+            <summary>
+            多語言CODE
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.UserInfo.isremember">
+            <summary>
+            是否記錄
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.UserInfo.LastLoginTime">
+            <summary>
+            最後Login時間
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.QueryItemHelper.Item">
+            <summary>
+            用於緩存定義的Query Item
+            </summary>
+        </member>
+        <member name="F:PH.Platform.AuthMgr.BO.QueryItemHelper.FieldItem">
+            <summary>
+            用於緩存定義的Filed Item
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.QueryItemHelper.Add(PH.Platform.AuthMgr.BO.QueryItem)">
+            <summary>
+            add setting item into Item list;
+            </summary>
+            <param name="item">the item that will be added</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.QueryItemHelper.Remove(PH.Platform.AuthMgr.BO.QueryItem)">
+            <summary>
+            remove setting item into Item list;
+            </summary>
+            <param name="item">the item that will be removed</param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.QueryItemHelper.CellCondition">
+            <summary>
+            合並條件
+            </summary>
+            <returns>return sql where string of setting.</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.QueryItemHelper.GetFieldDbType(System.String)">
+            <summary>
+            獲取數據類型
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.QueryItemHelper.CheckCondition">
+            <summary>
+            檢查條件的合法性
+            </summary>
+            <returns>if can return result then return true otherwise return false; </returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.QueryItemHelper.GetTableName">
+            <summary>
+            獲取對應的表名
+            </summary>
+            <returns>The tablename of this.Entiy</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.QueryItemHelper.GetTableName(PH.Platform.BO.BaseEntity)">
+            <summary>
+            獲取對應的表名
+            </summary>
+            <param name="entity">實體對象</param>
+            <returns>the tablename of entity</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.QueryItemHelper.Init(PH.Platform.BO.BaseEntity)">
+            <summary>
+            初始化相關關字段
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_MenuTree.GetList">
+            <summary>
+            獲取菜單樹
+            </summary>
+            <returns>the list of menutree</returns>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_MenuTree.GetNotRoleInMenuTree(System.String)">
+            <summary>
+            獲取沒有被定義的角色菜單
+            </summary>
+            <param name="roleid">角色ID</param>
+            <returns>the list of menutree</returns>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_MenuTree.MenuTypeStr">
+            <summary>
+            類別的字符值
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_MenuTree.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_MenuTree.MenuTypeList">
+            <summary>
+            獲取菜單類型列表
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_MenuTree.IsDeploy">
+            <summary>
+            當前File是否己經布署到對應的環境
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.Auth_BORight.GetBOList">
+            <summary>
+            獲取BO的列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_BORight.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_BORight.SideProgramName">
+            <summary>
+            SideProgram Name
+            </summary>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_BORight.BORightValue">
+            <summary>
+            BO權限值
+            </summary>
+        </member>
+        <member name="T:PH.Platform.AuthMgr.BO.LoginManager">
+            <summary>
+            用戶擴展
+            </summary>
+        </member>
+        <member name="M:PH.Platform.AuthMgr.BO.LoginManager.ValidateLogin(System.String,System.String)">
+            <summary>
+            用於驗證用戶LOGIN
+            </summary>
+            <param name="username">用戶ID</param>
+            <param name="password">用戶密碼</param>
+            <returns>LoginUserStatus</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:PH.Platform.AuthMgr.BO.LoginManager.ValidateLogin(System.String,System.String,PH.Platform.AuthMgr.BO.Auth_User@)" -->
+        <!-- Badly formed XML comment ignored for member "M:PH.Platform.AuthMgr.BO.LoginManager.ValidateLogin(System.String,System.String,System.String,PH.Platform.AuthMgr.BO.Auth_User@)" -->
+        <member name="M:PH.Platform.AuthMgr.BO.LoginManager.#ctor">
+            <summary>
+            匹配用戶和密碼
+            </summary>
+            <returns>true or false</returns>
+        </member>
+        <member name="P:PH.Platform.AuthMgr.BO.Auth_BO.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+    </members>
+</doc>
