@@ -1,0 +1,26 @@
+unit Carte_reducenotepadformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  Tfrmreduce_notepad = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmreduce_notepad: Tfrmreduce_notepad;
+
+implementation
+
+uses Carte_Mainformu, Carte_Logisticsflowformu;
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,28 @@
+unit Carte_ShipmentbyprojectFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons;
+
+type
+  TfrmCarte_Shipmentbyproject = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_Shipmentbyproject: TfrmCarte_Shipmentbyproject;
+
+implementation
+
+{$R *.dfm}
+
+end.

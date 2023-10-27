@@ -1,0 +1,43 @@
+unit Carte_ImportrwodataFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DB, ADODB;
+
+type
+  TfrmCarte_Importrwodata = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    BitBtn1: TBitBtn;
+    ADOQuery1: TADOQuery;
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_Importrwodata: TfrmCarte_Importrwodata;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_Importrwodata.BitBtn1Click(Sender: TObject);
+begin
+  if edit1.text>'' then begin
+    with adoquery1 do begin
+      close;
+      sql.text:='exec sp_carte_getrwodata :x1';
+      parameters[0].value:=edit1.text;
+      execsql;
+    end;
+  end;
+end;
+
+end.

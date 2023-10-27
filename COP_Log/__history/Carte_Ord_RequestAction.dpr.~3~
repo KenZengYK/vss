@@ -1,0 +1,15 @@
+program Carte_Ord_RequestAction;
+
+uses
+  Forms,
+  Carte_MainFormu in 'Carte_MainFormu.pas' {frmCarte_Main},
+  Carte_ActionitermsFormu in 'Carte_ActionitermsFormu.pas' {frmCarte_Actionitems};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmCarte_Main, frmCarte_Main);
+  Application.Run;
+end.

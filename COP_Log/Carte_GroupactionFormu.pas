@@ -1,0 +1,905 @@
+unit Carte_GroupactionFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData, cxMemo,
+  ADODB, ExtCtrls, StdCtrls, Buttons, GridsEh, DBGridEh, DBCtrls, RzBckgnd,
+  cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxClasses, cxGridCustomView, cxGrid, Mask, rxToolEdit, RXDBCtrl, Menus, siComp,
+  cxGridBandedTableView, cxGridDBBandedTableView, cxButtonEdit;
+
+type
+  TfrmCarte_Groupaction = class(TForm)
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1DBTableView1act_date: TcxGridDBColumn;
+    cxGrid1DBTableView1act_cnt: TcxGridDBColumn;
+    cxGrid1DBTableView1act_issue: TcxGridDBColumn;
+    cxGrid1DBTableView1act_pra: TcxGridDBColumn;
+    cxGrid1DBTableView1act_marks: TcxGridDBColumn;
+    cxGrid1DBTableView1attachment: TcxGridDBColumn;
+    cxGrid1Level1: TcxGridLevel;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    RzBackground2: TRzBackground;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn8: TBitBtn;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    ADODataSet2: TADODataSet;
+    DataSource2: TDataSource;
+    ADOQuery1: TADOQuery;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    SpeedButton1: TSpeedButton;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    Label4: TLabel;
+    DBDateEdit1: TDBDateEdit;
+    Label5: TLabel;
+    DBDateEdit2: TDBDateEdit;
+    DBCheckBox1: TDBCheckBox;
+    ADODataSet3: TADODataSet;
+    PopupMenu1: TPopupMenu;
+    DeleteGroupIssueLog1: TMenuItem;
+    BitBtn5: TBitBtn;
+    BitBtn7: TBitBtn;
+    ADOQuery2: TADOQuery;
+    DBGridEh2: TDBGridEh;
+    siLang1: TsiLang;
+    Label6: TLabel;
+    Panel3: TPanel;
+    Label16: TLabel;
+    cxGrid2DBTableView1: TcxGridDBTableView;
+    cxGrid2Level1: TcxGridLevel;
+    cxGrid2: TcxGrid;
+    cxGrid2DBBandedTableView1: TcxGridDBBandedTableView;
+    AdoDataSet5: TADODataSet;
+    DataSource3: TDataSource;
+    cxGrid2DBBandedTableView1act_item3g: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1act_subject3g: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1act_issue3g: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1act_start3g: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1act_cmpdt3g: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1grp_act3g: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1mat_qty: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1aff_p: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1grpg: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1keycode: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1phcolor: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1projectno: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1act_subject3g_e: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1act_cmpdt3g_r: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1keycode_chosen: TcxGridDBBandedColumn;
+    cxStyleRepository1: TcxStyleRepository;
+    cxStyle1: TcxStyle;
+    cxGrid2DBBandedTableView1act_cmp3g: TcxGridDBBandedColumn;
+    cxStyleRepository2: TcxStyleRepository;
+    cxStyle2: TcxStyle;
+    cxStyleRepository3: TcxStyleRepository;
+    cxStyle3: TcxStyle;
+    cxGrid1DBTableView1Column1: TcxGridDBColumn;
+    Panel4: TPanel;
+    BitBtn4: TBitBtn;
+    BitBtn10: TBitBtn;
+    BitBtn9: TBitBtn;
+    Label8: TLabel;
+    RzBackground1: TRzBackground;
+    cxGrid2DBBandedTableView1act_stage: TcxGridDBBandedColumn;
+    Label7: TLabel;
+    qry1: TADOQuery;
+    cxGrid2DBBandedTableView1wcr: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1qty1: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1act_fwdt: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1act_cmpdt_a: TcxGridDBBandedColumn;
+    cxGrid2DBBandedTableView1prod_site: TcxGridDBBandedColumn;
+    Label9: TLabel;
+    cxGrid2DBBandedTableView1exdd: TcxGridDBBandedColumn;
+    grp1: TGroupBox;
+    Label10: TLabel;
+    DBText2: TDBText;
+    Label11: TLabel;
+    DBText3: TDBText;
+    Label12: TLabel;
+    Label13: TLabel;
+    cxGrid2DBBandedTableView1grp_act_flg: TcxGridDBBandedColumn;
+    procedure DataSource2DataChange(Sender: TObject; Field: TField);
+    procedure ADODataSet1NewRecord(DataSet: TDataSet);
+    procedure ADODataSet2NewRecord(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure ADODataSet2AfterPost(DataSet: TDataSet);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure DeleteGroupIssueLog1Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure DBGridEh2Columns1EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure FormCreate(Sender: TObject);
+    procedure ADODataSet1AfterOpen(DataSet: TDataSet);
+    procedure cxGrid2DBBandedTableView1act_item3gPropertiesButtonClick(
+      Sender: TObject; AButtonIndex: Integer);
+    procedure DataSource3DataChange(Sender: TObject; Field: TField);
+    procedure AdoDataSet5AfterOpen(DataSet: TDataSet);
+    procedure cxGrid2DBBandedTableView1CustomDrawCell(
+      Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure cxGrid2DBBandedTableView1DataControllerFilterChanged(
+      Sender: TObject);
+    procedure AdoDataSet5AfterPost(DataSet: TDataSet);
+    procedure BitBtn10Click(Sender: TObject);
+    procedure AdoDataSet5BeforePost(DataSet: TDataSet);
+    procedure cxGrid1DBTableView1Column1PropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure calc_somettl(const y,m,seq:integer);
+    procedure refreshdataset5(const y,m,seq:integer);
+    procedure amendcatcde(const itemcde:string);
+    function actcnt_cvt(const cnt:integer):string;
+  end;
+
+var
+  frmCarte_Groupaction: TfrmCarte_Groupaction;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu, Carte_ItemchooseFormu, Carte_MailFormu,
+  Grp_ActionDetailFormu;
+
+{$R *.dfm}
+
+function TfrmCarte_Groupaction.actcnt_cvt(const cnt: integer): string;
+begin
+  if cnt=1 then result:=' - Started'
+  else if cnt=2 then result:=' - 2nd'
+  else if cnt=3 then result:=' - 3rd'
+  else if cnt>=4 then result:=' - '+inttostr(cnt)+'th';
+end;
+
+procedure TfrmCarte_Groupaction.ADODataSet1AfterOpen(DataSet: TDataSet);
+begin
+  (adodataset1.fieldbyname('act_date3g') as tdatetimefield).displayformat:='mm/dd hh:nn';
+end;
+
+procedure TfrmCarte_Groupaction.ADODataSet1NewRecord(DataSet: TDataSet);
+var
+  seq1,cnt:integer;
+begin
+  with adoquery1 do begin
+    close;
+    //parameters.clear;
+    sql.text:='select max(seq3g1) as x1 from tbl_carte_sopc2_grp';
+    open;
+    if not fieldbyname('x1').isnull then seq1:=fieldbyname('x1').Value+1
+    else seq1:=1;
+  end;
+  with adoquery1 do begin
+    close;
+    //parameters.clear;
+    sql.text:='select max(act_cnt3g) as x1 from tbl_carte_sopc2_grp where seq3g=:x1';
+    parameters[0].value:=adodataset5.fieldbyname('seq3g').value;
+    open;
+    if not fieldbyname('x1').isnull then cnt:=fieldbyname('x1').Value+1
+    else cnt:=1;
+  end;
+  adodataset1.fieldbyname('seq3g').value:=adodataset5.fieldbyname('seq3g').value;
+  adodataset1.FieldByName('seq3g1').Value:=seq1;
+  adodataset1.FieldByName('act_cnt3g').Value:=cnt;
+  adodataset1.FieldByName('act_date3g').Value:=now;
+  adodataset1.FieldByName('act_issue3g').Value:=frmCarte_Main.lbluser.caption;
+end;
+
+procedure TfrmCarte_Groupaction.ADODataSet2AfterPost(DataSet: TDataSet);
+var
+  cmp3g,noneed:string;
+begin
+  if adodataset2.FieldByName('act_cmp3g').Value=true then cmp3g:='*' else cmp3g:='';
+  noneed:='0';
+  with adoquery2 do begin
+    close;
+    sql.Text:='select distinct seq from tbl_carte_sopc1 where grp_act like :x1';
+    parameters[0].Value:='%'+adodataset2.FieldByName('grp_act3g').Value+'%';
+    open;
+    if fieldbyname('seq').isnull then noneed:='1' else begin
+      first;
+      while not eof do begin
+        with adoquery1 do begin
+          close;
+          sql.Text:='update tbl_carte_sopc1 set grp_act=replace(grp_act,:x0,:x1) where seq=:x2';
+          parameters[0].Value:=adodataset2.FieldByName('grp_act3g').Value;
+          parameters[1].Value:=adodataset2.FieldByName('grp_act3g').Value+cmp3g;
+          parameters[2].Value:=adoquery2.FieldByName('seq').Value;
+          execsql;
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+  if (frmCarte_Ordprocessing.cxGrid1DBBandedTableView1.DataController.filteredrecordcount<=20) and (noneed='1') then begin
+    with adodataset3 do begin
+      close;
+      commandtext:=frmCarte_Ordprocessing.ADODataSet1.CommandText;
+      if frmCarte_Ordprocessing.cxgrid1dbbandedtableview1.DataController.Filter.FilterText>'' then
+      commandtext:=commandtext+' and '+frmCarte_Ordprocessing.cxgrid1dbbandedtableview1.DataController.Filter.FilterText;
+      open;
+      first;
+      while not eof do begin
+        with adoquery1 do begin
+          close;
+          if adodataset3.fieldbyname('grp_act').isnull then begin
+            sql.Text:='update tbl_carte_sopc1 set grp_act=:x1 where seq=:x2';
+            parameters[0].Value:=adodataset2.FieldByName('grp_act3g').Value;
+            parameters[1].Value:=adodataset3.FieldByName('seq').Value;
+          end else if pos(adodataset2.FieldByName('grp_act3g').Value,adodataset3.fieldbyname('grp_act').value)>0 then begin
+            sql.Text:='update tbl_carte_sopc1 set grp_act=replace(grp_act,:x0,:x1) where seq=:x2';
+            parameters[0].Value:=adodataset2.FieldByName('grp_act3g').Value;
+            parameters[1].Value:=adodataset2.FieldByName('grp_act3g').Value+cmp3g;
+            parameters[2].Value:=adodataset3.FieldByName('seq').Value;
+          end else begin
+            sql.Text:='update tbl_carte_sopc1 set grp_act=rtrim(grp_act)+'',''+:x1 where seq=:x2';
+            parameters[0].Value:=adodataset2.FieldByName('grp_act3g').Value+cmp3g;
+            parameters[1].Value:=adodataset3.FieldByName('seq').Value;
+          end;
+          execsql;
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+  with adoquery1 do begin
+    close;
+    sql.Text:='update tbl_carte_sopc3_grp set grp_act3g='''+adodataset2.FieldByName('grp_act3g').Value+cmp3g+''' where seq3g='+adodataset2.FieldByName('seq3g').asstring;
+    execsql;
+  end;
+end;
+
+procedure TfrmCarte_Groupaction.ADODataSet2NewRecord(DataSet: TDataSet);
+var
+  seq1,grp1:integer;
+  yn:string;
+begin
+  yn:=copy(formatdatetime('yymmdd',date),1,4);
+  with adoquery1 do begin
+    close;
+    //parameters.clear;
+    sql.text:='select max(seq3g) as x1 from tbl_carte_sopc3_grp';
+    open;
+    if not fieldbyname('x1').isnull then seq1:=fieldbyname('x1').Value+1
+    else seq1:=1;
+  end;
+  with adoquery1 do begin
+    close;
+    sql.Text:='select cast(max(substring(grp_act3g,6,3)) as int) as x1 from tbl_carte_sopc3_grp where grp_act3g like '''+yn+'%''';//:x1';
+    //parameters[0].Value:=yn+'%';
+    open;
+    if not fieldbyname('x1').isnull then grp1:=fieldbyname('x1').Value+1 else grp1:=1;
+  end;
+  adodataset2.fieldbyname('seq3g').value:=seq1;
+  adodataset2.FieldByName('grp_act3g').Value:=yn+'-'+copy('00'+inttostr(grp1),length('00'+inttostr(grp1))-2,3);
+  adodataset2.FieldByName('act_cmp3g').Value:=false;
+  adodataset2.FieldByName('act_start3g').Value:=date;
+  adodataset2.FieldByName('act_issue3g').Value:=frmCarte_Main.lbluser.caption;
+end;
+
+procedure TfrmCarte_Groupaction.AdoDataSet5AfterOpen(DataSet: TDataSet);
+begin
+  (adodataset5.fieldbyname('act_start3g') as tdatetimefield).displayformat:='mm/dd hh:nn';
+  (adodataset5.fieldbyname('act_cmpdt3g') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset5.fieldbyname('act_cmpdt3g_r') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset5.fieldbyname('act_cmpdt_a') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset5.fieldbyname('act_fwdt') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset5.fieldbyname('exdd') as tdatetimefield).displayformat:='mm/dd';
+  //calc_somettl;
+end;
+
+procedure TfrmCarte_Groupaction.AdoDataSet5AfterPost(DataSet: TDataSet);
+var
+  y,m,seq:integer;
+  act_stage:integer;
+  al_key:integer;
+  keycode:string;
+begin
+  screen.cursor:=crSQLWait;
+  try
+    if not adodataset5.fieldbyname('grp_act_y').isnull then begin
+      y:=adodataset5.fieldbyname('grp_act_y').value;
+      m:=adodataset5.fieldbyname('grp_act_m').value;
+      seq:=adodataset5.fieldbyname('grp_act_seq').value;
+      act_stage:=adodataset5.fieldbyname('act_stage').value;
+      keycode:=adodataset5.fieldbyname('keycode').value;
+      al_key:=adodataset5.fieldbyname('al_key').value;
+      with adoquery1 do begin
+        close;
+        sql.text:='exec sp_carte_updactionlog :x1,:x2,:x3';
+        parameters[0].value:=adodataset5.fieldbyname('grp_act_y').value;
+        parameters[1].value:=adodataset5.fieldbyname('grp_act_m').value;
+        parameters[2].value:=adodataset5.fieldbyname('grp_act_seq').value;
+        execsql;
+      end;
+      refreshdataset5(y,m,seq);
+      adodataset5.Locate('al_key',al_key,[lopartialkey]);
+    end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Groupaction.AdoDataSet5BeforePost(DataSet: TDataSet);
+begin
+  if ((adodataset5.fieldbyname('act_issue3g').value<>frmCarte_Main.lbluser.caption) and (uppercase(frmcarte_main.lbluser.caption)<>'ADMIN')) then exit;
+end;
+
+procedure TfrmCarte_Groupaction.amendcatcde(const itemcde:string);
+var
+  y,m,seq:integer;
+  act_stage:integer;
+  al_key:integer;
+begin
+  screen.cursor:=crSQLWait;
+  try
+    if not adodataset5.fieldbyname('grp_act_y').isnull then begin
+      y:=adodataset5.fieldbyname('grp_act_y').value;
+      m:=adodataset5.fieldbyname('grp_act_m').value;
+      seq:=adodataset5.fieldbyname('grp_act_seq').value;
+      act_stage:=adodataset5.fieldbyname('act_stage').value;
+      al_key:=adodataset5.fieldbyname('al_key').value;
+      with adoquery1 do begin
+        close;
+        sql.text:='exec sp_carte_updactionlog_cat :x1,:x2,:x3,:x4,:x5';
+        parameters[0].value:=adodataset5.fieldbyname('grp_act_y').value;
+        parameters[1].value:=adodataset5.fieldbyname('grp_act_m').value;
+        parameters[2].value:=adodataset5.fieldbyname('grp_act_seq').value;
+        parameters[3].value:=adodataset5.fieldbyname('act_stage').value;
+        parameters[4].value:=itemcde;
+        execsql;
+      end;
+      refreshdataset5(y,m,seq);
+      adodataset5.Locate('al_key',al_key,[lopartialkey]);
+    end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Groupaction.BitBtn10Click(Sender: TObject);
+var
+  act_stage:integer;
+  y,m,seq:integer;
+begin
+  y:=adodataset5.fieldbyname('grp_act_y').value;
+  m:=adodataset5.fieldbyname('grp_act_m').value;
+  seq:=adodataset5.fieldbyname('grp_act_seq').value;
+  with adoquery1 do begin
+    close;
+    sql.text:='select max(act_stage) as q from tbl_carte_sopc_al where grp_act_y=:x1 and grp_act_m=:x2 and grp_act_seq=:x3';
+    parameters[0].value:=adodataset5.fieldbyname('grp_act_y').value;
+    parameters[1].value:=adodataset5.fieldbyname('grp_act_m').value;
+    parameters[2].value:=adodataset5.fieldbyname('grp_act_seq').value;
+    open;
+    if not fieldbyname('q').isnull then act_stage:=fieldbyname('q').value else act_stage:=-1;
+  end;
+  if (act_stage=adodataset5.fieldbyname('act_stage').value) and ((adodataset5.fieldbyname('act_issue3g').value=frmcarte_main.lbluser.caption) or (frmcarte_main.lbluser.caption='ADMIN')) then begin
+    if application.MessageBox('Delete this stage?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      with adoquery1 do begin
+        close;
+        sql.text:='delete from tbl_carte_sopc2_grp where seq3g=:x1';
+        parameters[0].value:=adodataset5.fieldbyname('seq3g').value;
+        execsql;
+      end;
+      with adoquery1 do begin
+        close;
+        sql.text:='delete from tbl_carte_sopc_al where grp_act_y=:x1 and grp_act_m=:x2 and grp_act_seq=:x3 and act_stage=:x4';
+        parameters[0].value:=adodataset5.fieldbyname('grp_act_y').value;
+        parameters[1].value:=adodataset5.fieldbyname('grp_act_m').value;
+        parameters[2].value:=adodataset5.fieldbyname('grp_act_seq').value;
+        parameters[3].value:=adodataset5.fieldbyname('act_stage').value;
+        execsql;
+      end;
+    end;
+    refreshdataset5(y,m,seq);
+  end;
+end;
+
+procedure TfrmCarte_Groupaction.BitBtn1Click(Sender: TObject);
+begin
+  cxGrid1.SetFocus;
+  adodataset1.append;
+end;
+
+procedure TfrmCarte_Groupaction.BitBtn2Click(Sender: TObject);
+begin
+  if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then adodataset1.Delete;
+end;
+
+procedure TfrmCarte_Groupaction.BitBtn3Click(Sender: TObject);
+begin
+  if (adodataset1.State=dsEdit) or (adodataset1.State=dsInsert) then adodataset1.Post;
+end;
+
+procedure TfrmCarte_Groupaction.BitBtn4Click(Sender: TObject);
+var
+  tm:string;
+  act_grpg,act_issue:string;
+  act_stage:integer;
+  y,m,seq:integer;
+begin
+  {
+  dbgrideh2.setfocus;
+  dbgrideh2.selectedindex:=1;
+  adodataset2.Append;
+  dbgrideh2.columns[1].readonly:=false;
+  dbgrideh2.columns[2].readonly:=false;
+  dbgrideh2.columns[6].readonly:=false;
+  dbgrideh2.columns[7].readonly:=false;
+    cxGrid1DBTableView1act_marks.Options.Editing:=true;
+    BitBtn1.Enabled:=true;
+    BitBtn2.Enabled:=true;
+    BitBtn3.Enabled:=true;
+    BitBtn9.Enabled:=true;
+  }
+  if (cxGrid2DBBandedTableView1.DataController.filteredrecordcount>=1) then begin
+    if application.MessageBox('Create a new stage?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      tm:=formatdatetime('yyyy-mm-dd hh:nn:ss.zzz',now);
+      y:=adodataset5.fieldbyname('grp_act_y').value;
+      m:=adodataset5.fieldbyname('grp_act_m').value;
+      seq:=adodataset5.fieldbyname('grp_act_seq').value;
+      act_grpg:=adodataset5.fieldbyname('grpg').value;
+      act_issue:=adodataset5.fieldbyname('act_issue3g').value;
+      with adoquery1 do begin
+        close;
+        sql.text:='select max(act_stage) as q from tbl_carte_sopc_al where grp_act_y=:x1 and grp_act_m=:x2 and grp_act_seq=:x3';
+        parameters[0].value:=y;
+        parameters[1].value:=m;
+        parameters[2].value:=seq;
+        open;
+        if not fieldbyname('q').isnull then act_stage:=fieldbyname('q').value+1 else act_stage:=0;
+      end;
+      with adoquery1 do begin
+        close;
+        sql.text:='select distinct seq from tbl_carte_sopc_al where grp_act_y=:x1 and grp_act_m=:x2 and grp_act_seq=:x3';
+        if cxgrid2dbbandedtableview1.DataController.Filter.FilterText>'' then
+        sql.text:=sql.text+' and '+cxgrid2dbbandedtableview1.DataController.Filter.FilterText;
+        parameters[0].value:=y;
+        parameters[1].value:=m;
+        parameters[2].value:=seq;
+        open;
+        first;
+        while not eof do begin
+          with adoquery2 do begin
+            close;
+            sql.text:='insert into tbl_carte_sopc_tmpseq(tm,seq,act_stage,act_issue,act_grpg,act_y,act_m,act_seq) '
+                     +'values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8)';
+            parameters[0].value:=tm;
+            parameters[1].value:=adoquery1.fieldbyname('seq').value;
+            parameters[2].value:=act_stage;
+            parameters[3].value:=act_issue;
+            parameters[4].value:=act_grpg;
+            parameters[5].value:=y;
+            parameters[6].value:=m;
+            parameters[7].value:=seq;
+            execsql;
+          end;
+          application.ProcessMessages;
+          next;
+        end;
+      end;
+
+      with adoquery1 do begin
+        close;
+        sql.text:='exec sp_carte_newactionlog :x1';
+        parameters[0].value:=tm;
+        execsql;
+      end;
+      refreshdataset5(y,m,seq);
+
+      BitBtn1.Enabled:=true;
+      BitBtn2.Enabled:=true;
+      BitBtn3.Enabled:=true;
+      BitBtn9.Enabled:=true;
+    end;
+  end;
+end;
+
+procedure TfrmCarte_Groupaction.BitBtn5Click(Sender: TObject);
+begin
+  if not adodataset2.bof then adodataset2.Prior;
+end;
+
+procedure TfrmCarte_Groupaction.BitBtn7Click(Sender: TObject);
+begin
+  if not adodataset2.eof then adodataset2.Next;
+end;
+
+procedure TfrmCarte_Groupaction.BitBtn8Click(Sender: TObject);
+var
+  keycode1,prj,cstyle:string;
+begin
+  if (adodataset5.State=dsEdit) or (adodataset5.State=dsInsert) then adodataset5.Post;
+  bitbtn3click(self);
+
+  keycode1:='';
+  prj:=''; cstyle:='';
+  with adoquery1 do begin
+    close;
+    sql.text:=frmCarte_Ordprocessing.adodataset1.commandtext;
+    if frmCarte_Ordprocessing.cxgrid1dbbandedtableview1.DataController.Filter.FilterText>'' then
+    sql.text:=sql.text+' and '+frmCarte_Ordprocessing.cxgrid1dbbandedtableview1.DataController.Filter.FilterText;
+    sql.text:=sql.text+' and charindex('''+adodataset5.fieldbyname('grp_act3g').value+''',grp_act)>0';
+    open;
+    first;
+    while not eof do begin
+      if keycode1>'' then
+      keycode1:=keycode1+'/'+fieldbyname('keycode').value
+      else keycode1:=fieldbyname('keycode').value;
+      prj:=fieldbyname('projectno').value;
+      cstyle:=fieldbyname('custstyle').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+
+  if frmcarte_Mail=nil then frmCarte_Mail:=tfrmCarte_Mail.create(nil);
+  frmcarte_mail.label9.caption:='Group';
+  frmCarte_Mail.edit4.text:=frmCarte_Main.lblmail.caption+',';
+  with adoquery1 do begin
+    close;
+    sql.text:='select tolist,cclist,seq3g1 from phdb..tbl_carte_sopc2_grp where seq3g=:x1 and seq3g1<=:x2 and tolist>'''' order by seq3g1 desc';
+    parameters[0].value:=adodataset1.fieldbyname('seq3g').value;
+    parameters[1].value:=adodataset1.fieldbyname('seq3g1').value;
+    open;
+    if not fieldbyname('seq3g1').isnull then begin
+      frmcarte_mail.edit3.text:=fieldbyname('tolist').value;
+      frmcarte_mail.edit4.text:=fieldbyname('cclist').value;
+    end;
+  end;
+
+  //if label6.caption='CN' then
+  //frmCarte_Mail.edit5.text:=adodataset5.fieldbyname('act_item3g').value+' - '+adodataset5.fieldbyname('act_subject3g').value+' on [行動誌號: '+adodataset5.fieldbyname('grp_act3g').value+', 發信者: '+adodataset1.fieldbyname('act_issue3g').value+', 跟進次數: '+adodataset1.fieldbyname('act_cnt3g').asstring+']'
+  //else
+
+  frmCarte_Mail.edit5.text:='('+adodataset5.fieldbyname('prod_site').value+') Log#'+adodataset5.fieldbyname('grp_act3g').value+' ('+adodataset5.fieldbyname('grpg').value+'), '+adodataset5.fieldbyname('projectno').value+' ('+copy(adodataset5.fieldbyname('projectno').value,1,4)+') / Cat. Cde '+adodataset5.fieldbyname('act_item3g').value+actcnt_cvt(adodataset1.fieldbyname('act_cnt3g').value);//+' - '+adodataset5.fieldbyname('act_subject3g').value+' on [action log seq#: '+adodataset5.fieldbyname('grp_act3g').value+', Sender: '+adodataset1.fieldbyname('act_issue3g').value+', # of follow up: '+adodataset1.fieldbyname('act_cnt3g').asstring+']';
+
+  frmCarte_Mail.memo1.lines.clear;
+  //{
+  //frmCarte_Mail.memo1.lines.add('');
+  frmCarte_Mail.memo1.lines.add('【Sender】:  '+adodataset1.fieldbyname('act_issue3g').value);
+  frmCarte_Mail.memo1.lines.add('【dd/time】:  '+formatdatetime('mm/dd hh:nn',adodataset1.fieldbyname('act_date3g').value));
+  frmCarte_Mail.memo1.lines.add('【Follow up seq.#】:  '+adodataset1.fieldbyname('act_cnt3g').asstring);
+  if (adodataset1.fieldbyname('act_cnt3g').value=1) then
+  frmcarte_mail.memo1.lines.add('【Proj #】:  '+'('+prj+')');
+  if (adodataset1.fieldbyname('act_cnt3g').value=1) then
+  frmcarte_mail.memo1.lines.add('【FW Start dd】:  '+formatdatetime('mm/dd',adodataset5.fieldbyname('act_fwdt').value));
+  if (adodataset1.fieldbyname('act_cnt3g').value=1) then
+  frmCarte_Mail.memo1.lines.add('【Cat. desc.】:  '+adodataset5.fieldbyname('act_subject3g_e').value);
+  if (adodataset1.fieldbyname('act_cnt3g').value=1) then
+  frmCarte_Mail.memo1.lines.add('【Target cmpl date】:  '+formatdatetime('mm/dd',adodataset5.fieldbyname('act_cmpdt3g').value));
+  if (adodataset1.fieldbyname('act_cnt3g').value=1) then begin
+    if not adodataset5.fieldbyname('act_cmpdt_a').isnull then
+    frmCarte_Mail.memo1.lines.add('【Actual cmpl date】:  '+formatdatetime('mm/dd',adodataset5.fieldbyname('act_cmpdt_a').value))
+    else frmCarte_Mail.memo1.lines.add('【Actual cmpl date】:  ');
+  end;
+  frmCarte_Mail.memo1.lines.add('【Follow up content (in seq.)】: ');
+  frmCarte_Mail.memo1.lines.add(adodataset1.fieldbyname('act_marks').value);
+  frmCarte_Mail.memo1.lines.add('==================================================');
+
+  with qry1 do begin
+    close;
+    sql.text:='select seq3g1,act_issue3g,act_date3g,act_cnt3g,act_marks from phdb..tbl_carte_sopc2_grp where seq3g=:x1 and seq3g1<:x2 order by seq3g1 desc';
+    parameters[0].value:=adodataset5.fieldbyname('seq3g').value;
+    parameters[1].value:=adodataset1.fieldbyname('seq3g1').value;
+    open;
+    first;
+    while not eof do begin
+      frmCarte_Mail.memo1.lines.add('【Sender】:  '+qry1.fieldbyname('act_issue3g').value);
+      frmCarte_Mail.memo1.lines.add('【dd/time】:  '+formatdatetime('mm/dd hh:nn',qry1.fieldbyname('act_date3g').value));
+      frmCarte_Mail.memo1.lines.add('【Follow up seq.#】:  '+qry1.fieldbyname('act_cnt3g').asstring);
+      if (qry1.fieldbyname('act_cnt3g').value=1) then
+      frmcarte_mail.memo1.lines.add('【Proj #】:  '+'('+prj+')');
+      if (qry1.fieldbyname('act_cnt3g').value=1) then
+      //frmcarte_mail.memo1.lines.add('【Cust Style #】:  '+cstyle);
+      frmcarte_mail.memo1.lines.add('【FW Start dd】:  '+formatdatetime('mm/dd',adodataset5.fieldbyname('act_fwdt').value));
+      if (qry1.fieldbyname('act_cnt3g').value=1) then
+      frmCarte_Mail.memo1.lines.add('【Cat. desc.】:  '+adodataset5.fieldbyname('act_subject3g_e').value);
+      if (qry1.fieldbyname('act_cnt3g').value=1) then
+      frmCarte_Mail.memo1.lines.add('【Target cmpl date】:  '+formatdatetime('mm/dd',adodataset5.fieldbyname('act_cmpdt3g').value));
+      if (adodataset1.fieldbyname('act_cnt3g').value=1) then begin
+        if not adodataset5.fieldbyname('act_cmpdt_a').isnull then
+        frmCarte_Mail.memo1.lines.add('【Actual cmpl date】:  '+formatdatetime('mm/dd',adodataset5.fieldbyname('act_cmpdt_a').value))
+        else frmCarte_Mail.memo1.lines.add('【Actual cmpl date】:  ');
+      end;
+      frmCarte_Mail.memo1.lines.add('【Follow up content (in seq.)】: ');
+      frmCarte_Mail.memo1.lines.add(qry1.fieldbyname('act_marks').value);
+      frmCarte_Mail.memo1.lines.add('==================================================');
+      next;
+    end;
+  end;
+  //}
+
+  {
+  if (adodataset1.fieldbyname('act_cnt').value=1) then
+  frmcap_Mail.memo1.lines.add('【Region】:           '+adodataset2.fieldbyname('act_region').value);
+  frmcap_Mail.memo1.lines.add('【Sender】:           '+adodataset1.fieldbyname('act_issue').value);
+  if (adodataset1.fieldbyname('act_cnt').value=1) then
+  if not adodataset2.fieldbyname('act_external').isnull then begin
+    if adodataset2.fieldbyname('act_external').value=true then
+      frmcap_Mail.memo1.lines.add('【Urgent】:           Yes')
+    else frmcap_Mail.memo1.lines.add('【Urgent】:           No');
+  end;
+  frmcap_Mail.memo1.lines.add('【Date】:             '+formatdatetime('mm/dd hh:nn',adodataset1.fieldbyname('act_date').value));
+  frmcap_Mail.memo1.lines.add('【Follow up seq.#】:   '+adodataset1.fieldbyname('act_cnt').asstring);
+  if (adodataset1.fieldbyname('act_cnt').value=1) then
+  frmcap_Mail.memo1.lines.add('【Target cmpl date】: '+formatdatetime('mm/dd',adodataset2.fieldbyname('act_cmpdt').value));
+  frmcap_Mail.memo1.lines.add('【Follow up content (in seq.)】: ');
+  frmcap_Mail.memo1.lines.add(adodataset1.fieldbyname('act_marks').value);
+  frmcap_Mail.memo1.lines.add('==================================================');
+
+  with qry1 do begin
+    close;
+    sql.text:='select seq1,act_issue,act_date,act_cnt,act_marks from phdb..tbl_cp_mailcont where seq=:x1 and seq1<:x2 order by seq1 desc';
+    parameters[0].value:=adodataset2.fieldbyname('seq').value;
+    parameters[1].value:=adodataset1.fieldbyname('seq1').value;
+    open;
+    first;
+    while not eof do begin
+      if (qry1.fieldbyname('act_cnt').value=1) then
+      frmcap_Mail.memo1.lines.add('【Region】:           '+adodataset2.fieldbyname('act_region').value);
+      frmcap_Mail.memo1.lines.add('【Sender】:           '+qry1.fieldbyname('act_issue').value);
+      if (qry1.fieldbyname('act_cnt').value=1) then
+      if not adodataset2.fieldbyname('act_external').isnull then begin
+        if adodataset2.fieldbyname('act_external').value=true then
+          frmcap_Mail.memo1.lines.add('【Urgent】:           Yes')
+        else frmcap_Mail.memo1.lines.add('【Urgent】:           No');
+      end;
+      frmcap_Mail.memo1.lines.add('【Date】:             '+formatdatetime('mm/dd hh:nn',qry1.fieldbyname('act_date').value));
+      frmcap_Mail.memo1.lines.add('【Follow up seq.#】:   '+qry1.fieldbyname('act_cnt').asstring);
+      if (qry1.fieldbyname('act_cnt').value=1) then
+      frmcap_Mail.memo1.lines.add('【Target cmpl date】: '+formatdatetime('mm/dd',adodataset2.fieldbyname('act_cmpdt').value));
+      frmcap_Mail.memo1.lines.add('【Follow up content (in seq.)】: ');
+      frmcap_Mail.memo1.lines.add(qry1.fieldbyname('act_marks').value);
+      frmcap_Mail.memo1.lines.add('==================================================');
+      next;
+    end;
+  end;
+  }
+
+
+  frmCarte_Mail.show;
+end;
+
+procedure TfrmCarte_Groupaction.BitBtn9Click(Sender: TObject);
+begin
+  //if (adodataset5.fieldbyname('act_issue3g').value=frmCarte_Main.lbluser.caption) or (frmcarte_main.lbluser='ADMIN') then
+  //if (adodataset2.State=dsEdit) or (adodataset2.State=dsInsert) then adodataset2.Post;
+  if (adodataset5.State=dsEdit) or (adodataset5.State=dsInsert) then adodataset5.Post;
+end;
+
+procedure TfrmCarte_Groupaction.calc_somettl(const y, m, seq: integer);
+begin
+  if not adodataset5.fieldbyname('al_key').isnull then begin
+    //y:=adodataset5.fieldbyname('grp_act_y').value;
+    //m:=adodataset5.fieldbyname('grp_act_m').value;
+    //seq:=adodataset5.fieldbyname('grp_act_seq').value;
+    //showmessage('0:'+inttostr(y)+'-'+inttostr(m)+' '+inttostr(seq));
+    with qry1 do begin
+      close;
+      sql.text:='select count(distinct grp_act3g) as c1,count(distinct keycode) as c2,count(distinct phcolor) as c3,count(distinct projectno) as c4,count(distinct act_item3g) as c5 from tbl_carte_sopc_al a where 1=1';
+      sql.text:=sql.text+' and grp_act_y=:x1 and grp_act_m=:x2 and grp_act_seq=:x3';
+      if cxgrid2dbbandedtableview1.DataController.Filter.FilterText>'' then
+      sql.text:=sql.text+' and '+cxgrid2dbbandedtableview1.DataController.Filter.FilterText;
+      parameters[0].value:=y;
+      parameters[1].value:=m;
+      parameters[2].value:=seq;
+      open;
+      //showmessage(sql.text);
+      if not fieldbyname('c1').isnull then
+        //cxGrid2DBBandedTableView1.DataController.Summary.FooterSummaryValues[0]:=fieldbyname('c1').asstring;
+        label13.caption:=fieldbyname('c1').asstring else label13.caption:='0';
+      if not fieldbyname('c2').isnull then
+        cxGrid2DBBandedTableView1.DataController.Summary.FooterSummaryValues[1]:=fieldbyname('c2').asstring;
+      if not fieldbyname('c3').isnull then
+        cxGrid2DBBandedTableView1.DataController.Summary.FooterSummaryValues[2]:=fieldbyname('c3').asstring;
+      if not fieldbyname('c4').isnull then
+        cxGrid2DBBandedTableView1.DataController.Summary.FooterSummaryValues[3]:=fieldbyname('c4').asstring;
+      if not fieldbyname('c5').isnull then
+        cxGrid2DBBandedTableView1.DataController.Summary.FooterSummaryValues[4]:=fieldbyname('c5').asstring;
+    end;
+  end;
+end;
+
+procedure TfrmCarte_Groupaction.cxGrid1DBTableView1Column1PropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+begin
+  if frmgrp_actiondetail=nil then frmgrp_actiondetail:=tfrmgrp_actiondetail.create(nil);
+  frmgrp_actiondetail.show;
+end;
+
+procedure TfrmCarte_Groupaction.cxGrid2DBBandedTableView1act_item3gPropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+begin
+  if frmCarte_Itemchoose=nil then frmCarte_Itemchoose:=tfrmCarte_Itemchoose.create(nil);
+  frmCarte_Itemchoose.Label1.Caption:='Group';
+  frmCarte_Itemchoose.show;
+end;
+
+procedure TfrmCarte_Groupaction.cxGrid2DBBandedTableView1CustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+var
+  set1,set2:set of 0..10;
+  seqi:integer;
+begin
+  set1:=[1,3,5,7,9];
+  set2:=[0,2,4,6,8];
+  seqi:=AViewInfo.GridRecord.Values[TcxGridDBTableView(Sender).GetColumnByFieldName('act_stage').index];
+  if (seqi in set1) then begin
+    acanvas.Canvas.Brush.Color:=$00F3F1F1;
+    acanvas.Canvas.Font.Color:=clBlack;
+  {
+  end else if (seqi in set2) then begin
+    acanvas.Canvas.Brush.Color:=$00E0BCB4;//clSkyBlue;//$00E0BCB4;
+    acanvas.Canvas.Font.Color:=clBlack;
+  }
+  end;
+end;
+
+procedure TfrmCarte_Groupaction.cxGrid2DBBandedTableView1DataControllerFilterChanged(
+  Sender: TObject);
+var
+  y,m,seq:integer;
+begin
+  y:=adodataset5.fieldbyname('grp_act_y').value;
+  m:=adodataset5.fieldbyname('grp_act_m').value;
+  seq:=adodataset5.fieldbyname('grp_act_seq').value;
+  calc_somettl(y,m,seq);
+end;
+
+procedure TfrmCarte_Groupaction.DataSource2DataChange(Sender: TObject;
+  Field: TField);
+begin
+  with adodataset1 do begin
+    close;
+    //parameters.clear;
+    commandtext:='select * from tbl_carte_sopc2_grp where seq3g=:x1';
+    parameters[0].value:=adodataset2.fieldbyname('seq3g').value;
+    open;
+  end;
+  if adodataset2.state=dsbrowse then begin
+  if adodataset2.fieldbyname('act_cmp3g').value=true then begin
+    dbgrideh2.columns[1].readonly:=true;
+    dbgrideh2.columns[2].readonly:=true;
+    dbgrideh2.columns[6].readonly:=true;
+    dbgrideh2.columns[7].readonly:=true;
+    {
+    DBEdit1.ReadOnly:=true;
+    SpeedButton1.Enabled:=false;
+    DBEdit2.readonly:=true;
+    DBDateEdit2.ReadOnly:=true;
+    DBCheckBox1.ReadOnly:=true;
+    }
+    cxGrid1DBTableView1act_marks.Options.Editing:=false;
+    BitBtn1.Enabled:=false;
+    BitBtn2.Enabled:=false;
+    BitBtn3.Enabled:=false;
+    BitBtn9.Enabled:=false;
+  end else begin
+    dbgrideh2.columns[1].readonly:=false;
+    dbgrideh2.columns[2].readonly:=false;
+    dbgrideh2.columns[6].readonly:=false;
+    dbgrideh2.columns[7].readonly:=false;
+    {
+    DBEdit1.ReadOnly:=false;
+    SpeedButton1.Enabled:=true;
+    DBEdit2.readonly:=false;
+    DBDateEdit2.ReadOnly:=false;
+    DBCheckBox1.ReadOnly:=false;
+    }
+    cxGrid1DBTableView1act_marks.Options.Editing:=true;
+    BitBtn1.Enabled:=true;
+    BitBtn2.Enabled:=true;
+    BitBtn3.Enabled:=true;
+    BitBtn9.Enabled:=true;
+  end;
+  end;
+end;
+
+procedure TfrmCarte_Groupaction.DataSource3DataChange(Sender: TObject;
+  Field: TField);
+begin
+  if not adodataset5.fieldbyname('seq3g').isnull then begin
+    label7.caption:='['+adodataset5.fieldbyname('act_item3g_1').value+']';
+    with adodataset1 do begin
+      close;
+      commandtext:='select * from tbl_carte_sopc2_grp where seq3g=:x1';
+      parameters[0].value:=adodataset5.fieldbyname('seq3g').value;
+      open;
+    end;
+  end else begin
+    label7.caption:='[]';
+    adodataset1.close;
+  end;
+end;
+
+procedure TfrmCarte_Groupaction.DBGridEh2Columns1EditButtonClick(
+  Sender: TObject; var Handled: Boolean);
+begin
+  if frmCarte_Itemchoose=nil then frmCarte_Itemchoose:=tfrmCarte_Itemchoose.create(nil);
+  frmCarte_Itemchoose.Label1.Caption:='Group';
+  frmCarte_Itemchoose.show;
+end;
+
+procedure TfrmCarte_Groupaction.DeleteGroupIssueLog1Click(Sender: TObject);
+begin
+  if application.MessageBox('Delete this collective action log?','Confirmation',mb_iconquestion+mb_yesno)=idyes then begin
+    with adoquery1 do begin
+      close;
+      sql.Text:='delete from tbl_carte_sopc2_grp where seq3g='+adodataset2.FieldByName('seq3g').AsString;
+      execsql;
+    end;
+    with adoquery1 do begin
+      close;
+      sql.Text:='update tbl_carte_sopc1 set grp_act=null where grp_act='''+adodataset2.FieldByName('grp_act3g').value+'''';
+      execsql;
+    end;
+    adodataset2.Delete;
+  end;
+end;
+
+procedure TfrmCarte_Groupaction.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  adodataset5afterpost(adodataset5);
+  action:=cafree;
+  frmCarte_Groupaction:=nil;
+end;
+
+procedure TfrmCarte_Groupaction.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
+begin
+ if (adodataset2.State=dsinsert) or (adodataset2.State=dsinsert) then begin
+   if application.MessageBox('Do not save your data?','Confirmation',mb_iconquestion+mb_yesno)=idno then canclose:=false;
+ end;
+end;
+
+procedure TfrmCarte_Groupaction.FormCreate(Sender: TObject);
+begin
+  siLang1.Language:=frmCarte_Main.ComboBox2.text;
+end;
+
+procedure TfrmCarte_Groupaction.refreshdataset5(const y, m, seq: integer);
+begin
+  with ADODataSet5 do begin
+    close;
+    commandtext:='select * from tbl_carte_sopc_al where grp_act_y='+inttostr(y)+' and grp_act_m='+inttostr(m)+' and grp_act_seq='+inttostr(seq);
+    open;
+  end;
+  calc_somettl(y,m,seq);
+end;
+
+procedure TfrmCarte_Groupaction.SpeedButton1Click(Sender: TObject);
+begin
+  if frmCarte_Itemchoose=nil then frmCarte_Itemchoose:=tfrmCarte_Itemchoose.create(nil);
+  frmCarte_Itemchoose.Label1.Caption:='Group';
+  frmCarte_Itemchoose.show;
+end;
+
+end.

@@ -1,0 +1,832 @@
+unit Carte_PVHIPOFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData, ExtCtrls,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, ADODB, StdCtrls, Buttons, RzBckgnd,
+  cxGridExportLink, ppCtrls, ppVar, ppPrnabl, ppClass, ppBands, ppCache, ppDB,
+  ppParameter, ppProd, ppReport, ppComm, ppRelatv, ppDBPipe, ppViewr;
+
+type
+  TfrmCarte_PVHIPO = class(TForm)
+    Panel1: TPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    ADOQuery1: TADOQuery;
+    DataSource1: TDataSource;
+    ADOQuery2: TADOQuery;
+    DataSource2: TDataSource;
+    cxGrid1DBTableView1workorderno: TcxGridDBColumn;
+    cxGrid1DBTableView1ipo: TcxGridDBColumn;
+    RzBackground2: TRzBackground;
+    BitBtn5: TBitBtn;
+    BitBtn12: TBitBtn;
+    SaveDialog1: TSaveDialog;
+    cxGrid1DBTableView1ipo_wo: TcxGridDBColumn;
+    BitBtn4: TBitBtn;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppParameterList1: TppParameterList;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppColumnHeaderBand1: TppColumnHeaderBand;
+    ppColumnFooterBand1: TppColumnFooterBand;
+    ppLabel1: TppLabel;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppShape2: TppShape;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    cxGrid1pvh_moa: TcxGridDBColumn;
+    cxGrid1DBTableView1pvh_dest: TcxGridDBColumn;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLabel13: TppLabel;
+    ppDBText6: TppDBText;
+    cxGrid1DBTableView1pl: TcxGridDBColumn;
+    ppReport2: TppReport;
+    ppHeaderBand2: TppHeaderBand;
+    title002: TppLabel;
+    ppLabel15: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppColumnHeaderBand2: TppColumnHeaderBand;
+    ppShape3: TppShape;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppLine15: TppLine;
+    ppLabel26: TppLabel;
+    ppDetailBand2: TppDetailBand;
+    ppShape4: TppShape;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLine20: TppLine;
+    ppDBText12: TppDBText;
+    ppColumnFooterBand2: TppColumnFooterBand;
+    ppFooterBand2: TppFooterBand;
+    ppGroup3: TppGroup;
+    ppGroupHeaderBand3: TppGroupHeaderBand;
+    ppGroupFooterBand3: TppGroupFooterBand;
+    ppGroup4: TppGroup;
+    ppGroupHeaderBand4: TppGroupHeaderBand;
+    ppGroupFooterBand4: TppGroupFooterBand;
+    ppParameterList2: TppParameterList;
+    cxGrid1custstyle: TcxGridDBColumn;
+    cxGrid1etam_pak: TcxGridDBColumn;
+    ppLabel14: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLine14: TppLine;
+    ppLine19: TppLine;
+    ppLabel22: TppLabel;
+    ppDBText11: TppDBText;
+    ppReport3: TppReport;
+    ppHeaderBand3: TppHeaderBand;
+    title003: TppLabel;
+    ppLabel29: TppLabel;
+    ppSystemVariable3: TppSystemVariable;
+    ppColumnHeaderBand3: TppColumnHeaderBand;
+    ppShape5: TppShape;
+    ppLabel30: TppLabel;
+    ppLabel31: TppLabel;
+    ppLabel32: TppLabel;
+    ppLabel33: TppLabel;
+    ppLine21: TppLine;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppLabel34: TppLabel;
+    ppLabel35: TppLabel;
+    ppLabel36: TppLabel;
+    ppLine24: TppLine;
+    ppLabel37: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel39: TppLabel;
+    ppLabel40: TppLabel;
+    ppLine25: TppLine;
+    ppLabel42: TppLabel;
+    ppDetailBand3: TppDetailBand;
+    ppShape6: TppShape;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppLine26: TppLine;
+    ppLine27: TppLine;
+    ppLine28: TppLine;
+    ppDBText16: TppDBText;
+    ppLine29: TppLine;
+    ppDBText17: TppDBText;
+    ppLine30: TppLine;
+    ppColumnFooterBand3: TppColumnFooterBand;
+    ppFooterBand3: TppFooterBand;
+    ppGroup5: TppGroup;
+    ppGroupHeaderBand5: TppGroupHeaderBand;
+    ppGroupFooterBand5: TppGroupFooterBand;
+    ppGroup6: TppGroup;
+    ppGroupHeaderBand6: TppGroupHeaderBand;
+    ppGroupFooterBand6: TppGroupFooterBand;
+    ppParameterList3: TppParameterList;
+    cxGrid1phcolor: TcxGridDBColumn;
+    ppLabel27: TppLabel;
+    ppDBText19: TppDBText;
+    ppLine31: TppLine;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppLine34: TppLine;
+    ppLabel28: TppLabel;
+    ppDBText20: TppDBText;
+    ppReport4: TppReport;
+    ppHeaderBand4: TppHeaderBand;
+    ppLabel41: TppLabel;
+    ppLabel43: TppLabel;
+    ppSystemVariable4: TppSystemVariable;
+    ppColumnHeaderBand4: TppColumnHeaderBand;
+    ppShape7: TppShape;
+    ppLabel44: TppLabel;
+    ppLabel45: TppLabel;
+    ppLabel46: TppLabel;
+    ppLabel47: TppLabel;
+    ppLine35: TppLine;
+    ppLine36: TppLine;
+    ppLine37: TppLine;
+    ppLabel48: TppLabel;
+    ppLabel49: TppLabel;
+    ppLabel50: TppLabel;
+    ppLabel51: TppLabel;
+    ppLabel52: TppLabel;
+    ppLabel53: TppLabel;
+    ppLabel54: TppLabel;
+    ppLine39: TppLine;
+    ppLabel56: TppLabel;
+    ppLine40: TppLine;
+    ppLine41: TppLine;
+    ppLabel57: TppLabel;
+    ppDetailBand4: TppDetailBand;
+    ppShape8: TppShape;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppDBText23: TppDBText;
+    ppLine42: TppLine;
+    ppLine43: TppLine;
+    ppLine44: TppLine;
+    ppDBText24: TppDBText;
+    ppDBText25: TppDBText;
+    ppLine46: TppLine;
+    ppDBText27: TppDBText;
+    ppLine47: TppLine;
+    ppLine48: TppLine;
+    ppDBText28: TppDBText;
+    ppColumnFooterBand4: TppColumnFooterBand;
+    ppFooterBand4: TppFooterBand;
+    ppGroup7: TppGroup;
+    ppGroupHeaderBand7: TppGroupHeaderBand;
+    ppGroupFooterBand7: TppGroupFooterBand;
+    ppGroup8: TppGroup;
+    ppGroupHeaderBand8: TppGroupHeaderBand;
+    ppGroupFooterBand8: TppGroupFooterBand;
+    ppParameterList4: TppParameterList;
+    ppLabel55: TppLabel;
+    ppSummaryBand1: TppSummaryBand;
+    pak001: TppLabel;
+    ppLine38: TppLine;
+    ppLine45: TppLine;
+    ppLabel58: TppLabel;
+    ppLabel59: TppLabel;
+    ppLabel60: TppLabel;
+    ppDBText18: TppDBText;
+    dest001: TppLabel;
+    cxGrid1phstyle: TcxGridDBColumn;
+    ppLabel61: TppLabel;
+    ppLabel62: TppLabel;
+    ppLine49: TppLine;
+    ppLine50: TppLine;
+    ppLabel63: TppLabel;
+    ppLabel64: TppLabel;
+    ppLabel65: TppLabel;
+    ppDBText10: TppDBText;
+    ppLabel66: TppLabel;
+    ppLine51: TppLine;
+    ppLine52: TppLine;
+    ppLabel67: TppLabel;
+    ppLabel68: TppLabel;
+    ppLabel69: TppLabel;
+    ppDBText26: TppDBText;
+    ppLine53: TppLine;
+    ppLine54: TppLine;
+    ppLabel70: TppLabel;
+    ppLabel71: TppLabel;
+    ppLabel72: TppLabel;
+    ppDBText29: TppDBText;
+    ppLine55: TppLine;
+    ppLine56: TppLine;
+    ppLine57: TppLine;
+    ppLine58: TppLine;
+    ppLabel73: TppLabel;
+    ppLabel74: TppLabel;
+    ppLabel75: TppLabel;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppLine59: TppLine;
+    ppLine60: TppLine;
+    ppLabel76: TppLabel;
+    ppLabel77: TppLabel;
+    ppDBText32: TppDBText;
+    ppLabel78: TppLabel;
+    ppLine61: TppLine;
+    ppLine62: TppLine;
+    ppLabel79: TppLabel;
+    ppLabel80: TppLabel;
+    ppDBText33: TppDBText;
+    ppLine63: TppLine;
+    ppLine64: TppLine;
+    ppLabel81: TppLabel;
+    ppLabel82: TppLabel;
+    ppDBText34: TppDBText;
+    Label1: TLabel;
+    ppReport5: TppReport;
+    ppHeaderBand5: TppHeaderBand;
+    ppLabel83: TppLabel;
+    ppLabel84: TppLabel;
+    ppSystemVariable5: TppSystemVariable;
+    ppColumnHeaderBand5: TppColumnHeaderBand;
+    ppShape9: TppShape;
+    ppLabel85: TppLabel;
+    ppLabel86: TppLabel;
+    ppLabel87: TppLabel;
+    ppLabel88: TppLabel;
+    ppLine65: TppLine;
+    ppLine66: TppLine;
+    ppLine67: TppLine;
+    ppLine68: TppLine;
+    ppLabel89: TppLabel;
+    ppLabel90: TppLabel;
+    ppLabel91: TppLabel;
+    ppLabel92: TppLabel;
+    ppLabel93: TppLabel;
+    ppLabel94: TppLabel;
+    ppLine69: TppLine;
+    ppLabel95: TppLabel;
+    ppLabel96: TppLabel;
+    ppLabel97: TppLabel;
+    ppLine70: TppLine;
+    ppLabel98: TppLabel;
+    ppLabel99: TppLabel;
+    ppLabel100: TppLabel;
+    ppLine71: TppLine;
+    ppLine72: TppLine;
+    ppLabel101: TppLabel;
+    ppLabel102: TppLabel;
+    ppLabel103: TppLabel;
+    ppDetailBand5: TppDetailBand;
+    ppShape10: TppShape;
+    ppDBText35: TppDBText;
+    ppDBText36: TppDBText;
+    ppDBText37: TppDBText;
+    ppLine73: TppLine;
+    ppLine74: TppLine;
+    ppLine75: TppLine;
+    ppLine76: TppLine;
+    ppDBText38: TppDBText;
+    ppDBText39: TppDBText;
+    ppLine77: TppLine;
+    ppDBText40: TppDBText;
+    ppLine78: TppLine;
+    ppDBText41: TppDBText;
+    ppLine79: TppLine;
+    ppLine80: TppLine;
+    ppDBText42: TppDBText;
+    ppDBText43: TppDBText;
+    ppColumnFooterBand5: TppColumnFooterBand;
+    ppFooterBand5: TppFooterBand;
+    ppGroup9: TppGroup;
+    ppGroupHeaderBand9: TppGroupHeaderBand;
+    ppGroupFooterBand9: TppGroupFooterBand;
+    ppGroup10: TppGroup;
+    ppGroupHeaderBand10: TppGroupHeaderBand;
+    ppGroupFooterBand10: TppGroupFooterBand;
+    ppParameterList5: TppParameterList;
+    ppReport6: TppReport;
+    ppHeaderBand6: TppHeaderBand;
+    title006: TppLabel;
+    ppLabel105: TppLabel;
+    ppSystemVariable6: TppSystemVariable;
+    ppColumnHeaderBand6: TppColumnHeaderBand;
+    ppShape11: TppShape;
+    ppLabel106: TppLabel;
+    ppLabel107: TppLabel;
+    ppLabel108: TppLabel;
+    ppLabel109: TppLabel;
+    ppLine81: TppLine;
+    ppLine82: TppLine;
+    ppLine83: TppLine;
+    ppLabel110: TppLabel;
+    ppLabel111: TppLabel;
+    ppLabel112: TppLabel;
+    ppLine84: TppLine;
+    ppLabel113: TppLabel;
+    ppLabel114: TppLabel;
+    ppLabel115: TppLabel;
+    ppLabel116: TppLabel;
+    ppLine85: TppLine;
+    ppLabel117: TppLabel;
+    ppLine86: TppLine;
+    ppLabel118: TppLabel;
+    ppLabel119: TppLabel;
+    ppLabel120: TppLabel;
+    ppLine87: TppLine;
+    ppLabel121: TppLabel;
+    ppLabel122: TppLabel;
+    ppDetailBand6: TppDetailBand;
+    ppShape12: TppShape;
+    ppDBText44: TppDBText;
+    ppDBText45: TppDBText;
+    ppDBText46: TppDBText;
+    ppLine88: TppLine;
+    ppLine89: TppLine;
+    ppLine90: TppLine;
+    ppLine91: TppLine;
+    ppDBText47: TppDBText;
+    ppLine92: TppLine;
+    ppDBText48: TppDBText;
+    ppLine93: TppLine;
+    ppDBText49: TppDBText;
+    ppLabel123: TppLabel;
+    ppLine94: TppLine;
+    ppDBText50: TppDBText;
+    ppColumnFooterBand6: TppColumnFooterBand;
+    ppFooterBand6: TppFooterBand;
+    ppGroup11: TppGroup;
+    ppGroupHeaderBand11: TppGroupHeaderBand;
+    ppGroupFooterBand11: TppGroupFooterBand;
+    ppGroup12: TppGroup;
+    ppGroupHeaderBand12: TppGroupHeaderBand;
+    ppGroupFooterBand12: TppGroupFooterBand;
+    ppParameterList6: TppParameterList;
+    ppReport7: TppReport;
+    ppHeaderBand7: TppHeaderBand;
+    ppLabel124: TppLabel;
+    ppLabel125: TppLabel;
+    ppSystemVariable7: TppSystemVariable;
+    ppColumnHeaderBand7: TppColumnHeaderBand;
+    ppShape13: TppShape;
+    ppLabel126: TppLabel;
+    ppLabel127: TppLabel;
+    ppLabel128: TppLabel;
+    ppLabel129: TppLabel;
+    ppLine95: TppLine;
+    ppLine96: TppLine;
+    ppLine97: TppLine;
+    ppLabel130: TppLabel;
+    ppLabel131: TppLabel;
+    ppLabel132: TppLabel;
+    ppLine98: TppLine;
+    ppLabel133: TppLabel;
+    ppLabel134: TppLabel;
+    ppLabel135: TppLabel;
+    ppLabel136: TppLabel;
+    ppLine99: TppLine;
+    ppLabel137: TppLabel;
+    ppLabel138: TppLabel;
+    ppLine100: TppLine;
+    ppLine101: TppLine;
+    ppLabel139: TppLabel;
+    ppLabel140: TppLabel;
+    ppLine102: TppLine;
+    ppLabel141: TppLabel;
+    ppLabel142: TppLabel;
+    ppLabel143: TppLabel;
+    ppLabel144: TppLabel;
+    ppLine103: TppLine;
+    ppLabel145: TppLabel;
+    ppLabel146: TppLabel;
+    ppDetailBand7: TppDetailBand;
+    ppShape14: TppShape;
+    ppDBText51: TppDBText;
+    ppDBText52: TppDBText;
+    ppDBText53: TppDBText;
+    ppLine104: TppLine;
+    ppLine105: TppLine;
+    ppLine106: TppLine;
+    ppDBText54: TppDBText;
+    ppLine107: TppLine;
+    ppDBText55: TppDBText;
+    ppLine108: TppLine;
+    ppDBText56: TppDBText;
+    ppLine109: TppLine;
+    ppLine110: TppLine;
+    ppDBText57: TppDBText;
+    pak002: TppLabel;
+    ppLine111: TppLine;
+    ppDBText58: TppDBText;
+    ppLine112: TppLine;
+    ppDBText59: TppDBText;
+    ppColumnFooterBand7: TppColumnFooterBand;
+    ppFooterBand7: TppFooterBand;
+    ppGroup13: TppGroup;
+    ppGroupHeaderBand13: TppGroupHeaderBand;
+    ppGroupFooterBand13: TppGroupFooterBand;
+    ppGroup14: TppGroup;
+    ppGroupHeaderBand14: TppGroupHeaderBand;
+    ppGroupFooterBand14: TppGroupFooterBand;
+    ppParameterList7: TppParameterList;
+    ppReport8: TppReport;
+    ppHeaderBand8: TppHeaderBand;
+    ppLabel148: TppLabel;
+    ppLabel149: TppLabel;
+    ppSystemVariable8: TppSystemVariable;
+    ppColumnHeaderBand8: TppColumnHeaderBand;
+    ppShape15: TppShape;
+    ppLabel150: TppLabel;
+    ppLabel151: TppLabel;
+    ppLabel152: TppLabel;
+    ppLabel153: TppLabel;
+    ppLine113: TppLine;
+    ppLine114: TppLine;
+    ppLine115: TppLine;
+    ppLabel154: TppLabel;
+    ppLabel155: TppLabel;
+    ppLabel156: TppLabel;
+    ppLabel157: TppLabel;
+    ppLabel158: TppLabel;
+    ppLabel159: TppLabel;
+    ppLabel160: TppLabel;
+    ppLine116: TppLine;
+    ppLabel161: TppLabel;
+    ppLine117: TppLine;
+    ppLine118: TppLine;
+    ppLabel162: TppLabel;
+    ppLabel163: TppLabel;
+    ppLine119: TppLine;
+    ppLabel164: TppLabel;
+    ppLabel165: TppLabel;
+    ppLabel166: TppLabel;
+    ppLine120: TppLine;
+    ppLabel167: TppLabel;
+    ppLabel168: TppLabel;
+    ppDetailBand8: TppDetailBand;
+    ppShape16: TppShape;
+    ppDBText60: TppDBText;
+    ppDBText61: TppDBText;
+    ppDBText62: TppDBText;
+    ppLine121: TppLine;
+    ppLine122: TppLine;
+    ppLine123: TppLine;
+    ppDBText63: TppDBText;
+    ppDBText64: TppDBText;
+    ppLine124: TppLine;
+    ppDBText65: TppDBText;
+    ppLine125: TppLine;
+    ppLine126: TppLine;
+    ppDBText66: TppDBText;
+    ppLine127: TppLine;
+    ppDBText67: TppDBText;
+    ppLine128: TppLine;
+    ppDBText68: TppDBText;
+    ppColumnFooterBand8: TppColumnFooterBand;
+    ppFooterBand8: TppFooterBand;
+    ppSummaryBand2: TppSummaryBand;
+    ppGroup15: TppGroup;
+    ppGroupHeaderBand15: TppGroupHeaderBand;
+    ppGroupFooterBand15: TppGroupFooterBand;
+    ppGroup16: TppGroup;
+    ppGroupHeaderBand16: TppGroupHeaderBand;
+    ppGroupFooterBand16: TppGroupFooterBand;
+    ppParameterList8: TppParameterList;
+    cxGrid2: TcxGrid;
+    cxGridDBTableView1: TcxGridDBTableView;
+    cxGridDBColumn1: TcxGridDBColumn;
+    cxGridDBColumn2: TcxGridDBColumn;
+    cxGridDBColumn3: TcxGridDBColumn;
+    cxGridDBColumn4: TcxGridDBColumn;
+    cxGridDBColumn5: TcxGridDBColumn;
+    cxGridDBColumn6: TcxGridDBColumn;
+    cxGridDBColumn7: TcxGridDBColumn;
+    cxGridDBColumn8: TcxGridDBColumn;
+    cxGridDBColumn9: TcxGridDBColumn;
+    cxGridDBColumn10: TcxGridDBColumn;
+    cxGridLevel1: TcxGridLevel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure cxGrid1DBTableView1ipoCompareRowValuesForCellMerging(
+      Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+      AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+      ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+      const AValue2: Variant; var AAreEqual: Boolean);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure ADOQuery1AfterOpen(DataSet: TDataSet);
+    procedure ppReport2PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand2BeforePrint(Sender: TObject);
+    procedure ppReport3PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand3BeforePrint(Sender: TObject);
+    procedure ppReport4PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand4BeforePrint(Sender: TObject);
+    procedure ppReport5PreviewFormCreate(Sender: TObject);
+    procedure ppReport6PreviewFormCreate(Sender: TObject);
+    procedure ppReport7PreviewFormCreate(Sender: TObject);
+    procedure ppReport8PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand8BeforePrint(Sender: TObject);
+    procedure ppDetailBand7BeforePrint(Sender: TObject);
+    procedure ppDetailBand6BeforePrint(Sender: TObject);
+    procedure ppDetailBand5BeforePrint(Sender: TObject);
+    procedure cxGridDBColumn3CompareRowValuesForCellMerging(
+      Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+      AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+      ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+      const AValue2: Variant; var AAreEqual: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_PVHIPO: TfrmCarte_PVHIPO;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_PVHIPO.ADOQuery1AfterOpen(DataSet: TDataSet);
+begin
+  (adoquery1.fieldbyname('pl') as tfloatfield).displayformat:='#0.00';
+end;
+
+procedure TfrmCarte_PVHIPO.BitBtn4Click(Sender: TObject);
+begin
+  if label1.caption='CUSTPO' then begin
+    if frmCarte_Ordprocessing.combobox4.text='PVH' then
+      ppReport1.Print
+    else if (frmCarte_Ordprocessing.combobox4.text='TGTA') then begin
+      ppReport3.Print;
+    end else if (frmCarte_Ordprocessing.combobox4.text='PPTT') then begin
+      ppReport4.print;
+    end else begin
+      title002.caption:=frmCarte_Ordprocessing.combobox4.text+' - 銷售單含制單數及其數量佔用率';
+      ppReport2.print;
+    end;
+  end else if label1.caption='WO' then begin
+    if frmCarte_Ordprocessing.combobox4.text='PVH' then
+      ppReport5.Print
+    else if (frmCarte_Ordprocessing.combobox4.text='TGTA') then begin
+      ppReport7.Print;
+    end else if (frmCarte_Ordprocessing.combobox4.text='PPTT') then begin
+      ppReport8.print;
+    end else begin
+      title006.caption:=frmCarte_Ordprocessing.combobox4.text+' - 制單含銷售單數及其數量佔用率';
+      ppReport6.print;
+    end;
+  end;
+end;
+
+procedure TfrmCarte_PVHIPO.BitBtn5Click(Sender: TObject);
+begin
+  if savedialog1.Execute then begin
+    if label1.caption='CUSTPO' then
+    ExportGridToExcel(savedialog1.FileName,cxGrid1,false,true,false,'xls');
+  end;
+  {
+  if savedialog1.Execute then begin
+    ExportGridToExcel(savedialog1.FileName,cxGrid2,false,true,false,'xls');
+  end;
+  }
+end;
+
+procedure TfrmCarte_PVHIPO.cxGrid1DBTableView1ipoCompareRowValuesForCellMerging(
+  Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+  AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+  ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+  const AValue2: Variant; var AAreEqual: Boolean);
+begin
+  if ARow1.Values[cxGrid1DBTableView1ipo.Index] = ARow2.Values[cxGrid1DBTableView1ipo.Index] then
+     AAreEqual := True
+   else
+     AAreEqual := False;
+end;
+
+procedure TfrmCarte_PVHIPO.cxGridDBColumn3CompareRowValuesForCellMerging(
+  Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+  AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+  ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+  const AValue2: Variant; var AAreEqual: Boolean);
+begin
+  if ARow1.Values[cxGridDBcolumn3.Index] = ARow2.Values[cxGridDBColumn3.Index] then
+     AAreEqual := True
+   else
+     AAreEqual := False;
+end;
+
+procedure TfrmCarte_PVHIPO.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_PVHIPO:=nil;
+end;
+
+procedure TfrmCarte_PVHIPO.FormShow(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+    if label1.caption='CUSTPO' then begin
+      cxGrid1.visible:=true;
+      cxGrid2.visible:=false;
+      if frmCarte_Ordprocessing.combobox4.text='PVH' then begin
+        cxGrid1pvh_moa.visible:=true;
+        cxgrid1custstyle.visible:=false;
+        cxgrid1phcolor.visible:=false;
+        cxgrid1etam_pak.visible:=false;
+      end else begin
+        cxGrid1pvh_moa.visible:=false;
+        cxgrid1custstyle.visible:=true;
+        if frmCarte_Ordprocessing.combobox4.text='TGTA' then begin
+          cxgrid1etam_pak.visible:=true;
+          cxgrid1phcolor.visible:=true;
+        end else begin
+          cxgrid1etam_pak.visible:=false;
+          if frmCarte_Ordprocessing.combobox4.text='PPTT' then
+          cxgrid1phcolor.visible:=true
+          else cxgrid1phcolor.visible:=false;
+        end;
+      end;
+      with adoquery1 do begin
+        close;
+        if (frmCarte_Ordprocessing.combobox4.text='PPTT') or (frmCarte_Ordprocessing.combobox4.text='TGTA') then
+        sql.text:='exec sp_carte_reconfirmpvhipo_bycust1 '''+frmCarte_Ordprocessing.combobox4.text+''''
+        else sql.text:='exec sp_carte_reconfirmpvhipo_bycust '''+frmCarte_Ordprocessing.combobox4.text+'''';
+        open;
+      end;
+    end else if label1.caption='WO' then begin
+      cxGrid2.visible:=true;
+      cxGrid1.visible:=false;
+      if frmCarte_Ordprocessing.combobox4.text='PVH' then
+        cxGriddbcolumn1.visible:=true
+      else cxGriddbcolumn1.visible:=false;
+      with adoquery1 do begin
+        close;
+        if (frmCarte_Ordprocessing.combobox4.text='PPTT') or (frmCarte_Ordprocessing.combobox4.text='TGTA') then
+        sql.text:='exec sp_carte_reconfirmpvhipo_bycust1_0 '''+frmCarte_Ordprocessing.combobox4.text+''''
+        else sql.text:='exec sp_carte_reconfirmpvhipo_bycust_0 '''+frmCarte_Ordprocessing.combobox4.text+'''';
+        open;
+      end;
+    end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_PVHIPO.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  if adoquery1.fieldbyname('wo_ipo').value>1 then ppdbtext2.Font.Color:=clRed
+  else ppdbtext2.Font.Color:=clBlack;
+end;
+
+procedure TfrmCarte_PVHIPO.ppDetailBand2BeforePrint(Sender: TObject);
+begin
+  if adoquery1.fieldbyname('wo_ipo').value>1 then ppdbtext8.Font.Color:=clRed
+  else ppdbtext8.Font.Color:=clBlack;
+  if not adoquery1.fieldbyname('act_dest').isnull then
+  dest001.caption:=adoquery1.fieldbyname('act_dest').value
+  else dest001.caption:=adoquery1.fieldbyname('pvh_dest').value;
+end;
+
+procedure TfrmCarte_PVHIPO.ppDetailBand3BeforePrint(Sender: TObject);
+begin
+  if adoquery1.fieldbyname('wo_ipo').value>1 then ppdbtext14.Font.Color:=clRed
+  else ppdbtext14.Font.Color:=clBlack;
+  if not adoquery1.fieldbyname('act_pak').isnull then
+  pak001.caption:=adoquery1.fieldbyname('act_pak').value
+  else pak001.caption:=adoquery1.fieldbyname('etam_pak').value;
+end;
+
+procedure TfrmCarte_PVHIPO.ppDetailBand4BeforePrint(Sender: TObject);
+begin
+  if adoquery1.fieldbyname('wo_ipo').value>1 then ppdbtext22.Font.Color:=clRed
+  else ppdbtext22.Font.Color:=clBlack;
+end;
+
+procedure TfrmCarte_PVHIPO.ppDetailBand5BeforePrint(Sender: TObject);
+begin
+  if adoquery1.fieldbyname('wo_ipo').value>1 then ppdbtext35.Font.Color:=clRed
+  else ppdbtext35.Font.Color:=clBlack;
+end;
+
+procedure TfrmCarte_PVHIPO.ppDetailBand6BeforePrint(Sender: TObject);
+begin
+  if adoquery1.fieldbyname('wo_ipo').value>1 then ppdbtext44.Font.Color:=clRed
+  else ppdbtext44.Font.Color:=clBlack;
+end;
+
+procedure TfrmCarte_PVHIPO.ppDetailBand7BeforePrint(Sender: TObject);
+begin
+  if adoquery1.fieldbyname('wo_ipo').value>1 then ppdbtext51.Font.Color:=clRed
+  else ppdbtext51.Font.Color:=clBlack;
+  //{
+  if not adoquery1.fieldbyname('act_pak').isnull then
+  pak002.caption:=adoquery1.fieldbyname('act_pak').value
+  else pak002.caption:=adoquery1.fieldbyname('etam_pak').value;
+  //}
+end;
+
+procedure TfrmCarte_PVHIPO.ppDetailBand8BeforePrint(Sender: TObject);
+begin
+  if adoquery1.fieldbyname('wo_ipo').value>1 then ppdbtext60.Font.Color:=clRed
+  else ppdbtext60.Font.Color:=clBlack;
+end;
+
+procedure TfrmCarte_PVHIPO.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure TfrmCarte_PVHIPO.ppReport2PreviewFormCreate(Sender: TObject);
+begin
+  ppReport2.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport2.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure TfrmCarte_PVHIPO.ppReport3PreviewFormCreate(Sender: TObject);
+begin
+  ppReport3.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport3.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure TfrmCarte_PVHIPO.ppReport4PreviewFormCreate(Sender: TObject);
+begin
+  ppReport4.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport4.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure TfrmCarte_PVHIPO.ppReport5PreviewFormCreate(Sender: TObject);
+begin
+  ppReport5.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport5.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure TfrmCarte_PVHIPO.ppReport6PreviewFormCreate(Sender: TObject);
+begin
+  ppReport6.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport6.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure TfrmCarte_PVHIPO.ppReport7PreviewFormCreate(Sender: TObject);
+begin
+  ppReport7.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport7.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure TfrmCarte_PVHIPO.ppReport8PreviewFormCreate(Sender: TObject);
+begin
+  ppReport8.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport8.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+end.

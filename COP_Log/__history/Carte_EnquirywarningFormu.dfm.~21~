@@ -1,0 +1,202 @@
+object frmCarte_Enquirywarning: TfrmCarte_Enquirywarning
+  Left = 0
+  Top = 0
+  Caption = #26597#35426#26377#35686#31034#20449#24687#30340#35468#34399
+  ClientHeight = 303
+  ClientWidth = 783
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 0
+    Width = 783
+    Height = 262
+    Align = alClient
+    AllowedOperations = []
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'Tahoma'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'cust'
+        Footers = <>
+        Title.Caption = #23458#25142#34399
+        Width = 46
+      end
+      item
+        EditButtons = <>
+        FieldName = 'keycode'
+        Footers = <>
+        Title.Caption = #35468#34399
+        Width = 54
+      end
+      item
+        EditButtons = <>
+        FieldName = 'projectno'
+        Footers = <>
+        Title.Caption = #24037#31243#34399
+        Width = 82
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 262
+    Width = 783
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitLeft = 24
+    ExplicitTop = 224
+    ExplicitWidth = 185
+    object BitBtn1: TBitBtn
+      Left = 16
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = #25209#26495#26399
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 88
+      Top = 8
+      Width = 81
+      Height = 25
+      Caption = #38283#22987#36865#26009#26399
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 1
+      OnClick = BitBtn2Click
+    end
+    object BitBtn3: TBitBtn
+      Left = 168
+      Top = 8
+      Width = 81
+      Height = 25
+      Caption = #20633#40778#36865#26009#26399
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 2
+      OnClick = BitBtn3Click
+    end
+    object BitBtn4: TBitBtn
+      Left = 248
+      Top = 8
+      Width = 81
+      Height = 25
+      Caption = #24288#38283#22987#29983#29986#26399
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 3
+      OnClick = BitBtn4Click
+    end
+    object BitBtn5: TBitBtn
+      Left = 328
+      Top = 8
+      Width = 65
+      Height = 25
+      Caption = #38626#24288#26399
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 4
+      OnClick = BitBtn5Click
+    end
+    object BitBtn6: TBitBtn
+      Left = 392
+      Top = 8
+      Width = 65
+      Height = 25
+      Caption = #23433#25490#26085#24046
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 5
+      OnClick = BitBtn6Click
+    end
+    object BitBtn7: TBitBtn
+      Left = 456
+      Top = 8
+      Width = 65
+      Height = 25
+      Caption = #25976#38913#24373#25976
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 6
+      OnClick = BitBtn7Click
+    end
+    object BitBtn8: TBitBtn
+      Left = 520
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = #31532#19968#24373#25976#38913
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 7
+      OnClick = BitBtn8Click
+    end
+    object BitBtn9: TBitBtn
+      Left = 592
+      Top = 8
+      Width = 81
+      Height = 25
+      Caption = #26368#21518#19968#24373#25976#38913
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 8
+      OnClick = BitBtn9Click
+    end
+    object BitBtn10: TBitBtn
+      Left = 672
+      Top = 8
+      Width = 65
+      Height = 25
+      Caption = #36864#20986
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 9
+      OnClick = BitBtn10Click
+    end
+  end
+  object ADOQuery1: TADOQuery
+    Connection = frmCarte_Main.ADOConnection1
+    CursorType = ctStatic
+    CommandTimeout = 300
+    Parameters = <>
+    SQL.Strings = (
+      'select * from tbl_carte_sopc1 where projectno='#39'WARN-1345'#39)
+    Left = 160
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOQuery1
+    Left = 208
+  end
+end

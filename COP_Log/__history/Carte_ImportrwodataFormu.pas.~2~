@@ -1,0 +1,29 @@
+unit Carte_ImportrwodataFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons;
+
+type
+  TfrmCarte_Importrwodata = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    BitBtn1: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_Importrwodata: TfrmCarte_Importrwodata;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu;
+
+{$R *.dfm}
+
+end.

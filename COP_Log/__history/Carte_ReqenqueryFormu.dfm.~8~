@@ -1,0 +1,115 @@
+object frmCarte_Repenquery: TfrmCarte_Repenquery
+  Left = 0
+  Top = 0
+  Caption = #35036#26009#30003#35531#21934#36039#26009#26597#35426
+  ClientHeight = 312
+  ClientWidth = 705
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 705
+    Height = 41
+    Align = alTop
+    TabOrder = 0
+    ExplicitLeft = 8
+    ExplicitTop = 8
+    ExplicitWidth = 185
+    object RzBackground3: TRzBackground
+      Left = 1
+      Top = 1
+      Width = 703
+      Height = 39
+      Active = True
+      Align = alClient
+      GradientColorStart = 14216405
+      GradientColorStop = 16776176
+      GradientDirection = gdVerticalEnd
+      ImageStyle = isCenter
+      ShowGradient = True
+      ShowImage = False
+      ShowTexture = False
+      ExplicitLeft = 40
+      ExplicitTop = 8
+      ExplicitWidth = 200
+      ExplicitHeight = 100
+    end
+    object Label1: TLabel
+      Left = 48
+      Top = 8
+      Width = 63
+      Height = 13
+      Caption = #30003#35531#21934#21934#34399' '
+    end
+    object Edit1: TEdit
+      Left = 112
+      Top = 8
+      Width = 137
+      Height = 21
+      TabOrder = 0
+    end
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 41
+    Width = 705
+    Height = 230
+    Align = alClient
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'Tahoma'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 271
+    Width = 705
+    Height = 41
+    Align = alBottom
+    TabOrder = 2
+    ExplicitLeft = 40
+    ExplicitTop = 216
+    ExplicitWidth = 185
+    object RzBackground1: TRzBackground
+      Left = 1
+      Top = 1
+      Width = 703
+      Height = 39
+      Active = True
+      Align = alClient
+      GradientColorStart = 14216405
+      GradientColorStop = 16776176
+      GradientDirection = gdVerticalEnd
+      ImageStyle = isCenter
+      ShowGradient = True
+      ShowImage = False
+      ShowTexture = False
+      ExplicitLeft = 40
+      ExplicitTop = 8
+      ExplicitWidth = 200
+      ExplicitHeight = 100
+    end
+  end
+end

@@ -1,0 +1,22 @@
+program COP_UA;
+
+uses
+  Forms,
+  Carte_MainFormu in 'Carte_MainFormu.pas' {frmCarte_Main},
+  Carte_ActionitermsFormu in 'Carte_ActionitermsFormu.pas' {frmCarte_Actionitems},
+  Carte_OrdprocessingFormu in 'Carte_OrdprocessingFormu.pas' {frmCarte_Ordprocessing},
+  Carte_RequestactionFormu in 'Carte_RequestactionFormu.pas' {frmCarte_Requestaction},
+  Carte_ReportsFormu in 'Carte_ReportsFormu.pas' {frmCarte_Reports},
+  Carte_ActionmarksFormu in 'Carte_ActionmarksFormu.pas' {frmCarte_Actionmarks},
+  Carte_ItemchooseFormu in 'Carte_ItemchooseFormu.pas' {frmCarte_itemchoose},
+  Carte_MailFormu in 'Carte_MailFormu.pas' {frmCarte_Mail};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmCarte_Main, frmCarte_Main);
+  Application.CreateForm(TfrmCarte_Mail, frmCarte_Mail);
+  Application.Run;
+end.

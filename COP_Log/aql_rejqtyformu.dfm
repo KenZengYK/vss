@@ -1,0 +1,203 @@
+object frmaql_rejqty: Tfrmaql_rejqty
+  Left = 338
+  Top = 199
+  Caption = 'frmaql_rejqty'
+  ClientHeight = 165
+  ClientWidth = 321
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 32
+    Top = 32
+    Width = 41
+    Height = 13
+    Caption = 'Factory  '
+  end
+  object Label2: TLabel
+    Left = 32
+    Top = 72
+    Width = 55
+    Height = 13
+    Caption = 'Date From  '
+  end
+  object Label3: TLabel
+    Left = 184
+    Top = 72
+    Width = 19
+    Height = 13
+    Caption = 'To  '
+  end
+  object Label4: TLabel
+    Left = 224
+    Top = 24
+    Width = 3
+    Height = 13
+    Visible = False
+  end
+  object ComboBox1: TComboBox
+    Left = 88
+    Top = 32
+    Width = 89
+    Height = 21
+    CharCase = ecUpperCase
+    ItemIndex = 0
+    TabOrder = 0
+    Text = 'SL'
+    Items.Strings = (
+      'SL'
+      'GG')
+  end
+  object DateEdit1: TDateEdit
+    Left = 88
+    Top = 72
+    Width = 89
+    Height = 21
+    NumGlyphs = 2
+    TabOrder = 1
+  end
+  object DateEdit2: TDateEdit
+    Left = 208
+    Top = 72
+    Width = 89
+    Height = 21
+    NumGlyphs = 2
+    TabOrder = 2
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 112
+    Width = 73
+    Height = 25
+    Caption = 'Export'
+    DoubleBuffered = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
+      333333333333337FF3333333333333903333333333333377FF33333333333399
+      03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
+      99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
+      99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
+      03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
+      33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
+      33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
+      3333777777333333333333333333333333333333333333333333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 3
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 104
+    Top = 112
+    Width = 73
+    Height = 25
+    DoubleBuffered = True
+    Kind = bkClose
+    ParentDoubleBuffered = False
+    TabOrder = 4
+  end
+  object cxGrid1: TcxGrid
+    Left = 296
+    Top = 0
+    Width = 353
+    Height = 97
+    TabOrder = 5
+    Visible = False
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      object cxGrid1DBTableView1Project: TcxGridDBColumn
+        DataBinding.FieldName = 'Project #'
+      end
+      object cxGrid1DBTableView1WO: TcxGridDBColumn
+        DataBinding.FieldName = 'WO #'
+      end
+      object cxGrid1DBTableView1Style: TcxGridDBColumn
+        DataBinding.FieldName = 'Style #'
+      end
+      object cxGrid1DBTableView1COLOR: TcxGridDBColumn
+        DataBinding.FieldName = 'COLOR'
+      end
+      object cxGrid1DBTableView1RejQty: TcxGridDBColumn
+        DataBinding.FieldName = 'Rej Qty'
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 
+      'select distinct projectno as "Project #",workorder as "WO #",cst' +
+      'yle as "Style #",color,sum(qty) as "Rej Qty" from tbl_aql_fullau' +
+      'dit_rej where rej_ratio>5.00 group by projectno,workorder,cstyle' +
+      ',color'
+    FieldDefs = <
+      item
+        Name = 'Project #'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'WO #'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Style #'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'COLOR'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'Rej Qty'
+        DataType = ftFloat
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmaqlmain.dsp_Conn1
+    StoreDefs = True
+    Left = 24
+    Top = 65528
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 56
+    Top = 65528
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmaqlmain.dsp_Conn1
+    Left = 88
+    Top = 65528
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '*.xls'
+    Filter = '*.xls|*.xls'
+    Left = 208
+    Top = 16
+  end
+end

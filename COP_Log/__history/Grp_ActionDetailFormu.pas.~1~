@@ -1,0 +1,24 @@
+unit Grp_ActionDetailFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  Tfrmgrp_actiondetail = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmgrp_actiondetail: Tfrmgrp_actiondetail;
+
+implementation
+
+{$R *.dfm}
+
+end.

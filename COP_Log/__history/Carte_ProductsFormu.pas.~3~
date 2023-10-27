@@ -1,0 +1,57 @@
+unit Carte_ProductsFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData, ADODB,
+  cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxClasses, cxGridCustomView, cxGrid, StdCtrls, Buttons, RzBckgnd, ExtCtrls;
+
+type
+  TfrmCarte_Products = class(TForm)
+    Panel1: TPanel;
+    RzBackground1: TRzBackground;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn4: TBitBtn;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1DBTableView1act_grp: TcxGridDBColumn;
+    cxGrid1DBTableView1act_group: TcxGridDBColumn;
+    cxGrid1DBTableView1code: TcxGridDBColumn;
+    cxGrid1DBTableView1act_item: TcxGridDBColumn;
+    cxGrid1Level1: TcxGridLevel;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
+    SaveDialog1: TSaveDialog;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_Products: TfrmCarte_Products;
+
+implementation
+
+uses Carte_MainFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_Products.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_Products:=nil;
+end;
+
+end.

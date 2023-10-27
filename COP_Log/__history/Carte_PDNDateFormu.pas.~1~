@@ -1,0 +1,29 @@
+unit Carte_PDNDateFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, rxToolEdit;
+
+type
+  TfrmCarte_PDNDate = class(TForm)
+    Label1: TLabel;
+    DateEdit1: TDateEdit;
+    Label2: TLabel;
+    DateEdit2: TDateEdit;
+    BitBtn1: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_PDNDate: TfrmCarte_PDNDate;
+
+implementation
+
+{$R *.dfm}
+
+end.

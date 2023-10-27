@@ -1,0 +1,528 @@
+unit Carte_CRitemsFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData, ExtCtrls,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, cxGridBandedTableView,
+  cxGridDBBandedTableView, ADODB, StdCtrls, Buttons, RzBckgnd, cxGridExportLink,
+  ppProd, ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppBands, ppCache,
+  ppParameter, ppPrnabl, ppStrtch, ppRichTx, ppCtrls, ppVar, ppViewr, Menus,
+  DateUtils, DBCtrls;
+
+type
+  TfrmCarte_CRitems = class(TForm)
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel1: TPanel;
+    cxGrid1DBBandedTableView1: TcxGridDBBandedTableView;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
+    cxGrid1item_des: TcxGridDBBandedColumn;
+    cxGrid1item_code: TcxGridDBBandedColumn;
+    cxGrid1item_po: TcxGridDBBandedColumn;
+    cxGrid1item_vndr: TcxGridDBBandedColumn;
+    cxGrid1item_scolor: TcxGridDBBandedColumn;
+    cxGrid1item_icolor: TcxGridDBBandedColumn;
+    cxGrid1item_cr: TcxGridDBBandedColumn;
+    cxGrid1item_tqty: TcxGridDBBandedColumn;
+    cxGrid1item_rqty: TcxGridDBBandedColumn;
+    cxGrid1item_bqty: TcxGridDBBandedColumn;
+    cxGrid1act_issue31: TcxGridDBBandedColumn;
+    cxGrid1act_start31: TcxGridDBBandedColumn;
+    cxGrid1act_cmpdt31: TcxGridDBBandedColumn;
+    cxGrid1item_rcnt_o: TcxGridDBBandedColumn;
+    cxGrid1item_rcnt_a: TcxGridDBBandedColumn;
+    cxGrid1item_r1dt: TcxGridDBBandedColumn;
+    cxGrid1item_r1qty: TcxGridDBBandedColumn;
+    cxGrid1kc_cnt_o: TcxGridDBBandedColumn;
+    cxGrid1kc_cnt_a: TcxGridDBBandedColumn;
+    cxGrid1kc_r1: TcxGridDBBandedColumn;
+    cxGrid1kc_r1_keycode: TcxGridDBBandedColumn;
+    cxGrid1kc_r1_ex_o: TcxGridDBBandedColumn;
+    cxGrid1kc_r1_ex_r: TcxGridDBBandedColumn;
+    cxGrid1kc_r1_act_cmpdt: TcxGridDBBandedColumn;
+    cxGrid1kc_r1_qty: TcxGridDBBandedColumn;
+    cxGrid1kc_r1_cmp: TcxGridDBBandedColumn;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    RzBackground3: TRzBackground;
+    cxGrid1item_unit: TcxGridDBBandedColumn;
+    SaveDialog1: TSaveDialog;
+    ppDBPipeline1: TppDBPipeline;
+    PopupMenu1: TPopupMenu;
+    N1: TMenuItem;
+    cxGrid1seqno: TcxGridDBBandedColumn;
+    cxGrid1item_count: TcxGridDBBandedColumn;
+    cxGrid1item_dt: TcxGridDBBandedColumn;
+    BitBtn6: TBitBtn;
+    Panel2: TPanel;
+    Label1: TLabel;
+    RzBackground1: TRzBackground;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    Label4: TLabel;
+    DBText4: TDBText;
+    Label5: TLabel;
+    DBText5: TDBText;
+    Label6: TLabel;
+    DBText6: TDBText;
+    cxGrid1DBBandedTableView1Column1: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1Column2: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1Column3: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1Column4: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1Column5: TcxGridDBBandedColumn;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppShape1: TppShape;
+    ppShape6: TppShape;
+    ppShape5: TppShape;
+    ppShape4: TppShape;
+    ppShape3: TppShape;
+    ppRichText1: TppRichText;
+    ppLabel1: TppLabel;
+    ppLine1: TppLine;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppLine3: TppLine;
+    ppLabel29: TppLabel;
+    ppLine4: TppLine;
+    ppLabel30: TppLabel;
+    ppLabel32: TppLabel;
+    ppLabel33: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel36: TppLabel;
+    ppLabel37: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel39: TppLabel;
+    ppLabel40: TppLabel;
+    ppLabel41: TppLabel;
+    ppLabel42: TppLabel;
+    ppLabel43: TppLabel;
+    ppLabel44: TppLabel;
+    ppLabel45: TppLabel;
+    ppLabel46: TppLabel;
+    ppLabel47: TppLabel;
+    ppLabel48: TppLabel;
+    ppLabel49: TppLabel;
+    ppLabel50: TppLabel;
+    ppLabel51: TppLabel;
+    ppLabel52: TppLabel;
+    ppLabel54: TppLabel;
+    ppLabel55: TppLabel;
+    ppLabel56: TppLabel;
+    ppLabel57: TppLabel;
+    ppLabel58: TppLabel;
+    ppLabel62: TppLabel;
+    ppLabel63: TppLabel;
+    ppLabel66: TppLabel;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLine19: TppLine;
+    ppLine20: TppLine;
+    ppLine21: TppLine;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppLine24: TppLine;
+    ppLine25: TppLine;
+    ppLine26: TppLine;
+    ppLine27: TppLine;
+    ppLine28: TppLine;
+    ppLine29: TppLine;
+    ppLine30: TppLine;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppLabel17: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel19: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLabel31: TppLabel;
+    ppLabel53: TppLabel;
+    ppLabel67: TppLabel;
+    ppLine35: TppLine;
+    ppLine53: TppLine;
+    ppLabel68: TppLabel;
+    ppLabel69: TppLabel;
+    ppLine2: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLabel35: TppLabel;
+    ppLabel70: TppLabel;
+    ppLabel71: TppLabel;
+    ppLabel72: TppLabel;
+    ppLine59: TppLine;
+    ppLabel73: TppLabel;
+    ppLabel74: TppLabel;
+    ppLabel75: TppLabel;
+    title6001: TppLabel;
+    ppLabel76: TppLabel;
+    ppLine56: TppLine;
+    ppLabel77: TppLabel;
+    ppLabel78: TppLabel;
+    ppLabel79: TppLabel;
+    ppLabel59: TppLabel;
+    ppLabel60: TppLabel;
+    ppDetailBand1: TppDetailBand;
+    ppShape2: TppShape;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    wc001: TppLabel;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppDBText23: TppDBText;
+    ppDBText26: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    ppLine36: TppLine;
+    ppLine37: TppLine;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLine40: TppLine;
+    ppLine41: TppLine;
+    ppLine42: TppLine;
+    ppLine43: TppLine;
+    ppLine45: TppLine;
+    ppLine46: TppLine;
+    ppLine48: TppLine;
+    ppLine49: TppLine;
+    ppLine50: TppLine;
+    ppLine51: TppLine;
+    ppLine62: TppLine;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText31: TppDBText;
+    ppLine52: TppLine;
+    ppDBText32: TppDBText;
+    ppDBText33: TppDBText;
+    ppDBText24: TppDBText;
+    ppDBText25: TppDBText;
+    ppDBText27: TppDBText;
+    ppDBText30: TppDBText;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppLabel61: TppLabel;
+    seqno001: TppLabel;
+    issue001: TppLabel;
+    site001: TppLabel;
+    des001: TppLabel;
+    item001: TppLabel;
+    vndr001: TppLabel;
+    scolor001: TppLabel;
+    icolor001: TppLabel;
+    keycode001: TppLabel;
+    ppLabel64: TppLabel;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppLine54: TppLine;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppLine55: TppLine;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppLine63: TppLine;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppLine64: TppLine;
+    ppParameterList1: TppParameterList;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure cxGrid1item_codeCompareRowValuesForCellMerging(
+      Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+      AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+      ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+      const AValue2: Variant; var AAreEqual: Boolean);
+    procedure ADODataSet1AfterOpen(DataSet: TDataSet);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure N1Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure ppSummaryBand1BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_CRitems: TfrmCarte_CRitems;
+  tm:tdatetime;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu, Carte_RequestactionFormu,
+Carte_ChaseitemsFormu, Carte_ReqenqueryFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_CRitems.ADODataSet1AfterOpen(DataSet: TDataSet);
+begin
+  (adodataset1.fieldbyname('item_dt') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset1.fieldbyname('act_start31') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset1.fieldbyname('act_cmpdt31') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset1.fieldbyname('item_r1dt') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset1.fieldbyname('item_r1dt_jh') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset1.fieldbyname('kc_r1_ex_o') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset1.fieldbyname('kc_r1_ex_r') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset1.fieldbyname('kc_r1_act_cmpdt') as tdatetimefield).displayformat:='mm/dd';
+  (adodataset1.fieldbyname('item_r1') as tintegerfield).displayformat:='#0;;''''';
+  (adodataset1.fieldbyname('item_r1_jh') as tintegerfield).displayformat:='#0;;''''';
+  (adodataset1.fieldbyname('kc_r1') as tintegerfield).displayformat:='#0;;''''';
+  (adodataset1.fieldbyname('item_tqty') as tfloatfield).displayformat:='#0.0;;''''';
+  (adodataset1.fieldbyname('item_rqty') as tfloatfield).displayformat:='#0.0;;''''';
+  (adodataset1.fieldbyname('item_bqty') as tfloatfield).displayformat:='#0.0;;''''';
+  (adodataset1.fieldbyname('item_r1qty') as tfloatfield).displayformat:='#0.0;;''''';
+  (adodataset1.fieldbyname('item_r1qty_jh') as tfloatfield).displayformat:='#0.0;;''''';
+  (adodataset1.fieldbyname('kc_r1_qty') as tfloatfield).displayformat:='#0.0;;''''';
+end;
+
+procedure TfrmCarte_CRitems.BitBtn1Click(Sender: TObject);
+var
+  seq31,item_seq,y1,m1,icount:integer;
+  seqno:string;
+begin
+  screen.cursor:=crSQLWait;
+  try
+  if not frmCarte_Requestaction.adodataset2.fieldbyname('link_seq').isnull then begin
+    seq31:=frmCarte_Requestaction.adodataset2.fieldbyname('link_seq').value;
+    seqno:=frmCarte_Requestaction.adodataset2.fieldbyname('seqno3').value;
+  end else begin
+    y1:=yearof(date);
+    m1:=monthof(date);
+    with adoquery1 do begin
+      close;
+      sql.text:='select max(seq31) as x1 from tbl_carte_sopc301';
+      open;
+      if not fieldbyname('x1').isnull then seq31:=fieldbyname('x1').value+1 else seq31:=1;
+    end;
+    with adoquery1 do begin
+      close;
+      sql.text:='select count(distinct seqno) as x1 from tbl_carte_sopc301 where datepart(yyyy,crdt)=:x1 and datepart(mm,crdt)=:x2';
+      parameters[0].value:=y1;
+      parameters[1].value:=m1;
+      open;
+      if not fieldbyname('x1').isnull then icount:=fieldbyname('x1').value+1 else icount:=1;
+    end;
+    seqno:=copy('0'+inttostr(m1),length('0'+inttostr(m1))-1,2)+'-'+copy('0'+inttostr(icount),length('0'+inttostr(icount))-1,2);
+  end;
+  with adoquery1 do begin
+    close;
+    sql.text:='select max(item_seq) as x1 from tbl_carte_sopc301 where seq31=:x1';
+    parameters[0].value:=seq31;
+    open;
+    if not fieldbyname('x1').isnull then item_seq:=fieldbyname('x1').value+1 else item_seq:=1;
+  end;
+  if frmCarte_Requestaction.adodataset2.fieldbyname('link_seq').isnull then begin
+    with frmCarte_Requestaction.adodataset2 do begin
+      edit;
+      fieldbyname('link_seq').value:=seq31;
+      post;
+    end;
+  end;
+  with adoquery1 do begin
+    close;
+    sql.text:='exec sp_carte_newitem4sopc301_new :x1,:x2,:x3,:x4,:x5';
+    parameters[0].value:=seq31;
+    parameters[1].value:=item_seq;
+    parameters[2].value:=frmCarte_Requestaction.adodataset2.fieldbyname('seq').value;
+    parameters[3].value:=frmCarte_Requestaction.adodataset2.fieldbyname('seq_i').value;
+    parameters[4].value:=seqno;
+    execsql;
+  end;
+  if frmCarte_Chaseitems=nil then frmCarte_Chaseitems:=tfrmCarte_Chaseitems.create(nil);
+  with frmCarte_Chaseitems.adodataset1 do begin
+    close;
+    commandtext:='select * from tbl_carte_sopc301 where seq31=:x1 and item_seq=:x2';
+    parameters[0].value:=seq31;
+    parameters[1].value:=item_seq;
+    open;
+  end;
+  frmCarte_Chaseitems.caption:='物料跟進(三從)行動誌明細表 (追料或補料) - 工作表';
+  frmCarte_Chaseitems.show;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_CRitems.BitBtn2Click(Sender: TObject);
+begin
+  if not adodataset1.fieldbyname('item_seq').isnull then begin
+    if frmCarte_Chaseitems=nil then frmCarte_Chaseitems:=tfrmCarte_Chaseitems.create(nil);
+    with frmCarte_Chaseitems.adodataset1 do begin
+      close;
+      commandtext:='select * from tbl_carte_sopc301 where seq31=:x1 and item_seq=:x2';
+      parameters[0].value:=adodataset1.fieldbyname('seq31').value;
+      parameters[1].value:=adodataset1.fieldbyname('item_seq').value;
+      open;
+    end;
+    frmCarte_Chaseitems.caption:='物料跟進(三從)行動誌明細表 (追料或補料) - 工作表';
+    frmCarte_Chaseitems.show;
+  end;
+end;
+
+procedure TfrmCarte_CRitems.BitBtn3Click(Sender: TObject);
+begin
+  if adodataset1.active then begin
+    tm:=now;
+    if not adodataset1.fieldbyname('seq31').isnull then begin
+      if frmCarte_Ordprocessing.adodataset1.fieldbyname('cust').value='CRTE' then title6001.caption:='CARTE '
+      else title6001.caption:=frmCarte_Ordprocessing.adodataset1.fieldbyname('cust').value+' ';
+      ppReport1.print;
+    end;
+  end;
+end;
+
+procedure TfrmCarte_CRitems.BitBtn4Click(Sender: TObject);
+begin
+  if savedialog1.Execute then begin
+    ExportGridToExcel(savedialog1.FileName,cxGrid1,false,true,false,'xls');
+  end;
+end;
+
+procedure TfrmCarte_CRitems.BitBtn5Click(Sender: TObject);
+begin
+  if frmCarte_Repenquery=nil then frmCarte_Repenquery:=tfrmCarte_Repenquery.create(nil);
+  frmCarte_Repenquery.show;
+end;
+
+procedure TfrmCarte_CRitems.cxGrid1item_codeCompareRowValuesForCellMerging(
+  Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+  AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+  ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+  const AValue2: Variant; var AAreEqual: Boolean);
+begin
+  if ARow1.Values[cxGrid1item_code.Index] = ARow2.Values[cxGrid1item_code.Index] then
+     AAreEqual := True
+   else
+     AAreEqual := False;
+end;
+
+procedure TfrmCarte_CRitems.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_CRitems:=nil;
+end;
+
+procedure TfrmCarte_CRitems.N1Click(Sender: TObject);
+var
+  seq31,item_seq:integer;
+begin
+  if application.messagebox('Delete this mateial?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+    seq31:=adodataset1.fieldbyname('seq31').value;
+    item_seq:=adodataset1.fieldbyname('item_seq').value;
+    with adoquery1 do begin
+      close;
+      sql.text:='delete from tbl_carte_sopc301 where seq31=:x1 and item_seq=:x2';
+      parameters[0].value:=seq31;
+      parameters[1].value:=item_seq;
+      execsql;
+    end;
+    with adodataset1 do begin
+      close;
+      commandtext:='exec sp_carte_genchaseitems :x1';
+      parameters[0].value:=seq31;
+      open;
+    end;
+  end;
+end;
+
+procedure TfrmCarte_CRitems.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  if not adodataset1.fieldbyname('kc_r1_cmp').isnull then begin
+    if adodataset1.fieldbyname('kc_r1_cmp').value=true then wc001.caption:='Y'
+    else wc001.caption:='';
+  end else wc001.caption:='';
+end;
+
+procedure TfrmCarte_CRitems.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure TfrmCarte_CRitems.ppSummaryBand1BeforePrint(Sender: TObject);
+begin
+  with adoquery1 do begin
+    close;
+    sql.text:='select distinct count(distinct seqno) as x1,count(distinct act_issue31) as x2,count(distinct prod_site) as x3,count(distinct item_des) as x4,'
+             +'count(distinct item_code) as x5,count(distinct item_scolor) as x6,count(distinct item_icolor) as x7,count(distinct item_vndr) as x8,count(distinct kc_r1_keycode) as x9 '
+             +'from tbl_carte_itemtmp where tm=:x1';
+    parameters[0].value:=tm;
+    open;
+    if not fieldbyname('x1').isnull then begin
+      seqno001.caption:=fieldbyname('x1').asstring;
+      issue001.caption:=fieldbyname('x2').asstring;
+      site001.caption:=fieldbyname('x3').asstring;
+      des001.caption:=fieldbyname('x4').asstring;
+      item001.caption:=fieldbyname('x5').asstring;
+      vndr001.caption:=fieldbyname('x6').asstring;
+      scolor001.caption:=fieldbyname('x7').asstring;
+      icolor001.caption:=fieldbyname('x8').asstring;
+      keycode001.caption:=fieldbyname('x9').asstring;
+    end;
+  end;
+end;
+
+end.

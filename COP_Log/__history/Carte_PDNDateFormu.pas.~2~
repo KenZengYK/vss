@@ -1,0 +1,37 @@
+unit Carte_PDNDateFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, rxToolEdit;
+
+type
+  TfrmCarte_PDNDate = class(TForm)
+    Label1: TLabel;
+    DateEdit1: TDateEdit;
+    Label2: TLabel;
+    DateEdit2: TDateEdit;
+    BitBtn1: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_PDNDate: TfrmCarte_PDNDate;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCarte_PDNDate.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_PDNDate:=nil;
+end;
+
+end.

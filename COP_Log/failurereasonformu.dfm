@@ -1,0 +1,872 @@
+object frmfailurereason: Tfrmfailurereason
+  Left = 194
+  Top = 161
+  Caption = 'Failure Reason for Rejected Audit Report'
+  ClientHeight = 651
+  ClientWidth = 965
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 0
+    Width = 965
+    Height = 610
+    Align = alClient
+    AllowedOperations = [alopUpdateEh]
+    DataSource = DataSource1
+    DrawMemoText = True
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'FTY'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Fty'
+        Width = 25
+      end
+      item
+        EditButtons = <>
+        FieldName = 'WS'
+        Footers = <>
+        Title.Caption = 'Ws'
+        Width = 33
+      end
+      item
+        EditButtons = <>
+        FieldName = 'PLINE'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Line'
+        Width = 47
+      end
+      item
+        EditButtons = <>
+        FieldName = 'J_NO'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Project No.'
+        Width = 75
+      end
+      item
+        EditButtons = <>
+        FieldName = 'J2_JOB'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'WO No.'
+        Width = 62
+      end
+      item
+        EditButtons = <>
+        FieldName = 'CSTYLE'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Style No.'
+        Width = 84
+      end
+      item
+        EditButtons = <>
+        FieldName = 'FLAG6'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Prod Code'
+        Width = 31
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ACC'
+        Footers = <>
+        ReadOnly = True
+      end
+      item
+        EditButtons = <>
+        FieldName = 'MACC'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'M.ACC'
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AUDIT1'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = '1st Audit'
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AUDIT2'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = '2nd Audit'
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AUDIT3'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = '3rd Audit'
+      end
+      item
+        EditButtons = <>
+        FieldName = 'CUR'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Curr'
+      end
+      item
+        EditButtons = <>
+        FieldName = 'PST'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Past'
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'MEMO1'
+        Footers = <>
+        Title.Caption = 'Failure Reason'
+        Width = 321
+        OnEditButtonClick = DBGridEh1Columns12EditButtonClick
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 610
+    Width = 965
+    Height = 41
+    Align = alBottom
+    TabOrder = 0
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'OK'
+      DoubleBuffered = True
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333333333333333330000333333333333333333333333F33333333333
+        00003333344333333333333333388F3333333333000033334224333333333333
+        338338F3333333330000333422224333333333333833338F3333333300003342
+        222224333333333383333338F3333333000034222A22224333333338F338F333
+        8F33333300003222A3A2224333333338F3838F338F33333300003A2A333A2224
+        33333338F83338F338F33333000033A33333A222433333338333338F338F3333
+        0000333333333A222433333333333338F338F33300003333333333A222433333
+        333333338F338F33000033333333333A222433333333333338F338F300003333
+        33333333A222433333333333338F338F00003333333333333A22433333333333
+        3338F38F000033333333333333A223333333333333338F830000333333333333
+        333A333333333333333338330000333333333333333333333333333333333333
+        0000}
+      ModalResult = 1
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 1
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 
+      'select * from tbl_aql_s0 where dailyaql=1 and dt='#39'2015-01-06'#39' an' +
+      'd acc=0'
+    FieldDefs = <
+      item
+        Name = 'SEQ'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'PONO'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'CSTYLE'
+        DataType = ftString
+        Size = 35
+      end
+      item
+        Name = 'DT'
+        DataType = ftDate
+      end
+      item
+        Name = 'AUD'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'FTY'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACOL1'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL2'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL3'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL4'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL5'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL6'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL7'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'QTY1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'COL1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CASE1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'SIZE1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'QTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'BRAND'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'REMARKS'
+        DataType = ftString
+        Size = 1000
+      end
+      item
+        Name = 'SQTY1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'RQTY1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'REMARKS1'
+        DataType = ftString
+        Size = 250
+      end
+      item
+        Name = 'AUDIT1'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'AUDIT2'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'AUDIT3'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'MEMO1'
+        DataType = ftString
+        Size = 1000
+      end
+      item
+        Name = 'ACL1'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACL2'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACL3'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACL4'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACL5'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACL6'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACL7'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'FLAG6'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'CUST'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'WK'
+        DataType = ftInteger
+      end
+      item
+        Name = 'RPT'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL8'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL9'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL10'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL11'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL12'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACL8'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACL9'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACL10'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACL11'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACL12'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'CASE2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CQTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'J2_JOB'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'RWO'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'PLINE'
+        DataType = ftString
+        Size = 150
+      end
+      item
+        Name = 'HUN_CHECK'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'RANGE'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'VER'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'FLAG60'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'ENDLINE'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'QR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'QR1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'SCQTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'J_NO'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'WS'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'DAILYAQL'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'AUDIT4'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'AUDIT5'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'AUDITR'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'DAILYAQL1'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'ACC'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'CUR'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'PST'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'DELLOT'
+        DataType = ftInteger
+      end
+      item
+        Name = 'MAJR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'MINR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'AQL_LEVEL'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'LOC'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'MACC'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'ZTP'
+        DataType = ftBoolean
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx3'
+        Fields = 'fty;ws;pline'
+      end>
+    IndexName = 'idx3'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmaqlmain.dsp_Conn1
+    StoreDefs = True
+    AfterPost = Query1AfterPost
+    Left = 40
+    Top = 80
+    object Query1SEQ: TIntegerField
+      FieldName = 'SEQ'
+    end
+    object Query1PONO: TStringField
+      FieldName = 'PONO'
+      Size = 40
+    end
+    object Query1CSTYLE: TStringField
+      FieldName = 'CSTYLE'
+      Size = 35
+    end
+    object Query1DT: TDateField
+      FieldName = 'DT'
+    end
+    object Query1AUD: TStringField
+      FieldName = 'AUD'
+    end
+    object Query1FTY: TStringField
+      FieldName = 'FTY'
+    end
+    object Query1ACOL1: TStringField
+      FieldName = 'ACOL1'
+      Size = 10
+    end
+    object Query1ACOL2: TStringField
+      FieldName = 'ACOL2'
+      Size = 10
+    end
+    object Query1ACOL3: TStringField
+      FieldName = 'ACOL3'
+      Size = 10
+    end
+    object Query1ACOL4: TStringField
+      FieldName = 'ACOL4'
+      Size = 10
+    end
+    object Query1ACOL5: TStringField
+      FieldName = 'ACOL5'
+      Size = 10
+    end
+    object Query1ACOL6: TStringField
+      FieldName = 'ACOL6'
+      Size = 10
+    end
+    object Query1ACOL7: TStringField
+      FieldName = 'ACOL7'
+      Size = 10
+    end
+    object Query1QTY1: TIntegerField
+      FieldName = 'QTY1'
+    end
+    object Query1COL1: TIntegerField
+      FieldName = 'COL1'
+    end
+    object Query1CASE1: TIntegerField
+      FieldName = 'CASE1'
+    end
+    object Query1SIZE1: TIntegerField
+      FieldName = 'SIZE1'
+    end
+    object Query1QTY: TIntegerField
+      FieldName = 'QTY'
+    end
+    object Query1BRAND: TStringField
+      FieldName = 'BRAND'
+      Size = 50
+    end
+    object Query1SQTY1: TIntegerField
+      FieldName = 'SQTY1'
+    end
+    object Query1RQTY1: TIntegerField
+      FieldName = 'RQTY1'
+    end
+    object Query1AUDIT1: TBooleanField
+      FieldName = 'AUDIT1'
+    end
+    object Query1AUDIT2: TBooleanField
+      FieldName = 'AUDIT2'
+    end
+    object Query1AUDIT3: TBooleanField
+      FieldName = 'AUDIT3'
+    end
+    object Query1ACL1: TStringField
+      FieldName = 'ACL1'
+    end
+    object Query1ACL2: TStringField
+      FieldName = 'ACL2'
+    end
+    object Query1ACL3: TStringField
+      FieldName = 'ACL3'
+    end
+    object Query1ACL4: TStringField
+      FieldName = 'ACL4'
+    end
+    object Query1ACL5: TStringField
+      FieldName = 'ACL5'
+    end
+    object Query1ACL6: TStringField
+      FieldName = 'ACL6'
+    end
+    object Query1ACL7: TStringField
+      FieldName = 'ACL7'
+    end
+    object Query1FLAG6: TStringField
+      FieldName = 'FLAG6'
+      Size = 10
+    end
+    object Query1CUST: TStringField
+      FieldName = 'CUST'
+      Size = 10
+    end
+    object Query1WK: TIntegerField
+      FieldName = 'WK'
+    end
+    object Query1RPT: TStringField
+      FieldName = 'RPT'
+      Size = 10
+    end
+    object Query1ACOL8: TStringField
+      FieldName = 'ACOL8'
+      Size = 10
+    end
+    object Query1ACOL9: TStringField
+      FieldName = 'ACOL9'
+      Size = 10
+    end
+    object Query1ACOL10: TStringField
+      FieldName = 'ACOL10'
+      Size = 10
+    end
+    object Query1ACOL11: TStringField
+      FieldName = 'ACOL11'
+      Size = 10
+    end
+    object Query1ACOL12: TStringField
+      FieldName = 'ACOL12'
+      Size = 10
+    end
+    object Query1ACL8: TStringField
+      FieldName = 'ACL8'
+    end
+    object Query1ACL9: TStringField
+      FieldName = 'ACL9'
+    end
+    object Query1ACL10: TStringField
+      FieldName = 'ACL10'
+    end
+    object Query1ACL11: TStringField
+      FieldName = 'ACL11'
+    end
+    object Query1ACL12: TStringField
+      FieldName = 'ACL12'
+    end
+    object Query1CASE2: TIntegerField
+      FieldName = 'CASE2'
+    end
+    object Query1CQTY: TIntegerField
+      FieldName = 'CQTY'
+    end
+    object Query1J2_JOB: TStringField
+      FieldName = 'J2_JOB'
+      Size = 50
+    end
+    object Query1RWO: TStringField
+      FieldName = 'RWO'
+      Size = 100
+    end
+    object Query1PLINE: TStringField
+      FieldName = 'PLINE'
+      Size = 150
+    end
+    object Query1HUN_CHECK: TBooleanField
+      FieldName = 'HUN_CHECK'
+    end
+    object Query1RANGE: TStringField
+      FieldName = 'RANGE'
+      Size = 50
+    end
+    object Query1VER: TStringField
+      FieldName = 'VER'
+      Size = 10
+    end
+    object Query1FLAG60: TStringField
+      FieldName = 'FLAG60'
+      Size = 100
+    end
+    object Query1ENDLINE: TBooleanField
+      FieldName = 'ENDLINE'
+    end
+    object Query1QR: TIntegerField
+      FieldName = 'QR'
+    end
+    object Query1QR1: TIntegerField
+      FieldName = 'QR1'
+    end
+    object Query1SCQTY: TIntegerField
+      FieldName = 'SCQTY'
+    end
+    object Query1J_NO: TStringField
+      FieldName = 'J_NO'
+    end
+    object Query1WS: TStringField
+      FieldName = 'WS'
+      Size = 10
+    end
+    object Query1DAILYAQL: TBooleanField
+      FieldName = 'DAILYAQL'
+    end
+    object Query1AUDIT4: TBooleanField
+      FieldName = 'AUDIT4'
+    end
+    object Query1AUDIT5: TBooleanField
+      FieldName = 'AUDIT5'
+    end
+    object Query1AUDITR: TStringField
+      FieldName = 'AUDITR'
+      Size = 10
+    end
+    object Query1DAILYAQL1: TBooleanField
+      FieldName = 'DAILYAQL1'
+    end
+    object Query1ACC: TBooleanField
+      FieldName = 'ACC'
+    end
+    object Query1CUR: TBooleanField
+      FieldName = 'CUR'
+    end
+    object Query1PST: TBooleanField
+      FieldName = 'PST'
+    end
+    object Query1DELLOT: TIntegerField
+      FieldName = 'DELLOT'
+    end
+    object Query1MAJR: TIntegerField
+      FieldName = 'MAJR'
+    end
+    object Query1MINR: TIntegerField
+      FieldName = 'MINR'
+    end
+    object Query1AQL_LEVEL: TStringField
+      FieldName = 'AQL_LEVEL'
+      Size = 5
+    end
+    object Query1LOC: TStringField
+      FieldName = 'LOC'
+      Size = 10
+    end
+    object Query1MACC: TBooleanField
+      FieldName = 'MACC'
+    end
+    object Query1REMARKS: TStringField
+      FieldName = 'REMARKS'
+      Size = 1000
+    end
+    object Query1REMARKS1: TStringField
+      FieldName = 'REMARKS1'
+      Size = 250
+    end
+    object Query1MEMO1: TStringField
+      FieldName = 'MEMO1'
+      Size = 1000
+    end
+    object Query1ZTP: TBooleanField
+      FieldName = 'ZTP'
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 72
+    Top = 80
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmaqlmain.dsp_Conn1
+    Left = 104
+    Top = 80
+  end
+  object Query4: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmaqlmain.dsp_Conn1
+    Left = 136
+    Top = 80
+  end
+end

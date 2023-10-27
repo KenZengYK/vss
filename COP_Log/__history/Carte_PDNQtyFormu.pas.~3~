@@ -1,0 +1,66 @@
+unit Carte_PDNQtyFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, rxToolEdit, rxCurrEdit;
+
+type
+  TfrmCarte_PDNQty = class(TForm)
+    Label1: TLabel;
+    Edit1: TCurrencyEdit;
+    Label2: TLabel;
+    Edit2: TCurrencyEdit;
+    Label3: TLabel;
+    Edit3: TCurrencyEdit;
+    Label4: TLabel;
+    Edit4: TCurrencyEdit;
+    BitBtn1: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Edit1Change(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_PDNQty: TfrmCarte_PDNQty;
+
+implementation
+
+uses Carte_MainFormu, Carte_LogisticsflowFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_PDNQty.BitBtn1Click(Sender: TObject);
+begin
+  with frmCarte_Logisticsflow.adodataset1 do begin
+    edit;
+    fieldbyname('wpdn_aqlno').value:=edit1.value;
+    fieldbyname('wpdn_aqlf').value:=edit2.value;
+    fieldbyname('wpdn_pakno').value:=edit3.value;
+    fieldbyname('wpdn_ttl').value:=edit4.value;
+    post;
+  end;
+end;
+
+procedure TfrmCarte_PDNQty.Edit1Change(Sender: TObject);
+var
+  q1,q2,q3:integer;
+begin
+  q1:=edit1.value;
+  q2:=edit2.value;
+  q3:=edit3.value;
+  edit4.value:=q1+q2+q3;
+end;
+
+procedure TfrmCarte_PDNQty.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_PDNQty:=nil;
+end;
+
+end.

@@ -1,0 +1,323 @@
+unit Carte_KeycodechooseFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, StdCtrls, Buttons, ADODB, DB, RzBckgnd;
+
+type
+  TfrmCarte_Keycodechoose = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
+    RzBackground3: TRzBackground;
+    RzBackground1: TRzBackground;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_Keycodechoose: TfrmCarte_Keycodechoose;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu, Carte_ChaseitemsFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_Keycodechoose.BitBtn1Click(Sender: TObject);
+var
+  i,seq:integer;
+  keycode:string;
+begin
+  if dbgrideh1.selectedrows.count>0 then begin
+    with dbgrideh1.datasource.dataset do begin
+      for i:=0 to dbgrideh1.selectedrows.count-1 do begin
+        GotoBookmark(pointer(DBGridEh1.SelectedRows.Items[i]));
+        if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_seq').isnull then begin
+          frmCarte_Chaseitems.adodataset1.edit;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_seq').value:=fieldbyname('seq').value;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_keycode').value:=fieldbyname('keycode').value;
+          if not fieldbyname('ex_o').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_ex_o').value:=fieldbyname('ex_o').value;
+          if not fieldbyname('ex_r').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_ex_r').value:=fieldbyname('ex_r').value;
+          if not fieldbyname('act_cmpdt').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_act_cmpdt').value:=fieldbyname('act_cmpdt').value;
+          frmCarte_Chaseitems.adodataset1.post;
+        end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_seq').isnull then begin
+          frmCarte_Chaseitems.adodataset1.edit;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_seq').value:=fieldbyname('seq').value;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_keycode').value:=fieldbyname('keycode').value;
+          if not fieldbyname('ex_o').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_ex_o').value:=fieldbyname('ex_o').value;
+          if not fieldbyname('ex_r').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_ex_r').value:=fieldbyname('ex_r').value;
+          if not fieldbyname('act_cmpdt').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_act_cmpdt').value:=fieldbyname('act_cmpdt').value;
+          frmCarte_Chaseitems.adodataset1.post;
+        end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_seq').isnull then begin
+          frmCarte_Chaseitems.adodataset1.edit;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_seq').value:=fieldbyname('seq').value;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_keycode').value:=fieldbyname('keycode').value;
+          if not fieldbyname('ex_o').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_ex_o').value:=fieldbyname('ex_o').value;
+          if not fieldbyname('ex_r').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_ex_r').value:=fieldbyname('ex_r').value;
+          if not fieldbyname('act_cmpdt').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_act_cmpdt').value:=fieldbyname('act_cmpdt').value;
+          frmCarte_Chaseitems.adodataset1.post;
+        end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_seq').isnull then begin
+          frmCarte_Chaseitems.adodataset1.edit;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_seq').value:=fieldbyname('seq').value;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_keycode').value:=fieldbyname('keycode').value;
+          if not fieldbyname('ex_o').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_ex_o').value:=fieldbyname('ex_o').value;
+          if not fieldbyname('ex_r').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_ex_r').value:=fieldbyname('ex_r').value;
+          if not fieldbyname('act_cmpdt').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_act_cmpdt').value:=fieldbyname('act_cmpdt').value;
+          frmCarte_Chaseitems.adodataset1.post;
+        end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_seq').isnull then begin
+          frmCarte_Chaseitems.adodataset1.edit;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_seq').value:=fieldbyname('seq').value;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_keycode').value:=fieldbyname('keycode').value;
+          if not fieldbyname('ex_o').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_ex_o').value:=fieldbyname('ex_o').value;
+          if not fieldbyname('ex_r').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_ex_r').value:=fieldbyname('ex_r').value;
+          if not fieldbyname('act_cmpdt').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_act_cmpdt').value:=fieldbyname('act_cmpdt').value;
+          frmCarte_Chaseitems.adodataset1.post;
+        end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_seq').isnull then begin
+          frmCarte_Chaseitems.adodataset1.edit;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_seq').value:=fieldbyname('seq').value;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_keycode').value:=fieldbyname('keycode').value;
+          if not fieldbyname('ex_o').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_ex_o').value:=fieldbyname('ex_o').value;
+          if not fieldbyname('ex_r').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_ex_r').value:=fieldbyname('ex_r').value;
+          if not fieldbyname('act_cmpdt').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_act_cmpdt').value:=fieldbyname('act_cmpdt').value;
+          frmCarte_Chaseitems.adodataset1.post;
+        end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_seq').isnull then begin
+          frmCarte_Chaseitems.adodataset1.edit;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_seq').value:=fieldbyname('seq').value;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_keycode').value:=fieldbyname('keycode').value;
+          if not fieldbyname('ex_o').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_ex_o').value:=fieldbyname('ex_o').value;
+          if not fieldbyname('ex_r').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_ex_r').value:=fieldbyname('ex_r').value;
+          if not fieldbyname('act_cmpdt').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_act_cmpdt').value:=fieldbyname('act_cmpdt').value;
+          frmCarte_Chaseitems.adodataset1.post;
+        end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_seq').isnull then begin
+          frmCarte_Chaseitems.adodataset1.edit;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_seq').value:=fieldbyname('seq').value;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_keycode').value:=fieldbyname('keycode').value;
+          if not fieldbyname('ex_o').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_ex_o').value:=fieldbyname('ex_o').value;
+          if not fieldbyname('ex_r').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_ex_r').value:=fieldbyname('ex_r').value;
+          if not fieldbyname('act_cmpdt').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_act_cmpdt').value:=fieldbyname('act_cmpdt').value;
+          frmCarte_Chaseitems.adodataset1.post;
+        end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_seq').isnull then begin
+          frmCarte_Chaseitems.adodataset1.edit;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_seq').value:=fieldbyname('seq').value;
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_keycode').value:=fieldbyname('keycode').value;
+          if not fieldbyname('ex_o').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_ex_o').value:=fieldbyname('ex_o').value;
+          if not fieldbyname('ex_r').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_ex_r').value:=fieldbyname('ex_r').value;
+          if not fieldbyname('act_cmpdt').isnull then
+          frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_act_cmpdt').value:=fieldbyname('act_cmpdt').value;
+          frmCarte_Chaseitems.adodataset1.post;
+        end;
+      end;
+    end;
+  end else begin
+    if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_seq').isnull then begin
+      frmCarte_Chaseitems.adodataset1.edit;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_seq').value:=dbgrideh1.fields[0].value;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_keycode').value:=dbgrideh1.fields[1].value;
+      if not dbgrideh1.fields[10].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_ex_o').value:=dbgrideh1.fields[10].value;
+      if not dbgrideh1.fields[11].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_ex_r').value:=dbgrideh1.fields[11].value;
+      if not dbgrideh1.fields[12].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_act_cmpdt').value:=dbgrideh1.fields[12].value;
+      frmCarte_Chaseitems.adodataset1.post;
+    end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_seq').isnull then begin
+      frmCarte_Chaseitems.adodataset1.edit;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_seq').value:=dbgrideh1.fields[0].value;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_keycode').value:=dbgrideh1.fields[1].value;
+      if not dbgrideh1.fields[10].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_ex_o').value:=dbgrideh1.fields[10].value;
+      if not dbgrideh1.fields[11].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_ex_r').value:=dbgrideh1.fields[11].value;
+      if not dbgrideh1.fields[12].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_act_cmpdt').value:=dbgrideh1.fields[12].value;
+      frmCarte_Chaseitems.adodataset1.post;
+    end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_seq').isnull then begin
+      frmCarte_Chaseitems.adodataset1.edit;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_seq').value:=dbgrideh1.fields[0].value;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_keycode').value:=dbgrideh1.fields[1].value;
+      if not dbgrideh1.fields[10].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_ex_o').value:=dbgrideh1.fields[10].value;
+      if not dbgrideh1.fields[11].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_ex_r').value:=dbgrideh1.fields[11].value;
+      if not dbgrideh1.fields[12].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_act_cmpdt').value:=dbgrideh1.fields[12].value;
+      frmCarte_Chaseitems.adodataset1.post;
+    end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_seq').isnull then begin
+      frmCarte_Chaseitems.adodataset1.edit;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_seq').value:=dbgrideh1.fields[0].value;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_keycode').value:=dbgrideh1.fields[1].value;
+      if not dbgrideh1.fields[10].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_ex_o').value:=dbgrideh1.fields[10].value;
+      if not dbgrideh1.fields[11].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_ex_r').value:=dbgrideh1.fields[11].value;
+      if not dbgrideh1.fields[12].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_act_cmpdt').value:=dbgrideh1.fields[12].value;
+      frmCarte_Chaseitems.adodataset1.post;
+    end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_seq').isnull then begin
+      frmCarte_Chaseitems.adodataset1.edit;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_seq').value:=dbgrideh1.fields[0].value;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_keycode').value:=dbgrideh1.fields[1].value;
+      if not dbgrideh1.fields[10].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_ex_o').value:=dbgrideh1.fields[10].value;
+      if not dbgrideh1.fields[11].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_ex_r').value:=dbgrideh1.fields[11].value;
+      if not dbgrideh1.fields[12].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_act_cmpdt').value:=dbgrideh1.fields[12].value;
+      frmCarte_Chaseitems.adodataset1.post;
+    end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_seq').isnull then begin
+      frmCarte_Chaseitems.adodataset1.edit;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_seq').value:=dbgrideh1.fields[0].value;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_keycode').value:=dbgrideh1.fields[1].value;
+      if not dbgrideh1.fields[10].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_ex_o').value:=dbgrideh1.fields[10].value;
+      if not dbgrideh1.fields[11].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_ex_r').value:=dbgrideh1.fields[11].value;
+      if not dbgrideh1.fields[12].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_act_cmpdt').value:=dbgrideh1.fields[12].value;
+      frmCarte_Chaseitems.adodataset1.post;
+    end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_seq').isnull then begin
+      frmCarte_Chaseitems.adodataset1.edit;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_seq').value:=dbgrideh1.fields[0].value;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_keycode').value:=dbgrideh1.fields[1].value;
+      if not dbgrideh1.fields[10].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_ex_o').value:=dbgrideh1.fields[10].value;
+      if not dbgrideh1.fields[11].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_ex_r').value:=dbgrideh1.fields[11].value;
+      if not dbgrideh1.fields[12].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_act_cmpdt').value:=dbgrideh1.fields[12].value;
+      frmCarte_Chaseitems.adodataset1.post;
+    end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_seq').isnull then begin
+      frmCarte_Chaseitems.adodataset1.edit;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_seq').value:=dbgrideh1.fields[0].value;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_keycode').value:=dbgrideh1.fields[1].value;
+      if not dbgrideh1.fields[10].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_ex_o').value:=dbgrideh1.fields[10].value;
+      if not dbgrideh1.fields[11].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_ex_r').value:=dbgrideh1.fields[11].value;
+      if not dbgrideh1.fields[12].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_act_cmpdt').value:=dbgrideh1.fields[12].value;
+      frmCarte_Chaseitems.adodataset1.post;
+    end else if frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_seq').isnull then begin
+      frmCarte_Chaseitems.adodataset1.edit;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_seq').value:=dbgrideh1.fields[0].value;
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_keycode').value:=dbgrideh1.fields[1].value;
+      if not dbgrideh1.fields[10].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_ex_o').value:=dbgrideh1.fields[10].value;
+      if not dbgrideh1.fields[11].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_ex_r').value:=dbgrideh1.fields[11].value;
+      if not dbgrideh1.fields[12].isnull then
+      frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_act_cmpdt').value:=dbgrideh1.fields[12].value;
+      frmCarte_Chaseitems.adodataset1.post;
+    end;
+  end;
+  combobox1change(self);
+end;
+
+procedure TfrmCarte_Keycodechoose.ComboBox1Change(Sender: TObject);
+var
+  ins1:string;
+begin
+  ins1:='';
+  if not frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r1_seq').isnull then begin
+    if ins1>'' then ins1:=ins1+','+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r1_seq').asstring
+    else ins1:='('+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r1_seq').asstring;
+  end;
+  if not frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_seq').isnull then begin
+    if ins1>'' then ins1:=ins1+','+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_seq').asstring
+    else ins1:='('+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r2_seq').asstring;
+  end;
+  if not frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_seq').isnull then begin
+    if ins1>'' then ins1:=ins1+','+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_seq').asstring
+    else ins1:='('+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r3_seq').asstring;
+  end;
+  if not frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_seq').isnull then begin
+    if ins1>'' then ins1:=ins1+','+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_seq').asstring
+    else ins1:='('+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r4_seq').asstring;
+  end;
+  if not frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_seq').isnull then begin
+    if ins1>'' then ins1:=ins1+','+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_seq').asstring
+    else ins1:='('+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r5_seq').asstring;
+  end;
+  if not frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_seq').isnull then begin
+    if ins1>'' then ins1:=ins1+','+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_seq').asstring
+    else ins1:='('+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r6_seq').asstring;
+  end;
+  if not frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_seq').isnull then begin
+    if ins1>'' then ins1:=ins1+','+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_seq').asstring
+    else ins1:='('+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r7_seq').asstring;
+  end;
+  if not frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_seq').isnull then begin
+    if ins1>'' then ins1:=ins1+','+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_seq').asstring
+    else ins1:='('+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r8_seq').asstring;
+  end;
+  if not frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_seq').isnull then begin
+    if ins1>'' then ins1:=ins1+','+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_seq').asstring
+    else ins1:='('+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r9_seq').asstring;
+  end;
+  if not frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_seq').isnull then begin
+    if ins1>'' then ins1:=ins1+','+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_seq').asstring
+    else ins1:='('+frmCarte_Chaseitems.adodataset1.fieldbyname('kc_r10_seq').asstring;
+  end;
+  if ins1>'' then ins1:=ins1+')';
+  with adodataset1 do begin
+    close;
+    commandtext:='select * from tbl_carte_sopc1 where projectno='''+combobox1.text+''' and seq not in '+ins1;
+    open;
+  end;
+end;
+
+procedure TfrmCarte_Keycodechoose.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_Keycodechoose:=nil;
+end;
+
+procedure TfrmCarte_Keycodechoose.FormShow(Sender: TObject);
+begin
+  if combobox1.text>'' then combobox1change(self);
+end;
+
+end.

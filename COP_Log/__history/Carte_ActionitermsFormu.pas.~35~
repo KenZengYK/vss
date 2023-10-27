@@ -1,0 +1,162 @@
+unit Carte_ActionitermsFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData, ExtCtrls,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, RzBckgnd, ADODB, StdCtrls, Buttons,
+  cxGridExportLink, ppProd, ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe,
+  ppVar, ppCtrls, ppPrnabl, ppBands, ppCache, ppParameter, ppViewr, siComp,
+  cxGridBandedTableView, cxGridDBBandedTableView;
+
+type
+  TfrmCarte_Actionitems = class(TForm)
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel1: TPanel;
+    RzBackground1: TRzBackground;
+    ADODataSet1: TADODataSet;
+    ADOQuery1: TADOQuery;
+    DataSource1: TDataSource;
+    cxGrid1DBTableView1code: TcxGridDBColumn;
+    cxGrid1DBTableView1act_item: TcxGridDBColumn;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    SaveDialog1: TSaveDialog;
+    cxGrid1DBTableView1act_group: TcxGridDBColumn;
+    cxGrid1DBTableView1act_grp: TcxGridDBColumn;
+    BitBtn4: TBitBtn;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppParameterList1: TppParameterList;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppShape1: TppShape;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppShape2: TppShape;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLabel5: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    cxGrid1DBTableView1act_item_e: TcxGridDBColumn;
+    siLang1: TsiLang;
+    cxGrid1DBTableView1act_tgrp: TcxGridDBColumn;
+    cxGrid1DBTableView1act_tgrp_e: TcxGridDBColumn;
+    cxGrid1DBTableView1act_tgrp_cde: TcxGridDBColumn;
+    cxGrid2DBTableView1: TcxGridDBTableView;
+    cxGrid2Level1: TcxGridLevel;
+    cxGrid2: TcxGrid;
+    cxGrid2View1: TcxGridDBBandedTableView;
+    cxGrid2View1code: TcxGridDBBandedColumn;
+    cxGrid2View1act_item: TcxGridDBBandedColumn;
+    cxGrid2View1act_group: TcxGridDBBandedColumn;
+    cxGrid2View1act_grp: TcxGridDBBandedColumn;
+    cxGrid2View1act_item_e: TcxGridDBBandedColumn;
+    cxGrid2View1act_tgrp: TcxGridDBBandedColumn;
+    cxGrid2View1act_tgrp_e: TcxGridDBBandedColumn;
+    cxGrid2View1act_tgrp_cde: TcxGridDBBandedColumn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure ADODataSet1NewRecord(DataSet: TDataSet);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_Actionitems: TfrmCarte_Actionitems;
+
+implementation
+
+uses Carte_MainFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_Actionitems.ADODataSet1NewRecord(DataSet: TDataSet);
+var
+  seq:integer;
+begin
+  with adoquery1 do begin
+    close;
+    //parameters.clear;
+    sql.text:='select max(seq) as x1 from tbl_carte_actitem';
+    open;
+    if not fieldbyname('x1').isnull then seq:=fieldbyname('x1').Value+1
+    else seq:=1;
+  end;
+  adodataset1.FieldByName('seq').Value:=seq;
+end;
+
+procedure TfrmCarte_Actionitems.BitBtn1Click(Sender: TObject);
+begin
+  //cxgrid1.SetFocus;
+  cxgrid2.SetFocus;
+  adodataset1.append;
+end;
+
+procedure TfrmCarte_Actionitems.BitBtn2Click(Sender: TObject);
+begin
+  if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then adodataset1.Delete;
+  //cxgrid1dbtableview1.DataController.GetItemByFieldName('')
+end;
+
+procedure TfrmCarte_Actionitems.BitBtn3Click(Sender: TObject);
+begin
+  if (adodataset1.State=dsEdit) or (adodataset1.State=dsInsert) then adodataset1.Post;  
+end;
+
+procedure TfrmCarte_Actionitems.BitBtn5Click(Sender: TObject);
+begin
+  if savedialog1.Execute then begin
+    ExportGridToExcel(savedialog1.FileName,cxGrid1,false,true,false,'xls');
+  end;
+end;
+
+procedure TfrmCarte_Actionitems.BitBtn6Click(Sender: TObject);
+begin
+  if not adodataset1.fieldbyname('act_grp').isnull then ppReport1.print;
+end;
+
+procedure TfrmCarte_Actionitems.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_Actionitems:=nil;
+end;
+
+procedure TfrmCarte_Actionitems.FormCreate(Sender: TObject);
+begin
+  siLang1.Language:=frmCarte_Main.ComboBox2.text;
+end;
+
+procedure TfrmCarte_Actionitems.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+end.

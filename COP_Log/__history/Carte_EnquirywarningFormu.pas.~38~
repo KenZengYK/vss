@@ -1,0 +1,301 @@
+unit Carte_EnquirywarningFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, StdCtrls, Buttons, DB, ADODB;
+
+type
+  TfrmCarte_Enquirywarning = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn7: TBitBtn;
+    ADOQuery1: TADOQuery;
+    DataSource1: TDataSource;
+    BitBtn8: TBitBtn;
+    BitBtn9: TBitBtn;
+    BitBtn10: TBitBtn;
+    BitBtn11: TBitBtn;
+    BitBtn12: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure BitBtn10Click(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+    procedure BitBtn11Click(Sender: TObject);
+    procedure BitBtn12Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_Enquirywarning: TfrmCarte_Enquirywarning;
+  sqlstr1:string;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_Enquirywarning.BitBtn10Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn11Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a where m_start is null and (mcup_ddt0 is not null or mcup_ddt is not null) '
+             +'and case when mcup_ddt0 is not null then mcup_ddt0 else mcup_ddt end<='''+formatdatetime('yyyy-mm-dd',date)+'''';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn12Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a where (case when fwdt_r is not null then fwdt_r else fwdt_o end)<mcup_mddt '
+             +'and sp_appdt_a is null and (fwdt_o is not null or fwdt_r is not null)';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn1Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a where (case when fwdt_r is not null then fwdt_r else fwdt_o end<=case when sp_appdt_r is not null then sp_appdt_r else sp_appdt_o end) '
+             +'and sp_appdt_a is null and (sp_appdt_o is not null or sp_appdt_r is not null) and (fwdt_o is not null or fwdt_r is not null)';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn2Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a where m_start is null and (ddt0 is not null or ddt is not null) '
+             +'and case when ddt0 is not null then ddt0 else ddt end<='''+formatdatetime('yyyy-mm-dd',date)+'''';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn3Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a where (case when fwdt_r is not null then fwdt_r else fwdt_o end)<m_ddt '
+             +'and sp_appdt_a is null and (fwdt_o is not null or fwdt_r is not null)';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn4Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a where fwdt_a is null and (fwdt_o is not null or fwdt_r is not null) '
+             +'and case when fwdt_r is not null then fwdt_r else fwdt_o end<='''+formatdatetime('yyyy-mm-dd',date)+'''';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn5Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a where act_cmpdt is null '
+             +'and case when ex_r is not null then ex_r else ex_o end<='''+formatdatetime('yyyy-mm-dd',date+7)+'''';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn6Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a where exdiff<0';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn7Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a,tbl_carte_sopc4 d where a.seq=d.seq and a.qn_tno>=1 and d.q1_dt1 is null';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn8Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a,tbl_carte_sopc4 d where a.seq=d.seq and a.qn_tno>=1 and d.q1_dt1<='''+formatdatetime('yyyy-mm-dd',date)+''' and d.q1_dt4 is null';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.BitBtn9Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_sopc1 a,tbl_carte_sopc4 d where a.seq=d.seq and a.qn_tno>=2 and d.q1_dt2<='''+formatdatetime('yyyy-mm-dd',date)+''' and d.q2_dt4 is null';
+    sql.text:=sql.text+sqlstr1;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Enquirywarning.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_Enquirywarning:=nil;
+end;
+
+procedure TfrmCarte_Enquirywarning.FormShow(Sender: TObject);
+begin
+  sqlstr1:='';
+    if frmCarte_Ordprocessing.cxcombobox1.text>'' then sqlstr1:=sqlstr1+' and charindex(keycode,'''+frmCarte_Ordprocessing.cxcombobox1.text+''')>0';
+    if frmCarte_Ordprocessing.combobox2.text>'' then sqlstr1:=sqlstr1+' and charindex(projectno,'''+frmCarte_Ordprocessing.combobox2.text+''')>0';
+    if frmCarte_Ordprocessing.cxcombobox2.text>'' then sqlstr1:=sqlstr1+' and charindex(booking,'''+frmCarte_Ordprocessing.cxcombobox2.text+''')>0';
+    if frmCarte_Ordprocessing.combobox4.text>'' then begin
+      if frmCarte_Ordprocessing.combobox4.text<>'All' then
+      sqlstr1:=sqlstr1+' and cust='''+frmCarte_Ordprocessing.combobox4.text+'''';
+    end;
+    if frmCarte_Ordprocessing.combobox5.text>'' then sqlstr1:=sqlstr1+' and a.qty1_sp='''+frmCarte_Ordprocessing.combobox5.text+'''';
+    if frmCarte_Ordprocessing.combobox6.text>'' then sqlstr1:=sqlstr1+' and custstyle='''+frmCarte_Ordprocessing.combobox6.text+'''';
+    if frmCarte_Ordprocessing.combobox3.text>'' then begin
+       if frmCarte_Ordprocessing.combobox3.text='未開制單' then sqlstr1:=sqlstr1+' and ((workorderno is null) or (workorderno=''''))'
+       else sqlstr1:=sqlstr1+' and workorderno='''+frmCarte_Ordprocessing.combobox3.text+'''';
+    end;
+    if frmCarte_Ordprocessing.combobox7.text>'' then begin
+      if (frmCarte_Ordprocessing.combobox7.text<>'GD (SL/PP/PP2/-)') and (frmCarte_Ordprocessing.combobox7.text<>'GX (GG/RX)') and (frmCarte_Ordprocessing.combobox7.text<>'未定') then
+        sqlstr1:=sqlstr1+' and prod_site='''+frmCarte_Ordprocessing.combobox7.text+''''
+      else if (frmCarte_Ordprocessing.combobox7.text='GD (SL/PP/PP2/-)') then
+        sqlstr1:=sqlstr1+' and prod_site in (''SL'',''PP'',''PP2'',''-'')'
+      else if (frmCarte_Ordprocessing.combobox7.text='GX (GG/RX)') then
+        sqlstr1:=sqlstr1+' and prod_site in (''GG'',''RX'')'
+      else if (frmCarte_Ordprocessing.combobox7.text='未定') then
+        sqlstr1:=sqlstr1+' and ((prod_site is null) or (prod_site=''''))';
+    end;
+    if frmCarte_Ordprocessing.combobox8.text>'' then sqlstr1:=sqlstr1+' and div like '''+frmCarte_Ordprocessing.combobox8.text+'%''';
+        if frmCarte_Ordprocessing.combobox9.text>'' then begin
+          if pos('*',frmCarte_Ordprocessing.combobox9.text)>0 then
+            sqlstr1:=sqlstr1+' and (exists (select seq from tbl_carte_sopc3 c where a.seq=c.seq and c.act_cmp3=1 and c.act_item3='''+copy(frmCarte_Ordprocessing.combobox9.text,1,3)+''')'
+                     +' or exists (select grp_act3g from tbl_carte_sopc3_grp b where charindex(b.grp_act3g,a.grp_act)>0 and act_cmp3g=1 and act_item3g='''+copy(frmCarte_Ordprocessing.combobox9.text,1,3)+'''))'
+          else sqlstr1:=sqlstr1+' and (exists (select seq from tbl_carte_sopc3 c where a.seq=c.seq and c.act_cmp3=0 and c.act_item3='''+frmCarte_Ordprocessing.combobox9.text+''')'
+                        +' or exists (select grp_act3g from tbl_carte_sopc3_grp b where charindex(b.grp_act3g,a.grp_act)>0 and act_cmp3g=0 and act_issue3g='''+frmCarte_Ordprocessing.combobox9.text+'''))';
+        end;
+        if frmCarte_Ordprocessing.combobox10.text>'' then sqlstr1:=sqlstr1+' and (exists (select c.seq from tbl_carte_sopc3 c,tbl_carte_sopc2 d '
+                                                                   +'where a.seq=c.seq and a.seq=d.seq and c.seq_i=d.seq_i and c.act_cmp3=0 and d.act_cnt=1 and d.act_issue='''+frmCarte_Ordprocessing.combobox10.text+''')'
+                                                                   +' or exists (select grp_act3g from tbl_carte_sopc3_grp b where charindex(b.grp_act3g,a.grp_act)>0 and act_cmp3g=0 and act_issue3g='''+frmCarte_Ordprocessing.combobox10.text+'''))';
+    if frmCarte_Ordprocessing.dateedit1.date>0 then sqlstr1:=sqlstr1+' and (case when ex_r is not null then ex_r else ex_o end)>='''+formatdatetime('yyyy-mm-dd',frmCarte_Ordprocessing.dateedit1.date)+'''';
+    if frmCarte_Ordprocessing.dateedit2.date>0 then sqlstr1:=sqlstr1+' and (case when ex_r is not null then ex_r else ex_o end)<'''+formatdatetime('yyyy-mm-dd',frmCarte_Ordprocessing.dateedit2.date+1)+'''';
+    if frmCarte_Ordprocessing.dateedit3.date>0 then sqlstr1:=sqlstr1+' and exists (select seq from tbl_carte_sopc3 b where a.seq=b.seq and b.act_cmp3=0 and b.act_cmpdt3<='''+formatdatetime('yyyy-mm-dd',frmCarte_Ordprocessing.dateedit3.date)+''')';
+    if frmCarte_Ordprocessing.edit1.text>'' then sqlstr1:=sqlstr1+' and mex_oe>='+frmCarte_Ordprocessing.edit1.text;
+    if frmCarte_Ordprocessing.edit2.text>'' then sqlstr1:=sqlstr1+' and mex_oe<='+frmCarte_Ordprocessing.edit2.text;
+    if (frmCarte_Ordprocessing.dateedit4.date>0) or (frmCarte_Ordprocessing.dateedit5.date>0) then begin
+      if frmCarte_Ordprocessing.dateedit4.date>0 then sqlstr1:=sqlstr1+' and act_cmpdt>='''+formatdatetime('yyyy-mm-dd',frmCarte_Ordprocessing.dateedit4.date)+'''';
+      if frmCarte_Ordprocessing.dateedit5.date>0 then sqlstr1:=sqlstr1+' and act_cmpdt<='''+formatdatetime('yyyy-mm-dd',frmCarte_Ordprocessing.dateedit5.date)+'''';
+    end else begin
+      if frmCarte_Ordprocessing.chk3.checked then sqlstr1:=sqlstr1+' and ex_a is not null'
+      else sqlstr1:=sqlstr1+' and ex_a is null';
+    end;
+    if frmCarte_Ordprocessing.chk4.checked then sqlstr1:=sqlstr1+' and exists (select seq from tbl_carte_sopc3 b where a.seq=b.seq and act_cmp3=0)';
+    if frmCarte_Ordprocessing.chk5.checked then begin
+      sqlstr1:=sqlstr1+' and a.ord_cancel1=''Y''';
+      if frmCarte_Ordprocessing.chk1.checked then sqlstr1:=sqlstr1+' and ((workorderno is null) or (workorderno=''''))';
+    end else begin
+      sqlstr1:=sqlstr1+' and ((a.ord_cancel1='''') or (a.ord_cancel1 is null))';
+      if frmCarte_Ordprocessing.chk1.checked then sqlstr1:=sqlstr1+' and ((workorderno is null) or (workorderno=''''))'
+      else sqlstr1:=sqlstr1+' and workorderno>''''';
+    end;
+end;
+
+end.

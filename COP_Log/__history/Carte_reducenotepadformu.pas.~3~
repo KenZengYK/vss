@@ -1,0 +1,34 @@
+unit Carte_reducenotepadformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  Tfrmreduce_notepad = class(TForm)
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmreduce_notepad: Tfrmreduce_notepad;
+
+implementation
+
+uses Carte_Mainformu, Carte_Logisticsflowformu;
+
+{$R *.dfm}
+
+procedure Tfrmreduce_notepad.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmreduce_notepad:=nil;
+end;
+
+end.

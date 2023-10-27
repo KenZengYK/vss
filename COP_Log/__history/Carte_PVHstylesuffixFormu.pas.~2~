@@ -1,0 +1,64 @@
+unit Carte_PVHstylesuffixFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData, ADODB,
+  cxGridLevel, cxGridBandedTableView, cxGridDBBandedTableView,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
+  cxGridCustomView, cxGrid, StdCtrls, Buttons, RzBckgnd, ExtCtrls;
+
+type
+  TfrmCarte_PVHstylesuffix = class(TForm)
+    Panel1: TPanel;
+    RzBackground1: TRzBackground;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn4: TBitBtn;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1DBTableView1class_g: TcxGridDBColumn;
+    cxGrid1DBTableView1class_g_d: TcxGridDBColumn;
+    cxGrid1DBTableView1class: TcxGridDBColumn;
+    cxGrid1DBTableView1class_d: TcxGridDBColumn;
+    cxGrid1DBBandedTableView1: TcxGridDBBandedTableView;
+    cxGrid1DBBandedTableView1class_g: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1class_g_d: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1class: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1class_d: TcxGridDBBandedColumn;
+    cxGrid1clrgrp: TcxGridDBBandedColumn;
+    cxGrid1Level1: TcxGridLevel;
+    ADODataSet1: TADODataSet;
+    SaveDialog1: TSaveDialog;
+    DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_PVHstylesuffix: TfrmCarte_PVHstylesuffix;
+
+implementation
+
+uses Carte_MainFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_PVHstylesuffix.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_PVHstylesuffix:=nil;
+end;
+
+end.

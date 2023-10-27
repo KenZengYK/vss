@@ -1,0 +1,200 @@
+unit Carte_SewingfacilityFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, DBCtrls, StdCtrls, RzBckgnd, ADODB, DB,
+  Buttons, Mask;
+
+type
+  TfrmCarte_Sewingfacility = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    RzBackground1: TRzBackground;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    Label4: TLabel;
+    DBText4: TDBText;
+    Label7: TLabel;
+    DBText7: TDBText;
+    Label5: TLabel;
+    DBText5: TDBText;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
+    RzBackground2: TRzBackground;
+    BitBtn3: TBitBtn;
+    BitBtn8: TBitBtn;
+    Label6: TLabel;
+    DBEdit1: TDBEdit;
+    Label8: TLabel;
+    DBEdit2: TDBEdit;
+    Label9: TLabel;
+    DBEdit3: TDBEdit;
+    Label10: TLabel;
+    DBEdit4: TDBEdit;
+    Label11: TLabel;
+    DBEdit5: TDBEdit;
+    Label12: TLabel;
+    DBEdit6: TDBEdit;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure QTYChange(Sender: TField);
+    procedure ADODataSet1AfterOpen(DataSet: TDataSet);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure DBEdit2Change(Sender: TObject);
+    procedure DBGridEh1Enter(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_Sewingfacility: TfrmCarte_Sewingfacility;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_Sewingfacility.ADODataSet1AfterOpen(DataSet: TDataSet);
+begin
+  adodataset1.fieldbyname('q1_qty').onchange:=qtychange;
+  adodataset1.fieldbyname('q2_qty').onchange:=qtychange;
+  adodataset1.fieldbyname('q3_qty').onchange:=qtychange;
+  adodataset1.fieldbyname('q4_qty').onchange:=qtychange;
+  adodataset1.fieldbyname('q5_qty').onchange:=qtychange;
+  adodataset1.fieldbyname('q6_qty').onchange:=qtychange;
+end;
+
+procedure TfrmCarte_Sewingfacility.BitBtn3Click(Sender: TObject);
+begin
+  if frmCarte_Ordprocessing.adodataset1.state=dsedit then frmCarte_Ordprocessing.adodataset1.post;
+  if adodataset1.state=dsedit then adodataset1.post;
+end;
+
+procedure TfrmCarte_Sewingfacility.DBEdit2Change(Sender: TObject);
+var
+  i,qn_no:integer;
+begin
+  screen.cursor:=crSQLWait;
+  try
+  for i:=9 to 43 do begin
+    dbgrideh1.columns[i].visible:=true;
+  end;
+  //
+  //qn_no:=frmCarte_Ordprocessing.adodataset1.fieldbyname('qn_no').value+frmCarte_Ordprocessing.adodataset1.fieldbyname('qn_no1').value;
+  //showmessage('qn_no equal to '+inttostr(qn_no));
+  qn_no:=0;
+  if dbedit2.EditText>'' then qn_no:=qn_no+strtoint(dbedit2.EditText);
+  if dbedit3.EditText>'' then qn_no:=qn_no+strtoint(dbedit3.EditText);
+  if qn_no<=1 then begin
+    for i:=9 to 43 do begin
+      dbgrideh1.columns[i].visible:=false;
+    end;
+  end else if qn_no=2 then begin
+    for i:=16 to 43 do begin
+      dbgrideh1.columns[i].visible:=false;
+    end;
+  end else if qn_no=3 then begin
+    for i:=23 to 43 do begin
+      dbgrideh1.columns[i].visible:=false;
+    end;
+  end else if qn_no=4 then begin
+    for i:=30 to 43 do begin
+      dbgrideh1.columns[i].visible:=false;
+    end;
+  end else if qn_no=5 then begin
+    for i:=37 to 43 do begin
+      dbgrideh1.columns[i].visible:=false;
+    end;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Sewingfacility.DBGridEh1Enter(Sender: TObject);
+begin
+  if frmCarte_Ordprocessing.adodataset1.state=dsedit then frmCarte_Ordprocessing.adodataset1.post;
+end;
+
+procedure TfrmCarte_Sewingfacility.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_Sewingfacility:=nil;
+end;
+
+procedure TfrmCarte_Sewingfacility.FormShow(Sender: TObject);
+var
+  i,qn_no:integer;
+begin
+  screen.cursor:=crSQLWait;
+  try
+  for i:=13 to 62 do begin
+    dbgrideh1.columns[i].visible:=true;
+  end;
+  with adoquery1 do begin
+    close;
+    sql.text:='exec sp_carte_gensewingfacility :x1';
+    parameters[0].value:=frmCarte_Ordprocessing.adodataset1.fieldbyname('seq').value;
+    execsql;
+  end;
+  with adodataset1 do begin
+    close;
+    commandtext:='select * from tbl_carte_sopc4 where seq=:x1';
+    parameters[0].value:=frmCarte_Ordprocessing.adodataset1.fieldbyname('seq').value;
+    open;
+  end;
+  qn_no:=frmCarte_Ordprocessing.adodataset1.fieldbyname('qn_no').value+frmCarte_Ordprocessing.adodataset1.fieldbyname('qn_no1').value;
+  if qn_no<=1 then begin
+    for i:=13 to 62 do begin
+      dbgrideh1.columns[i].visible:=false;
+    end;
+  end else if qn_no=2 then begin
+    for i:=23 to 62 do begin
+      dbgrideh1.columns[i].visible:=false;
+    end;
+  end else if qn_no=3 then begin
+    for i:=33 to 62 do begin
+      dbgrideh1.columns[i].visible:=false;
+    end;
+  end else if qn_no=4 then begin
+    for i:=43 to 62 do begin
+      dbgrideh1.columns[i].visible:=false;
+    end;
+  end else if qn_no=5 then begin
+    for i:=53 to 62 do begin
+      dbgrideh1.columns[i].visible:=false;
+    end;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmCarte_Sewingfacility.QTYChange(Sender: TField);
+var
+  q1,q2,q3,q4,q5,q6:integer;
+begin
+  q1:=0; q2:=0; q3:=0; q4:=0; q5:=0; q6:=0;
+  if not adodataset1.fieldbyname('q1_qty').isnull then q1:=adodataset1.fieldbyname('q1_qty').value;
+  if not adodataset1.fieldbyname('q2_qty').isnull then q2:=adodataset1.fieldbyname('q2_qty').value;
+  if not adodataset1.fieldbyname('q3_qty').isnull then q3:=adodataset1.fieldbyname('q3_qty').value;
+  if not adodataset1.fieldbyname('q4_qty').isnull then q4:=adodataset1.fieldbyname('q4_qty').value;
+  if not adodataset1.fieldbyname('q5_qty').isnull then q5:=adodataset1.fieldbyname('q5_qty').value;
+  if not adodataset1.fieldbyname('q6_qty').isnull then q6:=adodataset1.fieldbyname('q6_qty').value;
+  adodataset1.fieldbyname('q_tqty').value:=q1+q2+q3+q4+q5+q6;
+  adodataset1.fieldbyname('bqty').value:=adodataset1.fieldbyname('qty').value-(q1+q2+q3+q4+q5+q6);
+end;
+
+end.

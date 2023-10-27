@@ -1,0 +1,755 @@
+object frmCarte_WO2: TfrmCarte_WO2
+  Left = 0
+  Top = 0
+  Caption = #21046#21934#23614#37096
+  ClientHeight = 309
+  ClientWidth = 1324
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDefault
+  WindowState = wsMaximized
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 0
+    Width = 1324
+    Height = 268
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = -667
+    ExplicitTop = 8
+    ExplicitWidth = 1334
+    ExplicitHeight = 263
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+    end
+    object cxGrid1BandedTableView1: TcxGridBandedTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      Bands = <
+        item
+        end>
+    end
+    object cxGrid1DBBandedTableView1: TcxGridDBBandedTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <
+        item
+          Format = '#0'
+          Kind = skSum
+        end>
+      DataController.Summary.SummaryGroups = <>
+      Filtering.ColumnFilteredItemsList = True
+      OptionsBehavior.AlwaysShowEditor = True
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsView.CellAutoHeight = True
+      OptionsView.FooterMultiSummaries = True
+      OptionsView.HeaderAutoHeight = True
+      OptionsView.Indicator = True
+      OptionsView.IndicatorWidth = 30
+      OptionsView.BandHeaderHeight = 32
+      OptionsView.BandHeaderLineCount = 2
+      Bands = <
+        item
+          Caption = 'B'
+          FixedKind = fkLeft
+          Width = 35
+        end
+        item
+          Caption = 'C'
+          FixedKind = fkLeft
+          Width = 246
+        end
+        item
+          Caption = 'D'
+          FixedKind = fkLeft
+          Width = 135
+        end
+        item
+          Caption = 'E'
+          FixedKind = fkLeft
+          Width = 88
+        end
+        item
+          Caption = 'F'
+          FixedKind = fkLeft
+          Width = 20
+        end
+        item
+          Caption = 'G'
+          FixedKind = fkLeft
+          Width = 119
+        end
+        item
+          Caption = 'S'
+          Width = 694
+        end
+        item
+          Caption = 'T'
+          Width = 31
+        end
+        item
+          Caption = 'U'
+          Width = 52
+        end
+        item
+          Caption = 'K'
+          Width = 81
+        end
+        item
+          Caption = 'M'
+          Width = 61
+        end
+        item
+          Caption = #38626#24288#26399
+          Position.BandIndex = 9
+          Position.ColIndex = 0
+        end
+        item
+          Caption = #27454#38991#33394
+          FixedKind = fkLeft
+          Position.BandIndex = 3
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'MTO'
+          Position.BandIndex = 6
+          Position.ColIndex = 0
+          Width = 59
+        end
+        item
+          Caption = 'CPO / Drop Ship'
+          Position.BandIndex = 6
+          Position.ColIndex = 4
+          Width = 123
+        end
+        item
+          Caption = #29983#29986#22522#22320
+          Position.BandIndex = 10
+          Position.ColIndex = 0
+          Width = 69
+        end
+        item
+          Caption = ' '
+          FixedKind = fkLeft
+          Position.BandIndex = 5
+          Position.ColIndex = 0
+          Width = 50
+        end
+        item
+          Caption = #36650#21046#21934#25976'('#33394'/'#23450#26178#24046#20381#38752')'
+          FixedKind = fkLeft
+          Position.BandIndex = 5
+          Position.ColIndex = 1
+          Width = 90
+        end
+        item
+          Caption = ' '
+          FixedKind = fkLeft
+          Position.BandIndex = 5
+          Position.ColIndex = 2
+          Visible = False
+          Width = 21
+        end
+        item
+          Caption = 'Buy Plan'
+          Position.BandIndex = 6
+          Position.ColIndex = 2
+          Width = 81
+        end
+        item
+          Caption = 'Drop Ship'
+          Position.BandIndex = 6
+          Position.ColIndex = 5
+          Visible = False
+          Width = 83
+        end
+        item
+          Caption = ' '
+          Position.BandIndex = 6
+          Position.ColIndex = 1
+          Width = 20
+        end
+        item
+          Caption = ' '
+          Position.BandIndex = 6
+          Position.ColIndex = 3
+          Width = 361
+        end
+        item
+          Caption = ' '
+          Position.BandIndex = 6
+          Position.ColIndex = 6
+          Width = 50
+        end>
+      object cxGrid1keycode: TcxGridDBBandedColumn
+        Caption = #35468#34399' (Log No.)'
+        DataBinding.FieldName = 'keycode'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 0
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1projectno: TcxGridDBBandedColumn
+        Caption = #24037#31243#34399
+        DataBinding.FieldName = 'projectno'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 66
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 1
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1workorderno: TcxGridDBBandedColumn
+        Caption = #21046#21934#34399
+        DataBinding.FieldName = 'workorderno'
+        PropertiesClassName = 'TcxButtonEditProperties'
+        Properties.Buttons = <
+          item
+            Default = True
+            Kind = bkEllipsis
+          end>
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 54
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 1
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+      object cxGrid1custpo: TcxGridDBBandedColumn
+        Caption = #37559#21806#21934#34399
+        DataBinding.FieldName = 'custpo'
+        PropertiesClassName = 'TcxButtonEditProperties'
+        Properties.Buttons = <
+          item
+            Default = True
+            Kind = bkEllipsis
+          end>
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 81
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 1
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1rwo_wo: TcxGridDBBandedColumn
+        Caption = #36650#21046#21934#34399
+        DataBinding.FieldName = 'rwo_wo'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 25
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 1
+        Position.ColIndex = 4
+        Position.RowIndex = 0
+      end
+      object cxGrid1prodcode: TcxGridDBBandedColumn
+        DataBinding.FieldName = 'prodcode'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 24
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 2
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+        IsCaptionAssigned = True
+      end
+      object cxGrid1custstyle: TcxGridDBBandedColumn
+        Caption = #23458#26041#27454#34399
+        DataBinding.FieldName = 'custstyle'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 73
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 2
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1phstyle: TcxGridDBBandedColumn
+        Caption = #23450#26178#24046#39006
+        DataBinding.FieldName = 'phstyle'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 26
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 4
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1custcolor: TcxGridDBBandedColumn
+        Caption = #23458#26041#33394#34399
+        DataBinding.FieldName = 'custcolor'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 42
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 12
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1phcolor: TcxGridDBBandedColumn
+        Caption = #24288#26041#33394#34399
+        DataBinding.FieldName = 'phcolor'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 26
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 12
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxGrid1qty: TcxGridDBBandedColumn
+        Caption = #37559#21806#21934#32317#25976' ('#33394#20381#38752')'
+        DataBinding.FieldName = 'qty'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 57
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 16
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1qty1: TcxGridDBBandedColumn
+        Caption = #36008
+        DataBinding.FieldName = 'qty1'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 62
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 17
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1sp_qty: TcxGridDBBandedColumn
+        Caption = #25578#36008#26495
+        DataBinding.FieldName = 'sp_qty'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 28
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 17
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1ex_o: TcxGridDBBandedColumn
+        Caption = #21407#23450
+        DataBinding.FieldName = 'ex_o'
+        PropertiesClassName = 'TcxDateEditProperties'
+        Properties.ShowTime = False
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 39
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 11
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1ex_r: TcxGridDBBandedColumn
+        Caption = #20462#35330'*'
+        DataBinding.FieldName = 'ex_r'
+        PropertiesClassName = 'TcxDateEditProperties'
+        Properties.ShowTime = False
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 38
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 11
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1prod_site: TcxGridDBBandedColumn
+        Caption = #36008
+        DataBinding.FieldName = 'prod_site'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 29
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 15
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1prod_site1: TcxGridDBBandedColumn
+        Caption = #25578#36008#26495
+        DataBinding.FieldName = 'prod_site1'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 26
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 15
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1etam_bdc: TcxGridDBBandedColumn
+        Caption = 'CPO# (Ticket) / Drop Ship'
+        DataBinding.FieldName = 'etam_bdc'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 184
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 14
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1etam_pak: TcxGridDBBandedColumn
+        Caption = #35037#31665#26041#27861
+        DataBinding.FieldName = 'etam_pak'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 7
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1pvh_dest: TcxGridDBBandedColumn
+        Caption = #30446#30340#22320#22283#23478
+        DataBinding.FieldName = 'pvh_dest'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 64
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 8
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1custpo_qty: TcxGridDBBandedColumn
+        Caption = #37559#21806#21934#25976#30446
+        DataBinding.FieldName = 'custpo_qty'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 20
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 1
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxGrid1bdc_qty: TcxGridDBBandedColumn
+        Caption = #25976#30446
+        DataBinding.FieldName = 'bdc_qty'
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 20
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 14
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1mtono: TcxGridDBBandedColumn
+        Caption = 'MTO #'
+        DataBinding.FieldName = 'mtono'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 53
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 13
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1dest_qty: TcxGridDBBandedColumn
+        Caption = #30446#30340#22320#25976#30446
+        DataBinding.FieldName = 'dest_qty'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 20
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 8
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1pvh_aa: TcxGridDBBandedColumn
+        Caption = 'AA #'
+        DataBinding.FieldName = 'pvh_aa'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 108
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 19
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1aa_qty: TcxGridDBBandedColumn
+        Caption = 'AA'#25976#30446
+        DataBinding.FieldName = 'aa_qty'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 20
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 19
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1pvh_drop: TcxGridDBBandedColumn
+        Caption = 'Drop Ship #'
+        DataBinding.FieldName = 'phv_drop'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 55
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 20
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1drop_qty: TcxGridDBBandedColumn
+        Caption = 'Drop '#25976#30446
+        DataBinding.FieldName = 'drop_qty'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 30
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 20
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1pvh_bcd: TcxGridDBBandedColumn
+        Caption = 'B C D'
+        DataBinding.FieldName = 'pvh_bcd'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 21
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1phstyleseq: TcxGridDBBandedColumn
+        Caption = #33394#20381#38752
+        DataBinding.FieldName = 'phstyleseq'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 20
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 12
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1custpo_new: TcxGridDBBandedColumn
+        Caption = 'IPO #'
+        DataBinding.FieldName = 'custpo'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 291
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 22
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1qty1_new: TcxGridDBBandedColumn
+        Caption = 'Qty ('#33394'/'#23450#26178#24046#20381#38752')'
+        DataBinding.FieldName = 'qty1'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 23
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1phstyleno: TcxGridDBBandedColumn
+        Caption = #24288#26041#27454#34399
+        DataBinding.FieldName = 'phstyleno'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Options.CellMerging = True
+        Width = 38
+        OnCompareRowValuesForCellMerging = cxGrid1keycodeCompareRowValuesForCellMerging
+        Position.BandIndex = 2
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxGrid1projectno_new: TcxGridDBBandedColumn
+        Caption = #24037#31243#34399
+        DataBinding.FieldName = 'projectno'
+        HeaderAlignmentHorz = taCenter
+        Options.CellMerging = True
+        Width = 70
+        Position.BandIndex = 22
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1custpo_qty_new: TcxGridDBBandedColumn
+        Caption = 'IPO'#25976#30446
+        DataBinding.FieldName = 'custpo_qty'
+        HeaderAlignmentHorz = taCenter
+        Options.CellMerging = True
+        Position.BandIndex = 22
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBBandedTableView1
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 268
+    Width = 1324
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitLeft = 16
+    ExplicitTop = 280
+    ExplicitWidth = 185
+    object BitBtn3: TBitBtn
+      Left = 28
+      Top = 8
+      Width = 63
+      Height = 25
+      Caption = #20445#23384
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn3Click
+    end
+    object BitBtn4: TBitBtn
+      Left = 90
+      Top = 8
+      Width = 63
+      Height = 25
+      Caption = #38928#35261
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 1
+    end
+    object BitBtn5: TBitBtn
+      Left = 152
+      Top = 8
+      Width = 89
+      Height = 25
+      Caption = #23566#20986'Excel'
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
+        333333333333337FF3333333333333903333333333333377FF33333333333399
+        03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
+        99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
+        99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
+        03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
+        33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
+        33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
+        3333777777333333333333333333333333333333333333333333}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 2
+      OnClick = BitBtn5Click
+    end
+    object BitBtn12: TBitBtn
+      Left = 240
+      Top = 8
+      Width = 63
+      Height = 25
+      Caption = #36864#20986
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 3
+    end
+  end
+  object ADODataSet1: TADODataSet
+    Active = True
+    Connection = frmCarte_Main.ADOConnection1
+    CursorType = ctStatic
+    AfterOpen = ADODataSet1AfterOpen
+    CommandText = 'select * from tbl_carte_sopc8'
+    CommandTimeout = 300
+    IndexFieldNames = 
+      'cust;mtono;projectno;custpo;phstyleno;phstyleseq;phcolor;phstyle' +
+      ';workorderno;rwo_wo;keycode;seq8'
+    Parameters = <>
+    Left = 288
+    Top = 8
+  end
+  object DataSource1: TDataSource
+    DataSet = ADODataSet1
+    Left = 328
+    Top = 8
+  end
+  object ADOQuery1: TADOQuery
+    Connection = frmCarte_Main.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 472
+    Top = 8
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '*.xls|*.xlsx'
+    Filter = 'Excel files|*.xls|*.xlsx'
+    Left = 416
+    Top = 8
+  end
+end

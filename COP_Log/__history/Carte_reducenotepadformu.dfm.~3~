@@ -1,0 +1,129 @@
+object frmreduce_notepad: Tfrmreduce_notepad
+  Left = 0
+  Top = 0
+  Caption = #25578#20986'('#24310#36978#36208#36008')'#20043#35468#34399' - '#20633#27880
+  ClientHeight = 310
+  ClientWidth = 757
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 0
+    Width = 757
+    Height = 269
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = 24
+    ExplicitTop = 16
+    ExplicitWidth = 250
+    ExplicitHeight = 200
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.Deleting = False
+      OptionsData.Inserting = False
+      OptionsView.CellAutoHeight = True
+      OptionsView.HeaderAutoHeight = True
+      object cxGrid1DBTableView1keycode5: TcxGridDBColumn
+        Caption = #35468#34399
+        DataBinding.FieldName = 'keycode5'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 53
+      end
+      object cxGrid1DBTableView1projectno5: TcxGridDBColumn
+        Caption = #24037#31243#34399
+        DataBinding.FieldName = 'projectno5'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 67
+      end
+      object cxGrid1DBTableView1workorderno5: TcxGridDBColumn
+        Caption = #21046#21934#34399'('#33394#20381#38752')'
+        DataBinding.FieldName = 'workorderno5'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+      end
+      object cxGrid1DBTableView1custstyle5: TcxGridDBColumn
+        Caption = #23458#26041#27454#34399
+        DataBinding.FieldName = 'custstyle5'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 120
+      end
+      object cxGrid1DBTableView1phcolor5: TcxGridDBColumn
+        Caption = #24288#26041#33394#34399
+        DataBinding.FieldName = 'phcolor5'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 49
+      end
+      object cxGrid1DBTableView1qty5: TcxGridDBColumn
+        Caption = 'PDN'#23433#25490#25976#37327
+        DataBinding.FieldName = 'qty5'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+      end
+      object cxGrid1DBTableView1marks: TcxGridDBColumn
+        Caption = #20633#27880
+        DataBinding.FieldName = 'marks'
+        PropertiesClassName = 'TcxMemoProperties'
+        HeaderAlignmentHorz = taCenter
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 269
+    Width = 757
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitLeft = 32
+    ExplicitTop = 264
+    ExplicitWidth = 185
+  end
+  object ADODataSet1: TADODataSet
+    Active = True
+    Connection = frmCarte_Main.ADOConnection1
+    CursorType = ctStatic
+    CommandText = 
+      'select * from tbl_carte_sopc5_transfer where act_cmpdt5>='#39'2016-1' +
+      '2-05'#39
+    CommandTimeout = 300
+    IndexFieldNames = 
+      'cust5;projectno5;custpo5;custstyle5;phcolor5;workorderno5;rwo_wo' +
+      '5;keycode5'
+    Parameters = <>
+    Left = 264
+    Top = 40
+  end
+  object DataSource1: TDataSource
+    DataSet = ADODataSet1
+    Left = 296
+    Top = 40
+  end
+  object ADOQuery1: TADOQuery
+    Connection = frmCarte_Main.ADOConnection1
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 328
+    Top = 40
+  end
+end

@@ -1,0 +1,40 @@
+unit Carte_PDNQtyFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, rxToolEdit, rxCurrEdit;
+
+type
+  TfrmCarte_PDNQty = class(TForm)
+    Label1: TLabel;
+    Edit1: TCurrencyEdit;
+    Label2: TLabel;
+    Edit2: TCurrencyEdit;
+    Label3: TLabel;
+    Edit3: TCurrencyEdit;
+    Label4: TLabel;
+    Edit4: TCurrencyEdit;
+    BitBtn1: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_PDNQty: TfrmCarte_PDNQty;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCarte_PDNQty.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_PDNQty:=nil;
+end;
+
+end.

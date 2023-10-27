@@ -1,0 +1,192 @@
+unit Carte_ItemchooseFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, DB, ADODB, StdCtrls, Buttons, RzBckgnd,
+  siComp;
+
+type
+  TfrmCarte_itemchoose = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
+    BitBtn1: TBitBtn;
+    RzBackground1: TRzBackground;
+    Label1: TLabel;
+    siLang1: TsiLang;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_itemchoose: TfrmCarte_itemchoose;
+
+implementation
+
+uses Carte_MainFormu, Carte_RequestactionFormu, Carte_GroupactionFormu,
+  Carte_TimechangeFormu, Carte_TimeChange1Formu, Carte_OrdprocessingFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_itemchoose.BitBtn1Click(Sender: TObject);
+var
+  fty1:string;
+  y,m,seq:integer;
+begin
+  fty1:=frmcarte_main.lblfty.caption;
+  if copy(frmcarte_ordprocessing.adodataset1.fieldbyname('projectno').value,length(frmcarte_ordprocessing.adodataset1.fieldbyname('projectno').value),1)='O'
+  then fty1:='CL';
+  if copy(frmcarte_ordprocessing.adodataset1.fieldbyname('projectno').value,length(frmcarte_ordprocessing.adodataset1.fieldbyname('projectno').value),1)='Z'
+  then fty1:='CL';
+  if not adoquery1.fieldbyname('code').isnull then begin
+    if label1.Caption='Request' then begin
+      if (frmCarte_Requestaction.adodataset2.state=dsedit) or (frmCarte_Requestaction.adodataset2.state=dsinsert) then begin
+        frmCarte_Requestaction.adodataset2.fieldbyname('act_item3').value:=adoquery1.fieldbyname('code').value;
+        if frmCarte_Requestaction.adodataset2.fieldbyname('act_subject3').isnull then begin
+          if fty1='CL' then
+          frmCarte_Requestaction.adodataset2.fieldbyname('act_subject3').value:=adoquery1.fieldbyname('act_item_e').value
+          else frmCarte_Requestaction.adodataset2.fieldbyname('act_subject3').value:=adoquery1.fieldbyname('act_item').value;
+        end else begin
+          if frmCarte_Requestaction.adodataset2.fieldbyname('act_subject3').value='' then begin
+            if fty1='CL' then
+            frmCarte_Requestaction.adodataset2.fieldbyname('act_subject3').value:=adoquery1.fieldbyname('act_item_e').value
+            else frmCarte_Requestaction.adodataset2.fieldbyname('act_subject3').value:=adoquery1.fieldbyname('act_item').value;
+          end;
+        end;
+      end else begin
+        with frmCarte_Requestaction.adodataset2 do begin
+          edit;
+          fieldbyname('act_item3').value:=adoquery1.fieldbyname('code').value;
+          if frmCarte_Requestaction.adodataset2.fieldbyname('act_subject3').isnull then begin
+            if fty1='CL' then
+            fieldbyname('act_subject3').value:=adoquery1.fieldbyname('act_item_e').value
+            else fieldbyname('act_subject3').value:=adoquery1.fieldbyname('act_item').value;
+          end else begin
+            if frmCarte_Requestaction.adodataset2.fieldbyname('act_subject3').value='' then begin
+              if fty1='CL' then
+              fieldbyname('act_subject3').value:=adoquery1.fieldbyname('act_item_e').value
+              else fieldbyname('act_subject3').value:=adoquery1.fieldbyname('act_item').value;
+            end;
+          end;
+          //post;
+        end;
+      end;
+    end else if label1.Caption='Group' then begin
+      if (frmCarte_Groupaction.adodataset5.state=dsedit) or (frmCarte_Groupaction.adodataset5.state=dsinsert) then begin
+        frmCarte_Groupaction.adodataset5.fieldbyname('act_item3g').value:=adoquery1.fieldbyname('code').value;
+        frmCarte_Groupaction.adodataset5.fieldbyname('act_subject3g').value:=adoquery1.fieldbyname('act_item').value;
+        frmCarte_Groupaction.adodataset5.fieldbyname('act_subject3g_e').value:=adoquery1.fieldbyname('act_item_e').value;
+        with frmcarte_groupaction.adoquery1 do begin
+          close;
+          sql.text:='update tbl_carte_sopc_al set act_item3g=:x1,act_subject3g=:x2,act_subject3g_e=:x3 where seq3g=:x4';
+          parameters[0].value:=adoquery1.fieldbyname('code').value;
+          parameters[1].value:=adoquery1.fieldbyname('act_item').value;
+          parameters[2].value:=adoquery1.fieldbyname('act_item_e').value;
+          parameters[3].value:=frmCarte_Groupaction.adodataset5.fieldbyname('seq3g').value;
+          execsql;
+        end;
+
+        {
+        if frmCarte_Groupaction.adodataset5.fieldbyname('act_subject3g').isnull then begin
+          if fty1='CL' then
+          frmCarte_Groupaction.adodataset5.fieldbyname('act_subject3g').value:=adoquery1.fieldbyname('act_item_e').value
+          else frmCarte_Groupaction.adodataset5.fieldbyname('act_subject3g').value:=adoquery1.fieldbyname('act_item').value;
+        end else begin
+          if frmCarte_Groupaction.adodataset5.fieldbyname('act_subject3g').Value='' then begin
+            if fty1='CL' then
+            frmCarte_Groupaction.adodataset5.fieldbyname('act_subject3g').value:=adoquery1.fieldbyname('act_item_e').value
+            else frmCarte_Groupaction.adodataset5.fieldbyname('act_subject3g').value:=adoquery1.fieldbyname('act_item').value;
+          end;
+        end;
+        }
+      end else begin
+        with frmCarte_Groupaction.adodataset5 do begin
+          edit;
+          fieldbyname('act_item3g').value:=adoquery1.fieldbyname('code').value;
+          fieldbyname('act_subject3g').value:=adoquery1.fieldbyname('act_item').value;
+          fieldbyname('act_subject3g_e').value:=adoquery1.fieldbyname('act_item_e').value;
+          {
+          if frmCarte_Groupaction.adodataset5.fieldbyname('act_subject3g').isnull then begin
+            if fty1='CL' then
+            fieldbyname('act_subject3g').value:=adoquery1.fieldbyname('act_item_e').value
+            else fieldbyname('act_subject3g').value:=adoquery1.fieldbyname('act_item').value;
+          end else begin
+            if frmCarte_Groupaction.adodataset5.fieldbyname('act_subject3g').Value='' then begin
+              if fty1='CL' then
+              fieldbyname('act_subject3g').value:=adoquery1.fieldbyname('act_item_e').value
+              else fieldbyname('act_subject3g').value:=adoquery1.fieldbyname('act_item').value;
+            end;
+          end;
+          }
+          post;
+        end;
+        with frmcarte_groupaction.adoquery1 do begin
+          close;
+          sql.text:='update tbl_carte_sopc_al set act_item3g=:x1,act_subject3g=:x2,act_subject3g_e=:x3 where seq3g=:x4';
+          parameters[0].value:=adoquery1.fieldbyname('code').value;
+          parameters[1].value:=adoquery1.fieldbyname('act_item').value;
+          parameters[2].value:=adoquery1.fieldbyname('act_item_e').value;
+          parameters[3].value:=frmCarte_Groupaction.adodataset5.fieldbyname('seq3g').value;
+          execsql;
+        end;
+      end;
+      y:=frmcarte_groupaction.adodataset5.fieldbyname('grp_act_y').value;
+      m:=frmcarte_groupaction.adodataset5.fieldbyname('grp_act_m').value;
+      seq:=frmcarte_groupaction.adodataset5.fieldbyname('grp_act_seq').value;
+      frmcarte_groupaction.refreshdataset5(y,m,seq);
+    end else if label1.Caption='Timechange' then begin
+      if (frmCarte_Timechange.adodataset3.state=dsedit) or (frmCarte_Timechange.adodataset3.state=dsinsert) then begin
+        frmCarte_Timechange.adodataset3.fieldbyname('act_item3g').value:=adoquery1.fieldbyname('code').value;
+      end else begin
+        with frmCarte_Timechange.adodataset3 do begin
+          edit;
+          fieldbyname('act_item3g').value:=adoquery1.fieldbyname('code').value;
+          post;
+        end;
+      end;
+    end else if label1.Caption='Timechange1' then begin
+      if (frmCarte_Timechange1.adodataset3.state=dsedit) or (frmCarte_Timechange1.adodataset3.state=dsinsert) then begin
+        frmCarte_Timechange1.adodataset3.fieldbyname('act_item3g').value:=adoquery1.fieldbyname('code').value;
+      end else begin
+        with frmCarte_Timechange1.adodataset3 do begin
+          edit;
+          fieldbyname('act_item3g').value:=adoquery1.fieldbyname('code').value;
+          post;
+        end;
+      end;
+    end;
+  end;
+  close;
+end;
+
+procedure TfrmCarte_itemchoose.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_itemchoose:=nil;
+end;
+
+procedure TfrmCarte_itemchoose.FormCreate(Sender: TObject);
+begin
+  siLang1.Language:=frmCarte_Main.ComboBox2.text;
+end;
+
+procedure TfrmCarte_itemchoose.FormShow(Sender: TObject);
+begin
+  with adoquery1 do begin
+    close;
+    sql.text:='select * from tbl_carte_actitem order by code';
+    open;
+  end;
+end;
+
+end.

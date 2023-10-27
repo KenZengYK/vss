@@ -1,0 +1,44 @@
+unit Carte_ReqenqueryFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, RzBckgnd, StdCtrls, DB, ADODB, Buttons;
+
+type
+  TfrmCarte_Repenquery = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    RzBackground3: TRzBackground;
+    RzBackground1: TRzBackground;
+    Label1: TLabel;
+    Edit1: TEdit;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    BitBtn1: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_Repenquery: TfrmCarte_Repenquery;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu, Carte_RequestactionFormu, Carte_CRitemsFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_Repenquery.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_Repenquery:=nil;
+end;
+
+end.

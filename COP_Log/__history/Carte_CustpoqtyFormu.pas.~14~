@@ -1,0 +1,92 @@
+unit Carte_CustpoqtyFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, ADODB, DB, DBCtrls, StdCtrls, RzBckgnd,
+  Buttons;
+
+type
+  TfrmCarte_CustpoQty = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
+    RzBackground1: TRzBackground;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    Label4: TLabel;
+    DBText4: TDBText;
+    Label7: TLabel;
+    DBText7: TDBText;
+    Label5: TLabel;
+    DBText5: TDBText;
+    RzBackground2: TRzBackground;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn6: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ADODataSet1NewRecord(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_CustpoQty: TfrmCarte_CustpoQty;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_CustpoQty.ADODataSet1NewRecord(DataSet: TDataSet);
+var
+  seq07:integer;
+begin
+  with adoquery1 do begin
+    close;
+    sql.text:='select max(seq07) as x1 from tbl_carte_sopc7';
+    open;
+    if not fieldbyname('x1').isnull then seq07:=fieldbyname('x1').value+1 else seq07:=1;
+  end;
+  adodataset1.fieldbyname('seq7').value:=frmCarte_Ordprocessing.adodataset1.fieldbyname('seq').value;
+  adodataset1.fieldbyname('seq07').value:=seq07;
+  if not frmCarte_Ordprocessing.adodataset1.fieldbyname('custpo_qty').isnull then
+  adodataset1.fieldbyname('custpo_qty7').value:=frmCarte_Ordprocessing.adodataset1.fieldbyname('custpo_qty').value;
+  adodataset1.fieldbyname('custpo7').value:=frmCarte_Ordprocessing.adodataset1.fieldbyname('custpo').value;
+  if not frmCarte_Ordprocessing.adodataset1.fieldbyname('dest_qty').isnull then
+  adodataset1.fieldbyname('dest_qty7').value:=frmCarte_Ordprocessing.adodataset1.fieldbyname('dest_qty').value;
+  if not frmCarte_Ordprocessing.adodataset1.fieldbyname('pvh_dest').isnull then
+  adodataset1.fieldbyname('pvh_dest7').value:=frmCarte_Ordprocessing.adodataset1.fieldbyname('pvh_dest').value;
+  adodataset1.fieldbyname('qty17').value:=frmCarte_Ordprocessing.adodataset1.fieldbyname('qty1').value;
+  if not frmCarte_Ordprocessing.adodataset1.fieldbyname('etam_pak').isnull then
+  adodataset1.fieldbyname('etam_pak7').value:=frmCarte_Ordprocessing.adodataset1.fieldbyname('etam_pak').value;
+end;
+
+procedure TfrmCarte_CustpoQty.BitBtn1Click(Sender: TObject);
+begin
+  dbgrideh1.setfocus;
+  dbgrideh1.selectedindex:=2;
+  adodataset1.append;
+end;
+
+procedure TfrmCarte_CustpoQty.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_Custpoqty:=nil;
+end;
+
+end.

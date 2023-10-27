@@ -1,0 +1,49 @@
+object frmCarte_Loc: TfrmCarte_Loc
+  Left = 0
+  Top = 0
+  Caption = #23450#20301#36984#25799
+  ClientHeight = 158
+  ClientWidth = 233
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 160
+    Top = 8
+    Width = 3
+    Height = 13
+    Visible = False
+  end
+  object CheckBox1: TCheckBox
+    Left = 24
+    Top = 24
+    Width = 113
+    Height = 17
+    Caption = ' L = Locked ('#37782#23450')'
+    TabOrder = 0
+  end
+  object CheckBox2: TCheckBox
+    Left = 24
+    Top = 47
+    Width = 179
+    Height = 17
+    Caption = ' R = Request Change ('#35201#27714#35519#25972')'
+    TabOrder = 1
+  end
+  object CheckBox3: TCheckBox
+    Left = 24
+    Top = 70
+    Width = 193
+    Height = 17
+    Caption = ' N = No Need to Change ('#19981#38656#25913#21205')'
+    TabOrder = 2
+  end
+end

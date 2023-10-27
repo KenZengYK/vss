@@ -1,0 +1,28 @@
+unit Grp_ActionDetailFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DBCtrls, Buttons;
+
+type
+  Tfrmgrp_actiondetail = class(TForm)
+    dbmmo1: TDBMemo;
+    BitBtn1: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmgrp_actiondetail: Tfrmgrp_actiondetail;
+
+implementation
+
+uses Carte_MainFormu, Carte_OrdprocessingFormu, Carte_GroupactionFormu;
+
+{$R *.dfm}
+
+end.

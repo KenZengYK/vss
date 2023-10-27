@@ -1,0 +1,60 @@
+program COP_Log;
+
+uses
+  Forms,
+  Carte_MainFormu in 'Carte_MainFormu.pas' {frmCarte_Main},
+  Carte_ActionitermsFormu in 'Carte_ActionitermsFormu.pas' {frmCarte_Actionitems},
+  Carte_OrdprocessingFormu in 'Carte_OrdprocessingFormu.pas' {frmCarte_Ordprocessing},
+  Carte_RequestactionFormu in 'Carte_RequestactionFormu.pas' {frmCarte_Requestaction},
+  Carte_ReportsFormu in 'Carte_ReportsFormu.pas' {frmCarte_Reports},
+  Carte_ActionmarksFormu in 'Carte_ActionmarksFormu.pas' {frmCarte_Actionmarks},
+  Carte_ItemchooseFormu in 'Carte_ItemchooseFormu.pas' {frmCarte_itemchoose},
+  Carte_MailFormu in 'Carte_MailFormu.pas' {frmCarte_Mail},
+  Carte_PasswordFormu in 'Carte_PasswordFormu.pas' {frmCarte_password},
+  Carte_WeeklyprintoutFormu in 'Carte_WeeklyprintoutFormu.pas' {frmCarte_Weeklyprintout},
+  Carte_SewingfacilityFormu in 'Carte_SewingfacilityFormu.pas' {frmCarte_Sewingfacility},
+  Carte_ShortFormu in 'Carte_ShortFormu.pas' {frmCarte_Short},
+  Carte_LogisticsflowFormu in 'Carte_LogisticsflowFormu.pas' {frmCarte_Logisticsflow},
+  Carte_PDNDateFormu in 'Carte_PDNDateFormu.pas' {frmCarte_PDNDate},
+  Carte_PDNQtyFormu in 'Carte_PDNQtyFormu.pas' {frmCarte_PDNQty},
+  Carte_SplitFormu in 'Carte_SplitFormu.pas' {frmCarte_Split},
+  Carte_Logisticsflow_rpt1Formu in 'Carte_Logisticsflow_rpt1Formu.pas' {frmCarte_Logisticsflow_rpt1},
+  Carte_ShipmentbyprojectFormu in 'Carte_ShipmentbyprojectFormu.pas' {frmCarte_Shipmentbyproject},
+  Carte_ChaseitemsFormu in 'Carte_ChaseitemsFormu.pas' {frmCarte_Chaseitems},
+  Carte_CRitemsFormu in 'Carte_CRitemsFormu.pas' {frmCarte_CRitems},
+  Carte_KeycodechooseFormu in 'Carte_KeycodechooseFormu.pas' {frmCarte_Keycodechoose},
+  Carte_ImportrwodataFormu in 'Carte_ImportrwodataFormu.pas' {frmCarte_Importrwodata},
+  Carte_ReqenqueryFormu in 'Carte_ReqenqueryFormu.pas' {frmCarte_Repenquery},
+  Carte_TimechangeFormu in 'Carte_TimechangeFormu.pas' {frmCarte_Timechange},
+  Carte_Logisticsflow_rpt2Formu in 'Carte_Logisticsflow_rpt2Formu.pas' {frmCarte_Logisticsflow_rpt2},
+  Carte_CustpoqtyFormu in 'Carte_CustpoqtyFormu.pas' {frmCarte_CustpoQty},
+  Carte_StyleclassesFormu in 'Carte_StyleclassesFormu.pas' {frmCarte_Styleclasses},
+  Carte_ProductsFormu in 'Carte_ProductsFormu.pas' {frmCarte_Products},
+  Carte_GroupactionFormu in 'Carte_GroupactionFormu.pas' {frmCarte_Groupaction},
+  Carte_PackingmethodFormu in 'Carte_PackingmethodFormu.pas' {frmCarte_Packingmethod},
+  Carte_WO2Formu in 'Carte_WO2Formu.pas' {frmCarte_WO2},
+  Carte_EnquirywarningFormu in 'Carte_EnquirywarningFormu.pas' {frmCarte_Enquirywarning},
+  Carte_LocFormu in 'Carte_LocFormu.pas' {frmCarte_Loc},
+  Carte_PVHIPOFormu in 'Carte_PVHIPOFormu.pas' {frmCarte_PVHIPO},
+  Carte_Reports1Formu in 'Carte_Reports1Formu.pas' {frmCarte_Reports1},
+  Carte_PVHLogisticFormu in 'Carte_PVHLogisticFormu.pas' {frmCarte_PVHLogistic},
+  Carte_Reports2Formu in 'Carte_Reports2Formu.pas' {frmCarte_Reports2},
+  Carte_PVHordplacingFormu in 'Carte_PVHordplacingFormu.pas' {frmCarte_PVHordplacing},
+  Carte_PVHstylesuffixFormu in 'Carte_PVHstylesuffixFormu.pas' {frmCarte_PVHstylesuffix},
+  Carte_Timechange1Formu in 'Carte_Timechange1Formu.pas' {frmCarte_Timechange1},
+  Carte_OpttimemanagementFormu in 'Carte_OpttimemanagementFormu.pas' {frmCarte_Opttimemanagement},
+  Carte_reducenotepadformu in 'Carte_reducenotepadformu.pas' {frmreduce_notepad},
+  aqlmainformu in 'aqlmainformu.pas' {frmaqlmain},
+  xtdlformu in 'xtdlformu.pas' {frmxtdl},
+  aqlpoformu in 'aqlpoformu.pas' {frmaqlpo},
+  defectsummaryformu in 'defectsummaryformu.pas' {frmdefectsummary},
+  defectsummary02formu in 'defectsummary02formu.pas' {frmdefectsummary02};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmCarte_Main, frmCarte_Main);
+  Application.Run;
+end.

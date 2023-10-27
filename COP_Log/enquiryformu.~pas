@@ -1,0 +1,84 @@
+unit enquiryformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ExtCtrls, GridsEh, DBGridEh, DB, DBClient;
+
+type
+  Tfrmenquiry = class(TForm)
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
+    procedure Edit3Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmenquiry: Tfrmenquiry;
+
+implementation
+
+uses aqlmainformu;
+
+{$R *.dfm}
+
+procedure Tfrmenquiry.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmenquiry:=nil;
+end;
+
+procedure Tfrmenquiry.BitBtn1Click(Sender: TObject);
+begin
+  if not query1.FieldByName('cde').isnull then begin
+    if frmenquiry.Caption='Location Selection' then begin
+      if (frmaqlmain.qry_s4.State=dsinsert) or (frmaqlmain.qry_s4.State=dsedit) then
+        frmaqlmain.qry_s4.FieldByName('pcd').Value:=query1.fieldbyname('cde').value
+      else begin
+        frmaqlmain.qry_s4.Edit;
+        frmaqlmain.qry_s4.FieldByName('pcd').Value:=query1.fieldbyname('cde').value;
+      end;
+    end else begin
+      if (frmaqlmain.qry_s4.State=dsinsert) or (frmaqlmain.qry_s4.State=dsedit) then
+        frmaqlmain.qry_s4.FieldByName('dcd').Value:=query1.fieldbyname('cde').value
+      else begin
+        frmaqlmain.qry_s4.Edit;
+        frmaqlmain.qry_s4.FieldByName('dcd').Value:=query1.fieldbyname('cde').value;
+      end;
+    end;
+  end;
+  close;
+end;
+
+procedure Tfrmenquiry.Edit1Change(Sender: TObject);
+begin
+  if edit1.text>'' then query1.FindNearest([edit1.text]);
+end;
+
+procedure Tfrmenquiry.Edit2Change(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmenquiry.Edit3Change(Sender: TObject);
+begin
+  //
+end;
+
+end.
+ 
