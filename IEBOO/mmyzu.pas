@@ -1,0 +1,132 @@
+unit mmyzu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, Db, DBTables, ADODB, DBClient;
+
+type
+  Tfrmmmyz = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmmmyz: Tfrmmmyz;
+
+implementation
+uses dlu, bzdju;
+{$R *.DFM}
+
+procedure Tfrmmmyz.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then
+  begin
+    if edit1.text='' then
+    begin
+      query1.close;
+      query1.params.clear;
+      Query1.params.createparam(ftstring,'nam',ptinput);      
+      query1.commandtext:='select passwrd from IE_yh where nam=:nam';
+//      query1.prepare;
+      query1.params[0].value:=frmxtdl.ComboBox1.text;
+      query1.open;
+      if (query1.fieldbyname('passwrd').isnull) or (query1.fieldbyname('passwrd').value='') then
+      begin
+        //close;
+        frmbzdj.DBGridEh1.ReadOnly:=false;
+      end
+      else
+      begin
+        application.messagebox('密碼錯誤!','提示信息',mb_iconinformation+mb_ok);
+      end;
+    end
+    else
+    begin
+      query1.close;
+      query1.params.clear;
+      Query1.params.createparam(ftstring,'nam',ptinput);      
+      query1.commandtext:='select passwrd from IE_yh where nam=:nam';
+//      query1.prepare;
+      query1.params[0].value:=frmxtdl.ComboBox1.text;
+      query1.open;
+      if query1.fieldbyname('passwrd').value=edit1.text then
+      begin
+        //close;
+        frmbzdj.DBGridEh1.ReadOnly:=false;
+      end
+      else
+      begin
+        application.messagebox('密碼錯誤!','提示信息',mb_iconinformation+mb_ok);
+      end;
+    end;
+    close;
+  end;
+end;
+
+procedure Tfrmmmyz.BitBtn1Click(Sender: TObject);
+begin
+    if edit1.text='' then
+    begin
+      query1.close;
+      query1.params.clear;
+      Query1.params.createparam(ftstring,'nam',ptinput);      
+      query1.commandtext:='select passwrd from IE_yh where nam=:nam';
+//      query1.prepare;
+      query1.params[0].value:=frmxtdl.ComboBox1.text;
+      query1.open;
+      if (query1.fieldbyname('passwrd').isnull) or (query1.fieldbyname('passwrd').value='') then
+      begin
+        //close;
+        frmbzdj.DBGridEh1.ReadOnly:=false;
+      end
+      else
+      begin
+        application.messagebox('密碼錯誤!','提示信息',mb_iconinformation+mb_ok);
+      end;
+    end
+    else
+    begin
+      query1.close;
+      query1.params.clear;
+      Query1.params.createparam(ftstring,'nam',ptinput);      
+      query1.commandtext:='select passwrd from IE_yh where nam=:nam';
+//      query1.prepare;
+      query1.params[0].value:=frmxtdl.ComboBox1.text;
+      query1.open;
+      if query1.fieldbyname('passwrd').value=edit1.text then
+      begin
+        //close;
+        frmbzdj.DBGridEh1.ReadOnly:=false;
+      end
+      else
+      begin
+        application.messagebox('密碼錯誤!','提示信息',mb_iconinformation+mb_ok);
+      end;
+    end;
+    close;
+end;
+
+procedure Tfrmmmyz.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmmmyz.FormShow(Sender: TObject);
+begin
+  edit1.text:='';
+end;
+
+end.

@@ -1,0 +1,31 @@
+unit Splash;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ExtCtrls, StdCtrls;
+
+type
+  TFrmSplash = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    LblNameHighlight: TLabel;
+    LblNameShadow: TLabel;
+    LblProductName: TLabel;
+    IcoProgram: TImage;
+    Label1: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmSplash: TFrmSplash;
+
+implementation
+
+{$R *.DFM}
+
+end.

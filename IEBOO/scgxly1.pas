@@ -1,0 +1,958 @@
+unit scgxly1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBTables, QuickRpt, Qrctrls, ExtCtrls, ppDB, DBClient, ppCtrls,
+  ppBands, ppMemo, ppStrtch, ppRegion, ppVar, ppPrnabl, ppClass, ppCache,
+  ppProd, ppReport, ppComm, ppRelatv, ppDBPipe, ppDBBDE, Txcomp, ppViewr,
+  myChkBox;
+
+type
+  Tfrmscgxly1 = class(TForm)
+    DataSource1: TDataSource;
+    ppBDEPipeline1: TppBDEPipeline;
+    zygx: TClientDataSet;
+    ClientDataSet1: TClientDataSet;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    Shape8: TppShape;
+    Shape7: TppShape;
+    Shape6: TppShape;
+    Shape5: TppShape;
+    ppShape1: TppShape;
+    ppLabel1: TppLabel;
+    ppLabel3: TppLabel;
+    ppDBText2: TppDBText;
+    ppLabel4: TppLabel;
+    ppDBText3: TppDBText;
+    ppLabel5: TppLabel;
+    ppRegion1: TppRegion;
+    Shape11: TppShape;
+    Shape12: TppShape;
+    Shape14: TppShape;
+    Shape10: TppShape;
+    Shape9: TppShape;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLine1: TppLine;
+    ppLabel10: TppLabel;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel19: TppLabel;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLabel28: TppLabel;
+    ppLine12: TppLine;
+    ppLabel29: TppLabel;
+    ppLine13: TppLine;
+    C49: TppLabel;
+    ppLabel31: TppLabel;
+    C47: TppLabel;
+    ppLabel33: TppLabel;
+    C45: TppLabel;
+    ppLabel35: TppLabel;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLabel36: TppLabel;
+    ppLabel37: TppLabel;
+    ppLabel38: TppLabel;
+    ppLine17: TppLine;
+    ppLine62: TppLine;
+    ppLabel55: TppLabel;
+    C43: TppLabel;
+    ppLine5: TppLine;
+    ppLabel14: TppLabel;
+    ppLine7: TppLine;
+    ppLine18: TppLine;
+    ppLabel74: TppLabel;
+    ppLabel75: TppLabel;
+    ppLabel30: TppLabel;
+    ppLine20: TppLine;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppLabel84: TppLabel;
+    ppLabel85: TppLabel;
+    ppLabel32: TppLabel;
+    ppLine31: TppLine;
+    ppLine33: TppLine;
+    ppLabel79: TppLabel;
+    ppLine35: TppLine;
+    ppLabel80: TppLabel;
+    ppLine37: TppLine;
+    ppLabel27: TppLabel;
+    ppLabel47: TppLabel;
+    ppLabel91: TppLabel;
+    ppLabel92: TppLabel;
+    ppLine4: TppLine;
+    ppLabel83: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel6: TppLabel;
+    ppDBText4: TppDBText;
+    ppLabel15: TppLabel;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    ppLabel16: TppLabel;
+    ppDBText21: TppDBText;
+    ppLabel2: TppLabel;
+    ppDBText1: TppDBText;
+    myDBCheckBox1: TmyDBCheckBox;
+    ppLabel18: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel20: TppLabel;
+    ppDBText23: TppDBText;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel41: TppLabel;
+    ppDBText26: TppDBText;
+    ppLabel44: TppLabel;
+    ppDBText27: TppDBText;
+    ppLabel45: TppLabel;
+    ppDBText29: TppDBText;
+    ppShape2: TppShape;
+    ppLabel49: TppLabel;
+    ppLabel50: TppLabel;
+    ppDBText30: TppDBText;
+    ppLabel56: TppLabel;
+    ppDBText32: TppDBText;
+    ppShape3: TppShape;
+    ppLabel57: TppLabel;
+    ppLabel58: TppLabel;
+    ppDBText33: TppDBText;
+    ppLabel60: TppLabel;
+    ppDBText35: TppDBText;
+    ppShape4: TppShape;
+    ppLabel61: TppLabel;
+    ppLabel62: TppLabel;
+    ppDBText36: TppDBText;
+    ppLabel63: TppLabel;
+    ppDBText38: TppDBText;
+    ppLabel64: TppLabel;
+    ppDBText39: TppDBText;
+    ppLabel65: TppLabel;
+    ppDBText41: TppDBText;
+    ppLabel66: TppLabel;
+    ppDBText42: TppDBText;
+    ppLabel67: TppLabel;
+    ppDBText43: TppDBText;
+    ppLabel68: TppLabel;
+    ppDBText44: TppDBText;
+    ppLabel69: TppLabel;
+    ppDBText45: TppDBText;
+    ppLabel70: TppLabel;
+    ppDBText46: TppDBText;
+    ppLabel71: TppLabel;
+    ppDBText47: TppDBText;
+    ppLabel72: TppLabel;
+    ppDBText48: TppDBText;
+    ppLabel73: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    mychk01: TmyCheckBox;
+    ppLabel76: TppLabel;
+    mychk02: TmyCheckBox;
+    ppLabel77: TppLabel;
+    mychk03: TmyCheckBox;
+    ppLabel78: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel82: TppLabel;
+    ppLabel88: TppLabel;
+    ppLabel89: TppLabel;
+    ppDBText52: TppDBText;
+    myCb1: TmyCheckBox;
+    myCb2: TmyCheckBox;
+    myCb3: TmyCheckBox;
+    myCb4: TmyCheckBox;
+    Shape13: TppShape;
+    ppLabel40: TppLabel;
+    myCb5: TmyCheckBox;
+    ppLabel42: TppLabel;
+    title01: TppLabel;
+    ppDetailBand1: TppDetailBand;
+    ppRegion2: TppRegion;
+    ppDBText5: TppDBText;
+    ppLine24: TppLine;
+    ppLine25: TppLine;
+    ppLine26: TppLine;
+    ppLine28: TppLine;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLine41: TppLine;
+    ppLine42: TppLine;
+    ppLine43: TppLine;
+    ppLine44: TppLine;
+    ppLine45: TppLine;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppLine63: TppLine;
+    ppDBText40: TppDBText;
+    ppDBMemo2: TppDBMemo;
+    ppLine6: TppLine;
+    ppDBText16: TppDBText;
+    ppLine11: TppLine;
+    ppLine19: TppLine;
+    ppDBText50: TppDBText;
+    ppLine21: TppLine;
+    myDBCheckBox3: TmyDBCheckBox;
+    myDBCheckBox5: TmyDBCheckBox;
+    ppLine29: TppLine;
+    ppLine30: TppLine;
+    ppLine32: TppLine;
+    myDBCheckBox7: TmyDBCheckBox;
+    myDBCheckBox6: TmyDBCheckBox;
+    ppLine34: TppLine;
+    ppLine36: TppLine;
+    ppLine40: TppLine;
+    myDBCheckBox2: TmyDBCheckBox;
+    ppLine27: TppLine;
+    myDBCheckBox4: TmyDBCheckBox;
+    sj0001: TppLabel;
+    sj0002: TppLabel;
+    sjdj0001: TppLabel;
+    sjdj0002: TppLabel;
+    jscl0001: TppLabel;
+    jscl0002: TppLabel;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppRegion3: TppRegion;
+    ppLine46: TppLine;
+    ppLine47: TppLine;
+    ppLabel39: TppLabel;
+    ppDBMemo1: TppDBMemo;
+    abc001: TppLabel;
+    abc002: TppLabel;
+    abc003: TppLabel;
+    ppLine54: TppLine;
+    ppLabel52: TppLabel;
+    ppLabel53: TppLabel;
+    ppLabel54: TppLabel;
+    abc006: TppLabel;
+    ppLine48: TppLine;
+    abc007: TppLabel;
+    jb01: TppLabel;
+    jb02: TppLabel;
+    jb03: TppLabel;
+    jb001: TppLabel;
+    jb002: TppLabel;
+    jb003: TppLabel;
+    abc004: TppLabel;
+    abc005: TppLabel;
+    ppLabel43: TppLabel;
+    ppDBText17: TppDBText;
+    zsj01: TppLabel;
+    zsj02: TppLabel;
+    zsj03: TppLabel;
+    zsj04: TppLabel;
+    zdj01: TppLabel;
+    zdj02: TppLabel;
+    zdj03: TppLabel;
+    zdj04: TppLabel;
+    Shape15: TppShape;
+    ppLabel46: TppLabel;
+    myCb6: TmyCheckBox;
+    ppLine49: TppLine;
+    ppLine50: TppLine;
+    Shape16: TppShape;
+    ppLabel48: TppLabel;
+    myDBCheckBox8: TmyDBCheckBox;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    Shape18: TppShape;
+    Shape20: TppShape;
+    Shape19: TppShape;
+    Shape17: TppShape;
+    ppLabel81: TppLabel;
+    ppLabel86: TppLabel;
+    ppLabel87: TppLabel;
+    ppLabel90: TppLabel;
+    myCb7: TmyCheckBox;
+    myCb9: TmyCheckBox;
+    myCb10: TmyCheckBox;
+    myCb8: TmyCheckBox;
+    ppDBMemo3: TppDBMemo;
+    Shape30: TppShape;
+    ppLine51: TppLine;
+    ppLine52: TppLine;
+    ppLine53: TppLine;
+    ppLabel93: TppLabel;
+    ppLine55: TppLine;
+    myDBCheckBox9: TmyDBCheckBox;
+    Shape31: TppShape;
+    ppLabel94: TppLabel;
+    ppLine56: TppLine;
+    myDBCheckBox10: TmyDBCheckBox;
+    ppLine57: TppLine;
+    Shape40: TppShape;
+    ppLine58: TppLine;
+    ppLabel95: TppLabel;
+    ppLabel96: TppLabel;
+    myDBCheckBox11: TmyDBCheckBox;
+    ppLine59: TppLine;
+    Shape41: TppShape;
+    myDBCheckBox12: TmyDBCheckBox;
+    ckfty01: TmyCheckBox;
+    ppLabel97: TppLabel;
+    ckfty02: TmyCheckBox;
+    ppLabel98: TppLabel;
+    ckfty03: TmyCheckBox;
+    ppLabel99: TppLabel;
+    ppLabel100: TppLabel;
+    ppShape5: TppShape;
+    ppLabel101: TppLabel;
+    mychkfty01: TmyCheckBox;
+    ppLabel102: TppLabel;
+    mychkfty02: TmyCheckBox;
+    ppLabel103: TppLabel;
+    ppShape6: TppShape;
+    ppLabel104: TppLabel;
+    ppLabel105: TppLabel;
+    ppLabel106: TppLabel;
+    ppLabel107: TppLabel;
+    ppLabel108: TppLabel;
+    ppLabel109: TppLabel;
+    ppLabel110: TppLabel;
+    ppLabel111: TppLabel;
+    ppLabel112: TppLabel;
+    g01: TppLabel;
+    g02: TppLabel;
+    g03: TppLabel;
+    g04: TppLabel;
+    c01: TppLabel;
+    c02: TppLabel;
+    c03: TppLabel;
+    c04: TppLabel;
+    y01: TppLabel;
+    y02: TppLabel;
+    y03: TppLabel;
+    y04: TppLabel;
+    ClientDataSet2: TClientDataSet;
+    ppLabel113: TppLabel;
+    mychk04: TmyCheckBox;
+    ppLabel114: TppLabel;
+    ppLabel115: TppLabel;
+    j01: TppLabel;
+    j02: TppLabel;
+    j03: TppLabel;
+    j04: TppLabel;
+    ppShape7: TppShape;
+    ppLabel116: TppLabel;
+    ppLabel117: TppLabel;
+    ppDBText8: TppDBText;
+    ppLabel119: TppLabel;
+    ppDBText22: TppDBText;
+    ppLabel120: TppLabel;
+    ppDBText24: TppDBText;
+    ppLabel51: TppLabel;
+    ppDBText25: TppDBText;
+    ppLabel121: TppLabel;
+    ppDBText28: TppDBText;
+    ppLabel59: TppLabel;
+    ppDBText31: TppDBText;
+    ppLabel122: TppLabel;
+    ppDBText34: TppDBText;
+    ppLabel118: TppLabel;
+    ppDBText18: TppDBText;
+    ppLabel123: TppLabel;
+    ppDBText37: TppDBText;
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure zygxAfterOpen(DataSet: TDataSet);
+    procedure ppSummaryBand1BeforePrint(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmscgxly1: Tfrmscgxly1;
+
+implementation
+uses dlu, scgxdyu;
+{$R *.DFM}
+
+procedure Tfrmscgxly1.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppreport1.previewform.windowstate:=wsmaximized;
+  tppviewer(ppreport1.previewform.viewer).zoompercentage:=100;
+end;
+
+procedure Tfrmscgxly1.zygxAfterOpen(DataSet: TDataSet);
+begin
+  (zygx.fieldbyname('mb') as tintegerfield).displayformat:='#####0;;''';
+  (zygx.fieldbyname('zsl') as tintegerfield).displayformat:='#####0;;''';
+  (zygx.fieldbyname('mbxs') as tintegerfield).displayformat:='#####0;;''';
+  (zygx.fieldbyname('wcqj') as tfloatfield).displayformat:='#####0.00;;''';
+  (zygx.fieldbyname('gzxl') as tfloatfield).displayformat:='#####0.00;;''';
+  (zygx.fieldbyname('dj') as tfloatfield).displayformat:='#####0.000;;''';
+  (zygx.fieldbyname('sxrs') as tfloatfield).displayformat:='#####0.00;;''';
+  (zygx.fieldbyname('dz') as tfloatfield).displayformat:='#####0.00;;''';
+  (zygx.fieldbyname('sz') as tfloatfield).displayformat:='#####0.00;;''';
+  (zygx.fieldbyname('rz') as tfloatfield).displayformat:='#####0.00;;''';
+  (zygx.fieldbyname('snz') as tfloatfield).displayformat:='#####0.00;;''';
+  (zygx.fieldbyname('jg') as tfloatfield).displayformat:='#####0.00;;''';
+  (zygx.fieldbyname('rs') as tfloatfield).displayformat:='#####0.00;;''';
+  (zygx.fieldbyname('qt') as tfloatfield).displayformat:='#####0.00;;''';
+  (zygx.fieldbyname('sdz') as tintegerfield).displayformat:='#####0;;''';
+  (zygx.fieldbyname('ssz') as tintegerfield).displayformat:='#####0;;''';
+  (zygx.fieldbyname('ssb') as tintegerfield).displayformat:='#####0;;''';
+  (zygx.fieldbyname('sjg') as tintegerfield).displayformat:='#####0;;''';
+  (zygx.fieldbyname('sdc') as tintegerfield).displayformat:='#####0;;''';
+  (zygx.fieldbyname('srs') as tintegerfield).displayformat:='#####0;;''';
+  (zygx.fieldbyname('sqt') as tintegerfield).displayformat:='#####0;;''';
+end;
+
+procedure Tfrmscgxly1.ppSummaryBand1BeforePrint(Sender: TObject);
+var
+  str1:string;
+begin
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    commandtext:='select sum(sj) as zsj from ie_zygx1 where seq=:x1';
+    if frmscgxdy.xh1.Checked then str1:=' and xz07=1'
+    else if frmscgxdy.xh2.Checked then begin
+      if frmscgxdy.chk1.ItemIndex=0 then str1:=' and xz04=1'
+      else if frmscgxdy.chk1.ItemIndex=1 then str1:=' and xz01=1'
+      else if frmscgxdy.chk1.ItemIndex=3 then str1:=' and xz03=1'
+      else if frmscgxdy.chk1.ItemIndex=4 then str1:=' and xz05=1'
+      else if frmscgxdy.chk1.ItemIndex=2 then str1:=' and xz06=1'
+      else if frmscgxdy.chk1.ItemIndex=5 then str1:=' and xz30=1'
+      else if frmscgxdy.chk1.ItemIndex=6 then str1:=' and xz31=1'
+      else if frmscgxdy.chk1.ItemIndex=7 then str1:=' and xz40=1'
+      else if frmscgxdy.chk1.ItemIndex=8 then str1:=' and xz41=1';
+    end;
+    if str1>'' then commandtext:=commandtext+str1;
+    params[0].asinteger:=zygx.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('zsj').isnull then abc004.Caption:=formatfloat('#0.0000',fieldbyname('zsj').value)
+    else abc004.Caption:='0.0000';
+  end;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    commandtext:='select sum(bzsj2) as zsj from ie_zygx1 where seq=:x1';
+    if frmscgxdy.xh1.Checked then str1:=' and xz07=1'
+    else if frmscgxdy.xh2.Checked then begin
+      if frmscgxdy.chk1.ItemIndex=0 then str1:=' and xz04=1'
+      else if frmscgxdy.chk1.ItemIndex=1 then str1:=' and xz01=1'
+      else if frmscgxdy.chk1.ItemIndex=3 then str1:=' and xz03=1'
+      else if frmscgxdy.chk1.ItemIndex=4 then str1:=' and xz05=1'
+      else if frmscgxdy.chk1.ItemIndex=2 then str1:=' and xz06=1'
+      else if frmscgxdy.chk1.ItemIndex=5 then str1:=' and xz30=1'
+      else if frmscgxdy.chk1.ItemIndex=6 then str1:=' and xz31=1'
+      else if frmscgxdy.chk1.ItemIndex=7 then str1:=' and xz40=1'
+      else if frmscgxdy.chk1.ItemIndex=8 then str1:=' and xz41=1';
+    end;
+    if str1>'' then commandtext:=commandtext+str1;
+    params[0].asinteger:=zygx.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('zsj').isnull then abc005.Caption:=formatfloat('#0.0000',fieldbyname('zsj').value)
+    else abc005.Caption:='0.0000';
+  end;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    commandtext:='select sum(sj) as zsj from ie_zygx1 where zb<>''O'' and seq=:x1';
+    if frmscgxdy.xh1.Checked then str1:=' and xz07=1'
+    else if frmscgxdy.xh2.Checked then begin
+      if frmscgxdy.chk1.ItemIndex=0 then str1:=' and xz04=1'
+      else if frmscgxdy.chk1.ItemIndex=1 then str1:=' and xz01=1'
+      else if frmscgxdy.chk1.ItemIndex=3 then str1:=' and xz03=1'
+      else if frmscgxdy.chk1.ItemIndex=4 then str1:=' and xz05=1'
+      else if frmscgxdy.chk1.ItemIndex=2 then str1:=' and xz06=1'
+      else if frmscgxdy.chk1.ItemIndex=5 then str1:=' and xz30=1'
+      else if frmscgxdy.chk1.ItemIndex=6 then str1:=' and xz31=1'
+      else if frmscgxdy.chk1.ItemIndex=7 then str1:=' and xz40=1'
+      else if frmscgxdy.chk1.ItemIndex=8 then str1:=' and xz41=1';
+    end;
+    if str1>'' then commandtext:=commandtext+str1;
+    params[0].asinteger:=zygx.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('zsj').isnull then abc006.Caption:=formatfloat('#0.0000',fieldbyname('zsj').value)
+    else abc006.Caption:='0.0000';
+  end;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    commandtext:='select sum(bzsj2) as zsj from ie_zygx1 where zb<>''O'' and seq=:x1';
+    if frmscgxdy.xh1.Checked then str1:=' and xz07=1'
+    else if frmscgxdy.xh2.Checked then begin
+      if frmscgxdy.chk1.ItemIndex=0 then str1:=' and xz04=1'
+      else if frmscgxdy.chk1.ItemIndex=1 then str1:=' and xz01=1'
+      else if frmscgxdy.chk1.ItemIndex=3 then str1:=' and xz03=1'
+      else if frmscgxdy.chk1.ItemIndex=4 then str1:=' and xz05=1'
+      else if frmscgxdy.chk1.ItemIndex=2 then str1:=' and xz06=1'
+      else if frmscgxdy.chk1.ItemIndex=5 then str1:=' and xz30=1'
+      else if frmscgxdy.chk1.ItemIndex=6 then str1:=' and xz31=1'
+      else if frmscgxdy.chk1.ItemIndex=7 then str1:=' and xz40=1'
+      else if frmscgxdy.chk1.ItemIndex=8 then str1:=' and xz41=1';
+    end;
+    if str1>'' then commandtext:=commandtext+str1;
+    params[0].asinteger:=zygx.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('zsj').isnull then abc007.Caption:=formatfloat('#0.0000',fieldbyname('zsj').value)
+    else abc007.Caption:='0.0000';
+  end;
+
+  if frmscgxdy.chk1.ItemIndex=0 then begin
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from ie_lb where seq=:x1 and vtype=:x2 order by opt';
+      params[0].asinteger:=zygx.fieldbyname('seq').value;
+      params[1].asstring:='1';
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('opt').value='GSD' then begin
+          g01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          g02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          g03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          g04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='©î§¨' then begin
+          c01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          c02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          c03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          c04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='Àu¤Æ' then begin
+          y01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          y02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          y03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          y04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='·¥¨Î' then begin
+          j01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          j02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          j03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          j04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=1 then begin
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from ie_lb where seq=:x1 and vtype=:x2 order by opt';
+      params[0].asinteger:=zygx.fieldbyname('seq').value;
+      params[1].asstring:='2a';
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('opt').value='GSD' then begin
+          g01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          g02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          g03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          g04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='©î§¨' then begin
+          c01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          c02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          c03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          c04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='Àu¤Æ' then begin
+          y01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          y02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          y03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          y04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='·¥¨Î' then begin
+          j01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          j02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          j03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          j04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=2 then begin
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from ie_lb where seq=:x1 and vtype=:x2 order by opt';
+      params[0].asinteger:=zygx.fieldbyname('seq').value;
+      params[1].asstring:='2b';
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('opt').value='GSD' then begin
+          g01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          g02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          g03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          g04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='©î§¨' then begin
+          c01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          c02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          c03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          c04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='Àu¤Æ' then begin
+          y01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          y02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          y03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          y04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='·¥¨Î' then begin
+          j01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          j02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          j03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          j04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=3 then begin
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from ie_lb where seq=:x1 and vtype=:x2 order by opt';
+      params[0].asinteger:=zygx.fieldbyname('seq').value;
+      params[1].asstring:='2c';
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('opt').value='GSD' then begin
+          g01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          g02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          g03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          g04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='©î§¨' then begin
+          c01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          c02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          c03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          c04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='Àu¤Æ' then begin
+          y01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          y02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          y03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          y04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='·¥¨Î' then begin
+          j01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          j02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          j03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          j04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=4 then begin
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from ie_lb where seq=:x1 and vtype=:x2 order by opt';
+      params[0].asinteger:=zygx.fieldbyname('seq').value;
+      params[1].asstring:='2d';
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('opt').value='GSD' then begin
+          g01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          g02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          g03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          g04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='©î§¨' then begin
+          c01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          c02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          c03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          c04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='Àu¤Æ' then begin
+          y01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          y02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          y03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          y04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='·¥¨Î' then begin
+          j01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          j02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          j03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          j04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=5 then begin
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from ie_lb where seq=:x1 and vtype=:x2 order by opt';
+      params[0].asinteger:=zygx.fieldbyname('seq').value;
+      params[1].asstring:='3a';
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('opt').value='GSD' then begin
+          g01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          g02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          g03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          g04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='©î§¨' then begin
+          c01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          c02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          c03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          c04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='Àu¤Æ' then begin
+          y01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          y02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          y03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          y04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='·¥¨Î' then begin
+          j01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          j02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          j03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          j04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=6 then begin
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from ie_lb where seq=:x1 and vtype=:x2 order by opt';
+      params[0].asinteger:=zygx.fieldbyname('seq').value;
+      params[1].asstring:='3b';
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('opt').value='GSD' then begin
+          g01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          g02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          g03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          g04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='©î§¨' then begin
+          c01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          c02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          c03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          c04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='Àu¤Æ' then begin
+          y01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          y02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          y03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          y04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='·¥¨Î' then begin
+          j01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          j02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          j03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          j04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=7 then begin
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from ie_lb where seq=:x1 and vtype=:x2 order by opt';
+      params[0].asinteger:=zygx.fieldbyname('seq').value;
+      params[1].asstring:='4a';
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('opt').value='GSD' then begin
+          g01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          g02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          g03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          g04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='©î§¨' then begin
+          c01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          c02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          c03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          c04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='Àu¤Æ' then begin
+          y01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          y02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          y03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          y04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='·¥¨Î' then begin
+          j01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          j02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          j03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          j04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=8 then begin
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from ie_lb where seq=:x1 and vtype=:x2 order by opt';
+      params[0].asinteger:=zygx.fieldbyname('seq').value;
+      params[1].asstring:='4b';
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('opt').value='GSD' then begin
+          g01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          g02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          g03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          g04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='©î§¨' then begin
+          c01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          c02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          c03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          c04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='Àu¤Æ' then begin
+          y01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          y02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          y03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          y04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end else if fieldbyname('opt').value='·¥¨Î' then begin
+          j01.Caption:=formatfloat('0.0000',fieldbyname('bsah').value);
+          j02.Caption:=formatfloat('#0',fieldbyname('zrs').value);
+          j03.Caption:=formatfloat('#0',fieldbyname('wsta').value);
+          j04.Caption:=formatfloat('0.00',fieldbyname('lb').value);
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmscgxly1.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  if frmscgxdy.xh1.Checked then begin
+    if zygx.FieldByName('xz07').value=true then begin
+      sj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sj').value);
+      sj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('bzsj2').value);
+      sjdj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj').value);
+      sjdj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj2').value);
+      jscl0001.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl').value);
+      jscl0002.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl1').value);
+    end else begin
+      sj0001.Caption:='0.0000';
+      sj0002.Caption:='0.0000';
+      sjdj0001.Caption:='0.0000';
+      sjdj0002.Caption:='0.0000';
+      jscl0001.Caption:='0.00';
+      jscl0002.Caption:='0.00';
+    end;
+  end else if frmscgxdy.xh2.Checked then begin
+  if frmscgxdy.chk1.ItemIndex=0 then begin
+    if zygx.FieldByName('xz04_1').value=true then begin
+      sj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sj').value);
+      sj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('bzsj2').value);
+      sjdj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj').value);
+      sjdj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj2').value);
+      jscl0001.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl').value);
+      jscl0002.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl1').value);
+    end else begin
+      sj0001.Caption:='0.0000';
+      sj0002.Caption:='0.0000';
+      sjdj0001.Caption:='0.0000';
+      sjdj0002.Caption:='0.0000';
+      jscl0001.Caption:='0.00';
+      jscl0002.Caption:='0.00';
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=1 then begin
+    if zygx.FieldByName('xz01_1').value=true then begin
+      sj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sj').value);
+      sj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('bzsj2').value);
+      sjdj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj').value);
+      sjdj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj2').value);
+      jscl0001.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl').value);
+      jscl0002.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl1').value);
+    end else begin
+      sj0001.Caption:='0.0000';
+      sj0002.Caption:='0.0000';
+      sjdj0001.Caption:='0.0000';
+      sjdj0002.Caption:='0.0000';
+      jscl0001.Caption:='0.00';
+      jscl0002.Caption:='0.00';
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=3 then begin
+    if zygx.FieldByName('xz03_1').value=true then begin
+      sj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sj').value);
+      sj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('bzsj2').value);
+      sjdj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj').value);
+      sjdj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj2').value);
+      jscl0001.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl').value);
+      jscl0002.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl1').value);
+    end else begin
+      sj0001.Caption:='0.0000';
+      sj0002.Caption:='0.0000';
+      sjdj0001.Caption:='0.0000';
+      sjdj0002.Caption:='0.0000';
+      jscl0001.Caption:='0.00';
+      jscl0002.Caption:='0.00';
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=4 then begin
+    if zygx.FieldByName('xz05').value=true then begin
+      sj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sj').value);
+      sj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('bzsj2').value);
+      sjdj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj').value);
+      sjdj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj2').value);
+      jscl0001.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl').value);
+      jscl0002.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl1').value);
+    end else begin
+      sj0001.Caption:='0.0000';
+      sj0002.Caption:='0.0000';
+      sjdj0001.Caption:='0.0000';
+      sjdj0002.Caption:='0.0000';
+      jscl0001.Caption:='0.00';
+      jscl0002.Caption:='0.00';
+    end;
+  end else if frmscgxdy.chk1.ItemIndex=2 then begin
+    if zygx.FieldByName('xz06').value=true then begin
+      sj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sj').value);
+      sj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('bzsj2').value);
+      sjdj0001.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj').value);
+      sjdj0002.Caption:=formatfloat('0.0000',zygx.fieldbyname('sjdj2').value);
+      jscl0001.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl').value);
+      jscl0002.Caption:=formatfloat('0.00',zygx.fieldbyname('jscl1').value);
+    end else begin
+      sj0001.Caption:='0.0000';
+      sj0002.Caption:='0.0000';
+      sjdj0001.Caption:='0.0000';
+      sjdj0002.Caption:='0.0000';
+      jscl0001.Caption:='0.00';
+      jscl0002.Caption:='0.00';
+    end;
+  end;
+  end;
+end;
+
+end.

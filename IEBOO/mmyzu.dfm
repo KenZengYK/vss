@@ -1,0 +1,85 @@
+object frmmmyz: Tfrmmmyz
+  Left = 438
+  Top = 180
+  Width = 177
+  Height = 140
+  BorderIcons = [biSystemMenu]
+  Caption = '密碼驗証'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 16
+    Top = 16
+    Width = 65
+    Height = 13
+    Caption = '請輸入密碼'
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = '新細明體'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Edit1: TEdit
+    Left = 16
+    Top = 40
+    Width = 137
+    Height = 21
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = '新細明體'
+    Font.Style = []
+    ParentFont = False
+    PasswordChar = '#'
+    TabOrder = 0
+    OnKeyPress = Edit1KeyPress
+  end
+  object BitBtn1: TBitBtn
+    Left = 16
+    Top = 77
+    Width = 57
+    Height = 25
+    Caption = '確定'
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = '新細明體'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 96
+    Top = 77
+    Width = 57
+    Height = 25
+    Caption = '取消'
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = '新細明體'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+    OnClick = BitBtn2Click
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmxtdl.SocketConnection1
+    Left = 80
+    Top = 8
+  end
+end

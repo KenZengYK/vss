@@ -1,0 +1,1726 @@
+object frmgxfxb: Tfrmgxfxb
+  Left = 3
+  Top = 0
+  Width = 808
+  Height = 608
+  BorderIcons = [biSystemMenu]
+  Caption = #24037#24207#20998#26512#34920
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label4: TLabel
+    Left = 628
+    Top = 10
+    Width = 24
+    Height = 12
+    Caption = #24207#34399
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 16
+    Top = 10
+    Width = 48
+    Height = 12
+    Caption = #24037#24207#21517#31281
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 231
+    Top = 34
+    Width = 48
+    Height = 12
+    Caption = #29289#26009#21517#31281
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 450
+    Top = 10
+    Width = 64
+    Height = 12
+    Caption = #37341#25976'(3cm'#38291')'
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 628
+    Top = 34
+    Width = 24
+    Height = 12
+    Caption = #38263#24230
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label9: TLabel
+    Left = 600
+    Top = 538
+    Width = 72
+    Height = 12
+    Caption = #27599#20214#36554#32299#26178#38291
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 16
+    Top = 58
+    Width = 48
+    Height = 12
+    Caption = #34915#36554#22411#34399
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 243
+    Top = 58
+    Width = 36
+    Height = 12
+    Caption = #36554#36681#36895
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label12: TLabel
+    Left = 490
+    Top = 34
+    Width = 24
+    Height = 12
+    Caption = #37341#26495
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label13: TLabel
+    Left = 640
+    Top = 58
+    Width = 12
+    Height = 12
+    Caption = #29273
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label14: TLabel
+    Left = 40
+    Top = 82
+    Width = 24
+    Height = 12
+    Caption = #22739#33139
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label15: TLabel
+    Left = 255
+    Top = 82
+    Width = 24
+    Height = 12
+    Caption = #32218#31278
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label16: TLabel
+    Left = 490
+    Top = 58
+    Width = 24
+    Height = 12
+    Caption = #37341#34399
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label17: TLabel
+    Left = 454
+    Top = 82
+    Width = 36
+    Height = 12
+    Caption = #38646#37197#20214
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label1: TLabel
+    Left = 402
+    Top = 298
+    Width = 3
+    Height = 12
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    Visible = False
+  end
+  object SpeedButton1: TSpeedButton
+    Left = 225
+    Top = 8
+    Width = 23
+    Height = 21
+    Hint = #21934#25802#36984#25799#24037#24207
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000120B0000120B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      33333FF3333333333333447333333333333377FFF33333333333744473333333
+      333337773FF3333333333444447333333333373F773FF3333333334444447333
+      33333373F3773FF3333333744444447333333337F333773FF333333444444444
+      733333373F3333773FF333334444444444733FFF7FFFFFFF77FF999999999999
+      999977777777777733773333CCCCCCCCCC3333337333333F7733333CCCCCCCCC
+      33333337F3333F773333333CCCCCCC3333333337333F7733333333CCCCCC3333
+      333333733F77333333333CCCCC333333333337FF7733333333333CCC33333333
+      33333777333333333333CC333333333333337733333333333333}
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton1Click
+  end
+  object SpeedButton2: TSpeedButton
+    Left = 286
+    Top = 536
+    Width = 30
+    Height = 30
+    Hint = #30906#23450
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000120B0000120B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+      555555555555555555555555555555555555555555FF55555555555559055555
+      55555555577FF5555555555599905555555555557777F5555555555599905555
+      555555557777FF5555555559999905555555555777777F555555559999990555
+      5555557777777FF5555557990599905555555777757777F55555790555599055
+      55557775555777FF5555555555599905555555555557777F5555555555559905
+      555555555555777FF5555555555559905555555555555777FF55555555555579
+      05555555555555777FF5555555555557905555555555555777FF555555555555
+      5990555555555555577755555555555555555555555555555555}
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton2Click
+  end
+  object Label2: TLabel
+    Left = 16
+    Top = 34
+    Width = 48
+    Height = 12
+    Caption = #24037#24207#20195#34399
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 282
+    Top = 10
+    Width = 24
+    Height = 12
+    Caption = #27454#34399
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+  end
+  object DBEdit4: TDBEdit
+    Left = 656
+    Top = 8
+    Width = 129
+    Height = 20
+    DataField = 'Xh'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+  end
+  object DBEdit6: TDBEdit
+    Left = 282
+    Top = 32
+    Width = 119
+    Height = 20
+    DataField = 'Wlmc'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+  end
+  object DBEdit7: TDBEdit
+    Left = 516
+    Top = 8
+    Width = 93
+    Height = 20
+    DataField = 'Zs'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+  end
+  object DBEdit8: TDBEdit
+    Left = 656
+    Top = 32
+    Width = 73
+    Height = 20
+    DataField = 'Cd'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
+  end
+  object DBGrid1: TDBGrid
+    Left = 16
+    Top = 112
+    Width = 769
+    Height = 409
+    DataSource = DataSource2
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    PopupMenu = PopupMenu1
+    TabOrder = 15
+    TitleFont.Charset = CHINESEBIG5_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = #26032#32048#26126#39636
+    TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
+    OnKeyDown = DBGrid1KeyDown
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'Bh'
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = #32232#34399
+        Width = 44
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Dzxxfx'
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = #21205#20316#35443#32048#20998#26512
+        Width = 349
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Tj'
+        Title.Alignment = taCenter
+        Title.Caption = #26781#20214
+        Width = 91
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Tmu'
+        Title.Alignment = taCenter
+        Title.Caption = #26178#38291
+        Width = 50
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Cs'
+        Title.Alignment = taCenter
+        Title.Caption = '*  '#27425#25976
+        Width = 55
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Js'
+        Title.Alignment = taCenter
+        Title.Caption = '/   '#20214#25976
+        Width = 57
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Tmu1'
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = #27599#20491#21205#20316#26178#38291
+        Width = 78
+        Visible = True
+      end>
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 16
+    Top = 536
+    Width = 150
+    Height = 30
+    DataSource = DataSource1
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbPost]
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 16
+  end
+  object DBEdit9: TDBEdit
+    Left = 680
+    Top = 536
+    Width = 105
+    Height = 20
+    Color = 11927551
+    DataField = 'Mjsj'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 19
+  end
+  object DBEdit10: TDBEdit
+    Left = 69
+    Top = 56
+    Width = 137
+    Height = 20
+    DataField = 'Yclx'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 5
+  end
+  object DBEdit11: TDBEdit
+    Left = 282
+    Top = 56
+    Width = 119
+    Height = 20
+    DataField = 'Czs'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 6
+  end
+  object DBEdit12: TDBEdit
+    Left = 516
+    Top = 32
+    Width = 93
+    Height = 20
+    DataField = 'Zb'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 7
+  end
+  object DBEdit13: TDBEdit
+    Left = 656
+    Top = 56
+    Width = 129
+    Height = 20
+    DataField = 'Ya'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 13
+  end
+  object DBEdit14: TDBEdit
+    Left = 69
+    Top = 80
+    Width = 137
+    Height = 20
+    DataField = 'Yj'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 10
+  end
+  object DBEdit15: TDBEdit
+    Left = 282
+    Top = 80
+    Width = 119
+    Height = 20
+    DataField = 'Xz'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 11
+  end
+  object DBEdit16: TDBEdit
+    Left = 516
+    Top = 56
+    Width = 93
+    Height = 20
+    DataField = 'Zh'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 12
+  end
+  object DBEdit17: TDBEdit
+    Left = 492
+    Top = 80
+    Width = 293
+    Height = 20
+    Hint = #38617#25802#21487#36984#25799#38468#20214#36039#26009
+    DataField = 'Fj'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 14
+    OnDblClick = DBEdit17DblClick
+  end
+  object BitBtn1: TBitBtn
+    Left = 196
+    Top = 536
+    Width = 30
+    Height = 30
+    Hint = #21034#38500
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 17
+    OnClick = BitBtn1Click
+    Glyph.Data = {
+      E6000000424DE60000000000000076000000280000000E0000000E0000000100
+      0400000000007000000000000000000000001000000000000000000000000000
+      BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      3300333333333333330033333333333333003333333333333300333333333333
+      330033333333333333003300000000003300330FFFFFFFF03300330000000000
+      3300333333333333330033333333333333003333333333333300333333333333
+      33003333333333333300}
+  end
+  object BitBtn2: TBitBtn
+    Left = 226
+    Top = 536
+    Width = 30
+    Height = 30
+    Hint = #25171#21360
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 18
+    OnClick = BitBtn2Click
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+      00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+      8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+      8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+      8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+      03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+      03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+      33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+      33333337FFFF7733333333300000033333333337777773333333}
+    NumGlyphs = 2
+  end
+  object DBEdit1: TDBEdit
+    Left = 69
+    Top = 8
+    Width = 156
+    Height = 20
+    Color = 11927551
+    DataField = 'Gxm'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    OnDblClick = DBEdit1DblClick
+  end
+  object BitBtn3: TBitBtn
+    Left = 166
+    Top = 536
+    Width = 30
+    Height = 30
+    Hint = #26032#22686#24037#24207
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 20
+    OnClick = BitBtn3Click
+    Glyph.Data = {
+      DE000000424DDE0000000000000076000000280000000D0000000D0000000100
+      0400000000006800000000000000000000001000000000000000000000000000
+      8000008000000080800080000000800080008080000080808000C0C0C0000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+      F000FFFFFFFFFFFFF000FFFFF000FFFFF000FFFFF0F0FFFFF000FFFFF0F0FFFF
+      F000FF0000F0000FF000FF0FFFFFFF0FF000FF0000F0000FF000FFFFF0F0FFFF
+      F000FFFFF0F0FFFFF000FFFFF000FFFFF000FFFFFFFFFFFFF000FFFFFFFFFFFF
+      F000}
+  end
+  object BitBtn4: TBitBtn
+    Left = 256
+    Top = 536
+    Width = 30
+    Height = 30
+    Hint = #20462#25913#38918#24207
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 21
+    OnClick = BitBtn4Click
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      3333333333FFFFF3333333333999993333333333F77777FFF333333999999999
+      3333333777333777FF33339993707399933333773337F3777FF3399933000339
+      9933377333777F3377F3399333707333993337733337333337FF993333333333
+      399377F33333F333377F993333303333399377F33337FF333373993333707333
+      333377F333777F333333993333101333333377F333777F3FFFFF993333000399
+      999377FF33777F77777F3993330003399993373FF3777F37777F399933000333
+      99933773FF777F3F777F339993707399999333773F373F77777F333999999999
+      3393333777333777337333333999993333333333377777333333}
+    NumGlyphs = 2
+  end
+  object BitBtn5: TBitBtn
+    Left = 316
+    Top = 536
+    Width = 30
+    Height = 30
+    Hint = #36864#20986
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 22
+    OnClick = BitBtn5Click
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000120B0000120B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00330000000000
+      03333377777777777F333301BBBBBBBB033333773F3333337F3333011BBBBBBB
+      0333337F73F333337F33330111BBBBBB0333337F373F33337F333301110BBBBB
+      0333337F337F33337F333301110BBBBB0333337F337F33337F333301110BBBBB
+      0333337F337F33337F333301110BBBBB0333337F337F33337F333301110BBBBB
+      0333337F337F33337F333301110BBBBB0333337F337FF3337F33330111B0BBBB
+      0333337F337733337F333301110BBBBB0333337F337F33337F333301110BBBBB
+      0333337F3F7F33337F333301E10BBBBB0333337F7F7F33337F333301EE0BBBBB
+      0333337F777FFFFF7F3333000000000003333377777777777333}
+    NumGlyphs = 2
+  end
+  object DBComboBox1: TDBComboBox
+    Left = 728
+    Top = 32
+    Width = 57
+    Height = 21
+    DataField = 'Dw'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ItemHeight = 13
+    Items.Strings = (
+      'M'
+      'CM'
+      'MM')
+    ParentFont = False
+    TabOrder = 9
+  end
+  object DBEdit2: TDBEdit
+    Left = 69
+    Top = 32
+    Width = 76
+    Height = 20
+    Color = 11927551
+    DataField = 'Gxdh'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 23
+    OnDblClick = DBEdit1DblClick
+  end
+  object DBEdit3: TDBEdit
+    Left = 308
+    Top = 8
+    Width = 93
+    Height = 20
+    DataField = 'Kh'
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+  end
+  object DataSource1: TDataSource
+    DataSet = gxfxb
+    Left = 404
+    Top = 288
+  end
+  object DataSource2: TDataSource
+    DataSet = gxfxb1
+    Left = 460
+    Top = 288
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 572
+    Top = 288
+    object AddNew1: TMenuItem
+      Caption = 'AddNew'
+      ShortCut = 32833
+      Visible = False
+      OnClick = AddNew1Click
+    end
+    object Delete1: TMenuItem
+      Caption = 'Delete'
+      ShortCut = 32836
+      Visible = False
+      OnClick = Delete1Click
+    end
+    object Save1: TMenuItem
+      Caption = 'Save'
+      ShortCut = 32851
+      Visible = False
+      OnClick = Save1Click
+    end
+  end
+  object gxfxb: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ie_gxfxb'
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmxtdl.SocketConnection1
+    AfterPost = gxfxbAfterPost
+    AfterScroll = gxfxbAfterScroll
+    Left = 376
+    Top = 288
+    object gxfxbGxm: TStringField
+      FieldName = 'Gxm'
+      Size = 40
+    end
+    object gxfxbCf: TStringField
+      FieldName = 'Cf'
+      Size = 6
+    end
+    object gxfxbWlmc: TStringField
+      FieldName = 'Wlmc'
+      Size = 40
+    end
+    object gxfxbZs: TStringField
+      FieldName = 'Zs'
+      Size = 10
+    end
+    object gxfxbCd: TFloatField
+      FieldName = 'Cd'
+    end
+    object gxfxbYclx: TStringField
+      FieldName = 'Yclx'
+    end
+    object gxfxbCzs: TIntegerField
+      FieldName = 'Czs'
+    end
+    object gxfxbZb: TStringField
+      FieldName = 'Zb'
+    end
+    object gxfxbYa: TStringField
+      FieldName = 'Ya'
+      Size = 10
+    end
+    object gxfxbYj: TStringField
+      FieldName = 'Yj'
+      Size = 10
+    end
+    object gxfxbXz: TStringField
+      FieldName = 'Xz'
+      Size = 10
+    end
+    object gxfxbZh: TStringField
+      FieldName = 'Zh'
+      Size = 10
+    end
+    object gxfxbFj: TStringField
+      FieldName = 'Fj'
+      Size = 80
+    end
+    object gxfxbMjsj: TFloatField
+      FieldName = 'Mjsj'
+    end
+    object gxfxbXh: TStringField
+      FieldName = 'Xh'
+      Size = 10
+    end
+    object gxfxbKh: TStringField
+      FieldName = 'Kh'
+    end
+    object gxfxbZd: TStringField
+      FieldName = 'Zd'
+    end
+    object gxfxbDw: TStringField
+      FieldName = 'Dw'
+      Size = 3
+    end
+    object gxfxbGxdh: TStringField
+      FieldName = 'Gxdh'
+      Size = 6
+    end
+  end
+  object gxfxb1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ie_gxfxb1'
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmxtdl.SocketConnection1
+    AfterPost = gxfxb1AfterPost
+    OnNewRecord = gxfxb1NewRecord
+    Left = 432
+    Top = 288
+    object gxfxb1Rid: TIntegerField
+      FieldName = 'Rid'
+    end
+    object gxfxb1Gxm: TStringField
+      FieldName = 'Gxm'
+      Size = 40
+    end
+    object gxfxb1Cf: TStringField
+      FieldName = 'Cf'
+      Size = 6
+    end
+    object gxfxb1Seq: TIntegerField
+      FieldName = 'Seq'
+    end
+    object gxfxb1Bh: TStringField
+      FieldName = 'Bh'
+      OnChange = gxfxb1BhChange
+      Size = 6
+    end
+    object gxfxb1Dzxxfx: TStringField
+      FieldName = 'Dzxxfx'
+      Size = 80
+    end
+    object gxfxb1Tmu: TFloatField
+      FieldName = 'Tmu'
+      OnChange = gxfxb1TmuChange
+    end
+    object gxfxb1Cs: TIntegerField
+      FieldName = 'Cs'
+      OnChange = gxfxb1CsChange
+    end
+    object gxfxb1Js: TIntegerField
+      FieldName = 'Js'
+      OnChange = gxfxb1JsChange
+    end
+    object gxfxb1Tj: TStringField
+      FieldName = 'Tj'
+    end
+    object gxfxb1Tmu1: TFloatField
+      FieldName = 'Tmu1'
+    end
+    object gxfxb1Dz: TStringField
+      FieldName = 'Dz'
+      Size = 6
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'Seq'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Kh'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gch'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Spmc'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'Zb'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Zd'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gzxl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Mb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Mbxs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsl'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Wcqj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Zrs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Bzzsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Sdz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sjg'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sdc'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Srs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sqt'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Bz'
+        DataType = ftString
+        Size = 255
+      end
+      item
+        Name = 'Kyl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Cs'
+        DataType = ftInteger
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmxtdl.SocketConnection1
+    StoreDefs = True
+    Left = 492
+    Top = 288
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'Seq'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Kh'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gch'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Spmc'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'Zb'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Zd'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gzxl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Mb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Mbxs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsl'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Wcqj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Zrs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Bzzsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Sdz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sjg'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sdc'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Srs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sqt'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Bz'
+        DataType = ftString
+        Size = 255
+      end
+      item
+        Name = 'Kyl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Cs'
+        DataType = ftInteger
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmxtdl.SocketConnection1
+    StoreDefs = True
+    Left = 516
+    Top = 288
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'Seq'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Kh'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gch'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Spmc'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'Zb'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Zd'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gzxl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Mb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Mbxs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsl'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Wcqj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Zrs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Bzzsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Sdz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sjg'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sdc'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Srs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sqt'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Bz'
+        DataType = ftString
+        Size = 255
+      end
+      item
+        Name = 'Kyl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Cs'
+        DataType = ftInteger
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmxtdl.SocketConnection1
+    StoreDefs = True
+    Left = 548
+    Top = 288
+  end
+  object Query4: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'Seq'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Kh'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gch'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Spmc'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'Zb'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Zd'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gzxl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Mb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Mbxs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsl'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Wcqj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Zrs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Bzzsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Sdz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sjg'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sdc'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Srs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sqt'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Bz'
+        DataType = ftString
+        Size = 255
+      end
+      item
+        Name = 'Kyl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Cs'
+        DataType = ftInteger
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmxtdl.SocketConnection1
+    StoreDefs = True
+    Left = 599
+    Top = 288
+  end
+  object Query5: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'Seq'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Kh'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gch'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Spmc'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'Zb'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Zd'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gzxl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Mb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Mbxs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsl'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Wcqj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Zrs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Bzzsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Sdz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sjg'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sdc'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Srs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sqt'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Bz'
+        DataType = ftString
+        Size = 255
+      end
+      item
+        Name = 'Kyl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Cs'
+        DataType = ftInteger
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmxtdl.SocketConnection1
+    StoreDefs = True
+    Left = 628
+    Top = 288
+  end
+  object Query6: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'Seq'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Kh'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gch'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Spmc'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'Zb'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Zd'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gzxl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Mb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Mbxs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsl'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Wcqj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Zrs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Bzzsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Sdz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sjg'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sdc'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Srs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sqt'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Bz'
+        DataType = ftString
+        Size = 255
+      end
+      item
+        Name = 'Kyl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Cs'
+        DataType = ftInteger
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmxtdl.SocketConnection1
+    StoreDefs = True
+    Left = 658
+    Top = 288
+  end
+  object Query7: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'Seq'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Kh'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gch'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Spmc'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'Zb'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Zd'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Gzxl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Mb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Mbxs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsl'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Wcqj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Zrs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Zsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Bzzsj'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Sdz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssz'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Ssb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sjg'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sdc'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Srs'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Sqt'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Bz'
+        DataType = ftString
+        Size = 255
+      end
+      item
+        Name = 'Kyl'
+        DataType = ftFloat
+      end
+      item
+        Name = 'Cs'
+        DataType = ftInteger
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmxtdl.SocketConnection1
+    StoreDefs = True
+    Left = 685
+    Top = 288
+  end
+end

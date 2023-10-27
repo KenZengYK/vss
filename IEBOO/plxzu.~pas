@@ -1,0 +1,60 @@
+unit plxzu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Bde, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBTables, ExtCtrls, DBCtrls, Grids, DBGrids, Buttons, ADODB;
+
+type
+  Tfrmplxz = class(TForm)
+    SpeedButton1: TSpeedButton;
+    DBGrid1: TDBGrid;
+    DBNavigator1: TDBNavigator;
+    DataSource1: TDataSource;
+    Query1: TADOQuery;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmplxz: Tfrmplxz;
+
+implementation
+uses kgxzgx;
+{$R *.DFM}
+
+procedure Tfrmplxz.SpeedButton1Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmplxz.DBGrid1DblClick(Sender: TObject);
+begin
+  if query1.recordcount>0 then
+  begin
+    //query1.refresh;
+    frmkgxzgx.Label5.caption:=inttostr(dbgrid1.fields[0].value);
+    frmkgxzgx.label6.caption:=floattostr(dbgrid1.fields[1].value);
+  end;
+  close;
+end;
+
+procedure Tfrmplxz.FormShow(Sender: TObject);
+begin
+  query1.active:=false;
+  query1.active:=true;
+end;
+
+procedure Tfrmplxz.Query1AfterPost(DataSet: TDataSet);
+begin
+//  dbisavechanges(query1.handle);
+end;
+
+end.

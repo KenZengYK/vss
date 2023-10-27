@@ -1,0 +1,644 @@
+unit bzgx1u;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Menus, DBTables, Db, StdCtrls, Buttons, ExtCtrls, DBCtrls, Grids,
+  DBGrids, Mask, DBGridEh, ADODB, DBClient,Variants, GridsEh, DBGridEh2Excel_Joe;
+
+type
+  Tfrmbzgx1 = class(TForm)
+    DataSource1: TDataSource;
+    DataSource2: TDataSource;
+    PopupMenu1: TPopupMenu;
+    AddNew1: TMenuItem;
+    Delete1: TMenuItem;
+    Save1: TMenuItem;
+    DataSource3: TDataSource;
+    DBGrid1: TDBGridEh;
+    fh: TClientDataSet;
+    bzgx1: TClientDataSet;
+    Query1: TClientDataSet;
+    Query6: TClientDataSet;
+    Query5: TClientDataSet;
+    Query4: TClientDataSet;
+    Query3: TClientDataSet;
+    Query2: TClientDataSet;
+    Query7: TClientDataSet;
+    bzgx1dtl: TClientDataSet;
+    bzgx1Cz: TStringField;
+    bzgx1Dh: TStringField;
+    bzgx1Mc: TStringField;
+    bzgx1Seq: TIntegerField;
+    bzgx1Id: TIntegerField;
+    bzgx1Flag: TStringField;
+    bzgx1Nd: TIntegerField;
+    bzgx1Sj: TFloatField;
+    bzgx1Dj1: TFloatField;
+    bzgx1Dj2: TFloatField;
+    bzgx1Czxh: TStringField;
+    bzgx1Yzjzb: TStringField;
+    bzgx1Mx: TStringField;
+    bzgx1Dx: TStringField;
+    bzgx1Cfzkcc: TFloatField;
+    bzgx1Zzkcc: TFloatField;
+    bzgx1Dzkcc: TFloatField;
+    bzgx1Zj: TFloatField;
+    bzgx1Zf: TFloatField;
+    bzgx1Fryd: TStringField;
+    bzgx1Tplj: TStringField;
+    bzgx1Wjm: TStringField;
+    bzgx1Czbh: TStringField;
+    bzgx1Czms: TStringField;
+    bzgx1Ndxs: TFloatField;
+    bzgx1Cdxs: TFloatField;
+    bzgx1Sj1: TFloatField;
+    bzgx1Sj2: TFloatField;
+    bzgx1Bzdj: TFloatField;
+    bzgx1Emc: TStringField;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    ComboBox1: TComboBox;
+    ComboBox2: TComboBox;
+    Panel2: TPanel;
+    Label3: TLabel;
+    Label4: TLabel;
+    DBNavigator1: TDBNavigator;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    bzgx1actv: TBooleanField;
+    bzgx1ycfj: TStringField;
+    bzgx1ycsd: TStringField;
+    bzgx1gsdbh: TStringField;
+    bzgx1sah_opt: TStringField;
+    bzgx1parts_d: TStringField;
+    bzgx1guid_plate: TStringField;
+    bzgx1tps_q: TStringField;
+    bzgx1tps_c: TStringField;
+    bzgx1efryd: TStringField;
+    btn1: TButton;
+    dlgSave1: TSaveDialog;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure AddNew1Click(Sender: TObject);
+    procedure Delete1Click(Sender: TObject);
+    procedure Save1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure ComboBox2Change(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure bzgx1NdxsChange(Sender: TField);
+    procedure bzgx1CdxsChange(Sender: TField);
+    procedure bzgx1SjChange(Sender: TField);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumnEh; State: TGridDrawState);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure bzgx1CzbhChange(Sender: TField);
+    procedure bzgx1BzdjChange(Sender: TField);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
+    procedure DataSource2DataChange(Sender: TObject; Field: TField);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure bzgx1NewRecord(DataSet: TDataSet);
+    procedure bzgx1dtlNewRecord(DataSet: TDataSet);
+    procedure DBGrid1TitleClick(Column: TColumnEh);
+    procedure bzgx1AfterPost(DataSet: TDataSet);
+    procedure bzgx1dtlAfterPost(DataSet: TDataSet);
+    procedure fhAfterPost(DataSet: TDataSet);
+    procedure fhAfterScroll(DataSet: TDataSet);
+    procedure btn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmbzgx1: Tfrmbzgx1;
+
+implementation
+
+uses bzgx1lyu, gxfxbu, gxtpu, bzgx1dtlu, czms1u, bzdju, pl2u, plusu, dlu;
+
+{$R *.DFM}
+
+procedure Tfrmbzgx1.BitBtn1Click(Sender: TObject);
+begin
+  if bzgx1.recordcount>0 then
+  begin
+    if not dbgrid1.Fields[2].isnull then
+    begin
+      if application.messagebox('要刪除此記錄嗎?','Confirmation',mb_iconquestion+mb_okcancel)=idok then
+      begin
+        with query1 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'id',ptinput);
+          commandtext:='delete from ie_bzgx1 where id=:id';
+          params[0].AsInteger:=bzgx1.fieldbyname('id').value;
+          execute;
+        end;
+        bzgx1.delete;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmbzgx1.AddNew1Click(Sender: TObject);
+begin
+  bzgx1.append;
+  dbgrid1.selectedindex:=0;
+end;
+
+procedure Tfrmbzgx1.Delete1Click(Sender: TObject);
+begin
+  if bzgx1.recordcount>0 then
+  begin
+    if not dbgrid1.fields[2].isnull then
+    begin
+      if application.messagebox('要刪除此記錄嗎?','Confirmation',mb_iconquestion+mb_okcancel)=idok then
+      begin
+        bzgx1.delete;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmbzgx1.Save1Click(Sender: TObject);
+begin
+  if not dbgrid1.fields[2].isnull then
+  begin
+    if (bzgx1.state=dsedit) or (bzgx1.state=dsinsert) then
+    begin
+      bzgx1.post;
+    end;
+  end;
+end;
+
+procedure Tfrmbzgx1.BitBtn2Click(Sender: TObject);
+begin
+  if fh.recordcount>0 then
+  begin
+    if frmbzgx1ly=nil then frmbzgx1ly:=tfrmbzgx1ly.create(self);
+    //frmbzgx1ly.fh.filtered:=true;
+    //frmbzgx1ly.fh.open;
+    with frmbzgx1ly.fh do begin
+      close;
+      params.clear;
+      commandtext:='select * from ie_fh where cz='''+dbedit1.text+'''';
+      open;
+    end;
+    with frmbzgx1ly.bzgx1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from ie_bzgx1 where cz='''+dbedit1.text+'''';
+      open;
+    end;
+    frmbzgx1ly.quickrep1.preview;
+  end;
+end;
+
+procedure Tfrmbzgx1.DBGrid1DblClick(Sender: TObject);
+begin
+  if dbgrid1.selectedindex=7 then
+  begin
+    if not dbgrid1.fields[4].isnull then
+    begin
+      query3.close;
+      query3.params.clear;
+      Query3.params.createparam(ftstring,'gxm',ptinput);
+      Query3.params.createparam(ftstring,'cf',ptinput);
+      query3.commandtext:='select gxm from IE_gxfxb where gxm=:gxm and cf=:cf';
+      query3.params[0].value:=dbgrid1.fields[3].value;
+      query3.params[1].value:='縫合';
+      query3.open;
+      if query3.recordcount>0 then
+      begin
+        if frmgxfxb=nil then frmgxfxb:=tfrmgxfxb.create(self);
+        frmgxfxb.label1.caption:='frmbzgx';
+        frmgxfxb.show;
+        //frmgxfxb.gxfxb.FindNearest([dbgrid1.fields[3].value,'縫合']);
+        frmgxfxb.gxfxb.locate('gxm;cf',vararrayof([dbgrid1.fields[3].value,'縫合']),[lopartialkey]);
+      end
+      else
+      begin
+        if frmgxfxb=nil then frmgxfxb:=tfrmgxfxb.create(self);
+        frmgxfxb.label1.caption:='frmbzgx';
+        frmgxfxb.show;
+        frmgxfxb.gxfxb.append;
+        frmgxfxb.gxfxb.fieldbyname('gxm').value:=dbgrid1.fields[3].value;
+        frmgxfxb.gxfxb.fieldbyname('cf').value:='縫合';
+        frmgxfxb.gxfxb.fieldbyname('gxdh').value:=dbgrid1.fields[1].value;
+        frmgxfxb.gxfxb.post;
+        //frmgxfxb.gxfxb.FindNearest([dbgrid1.fields[3].value,'縫合']);
+        frmgxfxb.gxfxb.locate('gxm;cf',vararrayof([dbgrid1.fields[3].value,'縫合']),[lopartialkey]);
+      end;
+      if label3.caption='frmgxfx' then frmbzgx1.close;
+    end;
+  end
+  else
+  begin
+   if dbgrid1.selectedindex=10 then
+   begin
+    {
+    if not dbgrid1.fields[4].isnull then
+    begin
+     if frmbzgx1dtl=nil then frmbzgx1dtl:=tfrmbzgx1dtl.create(self);
+     frmbzgx1dtl.show;
+    end;
+    }
+   end
+   else
+   begin
+    if dbgrid1.selectedindex=4 then
+    begin
+      if not dbgrid1.fields[4].isnull then
+      begin
+        if frmgxtp=nil then frmgxtp:=tfrmgxtp.create(self);
+        frmgxtp.label1.caption:='frmbzgx1';
+        if not bzgx1.fieldbyname('tplj').isnull then
+        begin
+          frmgxtp.edit1.text:=bzgx1.fieldbyname('tplj').value;
+        end
+        else frmgxtp.edit1.text:='';
+        frmgxtp.show;
+        frmbzgx1.Enabled:=false;
+      end;
+    end
+    else
+    begin
+      if dbgrid1.selectedindex=2 then
+      begin
+        if not dbgrid1.fields[4].isnull then
+        begin
+          if frmczms1=nil then frmczms1:=tfrmczms1.create(self);
+          frmczms1.show;
+        end;
+      end
+      else
+      begin
+        {
+        if dbgrid1.selectedindex=8 then
+        begin
+          if not dbgrid1.fields[4].isnull then
+          begin
+            if frmbzdj=nil then frmbzdj:=tfrmbzdj.create(self);
+            frmbzdj.label1.caption:='frmbzgx1';
+            frmbzdj.show;
+          end;
+        end
+        else
+        begin
+         if dbgrid1.selectedindex=12 then
+         begin
+          if not dbgrid1.fields[4].isnull then
+          begin
+           if frmpl2=nil then frmpl2:=tfrmpl2.create(self);
+           frmpl2.show;
+          end;
+         end;
+        end;
+        }
+      end;
+    end;
+   end;
+  end;
+end;
+
+procedure Tfrmbzgx1.ComboBox1Change(Sender: TObject);
+begin
+  //fh.findnearest([combobox1.text]);
+  fh.locate('cz',trim(combobox1.text),[]);
+  combobox2.text:='';
+  combobox2.items.clear;
+  if Bzgx1.recordcount>0 then
+  begin
+    bzgx1.DisableControls;
+    Bzgx1.first;
+    while not Bzgx1.eof do
+    begin
+      combobox2.items.add(Bzgx1.fieldbyname('mc').value);
+      Bzgx1.next;
+    end;
+    bzgx1.First;
+    bzgx1.EnableControls;    
+  end;
+end;
+
+procedure Tfrmbzgx1.ComboBox2Change(Sender: TObject);
+begin
+ if combobox2.text<>'' then
+ begin
+  {bzgx1.EditKey;
+  bzgx1.indexname:='mck';
+  bzgx1.SetKey;
+  bzgx1.findnearest([dbedit1.text,combobox2.text]);}
+  bzgx1.locate('cz;mc',vararrayof([dbedit1.text,combobox2.text]),[lopartialkey]);
+ end
+ else
+ begin
+  {bzgx1.editkey;
+  bzgx1.indexfieldnames:='cz;seq;id';
+  bzgx1.setkey;
+  bzgx1.refresh;}
+  bzgx1.active:=false;
+  bzgx1.active:=true;
+ end;
+end;
+
+procedure Tfrmbzgx1.FormShow(Sender: TObject);
+var
+  bzdj1:double;
+begin
+  bzdj1:=0.00;
+  fh.close;
+  fh.open;  
+  {query1.close;
+  query1.params.clear;
+  query1.commandtext:='select bzdj from bzdj');
+  query1.open;
+  if query1.recordcount>0 then
+  begin
+    query1.last;
+    bzdj1:=query1.fieldbyname('bzdj').value;
+    query1.close;
+    query1.params.clear;
+    query1.commandtext:='update bzgx1 set bzdj=:dj,dj1=sj*:dj,dj2=sj*:dj');
+    query1.prepare;
+    query1.params[0].asfloat:=bzdj1;
+    query1.execute;
+  end;
+  bzgx1.refresh;}
+  with bzgx1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'cz',ptinput);
+    commandtext:='select * from IE_bzgx1 where cz=:cz';
+    params[0].AsString:=fh.FieldByName('cz').value;
+    open;
+  end;
+  combobox1.items.clear;
+  combobox2.items.clear;
+  combobox1.text:='';
+  combobox2.text:='';
+  if fh.recordcount>0 then
+  begin
+    fh.first;
+    while not fh.eof do
+    begin
+      combobox1.items.add(fh.fieldbyname('cz').value);
+      fh.next;
+    end;
+  end;
+  if fh.recordcount>0 then
+  begin
+    if bzgx1.recordcount>0 then
+    begin
+      bzgx1.first;
+      while not bzgx1.eof do
+      begin
+        combobox2.items.add(bzgx1.fieldbyname('mc').value);
+        bzgx1.next;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmbzgx1.bzgx1NdxsChange(Sender: TField);
+begin
+  if (not bzgx1ndxs.isnull) and (not bzgx1sj.isnull) and (not bzgx1cdxs.isnull) then
+  begin
+    bzgx1sj1.value:=bzgx1sj.value*bzgx1ndxs.value;
+    bzgx1sj2.value:=bzgx1sj.value*bzgx1ndxs.value*bzgx1cdxs.value;
+  end;
+end;
+
+procedure Tfrmbzgx1.bzgx1CdxsChange(Sender: TField);
+begin
+  if (not bzgx1ndxs.isnull) and (not bzgx1sj.isnull) and (not bzgx1cdxs.isnull) then
+  begin
+    bzgx1sj1.value:=bzgx1sj.value*bzgx1ndxs.value;
+    bzgx1sj2.value:=bzgx1sj.value*bzgx1ndxs.value*bzgx1cdxs.value;
+  end;
+end;
+
+procedure Tfrmbzgx1.bzgx1SjChange(Sender: TField);
+begin
+  if (not bzgx1ndxs.isnull) and (not bzgx1sj.isnull) and (not bzgx1cdxs.isnull) and (not bzgx1bzdj.isnull) then
+  begin
+    bzgx1sj1.value:=bzgx1sj.value*bzgx1ndxs.value;
+    bzgx1sj2.value:=bzgx1sj.value*bzgx1ndxs.value*bzgx1cdxs.value;
+    bzgx1dj1.value:=bzgx1sj.value*bzgx1bzdj.value;
+    bzgx1dj2.value:=bzgx1sj.value*bzgx1bzdj.value;
+  end;
+end;
+
+procedure Tfrmbzgx1.DBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumnEh;
+  State: TGridDrawState);
+begin
+  if datacol in [10,12] then
+  begin
+    dbgrid1.Canvas.brush.Color:=$00B5FFFF;
+    dbgrid1.canvas.font.Color:=clred;
+    //dbgrid1.DefaultDrawColumnCell(rect,datacol,column,state);
+  end;
+end;
+
+procedure Tfrmbzgx1.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key=13 then
+  begin
+    sendmessage(dbgrid1.handle,wm_keydown,vk_tab,0);
+  end;
+end;
+
+procedure Tfrmbzgx1.bzgx1CzbhChange(Sender: TField);
+begin
+  {if (not bzgx1czbh.IsNull) and (not bzgx1dh.IsNull) then
+  begin
+    query1.close;
+    query1.params.clear;
+    query1.commandtext:='select czbh from bzgx1 where dh=:dh and czbh=:czbh');
+    query1.prepare;
+    query1.params[0].value:=bzgx1dh.value;
+    query1.params[1].value:=bzgx1czbh.Value;
+    query1.open;
+    if query1.recordcount>0 then
+    begin
+      application.messagebox('此工序已有此車種!','提示信息',mb_iconinformation+mb_ok);
+      bzgx1.cancel;
+    end;
+  end;}
+end;
+
+procedure Tfrmbzgx1.bzgx1BzdjChange(Sender: TField);
+begin
+  if (not bzgx1sj.isnull) and (not bzgx1bzdj.isnull) then
+  begin
+    bzgx1dj1.value:=bzgx1sj.value*bzgx1bzdj.Value;
+    bzgx1dj2.value:=bzgx1sj.value*bzgx1bzdj.value;
+  end;
+end;
+
+procedure Tfrmbzgx1.BitBtn3Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmbzgx1.DBNavigator1Click(Sender: TObject;
+  Button: TNavigateBtn);
+begin
+  if button in [nbfirst,nbprior,nbnext,nblast] then
+  begin
+    if fh.recordcount>0 then
+    begin
+      combobox1.text:=dbedit1.text;
+      combobox1.OnChange(self);      
+      combobox2.text:='';
+    end;
+  end
+  else
+  begin
+   if button=nbinsert then
+   begin
+     combobox1.text:='';
+     combobox2.text:='';
+   end;
+  end;
+end;
+
+procedure Tfrmbzgx1.DataSource2DataChange(Sender: TObject; Field: TField);
+begin
+  if (bzgx1.state<>dsedit) and (bzgx1.state<>dsinsert) then
+  begin
+    query7.close;
+    query7.params.clear;
+    Query7.params.createparam(ftstring,'cz',ptinput);
+    query7.commandtext:='select mc from IE_bzgx1 where cz=:cz';
+//    query7.prepare;
+    query7.params[0].value:=dbedit1.text;
+    query7.open;
+    if query7.recordcount>0 then
+    begin
+      query7.last;
+      label4.caption:='工序個數:  '+inttostr(query7.recordcount);
+    end
+    else label4.caption:='工序個數:  0';
+  end;
+end;
+
+procedure Tfrmbzgx1.DataSource1DataChange(Sender: TObject; Field: TField);
+begin
+ if (fh.state<>dsedit) and (fh.state<>dsinsert) then
+ begin
+  if (bzgx1.state<>dsedit) and (bzgx1.state<>dsinsert) then
+  begin
+    query7.close;
+    query7.params.clear;
+    Query7.params.createparam(ftstring,'cz',ptinput);
+    query7.commandtext:='select mc from IE_bzgx1 where cz=:cz';
+//    query7.prepare;
+    query7.params[0].value:=dbedit1.text;
+    query7.open;
+    if query7.recordcount>0 then
+    begin
+      query7.last;
+      label4.caption:='工序個數:  '+inttostr(query7.recordcount);
+    end
+    else label4.caption:='工序個數:  0';
+  end;
+ end;
+end;
+
+procedure Tfrmbzgx1.BitBtn4Click(Sender: TObject);
+begin
+  if frmplus=nil then frmplus:=tfrmplus.create(self);
+  frmplus.label21.caption:='frmbzgx1';
+  frmplus.show;
+end;
+
+procedure Tfrmbzgx1.bzgx1NewRecord(DataSet: TDataSet);
+begin
+  DataSet.FieldByName('id').value:=GetSeq('ie_bzgx1','id');
+  dataset.fieldbyname('cz').value:=fh.fieldbyname('cz').value;
+end;
+
+procedure Tfrmbzgx1.bzgx1dtlNewRecord(DataSet: TDataSet);
+begin
+  DataSet.FieldByName('js').value:=GetSeq('ie_bzgx1dtl','js');
+  dataset.fieldbyname('cz').value:=fh.fieldbyname('cz').value;
+end;
+
+procedure Tfrmbzgx1.DBGrid1TitleClick(Column: TColumnEh);
+begin
+  if column=dbgrid1.Columns[1] then begin
+    with bzgx1 do begin
+      close;
+      params.clear;
+      params.CreateParam(ftstring,'cz',ptinput);
+      commandtext:='select * from IE_bzgx1 where cz=:cz';
+      params[0].AsString:=fh.FieldByName('cz').value;
+      open;
+    end;
+  end
+  else begin
+    if column=dbgrid1.Columns[4] then begin
+      with bzgx1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'cz',ptinput);
+        commandtext:='select * from IE_bzgx1 where cz=:cz order by cz,mc';
+        params[0].asstring:=fh.FieldByName('cz').value;
+        open;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmbzgx1.bzgx1AfterPost(DataSet: TDataSet);
+begin
+  DataSetAfterPost(DataSet);
+end;
+
+procedure Tfrmbzgx1.bzgx1dtlAfterPost(DataSet: TDataSet);
+begin
+  DataSetAfterPost(DataSet);
+end;
+
+procedure Tfrmbzgx1.fhAfterPost(DataSet: TDataSet);
+begin
+  DataSetAfterPost(DataSet);
+end;
+
+procedure Tfrmbzgx1.fhAfterScroll(DataSet: TDataSet);
+begin
+  with bzgx1 do begin
+    close;
+    params.Clear;
+    params.CreateParam(ftstring,'cz',ptinput);
+    commandtext:='select * from ie_bzgx1 where cz=:cz';
+    params[0].AsString:=fh.FieldByName('cz').value;
+    open;
+  end;
+end;
+
+procedure Tfrmbzgx1.btn1Click(Sender: TObject);
+begin
+  try
+    if dlgSave1.Execute then begin
+      if ExpToExcel(DBGrid1,'縫合工序標準資料庫','')=true then ShowMessage('ok!');
+    end;
+  finally
+  end;
+end;
+
+end.
