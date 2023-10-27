@@ -1,0 +1,2951 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{86FBA628-43CC-4F2E-8271-6FCBF44554B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.MobileQC.UI</RootNamespace>
+    <AssemblyName>PH.MobileQC.UI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core" />
+    <Reference Include="DevExpress.Data.v8.1" />
+    <Reference Include="DevExpress.Utils.v8.1" />
+    <Reference Include="DevExpress.Xpo.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v8.1" />
+    <Reference Include="DevExpress.XtraCharts.v8.1.UI, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Developer Express .NET v8.1\Sources\DevExpress.DLL\DevExpress.XtraPrinting.v8.1.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v8.1" />
+    <Reference Include="DevExpress.XtraRichTextEdit.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\DevExpress.XtraRichTextEdit.v8.1\8.1.2.0__9b171c9fd64da1d1\DevExpress.XtraRichTextEdit.v8.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="PH.BasicInfo.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.DefectCode.BO, Version=2.0.2.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.FabricInspection.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.LineBalanceII.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.LWPM.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.Common, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Email.BO, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.ExtendLibrary, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Lang.BO, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Report.PivotGrid, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.UI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.RWO.BO3.0, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlertEmailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlertEmailDetailForm.Designer.cs">
+      <DependentUpon>AlertEmailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlertEmailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlertEmailListForm.Designer.cs">
+      <DependentUpon>AlertEmailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAudit\AppRightInfoDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppAudit\AppRightInfoDetailForm.Designer.cs">
+      <DependentUpon>AppRightInfoDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAudit\AppRightInfoListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppAudit\AppRightInfoListForm.Designer.cs">
+      <DependentUpon>AppRightInfoListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAudit\PlatUserBO.cs" />
+    <Compile Include="AppAudit\PlatUserChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppAudit\PlatUserChooseForm.Designer.cs">
+      <DependentUpon>PlatUserChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAudit\QCRoleChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppAudit\QCRoleChooseForm.Designer.cs">
+      <DependentUpon>QCRoleChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAudit\QCRoleDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppAudit\QCRoleDetailForm.Designer.cs">
+      <DependentUpon>QCRoleDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAudit\QCRoleListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppAudit\QCRoleListForm.Designer.cs">
+      <DependentUpon>QCRoleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAudit\QCUserDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppAudit\QCUserDetailForm.Designer.cs">
+      <DependentUpon>QCUserDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAudit\QCUserListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppAudit\QCUserListForm.Designer.cs">
+      <DependentUpon>QCUserListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAudit\RoleUserDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppAudit\RoleUserDetailForm.Designer.cs">
+      <DependentUpon>RoleUserDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppAudit\RoleUserListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppAudit\RoleUserListForm.Designer.cs">
+      <DependentUpon>RoleUserListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\MasterAnalyzListForm2A_Comp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\MasterAnalyzListForm2A_Comp.Designer.cs">
+      <DependentUpon>MasterAnalyzListForm2A_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\MasterAnalyzListForm_Comp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\MasterAnalyzListForm_Comp.Designer.cs">
+      <DependentUpon>MasterAnalyzListForm_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\MasterList_Comp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\MasterList_Comp.designer.cs">
+      <DependentUpon>MasterList_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\MasterSupplementList_Comp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\MasterSupplementList_Comp.designer.cs">
+      <DependentUpon>MasterSupplementList_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\StyleLineQCStatByWorkshopListForm_Comp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\StyleLineQCStatByWorkshopListForm_Comp.Designer.cs">
+      <DependentUpon>StyleLineQCStatByWorkshopListForm_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\StyleLineQCStatListForm_Comp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\StyleLineQCStatListForm_Comp.Designer.cs">
+      <DependentUpon>StyleLineQCStatListForm_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\WorkforceSewingSkillListForm_Comp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\WorkforceSewingSkillListForm_Comp.Designer.cs">
+      <DependentUpon>WorkforceSewingSkillListForm_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q1.5\FIS2FtyFreqAtChkPtForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\Q1.5\FIS2FtyFreqAtChkPtForm.Designer.cs">
+      <DependentUpon>FIS2FtyFreqAtChkPtForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q1.5\FIS2FtyFreqAtChkPtReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Q1.5\FIS2FtyFreqAtChkPtReport.Designer.cs">
+      <DependentUpon>FIS2FtyFreqAtChkPtReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\F1.2\FIS2ReworkGmtAtEndPhaseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\F1.2\FIS2ReworkGmtAtEndPhaseReport.Designer.cs">
+      <DependentUpon>FIS2ReworkGmtAtEndPhaseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\F1.2\FIS2ReworkGmtAtEndPhaseForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\F1.2\FIS2ReworkGmtAtEndPhaseForm.Designer.cs">
+      <DependentUpon>FIS2ReworkGmtAtEndPhaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\SewingKeyOptsCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\SewingKeyOptsCondition.Designer.cs">
+      <DependentUpon>SewingKeyOptsCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\G2.2-G3.2\AQLControlPerf Summarywithdiagram.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\G2.2-G3.2\AQLControlPerf Summarywithdiagram.Designer.cs">
+      <DependentUpon>AQLControlPerf Summarywithdiagram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\AQL\AdditionalInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustQC\AQL\AdditionalInformationForm.Designer.cs">
+      <DependentUpon>AdditionalInformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\AQL\SelectCustomerPOForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustQC\AQL\SelectCustomerPOForm.Designer.cs">
+      <DependentUpon>SelectCustomerPOForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\AQL\SelectDefectCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustQC\AQL\SelectDefectCodeForm.Designer.cs">
+      <DependentUpon>SelectDefectCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\Interim\AdditionalInformationInterimForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustQC\Interim\AdditionalInformationInterimForm.Designer.cs">
+      <DependentUpon>AdditionalInformationInterimForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\E1.1-E2.1-E3.1\AQLDefectPointAnalyseForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\E1.1-E2.1-E3.1\AQLDefectPointAnalyseForm.Designer.cs">
+      <DependentUpon>AQLDefectPointAnalyseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\E1.1-E2.1-E3.1\AQLDefectPointAnalyseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\E1.1-E2.1-E3.1\AQLDefectPointAnalyseReport.Designer.cs">
+      <DependentUpon>AQLDefectPointAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\E1.1-E2.1-E3.1\AQLDefectPointAnalyseReport_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\E1.1-E2.1-E3.1\AQLDefectPointAnalyseReport_Sub.Designer.cs">
+      <DependentUpon>AQLDefectPointAnalyseReport_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\F1.1-F2.1\FullInspectionDefectPointListReport_Rpt21a.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\F1.1-F2.1\FullInspectionDefectPointListReport_Rpt21a.Designer.cs">
+      <DependentUpon>FullInspectionDefectPointListReport_Rpt21a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\F1.1-F2.1\FullInspectionDefectPointListReport_SubRpt21a.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\F1.1-F2.1\FullInspectionDefectPointListReport_SubRpt21a.Designer.cs">
+      <DependentUpon>FullInspectionDefectPointListReport_SubRpt21a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\P2.1\CustQCDetailInterimReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\P2.1\CustQCDetailInterimReport.Designer.cs">
+      <DependentUpon>CustQCDetailInterimReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\Interim\CustQCDetail_InterimDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustQC\Interim\CustQCDetail_InterimDetailForm.Designer.cs">
+      <DependentUpon>CustQCDetail_InterimDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\Interim\CustQCDetail_InterimListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustQC\Interim\CustQCDetail_InterimListForm.Designer.cs">
+      <DependentUpon>CustQCDetail_InterimListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\P2.1\CustQCInterimShowForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\P2.1\CustQCInterimShowForm.Designer.cs">
+      <DependentUpon>CustQCInterimShowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\Interim\CustQCMaster_InterimDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustQC\Interim\CustQCMaster_InterimDetailForm.Designer.cs">
+      <DependentUpon>CustQCMaster_InterimDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\Interim\CustQCMaster_InterimListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustQC\Interim\CustQCMaster_InterimListForm.Designer.cs">
+      <DependentUpon>CustQCMaster_InterimListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\AQL\CustQCDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustQC\AQL\CustQCDetailDetailForm.Designer.cs">
+      <DependentUpon>CustQCDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\AQL\CustQCDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustQC\AQL\CustQCDetailListForm.Designer.cs">
+      <DependentUpon>CustQCDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\AQL\CustQCMasterDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustQC\AQL\CustQCMasterDetailForm.Designer.cs">
+      <DependentUpon>CustQCMasterDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\AQL\CustQCMasterListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustQC\AQL\CustQCMasterListForm.Designer.cs">
+      <DependentUpon>CustQCMasterListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\AQL\DetailInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustQC\AQL\DetailInformationForm.Designer.cs">
+      <DependentUpon>DetailInformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\P2.1\CustQCSummaryInterimReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\P2.1\CustQCSummaryInterimReport.Designer.cs">
+      <DependentUpon>CustQCSummaryInterimReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustQC\Interim\DetailInformationInterimForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustQC\Interim\DetailInformationInterimForm.Designer.cs">
+      <DependentUpon>DetailInformationInterimForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\G2.2-G3.2\PerfSummaryQueryForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\G2.2-G3.2\PerfSummaryQueryForm.Designer.cs">
+      <DependentUpon>PerfSummaryQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectCause.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectCause.designer.cs">
+      <DependentUpon>DefectCause.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectCorrect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectCorrect.designer.cs">
+      <DependentUpon>DefectCorrect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectPosition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectPosition.designer.cs">
+      <DependentUpon>DefectPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectPrevent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectPrevent.designer.cs">
+      <DependentUpon>DefectPrevent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectSummaryList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectSummaryList.Designer.cs">
+      <DependentUpon>DefectSummaryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailDetailDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DetailDetailDetail.Designer.cs">
+      <DependentUpon>DetailDetailDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailDetailList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DetailDetailList.Designer.cs">
+      <DependentUpon>DetailDetailList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalAuditPlan\AQLAuditorDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FinalAuditPlan\AQLAuditorDetailForm.Designer.cs">
+      <DependentUpon>AQLAuditorDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalAuditPlan\AQLAuditorListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FinalAuditPlan\AQLAuditorListForm.Designer.cs">
+      <DependentUpon>AQLAuditorListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalAuditPlan\FinalAuditPlanListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FinalAuditPlan\FinalAuditPlanListForm.Designer.cs">
+      <DependentUpon>FinalAuditPlanListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalAuditPlan\GetDateByFtyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinalAuditPlan\GetDateByFtyForm.Designer.cs">
+      <DependentUpon>GetDateByFtyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalAuditPlan\GetDateByFtyFormByQN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinalAuditPlan\GetDateByFtyFormByQN.Designer.cs">
+      <DependentUpon>GetDateByFtyFormByQN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\AlertLogCategoryChoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\AlertLogCategoryChoiceForm.Designer.cs">
+      <DependentUpon>AlertLogCategoryChoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\AlertLogCategoryDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\AlertLogCategoryDetailForm.Designer.cs">
+      <DependentUpon>AlertLogCategoryDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\AlertLogCategoryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\AlertLogCategoryListForm.Designer.cs">
+      <DependentUpon>AlertLogCategoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\AlertLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\AlertLogForm.Designer.cs">
+      <DependentUpon>AlertLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\AlertLogSendEmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\AlertLogSendEmailForm.Designer.cs">
+      <DependentUpon>AlertLogSendEmailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyDefectListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyDefectListForm.Designer.cs">
+      <DependentUpon>FirstPassQtyDefectListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyDetailForm.Designer.cs">
+      <DependentUpon>FirstPassQtyDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyFromFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyFromFind.Designer.cs">
+      <DependentUpon>FirstPassQtyFromFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyListForm.Designer.cs">
+      <DependentUpon>FirstPassQtyListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyReport.Designer.cs">
+      <DependentUpon>FirstPassQtyReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyWorkerListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassQtyWorkerListForm.Designer.cs">
+      <DependentUpon>FirstPassQtyWorkerListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassRatioShowForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassRatioShowForm.Designer.cs">
+      <DependentUpon>FirstPassRatioShowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassRatioTargetDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassRatioTargetDetailForm.Designer.cs">
+      <DependentUpon>FirstPassRatioTargetDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassRatioTargetListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\FirstPassRatioTargetListForm.Designer.cs">
+      <DependentUpon>FirstPassRatioTargetListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPassRatio\ShowImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstPassRatio\ShowImageForm.Designer.cs">
+      <DependentUpon>ShowImageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMastListPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMastListPrint.Designer.cs">
+      <DependentUpon>FrmMastListPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelectDeftect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelectDeftect.Designer.cs">
+      <DependentUpon>FrmSelectDeftect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullInspection\FullInspectionDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FullInspection\FullInspectionDetailListForm.Designer.cs">
+      <DependentUpon>FullInspectionDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullInspection\FullInspectionFourDefectForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FullInspection\FullInspectionFourDefectForm.Designer.cs">
+      <DependentUpon>FullInspectionFourDefectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullInspection\FullInspectionHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FullInspection\FullInspectionHeaderDetailForm.Designer.cs">
+      <DependentUpon>FullInspectionHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullInspection\FullInspectionHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FullInspection\FullInspectionHeaderListForm.Designer.cs">
+      <DependentUpon>FullInspectionHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullInspection\TopFourDefectDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FullInspection\TopFourDefectDetailForm.Designer.cs">
+      <DependentUpon>TopFourDefectDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullInspection\TopFourDefectListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FullInspection\TopFourDefectListForm.Designer.cs">
+      <DependentUpon>TopFourDefectListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparisonListFormNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparisonListFormNew.Designer.cs">
+      <DependentUpon>WeeklyDefectPointsComparisonListFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparisonQueryFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparisonQueryFormNew.Designer.cs">
+      <DependentUpon>WeeklyDefectPointsComparisonQueryFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparsionReportNew.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparsionReportNew.Designer.cs">
+      <DependentUpon>WeeklyDefectPointsComparsionReportNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullInspection\FullInspectionFourDefectReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FullInspection\FullInspectionFourDefectReport.Designer.cs">
+      <DependentUpon>FullInspectionFourDefectReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FWOPNPerformanceEvaluate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FWOPNPerformanceEvaluate.Designer.cs">
+      <DependentUpon>FWOPNPerformanceEvaluate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ChartHelper.cs" />
+    <Compile Include="Helper\LineHelper.cs" />
+    <Compile Include="Helper\QCRoleHelper.cs" />
+    <Compile Include="Helper\QCTargetHelper.cs" />
+    <Compile Include="Helper\StyleHelper.cs" />
+    <Compile Include="Helper\WProcedureHelper.cs" />
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\MasterAnalyzListForm2A.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\MasterAnalyzListForm2A.Designer.cs">
+      <DependentUpon>MasterAnalyzListForm2A.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\AuditExamSetupDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\AuditExamSetupDetailForm.Designer.cs">
+      <DependentUpon>AuditExamSetupDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\AuditExamSetupListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\AuditExamSetupListForm.Designer.cs">
+      <DependentUpon>AuditExamSetupListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\MobileExaminerChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterDB\MobileExaminerChooseForm.Designer.cs">
+      <DependentUpon>MobileExaminerChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterSupplementList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterSupplementList.designer.cs">
+      <DependentUpon>MasterSupplementList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterList.designer.cs">
+      <DependentUpon>MasterList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\CheckRptCondition2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\CheckRptCondition2.Designer.cs">
+      <DependentUpon>CheckRptCondition2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q2.4\RptWorkloadEstimationofMobile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Q2.4\RptWorkloadEstimationofMobile.Designer.cs">
+      <DependentUpon>RptWorkloadEstimationofMobile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q5.1\CheckRptWorkforceAnalyze.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Q5.1\CheckRptWorkforceAnalyze.Designer.cs">
+      <DependentUpon>CheckRptWorkforceAnalyze.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\DefectAnalyzeCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Others\DefectAnalyzeCondition.Designer.cs">
+      <DependentUpon>DefectAnalyzeCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\DefectSummaryCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\DefectSummaryCondition.Designer.cs">
+      <DependentUpon>DefectSummaryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\QCRate_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\QCRate_View.Designer.cs">
+      <DependentUpon>QCRate_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q2.2-Q3.2\QualityPerformance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\Q2.2-Q3.2\QualityPerformance.Designer.cs">
+      <DependentUpon>QualityPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\StyleLineQCStatCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\StyleLineQCStatCondition.Designer.cs">
+      <DependentUpon>StyleLineQCStatCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\FWOPNPerformanceEvaluateCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\FWOPNPerformanceEvaluateCondition.Designer.cs">
+      <DependentUpon>FWOPNPerformanceEvaluateCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\A6.2-B6.2\ExamExamSubReport_Defect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\A6.2-B6.2\ExamExamSubReport_Defect.Designer.cs">
+      <DependentUpon>ExamExamSubReport_Defect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\A6.2-B6.2\ExamExamSubReport_Opts.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\A6.2-B6.2\ExamExamSubReport_Opts.Designer.cs">
+      <DependentUpon>ExamExamSubReport_Opts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\A6.2-B6.2\ExtraExamCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\A6.2-B6.2\ExtraExamCondition.Designer.cs">
+      <DependentUpon>ExtraExamCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\A6.2-B6.2\ExtraExamReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\A6.2-B6.2\ExtraExamReport.Designer.cs">
+      <DependentUpon>ExtraExamReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\G2.1\CustQCDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\G2.1\CustQCDetailReport.Designer.cs">
+      <DependentUpon>CustQCDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\G2.1\CustQCQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\G2.1\CustQCQueryForm.Designer.cs">
+      <DependentUpon>CustQCQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\G2.1\CustQCShowForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\G2.1\CustQCShowForm.Designer.cs">
+      <DependentUpon>CustQCShowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\G2.1\CustQCSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\G2.1\CustQCSummaryReport.Designer.cs">
+      <DependentUpon>CustQCSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\P4.4\StyleOpsQualityProblemShootingCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\P4.4\StyleOpsQualityProblemShootingCondition.Designer.cs">
+      <DependentUpon>StyleOpsQualityProblemShootingCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\TrafficSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Others\TrafficSummary.Designer.cs">
+      <DependentUpon>TrafficSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\WorkforceSewingSkillCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\WorkforceSewingSkillCondition.Designer.cs">
+      <DependentUpon>WorkforceSewingSkillCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\StyleLineQCStatByWorkshopCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\StyleLineQCStatByWorkshopCondition.Designer.cs">
+      <DependentUpon>StyleLineQCStatByWorkshopCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\WorkShopAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Others\WorkShopAnalysis.Designer.cs">
+      <DependentUpon>WorkShopAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionScheduleBarChartForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductionScheduleBarChartForm.Designer.cs">
+      <DependentUpon>ProductionScheduleBarChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionScheduleBarChartQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductionScheduleBarChartQueryForm.Designer.cs">
+      <DependentUpon>ProductionScheduleBarChartQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QCExamPlan\CheckQQualExamCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCExamPlan\CheckQQualExamCondition.Designer.cs">
+      <DependentUpon>CheckQQualExamCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCExamPlan\LineOptAgreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QCExamPlan\LineOptAgreeForm.Designer.cs">
+      <DependentUpon>LineOptAgreeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCExamPlan\QualExamLineDependentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QCExamPlan\QualExamLineDependentReport.Designer.cs">
+      <DependentUpon>QualExamLineDependentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCExamPlan\SelectInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QCExamPlan\SelectInformation.Designer.cs">
+      <DependentUpon>SelectInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCExamPlan\SelectStyleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QCExamPlan\SelectStyleForm.Designer.cs">
+      <DependentUpon>SelectStyleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCExamPlan\SelectStyleForm_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QCExamPlan\SelectStyleForm_Report.Designer.cs">
+      <DependentUpon>SelectStyleForm_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\CheckQCMasterCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\CheckQCMasterCondition.Designer.cs">
+      <DependentUpon>CheckQCMasterCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCAduditSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCAduditSummaryReport.Designer.cs">
+      <DependentUpon>QCAduditSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailDetailDetailForm.Designer.cs">
+      <DependentUpon>QCDetailDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailDetailForm.Designer.cs">
+      <DependentUpon>QCDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailDetailListForm.Designer.cs">
+      <DependentUpon>QCDetailDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailListForm.Designer.cs">
+      <DependentUpon>QCDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCExamPlan\QC_ExamPlanDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCExamPlan\QC_ExamPlanDetailListForm.Designer.cs">
+      <DependentUpon>QC_ExamPlanDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCExamPlan\QC_ExamPlanHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCExamPlan\QC_ExamPlanHeaderDetailForm.Designer.cs">
+      <DependentUpon>QC_ExamPlanHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCExamPlan\QC_ExamPlanHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCExamPlan\QC_ExamPlanHeaderListForm.Designer.cs">
+      <DependentUpon>QC_ExamPlanHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailSizeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailSizeDetailForm.Designer.cs">
+      <DependentUpon>QCDetailSizeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailSizeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCDetailSizeListForm.Designer.cs">
+      <DependentUpon>QCDetailSizeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCInspectionSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCInspectionSummaryReport.Designer.cs">
+      <DependentUpon>QCInspectionSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCMasterDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCMasterDetailForm.Designer.cs">
+      <DependentUpon>QCMasterDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCMasterListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QCMasterListForm.Designer.cs">
+      <DependentUpon>QCMasterListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit\QueryQCAuditSummaryCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit\QueryQCAuditSummaryCondition.Designer.cs">
+      <DependentUpon>QueryQCAuditSummaryCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\GDAQLAuditChartReport_Final.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\GDAQLAuditChartReport_Final.Designer.cs">
+      <DependentUpon>GDAQLAuditChartReport_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailDetailDetailForm_Final.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailDetailDetailForm_Final.Designer.cs">
+      <DependentUpon>QCDetailDetailDetailForm_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailDetailForm_Final.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailDetailForm_Final.Designer.cs">
+      <DependentUpon>QCDetailDetailForm_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailDetailListForm_Final.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailDetailListForm_Final.Designer.cs">
+      <DependentUpon>QCDetailDetailListForm_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailListForm_Final.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailListForm_Final.Designer.cs">
+      <DependentUpon>QCDetailListForm_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailSizeDetailForm_Final.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailSizeDetailForm_Final.Designer.cs">
+      <DependentUpon>QCDetailSizeDetailForm_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailSizeListForm_Final.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCDetailSizeListForm_Final.Designer.cs">
+      <DependentUpon>QCDetailSizeListForm_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCMasterDetailForm_Final.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCMasterDetailForm_Final.Designer.cs">
+      <DependentUpon>QCMasterDetailForm_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCMasterListForm_Final.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCMasterListForm_Final.Designer.cs">
+      <DependentUpon>QCMasterListForm_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCMasterQueryFPYForm_Final.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCMasterQueryFPYForm_Final.Designer.cs">
+      <DependentUpon>QCMasterQueryFPYForm_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCMasterQueryFPYReport_Final.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\QCMasterQueryFPYReport_Final.Designer.cs">
+      <DependentUpon>QCMasterQueryFPYReport_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\GDAQLAuditQueryForm_Final.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCMasterEdit_Final\GDAQLAuditQueryForm_Final.Designer.cs">
+      <DependentUpon>GDAQLAuditQueryForm_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCTaskSchema\QCTaskSchemaDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCTaskSchema\QCTaskSchemaDetailDetailForm.Designer.cs">
+      <DependentUpon>QCTaskSchemaDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCTaskSchema\QCTaskSchemaDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCTaskSchema\QCTaskSchemaDetailListForm.Designer.cs">
+      <DependentUpon>QCTaskSchemaDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCTaskSchema\QCTaskSchemaHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCTaskSchema\QCTaskSchemaHeaderDetailForm.Designer.cs">
+      <DependentUpon>QCTaskSchemaHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCTaskSchema\QCTaskSchemaHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCTaskSchema\QCTaskSchemaHeaderListForm.Designer.cs">
+      <DependentUpon>QCTaskSchemaHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCTaskSchema\QCTaskSchemaProcessBlackWhiteListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCTaskSchema\QCTaskSchemaProcessBlackWhiteListForm.Designer.cs">
+      <DependentUpon>QCTaskSchemaProcessBlackWhiteListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QCTaskSchema\QC_TVScreenRptControlForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QCTaskSchema\QC_TVScreenRptControlForm.Designer.cs">
+      <DependentUpon>QC_TVScreenRptControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q5.1\rptQC_sp_WorkforceAnalyze.Designer.cs">
+      <DependentUpon>rptQC_sp_WorkforceAnalyze.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\F1.1-F2.1\FullInspectionDefectPointAnalyseForm21aa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\F1.1-F2.1\FullInspectionDefectPointAnalyseForm21aa.Designer.cs">
+      <DependentUpon>FullInspectionDefectPointAnalyseForm21aa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLAuditFPYSupplementSheetOfRpt22a.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLAuditFPYSupplementSheetOfRpt22a.Designer.cs">
+      <DependentUpon>AQLAuditFPYSupplementSheetOfRpt22a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLAuditRejectRecord.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLAuditRejectRecord.Designer.cs">
+      <DependentUpon>AQLAuditRejectRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLAuditRejectRecordSummarySub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLAuditRejectRecordSummarySub.Designer.cs">
+      <DependentUpon>AQLAuditRejectRecordSummarySub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLAuditRejectRecordToBeCompleted.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLAuditRejectRecordToBeCompleted.Designer.cs">
+      <DependentUpon>AQLAuditRejectRecordToBeCompleted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLPerfDefectPointListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLPerfDefectPointListReport.Designer.cs">
+      <DependentUpon>AQLPerfDefectPointListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLPerfDefectPointListReport_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\AQLPerfDefectPointListReport_Sub.Designer.cs">
+      <DependentUpon>AQLPerfDefectPointListReport_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\DailyAQLAuditFPYForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\DailyAQLAuditFPYForm.Designer.cs">
+      <DependentUpon>DailyAQLAuditFPYForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\DefectPictureCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\DefectPictureCondition.Designer.cs">
+      <DependentUpon>DefectPictureCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\FullInspectionCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\FullInspectionCondition.Designer.cs">
+      <DependentUpon>FullInspectionCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\F1.1-F2.1\FullInspectionDefectPointAnalyseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\F1.1-F2.1\FullInspectionDefectPointAnalyseReport.Designer.cs">
+      <DependentUpon>FullInspectionDefectPointAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\F1.1-F2.1\FullInspectionDefectPointAnalyseReport_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\F1.1-F2.1\FullInspectionDefectPointAnalyseReport_Sub.Designer.cs">
+      <DependentUpon>FullInspectionDefectPointAnalyseReport_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\GarmentsOffLineCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\GarmentsOffLineCondition.Designer.cs">
+      <DependentUpon>GarmentsOffLineCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptAQLRefuse.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptAQLRefuse.Designer.cs">
+      <DependentUpon>RptAQLRefuse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptAuditAQL_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptAuditAQL_Sub.Designer.cs">
+      <DependentUpon>RptAuditAQL_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptAuditAQL_Sub1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptAuditAQL_Sub1.Designer.cs">
+      <DependentUpon>RptAuditAQL_Sub1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptAuditAQL_Sub2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptAuditAQL_Sub2.Designer.cs">
+      <DependentUpon>RptAuditAQL_Sub2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptAuditAQL_Sub21.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptAuditAQL_Sub21.Designer.cs">
+      <DependentUpon>RptAuditAQL_Sub21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptDefectPicture.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptDefectPicture.Designer.cs">
+      <DependentUpon>RptDefectPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine.Designer.cs">
+      <DependentUpon>RptFullAuditOnLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_AQL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_AQL.Designer.cs">
+      <DependentUpon>RptFullAuditOnLine_AQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_AQL1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_AQL1.Designer.cs">
+      <DependentUpon>RptFullAuditOnLine_AQL1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_AQL21.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_AQL21.Designer.cs">
+      <DependentUpon>RptFullAuditOnLine_AQL21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_Sub.Designer.cs">
+      <DependentUpon>RptFullAuditOnLine_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_Sub2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_Sub2.Designer.cs">
+      <DependentUpon>RptFullAuditOnLine_Sub2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_V1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_V1.Designer.cs">
+      <DependentUpon>RptFullAuditOnLine_V1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_V2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditOnLine_V2.Designer.cs">
+      <DependentUpon>RptFullAuditOnLine_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditQuality.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullAuditQuality.Designer.cs">
+      <DependentUpon>RptFullAuditQuality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullQualityPerfomance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullQualityPerfomance.Designer.cs">
+      <DependentUpon>RptFullQualityPerfomance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullRefuse.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptFullRefuse.Designer.cs">
+      <DependentUpon>RptFullRefuse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineAQLQualityPerfomance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineAQLQualityPerfomance.Designer.cs">
+      <DependentUpon>RptofflineAQLQualityPerfomance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineFullAudit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineFullAudit.Designer.cs">
+      <DependentUpon>RptofflineFullAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineFullAuditQualityPerfomance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineFullAuditQualityPerfomance.Designer.cs">
+      <DependentUpon>RptofflineFullAuditQualityPerfomance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptSizeAudit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptSizeAudit.Designer.cs">
+      <DependentUpon>RptSizeAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\SizeAuditCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\SizeAuditCondition.Designer.cs">
+      <DependentUpon>SizeAuditCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineAQLQualityPerfomance_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineAQLQualityPerfomance_Sub.Designer.cs">
+      <DependentUpon>RptofflineAQLQualityPerfomance_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineAQLQualityPerfomance_Main.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineAQLQualityPerfomance_Main.Designer.cs">
+      <DependentUpon>RptofflineAQLQualityPerfomance_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineFullAuditQualityPerfomance_Main.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineFullAuditQualityPerfomance_Main.Designer.cs">
+      <DependentUpon>RptofflineFullAuditQualityPerfomance_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineFullAuditQualityPerfomance_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineFullAuditQualityPerfomance_Sub.Designer.cs">
+      <DependentUpon>RptofflineFullAuditQualityPerfomance_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\AuditingOperationSummary_Main.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\AuditingOperationSummary_Main.Designer.cs">
+      <DependentUpon>AuditingOperationSummary_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\AuditingOperationSummary_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\AuditingOperationSummary_Sub.Designer.cs">
+      <DependentUpon>AuditingOperationSummary_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineFistBoxAuditQualityPerfomance_Main.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\AQL\RptofflineFistBoxAuditQualityPerfomance_Main.Designer.cs">
+      <DependentUpon>RptofflineFistBoxAuditQualityPerfomance_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\Component\rptMasterSupplement_Comp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Component\rptMasterSupplement_Comp.Designer.cs">
+      <DependentUpon>rptMasterSupplement_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\Component\rptMastListComp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Component\rptMastListComp.Designer.cs">
+      <DependentUpon>rptMastListComp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\Component\rptMastList_Comp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Component\rptMastList_Comp.Designer.cs">
+      <DependentUpon>rptMastList_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\Component\rptQC_MasterAnalyzeComp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Component\rptQC_MasterAnalyzeComp_New.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Component\rptQC_MasterAnalyzeComp_Summary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Component\rptQC_MasterAnalyzeOPT3_New11.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Component\rptRecheklist_Comp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Component\rptRecheklist_Comp.Designer.cs">
+      <DependentUpon>rptRecheklist_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\Component\rptStyleLineQCStat_Comp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Component\rptStyleLineQCStat_Comp.Designer.cs">
+      <DependentUpon>rptStyleLineQCStat_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\Component\rpt_DefectAnalyze_Comp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\DailyAuditSummyRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\DailyAuditSummyRpt.Designer.cs">
+      <DependentUpon>DailyAuditSummyRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\OptExamFailureForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RPT\OptExamFailureForm.Designer.cs">
+      <DependentUpon>OptExamFailureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\OptExamFailureReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\OptExamFailureReport.Designer.cs">
+      <DependentUpon>OptExamFailureReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q2.4\AuditSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\Q2.4\AuditSummary.Designer.cs">
+      <DependentUpon>AuditSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q2.4\rptAuditWorkAnalysis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Q2.4\rptAuditWorkAnalysis.Designer.cs">
+      <DependentUpon>rptAuditWorkAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q2.2-Q3.2\QualityPerformanceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Q2.2-Q3.2\QualityPerformanceReport.Designer.cs">
+      <DependentUpon>QualityPerformanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptMasterSupplement.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptMasterSupplement.Designer.cs">
+      <DependentUpon>rptMasterSupplement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptMastList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptMastList.Designer.cs">
+      <DependentUpon>rptMastList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptMastList_New.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptMastList_New.Designer.cs">
+      <DependentUpon>rptMastList_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptMastList_New_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptMastList_New_Sub.Designer.cs">
+      <DependentUpon>rptMastList_New_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptQCTVScreen.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptQCTVScreen.Designer.cs">
+      <DependentUpon>rptQCTVScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_New_OptsCde .cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_New_OptsCde .Designer.cs">
+      <DependentUpon>rptQC_MasterAnalyzeOPT3_New_OptsCde .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_New_Part.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_New.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_New_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_New_Sub.Designer.cs">
+      <DependentUpon>rptQC_MasterAnalyzeOPT3_New_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_Sub_ByWs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_Sub_ByWs.Designer.cs">
+      <DependentUpon>rptQC_MasterAnalyzeOPT3_Sub_ByWs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptQC_MasterAnalyzeOPT3_Summary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Q5.1\rptQC_sp_WorkforceAnalyze.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptQC_sp_WorkforceAnalyze_sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptQC_sp_WorkforceAnalyze_sub.Designer.cs">
+      <DependentUpon>rptQC_sp_WorkforceAnalyze_sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptQC_TrafficSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptQC_TrafficSummary.Designer.cs">
+      <DependentUpon>rptQC_TrafficSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptQC_TrafficSummary_New.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptQC_TrafficSummary_New.Designer.cs">
+      <DependentUpon>rptQC_TrafficSummary_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptQualityPerformance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptQualityPerformance.Designer.cs">
+      <DependentUpon>rptQualityPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptRecheklist.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptRecheklist.Designer.cs">
+      <DependentUpon>rptRecheklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptRecheklist1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptRecheklist1.Designer.cs">
+      <DependentUpon>rptRecheklist1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptStyleLineQCStat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptStyleLineQCStat.Designer.cs">
+      <DependentUpon>rptStyleLineQCStat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptWorkforceSewingSkill.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptQC_MasterAnalyzeOPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptStyleLineQCStatByWokshop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptStyleLineQCStatByWokshop.Designer.cs">
+      <DependentUpon>rptStyleLineQCStatByWokshop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptWFOPNPerformanceEvaluate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptWFOPNPerformanceEvaluate.Designer.cs">
+      <DependentUpon>rptWFOPNPerformanceEvaluate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptWorkShopAnalysis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptWorkShopAnalysis.Designer.cs">
+      <DependentUpon>rptWorkShopAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptWorkShopAnalysis_Group_V1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptWorkShopAnalysis_Group_V1.Designer.cs">
+      <DependentUpon>rptWorkShopAnalysis_Group_V1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rpt_DefectAnalyze.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\P4.4\StyleOpsQualityProblemShootingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\P4.4\StyleOpsQualityProblemShootingReport.Designer.cs">
+      <DependentUpon>StyleOpsQualityProblemShootingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\P4.4\StyleOpsQualityProblemShootingReport_SubByOptsCde.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\P4.4\StyleOpsQualityProblemShootingReport_SubByOptsCde.Designer.cs">
+      <DependentUpon>StyleOpsQualityProblemShootingReport_SubByOptsCde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\P4.4\StyleOpsQualityProblemShootingReport_SubByWF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\P4.4\StyleOpsQualityProblemShootingReport_SubByWF.Designer.cs">
+      <DependentUpon>StyleOpsQualityProblemShootingReport_SubByWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveExecel\SaveExecelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SaveExecel\SaveExecelForm.Designer.cs">
+      <DependentUpon>SaveExecelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\FrmSelectDefect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\FrmSelectDefect.Designer.cs">
+      <DependentUpon>FrmSelectDefect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\FrmSelectPostion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\FrmSelectPostion.Designer.cs">
+      <DependentUpon>FrmSelectPostion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\ImproveActionPlanDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\ImproveActionPlanDetailForm.Designer.cs">
+      <DependentUpon>ImproveActionPlanDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\ImproveActionPlanListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\ImproveActionPlanListForm.Designer.cs">
+      <DependentUpon>ImproveActionPlanListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\ProductDefectList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\ProductDefectList.Designer.cs">
+      <DependentUpon>ProductDefectList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\ProductPostionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\ProductPostionList.Designer.cs">
+      <DependentUpon>ProductPostionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\ProductTypeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\ProductTypeDetailForm.Designer.cs">
+      <DependentUpon>ProductTypeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\ProductTypeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\ProductTypeListForm.Designer.cs">
+      <DependentUpon>ProductTypeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\QC_AQLLevelDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\QC_AQLLevelDetailForm.Designer.cs">
+      <DependentUpon>QC_AQLLevelDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\QC_AQLLevelListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\QC_AQLLevelListForm.Designer.cs">
+      <DependentUpon>QC_AQLLevelListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleLineQCStatListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleLineQCStatListForm.Designer.cs">
+      <DependentUpon>StyleLineQCStatListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\PublicServices.cs" />
+    <Compile Include="Others\CheckRptCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\CheckRptCondition.Designer.cs">
+      <DependentUpon>CheckRptCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\PrintSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\PrintSelect.Designer.cs">
+      <DependentUpon>PrintSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptQC_MasterAnalyzeWF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DefectList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectList.designer.cs">
+      <DependentUpon>DefectList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DetailDetail.designer.cs">
+      <DependentUpon>DetailDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DetailList.designer.cs">
+      <DependentUpon>DetailList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Others\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDetail.designer.cs">
+      <DependentUpon>MasterDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PADStartupForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PADStartupForm.Designer.cs">
+      <DependentUpon>PADStartupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Others\SizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Others\SizeForm.designer.cs">
+      <DependentUpon>SizeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectCauseDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectCauseDetailForm.designer.cs">
+      <DependentUpon>DefectCauseDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectCorrectDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectCorrectDetailForm.designer.cs">
+      <DependentUpon>DefectCorrectDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectDetailForm.designer.cs">
+      <DependentUpon>DefectDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectPositionDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectPositionDetailForm.designer.cs">
+      <DependentUpon>DefectPositionDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefectPreventDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefectPreventDetailForm.designer.cs">
+      <DependentUpon>DefectPreventDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q5.1\MasterAnalyzListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\Q5.1\MasterAnalyzListForm.Designer.cs">
+      <DependentUpon>MasterAnalyzListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraceFixDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TraceFixDetailForm.Designer.cs">
+      <DependentUpon>TraceFixDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraceFixListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TraceFixListForm.Designer.cs">
+      <DependentUpon>TraceFixListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraceInfoDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TraceInfoDetailForm.Designer.cs">
+      <DependentUpon>TraceInfoDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraceInfoDetailForm_New.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TraceInfoDetailForm_New.Designer.cs">
+      <DependentUpon>TraceInfoDetailForm_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraceInfoListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TraceInfoListForm.Designer.cs">
+      <DependentUpon>TraceInfoListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trans\ChoiceImproveActionPlanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trans\ChoiceImproveActionPlanForm.Designer.cs">
+      <DependentUpon>ChoiceImproveActionPlanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trans\QAAuditReportConfirmDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Trans\QAAuditReportConfirmDetailForm.Designer.cs">
+      <DependentUpon>QAAuditReportConfirmDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trans\QAAuditReportConfirmListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Trans\QAAuditReportConfirmListForm.Designer.cs">
+      <DependentUpon>QAAuditReportConfirmListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControllibrary\MultipleDateChoiceUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControllibrary\MultipleDateChoiceUserControl.Designer.cs">
+      <DependentUpon>MultipleDateChoiceUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewNoPassDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewNoPassDetailListForm.Designer.cs">
+      <DependentUpon>ViewNoPassDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebView\DailyInspectionFillInForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WebView\DailyInspectionFillInForm.Designer.cs">
+      <DependentUpon>DailyInspectionFillInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebView\DailyInspectionFillInFormReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebView\DailyInspectionFillInFormReport.Designer.cs">
+      <DependentUpon>DailyInspectionFillInFormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeeklyDefectPointsComparisonListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeeklyDefectPointsComparisonListForm.Designer.cs">
+      <DependentUpon>WeeklyDefectPointsComparisonListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeeklyDefectPointsComparisonQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WeeklyDefectPointsComparisonQueryForm.Designer.cs">
+      <DependentUpon>WeeklyDefectPointsComparisonQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeeklyDefectPointsComparsionReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WeeklyDefectPointsComparsionReport.Designer.cs">
+      <DependentUpon>WeeklyDefectPointsComparsionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparsionReport_Sub_Part1AsQI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparsionReport_Sub_Part1AsQI.Designer.cs">
+      <DependentUpon>WeeklyDefectPointsComparsionReport_Sub_Part1AsQI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparsionReport_Sub_Part2New.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparsionReport_Sub_Part2New.Designer.cs">
+      <DependentUpon>WeeklyDefectPointsComparsionReport_Sub_Part2New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkforceSewingSkillListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkforceSewingSkillListForm.Designer.cs">
+      <DependentUpon>WorkforceSewingSkillListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleLineQCStatByWorkshopListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleLineQCStatByWorkshopListForm.Designer.cs">
+      <DependentUpon>StyleLineQCStatByWorkshopListForm.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AlertEmailDetailForm.resx">
+      <DependentUpon>AlertEmailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlertEmailListForm.resx">
+      <DependentUpon>AlertEmailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppAudit\AppRightInfoDetailForm.resx">
+      <DependentUpon>AppRightInfoDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppAudit\AppRightInfoListForm.resx">
+      <DependentUpon>AppRightInfoListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppAudit\PlatUserChooseForm.resx">
+      <DependentUpon>PlatUserChooseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppAudit\QCRoleChooseForm.resx">
+      <DependentUpon>QCRoleChooseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppAudit\QCRoleDetailForm.resx">
+      <DependentUpon>QCRoleDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppAudit\QCRoleListForm.resx">
+      <DependentUpon>QCRoleListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppAudit\QCUserDetailForm.resx">
+      <DependentUpon>QCUserDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppAudit\QCUserListForm.resx">
+      <DependentUpon>QCUserListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppAudit\RoleUserDetailForm.resx">
+      <DependentUpon>RoleUserDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppAudit\RoleUserListForm.resx">
+      <DependentUpon>RoleUserListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\MasterAnalyzListForm2A_Comp.resx">
+      <DependentUpon>MasterAnalyzListForm2A_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\MasterAnalyzListForm_Comp.resx">
+      <DependentUpon>MasterAnalyzListForm_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\MasterList_Comp.resx">
+      <DependentUpon>MasterList_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\MasterSupplementList_Comp.resx">
+      <DependentUpon>MasterSupplementList_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\StyleLineQCStatByWorkshopListForm_Comp.resx">
+      <DependentUpon>StyleLineQCStatByWorkshopListForm_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\StyleLineQCStatListForm_Comp.resx">
+      <DependentUpon>StyleLineQCStatListForm_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\WorkforceSewingSkillListForm_Comp.resx">
+      <DependentUpon>WorkforceSewingSkillListForm_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q1.5\FIS2FtyFreqAtChkPtForm.resx">
+      <DependentUpon>FIS2FtyFreqAtChkPtForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q1.5\FIS2FtyFreqAtChkPtReport.resx">
+      <DependentUpon>FIS2FtyFreqAtChkPtReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\F1.2\FIS2ReworkGmtAtEndPhaseReport.resx">
+      <DependentUpon>FIS2ReworkGmtAtEndPhaseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\F1.2\FIS2ReworkGmtAtEndPhaseForm.resx">
+      <DependentUpon>FIS2ReworkGmtAtEndPhaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A1.1-B1.1-A2.1-B2.1\SewingKeyOptsCondition.resx">
+      <DependentUpon>SewingKeyOptsCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\G2.2-G3.2\AQLControlPerf Summarywithdiagram.resx">
+      <DependentUpon>AQLControlPerf Summarywithdiagram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\AQL\AdditionalInformationForm.resx">
+      <DependentUpon>AdditionalInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\AQL\SelectCustomerPOForm.resx">
+      <DependentUpon>SelectCustomerPOForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\AQL\SelectDefectCodeForm.resx">
+      <DependentUpon>SelectDefectCodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\Interim\AdditionalInformationInterimForm.resx">
+      <DependentUpon>AdditionalInformationInterimForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\E1.1-E2.1-E3.1\AQLDefectPointAnalyseForm.resx">
+      <DependentUpon>AQLDefectPointAnalyseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\E1.1-E2.1-E3.1\AQLDefectPointAnalyseReport.resx">
+      <DependentUpon>AQLDefectPointAnalyseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\E1.1-E2.1-E3.1\AQLDefectPointAnalyseReport_Sub.resx">
+      <DependentUpon>AQLDefectPointAnalyseReport_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\F1.1-F2.1\FullInspectionDefectPointListReport_Rpt21a.resx">
+      <DependentUpon>FullInspectionDefectPointListReport_Rpt21a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\F1.1-F2.1\FullInspectionDefectPointListReport_SubRpt21a.resx">
+      <DependentUpon>FullInspectionDefectPointListReport_SubRpt21a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\P2.1\CustQCDetailInterimReport.resx">
+      <DependentUpon>CustQCDetailInterimReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\Interim\CustQCDetail_InterimDetailForm.resx">
+      <DependentUpon>CustQCDetail_InterimDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\Interim\CustQCDetail_InterimListForm.resx">
+      <DependentUpon>CustQCDetail_InterimListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\P2.1\CustQCInterimShowForm.resx">
+      <DependentUpon>CustQCInterimShowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\Interim\CustQCMaster_InterimDetailForm.resx">
+      <DependentUpon>CustQCMaster_InterimDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\Interim\CustQCMaster_InterimListForm.resx">
+      <DependentUpon>CustQCMaster_InterimListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\AQL\CustQCDetailDetailForm.resx">
+      <DependentUpon>CustQCDetailDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\AQL\CustQCDetailListForm.resx">
+      <DependentUpon>CustQCDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\AQL\CustQCMasterDetailForm.resx">
+      <DependentUpon>CustQCMasterDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\AQL\CustQCMasterListForm.resx">
+      <DependentUpon>CustQCMasterListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\AQL\DetailInformationForm.resx">
+      <DependentUpon>DetailInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\P2.1\CustQCSummaryInterimReport.resx">
+      <DependentUpon>CustQCSummaryInterimReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustQC\Interim\DetailInformationInterimForm.resx">
+      <DependentUpon>DetailInformationInterimForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\G2.2-G3.2\PerfSummaryQueryForm.resx">
+      <DependentUpon>PerfSummaryQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectCause.resx">
+      <DependentUpon>DefectCause.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectCorrect.resx">
+      <DependentUpon>DefectCorrect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectPosition.resx">
+      <DependentUpon>DefectPosition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectPrevent.resx">
+      <DependentUpon>DefectPrevent.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectSummaryList.resx">
+      <DependentUpon>DefectSummaryList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailDetailDetail.resx">
+      <DependentUpon>DetailDetailDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailDetailList.resx">
+      <DependentUpon>DetailDetailList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalAuditPlan\AQLAuditorDetailForm.resx">
+      <DependentUpon>AQLAuditorDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalAuditPlan\AQLAuditorListForm.resx">
+      <DependentUpon>AQLAuditorListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalAuditPlan\FinalAuditPlanListForm.resx">
+      <DependentUpon>FinalAuditPlanListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalAuditPlan\GetDateByFtyForm.resx">
+      <DependentUpon>GetDateByFtyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalAuditPlan\GetDateByFtyFormByQN.resx">
+      <DependentUpon>GetDateByFtyFormByQN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\AlertLogCategoryChoiceForm.resx">
+      <DependentUpon>AlertLogCategoryChoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\AlertLogCategoryDetailForm.resx">
+      <DependentUpon>AlertLogCategoryDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\AlertLogCategoryListForm.resx">
+      <DependentUpon>AlertLogCategoryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\AlertLogForm.resx">
+      <DependentUpon>AlertLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\AlertLogSendEmailForm.resx">
+      <DependentUpon>AlertLogSendEmailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\FirstPassQtyDefectListForm.resx">
+      <DependentUpon>FirstPassQtyDefectListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\FirstPassQtyDetailForm.resx">
+      <DependentUpon>FirstPassQtyDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\FirstPassQtyFromFind.resx">
+      <DependentUpon>FirstPassQtyFromFind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\FirstPassQtyListForm.resx">
+      <DependentUpon>FirstPassQtyListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\FirstPassQtyReport.resx">
+      <DependentUpon>FirstPassQtyReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\FirstPassQtyWorkerListForm.resx">
+      <DependentUpon>FirstPassQtyWorkerListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\FirstPassRatioShowForm.resx">
+      <DependentUpon>FirstPassRatioShowForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\FirstPassRatioTargetDetailForm.resx">
+      <DependentUpon>FirstPassRatioTargetDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\FirstPassRatioTargetListForm.resx">
+      <DependentUpon>FirstPassRatioTargetListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPassRatio\ShowImageForm.resx">
+      <DependentUpon>ShowImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMastListPrint.resx">
+      <DependentUpon>FrmMastListPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectDeftect.resx">
+      <DependentUpon>FrmSelectDeftect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullInspection\FullInspectionDetailListForm.resx">
+      <DependentUpon>FullInspectionDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullInspection\FullInspectionFourDefectForm.resx">
+      <DependentUpon>FullInspectionFourDefectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullInspection\FullInspectionFourDefectReport.resx">
+      <DependentUpon>FullInspectionFourDefectReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullInspection\FullInspectionHeaderDetailForm.resx">
+      <DependentUpon>FullInspectionHeaderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullInspection\FullInspectionHeaderListForm.resx">
+      <DependentUpon>FullInspectionHeaderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullInspection\TopFourDefectDetailForm.resx">
+      <DependentUpon>TopFourDefectDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullInspection\TopFourDefectListForm.resx">
+      <DependentUpon>TopFourDefectListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparisonListFormNew.resx">
+      <DependentUpon>WeeklyDefectPointsComparisonListFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparisonQueryFormNew.resx">
+      <DependentUpon>WeeklyDefectPointsComparisonQueryFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparsionReportNew.resx">
+      <DependentUpon>WeeklyDefectPointsComparsionReportNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FWOPNPerformanceEvaluate.resx">
+      <DependentUpon>FWOPNPerformanceEvaluate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q2.4\RptWorkloadEstimationofMobile.resx">
+      <DependentUpon>RptWorkloadEstimationofMobile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q5.1\MasterAnalyzListForm.resx">
+      <DependentUpon>MasterAnalyzListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A1.1-B1.1-A2.1-B2.1\MasterAnalyzListForm2A.resx">
+      <DependentUpon>MasterAnalyzListForm2A.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\AuditExamSetupDetailForm.resx">
+      <DependentUpon>AuditExamSetupDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\AuditExamSetupListForm.resx">
+      <DependentUpon>AuditExamSetupListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\MobileExaminerChooseForm.resx">
+      <DependentUpon>MobileExaminerChooseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterSupplementList.resx">
+      <DependentUpon>MasterSupplementList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList.resx">
+      <DependentUpon>MasterList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\CheckRptCondition.resx">
+      <DependentUpon>CheckRptCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A1.1-B1.1-A2.1-B2.1\CheckRptCondition2.resx">
+      <DependentUpon>CheckRptCondition2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q5.1\CheckRptWorkforceAnalyze.resx">
+      <DependentUpon>CheckRptWorkforceAnalyze.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\DefectAnalyzeCondition.resx">
+      <DependentUpon>DefectAnalyzeCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\DefectSummaryCondition.resx">
+      <DependentUpon>DefectSummaryCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\QCRate_View.resx">
+      <DependentUpon>QCRate_View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q2.2-Q3.2\QualityPerformance.resx">
+      <DependentUpon>QualityPerformance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\StyleLineQCStatCondition.resx">
+      <DependentUpon>StyleLineQCStatCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\FWOPNPerformanceEvaluateCondition.resx">
+      <DependentUpon>FWOPNPerformanceEvaluateCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A6.2-B6.2\ExamExamSubReport_Defect.resx">
+      <DependentUpon>ExamExamSubReport_Defect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A6.2-B6.2\ExamExamSubReport_Opts.resx">
+      <DependentUpon>ExamExamSubReport_Opts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A6.2-B6.2\ExtraExamCondition.resx">
+      <DependentUpon>ExtraExamCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A6.2-B6.2\ExtraExamReport.resx">
+      <DependentUpon>ExtraExamReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\G2.1\CustQCDetailReport.resx">
+      <DependentUpon>CustQCDetailReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\G2.1\CustQCQueryForm.resx">
+      <DependentUpon>CustQCQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\G2.1\CustQCShowForm.resx">
+      <DependentUpon>CustQCShowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\G2.1\CustQCSummaryReport.resx">
+      <DependentUpon>CustQCSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\P4.4\StyleOpsQualityProblemShootingCondition.resx">
+      <DependentUpon>StyleOpsQualityProblemShootingCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\TrafficSummary.resx">
+      <DependentUpon>TrafficSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\WorkforceSewingSkillCondition.resx">
+      <DependentUpon>WorkforceSewingSkillCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\PrintSelect.resx">
+      <DependentUpon>PrintSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\StyleLineQCStatByWorkshopCondition.resx">
+      <DependentUpon>StyleLineQCStatByWorkshopCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\WorkShopAnalysis.resx">
+      <DependentUpon>WorkShopAnalysis.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductionScheduleBarChartForm.resx">
+      <DependentUpon>ProductionScheduleBarChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductionScheduleBarChartQueryForm.resx">
+      <DependentUpon>ProductionScheduleBarChartQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCExamPlan\CheckQQualExamCondition.resx">
+      <DependentUpon>CheckQQualExamCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCExamPlan\LineOptAgreeForm.resx">
+      <DependentUpon>LineOptAgreeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCExamPlan\QualExamLineDependentReport.resx">
+      <DependentUpon>QualExamLineDependentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCExamPlan\SelectInformation.resx">
+      <DependentUpon>SelectInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCExamPlan\SelectStyleForm.resx">
+      <DependentUpon>SelectStyleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCExamPlan\SelectStyleForm_Report.resx">
+      <DependentUpon>SelectStyleForm_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\CheckQCMasterCondition.resx">
+      <DependentUpon>CheckQCMasterCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QCAduditSummaryReport.resx">
+      <DependentUpon>QCAduditSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QCDetailDetailDetailForm.resx">
+      <DependentUpon>QCDetailDetailDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QCDetailDetailForm.resx">
+      <DependentUpon>QCDetailDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QCDetailDetailListForm.resx">
+      <DependentUpon>QCDetailDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QCDetailListForm.resx">
+      <DependentUpon>QCDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCExamPlan\QC_ExamPlanDetailListForm.resx">
+      <DependentUpon>QC_ExamPlanDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCExamPlan\QC_ExamPlanHeaderDetailForm.resx">
+      <DependentUpon>QC_ExamPlanHeaderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCExamPlan\QC_ExamPlanHeaderListForm.resx">
+      <DependentUpon>QC_ExamPlanHeaderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QCDetailSizeDetailForm.resx">
+      <DependentUpon>QCDetailSizeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QCDetailSizeListForm.resx">
+      <DependentUpon>QCDetailSizeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QCInspectionSummaryReport.resx">
+      <DependentUpon>QCInspectionSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QCMasterDetailForm.resx">
+      <DependentUpon>QCMasterDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QCMasterListForm.resx">
+      <DependentUpon>QCMasterListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit\QueryQCAuditSummaryCondition.resx">
+      <DependentUpon>QueryQCAuditSummaryCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\GDAQLAuditChartReport_Final.resx">
+      <DependentUpon>GDAQLAuditChartReport_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\GDAQLAuditQueryForm_Final.resx">
+      <DependentUpon>GDAQLAuditQueryForm_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\QCDetailDetailDetailForm_Final.resx">
+      <DependentUpon>QCDetailDetailDetailForm_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\QCDetailDetailForm_Final.resx">
+      <DependentUpon>QCDetailDetailForm_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\QCDetailDetailListForm_Final.resx">
+      <DependentUpon>QCDetailDetailListForm_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\QCDetailListForm_Final.resx">
+      <DependentUpon>QCDetailListForm_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\QCDetailSizeDetailForm_Final.resx">
+      <DependentUpon>QCDetailSizeDetailForm_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\QCDetailSizeListForm_Final.resx">
+      <DependentUpon>QCDetailSizeListForm_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\QCMasterDetailForm_Final.resx">
+      <DependentUpon>QCMasterDetailForm_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\QCMasterListForm_Final.resx">
+      <DependentUpon>QCMasterListForm_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\QCMasterQueryFPYForm_Final.resx">
+      <DependentUpon>QCMasterQueryFPYForm_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCMasterEdit_Final\QCMasterQueryFPYReport_Final.resx">
+      <DependentUpon>QCMasterQueryFPYReport_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCTaskSchema\QCTaskSchemaDetailDetailForm.resx">
+      <DependentUpon>QCTaskSchemaDetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCTaskSchema\QCTaskSchemaDetailListForm.resx">
+      <DependentUpon>QCTaskSchemaDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCTaskSchema\QCTaskSchemaHeaderDetailForm.resx">
+      <DependentUpon>QCTaskSchemaHeaderDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCTaskSchema\QCTaskSchemaHeaderListForm.resx">
+      <DependentUpon>QCTaskSchemaHeaderListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCTaskSchema\QCTaskSchemaProcessBlackWhiteListForm.resx">
+      <DependentUpon>QCTaskSchemaProcessBlackWhiteListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QCTaskSchema\QC_TVScreenRptControlForm.resx">
+      <DependentUpon>QC_TVScreenRptControlForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\F1.1-F2.1\FullInspectionDefectPointAnalyseForm21aa.resx">
+      <DependentUpon>FullInspectionDefectPointAnalyseForm21aa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\AQLAuditFPYSupplementSheetOfRpt22a.resx">
+      <DependentUpon>AQLAuditFPYSupplementSheetOfRpt22a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\AQLAuditRejectRecord.resx">
+      <DependentUpon>AQLAuditRejectRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\AQLAuditRejectRecordSummarySub.resx">
+      <DependentUpon>AQLAuditRejectRecordSummarySub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\AQLAuditRejectRecordToBeCompleted.resx">
+      <DependentUpon>AQLAuditRejectRecordToBeCompleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\AQLPerfDefectPointListReport.resx">
+      <DependentUpon>AQLPerfDefectPointListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\AQLPerfDefectPointListReport_Sub.resx">
+      <DependentUpon>AQLPerfDefectPointListReport_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\DailyAQLAuditFPYForm.resx">
+      <DependentUpon>DailyAQLAuditFPYForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\DefectPictureCondition.resx">
+      <DependentUpon>DefectPictureCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\FullInspectionCondition.resx">
+      <DependentUpon>FullInspectionCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\F1.1-F2.1\FullInspectionDefectPointAnalyseReport.resx">
+      <DependentUpon>FullInspectionDefectPointAnalyseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\F1.1-F2.1\FullInspectionDefectPointAnalyseReport_Sub.resx">
+      <DependentUpon>FullInspectionDefectPointAnalyseReport_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\GarmentsOffLineCondition.resx">
+      <DependentUpon>GarmentsOffLineCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptAQLRefuse.resx">
+      <DependentUpon>RptAQLRefuse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptAuditAQL_Sub.resx">
+      <DependentUpon>RptAuditAQL_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptAuditAQL_Sub1.resx">
+      <DependentUpon>RptAuditAQL_Sub1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptAuditAQL_Sub2.resx">
+      <DependentUpon>RptAuditAQL_Sub2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptAuditAQL_Sub21.resx">
+      <DependentUpon>RptAuditAQL_Sub21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptDefectPicture.resx">
+      <DependentUpon>RptDefectPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullAuditOnLine.resx">
+      <DependentUpon>RptFullAuditOnLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullAuditOnLine_AQL.resx">
+      <DependentUpon>RptFullAuditOnLine_AQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullAuditOnLine_AQL1.resx">
+      <DependentUpon>RptFullAuditOnLine_AQL1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullAuditOnLine_AQL21.resx">
+      <DependentUpon>RptFullAuditOnLine_AQL21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullAuditOnLine_Sub.resx">
+      <DependentUpon>RptFullAuditOnLine_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullAuditOnLine_Sub2.resx">
+      <DependentUpon>RptFullAuditOnLine_Sub2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullAuditOnLine_V1.resx">
+      <DependentUpon>RptFullAuditOnLine_V1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullAuditOnLine_V2.resx">
+      <DependentUpon>RptFullAuditOnLine_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullAuditQuality.resx">
+      <DependentUpon>RptFullAuditQuality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullQualityPerfomance.resx">
+      <DependentUpon>RptFullQualityPerfomance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptFullRefuse.resx">
+      <DependentUpon>RptFullRefuse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptofflineAQLQualityPerfomance.resx">
+      <DependentUpon>RptofflineAQLQualityPerfomance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptofflineFullAudit.resx">
+      <DependentUpon>RptofflineFullAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptofflineFullAuditQualityPerfomance.resx">
+      <DependentUpon>RptofflineFullAuditQualityPerfomance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptSizeAudit.resx">
+      <DependentUpon>RptSizeAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\SizeAuditCondition.resx">
+      <DependentUpon>SizeAuditCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptofflineAQLQualityPerfomance_Sub.resx">
+      <DependentUpon>RptofflineAQLQualityPerfomance_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptofflineAQLQualityPerfomance_Main.resx">
+      <DependentUpon>RptofflineAQLQualityPerfomance_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptofflineFullAuditQualityPerfomance_Main.resx">
+      <DependentUpon>RptofflineFullAuditQualityPerfomance_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptofflineFullAuditQualityPerfomance_Sub.resx">
+      <DependentUpon>RptofflineFullAuditQualityPerfomance_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\AuditingOperationSummary_Main.resx">
+      <DependentUpon>AuditingOperationSummary_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\AuditingOperationSummary_Sub.resx">
+      <DependentUpon>AuditingOperationSummary_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\AQL\RptofflineFistBoxAuditQualityPerfomance_Main.resx">
+      <DependentUpon>RptofflineFistBoxAuditQualityPerfomance_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Component\rptMasterSupplement_Comp.resx">
+      <DependentUpon>rptMasterSupplement_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Component\rptMastListComp.resx">
+      <DependentUpon>rptMastListComp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Component\rptMastList_Comp.resx">
+      <DependentUpon>rptMastList_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Component\rptQC_MasterAnalyzeComp.resx">
+      <DependentUpon>rptQC_MasterAnalyzeComp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Component\rptQC_MasterAnalyzeComp_New.resx">
+      <DependentUpon>rptQC_MasterAnalyzeComp_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Component\rptQC_MasterAnalyzeComp_Summary.resx">
+      <DependentUpon>rptQC_MasterAnalyzeComp_Summary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Component\rptQC_MasterAnalyzeOPT3_New11.resx">
+      <DependentUpon>rptQC_MasterAnalyzeOPT3_New11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Component\rptRecheklist_Comp.resx">
+      <DependentUpon>rptRecheklist_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Component\rptStyleLineQCStat_Comp.resx">
+      <DependentUpon>rptStyleLineQCStat_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Component\rpt_DefectAnalyze_Comp.resx">
+      <DependentUpon>rpt_DefectAnalyze_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\DailyAuditSummyRpt.resx">
+      <DependentUpon>DailyAuditSummyRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\OptExamFailureForm.resx">
+      <DependentUpon>OptExamFailureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\OptExamFailureReport.resx">
+      <DependentUpon>OptExamFailureReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q2.4\AuditSummary.resx">
+      <DependentUpon>AuditSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q2.4\rptAuditWorkAnalysis.resx">
+      <DependentUpon>rptAuditWorkAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q2.2-Q3.2\QualityPerformanceReport.resx">
+      <DependentUpon>QualityPerformanceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptMasterSupplement.resx">
+      <DependentUpon>rptMasterSupplement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptMastList.resx">
+      <DependentUpon>rptMastList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptMastList_New.resx">
+      <DependentUpon>rptMastList_New.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptMastList_New_Sub.resx">
+      <DependentUpon>rptMastList_New_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptQCTVScreen.resx">
+      <DependentUpon>rptQCTVScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_New_OptsCde .resx">
+      <DependentUpon>rptQC_MasterAnalyzeOPT3_New_OptsCde .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_New_Part.resx">
+      <DependentUpon>rptQC_MasterAnalyzeOPT3_New_Part.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_New.resx">
+      <DependentUpon>rptQC_MasterAnalyzeOPT3_New.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_New_Sub.resx">
+      <DependentUpon>rptQC_MasterAnalyzeOPT3_New_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\A1.1-B1.1-A2.1-B2.1\rptQC_MasterAnalyzeOPT3_Sub_ByWs.resx">
+      <DependentUpon>rptQC_MasterAnalyzeOPT3_Sub_ByWs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptQC_MasterAnalyzeOPT3_Summary.resx">
+      <DependentUpon>rptQC_MasterAnalyzeOPT3_Summary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptQC_MasterAnalyzeWF.resx">
+      <DependentUpon>rptQC_MasterAnalyzeWF.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectList.resx">
+      <DependentUpon>DefectList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailDetail.resx">
+      <DependentUpon>DetailDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailList.resx">
+      <DependentUpon>DetailList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Others\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDetail.resx">
+      <DependentUpon>MasterDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PADStartupForm.resx">
+      <DependentUpon>PADStartupForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Others\SizeForm.resx">
+      <DependentUpon>SizeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectCauseDetailForm.resx">
+      <DependentUpon>DefectCauseDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectCorrectDetailForm.resx">
+      <DependentUpon>DefectCorrectDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectDetailForm.resx">
+      <DependentUpon>DefectDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectPositionDetailForm.resx">
+      <DependentUpon>DefectPositionDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefectPreventDetailForm.resx">
+      <DependentUpon>DefectPreventDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q5.1\rptQC_sp_WorkforceAnalyze.resx">
+      <DependentUpon>rptQC_sp_WorkforceAnalyze.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptQC_sp_WorkforceAnalyze_sub.resx">
+      <DependentUpon>rptQC_sp_WorkforceAnalyze_sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptQC_TrafficSummary.resx">
+      <DependentUpon>rptQC_TrafficSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptQC_TrafficSummary_New.resx">
+      <DependentUpon>rptQC_TrafficSummary_New.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptQualityPerformance.resx">
+      <DependentUpon>rptQualityPerformance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptRecheklist.resx">
+      <DependentUpon>rptRecheklist.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptRecheklist1.resx">
+      <DependentUpon>rptRecheklist1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptStyleLineQCStat.resx">
+      <DependentUpon>rptStyleLineQCStat.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptWorkforceSewingSkill.resx">
+      <DependentUpon>rptWorkforceSewingSkill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptQC_MasterAnalyzeOPT.resx">
+      <DependentUpon>rptQC_MasterAnalyzeOPT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptStyleLineQCStatByWokshop.resx">
+      <DependentUpon>rptStyleLineQCStatByWokshop.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptWFOPNPerformanceEvaluate.resx">
+      <DependentUpon>rptWFOPNPerformanceEvaluate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptWorkShopAnalysis.resx">
+      <DependentUpon>rptWorkShopAnalysis.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptWorkShopAnalysis_Group_V1.resx">
+      <DependentUpon>rptWorkShopAnalysis_Group_V1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rpt_DefectAnalyze.resx">
+      <DependentUpon>rpt_DefectAnalyze.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\P4.4\StyleOpsQualityProblemShootingReport.resx">
+      <DependentUpon>StyleOpsQualityProblemShootingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\P4.4\StyleOpsQualityProblemShootingReport_SubByOptsCde.resx">
+      <DependentUpon>StyleOpsQualityProblemShootingReport_SubByOptsCde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\P4.4\StyleOpsQualityProblemShootingReport_SubByWF.resx">
+      <DependentUpon>StyleOpsQualityProblemShootingReport_SubByWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveExecel\SaveExecelForm.resx">
+      <DependentUpon>SaveExecelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\FrmSelectDefect.resx">
+      <DependentUpon>FrmSelectDefect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\FrmSelectPostion.resx">
+      <DependentUpon>FrmSelectPostion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\ImproveActionPlanDetailForm.resx">
+      <DependentUpon>ImproveActionPlanDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\ImproveActionPlanListForm.resx">
+      <DependentUpon>ImproveActionPlanListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\ProductDefectList.resx">
+      <DependentUpon>ProductDefectList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\ProductPostionList.resx">
+      <DependentUpon>ProductPostionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\ProductTypeDetailForm.resx">
+      <DependentUpon>ProductTypeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\ProductTypeListForm.resx">
+      <DependentUpon>ProductTypeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\QC_AQLLevelDetailForm.resx">
+      <DependentUpon>QC_AQLLevelDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\QC_AQLLevelListForm.resx">
+      <DependentUpon>QC_AQLLevelListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleLineQCStatByWorkshopListForm.resx">
+      <DependentUpon>StyleLineQCStatByWorkshopListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleLineQCStatListForm.resx">
+      <DependentUpon>StyleLineQCStatListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TraceFixDetailForm.resx">
+      <DependentUpon>TraceFixDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TraceFixListForm.resx">
+      <DependentUpon>TraceFixListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TraceInfoDetailForm.resx">
+      <DependentUpon>TraceInfoDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TraceInfoDetailForm_New.resx">
+      <DependentUpon>TraceInfoDetailForm_New.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TraceInfoListForm.resx">
+      <DependentUpon>TraceInfoListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trans\ChoiceImproveActionPlanForm.resx">
+      <DependentUpon>ChoiceImproveActionPlanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trans\QAAuditReportConfirmDetailForm.resx">
+      <DependentUpon>QAAuditReportConfirmDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trans\QAAuditReportConfirmListForm.resx">
+      <DependentUpon>QAAuditReportConfirmListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControllibrary\MultipleDateChoiceUserControl.resx">
+      <DependentUpon>MultipleDateChoiceUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewNoPassDetailListForm.resx">
+      <DependentUpon>ViewNoPassDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebView\DailyInspectionFillInForm.resx">
+      <DependentUpon>DailyInspectionFillInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebView\DailyInspectionFillInFormReport.resx">
+      <DependentUpon>DailyInspectionFillInFormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeeklyDefectPointsComparisonListForm.resx">
+      <DependentUpon>WeeklyDefectPointsComparisonListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeeklyDefectPointsComparisonQueryForm.resx">
+      <DependentUpon>WeeklyDefectPointsComparisonQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeeklyDefectPointsComparsionReport.resx">
+      <DependentUpon>WeeklyDefectPointsComparsionReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparsionReport_Sub_Part1AsQI.resx">
+      <DependentUpon>WeeklyDefectPointsComparsionReport_Sub_Part1AsQI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Q2.3-Q3.3\WeeklyDefectPointsComparsionReport_Sub_Part2New.resx">
+      <DependentUpon>WeeklyDefectPointsComparsionReport_Sub_Part2New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkforceSewingSkillListForm.resx">
+      <DependentUpon>WorkforceSewingSkillListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.AAAAAA.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.AQLAuditor.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.AQLDefectPointAnalyseReportClass_Sub.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.AQLPerfDefectPointListReportClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.AQLPerfDefectPointListReportClass_Sub.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.AuditExamSetup.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.AuditOffLine_AQL.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.CustQCDetail_Interim.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.CustQCMaster.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.CustQCMaster_Interim.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.DefectSummaryResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FinalAuditPlanList.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FirstBoxAuditListReportClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FirstBoxAuditListReportClass_head.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FirstPassQty.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FirstPassWorker.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FirstPass_AlertLogCategory.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FirstPass_AlertLogCategory1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FirstPass_AlertLogHeader.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FIS2ReworkGmtAtEndPhaseClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FistBoxAuditListReportClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FourDefectCode.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FullAuditOnLineResult_V1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FullAuditPerformance.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FullInspectionDefectPointAnalyseClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FullInspectionDefectPointAnalyseClass_Sub.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FullInspectionDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FullInspectionFourDefectClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FullInspectionHeader.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FullInSpectionPerDefectPointsDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.FullInSpectionPerDefectPointsSummary.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.KeyFirstBoxAuditListDetailSecond.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.KeyFirstBoxAuditListDetailSecond1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.KeyFistBoxAuditListDetailFist.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.KeyFistBoxAuditListDetailFist1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.mobileqc.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.OfflineAQLAduitQualityMaster.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.OfflineAQLAduitQualityMaster_Main.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.OfflineAQLAduitQualityMaster_Main1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.OfflineAQLAduitQualityMaster_Sub.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.PHQCDefect.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.Proc_AuditorWorkResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.Proc_MasterAnalyzResult_Sub.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.Proc_MasterAnalyzResult_Sub_ByWs_Class.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.Proc_MasterList.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.Proc_TrafficSummaryResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.Proc_WorkShopAnalysiskResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QCMasterFinalFPY.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QCResultBO.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_AlertEmail.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_AQLLevel.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_Detail.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_Detail_Detail.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_Detail_Detail_Final.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_Detail_Final.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_Detail_Final1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_Detail_SizeAudit.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_Detail_SizeAudit_Final.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_ExamPlanHeader.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_FirstPassRatioTarget.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_ImproveActionPlan.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_Master.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_Master_Final.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_Master_Final1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_ProductTypeInfo.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_ProductType_CommonDefect.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_ProductType_CommonPosition.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_QCUser.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_TaskSchemaBlackWhiteList.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_TaskSchemaDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QC_TaskSchemaHeader.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QualExamLineDependent.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QualityPerformance.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.QualityPerformanceOperationday.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.SewingOptsCdeClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.SewingOptsCdeClass1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_AQLAuditFPYSupplementSheetOfRpt22a.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_AQLDefectPointAnalyseReport.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_AQLRejectRecordSummaryResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_AQLRejectRecordToBeCompletedReportClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_AQLRejectRecordToBeCompletedReportClass1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_CustQCDetailInterimReportResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_CustQCDetailInterimReportResult1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_CustQCDetailReportResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_CustQCPerformceSummaryReportResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_GDAQLAuditChartResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_GetDefectPictureReportResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_GetExamDataList_V1Class.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_GetSizeAuditReportResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_MobileQARejectDetailClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.Sp_QCAduditSummaryReport.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_QCManWorkLoadClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_WorkforceAnalyzeClass.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.sp_WorkforceAnalyze_Sub_Class.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.StyleLineQCStatByWorkshopResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.StyleLineQCStatResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.StyleOptQualityProblemShootingReportResultByOptCode.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.StyleOptQualityProblemShootingReportResultByWF.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.TraceInfo.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.WeeklyDefectPointsComparison.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.WeeklyDefectPointsComparison_Sub1.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.WeeklyDefectPointsComparison_Sub2.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.WeeklyDefectPointsComparison_Sub21.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.WIPDetailResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.WIPSummaryResult.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.worker_Evaluate.datasource" />
+    <None Include="Properties\DataSources\PH.MobileQC.BO.WorkforceSewingSkillResult.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.MobileQC.BO\PH.MobileQC.BO.csproj">
+      <Project>{5069287F-06F1-4C3B-9BCC-97DD4CA92EEC}</Project>
+      <Name>PH.MobileQC.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Rpt21aa\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

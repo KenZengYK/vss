@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 19.375, 22.875" name="MobileQC">
+  <DataContextMoniker Name="/MobileQCDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5ef98a58-5697-4153-add0-a1b008ac3e2a" isExpanded="false" absoluteBounds="5.875, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/Mobile_QC_GX" />
+      <nestedChildShapes>
+        <elementListCompartment Id="707d640f-ef47-4670-92b6-9c0ca6c50f4c" absoluteBounds="5.89, 1.21, 1.9700000000000002, 2.348683675130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="89c27a57-0265-4300-a0b9-2e8768c27a7f" isExpanded="false" absoluteBounds="5.75, 3.75, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/vMobile_qc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e071168-b3d6-4281-ac5e-75e3bb4f6322" absoluteBounds="5.765, 4.21, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2c8a02e6-e863-46da-a87e-939afb4ef78e" isExpanded="false" absoluteBounds="3, 6.75, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_AlertMessage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="860d0505-3a68-408a-b521-99fe09b2a356" absoluteBounds="3.015, 7.21, 1.9700000000000002, 2.1576639811197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="234d4312-067d-4a9d-ae38-2a89856ced09" isExpanded="false" absoluteBounds="0.5, 9.75, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_AlertEmail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a4a34495-f1f2-4082-bad6-9fcf8e90c109" absoluteBounds="0.51500000000000057, 10.21, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1741c435-c895-41d7-ab75-79a43f4935b3" isExpanded="false" absoluteBounds="8.125, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/worker_Evaluate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="92577bc0-da2e-44de-8d2b-b2cee09ae395" absoluteBounds="8.14, 4.085, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3698fc0-0489-4171-8c3b-6213ac2aa014" isExpanded="false" absoluteBounds="8, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/qc_rate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba204094-773c-4ebe-ae6f-68067a4f57bb" absoluteBounds="8.015, 1.21, 1.9700000000000002, 2.1576639811197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b7db1f58-3d6f-4b74-8758-812ff3a49856" isExpanded="false" absoluteBounds="1, 12.375, 2.75, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_TaskSchemaBlackWhiteProcessInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83bd1ded-cc2a-4ebd-9086-7f57264391ba" absoluteBounds="1.015, 12.835, 2.7199999999999998, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f14a3a6b-b6f9-4b81-87a4-184c6bc41bd2" isExpanded="false" absoluteBounds="2.875, 10.125, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_TaskSchemaHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a5ecfa7-208e-4366-b528-dba2d85b1d46" absoluteBounds="2.89, 10.585, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2fa16618-d749-41fd-9fc0-477e8b583df4" isExpanded="false" absoluteBounds="5.625, 8.875, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_TaskSchemaDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e00749c6-e4ae-409c-9f58-c8ee1f5acb24" absoluteBounds="5.64, 9.335, 1.9700000000000002, 5.978057861328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.875 : 10.125); (5.625 : 9.325)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_TaskSchemaHeader/QC_TaskSchemaHeader_QC_TaskSchemaDetail" />
+      <nodes>
+        <classShapeMoniker Id="f14a3a6b-b6f9-4b81-87a4-184c6bc41bd2" />
+        <classShapeMoniker Id="2fa16618-d749-41fd-9fc0-477e8b583df4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0dad1129-93ef-49a3-be78-9eda81b3dd84" isExpanded="false" absoluteBounds="8.125, 8.375, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/TraceInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22421192-3472-48c2-8b80-403444de5356" absoluteBounds="8.14, 8.835, 1.9700000000000002, 2.921742757161458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a42983b2-d5be-4df8-9186-3b39c7465333" isExpanded="false" absoluteBounds="3.25, 15.75, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_QCRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89827bd4-e31f-4708-8c1c-868b79b64548" absoluteBounds="3.2649999999999997, 16.21, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6f4efb7c-e6f7-4819-bd0a-750d83d9c704" isExpanded="false" absoluteBounds="0.625, 15.625, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_RoleUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="79f548a1-3ab5-42a4-94c2-8ae043ca9bf3" absoluteBounds="0.63999999999999968, 16.085, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.4062495 : 16.2); (4.4062495 : 16.7398583984375); (0.809583333333333 : 16.7398583984375 : JumpStart); (0.642916666666667 : 16.7398583984375 : JumpEnd); (0.325 : 16.7398583984375); (0.325 : 15.85); (0.625 : 15.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_QCRole/QC_QCRole_QC_RoleUser" />
+      <nodes>
+        <classShapeMoniker Id="a42983b2-d5be-4df8-9186-3b39c7465333" />
+        <classShapeMoniker Id="6f4efb7c-e6f7-4819-bd0a-750d83d9c704" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="19b20f98-4cf2-457f-92a2-cdad055f546f" isExpanded="false" absoluteBounds="3.375, 16.875, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_AppRightInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b210a9fa-a7df-408d-990d-6d68f46ac5c1" absoluteBounds="3.39, 17.335, 1.9700000000000002, 2.7307230631510415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5cbf7849-95bd-4039-ac45-42834198ab55" isExpanded="false" absoluteBounds="0.75, 19.5, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_AppInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="417ba541-188d-4584-b749-7a73a5a78812" absoluteBounds="0.76499999999999968, 19.96, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7adc7383-de1d-4743-b733-13daf9c40cdb" isExpanded="false" absoluteBounds="0.625, 18.25, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_AppActivityInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6da087fb-f15b-45bf-a258-c837a8a650a1" absoluteBounds="0.64, 18.71, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.6875 : 19.5); (1.6875 : 18.7)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_AppInfo/QC_AppInfo_QC_AppActivityInfo" />
+      <nodes>
+        <classShapeMoniker Id="5cbf7849-95bd-4039-ac45-42834198ab55" />
+        <classShapeMoniker Id="7adc7383-de1d-4743-b733-13daf9c40cdb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cfec4a62-731f-4c65-b0f5-42815c99ec04" isExpanded="false" absoluteBounds="0.625, 17, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_QCUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b3b3b264-be1c-4f78-aaaf-20168853854a" absoluteBounds="0.64, 17.46, 1.9700000000000002, 2.7307230631510415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(0.72625 : 17); (0.72625 : 16.075)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_QCUser/QC_QCUser_QC_RoleUser" />
+      <nodes>
+        <classShapeMoniker Id="cfec4a62-731f-4c65-b0f5-42815c99ec04" />
+        <classShapeMoniker Id="6f4efb7c-e6f7-4819-bd0a-750d83d9c704" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 17.1625); (3.375 : 17.1625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_QCUser/QC_QCUser_QC_AppRightInfo" />
+      <nodes>
+        <classShapeMoniker Id="cfec4a62-731f-4c65-b0f5-42815c99ec04" />
+        <classShapeMoniker Id="19b20f98-4cf2-457f-92a2-cdad055f546f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="db828bf9-c8e3-4d44-a8bd-14171874cf4a" isExpanded="false" absoluteBounds="3.25, 3.875, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_Detail_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c657c07-8dfa-4443-86a5-844c8ab5637c" absoluteBounds="3.265, 4.335, 1.9700000000000002, 3.3037821451822915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="056e69a0-6823-41df-9c94-ac2a63126482" isExpanded="false" absoluteBounds="3.5, 18, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_FirstPassRatioTarget" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c0ebae9-98ed-450e-97cc-543f5a984fd6" absoluteBounds="3.515, 18.46, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="454f74fa-916b-4552-84d2-1b0645d27f9c" isExpanded="false" absoluteBounds="5.75, 18.125, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_ProductTypeInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ab75a1b-b1b1-4c66-bdd3-74c7f40722e4" absoluteBounds="5.765, 18.585, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="217b55bc-cd4a-473a-a865-4faa09de0f79" isExpanded="false" absoluteBounds="8.375, 18, 3, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_ProductType_CommonDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c32b58bf-d1f4-4699-b30f-15f7355af3cd" absoluteBounds="8.39, 18.46, 2.9699999999999998, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.75 : 18.2875); (8.375 : 18.2875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_ProductTypeInfo/QC_ProductTypeInfo_QC_ProductType_CommonDefect" />
+      <nodes>
+        <classShapeMoniker Id="454f74fa-916b-4552-84d2-1b0645d27f9c" />
+        <classShapeMoniker Id="217b55bc-cd4a-473a-a865-4faa09de0f79" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="56719eb0-c2eb-4a52-a6c3-c38acff7d9e6" isExpanded="false" absoluteBounds="5.875, 19, 3, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_ProductType_CommonPosition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9bec68dd-7c38-4742-97d5-445e7ba48c8b" absoluteBounds="5.89, 19.46, 2.9699999999999998, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.8125 : 18.575); (6.8125 : 19)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_ProductTypeInfo/QC_ProductTypeInfo_QC_ProductType_CommonPosition" />
+      <nodes>
+        <classShapeMoniker Id="454f74fa-916b-4552-84d2-1b0645d27f9c" />
+        <classShapeMoniker Id="56719eb0-c2eb-4a52-a6c3-c38acff7d9e6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7b0def8d-90e7-4477-96a2-713027fda910" isExpanded="false" absoluteBounds="3.375, 18.875, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_ImproveActionPlan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="355889b9-f777-4659-88a9-83c9d8f048cd" absoluteBounds="3.39, 19.335, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bf6ff35a-2ffc-4fd7-b13a-bb45640cdba7" isExpanded="false" absoluteBounds="6.25, 21.125, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_Detail_Final" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b05c285b-6d26-488a-8126-1511f6c98b19" absoluteBounds="6.265, 21.585, 1.9700000000000002, 3.112762451171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a2e3c6d-393e-4a84-a23e-69a662b70919" isExpanded="false" absoluteBounds="9.125, 21.125, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_Detail_Detail_Final" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9bcdcc58-82d1-4bbe-bd4f-5049a19f4006" absoluteBounds="9.14, 21.585, 1.9700000000000002, 3.685821533203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 21.35); (9.125 : 21.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_Detail_Final/QC_Detail_Final_QC_Detail_Detail_Final" />
+      <nodes>
+        <classShapeMoniker Id="bf6ff35a-2ffc-4fd7-b13a-bb45640cdba7" />
+        <classShapeMoniker Id="8a2e3c6d-393e-4a84-a23e-69a662b70919" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8d03e2c1-98ef-42fa-9e3c-649fb828cf6a" isExpanded="false" absoluteBounds="6.125, 20.125, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_Master_Final" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f63b1395-9e82-4b40-8743-8de60a6b6689" absoluteBounds="6.1400000000000006, 20.585, 1.9700000000000002, 7.3151957194010411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.1875 : 20.575); (7.1875 : 21.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_Master_Final/QC_Master_Final_QC_Detail_Final" />
+      <nodes>
+        <classShapeMoniker Id="8d03e2c1-98ef-42fa-9e3c-649fb828cf6a" />
+        <classShapeMoniker Id="bf6ff35a-2ffc-4fd7-b13a-bb45640cdba7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f2cd99d3-cda1-49c7-887a-8def2f70e93c" isExpanded="false" absoluteBounds="6, 6.5, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_Defect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d3f81723-37b8-4341-8c51-1a9600bbdd3e" absoluteBounds="6.015, 6.96, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2bd4a624-62d0-49cc-9d2e-d26cca5e9e91" isExpanded="false" absoluteBounds="13, 5.25, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/FirstPass_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1134020e-b4a1-434c-bc6f-c227c39f51a6" absoluteBounds="13.015, 5.7100000000000009, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4710f68d-fe6b-4129-8231-af1a9e269866" isExpanded="false" absoluteBounds="10.5, 5.125, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/FirstPass_Header" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5481a68a-518b-4f0e-b6f9-2bb9ea2539ad" absoluteBounds="10.515, 5.585, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.5 : 5.4125); (13 : 5.4125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/FirstPass_Header/FirstPass_Header_FirstPass_Detail" />
+      <nodes>
+        <classShapeMoniker Id="4710f68d-fe6b-4129-8231-af1a9e269866" />
+        <classShapeMoniker Id="2bd4a624-62d0-49cc-9d2e-d26cca5e9e91" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.1841923076923 : 5.575); (11.1841923076923 : 5.825); (11.8308461538462 : 5.825); (11.8308461538462 : 5.575)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/FirstPass_Header/FirstPass_Header_FirstPass_Header" />
+      <nodes>
+        <classShapeMoniker Id="4710f68d-fe6b-4129-8231-af1a9e269866" />
+        <classShapeMoniker Id="4710f68d-fe6b-4129-8231-af1a9e269866" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3be63e35-f60f-437d-9d2c-1bac9e9dcb98" isExpanded="false" absoluteBounds="10.625, 4, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/FirstPass_AlertLogHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56659e90-0ebc-4b24-9c8d-5d02b20281be" absoluteBounds="10.64, 4.46, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.5625 : 5.125); (11.5625 : 4.45)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/FirstPass_Header/FirstPass_Header_FirstPass_AlertLogHeader" />
+      <nodes>
+        <classShapeMoniker Id="4710f68d-fe6b-4129-8231-af1a9e269866" />
+        <classShapeMoniker Id="3be63e35-f60f-437d-9d2c-1bac9e9dcb98" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="adf41afd-7555-48fe-8932-55416ae74237" isExpanded="false" absoluteBounds="10.625, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/FirstPass_AlertLogDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68c17496-4885-4f65-82a6-2f3fd3916d0e" absoluteBounds="10.64, 3.21, 1.9700000000000002, 1.7756245930989583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.625 : 4); (11.625 : 3.2)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/FirstPass_AlertLogHeader/FirstPass_AlertLogHeader_FirstPass_AlertLogDetail" />
+      <nodes>
+        <classShapeMoniker Id="3be63e35-f60f-437d-9d2c-1bac9e9dcb98" />
+        <classShapeMoniker Id="adf41afd-7555-48fe-8932-55416ae74237" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3000337c-675d-47bd-9a11-9e79073cc335" isExpanded="false" absoluteBounds="10.5, 1.625, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/FirstPass_AlertLogCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef1e768d-0266-4c86-9a3f-12a76ee7eefe" absoluteBounds="10.515, 2.085, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e00a8627-acff-4337-902d-fab6da9320ec" isExpanded="false" absoluteBounds="5.625, 5.75, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/Email" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b59b2c85-d964-4129-b827-623f245d0059" absoluteBounds="5.64, 6.21, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3fa6821-78ce-4237-bc45-7d13a021c6fe" isExpanded="false" absoluteBounds="3.125, 2, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="089a4b16-3a4a-4f48-b51d-dee720b29d7f" absoluteBounds="3.1399999999999997, 2.46, 1.9700000000000002, 3.112762451171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.125 : 2.45); (4.125 : 2.75); (4.60416666666667 : 2.75 : JumpStart); (4.77083333333333 : 2.75 : JumpEnd); (5.5 : 2.75); (5.5 : 4.1); (5.25 : 4.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_Detail/QC_Detail_QC_Detail_Detail" />
+      <nodes>
+        <classShapeMoniker Id="a3fa6821-78ce-4237-bc45-7d13a021c6fe" />
+        <classShapeMoniker Id="db828bf9-c8e3-4d44-a8bd-14171874cf4a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9b9b1f7c-1705-4d6b-8e40-4059c545546b" isExpanded="false" absoluteBounds="3.25, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_Master" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6c282ef-47cd-4d04-aec7-ce274cb0b24e" absoluteBounds="3.2649999999999997, 1.71, 1.9700000000000002, 5.787038167317708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.1875 : 1.7); (4.1875 : 2)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_Master/QC_Master_QC_Detail" />
+      <nodes>
+        <classShapeMoniker Id="9b9b1f7c-1705-4d6b-8e40-4059c545546b" />
+        <classShapeMoniker Id="a3fa6821-78ce-4237-bc45-7d13a021c6fe" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2d126394-32a9-4635-8e9c-660196023f18" isExpanded="false" absoluteBounds="3, 6, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/WorkforceFPYTarget" />
+      <nestedChildShapes>
+        <elementListCompartment Id="71804881-eabd-4acc-a2ed-9f8e1aa6a176" absoluteBounds="3.015, 6.46, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="740a7018-a41b-46bc-b137-41dc18ff1bbf" isExpanded="false" absoluteBounds="3.125, 3, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_Detail_SizeAudit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90d27222-cb29-40b9-b20e-e5db937e2826" absoluteBounds="3.1399999999999997, 3.46, 1.9700000000000002, 3.685821533203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.6875 : 2.45); (4.6875 : 3)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_Detail/QC_Detail_QC_Detail_SizeAudit" />
+      <nodes>
+        <classShapeMoniker Id="a3fa6821-78ce-4237-bc45-7d13a021c6fe" />
+        <classShapeMoniker Id="740a7018-a41b-46bc-b137-41dc18ff1bbf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6705d447-cf61-44f3-a80d-ae2478e5bc4e" isExpanded="false" absoluteBounds="6.375, 22.125, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_Detail_SizeAudit_Final" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a2f5809-982e-435d-be81-6b703f5787e9" absoluteBounds="6.39, 22.585, 1.9700000000000002, 3.494801839192708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.3125 : 21.575); (7.3125 : 22.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_Detail_Final/QC_Detail_Final_QC_Detail_SizeAudit_Final" />
+      <nodes>
+        <classShapeMoniker Id="bf6ff35a-2ffc-4fd7-b13a-bb45640cdba7" />
+        <classShapeMoniker Id="6705d447-cf61-44f3-a80d-ae2478e5bc4e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b0619e3d-c023-4603-882a-38912b121b8b" isExpanded="false" absoluteBounds="8.875, 10.5, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/CustQCDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="67b290a0-7ad2-4361-816d-fbfc04c83683" absoluteBounds="8.89, 10.96, 1.9700000000000002, 1.7756245930989583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="71200364-dc3f-4c40-a25f-c4f6d0f4595d" isExpanded="false" absoluteBounds="17.125, 17.375, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/CustQCDetail_Interim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a7ece557-3128-4bbd-93b4-98fe385f5f39" absoluteBounds="17.14, 17.835, 1.9700000000000002, 1.7756245930989583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3dfd1a2a-a3b7-4b80-88a0-2bac07e0da24" absoluteBounds="3.5, 20.375, 2, 1.9535852050781273">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_AQLLevel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9aad40a-af3a-46bb-b42f-5744ca79be31" absoluteBounds="3.515, 20.835, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f3381ba-5525-4b18-95e8-d930c115586d" absoluteBounds="12.5, 13.25, 2, 6.9200972493489594">
+      <DataClassMoniker Name="/MobileQCDataContext/CustQCMaster_Interim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c289faf7-1f53-4cf3-8fe2-e466427d0b98" absoluteBounds="12.515, 13.71, 1.9700000000000002, 6.360097249348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.5 : 17.6); (17.125 : 17.6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/CustQCMaster_Interim/CustQCMaster_Interim_CustQCDetail_Interim" />
+      <nodes>
+        <classShapeMoniker Id="9f3381ba-5525-4b18-95e8-d930c115586d" />
+        <classShapeMoniker Id="71200364-dc3f-4c40-a25f-c4f6d0f4595d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5e1e4b96-d482-4391-83be-ef9b22a7dfb7" isExpanded="false" absoluteBounds="0.75, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_ExamPlanDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3613de7a-4070-42d8-9220-0b26ed01a704" absoluteBounds="0.76500000000000012, 3.21, 1.9700000000000002, 4.831939697265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f7680cb-3c90-425b-97b7-348bdbc1823b" isExpanded="false" absoluteBounds="3.25, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/FinanceExportData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="93a9fcaa-6241-4695-99fd-39540e5aa3bf" absoluteBounds="3.2649999999999997, 1.085, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ce7b1205-93ba-4fd6-ab25-15fde85beee3" absoluteBounds="16.125, 1.875, 2, 3.4817427571614576">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_AuditQtyRange" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9444dae0-4a91-4a25-a6ab-97f01ae8d0e4" absoluteBounds="16.14, 2.335, 1.9700000000000002, 2.921742757161458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8b7db178-1ed8-4a86-bb64-e203cf40f43f" isExpanded="false" absoluteBounds="0.5, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/FullInspectionHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="06dd2be5-7ca9-41fa-8e94-f16344e3d135" absoluteBounds="0.51500000000000012, 5.96, 1.9700000000000002, 3.8768412272135415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b7f718a3-2c54-4833-84eb-0d034a729609" isExpanded="false" absoluteBounds="0.5, 6.5, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/FullInspectionDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b9dc12f8-c1f9-4671-8e74-dadd4dfe0b5e" absoluteBounds="0.51500000000000012, 6.96, 1.9700000000000002, 9.416412353515625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 5.95); (1.5 : 6.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/FullInspectionHeader/FullInspectionHeader_FullInspectionDetail" />
+      <nodes>
+        <classShapeMoniker Id="8b7db178-1ed8-4a86-bb64-e203cf40f43f" />
+        <classShapeMoniker Id="b7f718a3-2c54-4833-84eb-0d034a729609" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cb117e97-7964-413c-8393-45524cd2cd39" isExpanded="false" absoluteBounds="5.5, 5, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/FourDefectCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d691e693-d2eb-4c9d-a2dd-3ed2ee4e7626" absoluteBounds="5.515, 5.46, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2c9b2bb-73dc-4f10-9757-cc70d9fb538f" isExpanded="false" absoluteBounds="8.75, 9.5, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/CustQCMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e276f680-902b-409a-819d-b185af925bc9" absoluteBounds="8.765, 9.96, 1.9700000000000002, 6.1690775553385411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.8125 : 9.95); (9.8125 : 10.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MobileQCDataContext/CustQCMaster/CustQCMaster_CustQCDetail" />
+      <nodes>
+        <classShapeMoniker Id="a2c9b2bb-73dc-4f10-9757-cc70d9fb538f" />
+        <classShapeMoniker Id="b0619e3d-c023-4603-882a-38912b121b8b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0f7b84b9-65ef-4825-b0c2-d2efa3ba261c" isExpanded="false" absoluteBounds="0.875, 3.875, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_ExamPlanHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c4cde6f-dcd5-4803-a59f-658d4108db9f" absoluteBounds="0.89, 4.335, 1.9700000000000002, 3.8768412272135415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.8125 : 3.875); (1.8125 : 3.2)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MobileQCDataContext/QC_ExamPlanHeader/QC_ExamPlanHeader_QC_ExamPlanDetail" />
+      <nodes>
+        <classShapeMoniker Id="0f7b84b9-65ef-4825-b0c2-d2efa3ba261c" />
+        <classShapeMoniker Id="5e1e4b96-d482-4391-83be-ef9b22a7dfb7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="548aab0b-aa56-4d70-9291-69023b9d6605" absoluteBounds="5, 11.5, 2, 2.1446048990885416">
+      <DataClassMoniker Name="/MobileQCDataContext/AQLAuditor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a722ba9-5bbb-47e6-b4a6-a82114ec9e1a" absoluteBounds="5.015, 11.96, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="857c4a86-28e4-487a-99fc-1dc2d708d1c2" isExpanded="false" absoluteBounds="0.75, 20.625, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/FinalAuditPlanList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78717fbc-fb3e-425b-8184-d02160e29e4f" absoluteBounds="0.76500000000000012, 21.085, 1.9700000000000002, 5.0229593912760411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="250c4b1b-ecb2-462e-92f8-abe8f7a6d0f5" isExpanded="false" absoluteBounds="0.75, 1, 2, 0.45">
+      <DataClassMoniker Name="/MobileQCDataContext/QC_ReportInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ff25b90-3056-48bc-9535-5b0a3cbd7e63" absoluteBounds="0.765, 1.46, 1.9700000000000002, 2.7307230631510415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1d530494-55d8-4325-9b35-5b81b03e5eaf" absoluteBounds="9.125, 12.625, 2, 2.3356245930989585">
+      <DataClassMoniker Name="/MobileQCDataContext/AuditExamSetup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ecfd042-d62d-4e6a-a3f8-6c2258dbe80c" absoluteBounds="9.14, 13.085, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

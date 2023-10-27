@@ -1,0 +1,1090 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PH.MobileQC" Class="MobileQCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=S99VF403\SQLSERVER2005;Initial Catalog=PH.MobileQC;Persist Security Info=True;User ID=ituser" SettingsObjectName="PH.MobileQC.BO.Properties.Settings" SettingsPropertyName="PH_MobileQCConnectionString8" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Mobile_QC_GX" Member="Mobile_QC_GXes">
+    <Type Name="Mobile_QC_GX">
+      <Column Name="cstyle" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cstyle1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Gxh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gxdh" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="Gxm" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Yzjb" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Zkcc" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="Mx" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Dx" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Egxm" Type="System.String" DbType="VarChar(90)" CanBeNull="true" />
+      <Column Name="Tgxm" Type="System.String" DbType="VarChar(90)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vMobile_qc" Member="vMobile_qcs">
+    <Type Name="vMobile_qc">
+      <Column Name="FCCS" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="ARTNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PLINE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="J_NO" Type="System.String" DbType="VarChar(22)" CanBeNull="true" />
+      <Column Name="CSTYLE" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_AlertMessage" Member="QC_AlertMessages">
+    <Type Name="QC_AlertMessage">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Line" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Project" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Style" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="OPNCode" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="OPNName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Defect" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SendTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MasterID" Type="System.String" DbType="varchar(40)" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_AlertEmail" Member="QC_AlertEmails">
+    <Type Name="QC_AlertEmail">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[TO]" Member="TO" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="CC" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="BCC" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="AlertSwitch" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="NVarchar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.worker_Evaluate" Member="worker_Evaluates">
+    <Type Name="worker_Evaluate">
+      <Column Name="factory" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="workshop" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="worker" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="qccount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="defectcount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LightCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PHMergeDefectCode" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="pyrate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="workername" Type="System.String" DbType="char(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qc_rate" Member="qc_rates">
+    <Type Name="qc_rate">
+      <Column Name="mark" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="qc_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="line" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="style" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="worker" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="w_procedure" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="qccount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="defectcount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="operationname" Type="System.String" DbType="varchar(100)" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_TaskSchemaBlackWhiteProcessInfo" Member="QC_TaskSchemaBlackWhiteProcessInfos">
+    <Type Name="QC_TaskSchemaBlackWhiteProcessInfo">
+      <Column Name="ProcessCode" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Flag" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_TaskSchemaHeader" Member="QC_TaskSchemaHeaders">
+    <Type Name="QC_TaskSchemaHeader">
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QCActionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TaskType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="QC_TaskSchemaHeader_QC_TaskSchemaDetail" Member="QC_TaskSchemaDetails" ThisKey="MasterID" OtherKey="MasterID" Type="QC_TaskSchemaDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_TaskSchemaDetail" Member="QC_TaskSchemaDetails">
+    <Type Name="QC_TaskSchemaDetail">
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DetailID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WorkShop" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="WorkLine" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ProjectNO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="WONO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="RWONO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ColorCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QNNO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsAuditedAtPreDay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsFalseAtPreDay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StyleNO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProcessSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProcessCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProcessName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ProcessStep" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="IsInSchema" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsCoreProcess" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DefaultAuditQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalAuditQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProcessSAH" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="QNQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlanQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SchemaQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="QC_TaskSchemaHeader_QC_TaskSchemaDetail" Member="QC_TaskSchemaHeader" ThisKey="MasterID" OtherKey="MasterID" Type="QC_TaskSchemaHeader" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TraceInfo" Member="TraceInfos">
+    <Type Name="TraceInfo">
+      <Column Name="RecId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DefectCodes" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="DefectList" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="LevelCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Executer" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Finish" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FinishDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Workshop" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Line" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_QCRole" Member="QC_QCRoles">
+    <Type Name="QC_QCRole">
+      <Column Name="RoleCode" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AppName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="QC_QCRole_QC_RoleUser" Member="QC_RoleUsers" ThisKey="RoleCode" OtherKey="RoleCode" Type="QC_RoleUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_RoleUser" Member="QC_RoleUsers">
+    <Type Name="QC_RoleUser">
+      <Column Name="RoleCode" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="QC_QCRole_QC_RoleUser" Member="QC_QCRole" ThisKey="RoleCode" OtherKey="RoleCode" Type="QC_QCRole" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="QC_QCUser_QC_RoleUser" Member="QC_QCUser" ThisKey="UserCode" OtherKey="UserCode" Type="QC_QCUser" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_AppRightInfo" Member="QC_AppRightInfos">
+    <Type Name="QC_AppRightInfo">
+      <Column Name="APPName" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleCode" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ActivityName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsAdd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsEdit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsAssign" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="QC_QCUser_QC_AppRightInfo" Member="QC_QCUser" ThisKey="UserCode" OtherKey="UserCode" Type="QC_QCUser" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_AppInfo" Member="QC_AppInfos">
+    <Type Name="QC_AppInfo">
+      <Column Name="AppName" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="QC_AppInfo_QC_AppActivityInfo" Member="QC_AppActivityInfo" ThisKey="AppName" OtherKey="AppName" Type="QC_AppActivityInfo" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_AppActivityInfo" Member="QC_AppActivityInfos">
+    <Type Name="QC_AppActivityInfo">
+      <Column Name="AppName" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ActivityName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="QC_AppInfo_QC_AppActivityInfo" Member="QC_AppInfo" ThisKey="AppName" OtherKey="AppName" Type="QC_AppInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_QCUser" Member="QC_QCUsers">
+    <Type Name="QC_QCUser">
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WorkShop" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WorkLine" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsDisable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsShowFunctionList" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsFactoryManager" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsDepartmentManager" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="QC_QCUser_QC_RoleUser" Member="QC_RoleUsers" ThisKey="UserCode" OtherKey="UserCode" Type="QC_RoleUser" />
+      <Association Name="QC_QCUser_QC_AppRightInfo" Member="QC_AppRightInfos" ThisKey="UserCode" OtherKey="UserCode" Type="QC_AppRightInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_Detail_Detail" Member="QC_Detail_Details">
+    <Type Name="QC_Detail_Detail">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DetailID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefectCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefectQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Worker" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="W_procedure" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Problem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cause" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsFindAtSameTime" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ImgUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="QC_Detail_QC_Detail_Detail" Member="QC_Detail" ThisKey="MasterID,DetailID" OtherKey="MasterID,ID" Type="QC_Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_FirstPassRatioTarget" Member="QC_FirstPassRatioTargets">
+    <Type Name="QC_FirstPassRatioTarget">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TargetValue" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="EffectFromDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_ProductTypeInfo" Member="QC_ProductTypeInfos">
+    <Type Name="QC_ProductTypeInfo">
+      <Column Name="ProductTypeCode" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductTypeName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="QC_ProductTypeInfo_QC_ProductType_CommonDefect" Member="QC_ProductType_CommonDefects" ThisKey="ProductTypeCode" OtherKey="ProductTypeCode" Type="QC_ProductType_CommonDefect" />
+      <Association Name="QC_ProductTypeInfo_QC_ProductType_CommonPosition" Member="QC_ProductType_CommonPositions" ThisKey="ProductTypeCode" OtherKey="ProductTypeCode" Type="QC_ProductType_CommonPosition" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_ProductType_CommonDefect" Member="QC_ProductType_CommonDefects">
+    <Type Name="QC_ProductType_CommonDefect">
+      <Column Name="ProductTypeCode" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DefectCode" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="QC_ProductTypeInfo_QC_ProductType_CommonDefect" Member="QC_ProductTypeInfo" ThisKey="ProductTypeCode" OtherKey="ProductTypeCode" Type="QC_ProductTypeInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_ProductType_CommonPosition" Member="QC_ProductType_CommonPositions">
+    <Type Name="QC_ProductType_CommonPosition">
+      <Column Name="ProductTypeCode" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PositionCode" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="QC_ProductTypeInfo_QC_ProductType_CommonPosition" Member="QC_ProductTypeInfo" ThisKey="ProductTypeCode" OtherKey="ProductTypeCode" Type="QC_ProductTypeInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_ImproveActionPlan" Member="QC_ImproveActionPlans">
+    <Type Name="QC_ImproveActionPlan">
+      <Column Name="OID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SeqNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NameCN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NameEn" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_Detail_Final" Member="QC_Detail_Finals">
+    <Type Name="QC_Detail_Final">
+      <Column Name="QC_Light" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="LightCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Defect_Code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Problem" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Action_Taken" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SolutionCode" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="OnOffLine" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Cause" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TrafficLightFlag" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Processed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsReAudit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReAuditID" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="DetailType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="QC_Detail_Final_QC_Detail_Detail_Final" Member="QC_Detail_Detail_Finals" ThisKey="MasterID,ID" OtherKey="MasterID,DetailID" Type="QC_Detail_Detail_Final" />
+      <Association Name="QC_Detail_Final_QC_Detail_SizeAudit_Final" Member="QC_Detail_SizeAudit_Finals" ThisKey="MasterID,ID" OtherKey="MasterID,DetailID" Type="QC_Detail_SizeAudit_Final" />
+      <Association Name="QC_Master_Final_QC_Detail_Final" Member="QC_Master_Final" ThisKey="MasterID" OtherKey="MasterID" Type="QC_Master_Final" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_Detail_Detail_Final" Member="QC_Detail_Detail_Finals">
+    <Type Name="QC_Detail_Detail_Final">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DetailID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefectCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefectQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Worker" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="W_procedure" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Problem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cause" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsFindAtSameTime" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ImgUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IsMainDefect" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="DefectFromWs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="QC_Detail_Final_QC_Detail_Detail_Final" Member="QC_Detail_Final" ThisKey="MasterID,DetailID" OtherKey="MasterID,ID" Type="QC_Detail_Final" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_Master_Final" Member="QC_Master_Finals">
+    <Type Name="QC_Master_Final">
+      <Column Name="Line" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Project" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RWO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Style" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="QC_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="QNQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QCCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QCMan" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="QNNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BoxNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="WOc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WorkShop" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ArtNO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="QCRoleCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QNSeq" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductBoxQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditBoxQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SubAuditType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PassLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubPassLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditResult" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="QCType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AssignUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AssignDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsFinishInput" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ProductTypeCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="WsConfirm" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="QAConfirm" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SIConfirm" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ImproveActionPlan" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="QC_Master_Final_QC_Detail_Final" Member="QC_Detail_Finals" ThisKey="MasterID" OtherKey="MasterID" Type="QC_Detail_Final" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_Defect" Member="QC_Defects">
+    <Type Name="QC_Defect">
+      <Column Name="Defect_Type" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Defect_Code" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Defect_Spec" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Desc_EN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Desc_TH" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FirstPass_Detail" Member="FirstPass_Details">
+    <Type Name="FirstPass_Detail">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HeaderOID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Workshop" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="QCTime" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DefectName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="FirstPass_Header_FirstPass_Detail" Member="FirstPass_Header" ThisKey="HeaderOID" OtherKey="OID" Type="FirstPass_Header" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FirstPass_Header" Member="FirstPass_Headers">
+    <Type Name="FirstPass_Header">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="QueryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="FirstPass_Header_FirstPass_Detail" Member="FirstPass_Details" ThisKey="OID" OtherKey="HeaderOID" Type="FirstPass_Detail" />
+      <Association Name="FirstPass_Header_FirstPass_Header" Member="FirstPass_Header2" ThisKey="OID" OtherKey="OID" Type="FirstPass_Header" Cardinality="One" />
+      <Association Name="FirstPass_Header_FirstPass_AlertLogHeader" Member="FirstPass_AlertLogHeaders" ThisKey="OID" OtherKey="HeaderOID" Type="FirstPass_AlertLogHeader" />
+      <Association Name="FirstPass_Header_FirstPass_Header" Member="FirstPass_Header1" ThisKey="OID" OtherKey="OID" Type="FirstPass_Header" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FirstPass_AlertLogHeader" Member="FirstPass_AlertLogHeaders">
+    <Type Name="FirstPass_AlertLogHeader">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HeaderOID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AcitonID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ItemNo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ItemSubject" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PlanEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsCompleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="FirstPass_AlertLogHeader_FirstPass_AlertLogDetail" Member="FirstPass_AlertLogDetails" ThisKey="OID" OtherKey="AlertLogHeaderOID" Type="FirstPass_AlertLogDetail" />
+      <Association Name="FirstPass_Header_FirstPass_AlertLogHeader" Member="FirstPass_Header" ThisKey="HeaderOID" OtherKey="OID" Type="FirstPass_Header" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FirstPass_AlertLogDetail" Member="FirstPass_AlertLogDetails">
+    <Type Name="FirstPass_AlertLogDetail">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AlertLogHeaderOID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="StartFollowDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FollowCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sender" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="FollowSummary" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Attachment" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AttFileName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="FirstPass_AlertLogHeader_FirstPass_AlertLogDetail" Member="FirstPass_AlertLogHeader" ThisKey="AlertLogHeaderOID" OtherKey="OID" Type="FirstPass_AlertLogHeader" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FirstPass_AlertLogCategory" Member="FirstPass_AlertLogCategories">
+    <Type Name="FirstPass_AlertLogCategory">
+      <Column Name="Code" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BigCategory" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Description_EN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Description_BD" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Email" Member="Emails">
+    <Type Name="Email">
+      <Column Name="UserID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SortID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_Detail" Member="QC_Details">
+    <Type Name="QC_Detail">
+      <Column Name="QC_Light" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="LightCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Defect_Code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Problem" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Action_Taken" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SolutionCode" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="OnOffLine" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Cause" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TrafficLightFlag" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Processed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsReAudit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReAuditID" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="DetailType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="QC_Detail_QC_Detail_Detail" Member="QC_Detail_Details" ThisKey="MasterID,ID" OtherKey="MasterID,DetailID" Type="QC_Detail_Detail" />
+      <Association Name="QC_Detail_QC_Detail_SizeAudit" Member="QC_Detail_SizeAudits" ThisKey="MasterID,ID" OtherKey="MasterID,DetailID" Type="QC_Detail_SizeAudit" />
+      <Association Name="QC_Master_QC_Detail" Member="QC_Master" ThisKey="MasterID" OtherKey="MasterID" Type="QC_Master" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_Master" Member="QC_Masters">
+    <Type Name="QC_Master">
+      <Column Name="Line" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Project" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RWO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ArtNO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Style" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="W_procedure" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Worker" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="QC_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="QCCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QCMan" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="QNNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BoxNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BindNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MachinePlace" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WOc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OTN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WorkShop" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="QCRoleCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AssignUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AssignDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="QCType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="IsFinishInput" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="ProductTypeCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PartCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="QC_Master_QC_Detail" Member="QC_Details" ThisKey="MasterID" OtherKey="MasterID" Type="QC_Detail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkforceFPYTarget" Member="WorkforceFPYTargets">
+    <Type Name="WorkforceFPYTarget">
+      <Column Name="SeqNo" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FPYTarget" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_Detail_SizeAudit" Member="QC_Detail_SizeAudits">
+    <Type Name="QC_Detail_SizeAudit">
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DetailID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SizeID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ArtNO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StyleNO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SizeCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Standard" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Uom" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AuditValue" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SizeWindageShowText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SizeWindage" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AuditResult" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ImgUrl" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tolerence" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Method" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PlaceCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="QC_Detail_QC_Detail_SizeAudit" Member="QC_Detail" ThisKey="MasterID,DetailID" OtherKey="MasterID,ID" Type="QC_Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_Detail_SizeAudit_Final" Member="QC_Detail_SizeAudit_Finals">
+    <Type Name="QC_Detail_SizeAudit_Final">
+      <Column Name="MasterID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DetailID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SizeID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ArtNO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StyleNO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SizeCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Standard" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Uom" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AuditValue" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SizeWindageShowText" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SizeWindage" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AuditResult" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ImgUrl" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tolerence" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Method" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="QC_Detail_Final_QC_Detail_SizeAudit_Final" Member="QC_Detail_Final" ThisKey="MasterID,DetailID" OtherKey="MasterID,ID" Type="QC_Detail_Final" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustQCDetail" Member="CustQCDetails">
+    <Type Name="CustQCDetail">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MasterOID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DefectCode" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CriticalDefectQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MarjorDefectQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinorDefectQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefectPicture1URL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="DefectPicture2URL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="CustQCMaster_CustQCDetail" Member="CustQCMaster" ThisKey="MasterOID" OtherKey="OID" Type="CustQCMaster" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustQCDetail_Interim" Member="CustQCDetail_Interims">
+    <Type Name="CustQCDetail_Interim">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MasterOID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DefectCode" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CriticalDefectQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MarjorDefectQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinorDefectQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefectPicture1URL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="DefectPicture2URL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="CustQCMaster_Interim_CustQCDetail_Interim" Member="CustQCMaster_Interim" ThisKey="MasterOID" OtherKey="OID" Type="CustQCMaster_Interim" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_AQLLevel" Member="QC_AQLLevels">
+    <Type Name="QC_AQLLevel">
+      <Column Name="OID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OATeam" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ProjectNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AQLMarjorLevel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AQLMinorLevel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustQCMaster_Interim" Member="CustQCMaster_Interims">
+    <Type Name="CustQCMaster_Interim">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExamDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CustStyle" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="POQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleSizeQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AQLMarjorDefectLevel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AQLMarjorDefectAcceptQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AQLMinorDefectLevel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AQLMinorDefectAcceptQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NeedAQL" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NeedStudy" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="QCExamNO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProductType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ShipmentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShipmentPOQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShipmentStyleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShipmentColorQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShipmentSizeQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExamCartonQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StandardCartonQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LogQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QCExaminer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ResponsibleDept" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="ProjectNO" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="QCLocation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CatLogNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MfgLocation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CustomerPO" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="WO" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="SampleSize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CustQCMaster_Interim_CustQCDetail_Interim" Member="CustQCDetail_Interims" ThisKey="OID" OtherKey="MasterOID" Type="CustQCDetail_Interim" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_ExamPlanDetail" Member="QC_ExamPlanDetails">
+    <Type Name="QC_ExamPlanDetail">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HeaderOID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Line" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OptSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OptCode" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="OptName" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="OptName_EN" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="FAE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MQACheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MQCCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Workshop" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IsAgree" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AgreeMan" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AgreeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsConfirmQI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ConfirmerQI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ConfirmDateQI" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsConfirmQA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ConfirmerQA" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ConfirmDateQA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Seq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WFCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WorkDesk" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="QC_ExamPlanHeader_QC_ExamPlanDetail" Member="QC_ExamPlanHeader" ThisKey="HeaderOID" OtherKey="OID" Type="QC_ExamPlanHeader" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinanceExportData" Member="FinanceExportDatas">
+    <Type Name="FinanceExportData">
+      <Column Name="IndexKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="InsertFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_AuditQtyRange" Member="QC_AuditQtyRanges">
+    <Type Name="QC_AuditQtyRange">
+      <Column Name="Seq" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Qty1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qty2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qty" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="A1Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AQty_10" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AQty_15" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AQty_65" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AQty_065" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Flag" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FullInspectionHeader" Member="FullInspectionHeaders">
+    <Type Name="FullInspectionHeader">
+      <Column Name="Oid" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="WorkShop" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Line" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Project" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LWO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ColorCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SeqNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="InspectionCompleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="QNQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InspectionConfirmBy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="InspectionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Inspector" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LineLeader" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LineLeaderSignature" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SewingSupervisior" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="ExftyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="FullInspectionHeader_FullInspectionDetail" Member="FullInspectionDetails" ThisKey="Oid" OtherKey="FullInspectionHeader" Type="FullInspectionDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FullInspectionDetail" Member="FullInspectionDetails">
+    <Type Name="FullInspectionDetail">
+      <Column Name="Oid" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullInspectionHeader" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ProductQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefectiveGarmentQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefectiveGarmentPercent" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="RejectStage" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="[CheckPoint]" Member="CheckPoint" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PODCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PODNameEN" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PODNameCN" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PODNameBD" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DefectNameEN" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="DefectNameCN" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="DefectNameBD" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Repaired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CheckPointSigned" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BoxNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InspectionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Inspector" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PODCode1" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PODNameEN1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PODNameCN1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PODNameBD1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PODCode2" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PODNameEN2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PODNameCN2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PODNameBD2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PODCode3" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PODNameEN3" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PODNameCN3" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PODNameBD3" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectCode1" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DefectNameEN1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectNameCN1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectNameBD1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectCode2" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DefectNameEN2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectNameCN2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectNameBD2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectCode3" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DefectNameEN3" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectNameCN3" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DefectNameBD3" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PODQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RejectQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="FullInspectionHeader_FullInspectionDetail" Member="FullInspectionHeader1" ThisKey="FullInspectionHeader" OtherKey="Oid" Type="FullInspectionHeader" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FourDefectCode" Member="FourDefectCodes">
+    <Type Name="FourDefectCode">
+      <Column Name="OID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DefectCode" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Sort" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DefectNameCN" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DefectNameEN" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustQCMaster" Member="CustQCMasters">
+    <Type Name="CustQCMaster">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExamDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CustStyle" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="POQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleSizeQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AQLMarjorDefectLevel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AQLMarjorDefectAcceptQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AQLMinorDefectLevel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AQLMinorDefectAcceptQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QCExamNO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProductType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ShipmentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShipmentPOQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShipmentStyleQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShipmentColorQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShipmentSizeQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExamCartonQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StandardCartonQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LogQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QCExaminer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ResponsibleDept" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="ProjectNO" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="QCLocation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CatLogNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MfgLocation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CustomerPO" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="WO" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="SampleSzie" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsShowRpt" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="CustQCMaster_CustQCDetail" Member="CustQCDetails" ThisKey="OID" OtherKey="MasterOID" Type="CustQCDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_ExamPlanHeader" Member="QC_ExamPlanHeaders">
+    <Type Name="QC_ExamPlanHeader">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PHStyle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CustStyle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CustCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Workshop" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Line" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IsConfirmQI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ConfirmerQI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ConfirmDateQI" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsApproval" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Approvaler" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ApprovalDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsConfirmQA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ConfirmerQA" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ConfirmDateQA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ImportantNote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ChosenFactoryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StyleType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="QC_ExamPlanHeader_QC_ExamPlanDetail" Member="QC_ExamPlanDetails" ThisKey="OID" OtherKey="HeaderOID" Type="QC_ExamPlanDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AQLAuditor" Member="AQLAuditors">
+    <Type Name="AQLAuditor">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Fty" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ws" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Line" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Auditor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cust" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AuditorByCust" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinalAuditPlanList" Member="FinalAuditPlanLists">
+    <Type Name="FinalAuditPlanList">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Workshop" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Line" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="ProjectNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CustStyle" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WOc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RWO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="QNNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="QNQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QNSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QNDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ProductQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BoxQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Auditor" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IsCompleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ImportDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PHStyle" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="BKU" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IsCompletedFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Operator" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="OperationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QC_ReportInfo" Member="QC_ReportInfos">
+    <Type Name="QC_ReportInfo">
+      <Column Name="ReportID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ReportCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ReportCodeDaily" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ReportCodeWeekly" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ReportName_CN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ReportName_EN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ReportName_BD" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="VerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VerContext" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedContext" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="VerNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuditExamSetup" Member="AuditExamSetups">
+    <Type Name="AuditExamSetup">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AuditorID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FromDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ToDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AuditCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="IsMultiSkillAuditor" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.QC_WorkOffline" Method="QC_WorkOffline">
+    <Parameter Name="Actionid" Parameter="actionid" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsSucc" Parameter="isSucc" Type="System.Byte" DbType="TinyInt" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_getmobileqcinfo" Method="sp_getmobileqcinfo">
+    <Parameter Name="line" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_GetQcCheckReport" Method="sp_GetQcCheckReport">
+    <Parameter Name="Line" Parameter="line" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Qnno" Parameter="qnno" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Style" Parameter="style" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="sp_GetQcCheckReportResult">
+      <Column Name="worker" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="workname" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="gxdh" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="gxm" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="qc_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="size" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="qccount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lightcount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qc_light" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="defect_spec" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="cause" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="correction" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MobileQC_QuerySize" Method="MobileQC_QuerySize">
+    <Parameter Name="StyleNo" Parameter="styleNo" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetSize" Method="GetSize">
+    <Parameter Name="Line" Parameter="line" Type="System.String" DbType="VarChar(8)" />
+    <Parameter Name="Seq" Parameter="seq" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Proc_DefectSummyByDay" Method="Proc_DefectSummyByDay">
+    <Parameter Name="Factory" Parameter="factory" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LineCode" Parameter="lineCode" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="datefrom" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="dateto" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Langid" Parameter="langid" Type="System.String" DbType="VarChar(2)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.FN_GetFAE" Method="FN_GetFAE" IsComposable="true">
+    <Parameter Name="style" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="gxdh" Type="System.String" DbType="VarChar(8)" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.sp_GetSizeAuditReport" Method="sp_GetSizeAuditReport">
+    <Parameter Name="ReportType" Parameter="reportType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QCTimeBegin" Parameter="qCTimeBegin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="QCTimeEnd" Parameter="qCTimeEnd" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Project" Parameter="project" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="WO" Parameter="wO" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Style" Parameter="style" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Color" Parameter="color" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="sp_GetSizeAuditReportResult">
+      <Column Name="Code" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="AuditType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Artno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QC_Time" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Style" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Tolerence" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SizeCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Standard" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AuditValue" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ProductSeq" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AQL" Method="AQL">
+    <Parameter Name="QCTimeBegin" Parameter="qCTimeBegin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Factory" Parameter="factory" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="WO" Parameter="wO" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Style" Parameter="style" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Line" Parameter="line" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="ProjectNum" Parameter="projectNum" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Color" Parameter="color" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_CustQCDetailReport" Method="sp_CustQCDetailReport">
+    <Parameter Name="QCLocation" Parameter="qCLocation" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="FromDate" Parameter="fromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ToDate" Parameter="toDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ShowFooter" Parameter="showFooter" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="sp_CustQCDetailReportResult">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ExamDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ResponsibleDept" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ProjectNO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CustStyle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="QCLocation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MfgLocation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CatLogNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ItemCN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ItemEN" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ControlProcedure" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+      <Column Name="DefectCode" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DefectNameCN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DefectNameEN" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="DefectNameBD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CriticalDefectQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MarjorDefectQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MinorDefectQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SeqNo1" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SeqNo2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_CustQCDetailInterimReport" Method="sp_CustQCDetailInterimReport">
+    <Parameter Name="QCLocation" Parameter="qCLocation" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="FromDate" Parameter="fromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ToDate" Parameter="toDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ShowFooter" Parameter="showFooter" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="sp_CustQCDetailInterimReportResult">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ExamDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ResponsibleDept" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ProjectNO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CustStyle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="QCLocation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MfgLocation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CatLogNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ItemCN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ItemEN" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ControlProcedure" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+      <Column Name="DefectCode" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DefectNameCN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DefectNameEN" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="DefectNameBD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CriticalDefectQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MarjorDefectQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MinorDefectQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SeqNo1" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SeqNo2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetDefectPictureReport" Method="sp_GetDefectPictureReport">
+    <Parameter Name="ReportType" Parameter="reportType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QCTimeBegin" Parameter="qCTimeBegin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="QCTimeEnd" Parameter="qCTimeEnd" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Cust" Parameter="cust" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Style" Parameter="style" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Factory" Parameter="factory" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="WorkShop" Parameter="workShop" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="sp_GetDefectPictureReportResult">
+      <Column Name="ImgUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WorkShop" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Line" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Project" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Style" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="QC_Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AuditType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DefectChineseName" Type="System.String" DbType="NVarChar(402)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.fn_GetFtybyWeek" Method="fn_GetFtybyWeek" IsComposable="true">
+    <Parameter Name="ExamDate" Parameter="examDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
