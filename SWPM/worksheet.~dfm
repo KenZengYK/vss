@@ -1,0 +1,3576 @@
+object worksheet1: Tworksheet1
+  Left = 210
+  Top = 98
+  Width = 798
+  Height = 568
+  Caption = 'LWPM - Planning and Scheduling'
+  Color = clBtnFace
+  Font.Charset = CHINESEBIG5_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = #26032#32048#26126#39636
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  PopupMenu = PopupMenu1
+  Position = poDefault
+  Visible = True
+  WindowState = wsMaximized
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnDeactivate = FormDeactivate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 790
+    Height = 114
+    Align = alTop
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = #26032#32048#26126#39636
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 536
+      Top = 8
+      Width = 49
+      Height = 13
+      AutoSize = False
+      Caption = 'Project No.'
+    end
+    object Label2: TLabel
+      Left = 232
+      Top = 8
+      Width = 33
+      Height = 13
+      AutoSize = False
+      Caption = 'Line'
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 296
+      Top = 85
+      Width = 73
+      Height = 22
+      Caption = 'OK'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+        555555555555555555555555555555555555555555FF55555555555559055555
+        55555555577FF5555555555599905555555555557777F5555555555599905555
+        555555557777FF5555555559999905555555555777777F555555559999990555
+        5555557777777FF5555557990599905555555777757777F55555790555599055
+        55557775555777FF5555555555599905555555555557777F5555555555559905
+        555555555555777FF5555555555559905555555555555777FF55555555555579
+        05555555555555777FF5555555555557905555555555555777FF555555555555
+        5990555555555555577755555555555555555555555555555555}
+      NumGlyphs = 2
+      OnClick = SpeedButton1Click
+    end
+    object Label3: TLabel
+      Left = 504
+      Top = 16
+      Width = 3
+      Height = 11
+      Visible = False
+    end
+    object Label5: TLabel
+      Left = 112
+      Top = 8
+      Width = 57
+      Height = 13
+      AutoSize = False
+      Caption = 'Workshop'
+    end
+    object Label6: TLabel
+      Left = 264
+      Top = 32
+      Width = 57
+      Height = 13
+      AutoSize = False
+      Caption = 'Cust Style'
+    end
+    object Label7: TLabel
+      Left = 8
+      Top = 8
+      Width = 41
+      Height = 13
+      AutoSize = False
+      Caption = 'Factory'
+    end
+    object Label8: TLabel
+      Left = 320
+      Top = 8
+      Width = 33
+      Height = 13
+      AutoSize = False
+      Caption = 'Team'
+    end
+    object Label9: TLabel
+      Left = 8
+      Top = 32
+      Width = 41
+      Height = 13
+      AutoSize = False
+      Caption = 'Product'
+    end
+    object Label10: TLabel
+      Left = 112
+      Top = 32
+      Width = 89
+      Height = 13
+      AutoSize = False
+      Caption = 'Product Category'
+    end
+    object Label11: TLabel
+      Left = 416
+      Top = 8
+      Width = 73
+      Height = 13
+      AutoSize = False
+      Caption = 'Project Code'
+    end
+    object Label4: TLabel
+      Left = 416
+      Top = 32
+      Width = 65
+      Height = 13
+      AutoSize = False
+      Caption = 'Impact Code'
+    end
+    object Label12: TLabel
+      Left = 544
+      Top = 32
+      Width = 57
+      Height = 13
+      AutoSize = False
+      Caption = 'Color Code'
+    end
+    object Label13: TLabel
+      Left = 648
+      Top = 32
+      Width = 73
+      Height = 13
+      AutoSize = False
+      Caption = 'SAH Process'
+    end
+    object Label14: TLabel
+      Left = 672
+      Top = 8
+      Width = 81
+      Height = 13
+      AutoSize = False
+      Caption = 'Season Nr/Range '
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 368
+      Top = 85
+      Width = 57
+      Height = 22
+      Caption = 'QN PII'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333333333333333333333333333333FFF333333333333000333333333
+        3333777FFF3FFFFF33330B000300000333337F777F777773F333000E00BFBFB0
+        3333777F773333F7F333000E0BFBF0003333777F7F3337773F33000E0FBFBFBF
+        0333777F7F3333FF7FFF000E0BFBF0000003777F7F3337777773000E0FBFBFBF
+        BFB0777F7F33FFFFFFF7000E0BF000000003777F7FF777777773000000BFB033
+        33337777773FF733333333333300033333333333337773333333333333333333
+        3333333333333333333333333333333333333333333333333333333333333333
+        3333333333333333333333333333333333333333333333333333}
+      NumGlyphs = 2
+      OnClick = SpeedButton2Click
+    end
+    object SpeedButton3: TSpeedButton
+      Left = 424
+      Top = 85
+      Width = 169
+      Height = 22
+      Caption = 'QN/QN PII Approval Processing'
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        0400000000008000000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00888888888888
+        8888888888888000000088888888807777708888888880777770888800000077
+        777088880BFBF077777088880FBFB077777088880BFBF000000080000000BFBF
+        088880777770FBFB088880777770BFBF088880777770FBFB0888807777700000
+        0888807777708888888880000000888888888888888888888888}
+      OnClick = SpeedButton3Click
+    end
+    object SpeedButton4: TSpeedButton
+      Left = 296
+      Top = 85
+      Width = 73
+      Height = 22
+      Caption = 'Finished'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+        555555555555555555555555555555555555555555FF55555555555559055555
+        55555555577FF5555555555599905555555555557777F5555555555599905555
+        555555557777FF5555555559999905555555555777777F555555559999990555
+        5555557777777FF5555557990599905555555777757777F55555790555599055
+        55557775555777FF5555555555599905555555555557777F5555555555559905
+        555555555555777FF5555555555559905555555555555777FF55555555555579
+        05555555555555777FF5555555555557905555555555555777FF555555555555
+        5990555555555555577755555555555555555555555555555555}
+      NumGlyphs = 2
+      OnClick = SpeedButton4Click
+    end
+    object Edit1: TEdit
+      Left = 584
+      Top = 8
+      Width = 73
+      Height = 19
+      CharCase = ecUpperCase
+      TabOrder = 5
+      OnKeyPress = Edit1KeyPress
+    end
+    object Edit2: TEdit
+      Left = 256
+      Top = 8
+      Width = 49
+      Height = 19
+      CharCase = ecUpperCase
+      TabOrder = 2
+      OnKeyPress = Edit1KeyPress
+    end
+    object Edit4: TEdit
+      Left = 168
+      Top = 8
+      Width = 49
+      Height = 19
+      CharCase = ecUpperCase
+      TabOrder = 1
+      OnKeyPress = Edit1KeyPress
+    end
+    object Edit5: TEdit
+      Left = 312
+      Top = 32
+      Width = 89
+      Height = 19
+      CharCase = ecUpperCase
+      TabOrder = 9
+      OnKeyPress = Edit1KeyPress
+    end
+    object Edit6: TEdit
+      Left = 48
+      Top = 8
+      Width = 49
+      Height = 19
+      CharCase = ecUpperCase
+      TabOrder = 0
+      OnKeyPress = Edit1KeyPress
+    end
+    object ComboBox1: TComboBox
+      Left = 352
+      Top = 8
+      Width = 49
+      Height = 19
+      CharCase = ecUpperCase
+      ItemHeight = 11
+      TabOrder = 3
+      OnKeyPress = Edit1KeyPress
+      Items.Strings = (
+        'A'
+        'B'
+        'C'
+        'D')
+    end
+    object ComboBox2: TComboBox
+      Left = 48
+      Top = 32
+      Width = 49
+      Height = 19
+      CharCase = ecUpperCase
+      ItemHeight = 11
+      TabOrder = 7
+      OnKeyPress = Edit1KeyPress
+      Items.Strings = (
+        'B'
+        'K'
+        'U')
+    end
+    object ComboBox3: TComboBox
+      Left = 192
+      Top = 32
+      Width = 49
+      Height = 19
+      CharCase = ecUpperCase
+      ItemHeight = 11
+      TabOrder = 8
+      OnEnter = ComboBox3Enter
+      OnKeyPress = Edit1KeyPress
+      Items.Strings = (
+        'P'
+        'B'
+        'K'
+        'U')
+    end
+    object Edit7: TEdit
+      Left = 472
+      Top = 8
+      Width = 49
+      Height = 19
+      CharCase = ecUpperCase
+      TabOrder = 4
+      OnKeyPress = Edit1KeyPress
+    end
+    object ComboBox4: TComboBox
+      Left = 472
+      Top = 32
+      Width = 57
+      Height = 19
+      ItemHeight = 11
+      TabOrder = 10
+      OnEnter = ComboBox4Enter
+      OnKeyPress = Edit1KeyPress
+      Items.Strings = (
+        'B'
+        'K'
+        'U')
+    end
+    object Edit3: TEdit
+      Left = 592
+      Top = 32
+      Width = 41
+      Height = 19
+      CharCase = ecUpperCase
+      TabOrder = 11
+      OnKeyPress = Edit1KeyPress
+    end
+    object ComboBox5: TComboBox
+      Left = 704
+      Top = 32
+      Width = 49
+      Height = 19
+      ItemHeight = 11
+      TabOrder = 14
+      OnKeyPress = Edit1KeyPress
+    end
+    object chk2: TCheckBox
+      Left = 760
+      Top = 56
+      Width = 153
+      Height = 17
+      Caption = 'QN Split Conduct Dashboard'
+      TabOrder = 15
+      Visible = False
+      OnClick = chk2Click
+    end
+    object chk3: TCheckBox
+      Left = 816
+      Top = 8
+      Width = 145
+      Height = 17
+      Caption = 'Without RWO FW Start Date'
+      TabOrder = 12
+      Visible = False
+      OnClick = chk3Click
+    end
+    object chk4: TCheckBox
+      Left = 592
+      Top = 72
+      Width = 185
+      Height = 17
+      Caption = 'QN/DSQN SKU exchange Dashboard'
+      TabOrder = 16
+      Visible = False
+      OnClick = chk4Click
+    end
+    object Edit8: TEdit
+      Left = 744
+      Top = 8
+      Width = 41
+      Height = 19
+      TabOrder = 6
+      OnKeyPress = Edit1KeyPress
+    end
+    object chk6: TCheckBox
+      Left = 592
+      Top = 56
+      Width = 161
+      Height = 17
+      Caption = 'QN Combine Conduct Dashboard'
+      TabOrder = 13
+      Visible = False
+      OnClick = chk6Click
+    end
+    object GroupBox1: TGroupBox
+      Left = 8
+      Top = 48
+      Width = 577
+      Height = 33
+      Caption = 'Dashboards'
+      TabOrder = 17
+      object chk5: TCheckBox
+        Left = 8
+        Top = 13
+        Width = 137
+        Height = 17
+        Caption = 'Sim Ws Conduct Dashboard'
+        TabOrder = 0
+        OnClick = chk5Click
+      end
+      object chk7: TCheckBox
+        Left = 152
+        Top = 13
+        Width = 131
+        Height = 17
+        Caption = 'QN Assignment Dashboard'
+        TabOrder = 1
+        OnClick = chk7Click
+      end
+      object chk1: TCheckBox
+        Left = 288
+        Top = 13
+        Width = 185
+        Height = 17
+        Caption = 'QN Reschedule && Transfer Dashboard'
+        TabOrder = 2
+        OnClick = chk1Click
+      end
+      object chk8: TCheckBox
+        Left = 472
+        Top = 13
+        Width = 97
+        Height = 17
+        Caption = 'QN PII Dashboard'
+        TabOrder = 3
+        OnClick = chk8Click
+      end
+    end
+    object GroupBox2: TGroupBox
+      Left = 8
+      Top = 80
+      Width = 273
+      Height = 33
+      Caption = 'Reports'
+      TabOrder = 18
+      object chk9: TCheckBox
+        Left = 8
+        Top = 13
+        Width = 169
+        Height = 17
+        Caption = 'QN Reschedule && Transfer Report'
+        TabOrder = 0
+        OnClick = chk9Click
+      end
+      object chk10: TCheckBox
+        Left = 184
+        Top = 13
+        Width = 81
+        Height = 17
+        Caption = 'QN PII Report'
+        TabOrder = 1
+        OnClick = chk10Click
+      end
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 485
+    Width = 790
+    Height = 49
+    Align = alBottom
+    TabOrder = 1
+    object lbl850: TLabel
+      Left = 728
+      Top = 16
+      Width = 30
+      Height = 13
+      Caption = 'lbl850'
+      Visible = False
+    end
+    object BitBtn1: TBitBtn
+      Left = 8
+      Top = 8
+      Width = 89
+      Height = 33
+      Caption = 'Re-scheduling'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+      Kind = bkAll
+    end
+    object BitBtn2: TBitBtn
+      Left = 97
+      Top = 8
+      Width = 48
+      Height = 33
+      Caption = 'Save'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ModalResult = 8
+      ParentFont = False
+      TabOrder = 1
+      OnClick = BitBtn2Click
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+    end
+    object BitBtn3: TBitBtn
+      Left = 145
+      Top = 8
+      Width = 64
+      Height = 33
+      Caption = 'Preview'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      OnClick = BitBtn3Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        0003377777777777777308888888888888807F33333333333337088888888888
+        88807FFFFFFFFFFFFFF7000000000000000077777777777777770F8F8F8F8F8F
+        8F807F333333333333F708F8F8F8F8F8F9F07F333333333337370F8F8F8F8F8F
+        8F807FFFFFFFFFFFFFF7000000000000000077777777777777773330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3F37F3733333330F08F0F0333333337F7337F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn4: TBitBtn
+      Left = 209
+      Top = 8
+      Width = 88
+      Height = 33
+      Caption = 'Next Style(s)'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      OnClick = BitBtn4Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        0400000000000001000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        0003377777777777777308888888888888807F33333333333337088888888888
+        88807FFFFFFFFFFFFFF7000000000000000077777777777777770F8F8F8F8F8F
+        8F807F333333333333F708F8F8F8F8F8F9F07F333333333337370F8F8F8F8F8F
+        8F807FFFFFFFFFFFFFF7000000000000000077777777777777773330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3F37F3733333330F08F0F0333333337F7337F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn5: TBitBtn
+      Left = 384
+      Top = 8
+      Width = 89
+      Height = 33
+      Caption = 'Last Order(s)'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+      OnClick = BitBtn5Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn7: TBitBtn
+      Left = 473
+      Top = 8
+      Width = 103
+      Height = 33
+      Caption = 'Transit Summary'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+      OnClick = BitBtn7Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        0400000000000001000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn8: TBitBtn
+      Left = 297
+      Top = 8
+      Width = 87
+      Height = 33
+      Caption = 'Next Order(s)'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+      OnClick = BitBtn8Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        0400000000000001000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        0003377777777777777308888888888888807F33333333333337088888888888
+        88807FFFFFFFFFFFFFF7000000000000000077777777777777770F8F8F8F8F8F
+        8F807F333333333333F708F8F8F8F8F8F9F07F333333333337370F8F8F8F8F8F
+        8F807FFFFFFFFFFFFFF7000000000000000077777777777777773330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3F37F3733333330F08F0F0333333337F7337F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn6: TBitBtn
+      Left = 961
+      Top = 8
+      Width = 88
+      Height = 33
+      Caption = 'QN Transfer'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+      Visible = False
+      OnClick = BitBtn6Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn9: TBitBtn
+      Left = 1049
+      Top = 8
+      Width = 104
+      Height = 33
+      Caption = 'SQN Conduct'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 8
+      Visible = False
+      OnClick = BitBtn9Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn10: TBitBtn
+      Left = 576
+      Top = 8
+      Width = 81
+      Height = 33
+      Caption = 'Gantt Chart'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 9
+      OnClick = GanttChart1Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333333333333333333333333333333FFFFFFFFFFFFFFF000000000000
+        000077777777777777770FFFFFFFFFFFFFF07F3333FFF33333370FFFF777FFFF
+        FFF07F333777333333370FFFFFFFFFFFFFF07F3333FFFFFF33370FFFF777777F
+        FFF07F33377777733FF70FFFFFFFFFFF99907F3FFF33333377770F777FFFFFFF
+        9CA07F77733333337F370FFFFFFFFFFF9A907FFFFFFFFFFF7FF7000000000000
+        0000777777777777777733333333333333333333333333333333333333333333
+        3333333333333333333333333333333333333333333333333333333333333333
+        3333333333333333333333333333333333333333333333333333}
+      NumGlyphs = 2
+    end
+    object BitBtn11: TBitBtn
+      Left = 1153
+      Top = 8
+      Width = 136
+      Height = 33
+      Caption = 'SKU exchange dashboard'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 10
+      Visible = False
+      OnClick = BitBtn11Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn12: TBitBtn
+      Left = 656
+      Top = 8
+      Width = 48
+      Height = 33
+      Caption = 'Exit'
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 11
+      Kind = bkClose
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 114
+    Width = 790
+    Height = 371
+    Align = alClient
+    TabOrder = 2
+    object cxGrid1: TcxGrid
+      Left = 1
+      Top = 1
+      Width = 788
+      Height = 369
+      Align = alClient
+      Font.Charset = CHINESEBIG5_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = #26032#32048#26126#39636
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      object cxView1: TcxGridDBBandedTableView
+        PopupMenu = PopupMenu1
+        OnKeyPress = cxView1KeyPress
+        NavigatorButtons.ConfirmDelete = False
+        OnCellClick = cxView1CellClick
+        DataController.DataSource = DataSource1
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsBehavior.AlwaysShowEditor = True
+        OptionsBehavior.ImmediateEditor = False
+        OptionsSelection.CellMultiSelect = True
+        OptionsView.HeaderAutoHeight = True
+        Styles.Inactive = cxStyle6
+        Styles.Selection = cxStyle6
+        Styles.OnGetContentStyle = cxView1StylesGetContentStyle
+        OnColumnHeaderClick = cxView1ColumnHeaderClick
+        Bands = <
+          item
+            Caption = 'A'
+            FixedKind = fkLeft
+          end
+          item
+            Caption = 'B'
+            FixedKind = fkLeft
+            Width = 79
+          end
+          item
+            Caption = 'C'
+            FixedKind = fkLeft
+            Width = 50
+          end
+          item
+            Caption = 'D'
+            FixedKind = fkLeft
+            Width = 96
+          end
+          item
+            Caption = 'E'
+            FixedKind = fkLeft
+            Width = 122
+          end
+          item
+            Caption = 'F'
+            FixedKind = fkLeft
+            Width = 33
+          end
+          item
+            Caption = 'G'
+            FixedKind = fkLeft
+            Width = 28
+          end
+          item
+            Caption = 'H'
+            FixedKind = fkLeft
+            Width = 28
+          end
+          item
+            Caption = 'I'
+            FixedKind = fkLeft
+            Width = 68
+          end
+          item
+            Caption = 'J'
+            Width = 29
+          end
+          item
+            Caption = 'K'
+            Width = 34
+          end
+          item
+            Caption = 'L'
+            Width = 43
+          end
+          item
+            Caption = 'M'
+            Width = 43
+          end
+          item
+            Caption = 'N'
+            Width = 36
+          end
+          item
+            Caption = 'O'
+            Width = 127
+          end
+          item
+            Caption = 'P'
+            Width = 39
+          end
+          item
+            Caption = 'S'
+            Width = 39
+          end
+          item
+            Caption = 'T'
+            Width = 93
+          end
+          item
+            Caption = 'U'
+            Width = 41
+          end
+          item
+            Caption = 'V'
+            Width = 173
+          end
+          item
+            Caption = 'Total Section Hr'
+            Position.BandIndex = 17
+            Position.ColIndex = 0
+          end
+          item
+            Caption = 'RWO FW Start Date'
+            Position.BandIndex = 19
+            Position.ColIndex = 0
+            Width = 183
+          end
+          item
+            Caption = 'W'
+            Width = 31
+          end
+          item
+            Caption = 'X'
+            Width = 31
+          end
+          item
+            Caption = 'Y'
+            Width = 97
+          end
+          item
+            Caption = 'Z'
+            Width = 37
+          end
+          item
+            Caption = 'AA'
+            Width = 40
+          end
+          item
+            Caption = 'AB'
+            Width = 38
+          end
+          item
+            Caption = 'AC'
+            Width = 38
+          end
+          item
+            Caption = 'AD'
+            Width = 39
+          end
+          item
+            Caption = 'AE'
+            Width = 38
+          end
+          item
+            Caption = 'AF'
+            Visible = False
+          end
+          item
+            Caption = 'AG'
+            Width = 45
+          end
+          item
+            Caption = 'AH'
+            Width = 38
+          end
+          item
+            Caption = 'AI'
+            Width = 51
+          end
+          item
+            Caption = 'AJ'
+            Width = 33
+          end
+          item
+            Caption = 'AK'
+            Width = 41
+          end
+          item
+            Caption = 'AL'
+            Width = 51
+          end
+          item
+            Caption = 'AN'
+            Width = 57
+          end
+          item
+            Caption = 'AO'
+            Width = 38
+          end
+          item
+            Caption = 'AQ'
+            Width = 57
+          end
+          item
+            Caption = 'AR'
+            Width = 49
+          end
+          item
+            Caption = 'AS'
+            Width = 33
+          end
+          item
+            Caption = 'AU'
+            Width = 38
+          end
+          item
+            Caption = 'AV'
+            Width = 38
+          end
+          item
+            Caption = 'AM'
+            Width = 69
+          end>
+        object cxView1PLINE: TcxGridDBBandedColumn
+          Caption = 'Line'
+          DataBinding.FieldName = 'PLINE'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle4
+          Width = 35
+          Position.BandIndex = 0
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1FLAG1: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'FLAG1'
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyph.Data = {
+            CE000000424DCE0000000000000076000000280000000D0000000B0000000100
+            04000000000058000000C40E0000C40E00001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFF2FFFFFFFF
+            F000FF332FFFFFFFF000FF382FFFFFFFF000FF33222FFFFFF000FF3823332FFF
+            F000FF382333322FF000FF3823A3A3A2F000FF382873333FF000FF3828333FFF
+            F000FF73333FFFFFF000FFFFFFFFFFFFF000}
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Editing = False
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 20
+          Position.BandIndex = 1
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+          IsCaptionAssigned = True
+        end
+        object cxView1J_NO: TcxGridDBBandedColumn
+          Caption = 'Project'
+          DataBinding.FieldName = 'J_NO'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle4
+          Width = 64
+          Position.BandIndex = 1
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+        end
+        object cxView1J2_JOB: TcxGridDBBandedColumn
+          Caption = 'WO #'
+          DataBinding.FieldName = 'J2_JOB'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1J2_JOBPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle4
+          Position.BandIndex = 2
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1CWO: TcxGridDBBandedColumn
+          Caption = 'WOc # Suffix'
+          DataBinding.FieldName = 'CWO'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle5
+          Width = 31
+          Position.BandIndex = 3
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1RWO: TcxGridDBBandedColumn
+          Caption = 'RWO # Suffix'
+          DataBinding.FieldName = 'RWO'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1RWOPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle5
+          Width = 30
+          Position.BandIndex = 3
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+        end
+        object cxView1FCCS: TcxGridDBBandedColumn
+          Caption = 'QN # Suffix'
+          DataBinding.FieldName = 'FCCS'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1FCCSPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle5
+          Width = 35
+          Position.BandIndex = 3
+          Position.ColIndex = 2
+          Position.RowIndex = 0
+        end
+        object cxView1FLAG6: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'FLAG6'
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyph.Data = {
+            CE000000424DCE0000000000000076000000280000000D0000000B0000000100
+            04000000000058000000C40E0000C40E00001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFF2FFFFFFFF
+            F000FF332FFFFFFFF000FF382FFFFFFFF000FF33222FFFFFF000FF3823332FFF
+            F000FF382333322FF000FF3823A3A3A2F000FF382873333FF000FF3828333FFF
+            F000FF73333FFFFFF000FFFFFFFFFFFFF000}
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Editing = False
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 20
+          Position.BandIndex = 4
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+          IsCaptionAssigned = True
+        end
+        object cxView1CSTYLE: TcxGridDBBandedColumn
+          Caption = 'Cust Style'
+          DataBinding.FieldName = 'CSTYLE'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1CSTYLEPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle4
+          Width = 76
+          Position.BandIndex = 4
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+        end
+        object cxView1JHRS: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'JHRS'
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyph.Data = {
+            CE000000424DCE0000000000000076000000280000000D0000000B0000000100
+            04000000000058000000C40E0000C40E00001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFF2FFFFFFFF
+            F000FF332FFFFFFFF000FF382FFFFFFFF000FF33222FFFFFF000FF3823332FFF
+            F000FF382333322FF000FF3823A3A3A2F000FF382873333FF000FF3828333FFF
+            F000FF73333FFFFFF000FFFFFFFFFFFFF000}
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Editing = False
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 29
+          Position.BandIndex = 4
+          Position.ColIndex = 2
+          Position.RowIndex = 0
+          IsCaptionAssigned = True
+        end
+        object cxView1QTY: TcxGridDBBandedColumn
+          Caption = 'RWO QTY'
+          DataBinding.FieldName = 'QTY'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle4
+          Position.BandIndex = 5
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1ACOL: TcxGridDBBandedColumn
+          Caption = 'Clr Code'
+          DataBinding.FieldName = 'ACOL'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1ACOLPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle4
+          Width = 27
+          Position.BandIndex = 6
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1DBZS: TcxGridDBBandedColumn
+          Caption = 'Imp. Code'
+          DataBinding.FieldName = 'DBZS'
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 66
+          Position.BandIndex = 7
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1FLAG4: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'FLAG4'
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyph.Data = {
+            CE000000424DCE0000000000000076000000280000000D0000000B0000000100
+            04000000000058000000C40E0000C40E00001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFF2FFFFFFFF
+            F000FF332FFFFFFFF000FF382FFFFFFFF000FF33222FFFFFF000FF3823332FFF
+            F000FF382333322FF000FF3823A3A3A2F000FF382873333FF000FF3828333FFF
+            F000FF73333FFFFFF000FFFFFFFFFFFFF000}
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Editing = False
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 35
+          Position.BandIndex = 8
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+          IsCaptionAssigned = True
+        end
+        object cxView1SCQTY: TcxGridDBBandedColumn
+          Caption = 'QN QTY'
+          DataBinding.FieldName = 'SCQTY'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1SCQTYPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle5
+          Width = 38
+          Position.BandIndex = 8
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+        end
+        object cxView1LSTRS: TcxGridDBBandedColumn
+          Caption = 'Def Work force'
+          DataBinding.FieldName = 'LSTRS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Position.BandIndex = 9
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1SJRS: TcxGridDBBandedColumn
+          Caption = 'Actual Work force'
+          DataBinding.FieldName = 'SJRS'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1SJRSPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle5
+          Position.BandIndex = 10
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1TRS: TcxGridDBBandedColumn
+          Caption = 'Def Machine Qty'
+          DataBinding.FieldName = 'TRS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Position.BandIndex = 11
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1SJYC: TcxGridDBBandedColumn
+          Caption = 'Actual Machine Qty'
+          DataBinding.FieldName = 'SJYC'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1SJRSPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle5
+          Position.BandIndex = 12
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1TBU: TcxGridDBBandedColumn
+          Caption = 'LBU %'
+          DataBinding.FieldName = 'TBU'
+          HeaderAlignmentHorz = taCenter
+          Position.BandIndex = 13
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1FLAG2: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'FLAG2'
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyph.Data = {
+            CE000000424DCE0000000000000076000000280000000D0000000B0000000100
+            04000000000058000000C40E0000C40E00001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFF2FFFFFFFF
+            F000FF332FFFFFFFF000FF382FFFFFFFF000FF33222FFFFFF000FF3823332FFF
+            F000FF382333322FF000FF3823A3A3A2F000FF382873333FF000FF3828333FFF
+            F000FF73333FFFFFF000FFFFFFFFFFFFF000}
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 22
+          Position.BandIndex = 14
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+          IsCaptionAssigned = True
+        end
+        object cxView1TMU: TcxGridDBBandedColumn
+          Caption = 'Def Line SAH (W/Ave)'
+          DataBinding.FieldName = 'TMU'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = False
+          Properties.OnButtonClick = cxView1TMUPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Width = 42
+          Position.BandIndex = 14
+          Position.ColIndex = 3
+          Position.RowIndex = 0
+        end
+        object cxView1JXJS: TcxGridDBBandedColumn
+          Caption = 'Def Each Section O/P'
+          DataBinding.FieldName = 'JXJS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Position.BandIndex = 15
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1PHISZJS: TcxGridDBBandedColumn
+          Caption = 'Total Sect Hr (on-std)'
+          DataBinding.FieldName = 'PHISZJS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle5
+          Position.BandIndex = 16
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1FLAG7: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'FLAG7'
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyph.Data = {
+            CE000000424DCE0000000000000076000000280000000D0000000B0000000100
+            04000000000058000000C40E0000C40E00001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFF2FFFFFFFF
+            F000FF332FFFFFFFF000FF382FFFFFFFF000FF33222FFFFFF000FF3823332FFF
+            F000FF382333322FF000FF3823A3A3A2F000FF382873333FF000FF3828333FFF
+            F000FF73333FFFFFF000FFFFFFFFFFFFF000}
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Editing = False
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 20
+          Position.BandIndex = 20
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+          IsCaptionAssigned = True
+        end
+        object cxView1LFLAG: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'LFLAG'
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyph.Data = {
+            CE000000424DCE0000000000000076000000280000000D0000000B0000000100
+            04000000000058000000C40E0000C40E00001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFF2FFFFFFFF
+            F000FF332FFFFFFFF000FF382FFFFFFFF000FF33222FFFFFF000FF3823332FFF
+            F000FF382333322FF000FF3823A3A3A2F000FF382873333FF000FF3828333FFF
+            F000FF73333FFFFFF000FFFFFFFFFFFFF000}
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 20
+          Position.BandIndex = 20
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+          IsCaptionAssigned = True
+        end
+        object cxView1SHJS: TcxGridDBBandedColumn
+          Caption = 'Default consolidate time lost'
+          DataBinding.FieldName = 'SHJS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle5
+          Position.BandIndex = 20
+          Position.ColIndex = 2
+          Position.RowIndex = 0
+        end
+        object cxView1ZJS: TcxGridDBBandedColumn
+          Caption = 'Total Section Hr (opt perf)'
+          DataBinding.FieldName = 'ZJS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle2
+          Styles.Header = cxStyle2
+          Position.BandIndex = 18
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1PLAN_DATE: TcxGridDBBandedColumn
+          Caption = 'Default'
+          DataBinding.FieldName = 'PLAN_DATE'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle4
+          Width = 45
+          Position.BandIndex = 21
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1CPLAN: TcxGridDBBandedColumn
+          Caption = 'Curr'
+          DataBinding.FieldName = 'CPLAN'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1CPLANPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle5
+          Width = 43
+          Position.BandIndex = 21
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+        end
+        object cxView1XC4: TcxGridDBBandedColumn
+          Caption = 'Diff'
+          DataBinding.FieldName = 'XC4'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle5
+          Width = 29
+          Position.BandIndex = 21
+          Position.ColIndex = 2
+          Position.RowIndex = 0
+        end
+        object cxView1FYFS: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'FYFS'
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyph.Data = {
+            CE000000424DCE0000000000000076000000280000000D0000000B0000000100
+            04000000000058000000C40E0000C40E00001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFF2FFFFFFFF
+            F000FF332FFFFFFFF000FF382FFFFFFFF000FF33222FFFFFF000FF3823332FFF
+            F000FF382333322FF000FF3823A3A3A2F000FF382873333FF000FF3828333FFF
+            F000FF73333FFFFFF000FFFFFFFFFFFFF000}
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 20
+          Position.BandIndex = 21
+          Position.ColIndex = 3
+          Position.RowIndex = 0
+          IsCaptionAssigned = True
+        end
+        object cxView1UNBAL: TcxGridDBBandedColumn
+          Caption = 'Locked Diff (day)'
+          DataBinding.FieldName = 'UNBAL'
+          HeaderAlignmentHorz = taCenter
+          Width = 36
+          Position.BandIndex = 21
+          Position.ColIndex = 4
+          Position.RowIndex = 0
+        end
+        object cxView1XC1: TcxGridDBBandedColumn
+          Caption = 'QN Start Date Cycle Time (day)'
+          DataBinding.FieldName = 'XC1'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle3
+          Styles.Header = cxStyle3
+          Position.BandIndex = 22
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1WEEK: TcxGridDBBandedColumn
+          Caption = 'QN Start Week #'
+          DataBinding.FieldName = 'WEEK'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle5
+          Width = 35
+          Position.BandIndex = 23
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1FLAG3: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'FLAG3'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1FLAG3PropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyph.Data = {
+            CE000000424DCE0000000000000076000000280000000D0000000B0000000100
+            04000000000058000000C40E0000C40E00001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFF2FFFFFFFF
+            F000FF332FFFFFFFF000FF382FFFFFFFF000FF33222FFFFFF000FF3823332FFF
+            F000FF382333322FF000FF3823A3A3A2F000FF382873333FF000FF3828333FFF
+            F000FF73333FFFFFF000FFFFFFFFFFFFF000}
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 23
+          Position.BandIndex = 24
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+          IsCaptionAssigned = True
+        end
+        object cxView1CFKSRQ: TcxGridDBBandedColumn
+          Caption = 'LW Start Date'
+          DataBinding.FieldName = 'CFKSRQ'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle5
+          Width = 35
+          Position.BandIndex = 24
+          Position.ColIndex = 2
+          Position.RowIndex = 0
+        end
+        object cxView1CFKSJS: TcxGridDBBandedColumn
+          Caption = 'QN 1st Sect S-Time'
+          DataBinding.FieldName = 'CFKSJS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Position.BandIndex = 25
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1ZKTD: TcxGridDBBandedColumn
+          Caption = 'QN Curr Sect Hr (Diff)'
+          DataBinding.FieldName = 'ZKTD'
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle5
+          Position.BandIndex = 26
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1SCLHJS: TcxGridDBBandedColumn
+          Caption = 'QN Behind Section Hr'
+          DataBinding.FieldName = 'SCLHJS'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1SJRSPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle2
+          Styles.Header = cxStyle2
+          Position.BandIndex = 27
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1QYJS: TcxGridDBBandedColumn
+          Caption = 'QN Ahead Section Hr'
+          DataBinding.FieldName = 'QYJS'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.ReadOnly = True
+          Properties.OnButtonClick = cxView1SJRSPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle2
+          Styles.Header = cxStyle2
+          Position.BandIndex = 28
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1ZHJS: TcxGridDBBandedColumn
+          Caption = 'QN Chase Time Chase back Section Hr'
+          DataBinding.FieldName = 'ZHJS'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.OnButtonClick = cxView1SJRSPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle2
+          Styles.Header = cxStyle2
+          Position.BandIndex = 29
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1BCJS: TcxGridDBBandedColumn
+          Caption = 'QN Chase Time Used Section Hr'
+          DataBinding.FieldName = 'BCJS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Position.BandIndex = 30
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1DBXL: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'DBXL'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Position.BandIndex = 31
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1CFWCRQ: TcxGridDBBandedColumn
+          Caption = 'QN T2 Date'
+          DataBinding.FieldName = 'CFWCRQ'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle5
+          Position.BandIndex = 32
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1CKJS: TcxGridDBBandedColumn
+          Caption = 'QN T2 End Time (Sect)'
+          DataBinding.FieldName = 'CKJS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Position.BandIndex = 33
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1NSHJS: TcxGridDBBandedColumn
+          Caption = 'Non Production Day'
+          DataBinding.FieldName = 'NSHJS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle5
+          Position.BandIndex = 34
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1KDJS: TcxGridDBBandedColumn
+          Caption = 'QN time GAP'
+          DataBinding.FieldName = 'KDJS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Position.BandIndex = 35
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1BZJS: TcxGridDBBandedColumn
+          Caption = 'Packing / Inspect Section Hr'
+          DataBinding.FieldName = 'BZJS'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Position.BandIndex = 36
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1TZLCRQ: TcxGridDBBandedColumn
+          Caption = 'Ex-fty Date QN Organized'
+          DataBinding.FieldName = 'TZLCRQ'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle5
+          Position.BandIndex = 37
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1YQLCRQ: TcxGridDBBandedColumn
+          Caption = 'Ex-fty Date RWO '
+          DataBinding.FieldName = 'YQLCRQ'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle4
+          Position.BandIndex = 38
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1RQXC: TcxGridDBBandedColumn
+          Caption = 'Ex-fty Date Current Diff (day)'
+          DataBinding.FieldName = 'RQXC'
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle5
+          Position.BandIndex = 39
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1FLAG5: TcxGridDBBandedColumn
+          DataBinding.FieldName = 'FLAG5'
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyph.Data = {
+            CE000000424DCE0000000000000076000000280000000D0000000B0000000100
+            04000000000058000000C40E0000C40E00001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFF2FFFFFFFF
+            F000FF332FFFFFFFF000FF382FFFFFFFF000FF33222FFFFFF000FF3823332FFF
+            F000FF382333322FF000FF3823A3A3A2F000FF382873333FF000FF3828333FFF
+            F000FF73333FFFFFF000FFFFFFFFFFFFF000}
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Filtering = False
+          Options.Sorting = False
+          Styles.Content = cxStyle1
+          Styles.Header = cxStyle1
+          Width = 20
+          Position.BandIndex = 40
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+          IsCaptionAssigned = True
+        end
+        object cxView1QRXC: TcxGridDBBandedColumn
+          Caption = 'Ex-fty Date Locked Diff (day)'
+          DataBinding.FieldName = 'QRXC'
+          PropertiesClassName = 'TcxButtonEditProperties'
+          Properties.Buttons = <
+            item
+              Default = True
+              Kind = bkEllipsis
+            end>
+          Properties.OnButtonClick = cxView1QRXCPropertiesButtonClick
+          HeaderAlignmentHorz = taCenter
+          Styles.Content = cxStyle5
+          Width = 41
+          Position.BandIndex = 40
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+        end
+        object cxView1XC2: TcxGridDBBandedColumn
+          Caption = 'QN Organized Cycle Time (day)'
+          DataBinding.FieldName = 'XC2'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle3
+          Styles.Header = cxStyle3
+          Position.BandIndex = 41
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1XC3: TcxGridDBBandedColumn
+          Caption = 'RWO Work CT (day)'
+          DataBinding.FieldName = 'XC3'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle3
+          Styles.Header = cxStyle3
+          Position.BandIndex = 42
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1YSJHL: TcxGridDBBandedColumn
+          Caption = 'Opt perf (%) Default'
+          DataBinding.FieldName = 'YSJHL'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Position.BandIndex = 43
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1JHL: TcxGridDBBandedColumn
+          Caption = 'Opt perf (%) Current'
+          DataBinding.FieldName = 'JHL'
+          HeaderAlignmentHorz = taCenter
+          Options.Editing = False
+          Styles.Content = cxStyle2
+          Styles.Header = cxStyle2
+          Position.BandIndex = 44
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1YZH: TcxGridDBBandedColumn
+          Caption = 'Shpd'
+          DataBinding.FieldName = 'YZH'
+          HeaderAlignmentHorz = taCenter
+          Width = 27
+          Position.BandIndex = 45
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1PD8: TcxGridDBBandedColumn
+          Caption = 'Ex-fty Date QN Actual'
+          DataBinding.FieldName = 'PD8'
+          HeaderAlignmentHorz = taCenter
+          Width = 42
+          Position.BandIndex = 45
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+        end
+        object cxView1DSQN: TcxGridDBBandedColumn
+          Caption = 'QN PII'
+          DataBinding.FieldName = 'DSQN'
+          Options.Editing = False
+          Width = 21
+          Position.BandIndex = 24
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxView1IECLS: TcxGridDBBandedColumn
+          Caption = 'Class'
+          DataBinding.FieldName = 'IECLS'
+          PropertiesClassName = 'TcxComboBoxProperties'
+          Properties.Items.Strings = (
+            '1A'
+            '2A'
+            '2B'
+            '3A'
+            '3B'
+            '3C'
+            '4A'
+            '4B'
+            '4C'
+            '4D'
+            '4E'
+            '4F')
+          Width = 30
+          Position.BandIndex = 14
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+        end
+        object cxView1IECLS1: TcxGridDBBandedColumn
+          Caption = 'Class Suffix'
+          DataBinding.FieldName = 'IECLS1'
+          PropertiesClassName = 'TcxComboBoxProperties'
+          Properties.Items.Strings = (
+            '0'
+            '1'
+            '2'
+            '3'
+            '4'
+            '5'
+            '6'
+            '0a'
+            '0b'
+            '0c'
+            '0ab'
+            '0ac'
+            '0bc'
+            '0abc'
+            '1a'
+            '1b'
+            '1c'
+            '1ab'
+            '1ac'
+            '1bc'
+            '1abc'
+            '2a'
+            '2b'
+            '2c'
+            '2ab'
+            '2ac'
+            '2bc'
+            '2abc'
+            '3a'
+            '3b'
+            '3c'
+            '3ab'
+            '3ac'
+            '3bc'
+            '3abc'
+            '4a'
+            '4b'
+            '4c'
+            '4ab'
+            '4ac'
+            '4bc'
+            '4abc'
+            '5a'
+            '5b'
+            '5c'
+            '5ab'
+            '5ac'
+            '5bc'
+            '5abc'
+            '6a'
+            '6b'
+            '6c'
+            '6ab'
+            '6ac'
+            '6bc'
+            '6abc'
+            '+'
+            '1+'
+            '2+'
+            '3+'
+            '4+'
+            '5+'
+            '6+')
+          OnGetCellHint = cxView1IECLS1GetCellHint
+          Width = 33
+          Position.BandIndex = 14
+          Position.ColIndex = 2
+          Position.RowIndex = 0
+        end
+      end
+      object cxGrid1Level1: TcxGridLevel
+        GridView = cxView1
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = tblshedule
+    Left = 56
+    Top = 424
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 184
+    Top = 424
+    object N1: TMenuItem
+      Caption = #25171#21360#20462#35330#38626#24288#26085#26399#35352#37636
+      Visible = False
+      OnClick = N1Click
+    end
+    object N2: TMenuItem
+      Caption = #25171#21360#38283#36008#26085#26399#35352#37636
+      Visible = False
+      OnClick = N2Click
+    end
+    object GetTMU1: TMenuItem
+      Caption = 'Calc Zjs'
+      Visible = False
+    end
+    object ExpandAll1: TMenuItem
+      Caption = 'Expand All'
+      OnClick = ExpandAll1Click
+    end
+    object CollapseAll1: TMenuItem
+      Caption = 'Collapse All'
+      OnClick = CollapseAll1Click
+    end
+    object ClearSorting1: TMenuItem
+      Caption = 'Clear Sorting'
+      OnClick = ClearSorting1Click
+    end
+    object N3: TMenuItem
+      Caption = '-'
+    end
+    object Cancelx1: TMenuItem
+      Caption = 'Cancel "x"'
+      OnClick = Cancelx1Click
+    end
+    object Cancels1: TMenuItem
+      Caption = 'Cancel "s"'
+      OnClick = Cancels1Click
+    end
+    object WIPTransit1: TMenuItem
+      Caption = 'WIP Transit'
+      ShortCut = 49232
+      Visible = False
+      OnClick = WIPTransit1Click
+    end
+    object GanttChart1: TMenuItem
+      Caption = 'Gantt Chart'
+      Visible = False
+      OnClick = GanttChart1Click
+    end
+    object Begin1: TMenuItem
+      Caption = 'Begin'
+      ShortCut = 49218
+      Visible = False
+      OnClick = Begin1Click
+    end
+    object End1: TMenuItem
+      Caption = 'End'
+      ShortCut = 49221
+      Visible = False
+      OnClick = End1Click
+    end
+    object StartTime1: TMenuItem
+      Caption = 'Start Time'
+      ShortCut = 49235
+      Visible = False
+      OnClick = StartTime1Click
+    end
+    object ExportGAIData1: TMenuItem
+      Caption = 'Export GAI Data'
+      ShortCut = 49240
+      Visible = False
+      OnClick = ExportGAIData1Click
+    end
+    object transitFlow1: TMenuItem
+      Caption = 'Transit Flow'
+      Visible = False
+      OnClick = transitFlow1Click
+    end
+    object AllSewingQNs1: TMenuItem
+      Caption = 'All Sewing QNs'
+      ShortCut = 49233
+      Visible = False
+      OnClick = AllSewingQNs1Click
+    end
+    object PrintTicketforFJ1: TMenuItem
+      Caption = 'Print Ticket for FJ'
+      OnClick = PrintTicketforFJ1Click
+    end
+    object RecalculateQN1: TMenuItem
+      Caption = 'Re-calculate QN#'
+      ShortCut = 49234
+      Visible = False
+      OnClick = RecalculateQN1Click
+    end
+    object ClassbySize1: TMenuItem
+      Caption = 'IE Group and Class by Color/Size'
+      OnClick = ClassbySize1Click
+    end
+    object UPDIEGRPandCLS1: TMenuItem
+      Caption = 'UPD IEGRP and CLS'
+      ShortCut = 116
+      Visible = False
+      OnClick = UPDIEGRPandCLS1Click
+    end
+    object UpdateIEdataforQNGAI1: TMenuItem
+      Caption = 'Update IE data for QN GAI'
+      ShortCut = 49268
+      Visible = False
+      OnClick = UpdateIEdataforQNGAI1Click
+    end
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tblshedule_plc'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 88
+    Top = 424
+  end
+  object tblshedule: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tblshedule where pline='#39'T001U'#39' and yzh=0'
+    FieldDefs = <
+      item
+        Name = 'PLINE'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'SEQ'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CFKSRQ'
+        DataType = ftDate
+      end
+      item
+        Name = 'CFKSJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'J_NO'
+        DataType = ftString
+        Size = 22
+      end
+      item
+        Name = 'J2_JOB'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ARTNO'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACOL'
+        DataType = ftString
+        Size = 4
+      end
+      item
+        Name = 'WEEK'
+        DataType = ftInteger
+      end
+      item
+        Name = 'PLAN_DATE'
+        DataType = ftDate
+      end
+      item
+        Name = 'KHZL'
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'OKHRQ'
+        DataType = ftDate
+      end
+      item
+        Name = 'SCQTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TMU'
+        DataType = ftFloat
+      end
+      item
+        Name = 'TRS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FYL'
+        DataType = ftFloat
+      end
+      item
+        Name = 'XJS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'JXJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ZJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'JHL'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CFWCRQ'
+        DataType = ftDate
+      end
+      item
+        Name = 'YQLCRQ'
+        DataType = ftDateTime
+      end
+      item
+        Name = 'SCTD'
+        DataType = ftInteger
+      end
+      item
+        Name = 'PHISZJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ZHJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'BCJS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'PD4'
+        DataType = ftDate
+      end
+      item
+        Name = 'SCLHJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ZKTD'
+        DataType = ftFloat
+      end
+      item
+        Name = 'JHRS'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'YSJHL'
+        DataType = ftFloat
+      end
+      item
+        Name = 'DBXL'
+        DataType = ftFloat
+      end
+      item
+        Name = 'PD8'
+        DataType = ftDate
+      end
+      item
+        Name = 'BZJS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TZLCRQ'
+        DataType = ftDate
+      end
+      item
+        Name = 'FLAG1'
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'FLAG2'
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'FLAG3'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'FLAG4'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'RQXC'
+        DataType = ftInteger
+      end
+      item
+        Name = 'QRLCRQ'
+        DataType = ftDate
+      end
+      item
+        Name = 'KDJS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'WEEK1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ORDLINE'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FYFS'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'CFWCJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'SOPNO'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'FLAG5'
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'CKTS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'QRXC'
+        DataType = ftInteger
+      end
+      item
+        Name = 'YZH'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'XS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TSHOP'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'PFLAG1'
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'CSTYLE'
+        DataType = ftString
+        Size = 35
+      end
+      item
+        Name = 'DBZS'
+        DataType = ftString
+        Size = 3
+      end
+      item
+        Name = 'FLAG6'
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'FCCS'
+        DataType = ftString
+        Size = 8
+      end
+      item
+        Name = 'LSTRS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'TPLANT'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'SHJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'QYJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'PLAN_W'
+        DataType = ftString
+        Size = 3
+      end
+      item
+        Name = 'YQ_W'
+        DataType = ftString
+        Size = 3
+      end
+      item
+        Name = 'TZ_W'
+        DataType = ftString
+        Size = 3
+      end
+      item
+        Name = 'RWO'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'RID'
+        DataType = ftInteger
+      end
+      item
+        Name = 'HC'
+        DataType = ftInteger
+      end
+      item
+        Name = 'LEARN'
+        DataType = ftFloat
+      end
+      item
+        Name = 'LFLAG'
+        DataType = ftString
+        Size = 3
+      end
+      item
+        Name = 'NSHJS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'UNBAL'
+        DataType = ftFloat
+      end
+      item
+        Name = 'XC1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'XC2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'XC3'
+        DataType = ftInteger
+      end
+      item
+        Name = 'SJRS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'SJYC'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CKJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'GRP'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'RQXC1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'QTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TBU'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CPLAN'
+        DataType = ftDate
+      end
+      item
+        Name = 'XC4'
+        DataType = ftInteger
+      end
+      item
+        Name = 'LTC_D'
+        DataType = ftFloat
+      end
+      item
+        Name = 'LTC_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'LTC_A'
+        DataType = ftFloat
+      end
+      item
+        Name = 'LTC_RM'
+        DataType = ftString
+        Size = 200
+      end
+      item
+        Name = 'LTC_KSRQ'
+        DataType = ftDate
+      end
+      item
+        Name = 'LTC_KSJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'DSQN'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'FLAG7'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'DTA'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'CWO'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'IECLS'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'IECLS1'
+        DataType = ftString
+        Size = 5
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'pline;seq'
+      end
+      item
+        Name = 'idx2'
+        Fields = 'j_no;j2_job'
+      end
+      item
+        Name = 'idx3'
+        Fields = 'j_no;j2_job;rwo'
+      end
+      item
+        Name = 'idx4'
+        Fields = 'j_no;acol;j2_job;rwo'
+      end
+      item
+        Name = 'idx5'
+        Fields = 'j_no;j2_job;rwo;fccs'
+      end
+      item
+        Name = 'idx6'
+        Fields = 'cfksrq;pline;seq'
+      end
+      item
+        Name = 'idx7'
+        Fields = 'dta;tplant;tshop;pline;seq'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterOpen = tblsheduleAfterOpen
+    BeforeEdit = tblsheduleBeforeEdit
+    AfterPost = tblsheduleAfterPost
+    Left = 24
+    Top = 424
+    object tblshedulePline: TStringField
+      FieldName = 'Pline'
+      Size = 5
+    end
+    object tblsheduleSeq: TIntegerField
+      FieldName = 'Seq'
+    end
+    object tblshedulePlan_date: TDateField
+      FieldName = 'Plan_date'
+      DisplayFormat = 'yy/MM/dd'
+    end
+    object tblsheduleArtno: TStringField
+      FieldName = 'Artno'
+    end
+    object tblsheduleAcol: TStringField
+      FieldName = 'Acol'
+      Size = 4
+    end
+    object tblsheduleCfksrq: TDateField
+      FieldName = 'Cfksrq'
+      OnChange = tblsheduleCfksrqChange
+      DisplayFormat = 'yy/MM/dd'
+    end
+    object tblsheduleWeek: TIntegerField
+      FieldName = 'Week'
+    end
+    object tblsheduleKhzl: TStringField
+      FieldName = 'Khzl'
+      Size = 2
+    end
+    object tblsheduleScqty: TIntegerField
+      FieldName = 'Scqty'
+      OnChange = tblsheduleTmuChange
+    end
+    object tblsheduleTmu: TFloatField
+      FieldName = 'Tmu'
+      OnChange = tblsheduleTmuChange
+      DisplayFormat = '#0.0000'
+    end
+    object tblsheduleTrs: TIntegerField
+      FieldName = 'Trs'
+    end
+    object tblsheduleFyl: TFloatField
+      FieldName = 'Fyl'
+      OnChange = tblsheduleTmuChange
+      DisplayFormat = '#0.00'
+    end
+    object tblsheduleXjs: TIntegerField
+      FieldName = 'Xjs'
+    end
+    object tblsheduleJxjs: TFloatField
+      FieldName = 'Jxjs'
+    end
+    object tblsheduleJhl: TFloatField
+      FieldName = 'Jhl'
+      DisplayFormat = '#0.00'
+    end
+    object tblsheduleCfwcrq: TDateField
+      FieldName = 'Cfwcrq'
+      DisplayFormat = 'yy/MM/dd'
+    end
+    object tblsheduleSctd: TIntegerField
+      FieldName = 'Sctd'
+      OnChange = tblsheduleTmuChange
+    end
+    object tblsheduleBcjs: TIntegerField
+      FieldName = 'Bcjs'
+      OnChange = tblsheduleTmuChange
+    end
+    object tblshedulePd4: TDateField
+      FieldName = 'Pd4'
+      DisplayFormat = 'yy/MM/dd'
+    end
+    object tblsheduleYsjhl: TFloatField
+      FieldName = 'Ysjhl'
+      OnChange = tblsheduleTmuChange
+      DisplayFormat = '#0.00'
+    end
+    object tblsheduleDbxl: TFloatField
+      FieldName = 'Dbxl'
+    end
+    object tblshedulePd8: TDateField
+      FieldName = 'Pd8'
+      DisplayFormat = 'yy/MM/dd'
+    end
+    object tblsheduleBzjs: TIntegerField
+      FieldName = 'Bzjs'
+      OnChange = tblsheduleTmuChange
+    end
+    object tblsheduleTzlcrq: TDateField
+      FieldName = 'Tzlcrq'
+      DisplayFormat = 'yy/MM/dd'
+    end
+    object tblsheduleFlag1: TStringField
+      DisplayWidth = 2
+      FieldName = 'Flag1'
+      Size = 2
+    end
+    object tblsheduleFlag2: TStringField
+      DisplayWidth = 2
+      FieldName = 'Flag2'
+      Size = 2
+    end
+    object tblsheduleFlag3: TStringField
+      DisplayWidth = 5
+      FieldName = 'Flag3'
+      Size = 5
+    end
+    object tblsheduleFlag4: TStringField
+      DisplayWidth = 5
+      FieldName = 'Flag4'
+      Size = 5
+    end
+    object tblsheduleRqxc: TIntegerField
+      FieldName = 'Rqxc'
+    end
+    object tblsheduleQrlcrq: TDateField
+      FieldName = 'Qrlcrq'
+      DisplayFormat = 'yy/MM/dd'
+    end
+    object tblsheduleKdjs: TIntegerField
+      FieldName = 'Kdjs'
+    end
+    object tblsheduleWeek1: TIntegerField
+      FieldName = 'Week1'
+    end
+    object tblsheduleFyfs: TStringField
+      FieldName = 'Fyfs'
+      Size = 10
+    end
+    object tblsheduleFlag5: TStringField
+      DisplayWidth = 2
+      FieldName = 'Flag5'
+      Size = 2
+    end
+    object tblsheduleCkts: TIntegerField
+      FieldName = 'Ckts'
+    end
+    object tblsheduleOkhrq: TDateField
+      FieldName = 'Okhrq'
+    end
+    object tblsheduleQrxc: TIntegerField
+      FieldName = 'Qrxc'
+    end
+    object tblsheduleOrdline: TIntegerField
+      FieldName = 'Ordline'
+    end
+    object tblsheduleSopno: TStringField
+      FieldName = 'Sopno'
+      Size = 7
+    end
+    object tblsheduleYzh: TBooleanField
+      FieldName = 'Yzh'
+      OnChange = tblsheduleYzhChange
+    end
+    object tblsheduleJ2_job: TStringField
+      FieldName = 'J2_job'
+      Size = 10
+    end
+    object tblsheduleJ_no: TStringField
+      FieldName = 'J_no'
+      Size = 15
+    end
+    object tblsheduleXS: TIntegerField
+      FieldName = 'XS'
+    end
+    object tblsheduleTSHOP: TStringField
+      FieldName = 'TSHOP'
+      Size = 10
+    end
+    object tblshedulePFLAG1: TStringField
+      FieldName = 'PFLAG1'
+      Size = 1
+    end
+    object tblsheduleCSTYLE: TStringField
+      FieldName = 'CSTYLE'
+      Size = 30
+    end
+    object tblsheduleDBZS: TStringField
+      FieldName = 'DBZS'
+      Size = 3
+    end
+    object tblsheduleFLAG6: TStringField
+      DisplayWidth = 2
+      FieldName = 'FLAG6'
+      Size = 2
+    end
+    object tblsheduleFCCS: TStringField
+      FieldName = 'FCCS'
+      Size = 8
+    end
+    object tblsheduleTPLANT: TStringField
+      FieldName = 'TPLANT'
+      Size = 2
+    end
+    object tblsheduleJHRS: TStringField
+      FieldName = 'JHRS'
+      Size = 5
+    end
+    object tblshedulePLAN_W: TStringField
+      FieldName = 'PLAN_W'
+      Size = 3
+    end
+    object tblsheduleYQ_W: TStringField
+      FieldName = 'YQ_W'
+      Size = 3
+    end
+    object tblsheduleTZ_W: TStringField
+      FieldName = 'TZ_W'
+      Size = 3
+    end
+    object tblsheduleRWO: TStringField
+      FieldName = 'RWO'
+      Size = 10
+    end
+    object tblsheduleRID: TIntegerField
+      FieldName = 'RID'
+    end
+    object tblsheduleHC: TIntegerField
+      FieldName = 'HC'
+    end
+    object tblsheduleLFLAG: TStringField
+      DisplayWidth = 3
+      FieldName = 'LFLAG'
+      OnChange = tblsheduleLFLAGChange
+      Size = 3
+    end
+    object tblsheduleLSTRS: TFloatField
+      FieldName = 'LSTRS'
+    end
+    object tblsheduleNSHJS: TIntegerField
+      FieldName = 'NSHJS'
+    end
+    object tblsheduleZJS: TFloatField
+      FieldName = 'ZJS'
+    end
+    object tblshedulePHISZJS: TFloatField
+      FieldName = 'PHISZJS'
+    end
+    object tblsheduleZHJS: TFloatField
+      FieldName = 'ZHJS'
+      OnChange = tblsheduleTmuChange
+    end
+    object tblsheduleZKTD: TFloatField
+      FieldName = 'ZKTD'
+    end
+    object tblsheduleSCLHJS: TFloatField
+      FieldName = 'SCLHJS'
+      OnChange = tblsheduleTmuChange
+    end
+    object tblsheduleSHJS: TFloatField
+      FieldName = 'SHJS'
+    end
+    object tblsheduleQYJS: TFloatField
+      FieldName = 'QYJS'
+      OnChange = tblsheduleTmuChange
+    end
+    object tblsheduleLEARN: TFloatField
+      FieldName = 'LEARN'
+      OnChange = tblsheduleTmuChange
+    end
+    object tblsheduleUNBAL: TFloatField
+      FieldName = 'UNBAL'
+    end
+    object tblsheduleXC1: TSmallintField
+      FieldName = 'XC1'
+    end
+    object tblsheduleXC2: TSmallintField
+      FieldName = 'XC2'
+    end
+    object tblsheduleXC3: TSmallintField
+      FieldName = 'XC3'
+    end
+    object tblsheduleYQLCRQ: TDateTimeField
+      FieldName = 'YQLCRQ'
+      DisplayFormat = 'yy/MM/dd hh'
+    end
+    object tblsheduleSJRS: TFloatField
+      FieldName = 'SJRS'
+    end
+    object tblsheduleSJYC: TFloatField
+      FieldName = 'SJYC'
+    end
+    object tblsheduleCKJS: TFloatField
+      FieldName = 'CKJS'
+    end
+    object tblsheduleGRP: TStringField
+      FieldName = 'GRP'
+      Size = 1
+    end
+    object tblsheduleRQXC1: TIntegerField
+      FieldName = 'RQXC1'
+    end
+    object tblsheduleQTY: TIntegerField
+      FieldName = 'QTY'
+    end
+    object tblsheduleTBU: TFloatField
+      FieldName = 'TBU'
+    end
+    object tblsheduleCPLAN: TDateField
+      FieldName = 'CPLAN'
+      DisplayFormat = 'yy/MM/dd'
+    end
+    object tblsheduleXC4: TIntegerField
+      FieldName = 'XC4'
+    end
+    object tblsheduleCFKSJS: TFloatField
+      FieldName = 'CFKSJS'
+    end
+    object tblsheduleCFWCJS: TFloatField
+      FieldName = 'CFWCJS'
+    end
+    object tblsheduleLTC_D: TFloatField
+      FieldName = 'LTC_D'
+    end
+    object tblsheduleLTC_R: TFloatField
+      FieldName = 'LTC_R'
+    end
+    object tblsheduleLTC_A: TFloatField
+      FieldName = 'LTC_A'
+    end
+    object tblsheduleLTC_RM: TStringField
+      FieldName = 'LTC_RM'
+      Size = 200
+    end
+    object tblsheduleLTC_KSRQ: TDateField
+      FieldName = 'LTC_KSRQ'
+    end
+    object tblsheduleLTC_KSJS: TFloatField
+      FieldName = 'LTC_KSJS'
+    end
+    object tblsheduleDSQN: TStringField
+      FieldName = 'DSQN'
+      Size = 5
+    end
+    object tblsheduleFLAG7: TStringField
+      FieldName = 'FLAG7'
+      Size = 5
+    end
+    object tblsheduleDTA: TStringField
+      FieldName = 'DTA'
+      Size = 1
+    end
+    object tblsheduleCWO: TStringField
+      FieldName = 'CWO'
+      Size = 10
+    end
+    object tblsheduleIECLS: TStringField
+      FieldName = 'IECLS'
+      OnChange = tblsheduleIECLSChange
+      Size = 10
+    end
+    object tblsheduleIECLS1: TStringField
+      FieldName = 'IECLS1'
+      OnChange = tblsheduleIECLSChange
+      Size = 5
+    end
+  end
+  object ClientDataSet2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 120
+    Top = 424
+  end
+  object ClientDataSet3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 152
+    Top = 424
+  end
+  object ClientDataSet5: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 216
+    Top = 424
+  end
+  object DataSource2: TDataSource
+    DataSet = ClientDataSet1
+    Left = 248
+    Top = 424
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 280
+    Top = 424
+  end
+  object ClientDataSet4: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 312
+    Top = 424
+  end
+  object DataSet2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    Parameters = <>
+    Left = 344
+    Top = 424
+  end
+  object cxStyleRepository1: TcxStyleRepository
+    Left = 48
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svColor]
+      Color = 14088905
+    end
+    object cxStyle2: TcxStyle
+      AssignedValues = [svColor]
+      Color = 14074287
+    end
+  end
+  object cxStyleRepository3: TcxStyleRepository
+    Left = 32
+    Top = 24
+    PixelsPerInch = 96
+    object cxStyle4: TcxStyle
+      AssignedValues = [svColor]
+      Color = 13499643
+    end
+  end
+  object cxStyleRepository4: TcxStyleRepository
+    Left = 72
+    Top = 16
+    PixelsPerInch = 96
+    object cxStyle5: TcxStyle
+      AssignedValues = [svColor]
+      Color = clAqua
+    end
+    object cxStyle6: TcxStyle
+      AssignedValues = [svColor]
+      Color = clHighlight
+    end
+    object cxStyle7: TcxStyle
+      AssignedValues = [svColor]
+      Color = clWhite
+    end
+  end
+  object cxStyleRepository2: TcxStyleRepository
+    Left = 136
+    Top = 8
+    PixelsPerInch = 96
+    object cxStyle3: TcxStyle
+      AssignedValues = [svColor]
+      Color = 13092603
+    end
+  end
+  object cxGridPopupMenu1: TcxGridPopupMenu
+    PopupMenus = <>
+    AlwaysFireOnPopup = True
+    Left = 544
+    Top = 200
+  end
+  object ROQuery1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.ROConnection
+    Left = 24
+    Top = 304
+  end
+  object siLang1: TsiLang
+    Version = '6.1.0.1'
+    StringsTypes.Strings = (
+      'TIB_STRINGLIST'
+      'TSTRINGLIST')
+    NumOfLanguages = 3
+    LangDelim = 1
+    LangNames.Strings = (
+      'English'
+      'Traditional Chinese'
+      'Thai')
+    Language = 'English'
+    ExcludedProperties.Strings = (
+      'Category'
+      'SecondaryShortCuts'
+      'HelpKeyword'
+      'InitialDir'
+      'HelpKeyword'
+      'ActivePage'
+      'ImeName'
+      'DefaultExt'
+      'FileName'
+      'FieldName'
+      'PickList'
+      'DisplayFormat'
+      'EditMask'
+      'KeyList'
+      'LookupDisplayFields'
+      'DropDownSpecRow'
+      'TableName'
+      'DatabaseName'
+      'IndexName'
+      'MasterFields')
+    Left = 384
+    Top = 272
+    TranslationData = {
+      737443617074696F6E730D0A54776F726B736865657431014C57504D202D2050
+      6C616E6E696E6720616E64205363686564756C696E6701A9D4BB73A740202D20
+      AD70B9BABB50B1C6B57B01010D0A416C6C536577696E67514E733101416C6C20
+      536577696E6720514E730101010D0A426567696E3101426567696E0101010D0A
+      42697442746E310152652D7363686564756C696E6701ADABB773B1C6B57B0101
+      0D0A42697442746E31300147616E747420436861727401A5CCAF53B9CF01010D
+      0A42697442746E313101534B552065786368616E67652064617368626F617264
+      01534B55A5E6B4ABBBF6AAEDAA4F01010D0A42697442746E3132014578697401
+      B068A55801010D0A42697442746E32015361766501AB4FA67301010D0A426974
+      42746E33015072657669657701B977C4FD01010D0A42697442746E34014E6578
+      74205374796C6528732901A455B458B4DA01010D0A42697442746E35014C6173
+      74204F7264657228732901B3CCABE1B458B169B3E601010D0A42697442746E36
+      01514E205472616E7366657201514EA5E6A6AC01010D0A42697442746E370154
+      72616E7369742053756D6D61727901A5E6A6ACB6D7C16001010D0A4269744274
+      6E38014E657874204F7264657228732901A455B458B169B3E601010D0A426974
+      42746E390153514E20436F6E6475637401B943BCC6ADB6BADEB27A01010D0A43
+      616E63656C73310143616E63656C202273220101010D0A43616E63656C783101
+      43616E63656C202278220101010D0A63686B3101514E2052657363686564756C
+      65202626205472616E736665722044617368626F61726401514EADABB1C6A94D
+      C2E0B2BEBBF6AAEDAA4F01010D0A63686B313001514E20504949205265706F72
+      7401514EA447B3A1B3F8AAED01010D0A63686B3201514E2053706C697420436F
+      6E647563742044617368626F61726401A9EE514EBADEB27ABBF6AAEDAA4F0101
+      0D0A63686B3301576974686F75742052574F2046572053746172742044617465
+      0101010D0A63686B3401514E2F4453514E20534B552065786368616E67652044
+      617368626F61726401BCC6ADB62FB943BCC6ADB6534B55A5E6B4ABBBF6AAEDAA
+      4F01010D0A63686B350153696D20577320436F6E647563742044617368626F61
+      726401B5EAC0C0A8AEB6A1BADEB27ABBF6AAEDAA4F01010D0A63686B3601514E
+      20436F6D62696E6520436F6E647563742044617368626F61726401A7A8514EBA
+      DEB27ABBF6AAEDAA4F01010D0A63686B3701514E2041737369676E6D656E7420
+      44617368626F61726401514EA677B1C6BBF6AAEDAA4F01010D0A63686B380151
+      4E205049492044617368626F61726401514EA447B3A1BBF6AAEDAA4F01010D0A
+      63686B3901514E2052657363686564756C65202626205472616E736665722052
+      65706F727401514EADABB1C6A94DC2E0B2BEB3F8AAED01010D0A436C61737362
+      7953697A65310149452047726F757020616E6420436C61737320627920436F6C
+      6F722F53697A650101010D0A436C656172536F7274696E673101436C65617220
+      536F7274696E670101010D0A436F6C6C61707365416C6C3101436F6C6C617073
+      6520416C6C0101010D0A637847726964314C6576656C31010101010D0A637856
+      6965773141434F4C01436C7220436F646501A6E2BD5801010D0A637856696577
+      3142434A5301514E2043686173652054696D6520557365642053656374696F6E
+      20487201514EB06CAF5AA9D2A5CEB860AEC901010D0A63785669657731425A4A
+      53015061636B696E67202F20496E73706563742053656374696F6E20487201A5
+      5DB8CB2FC5E7B366B860AEC901010D0A6378566965773143464B534A5301514E
+      20317374205365637420532D54696D6501514EB67DA96CB860AEC901010D0A63
+      78566965773143464B535251014C57205374617274204461746501A9D4BB73A7
+      40B67DA96CA4E9B4C101010D0A6378566965773143465743525101514E205432
+      204461746501514EA7B9A6A8A4E9B4C101010D0A63785669657731434B4A5301
+      514E20543220456E642054696D652028536563742901514EA7B9A6A8B860AEC9
+      01010D0A6378566965773143504C414E014375727201B27BAA7001010D0A6378
+      5669657731435354594C450143757374205374796C6501ABC8B4DAB8B901010D
+      0A6378566965773143574F01574F6320232053756666697801A8EEB3E6A6E2AD
+      CABE6101010D0A637856696577314442584C014462786C0101010D0A63785669
+      65773144425A5301496D702E20436F646501BDC4C0BBC5E3A5DC01010D0A6378
+      56696577314453514E01514E2050494901514EA447B3A101010D0A6378566965
+      77314643435301514E20232053756666697801514EB8B901010D0A6378566965
+      7731464C414731010101010D0A63785669657731464C414732010101010D0A63
+      785669657731464C414733010101010D0A63785669657731464C414734010101
+      010D0A63785669657731464C414735010101010D0A63785669657731464C4147
+      36010101010D0A63785669657731464C414737010101010D0A63785669657731
+      46594653010101010D0A637856696577314945434C5301436C61737301C3FE01
+      010D0A637856696577314945434C533101436C6173732053756666697801C3FE
+      ABE1BAF301010D0A637856696577314A5F4E4F0150726F6A65637401A475B57B
+      B8B901010D0A637856696577314A325F4A4F4201574F202301A8EEB3E6B8B901
+      010D0A637856696577314A484C014F7074207065726620282529204375727265
+      6E7401B9EABF6E2028252920B27BAA7001010D0A637856696577314A48525301
+      0101010D0A637856696577314A584A530144656620456163682053656374696F
+      6E204F2F5001B977B35DA843B860B2A3B67101010D0A637856696577314B444A
+      5301514E2074696D652047415001514EAEC9B6A1C0C9B4C101010D0A63785669
+      6577314C464C4147010101010D0A637856696577314C53545253014465662057
+      6F726B20666F72636501B977B35DADFBA475BCC6B67101010D0A637856696577
+      314E53484A53014E6F6E2050726F64756374696F6E2044617901AB44A5CDB2A3
+      A4E901010D0A637856696577315044380145782D667479204461746520514E20
+      41637475616C01514EB9EABBDAC2F7BC74A4E9B4C101010D0A63785669657731
+      504849535A4A5301546F74616C205365637420487220286F6E2D7374642901C1
+      60B860AEC9A15DBB73A740A4A4A15E01010D0A63785669657731504C414E5F44
+      4154450144656661756C7401B977B35D01010D0A63785669657731504C494E45
+      014C696E6501A9D401010D0A63785669657731515258430145782D6674792044
+      617465204C6F636B6564204469666620286461792901C2F7BC74A4E9B4C1C2EA
+      A977AE74B65AA15DA4D1A15E01010D0A637856696577315154590152574F2051
+      54590152574FBCC6B67101010D0A6378566965773151594A5301514E20416865
+      61642053656374696F6E20487201514EB4A3AB65B860AEC901010D0A63785669
+      657731525158430145782D66747920446174652043757272656E742044696666
+      20286461792901C2F7BC74A4E9B4C1B27BAA70AE74B65AA15DA4D1A15E01010D
+      0A6378566965773152574F0152574F2023205375666669780152574FB8B90101
+      0D0A6378566965773153434C484A5301514E20426568696E642053656374696F
+      6E20487201514EB8A8ABE1B860AEC901010D0A63785669657731534351545901
+      514E2051545901514EBCC6B67101010D0A6378566965773153484A5301446566
+      61756C7420636F6E736F6C69646174652074696D65206C6F737401B977B35DB7
+      6CAFD301010D0A63785669657731534A52530141637475616C20576F726B2066
+      6F72636501B9EABBDAADFBA475BCC6B67101010D0A63785669657731534A5943
+      0141637475616C204D616368696E652051747901B9EABBDAA6E7A8AEBCC6B671
+      01010D0A63785669657731544255014C4255202501A9D4A5ADBFC5B276250101
+      0D0A63785669657731544D5501446566204C696E65205341482028572F417665
+      2901B977B35DA9D4534148A15DA55BC576A5ADA7A1A15E01010D0A6378566965
+      773154525301446566204D616368696E652051747901B977B35DA6E7A8AEBCC6
+      B67101010D0A63785669657731545A4C4352510145782D667479204461746520
+      514E204F7267616E697A656401514EA677B1C6C2F7BC74A4E9B4C101010D0A63
+      785669657731554E42414C014C6F636B6564204469666620286461792901C2EA
+      A977AE74B65AA15DA4D1A15E01010D0A637856696577315745454B01514E2053
+      74617274205765656B202301514EB67DA96CB66701010D0A6378566965773158
+      433101514E2053746172742044617465204379636C652054696D652028646179
+      2901514EB67DA96CA4E9B4C1B667B4C1A15DA4D1A15E01010D0A637856696577
+      3158433201514E204F7267616E697A6564204379636C652054696D6520286461
+      792901514EA677B1C6B667B4C1A15DA4D1A15E01010D0A637856696577315843
+      330152574F20576F726B2043542028646179290152574FBB73A740B667B4C1A1
+      5DA4D1A15E01010D0A63785669657731584334014469666601AE74B65A01010D
+      0A6378566965773159514C4352510145782D66747920446174652052574F2001
+      52574FC2F7BC74A4E9B4C101010D0A6378566965773159534A484C014F707420
+      70657266202825292044656661756C7401B9EABF6E2028252920B977B35D0101
+      0D0A63785669657731595A48015368706401A7B9A6A801010D0A637856696577
+      315A484A5301514E2043686173652054696D65204368617365206261636B2053
+      656374696F6E20487201514EB06CAF5AB06CA65EB860AEC901010D0A63785669
+      6577315A4A5301546F74616C2053656374696F6E20487220286F707420706572
+      662901C160B860AEC9A15DB9EABF6EA15E01010D0A637856696577315A4B5444
+      01514E204375727220536563742048722028446966662901514EB27BAA70B860
+      AEC9A15DAE74B65AA15E01010D0A456E643101456E6401B5B2A7F401010D0A45
+      7870616E64416C6C3101457870616E6420416C6C0101010D0A4578706F727447
+      41494461746131014578706F72742047414920446174610101010D0A47616E74
+      744368617274310147616E74742043686172740101010D0A476574544D553101
+      43616C63205A6A730101010D0A47726F7570426F78310144617368626F617264
+      7301BBF6AAEDAA4F01010D0A47726F7570426F7832015265706F72747301B3F8
+      AAED01010D0A4C6162656C310150726F6A656374204E6F2E01A475B57BB8B901
+      010D0A4C6162656C31300150726F647563742043617465676F727901B2A3AB7E
+      BAD8C3FE01010D0A4C6162656C31310150726F6A65637420436F646501A475B5
+      7BB8B901010D0A4C6162656C313201436F6C6F7220436F646501A6E2BD580101
+      0D0A4C6162656C3133015341482050726F6365737301534148AC79B57B01010D
+      0A4C6162656C313401536561736F6E204E722F52616E67652001A975B8602FA8
+      74A64301010D0A4C6162656C32014C696E6501A9D401010D0A4C6162656C3301
+      0101010D0A4C6162656C3401496D7061637420436F646501BDC4C0BBC5E3A5DC
+      01010D0A4C6162656C3501576F726B73686F7001A8AEB6A101010D0A4C616265
+      6C360143757374205374796C6501ABC8B4DAB8B901010D0A4C6162656C370146
+      6163746F727901A475BC7401010D0A4C6162656C38015465616D01B2D5A74F01
+      010D0A4C6162656C390150726F6475637401B2A3AB7E01010D0A4E3101A5B4A6
+      4CADD7AD71C2F7BC74A4E9B4C1B04FBFFD0101010D0A4E3201A5B4A64CB67DB3
+      66A4E9B4C1B04FBFFD0101010D0A50616E656C31010101010D0A50616E656C32
+      010101010D0A50616E656C33010101010D0A5072696E745469636B6574666F72
+      464A31015072696E74205469636B657420666F7220464A0101010D0A52656361
+      6C63756C617465514E310152652D63616C63756C61746520514E230101010D0A
+      5370656564427574746F6E31014F4B01BD54A97701010D0A5370656564427574
+      746F6E3201514E2050494901514EA447B3A101010D0A5370656564427574746F
+      6E3301514E2F514E2050494920417070726F76616C2050726F63657373696E67
+      01514E2F514EA447B3A1BC66A7E5AC79B57B01010D0A537461727454696D6531
+      0153746172742054696D6501B67DA96CB860AEC901010D0A7472616E73697446
+      6C6F7731015472616E73697420466C6F7701A5E6A6ACAC79B57B01010D0A5749
+      505472616E7369743101574950205472616E73697401574950A5E6A6AC01010D
+      0A5370656564427574746F6E340146696E69736865640101010D0A5550444945
+      475250616E64434C53310155504420494547525020616E6420434C530101010D
+      0A737448696E74730D0A54776F726B736865657431010101010D0A416C6C5365
+      77696E67514E7331010101010D0A426567696E31010101010D0A42697442746E
+      31010101010D0A42697442746E3130010101010D0A42697442746E3131010101
+      010D0A42697442746E3132010101010D0A42697442746E32010101010D0A4269
+      7442746E33010101010D0A42697442746E34010101010D0A42697442746E3501
+      0101010D0A42697442746E36010101010D0A42697442746E37010101010D0A42
+      697442746E38010101010D0A42697442746E39010101010D0A43616E63656C73
+      31010101010D0A43616E63656C7831010101010D0A63686B31010101010D0A63
+      686B3130010101010D0A63686B32010101010D0A63686B33010101010D0A6368
+      6B34010101010D0A63686B35010101010D0A63686B36010101010D0A63686B37
+      010101010D0A63686B38010101010D0A63686B39010101010D0A436C61737362
+      7953697A6531010101010D0A436C656172536F7274696E6731010101010D0A43
+      6F6C6C61707365416C6C31010101010D0A436F6D626F426F7831010101010D0A
+      436F6D626F426F7832010101010D0A436F6D626F426F7833010101010D0A436F
+      6D626F426F7834010101010D0A436F6D626F426F7835010101010D0A63784772
+      696431010101010D0A4564697431010101010D0A4564697432010101010D0A45
+      64697433010101010D0A4564697434010101010D0A4564697435010101010D0A
+      4564697436010101010D0A4564697437010101010D0A4564697438010101010D
+      0A456E6431010101010D0A457870616E64416C6C31010101010D0A4578706F72
+      744741494461746131010101010D0A47616E7474436861727431010101010D0A
+      476574544D5531010101010D0A47726F7570426F7831010101010D0A47726F75
+      70426F7832010101010D0A4C6162656C31010101010D0A4C6162656C31300101
+      01010D0A4C6162656C3131010101010D0A4C6162656C3132010101010D0A4C61
+      62656C3133010101010D0A4C6162656C3134010101010D0A4C6162656C320101
+      01010D0A4C6162656C33010101010D0A4C6162656C34010101010D0A4C616265
+      6C35010101010D0A4C6162656C36010101010D0A4C6162656C37010101010D0A
+      4C6162656C38010101010D0A4C6162656C39010101010D0A4E31010101010D0A
+      4E32010101010D0A4E33010101010D0A50616E656C31010101010D0A50616E65
+      6C32010101010D0A50616E656C33010101010D0A5072696E745469636B657466
+      6F72464A31010101010D0A526563616C63756C617465514E31010101010D0A53
+      70656564427574746F6E31010101010D0A5370656564427574746F6E32010101
+      010D0A5370656564427574746F6E33010101010D0A537461727454696D653101
+      0101010D0A7472616E736974466C6F7731010101010D0A5749505472616E7369
+      7431010101010D0A5370656564427574746F6E34010101010D0A555044494547
+      5250616E64434C5331010101010D0A7374446973706C61794C6162656C730D0A
+      74626C73686564756C6541636F6C0141636F6C0101010D0A74626C7368656475
+      6C654172746E6F014172746E6F0101010D0A74626C73686564756C6542636A73
+      0142636A730101010D0A74626C73686564756C65427A6A7301427A6A73010101
+      0D0A74626C73686564756C6543464B534A530143464B534A530101010D0A7462
+      6C73686564756C6543666B7372710143666B7372710101010D0A74626C736865
+      64756C65434657434A5301434657434A530101010D0A74626C73686564756C65
+      436677637271014366776372710101010D0A74626C73686564756C65434B4A53
+      01434B4A530101010D0A74626C73686564756C65436B747301436B7473010101
+      0D0A74626C73686564756C6543504C414E0143504C414E0101010D0A74626C73
+      686564756C65435354594C4501435354594C450101010D0A74626C7368656475
+      6C6543574F0143574F0101010D0A74626C73686564756C654462786C01446278
+      6C0101010D0A74626C73686564756C6544425A530144425A530101010D0A7462
+      6C73686564756C654453514E014453514E0101010D0A74626C73686564756C65
+      445441014454410101010D0A74626C73686564756C6546434353014643435301
+      01010D0A74626C73686564756C65466C61673101466C6167310101010D0A7462
+      6C73686564756C65466C61673201466C6167320101010D0A74626C7368656475
+      6C65466C61673301466C6167330101010D0A74626C73686564756C65466C6167
+      3401466C6167340101010D0A74626C73686564756C65466C61673501466C6167
+      350101010D0A74626C73686564756C65464C41473601464C4147360101010D0A
+      74626C73686564756C65464C41473701464C4147370101010D0A74626C736865
+      64756C654679667301467966730101010D0A74626C73686564756C6546796C01
+      46796C0101010D0A74626C73686564756C65475250014752500101010D0A7462
+      6C73686564756C6548430148430101010D0A74626C73686564756C654945434C
+      53014945434C530101010D0A74626C73686564756C654945434C533101494543
+      4C53310101010D0A74626C73686564756C654A5F6E6F014A5F6E6F0101010D0A
+      74626C73686564756C654A325F6A6F62014A325F6A6F620101010D0A74626C73
+      686564756C654A686C014A686C0101010D0A74626C73686564756C654A485253
+      014A4852530101010D0A74626C73686564756C654A786A73014A786A73010101
+      0D0A74626C73686564756C654B646A73014B646A730101010D0A74626C736865
+      64756C654B687A6C014B687A6C0101010D0A74626C73686564756C654C454152
+      4E014C4541524E0101010D0A74626C73686564756C654C464C4147014C464C41
+      470101010D0A74626C73686564756C654C53545253014C535452530101010D0A
+      74626C73686564756C654C54435F41014C54435F410101010D0A74626C736865
+      64756C654C54435F44014C54435F440101010D0A74626C73686564756C654C54
+      435F4B534A53014C54435F4B534A530101010D0A74626C73686564756C654C54
+      435F4B535251014C54435F4B5352510101010D0A74626C73686564756C654C54
+      435F52014C54435F520101010D0A74626C73686564756C654C54435F524D014C
+      54435F524D0101010D0A74626C73686564756C654E53484A53014E53484A5301
+      01010D0A74626C73686564756C654F6B687271014F6B6872710101010D0A7462
+      6C73686564756C654F72646C696E65014F72646C696E650101010D0A74626C73
+      686564756C65506434015064340101010D0A74626C73686564756C6550643801
+      5064380101010D0A74626C73686564756C6550464C4147310150464C41473101
+      01010D0A74626C73686564756C65504849535A4A5301504849535A4A53010101
+      0D0A74626C73686564756C65506C616E5F6461746501506C616E5F6461746501
+      01010D0A74626C73686564756C65504C414E5F5701504C414E5F570101010D0A
+      74626C73686564756C65506C696E6501506C696E650101010D0A74626C736865
+      64756C6551726C6372710151726C6372710101010D0A74626C73686564756C65
+      5172786301517278630101010D0A74626C73686564756C655154590151545901
+      01010D0A74626C73686564756C6551594A530151594A530101010D0A74626C73
+      686564756C65524944015249440101010D0A74626C73686564756C6552717863
+      01527178630101010D0A74626C73686564756C65525158433101525158433101
+      01010D0A74626C73686564756C6552574F0152574F0101010D0A74626C736865
+      64756C6553434C484A530153434C484A530101010D0A74626C73686564756C65
+      53637174790153637174790101010D0A74626C73686564756C65536374640153
+      6374640101010D0A74626C73686564756C65536571015365710101010D0A7462
+      6C73686564756C6553484A530153484A530101010D0A74626C73686564756C65
+      534A525301534A52530101010D0A74626C73686564756C65534A594301534A59
+      430101010D0A74626C73686564756C65536F706E6F01536F706E6F0101010D0A
+      74626C73686564756C65544255015442550101010D0A74626C73686564756C65
+      546D7501546D750101010D0A74626C73686564756C6554504C414E540154504C
+      414E540101010D0A74626C73686564756C65547273015472730101010D0A7462
+      6C73686564756C655453484F50015453484F500101010D0A74626C7368656475
+      6C65545A5F5701545A5F570101010D0A74626C73686564756C65547A6C637271
+      01547A6C6372710101010D0A74626C73686564756C65554E42414C01554E4241
+      4C0101010D0A74626C73686564756C655765656B015765656B0101010D0A7462
+      6C73686564756C655765656B31015765656B310101010D0A74626C7368656475
+      6C65584331015843310101010D0A74626C73686564756C655843320158433201
+      01010D0A74626C73686564756C65584333015843330101010D0A74626C736865
+      64756C65584334015843340101010D0A74626C73686564756C65586A7301586A
+      730101010D0A74626C73686564756C6558530158530101010D0A74626C736865
+      64756C6559515F570159515F570101010D0A74626C73686564756C6559514C43
+      52510159514C4352510101010D0A74626C73686564756C6559736A686C015973
+      6A686C0101010D0A74626C73686564756C65597A6801597A680101010D0A7462
+      6C73686564756C655A484A53015A484A530101010D0A74626C73686564756C65
+      5A4A53015A4A530101010D0A74626C73686564756C655A4B5444015A4B544401
+      01010D0A7374466F6E74730D0A54776F726B73686565743101B773B2D3A9FAC5
+      E90101010D0A42697442746E3101B773B2D3A9FAC5E90101010D0A4269744274
+      6E313001B773B2D3A9FAC5E90101010D0A42697442746E313101B773B2D3A9FA
+      C5E90101010D0A42697442746E313201B773B2D3A9FAC5E90101010D0A426974
+      42746E3201B773B2D3A9FAC5E90101010D0A42697442746E3301B773B2D3A9FA
+      C5E90101010D0A42697442746E3401B773B2D3A9FAC5E90101010D0A42697442
+      746E3501B773B2D3A9FAC5E90101010D0A42697442746E3601B773B2D3A9FAC5
+      E90101010D0A42697442746E3701B773B2D3A9FAC5E90101010D0A4269744274
+      6E3801B773B2D3A9FAC5E90101010D0A42697442746E3901B773B2D3A9FAC5E9
+      0101010D0A6378477269643101B773B2D3A9FAC5E90101010D0A63785374796C
+      6531014D532053616E732053657269660101010D0A63785374796C6532014D53
+      2053616E732053657269660101010D0A63785374796C6533014D532053616E73
+      2053657269660101010D0A63785374796C6534014D532053616E732053657269
+      660101010D0A63785374796C6535014D532053616E732053657269660101010D
+      0A63785374796C6536014D532053616E732053657269660101010D0A63785374
+      796C6537014D532053616E732053657269660101010D0A50616E656C3101B773
+      B2D3A9FAC5E90101010D0A73744D756C74694C696E65730D0A436F6D626F426F
+      78312E4974656D7301412C422C432C440101010D0A436F6D626F426F78322E49
+      74656D7301422C4B2C550101010D0A436F6D626F426F78332E4974656D730150
+      2C422C4B2C550101010D0A436F6D626F426F78342E4974656D7301422C4B2C55
+      0101010D0A436F6D626F426F78352E4974656D73010101010D0A637856696577
+      3141434F4C2E50726F706572746965732E4C6F6F6B75704974656D7301010101
+      0D0A6378566965773143504C414E2E50726F706572746965732E4C6F6F6B7570
+      4974656D73010101010D0A63785669657731435354594C452E50726F70657274
+      6965732E4C6F6F6B75704974656D73010101010D0A6378566965773146434353
+      2E50726F706572746965732E4C6F6F6B75704974656D73010101010D0A637856
+      69657731464C4147332E50726F706572746965732E4C6F6F6B75704974656D73
+      010101010D0A637856696577314945434C532E50726F706572746965732E4974
+      656D730131412C32412C32422C33412C33422C33432C34412C34422C34432C34
+      442C34452C34460101010D0A637856696577314945434C53312E50726F706572
+      746965732E4974656D7301302C312C322C332C342C352C360101010D0A637856
+      696577314A325F4A4F422E50726F706572746965732E4C6F6F6B75704974656D
+      73010101010D0A63785669657731515258432E50726F706572746965732E4C6F
+      6F6B75704974656D73010101010D0A6378566965773151594A532E50726F7065
+      72746965732E4C6F6F6B75704974656D73010101010D0A637856696577315257
+      4F2E50726F706572746965732E4C6F6F6B75704974656D73010101010D0A6378
+      566965773153434C484A532E50726F706572746965732E4C6F6F6B7570497465
+      6D73010101010D0A6378566965773153435154592E50726F706572746965732E
+      4C6F6F6B75704974656D73010101010D0A63785669657731534A52532E50726F
+      706572746965732E4C6F6F6B75704974656D73010101010D0A63785669657731
+      534A59432E50726F706572746965732E4C6F6F6B75704974656D73010101010D
+      0A63785669657731544D552E50726F706572746965732E4C6F6F6B7570497465
+      6D73010101010D0A637856696577315A484A532E50726F706572746965732E4C
+      6F6F6B75704974656D73010101010D0A44617461536574322E53514C01010101
+      0D0A7374446C677343617074696F6E730D0A41626F7274012641626F72740101
+      010D0A416C6C0126416C6C0101010D0A43616E63656C0143616E63656C010101
+      0D0A436F6E6669726D01436F6E6669726D0101010D0A4572726F72014572726F
+      720101010D0A48656C70012648656C700101010D0A49676E6F7265012649676E
+      6F72650101010D0A496E666F726D6174696F6E01496E666F726D6174696F6E01
+      01010D0A4E6F01264E6F0101010D0A4E6F20546F20416C6C014E266F20746F20
+      416C6C0101010D0A4F4B014F4B0101010D0A5265747279012652657472790101
+      010D0A5761726E696E67015761726E696E670101010D0A596573012659657301
+      01010D0A59657320546F20416C6C0159657320746F2026416C6C0101010D0A73
+      74537472696E67730D0A73744F74686572537472696E67730D0A436F6D626F42
+      6F78312E54657874010101010D0A436F6D626F426F78322E5465787401010101
+      0D0A436F6D626F426F78332E54657874010101010D0A436F6D626F426F78342E
+      54657874010101010D0A436F6D626F426F78352E54657874010101010D0A6378
+      5669657731504C494E452E416C7465726E61746543617074696F6E010101010D
+      0A45646974312E54657874010101010D0A45646974322E54657874010101010D
+      0A45646974332E54657874010101010D0A45646974342E54657874010101010D
+      0A45646974352E54657874010101010D0A45646974362E54657874010101010D
+      0A45646974372E54657874010101010D0A45646974382E54657874010101010D
+      0A54776F726B7368656574312E48656C7046696C65010101010D0A73744C6F63
+      616C65730D0A7374436F6C6C656374696F6E730D0A637856696577312E42616E
+      64735B305D2E43617074696F6E01410101010D0A637856696577312E42616E64
+      735B315D2E43617074696F6E01420101010D0A637856696577312E42616E6473
+      5B31305D2E43617074696F6E014B0101010D0A637856696577312E42616E6473
+      5B31315D2E43617074696F6E014C0101010D0A637856696577312E42616E6473
+      5B31325D2E43617074696F6E014D0101010D0A637856696577312E42616E6473
+      5B31335D2E43617074696F6E014E0101010D0A637856696577312E42616E6473
+      5B31345D2E43617074696F6E014F0101010D0A637856696577312E42616E6473
+      5B31355D2E43617074696F6E01500101010D0A637856696577312E42616E6473
+      5B31365D2E43617074696F6E01530101010D0A637856696577312E42616E6473
+      5B31375D2E43617074696F6E01540101010D0A637856696577312E42616E6473
+      5B31385D2E43617074696F6E01550101010D0A637856696577312E42616E6473
+      5B31395D2E43617074696F6E01560101010D0A637856696577312E42616E6473
+      5B325D2E43617074696F6E01430101010D0A637856696577312E42616E64735B
+      32305D2E43617074696F6E01546F74616C2053656374696F6E20487201C160B8
+      60AEC901010D0A637856696577312E42616E64735B32315D2E43617074696F6E
+      0152574F20465720537461727420446174650152574FBC74B67DA96CA4E9B4C1
+      01010D0A637856696577312E42616E64735B32325D2E43617074696F6E015701
+      01010D0A637856696577312E42616E64735B32335D2E43617074696F6E015801
+      01010D0A637856696577312E42616E64735B32345D2E43617074696F6E015901
+      01010D0A637856696577312E42616E64735B32355D2E43617074696F6E015A01
+      01010D0A637856696577312E42616E64735B32365D2E43617074696F6E014141
+      0101010D0A637856696577312E42616E64735B32375D2E43617074696F6E0141
+      420101010D0A637856696577312E42616E64735B32385D2E43617074696F6E01
+      41430101010D0A637856696577312E42616E64735B32395D2E43617074696F6E
+      0141440101010D0A637856696577312E42616E64735B335D2E43617074696F6E
+      01440101010D0A637856696577312E42616E64735B33305D2E43617074696F6E
+      0141450101010D0A637856696577312E42616E64735B33315D2E43617074696F
+      6E0141460101010D0A637856696577312E42616E64735B33325D2E4361707469
+      6F6E0141470101010D0A637856696577312E42616E64735B33335D2E43617074
+      696F6E0141480101010D0A637856696577312E42616E64735B33345D2E436170
+      74696F6E0141490101010D0A637856696577312E42616E64735B33355D2E4361
+      7074696F6E01414A0101010D0A637856696577312E42616E64735B33365D2E43
+      617074696F6E01414B0101010D0A637856696577312E42616E64735B33375D2E
+      43617074696F6E01414C0101010D0A637856696577312E42616E64735B33385D
+      2E43617074696F6E01414E0101010D0A637856696577312E42616E64735B3339
+      5D2E43617074696F6E01414F0101010D0A637856696577312E42616E64735B34
+      5D2E43617074696F6E01450101010D0A637856696577312E42616E64735B3430
+      5D2E43617074696F6E0141510101010D0A637856696577312E42616E64735B34
+      315D2E43617074696F6E0141520101010D0A637856696577312E42616E64735B
+      34325D2E43617074696F6E0141530101010D0A637856696577312E42616E6473
+      5B34335D2E43617074696F6E0141550101010D0A637856696577312E42616E64
+      735B34345D2E43617074696F6E0141560101010D0A637856696577312E42616E
+      64735B34355D2E43617074696F6E01414D0101010D0A637856696577312E4261
+      6E64735B355D2E43617074696F6E01460101010D0A637856696577312E42616E
+      64735B365D2E43617074696F6E01470101010D0A637856696577312E42616E64
+      735B375D2E43617074696F6E01480101010D0A637856696577312E42616E6473
+      5B385D2E43617074696F6E01490101010D0A637856696577312E42616E64735B
+      395D2E43617074696F6E014A0101010D0A6378566965773141434F4C2E50726F
+      706572746965732E427574746F6E735B305D2E43617074696F6E010101010D0A
+      6378566965773141434F4C2E50726F706572746965732E427574746F6E735B30
+      5D2E48696E74010101010D0A6378566965773143504C414E2E50726F70657274
+      6965732E427574746F6E735B305D2E43617074696F6E010101010D0A63785669
+      65773143504C414E2E50726F706572746965732E427574746F6E735B305D2E48
+      696E74010101010D0A63785669657731435354594C452E50726F706572746965
+      732E427574746F6E735B305D2E43617074696F6E010101010D0A637856696577
+      31435354594C452E50726F706572746965732E427574746F6E735B305D2E4869
+      6E74010101010D0A63785669657731464343532E50726F706572746965732E42
+      7574746F6E735B305D2E43617074696F6E010101010D0A637856696577314643
+      43532E50726F706572746965732E427574746F6E735B305D2E48696E74010101
+      010D0A63785669657731464C4147332E50726F706572746965732E427574746F
+      6E735B305D2E43617074696F6E010101010D0A63785669657731464C4147332E
+      50726F706572746965732E427574746F6E735B305D2E48696E74010101010D0A
+      637856696577314A325F4A4F422E50726F706572746965732E427574746F6E73
+      5B305D2E43617074696F6E010101010D0A637856696577314A325F4A4F422E50
+      726F706572746965732E427574746F6E735B305D2E48696E74010101010D0A63
+      785669657731515258432E50726F706572746965732E427574746F6E735B305D
+      2E43617074696F6E010101010D0A63785669657731515258432E50726F706572
+      746965732E427574746F6E735B305D2E48696E74010101010D0A637856696577
+      3151594A532E50726F706572746965732E427574746F6E735B305D2E43617074
+      696F6E010101010D0A6378566965773151594A532E50726F706572746965732E
+      427574746F6E735B305D2E48696E74010101010D0A6378566965773152574F2E
+      50726F706572746965732E427574746F6E735B305D2E43617074696F6E010101
+      010D0A6378566965773152574F2E50726F706572746965732E427574746F6E73
+      5B305D2E48696E74010101010D0A6378566965773153434C484A532E50726F70
+      6572746965732E427574746F6E735B305D2E43617074696F6E010101010D0A63
+      78566965773153434C484A532E50726F706572746965732E427574746F6E735B
+      305D2E48696E74010101010D0A6378566965773153435154592E50726F706572
+      746965732E427574746F6E735B305D2E43617074696F6E010101010D0A637856
+      6965773153435154592E50726F706572746965732E427574746F6E735B305D2E
+      48696E74010101010D0A63785669657731534A52532E50726F70657274696573
+      2E427574746F6E735B305D2E43617074696F6E010101010D0A63785669657731
+      534A52532E50726F706572746965732E427574746F6E735B305D2E48696E7401
+      0101010D0A63785669657731534A59432E50726F706572746965732E42757474
+      6F6E735B305D2E43617074696F6E010101010D0A63785669657731534A59432E
+      50726F706572746965732E427574746F6E735B305D2E48696E74010101010D0A
+      63785669657731544D552E50726F706572746965732E427574746F6E735B305D
+      2E43617074696F6E010101010D0A63785669657731544D552E50726F70657274
+      6965732E427574746F6E735B305D2E48696E74010101010D0A63785669657731
+      5A484A532E50726F706572746965732E427574746F6E735B305D2E4361707469
+      6F6E010101010D0A637856696577315A484A532E50726F706572746965732E42
+      7574746F6E735B305D2E48696E74010101010D0A74626C73686564756C652E49
+      6E646578446566735B305D2E43617365496E734669656C6473010101010D0A74
+      626C73686564756C652E496E646578446566735B305D2E446573634669656C64
+      73010101010D0A74626C73686564756C652E496E646578446566735B305D2E45
+      787072657373696F6E010101010D0A74626C73686564756C652E496E64657844
+      6566735B305D2E4669656C647301706C696E653B7365710101010D0A74626C73
+      686564756C652E496E646578446566735B305D2E536F75726365010101010D0A
+      74626C73686564756C652E496E646578446566735B315D2E43617365496E7346
+      69656C6473010101010D0A74626C73686564756C652E496E646578446566735B
+      315D2E446573634669656C6473010101010D0A74626C73686564756C652E496E
+      646578446566735B315D2E45787072657373696F6E010101010D0A74626C7368
+      6564756C652E496E646578446566735B315D2E4669656C6473016A5F6E6F3B6A
+      325F6A6F620101010D0A74626C73686564756C652E496E646578446566735B31
+      5D2E536F75726365010101010D0A74626C73686564756C652E496E6465784465
+      66735B325D2E43617365496E734669656C6473010101010D0A74626C73686564
+      756C652E496E646578446566735B325D2E446573634669656C6473010101010D
+      0A74626C73686564756C652E496E646578446566735B325D2E45787072657373
+      696F6E010101010D0A74626C73686564756C652E496E646578446566735B325D
+      2E4669656C6473016A5F6E6F3B6A325F6A6F623B72776F0101010D0A74626C73
+      686564756C652E496E646578446566735B325D2E536F75726365010101010D0A
+      74626C73686564756C652E496E646578446566735B335D2E43617365496E7346
+      69656C6473010101010D0A74626C73686564756C652E496E646578446566735B
+      335D2E446573634669656C6473010101010D0A74626C73686564756C652E496E
+      646578446566735B335D2E45787072657373696F6E010101010D0A74626C7368
+      6564756C652E496E646578446566735B335D2E4669656C6473016A5F6E6F3B61
+      636F6C3B6A325F6A6F623B72776F0101010D0A74626C73686564756C652E496E
+      646578446566735B335D2E536F75726365010101010D0A74626C73686564756C
+      652E496E646578446566735B345D2E43617365496E734669656C647301010101
+      0D0A74626C73686564756C652E496E646578446566735B345D2E446573634669
+      656C6473010101010D0A74626C73686564756C652E496E646578446566735B34
+      5D2E45787072657373696F6E010101010D0A74626C73686564756C652E496E64
+      6578446566735B345D2E4669656C6473016A5F6E6F3B6A325F6A6F623B72776F
+      3B666363730101010D0A74626C73686564756C652E496E646578446566735B34
+      5D2E536F75726365010101010D0A74626C73686564756C652E496E6465784465
+      66735B355D2E43617365496E734669656C6473010101010D0A74626C73686564
+      756C652E496E646578446566735B355D2E446573634669656C6473010101010D
+      0A74626C73686564756C652E496E646578446566735B355D2E45787072657373
+      696F6E010101010D0A74626C73686564756C652E496E646578446566735B355D
+      2E4669656C64730163666B7372713B706C696E653B7365710101010D0A74626C
+      73686564756C652E496E646578446566735B355D2E536F75726365010101010D
+      0A74626C73686564756C652E496E646578446566735B365D2E43617365496E73
+      4669656C6473010101010D0A74626C73686564756C652E496E64657844656673
+      5B365D2E446573634669656C6473010101010D0A74626C73686564756C652E49
+      6E646578446566735B365D2E45787072657373696F6E010101010D0A74626C73
+      686564756C652E496E646578446566735B365D2E4669656C6473016474613B74
+      706C616E743B7473686F703B706C696E653B7365710101010D0A74626C736865
+      64756C652E496E646578446566735B365D2E536F75726365010101010D0A7374
+      43686172536574730D0A54776F726B736865657431014348494E455345424947
+      355F434841525345540101010D0A42697442746E31014348494E455345424947
+      355F434841525345540101010D0A42697442746E3130014348494E4553454249
+      47355F434841525345540101010D0A42697442746E3131014348494E45534542
+      4947355F434841525345540101010D0A42697442746E3132014348494E455345
+      424947355F434841525345540101010D0A42697442746E32014348494E455345
+      424947355F434841525345540101010D0A42697442746E33014348494E455345
+      424947355F434841525345540101010D0A42697442746E34014348494E455345
+      424947355F434841525345540101010D0A42697442746E35014348494E455345
+      424947355F434841525345540101010D0A42697442746E36014348494E455345
+      424947355F434841525345540101010D0A42697442746E37014348494E455345
+      424947355F434841525345540101010D0A42697442746E38014348494E455345
+      424947355F434841525345540101010D0A42697442746E39014348494E455345
+      424947355F434841525345540101010D0A63784772696431014348494E455345
+      424947355F434841525345540101010D0A63785374796C65310144454641554C
+      545F434841525345540101010D0A63785374796C65320144454641554C545F43
+      4841525345540101010D0A63785374796C65330144454641554C545F43484152
+      5345540101010D0A63785374796C65340144454641554C545F43484152534554
+      0101010D0A63785374796C65350144454641554C545F43484152534554010101
+      0D0A63785374796C65360144454641554C545F434841525345540101010D0A63
+      785374796C65370144454641554C545F434841525345540101010D0A50616E65
+      6C31014348494E455345424947355F434841525345540101010D0A}
+  end
+end

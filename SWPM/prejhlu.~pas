@@ -1,0 +1,51 @@
+unit prejhlu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Bde, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBTables, Grids, DBGridEh, ExtCtrls, DBCtrls, Buttons, ppPrnabl,
+  ppClass, ppCtrls, ppBands, ppCache, ppDB, ppProd, ppReport, ppComm,
+  ppRelatv, ppDBPipe, ppDBBDE;
+
+type
+  Tfrmprejhl = class(TForm)
+    ppBDEPipeline1: TppBDEPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppColumnHeaderBand1: TppColumnHeaderBand;
+    ppColumnFooterBand1: TppColumnFooterBand;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    Query3: TQuery;
+    DataSource2: TDataSource;
+    ppLabel6: TppLabel;
+    ppShape1: TppShape;
+    ppLabel7: TppLabel;
+    ppDBText5: TppDBText;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppDBText6: TppDBText;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmprejhl: Tfrmprejhl;
+
+implementation
+
+{$R *.DFM}
+
+end.

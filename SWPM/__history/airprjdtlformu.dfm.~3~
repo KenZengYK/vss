@@ -1,0 +1,620 @@
+object frmairprjdtl: Tfrmairprjdtl
+  Left = 154
+  Top = 98
+  Caption = 'Project Detail'
+  ClientHeight = 303
+  ClientWidth = 656
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 656
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 16
+      Top = 16
+      Width = 23
+      Height = 13
+      Caption = 'PDN'
+    end
+    object DBText1: TDBText
+      Left = 48
+      Top = 16
+      Width = 137
+      Height = 17
+      DataField = 'PDN'
+      DataSource = frmpdn.DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 200
+      Top = 16
+      Width = 43
+      Height = 13
+      Caption = 'Manifest '
+    end
+    object DBText2: TDBText
+      Left = 248
+      Top = 16
+      Width = 137
+      Height = 17
+      DataField = 'VOYN'
+      DataSource = frmvoyage.DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 41
+    Width = 656
+    Height = 221
+    Align = alClient
+    AllowedOperations = [alopUpdateEh]
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    FooterRowCount = 1
+    Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
+    RowDetailPanel.Color = clBtnFace
+    SumList.Active = True
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        Color = 13365228
+        EditButtons = <>
+        FieldName = 'J_NO'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Project'
+        Width = 71
+      end
+      item
+        Color = 13365228
+        EditButtons = <>
+        FieldName = 'CUSTPO'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Cust PO#'
+        Width = 70
+      end
+      item
+        Color = 13365228
+        EditButtons = <>
+        FieldName = 'CSTYLE'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Cust Style'
+        Width = 70
+      end
+      item
+        Color = 13365228
+        EditButtons = <>
+        FieldName = 'ACOL'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Clr Code'
+        Width = 33
+      end
+      item
+        Color = 13365228
+        EditButtons = <>
+        FieldName = 'CNAME'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Cust Clr Code/Name'
+        Width = 66
+      end
+      item
+        Color = 13365228
+        EditButtons = <>
+        FieldName = 'T4QTY'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Actul Shipped Qty'
+        Width = 50
+      end
+      item
+        Color = 13365228
+        EditButtons = <>
+        FieldName = 'BOX'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Cartons'
+        Width = 42
+      end
+      item
+        Color = 13365228
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'WGHT'
+        Footer.DisplayFormat = '0.00'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Weight'
+        Width = 51
+      end
+      item
+        Color = 13365228
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'CBM'
+        Footer.DisplayFormat = '0.00'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        ReadOnly = True
+        Width = 53
+      end
+      item
+        Color = 13365228
+        EditButtons = <>
+        FieldName = 'AIRRATE'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Air Freight Rate'
+        Width = 52
+      end
+      item
+        Color = 13365228
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'VWGHT'
+        Footer.DisplayFormat = '0.00'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Volume Weight|Default'
+        Width = 50
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'VWGHT1'
+        Footer.DisplayFormat = '0.00'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        Title.Caption = 'Volume Weight|Adjustment'
+        Width = 56
+      end
+      item
+        EditButtons = <>
+        FieldName = 'OCHARGE'
+        Footer.DisplayFormat = '0.00'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        Title.Caption = 'Other Charge Cost'
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'BCHARGE'
+        Footer.DisplayFormat = '0.00'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        Title.Caption = 'Sea Charge Cost'
+        Width = 50
+      end
+      item
+        Color = 13365228
+        EditButtons = <>
+        FieldName = 'RCHARGE'
+        Footer.DisplayFormat = '0.00'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Total Air Charge Cost'
+        Width = 55
+      end
+      item
+        EditButtons = <>
+        FieldName = 'VNDR'
+        Footers = <>
+        Title.Caption = 'Supplier or Factory'
+        Width = 50
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 262
+    Width = 656
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 1
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_pdn_airdtl'
+    FieldDefs = <
+      item
+        Name = 'SEQ'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'SEQ1'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CUSTPO'
+        DataType = ftWideString
+        Size = 40
+      end
+      item
+        Name = 'CSTYLE'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 35
+      end
+      item
+        Name = 'CNAME'
+        DataType = ftWideString
+        Size = 40
+      end
+      item
+        Name = 'BOX'
+        DataType = ftInteger
+      end
+      item
+        Name = 'WGHT'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CBM'
+        DataType = ftFloat
+      end
+      item
+        Name = 'EXFTY'
+        DataType = ftDate
+      end
+      item
+        Name = 'EXTM'
+        DataType = ftTime
+      end
+      item
+        Name = 'J_NO'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'J2_JOB'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'ACOL'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 5
+      end
+      item
+        Name = 'T4QTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'AIRRATE'
+        DataType = ftFloat
+      end
+      item
+        Name = 'OCHARGE'
+        DataType = ftFloat
+      end
+      item
+        Name = 'BCHARGE'
+        DataType = ftFloat
+      end
+      item
+        Name = 'RCHARGE'
+        DataType = ftFloat
+      end
+      item
+        Name = 'VWGHT'
+        DataType = ftFloat
+      end
+      item
+        Name = 'VWGHT1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'VNDR'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'SHPM'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'VESS'
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'LPORT'
+        DataType = ftWideString
+        Size = 50
+      end
+      item
+        Name = 'DEST'
+        DataType = ftWideString
+        Size = 50
+      end
+      item
+        Name = 'ONDT'
+        DataType = ftDate
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'cstyle;j_no;j2_job;acol'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterPost = Query1AfterPost
+    Left = 408
+    Top = 8
+    object Query1SEQ: TIntegerField
+      FieldName = 'SEQ'
+      Required = True
+    end
+    object Query1SEQ1: TIntegerField
+      FieldName = 'SEQ1'
+      Required = True
+    end
+    object Query1CSTYLE: TWideStringField
+      FieldName = 'CSTYLE'
+      Required = True
+      Size = 35
+    end
+    object Query1J_NO: TWideStringField
+      FieldName = 'J_NO'
+      Required = True
+    end
+    object Query1J2_JOB: TWideStringField
+      FieldName = 'J2_JOB'
+      Required = True
+      Size = 10
+    end
+    object Query1ACOL: TWideStringField
+      FieldName = 'ACOL'
+      Required = True
+      Size = 5
+    end
+    object Query1CUSTPO: TWideStringField
+      FieldName = 'CUSTPO'
+      Size = 40
+    end
+    object Query1CNAME: TWideStringField
+      FieldName = 'CNAME'
+      Size = 40
+    end
+    object Query1BOX: TIntegerField
+      FieldName = 'BOX'
+    end
+    object Query1WGHT: TFloatField
+      FieldName = 'WGHT'
+    end
+    object Query1CBM: TFloatField
+      FieldName = 'CBM'
+    end
+    object Query1EXFTY: TDateField
+      FieldName = 'EXFTY'
+    end
+    object Query1EXTM: TTimeField
+      FieldName = 'EXTM'
+    end
+    object Query1T4QTY: TIntegerField
+      FieldName = 'T4QTY'
+    end
+    object Query1AIRRATE: TFloatField
+      FieldName = 'AIRRATE'
+    end
+    object Query1OCHARGE: TFloatField
+      FieldName = 'OCHARGE'
+      OnChange = Query1OCHARGEChange
+      DisplayFormat = '0.00'
+    end
+    object Query1BCHARGE: TFloatField
+      FieldName = 'BCHARGE'
+      OnChange = Query1OCHARGEChange
+      DisplayFormat = '0.00'
+    end
+    object Query1RCHARGE: TFloatField
+      FieldName = 'RCHARGE'
+      DisplayFormat = '0.00'
+    end
+    object Query1VWGHT: TFloatField
+      FieldName = 'VWGHT'
+    end
+    object Query1VWGHT1: TFloatField
+      FieldName = 'VWGHT1'
+      OnChange = Query1OCHARGEChange
+    end
+    object Query1VNDR: TWideStringField
+      FieldName = 'VNDR'
+    end
+    object Query1SHPM: TWideStringField
+      FieldName = 'SHPM'
+    end
+    object Query1VESS: TWideStringField
+      FieldName = 'VESS'
+      Size = 30
+    end
+    object Query1LPORT: TWideStringField
+      FieldName = 'LPORT'
+      Size = 50
+    end
+    object Query1DEST: TWideStringField
+      FieldName = 'DEST'
+      Size = 50
+    end
+    object Query1ONDT: TDateField
+      FieldName = 'ONDT'
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 440
+    Top = 8
+  end
+  object Query4: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'J_NO'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'J2_JOB'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'RWO'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL'
+        DataType = ftString
+        Size = 3
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'j_no;j2_job;rwo;acol'
+      end>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 536
+    Top = 8
+  end
+  object Query5: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 568
+    Top = 8
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'J_NO'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'J2_JOB'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'RWO'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL'
+        DataType = ftString
+        Size = 3
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'j_no;j2_job;rwo;acol'
+      end>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 472
+    Top = 8
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 504
+    Top = 8
+  end
+end

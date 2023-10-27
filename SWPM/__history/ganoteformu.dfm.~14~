@@ -1,0 +1,292 @@
+object frmganote: Tfrmganote
+  Left = 253
+  Top = 294
+  Caption = #36948#27161#25351#37341#20633#27880' - '#38321#35261#25110#25171#21360
+  ClientHeight = 279
+  ClientWidth = 449
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 16
+    Width = 18
+    Height = 13
+    Caption = #25289'  '
+  end
+  object DBText1: TDBText
+    Left = 46
+    Top = 16
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'PLINE'
+    DataSource = frmachieving.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 111
+    Top = 16
+    Width = 45
+    Height = 13
+    Caption = #24037#31243#34399'   '
+  end
+  object DBText2: TDBText
+    Left = 160
+    Top = 16
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'J_NO'
+    DataSource = frmachieving.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 224
+    Top = 16
+    Width = 57
+    Height = 13
+    Caption = #25289#21046#21934#34399'   '
+  end
+  object DBText3: TDBText
+    Left = 280
+    Top = 16
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'J2_JOB'
+    DataSource = frmachieving.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 328
+    Top = 16
+    Width = 9
+    Height = 13
+    Caption = ' - '
+  end
+  object DBText4: TDBText
+    Left = 344
+    Top = 16
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'RWO'
+    DataSource = frmachieving.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 376
+    Top = 16
+    Width = 9
+    Height = 13
+    Caption = ' - '
+  end
+  object DBText5: TDBText
+    Left = 392
+    Top = 16
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'FCCS'
+    DataSource = frmachieving.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 272
+    Top = 240
+    Width = 3
+    Height = 13
+    Visible = False
+  end
+  object lbl850: TLabel
+    Left = 368
+    Top = 232
+    Width = 28
+    Height = 13
+    Caption = 'lbl850'
+    Visible = False
+  end
+  object BitBtn1: TBitBtn
+    Left = 24
+    Top = 232
+    Width = 73
+    Height = 25
+    Caption = #20445#23384
+    DoubleBuffered = True
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      04000000000080000000CE0E0000C40E00001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+      2222200000000002222203300007030222220330000703000222033000000303
+      0222033333333303000203300000330303020307777703030302030777770303
+      0302030777770003030203077777070303020000000000000302220307777707
+      0302220000000000000222220307777707022222000000000002}
+    ParentDoubleBuffered = False
+    TabOrder = 1
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 96
+    Top = 232
+    Width = 73
+    Height = 25
+    Caption = #32232#36655
+    DoubleBuffered = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000120B0000120B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333000000
+      000033333377777777773333330FFFFFFFF03FF3FF7FF33F3FF700300000FF0F
+      00F077F777773F737737E00BFBFB0FFFFFF07773333F7F3333F7E0BFBF000FFF
+      F0F077F3337773F3F737E0FBFBFBF0F00FF077F3333FF7F77F37E0BFBF00000B
+      0FF077F3337777737337E0FBFBFBFBF0FFF077F33FFFFFF73337E0BF0000000F
+      FFF077FF777777733FF7000BFB00B0FF00F07773FF77373377373330000B0FFF
+      FFF03337777373333FF7333330B0FFFF00003333373733FF777733330B0FF00F
+      0FF03333737F37737F373330B00FFFFF0F033337F77F33337F733309030FFFFF
+      00333377737FFFFF773333303300000003333337337777777333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 2
+    OnClick = BitBtn2Click
+  end
+  object DBMemo1: TcxDBMemo
+    Left = 24
+    Top = 48
+    DataBinding.DataField = 'MARKS'
+    DataBinding.DataSource = frmachieving.DataSource1
+    Properties.ReadOnly = True
+    TabOrder = 0
+    Height = 161
+    Width = 409
+  end
+  object BitBtn3: TBitBtn
+    Left = 168
+    Top = 232
+    Width = 73
+    Height = 25
+    Caption = #36864#20986
+    DoubleBuffered = True
+    Kind = bkClose
+    ParentDoubleBuffered = False
+    TabOrder = 3
+  end
+  object Query10: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 248
+    Top = 224
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 280
+    Top = 224
+  end
+  object siLang1: TsiLang
+    Version = '6.5'
+    StringsTypes.Strings = (
+      'TIB_STRINGLIST'
+      'TSTRINGLIST')
+    NumOfLanguages = 2
+    LangDelim = 1
+    LangNames.Strings = (
+      'Traditional Chinese'
+      'English')
+    Language = 'Traditional Chinese'
+    ExcludedProperties.Strings = (
+      'Category'
+      'SecondaryShortCuts'
+      'HelpKeyword'
+      'InitialDir'
+      'HelpKeyword'
+      'ActivePage'
+      'ImeName'
+      'DefaultExt'
+      'FileName'
+      'FieldName'
+      'PickList'
+      'DisplayFormat'
+      'EditMask'
+      'KeyList'
+      'LookupDisplayFields'
+      'DropDownSpecRow'
+      'TableName'
+      'DatabaseName'
+      'IndexName'
+      'MasterFields')
+    Left = 320
+    Top = 224
+    TranslationData = {
+      73007400430061007000740069006F006E0073005F0055006E00690063006F00
+      640065000D000A0073007400480069006E00740073005F0055006E0069006300
+      6F00640065000D000A007300740044006900730070006C00610079004C006100
+      620065006C0073005F0055006E00690063006F00640065000D000A0073007400
+      46006F006E00740073005F0055006E00690063006F00640065000D000A007300
+      74004D0075006C00740069004C0069006E00650073005F0055006E0069006300
+      6F00640065000D000A007300740044006C006700730043006100700074006900
+      6F006E0073005F0055006E00690063006F00640065000D000A00570061007200
+      6E0069006E00670001005700610072006E0069006E00670001000D000A004500
+      720072006F00720001004500720072006F00720001000D000A0049006E006600
+      6F0072006D006100740069006F006E00010049006E0066006F0072006D006100
+      740069006F006E0001000D000A0043006F006E006600690072006D0001004300
+      6F006E006600690072006D0001000D000A005900650073000100260059006500
+      730001000D000A004E006F00010026004E006F0001000D000A004F004B000100
+      4F004B0001000D000A00430061006E00630065006C000100430061006E006300
+      65006C0001000D000A00410062006F007200740001002600410062006F007200
+      740001000D000A00520065007400720079000100260052006500740072007900
+      01000D000A00490067006E006F007200650001002600490067006E006F007200
+      650001000D000A0041006C006C000100260041006C006C0001000D000A004E00
+      6F00200054006F00200041006C006C0001004E0026006F00200074006F002000
+      41006C006C0001000D000A00590065007300200054006F00200041006C006C00
+      0100590065007300200074006F002000260041006C006C0001000D000A004800
+      65006C00700001002600480065006C00700001000D000A007300740053007400
+      720069006E00670073005F0055006E00690063006F00640065000D000A007300
+      74004F00740068006500720053007400720069006E00670073005F0055006E00
+      690063006F00640065000D000A00730074004C006F00630061006C0065007300
+      5F0055006E00690063006F00640065000D000A007300740043006F006C006C00
+      65006300740069006F006E0073005F0055006E00690063006F00640065000D00
+      0A0073007400430068006100720053006500740073005F0055006E0069006300
+      6F00640065000D000A00}
+  end
+end

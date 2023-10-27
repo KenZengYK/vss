@@ -1,0 +1,26 @@
+unit pdn_defectnotepadformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  Tfrmpdn_defectnotepad = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpdn_defectnotepad: Tfrmpdn_defectnotepad;
+
+implementation
+
+uses mainformu, pdnformu, pdnwriteformu;
+
+{$R *.dfm}
+
+end.

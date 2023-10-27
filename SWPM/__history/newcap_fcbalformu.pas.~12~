@@ -1,0 +1,225 @@
+unit newcap_fcbalformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DateUtils, DB, DBClient;
+
+type
+  Tfrmnewcap_fcbal = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn7: TBitBtn;
+    BitBtn8: TBitBtn;
+    Query2: TClientDataSet;
+    BitBtn9: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn9Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_fcbal: Tfrmnewcap_fcbal;
+
+implementation
+
+uses mainformu, newcap_simfty1formu, newcap_ftysimulationformu, newcap_1stchoiceformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_fcbal.BitBtn1Click(Sender: TObject);
+//var
+//  seq:integer;
+begin
+  {
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq) as q from tbl_cap_ftyelements where seq<999 and tplant='''+combobox1.text+''' and yr='+inttostr(spinedit1.value);
+    open;
+    if not fieldbyname('q').isnull then seq:=fieldbyname('q').value else seq:=1;
+  end;
+  }
+  if frmnewcap_simfty1=nil then frmnewcap_simfty1:=tfrmnewcap_simfty1.create(nil);
+  frmnewcap_simfty1.combobox1.text:='SL';
+  frmnewcap_simfty1.spinedit2.value:=yearof(date);
+  frmnewcap_simfty1.spinedit1.value:=monthof(date);
+  //frmnewcap_simfty1.Edit1.text:='Balancing '+inttostr(seq);
+  frmnewcap_simfty1.show;
+end;
+
+procedure Tfrmnewcap_fcbal.BitBtn2Click(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select tm from tbl_cap_syn';
+    open;
+    if not fieldbyname('tm').isnull then begin
+      showmessage('RWO data synchronization is not finished, pls wait!');
+    end else begin
+      if frmnewcap_ftysimulation=nil then frmnewcap_ftysimulation:=tfrmnewcap_ftysimulation.Create(nil);
+      frmnewcap_ftysimulation.Caption:='Capacity Planning - Review Balancing';
+      frmnewcap_ftysimulation.bitbtn1.enabled:=false;//true;
+      frmnewcap_ftysimulation.BitBtn3.visible:=false;
+      frmnewcap_ftysimulation.BitBtn4.Visible:=false;
+      frmnewcap_ftysimulation.BitBtn5.visible:=false;
+      frmnewcap_ftysimulation.bitbtn5.Enabled:=false;
+      frmnewcap_ftysimulation.BitBtn6.Visible:=false;
+      frmnewcap_ftysimulation.combobox1.text:='SL';
+      frmnewcap_ftysimulation.spinedit1.value:=yearof(date);
+      frmnewcap_ftysimulation.show;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_fcbal.BitBtn3Click(Sender: TObject);
+var
+  y,m,d:word;
+begin
+    decodedate(date,y,m,d);
+    if frmnewcap_1stchoice=nil then frmnewcap_1stchoice:=tfrmnewcap_1stchoice.Create(nil);
+    frmnewcap_1stchoice.Caption:='Edit Balancing';
+    frmnewcap_1stchoice.combobox3.text:='SL';
+    frmnewcap_1stchoice.spinedit2.value:=y;
+    frmnewcap_1stchoice.BitBtn1.visible:=false;
+    frmnewcap_1stchoice.BitBtn4.visible:=false;
+    frmnewcap_1stchoice.BitBtn5.visible:=false;
+    frmnewcap_1stchoice.BitBtn3.visible:=true;
+    frmnewcap_1stchoice.BitBtn6.visible:=true;
+    frmnewcap_1stchoice.BitBtn7.visible:=true;
+    frmnewcap_1stchoice.BitBtn8.visible:=true;
+    //frmnewcap_1stchoice.BitBtn4.Caption:='Edit';
+    //frmnewcap_1stchoice.bitbtn4.enabled:=false;
+    frmnewcap_1stchoice.SpinEdit1.Value:=m;
+    frmnewcap_1stchoice.Label4.Visible:=true;
+    frmnewcap_1stchoice.ComboBox1.visible:=true;
+    frmnewcap_1stchoice.cxView1.OptionsData.Editing:=true;
+    frmnewcap_1stchoice.show;
+end;
+
+procedure Tfrmnewcap_fcbal.BitBtn4Click(Sender: TObject);
+var
+  y,m,d:word;
+begin
+    decodedate(date,y,m,d);
+    if frmnewcap_1stchoice=nil then frmnewcap_1stchoice:=tfrmnewcap_1stchoice.Create(nil);
+    frmnewcap_1stchoice.Caption:='Choose Confirm';
+    frmnewcap_1stchoice.combobox3.text:='SL';
+    frmnewcap_1stchoice.spinedit2.value:=y;
+    frmnewcap_1stchoice.BitBtn1.visible:=true;
+    frmnewcap_1stchoice.BitBtn4.visible:=true;
+    frmnewcap_1stchoice.BitBtn5.visible:=true;
+    frmnewcap_1stchoice.BitBtn3.visible:=false;
+    frmnewcap_1stchoice.BitBtn6.visible:=false;
+    frmnewcap_1stchoice.BitBtn7.visible:=false;
+    frmnewcap_1stchoice.BitBtn8.visible:=false;
+    frmnewcap_1stchoice.BitBtn4.Caption:='Confirm Chosen and Save';
+    frmnewcap_1stchoice.BitBtn1.Caption:='Un-chosen';
+    frmnewcap_1stchoice.SpinEdit1.Value:=m;
+    frmnewcap_1stchoice.Label4.Visible:=true;
+    frmnewcap_1stchoice.ComboBox1.visible:=true;
+    frmnewcap_1stchoice.cxView1.OptionsData.Editing:=false;
+    frmnewcap_1stchoice.show;
+end;
+
+procedure Tfrmnewcap_fcbal.BitBtn5Click(Sender: TObject);
+var
+  y,m,d:word;
+begin
+    decodedate(date,y,m,d);
+    if frmnewcap_1stchoice=nil then frmnewcap_1stchoice:=tfrmnewcap_1stchoice.Create(nil);
+    frmnewcap_1stchoice.Caption:='Confirm by HKOA with Factory';
+    frmnewcap_1stchoice.combobox3.text:='SL';
+    frmnewcap_1stchoice.spinedit2.value:=y;
+    frmnewcap_1stchoice.BitBtn1.visible:=true;
+    frmnewcap_1stchoice.BitBtn4.visible:=true;
+    frmnewcap_1stchoice.BitBtn5.visible:=true;
+    frmnewcap_1stchoice.BitBtn3.visible:=false;
+    frmnewcap_1stchoice.BitBtn6.visible:=false;
+    frmnewcap_1stchoice.BitBtn7.visible:=false;
+    frmnewcap_1stchoice.BitBtn8.visible:=false;
+    frmnewcap_1stchoice.BitBtn4.Caption:='Confirmed and Save';
+    frmnewcap_1stchoice.BitBtn1.Caption:='Release';
+    frmnewcap_1stchoice.SpinEdit1.Value:=m;
+    frmnewcap_1stchoice.Label4.Visible:=false;
+    frmnewcap_1stchoice.ComboBox1.visible:=false;
+    frmnewcap_1stchoice.cxView1.OptionsData.Editing:=false;
+    frmnewcap_1stchoice.show;
+end;
+
+procedure Tfrmnewcap_fcbal.BitBtn6Click(Sender: TObject);
+var
+  y,m,d:word;
+  mlock:boolean;
+begin
+  screen.cursor:=crSQLWait;
+  try
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='select mlock from tbluser where usr='''+frmmain.combobox1.text+'''';
+      open;
+      if not fieldbyname('mlock').isnull then mlock:=fieldbyname('mlock').value;
+    end;
+    if mlock=false then begin
+      showmessage('You have not right!');
+    end else begin
+      decodedate(date,y,m,d);
+      if frmnewcap_1stchoice=nil then frmnewcap_1stchoice:=tfrmnewcap_1stchoice.Create(nil);
+      frmnewcap_1stchoice.Caption:='Master Lock';
+      frmnewcap_1stchoice.combobox3.text:='SL';
+      frmnewcap_1stchoice.spinedit2.value:=y;
+      frmnewcap_1stchoice.BitBtn1.visible:=true;
+      frmnewcap_1stchoice.BitBtn4.visible:=true;
+      frmnewcap_1stchoice.BitBtn5.visible:=true;
+      frmnewcap_1stchoice.BitBtn3.visible:=false;
+      frmnewcap_1stchoice.BitBtn6.visible:=false;
+      frmnewcap_1stchoice.BitBtn7.visible:=false;
+      frmnewcap_1stchoice.BitBtn8.visible:=false;
+      frmnewcap_1stchoice.BitBtn4.Caption:='Master Locked and Save';
+      frmnewcap_1stchoice.BitBtn1.Caption:='Un-locked';
+      frmnewcap_1stchoice.SpinEdit1.Value:=m;
+      frmnewcap_1stchoice.Label4.Visible:=false;
+      frmnewcap_1stchoice.ComboBox1.visible:=false;
+      frmnewcap_1stchoice.cxView1.OptionsData.Editing:=false;
+      frmnewcap_1stchoice.show;
+    end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmnewcap_fcbal.BitBtn7Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmnewcap_fcbal.BitBtn9Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure Tfrmnewcap_fcbal.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_fcbal:=nil;
+end;
+
+end.

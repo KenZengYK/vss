@@ -1,0 +1,802 @@
+object frmprdprogress: Tfrmprdprogress
+  Left = 0
+  Top = 0
+  Caption = 
+    'Production progress (cut, sewn, pack) & using aT3 function to ba' +
+    'lancing production capacity'
+  ClientHeight = 357
+  ClientWidth = 815
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  PopupMenu = pm1
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 815
+    Height = 41
+    Align = alTop
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 24
+      Top = 8
+      Width = 23
+      Height = 13
+      Caption = 'Fty: '
+    end
+    object Label2: TLabel
+      Left = 208
+      Top = 8
+      Width = 29
+      Height = 13
+      Caption = 'Year: '
+    end
+    object Label3: TLabel
+      Left = 320
+      Top = 8
+      Width = 37
+      Height = 13
+      Caption = 'Month: '
+    end
+    object ComboBox1: TComboBox
+      Left = 53
+      Top = 8
+      Width = 76
+      Height = 21
+      CharCase = ecUpperCase
+      TabOrder = 0
+      Text = 'SL'
+      Items.Strings = (
+        'SL'
+        'RX'
+        'CN'
+        'CL')
+    end
+    object se1: TSpinEdit
+      Left = 240
+      Top = 8
+      Width = 57
+      Height = 22
+      MaxValue = 2030
+      MinValue = 2021
+      TabOrder = 1
+      Value = 2021
+    end
+    object se2: TSpinEdit
+      Left = 359
+      Top = 8
+      Width = 57
+      Height = 22
+      MaxValue = 12
+      MinValue = 1
+      TabOrder = 2
+      Value = 8
+    end
+    object BitBtn3: TBitBtn
+      Left = 520
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'OK'
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333333333333333330000333333333333333333333333F33333333333
+        00003333344333333333333333388F3333333333000033334224333333333333
+        338338F3333333330000333422224333333333333833338F3333333300003342
+        222224333333333383333338F3333333000034222A22224333333338F338F333
+        8F33333300003222A3A2224333333338F3838F338F33333300003A2A333A2224
+        33333338F83338F338F33333000033A33333A222433333338333338F338F3333
+        0000333333333A222433333333333338F338F33300003333333333A222433333
+        333333338F338F33000033333333333A222433333333333338F338F300003333
+        33333333A222433333333333338F338F00003333333333333A22433333333333
+        3338F38F000033333333333333A223333333333333338F830000333333333333
+        333A333333333333333338330000333333333333333333333333333333333333
+        0000}
+      ModalResult = 1
+      NumGlyphs = 2
+      TabOrder = 3
+      OnClick = BitBtn3Click
+    end
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 41
+    Width = 815
+    Height = 275
+    Align = alClient
+    TabOrder = 1
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+    end
+    object cxView1: TcxGridDBBandedTableView
+      NavigatorButtons.ConfirmDelete = False
+      OnCustomDrawCell = cxView1CustomDrawCell
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.CancelOnExit = False
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      OptionsView.GroupByBox = False
+      OptionsView.HeaderAutoHeight = True
+      OptionsView.BandHeaderHeight = 45
+      Styles.Header = cxStyle2
+      Styles.BandHeader = cxStyle2
+      Bands = <
+        item
+          Caption = 
+            #30070#26376'('#35009#36554#21253')'#29983#29986#36914#24230#21450#21033#29992'aT3'#21151#33021#35519#25972#24179#34913#29986#33021#25976#37327#13#10'Current month production progress (' +
+            'cut, sewn, pack) & using aT3 function to balancing production ca' +
+            'pacity'
+        end
+        item
+          Caption = 'Combined'#13#10'Cde'
+          Position.BandIndex = 0
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Prdn'#13#10'site'#13#10#29983#29986#22320
+          Position.BandIndex = 0
+          Position.ColIndex = 1
+        end
+        item
+          Caption = 'Ws'#13#10#24037#22580
+          Position.BandIndex = 0
+          Position.ColIndex = 2
+        end
+        item
+          Caption = 'BKU'
+          Position.BandIndex = 0
+          Position.ColIndex = 3
+        end
+        item
+          Caption = 'Cust'#13#10#23458#25142
+          Position.BandIndex = 0
+          Position.ColIndex = 4
+        end
+        item
+          Caption = 
+            'Def. prdn capacity'#13#10'based on T3 (dT3/aT3) dd'#13#10#38928#35373#29986#33021#13#10#20381'T3 (dT3/aT3' +
+            ')'#26085#26399
+          Position.BandIndex = 0
+          Position.ColIndex = 5
+        end
+        item
+          Caption = 'Flow 1.1'
+          Position.BandIndex = 0
+          Position.ColIndex = 6
+        end
+        item
+          Caption = 'Flow 1.2'
+          Position.BandIndex = 0
+          Position.ColIndex = 7
+        end
+        item
+          Caption = 'Flow 2.1'
+          Position.BandIndex = 0
+          Position.ColIndex = 8
+        end
+        item
+          Caption = 'Flow 2.2'
+          Position.BandIndex = 0
+          Position.ColIndex = 9
+        end
+        item
+          Caption = 'Flow 3.1'
+          Position.BandIndex = 0
+          Position.ColIndex = 10
+        end
+        item
+          Caption = 'Flow 3.2'
+          Position.BandIndex = 0
+          Position.ColIndex = 11
+        end
+        item
+          Caption = 'Flow 3.3'
+          Position.BandIndex = 0
+          Position.ColIndex = 12
+        end
+        item
+          Caption = 'Flow 4'
+          Position.BandIndex = 0
+          Position.ColIndex = 13
+        end
+        item
+          Caption = 'Ex-fty less qty list'#13#10#38626#21424#25976#24046#30064#26126#32048#34920
+          Position.BandIndex = 0
+          Position.ColIndex = 15
+        end
+        item
+          Caption = 'Using aT3 function to '#13#10'balancing Prdn capacity'#13#10#21033#29992'aT3'#21151#33021#13#10#35519#25972#38928#35373#29986#33021
+          Position.BandIndex = 0
+          Position.ColIndex = 16
+        end
+        item
+          Caption = 'Prdn Qty'#13#10#29983#29987#32317#25976#13#10'- (T3)'
+          Position.BandIndex = 7
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Prdn Qty'#13#10'- (Picked)'
+          Position.BandIndex = 8
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Prdn Qty'#13#10'- (850)'
+          Position.BandIndex = 9
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Prdn Qty'#13#10'- (915)'
+          Position.BandIndex = 10
+          Position.ColIndex = 0
+        end
+        item
+          Caption = '(915)'#13#10'- (T2)'
+          Position.BandIndex = 11
+          Position.ColIndex = 0
+        end
+        item
+          Caption = '(T2)'#13#10'- (T3)'
+          Position.BandIndex = 12
+          Position.ColIndex = 0
+        end
+        item
+          Caption = '(T3)'
+          Position.BandIndex = 13
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Last Mth finished'#13#10'current Mth'#13#10'Ex-fty Qty'#13#10#19978#26376#23436#25104#13#10#26412#26376#36208#36008#25976
+          Position.BandIndex = 0
+          Position.ColIndex = 17
+          Visible = False
+        end
+        item
+          Caption = '(Ex-fty)'
+          Position.BandIndex = 14
+          Position.ColIndex = 0
+        end
+        item
+          Caption = '(T3)'#13#10'- (Ex-fty)'
+          Position.BandIndex = 0
+          Position.ColIndex = 14
+        end>
+      object cxView1CMB: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'CMB'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+        Position.BandIndex = 1
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1FTY: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'FTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 55
+        Position.BandIndex = 2
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1FLAG60: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'FLAG60'
+        HeaderAlignmentHorz = taCenter
+        Width = 45
+        Position.BandIndex = 4
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1CUST: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'CUST'
+        HeaderAlignmentHorz = taCenter
+        Width = 58
+        Position.BandIndex = 5
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1TTL: TcxGridDBBandedColumn
+        Caption = 'Current Mth'#13#10'Prdn Qty'#13#10#30070#26376#13#10#29983#29987#32317#25976
+        DataBinding.FieldName = 'TTL'
+        HeaderAlignmentHorz = taCenter
+        Width = 68
+        Position.BandIndex = 6
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1SAH: TcxGridDBBandedColumn
+        Caption = 'GSD'#13#10'SAH'
+        DataBinding.FieldName = 'SAH'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '#0'
+        HeaderAlignmentHorz = taCenter
+        Width = 65
+        Position.BandIndex = 6
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1O1: TcxGridDBBandedColumn
+        Caption = 'Current Mth unfinished'#13#10'Cut/Sewn/Pack'#13#10#30070#26376#26410#23436#25104#13#10#35009#36554#21253#25976
+        DataBinding.FieldName = 'O1'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
+        Position.BandIndex = 17
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1O2: TcxGridDBBandedColumn
+        Caption = 'Unfinished'#13#10'Picked'#13#10#26410#23436#25104#13#10#22519#36984#25976
+        DataBinding.FieldName = 'O2'
+        HeaderAlignmentHorz = taCenter
+        Width = 62
+        Position.BandIndex = 18
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1O3: TcxGridDBBandedColumn
+        Caption = 'Unfinished'#13#10'Sewn'#13#10#26410#23436#25104#13#10#32299#21512#25976
+        DataBinding.FieldName = 'O3'
+        HeaderAlignmentHorz = taCenter
+        Width = 62
+        Position.BandIndex = 19
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1O4: TcxGridDBBandedColumn
+        Caption = 'Unfinished'#13#10'Sewn'#13#10#26410#23436#25104#13#10#32299#21512#25976
+        DataBinding.FieldName = 'O4'
+        HeaderAlignmentHorz = taCenter
+        Width = 62
+        Position.BandIndex = 20
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1O5: TcxGridDBBandedColumn
+        Caption = 'Waiting '#13#10'P'#39' Dept'#13#10'to collect'#13#10#24453#21253#35037#37096#13#10#25910#36008#25976
+        DataBinding.FieldName = 'O5'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+        Position.BandIndex = 21
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1O6: TcxGridDBBandedColumn
+        Caption = 'Packing WIP'#13#10#21253#35037#20013'WIP'
+        DataBinding.FieldName = 'O6'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+        Position.BandIndex = 22
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1O7: TcxGridDBBandedColumn
+        Caption = 'Current Mth'#13#10'Finished '#13#10'Stk Bal.'#13#10#30070#26376#25104#21697#20489#13#10#39192#25976
+        DataBinding.FieldName = 'O7'
+        HeaderAlignmentHorz = taCenter
+        Width = 68
+        Position.BandIndex = 26
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1EXQTY: TcxGridDBBandedColumn
+        Caption = 'Current Mth'#13#10'Ex-fty Qty'#13#10#30070#26376#23436#25104#13#10#38626#21424#25976
+        DataBinding.FieldName = 'EXQTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 65
+        Position.BandIndex = 25
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1SMPL: TcxGridDBBandedColumn
+        Caption = 'Sample'#13#10#25277#26495#25976
+        DataBinding.FieldName = 'SMPL'
+        HeaderAlignmentHorz = taCenter
+        Width = 42
+        Position.BandIndex = 15
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1DEFECT: TcxGridDBBandedColumn
+        Caption = 'Defect'#13#10#30133#21697
+        DataBinding.FieldName = 'DEFECT'
+        HeaderAlignmentHorz = taCenter
+        Width = 40
+        Position.BandIndex = 15
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1LOST: TcxGridDBBandedColumn
+        Caption = 'Lost'#13#10#36986#22833#25976
+        DataBinding.FieldName = 'LOST'
+        HeaderAlignmentHorz = taCenter
+        Width = 42
+        Position.BandIndex = 15
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1HQTY: TcxGridDBBandedColumn
+        Caption = 'Hold'#13#10#24310#35492#25976
+        DataBinding.FieldName = 'HQTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 42
+        Position.BandIndex = 15
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+      object cxView1OQTY: TcxGridDBBandedColumn
+        Caption = 'Others'#13#10#20854#20182
+        DataBinding.FieldName = 'OQTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 42
+        Position.BandIndex = 15
+        Position.ColIndex = 4
+        Position.RowIndex = 0
+      end
+      object cxView1AT3QTY: TcxGridDBBandedColumn
+        Caption = 'Curr Mth '#13#10'Prdn Qty, '#13#10'next Mth Ex-fty'#13#10#30070#26376#29983#29986#13#10#19979#26376#38626#21424#25976
+        DataBinding.FieldName = 'AT3QTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 85
+        Position.BandIndex = 16
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column1: TcxGridDBBandedColumn
+        Caption = 'Last Mth or b4'#13#10'Finished Qty,'#13#10'curr Mth Ex-fty'#13#10#30070#26376#21069#23436#25104#13#10#30070#26376#38626#21424#25976
+        DataBinding.FieldName = 'C_EQTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
+        Position.BandIndex = 16
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object t3seq: TcxGridDBBandedColumn
+        DataBinding.FieldName = 'T3SEQ'
+        Visible = False
+        Position.BandIndex = 1
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1C_NEQTY: TcxGridDBBandedColumn
+        Caption = 
+          'Last Mth or b4'#13#10'Finished Qty,'#13#10'curr Mth not '#13#10'yet Ex-fty'#13#10#30070#26376#21069#23436#25104#13 +
+          #10#30070#26376#26410#38626#21424#25976
+        DataBinding.FieldName = 'C_NEQTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
+        Position.BandIndex = 16
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1t3qty: TcxGridDBBandedColumn
+        Caption = 'Prdn'#13#10'finished'#13#10#29983#29987#13#10#23436#25104#25976
+        DataBinding.FieldName = 't3qty'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+        Position.BandIndex = 23
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1TTL_D1: TcxGridDBBandedColumn
+        DataBinding.FieldName = 'TTL_D1'
+        Visible = False
+        Position.BandIndex = 1
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1TTL_D2: TcxGridDBBandedColumn
+        DataBinding.FieldName = 'TTL_D2'
+        Visible = False
+        Position.BandIndex = 1
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+      object cxView1Ws: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'Ws'
+        PropertiesClassName = 'TcxMRUEditProperties'
+        HeaderAlignmentHorz = taCenter
+        Width = 38
+        Position.BandIndex = 3
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1O5P: TcxGridDBBandedColumn
+        Caption = '%'
+        DataBinding.FieldName = 'O5P'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 21
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxView1
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 316
+    Width = 815
+    Height = 41
+    Align = alBottom
+    TabOrder = 2
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 81
+      Height = 25
+      Caption = 'Export'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
+        333333333333337FF3333333333333903333333333333377FF33333333333399
+        03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
+        99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
+        99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
+        03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
+        33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
+        33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
+        3333777777333333333333333333333333333333333333333333}
+      NumGlyphs = 2
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 104
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      Kind = bkClose
+      TabOrder = 1
+    end
+  end
+  object cxGrid2: TcxGrid
+    Left = 256
+    Top = 270
+    Width = 369
+    Height = 240
+    TabOrder = 3
+    Visible = False
+    object cxGrid2DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource2
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.GroupByBox = False
+      OptionsView.HeaderAutoHeight = True
+      object cxGrid2DBTableView1FTY: TcxGridDBColumn
+        Caption = 'Fty'
+        DataBinding.FieldName = 'FTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 30
+      end
+      object cxGrid2DBTableView1FLAG60: TcxGridDBColumn
+        Caption = 'BKU'
+        DataBinding.FieldName = 'FLAG60'
+        HeaderAlignmentHorz = taCenter
+        Width = 30
+      end
+      object cxGrid2DBTableView1CUST: TcxGridDBColumn
+        Caption = 'Cust'
+        DataBinding.FieldName = 'CUST'
+        HeaderAlignmentHorz = taCenter
+        Width = 35
+      end
+      object cxGrid2DBTableView1PLINE: TcxGridDBColumn
+        Caption = 'AL#'
+        DataBinding.FieldName = 'PLINE'
+        HeaderAlignmentHorz = taCenter
+        Width = 50
+      end
+      object cxGrid2DBTableView1J_NO: TcxGridDBColumn
+        Caption = 'Project#'
+        DataBinding.FieldName = 'J_NO'
+        HeaderAlignmentHorz = taCenter
+        Width = 70
+      end
+      object cxGrid2DBTableView1J2_JOB: TcxGridDBColumn
+        Caption = 'WO#'
+        DataBinding.FieldName = 'J2_JOB'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid2DBTableView1FCCS: TcxGridDBColumn
+        Caption = 'QN Suffix'
+        DataBinding.FieldName = 'FCCS'
+        HeaderAlignmentHorz = taCenter
+        Width = 35
+      end
+      object cxGrid2DBTableView1CSTYLE: TcxGridDBColumn
+        Caption = 'Style#'
+        DataBinding.FieldName = 'CSTYLE'
+        HeaderAlignmentHorz = taCenter
+        Width = 100
+      end
+      object cxGrid2DBTableView1ACOL: TcxGridDBColumn
+        Caption = 'Clr Cde'
+        DataBinding.FieldName = 'ACOL'
+        HeaderAlignmentHorz = taCenter
+        Width = 40
+      end
+      object cxGrid2DBTableView1T3_DATE: TcxGridDBColumn
+        Caption = 'T3 dd'
+        DataBinding.FieldName = 'T3_DATE'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid2DBTableView1T3_ADJ: TcxGridDBColumn
+        Caption = 'Adjusted'#13#10'T3 dd'#13#10'(Y/N)?'
+        DataBinding.FieldName = 'T3_ADJ'
+        HeaderAlignmentHorz = taCenter
+        Width = 50
+      end
+      object cxGrid2DBTableView1EXDT: TcxGridDBColumn
+        Caption = 'Ex-fty dd'
+        DataBinding.FieldName = 'EXDT'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid2DBTableView1SHIPPED: TcxGridDBColumn
+        Caption = 'Shipped'
+        DataBinding.FieldName = 'SHIPPED'
+        Width = 45
+      end
+      object cxGrid2DBTableView1DUEDAYS: TcxGridDBColumn
+        Caption = 'Due'#13#10'Days'
+        DataBinding.FieldName = 'DUEDAYS'
+        HeaderAlignmentHorz = taCenter
+        Width = 40
+      end
+      object cxGrid2DBTableView1LWO_QTY: TcxGridDBColumn
+        Caption = 'Prdn Qty'
+        DataBinding.FieldName = 'LWO_QTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid2DBTableView1PK_QTY: TcxGridDBColumn
+        Caption = 'Picked'#13#10'Qty'
+        DataBinding.FieldName = 'PK_QTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid2DBTableView1Q_850: TcxGridDBColumn
+        Caption = '850'#13#10'Sewn Qty'
+        DataBinding.FieldName = 'Q_850'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid2DBTableView1Q_915: TcxGridDBColumn
+        Caption = '915 '#13#10'Sewn Qty'
+        DataBinding.FieldName = 'Q_915'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid2DBTableView1Q_T2: TcxGridDBColumn
+        Caption = 'T2 Qty'
+        DataBinding.FieldName = 'Q_T2'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid2DBTableView1Q_T3: TcxGridDBColumn
+        Caption = 'T3 Qty'
+        DataBinding.FieldName = 'Q_T3'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+    end
+    object cxGrid2Level1: TcxGridLevel
+      GridView = cxGrid2DBTableView1
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from t3_temp'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 144
+    Top = 144
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 176
+    Top = 144
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 208
+    Top = 144
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 304
+    Top = 144
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '*.xls'
+    Filter = '*.xls|*.xls'
+    Left = 616
+    Top = 224
+  end
+  object pm1: TPopupMenu
+    Left = 288
+    Top = 40
+    object Detail1: TMenuItem
+      Caption = 'Detail'
+      ShortCut = 24645
+      Visible = False
+      OnClick = Detail1Click
+    end
+  end
+  object Query4: TClientDataSet
+    Aggregates = <>
+    CommandText = 
+      'select distinct fty,flag60,cust,pline,j_no,j2_job,cstyle,acol,t3' +
+      'dt as t3_date,'#39'Y'#39' as t3_adj, exdt,exdt-t3dt as duedays,pqty as l' +
+      'wo_qty'#13#10'from v_swpm_prdflow_cust1 a,tbl_lwo b where a.pline=b.pl' +
+      'ine and a.seq=b.seq '#13#10'and a.pline='#39'T003U'#39' and a.seq=4225'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 152
+    Top = 192
+  end
+  object DataSource2: TDataSource
+    DataSet = Query4
+    Left = 312
+    Top = 200
+  end
+  object cxStyleRepository1: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svColor, svFont]
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+    end
+    object cxStyle2: TcxStyle
+      AssignedValues = [svColor]
+      Color = 16771297
+    end
+  end
+end

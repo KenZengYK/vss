@@ -1,0 +1,81 @@
+unit salleff1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ppBands, ppCtrls, ppVar, ppPrnabl, ppClass, ppCache, ppProd,
+  ppReport, TeEngine, TeeDBEdit, TeeDBCrossTab, ppComm, ppRelatv, ppDB,
+  ppDBPipe, DB, DBClient, Series, ExtCtrls, TeeProcs, Chart, DBChart,
+  ppViewr, Txcomp;
+
+type
+  Tfrmsalleff1 = class(TForm)
+    DBChart1: TDBChart;
+    Series1: TBarSeries;
+    DBChart2: TDBChart;
+    Series2: TBarSeries;
+    DBChart3: TDBChart;
+    Series4: TBarSeries;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    DataSource1: TDataSource;
+    ppDBPipeline1: TppDBPipeline;
+    DBCrossTabSource1: TDBCrossTabSource;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppLabel10: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppImage1: TppImage;
+    x001: TppLabel;
+    ppImage2: TppImage;
+    ppImage3: TppImage;
+    x002: TppLabel;
+    ppDetailBand1: TppDetailBand;
+    ppLine1: TppLine;
+    ppFooterBand1: TppFooterBand;
+    query3: TClientDataSet;
+    query4: TClientDataSet;
+    DBChart4: TDBChart;
+    DBChart5: TDBChart;
+    DBChart6: TDBChart;
+    Query5: TClientDataSet;
+    Query6: TClientDataSet;
+    Query7: TClientDataSet;
+    Series3: TBarSeries;
+    DBCrossTabSource5: TDBCrossTabSource;
+    DBCrossTabSource2: TDBCrossTabSource;
+    DBCrossTabSource3: TDBCrossTabSource;
+    DBCrossTabSource4: TDBCrossTabSource;
+    Series9: TBarSeries;
+    DBCrossTabSource6: TDBCrossTabSource;
+    Series11: TBarSeries;
+    DBCrossTabSource7: TDBCrossTabSource;
+    ppImage4: TppImage;
+    ppImage5: TppImage;
+    ppImage6: TppImage;
+    title001: TppLabel;
+    title002: TppLabel;
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsalleff1: Tfrmsalleff1;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+procedure Tfrmsalleff1.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+end.

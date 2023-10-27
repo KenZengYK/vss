@@ -1,0 +1,68 @@
+unit sampleqtyformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, StdCtrls, Buttons, DB, DBClient;
+
+type
+  Tfrmsampleqty = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsampleqty: Tfrmsampleqty;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure Tfrmsampleqty.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmsampleqty.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmsampleqty:=nil;
+end;
+
+procedure Tfrmsampleqty.Query1AfterPost(DataSet: TDataSet);
+var
+  pstr:string;
+  upd:string;
+  str1,str2:string;
+begin
+  //
+  //str1:='update tblshedule set ';
+  //if not tblshedule.fieldbyname('qrlcrq').isnull then
+  //str1:=str1+'qrlcrq='''+formatdatetime('yyyy-MM-dd',tblshedule.fieldbyname('qrlcrq').value)+''','
+  //else str1:=str1+'qrlcrq=null,';
+  //if not tblshedule.fieldbyname('yqlcrq1').isnull then
+  //str1:=str1+'yqlcrq1='''+formatdatetime('yyyy-MM-dd',tblshedule.fieldbyname('yqlcrq1').value)+''','
+  //else str1:=str1+'yqlcrq1=null,';
+  //str1:=str1+'where pline='''+tblshedule.fieldbyname('pline').value+''' ';
+  //str1:=str1+'and seq='+tblshedule.fieldbyname('seq').asstring;
+  if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+end;
+
+end.

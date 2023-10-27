@@ -1,0 +1,42 @@
+unit export_percentformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ExtCtrls, GridsEh, DBGridEh, DB, ADODB;
+
+type
+  Tfrmexport_percent = class(TForm)
+    AdoDataSet2: TADODataSet;
+    DataSource1: TDataSource;
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmexport_percent: Tfrmexport_percent;
+
+implementation
+
+uses mainformu, shpadvice2formu;
+
+{$R *.dfm}
+
+procedure Tfrmexport_percent.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmexport_percent:=nil;
+end;
+
+end.

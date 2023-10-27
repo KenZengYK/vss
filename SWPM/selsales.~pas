@@ -1,0 +1,68 @@
+unit selsales;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGridEh, DB, DBClient, StdCtrls, Buttons;
+
+type
+  Tfrmselsales = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    Query5: TClientDataSet;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmselsales: Tfrmselsales;
+
+implementation
+
+uses mainformu, custenqformu;
+
+{$R *.dfm}
+
+procedure Tfrmselsales.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmselsales:=nil;
+end;
+
+procedure Tfrmselsales.BitBtn1Click(Sender: TObject);
+begin
+  if not dbgrideh1.fields[0].isnull then begin
+    with frmcustenq.Query1 do begin
+      edit;
+      fieldbyname('eqso').value:=query1.fieldbyname('sopno').value;
+      fieldbyname('eqsol').value:=query1.fieldbyname('ordline').value;
+      fieldbyname('eqart').value:=query1.fieldbyname('artno').value;
+      fieldbyname('eqcstyle').value:=query1.fieldbyname('cstyle').value;
+      if not query1.fieldbyname('j2_job').isnull then
+      fieldbyname('eqwo').value:=query1.fieldbyname('j2_job').value
+      else fieldbyname('eqwo').value:='';
+      if not query1.fieldbyname('qty').isnull then
+      fieldbyname('eqqty').value:=query1.fieldbyname('qty').value
+      else fieldbyname('eqqty').value:=0;
+      if not query1.fieldbyname('stat').isnull then
+      fieldbyname('eqsta').value:=query1.fieldbyname('stat').value
+      else fieldbyname('eqsta').value:='0';
+      if not query1.fieldbyname('ddt').isnull then
+      fieldbyname('eqexft').value:=query1.fieldbyname('ddt').value;
+      post;
+    end;
+  end;
+end;
+
+end.

@@ -1,0 +1,84 @@
+unit soselectionformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, GridsEh, DBGridEh, Buttons, DB, DBClient;
+
+type
+  Tfrmsoselection = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    Edit1: TEdit;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Label3: TLabel;
+    Edit2: TEdit;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsoselection: Tfrmsoselection;
+
+implementation
+
+uses mainformu, sosplitformu;
+
+{$R *.dfm}
+
+procedure Tfrmsoselection.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmsoselection:=nil;
+end;
+
+procedure Tfrmsoselection.BitBtn1Click(Sender: TObject);
+begin
+  if not query1.fieldbyname('j_no').isnull then begin
+    frmsosplit.Edit1.text:=query1.fieldbyname('j_no').value;
+    frmsosplit.so001.Caption:=query1.fieldbyname('sopno').value;
+    frmsosplit.sl001.Caption:=query1.fieldbyname('ordline').asstring;
+    frmsosplit.wo001.Caption:=query1.fieldbyname('j2_job').value;
+    frmsosplit.cl001.Caption:=query1.fieldbyname('acol').value;
+    frmsosplit.qt001.caption:=query1.fieldbyname('qty').asstring;
+    frmsosplit.dt001.Caption:=formatdatetime('yyyy-MM-dd',query1.fieldbyname('ddt').value);
+    with frmsosplit.Query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_erpsop_rwo where sopno='''+query1.fieldbyname('sopno').value+''' and j2_job='''+query1.fieldbyname('j2_job').value+''' and acol='''+query1.fieldbyname('acol').value+'''';
+      open;
+    end;
+    frmsoselection.Close;
+  end;
+end;
+
+procedure Tfrmsoselection.ComboBox1Change(Sender: TObject);
+begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      commandtext:='select distinct a.customer,a.j_no,a.sopno,a.ordline,b.j2_job,a.acol,b.qty,b.ddt from tbl_erpsop a,tbl_erpwo b where a.sopno=b.sopno and a.ordline=b.ordline and a.acol=b.acol and a.ddt>=:x1';
+      if combobox1.text>'' then commandtext:=commandtext+' and a.customer='''+combobox1.text+'''';
+      if edit1.text>'' then commandtext:=commandtext+' and a.j_no like '''+edit1.text+'%''';
+      if edit2.text>'' then commandtext:=commandtext+' and a.sopno='''+edit2.text+'''';
+      params[0].asdate:=encodedate(2009,6,1);
+      open;
+    end;
+end;
+
+end.

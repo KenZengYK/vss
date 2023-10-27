@@ -1,0 +1,241 @@
+object frmlineleader: Tfrmlineleader
+  Left = 192
+  Top = 114
+  Width = 521
+  Height = 475
+  Caption = 'Module for Line leader'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object BitBtn1: TBitBtn
+    Left = 40
+    Top = 184
+    Width = 145
+    Height = 25
+    Caption = 'Line Profile'
+    TabOrder = 1
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 184
+    Top = 184
+    Width = 145
+    Height = 25
+    Caption = 'Default Line Work Calendar'
+    TabOrder = 2
+    OnClick = BitBtn2Click
+  end
+  object BitBtn3: TBitBtn
+    Left = 328
+    Top = 184
+    Width = 145
+    Height = 25
+    Caption = 'Current Line Work Calendar'
+    TabOrder = 3
+    OnClick = BitBtn3Click
+  end
+  object BitBtn4: TBitBtn
+    Left = 40
+    Top = 224
+    Width = 145
+    Height = 25
+    Caption = 'Planning && Scheduling'
+    TabOrder = 4
+    OnClick = BitBtn4Click
+  end
+  object BitBtn5: TBitBtn
+    Left = 184
+    Top = 224
+    Width = 145
+    Height = 25
+    Caption = 'Fty/Ws/Line GAI'
+    TabOrder = 5
+    OnClick = BitBtn5Click
+  end
+  object BitBtn6: TBitBtn
+    Left = 328
+    Top = 224
+    Width = 145
+    Height = 25
+    Caption = 'Analysis Report'
+    TabOrder = 6
+    OnClick = BitBtn6Click
+  end
+  object BitBtn7: TBitBtn
+    Left = 40
+    Top = 264
+    Width = 433
+    Height = 25
+    Caption = 
+      'RAP (incl. WF Pool, Mc Pool, LB4, LB5 and LB6), In dotnet progra' +
+      'm'
+    Enabled = False
+    TabOrder = 7
+  end
+  object GroupBox1: TGroupBox
+    Left = 40
+    Top = 24
+    Width = 433
+    Height = 145
+    Caption = 'Filter'
+    TabOrder = 0
+  end
+  object BitBtn8: TBitBtn
+    Left = 40
+    Top = 304
+    Width = 241
+    Height = 25
+    Caption = 'Operation Specification (Print out from IEBOO)'
+    Enabled = False
+    TabOrder = 8
+    NumGlyphs = 2
+  end
+  object BitBtn9: TBitBtn
+    Left = 280
+    Top = 304
+    Width = 193
+    Height = 25
+    Caption = 'Size Table (Print out from cadwalk)'
+    Enabled = False
+    TabOrder = 9
+    NumGlyphs = 2
+  end
+  object BitBtn10: TBitBtn
+    Left = 40
+    Top = 344
+    Width = 145
+    Height = 25
+    Caption = 'QC Report (In QC system)'
+    Enabled = False
+    TabOrder = 10
+    NumGlyphs = 2
+  end
+  object BitBtn11: TBitBtn
+    Left = 184
+    Top = 344
+    Width = 145
+    Height = 25
+    Caption = 'RFID (In RFID system)'
+    Enabled = False
+    TabOrder = 11
+    NumGlyphs = 2
+  end
+  object BitBtn12: TBitBtn
+    Left = 40
+    Top = 384
+    Width = 241
+    Height = 25
+    Caption = 'Exit'
+    Enabled = False
+    TabOrder = 12
+  end
+  object BitBtn13: TBitBtn
+    Left = 280
+    Top = 384
+    Width = 193
+    Height = 25
+    Caption = 'Exit'
+    TabOrder = 13
+    Kind = bkClose
+  end
+  object BitBtn14: TBitBtn
+    Left = 328
+    Top = 344
+    Width = 145
+    Height = 25
+    Caption = 'Transit Flow (1&& 2)'
+    Enabled = False
+    TabOrder = 14
+    NumGlyphs = 2
+  end
+  object siLang1: TsiLang
+    Version = '6.1.0.1'
+    StringsTypes.Strings = (
+      'TIB_STRINGLIST'
+      'TSTRINGLIST')
+    NumOfLanguages = 3
+    LangDelim = 1
+    LangNames.Strings = (
+      'English'
+      'Traditional Chinese'
+      'Thai')
+    Language = 'English'
+    ExcludedProperties.Strings = (
+      'Category'
+      'SecondaryShortCuts'
+      'HelpKeyword'
+      'InitialDir'
+      'HelpKeyword'
+      'ActivePage'
+      'ImeName'
+      'DefaultExt'
+      'FileName'
+      'FieldName'
+      'PickList'
+      'DisplayFormat'
+      'EditMask'
+      'KeyList'
+      'LookupDisplayFields'
+      'DropDownSpecRow'
+      'TableName'
+      'DatabaseName'
+      'IndexName'
+      'MasterFields')
+    Left = 248
+    Top = 160
+    TranslationData = {
+      737443617074696F6E730D0A5466726D6C696E656C6561646572014D6F64756C
+      6520666F72204C696E65206C656164657201A9D4AAF8BCD2B6F401010D0A4269
+      7442746E31014C696E652050726F66696C6501A9D4C2B2A4B601010D0A426974
+      42746E3130015143205265706F72742028496E2051432073797374656D290101
+      010D0A42697442746E313101524649442028496E20524649442073797374656D
+      290101010D0A42697442746E3132014578697401B068A55801010D0A42697442
+      746E320144656661756C74204C696E6520576F726B2043616C656E64617201B9
+      77B35DA9D4BB73A740A4E9BEE401010D0A42697442746E330143757272656E74
+      204C696E6520576F726B2043616C656E64617201B27BAA70A9D4BB73A740A4E9
+      BEE401010D0A42697442746E3401506C616E6E696E6720262620536368656475
+      6C696E6701AD70B9BABB50B1C6B57B01010D0A42697442746E35014674792F57
+      732F4C696E652047414901BC742FA8AEB6A12FA9D420B946BCD0ABFCB0770101
+      0D0A42697442746E3601416E616C79736973205265706F727401A4C0AA52B3F8
+      AAED01010D0A42697442746E37015241502028696E636C2E20574620506F6F6C
+      2C204D6320506F6F6C2C204C42342C204C423520616E64204C4236292C20496E
+      20646F746E65742070726F6772616D0101010D0A42697442746E38014F706572
+      6174696F6E2053706563696669636174696F6E20285072696E74206F75742066
+      726F6D204945424F4F290101010D0A42697442746E390153697A65205461626C
+      6520285072696E74206F75742066726F6D2063616477616C6B290101010D0A47
+      726F7570426F78310146696C74657201B94CC26FB1F8A5F301010D0A73744869
+      6E74730D0A5466726D6C696E656C6561646572010101010D0A42697442746E31
+      010101010D0A42697442746E3130010101010D0A42697442746E313101010101
+      0D0A42697442746E3132010101010D0A42697442746E32010101010D0A426974
+      42746E33010101010D0A42697442746E34010101010D0A42697442746E350101
+      01010D0A42697442746E36010101010D0A42697442746E37010101010D0A4269
+      7442746E38010101010D0A42697442746E39010101010D0A47726F7570426F78
+      31010101010D0A7374446973706C61794C6162656C730D0A7374466F6E74730D
+      0A5466726D6C696E656C6561646572014D532053616E73205365726966014172
+      69616C20556E69636F6465204D530140417269616C20556E69636F6465204D53
+      010D0A73744D756C74694C696E65730D0A7374446C677343617074696F6E730D
+      0A41626F7274012641626F72740101010D0A416C6C0126416C6C0101010D0A43
+      616E63656C0143616E63656C0101010D0A436F6E6669726D01436F6E6669726D
+      0101010D0A4572726F72014572726F720101010D0A48656C70012648656C7001
+      01010D0A49676E6F7265012649676E6F72650101010D0A496E666F726D617469
+      6F6E01496E666F726D6174696F6E0101010D0A4E6F01264E6F0101010D0A4E6F
+      20546F20416C6C014E266F20746F20416C6C0101010D0A4F4B014F4B0101010D
+      0A5265747279012652657472790101010D0A5761726E696E67015761726E696E
+      670101010D0A59657301265965730101010D0A59657320546F20416C6C015965
+      7320746F2026416C6C0101010D0A7374537472696E67730D0A73744F74686572
+      537472696E67730D0A5466726D6C696E656C65616465722E48656C7046696C65
+      010101010D0A73744C6F63616C65730D0A7374436F6C6C656374696F6E730D0A
+      737443686172536574730D0A5466726D6C696E656C6561646572014445464155
+      4C545F43484152534554014348494E455345424947355F434841525345540154
+      4841495F43484152534554010D0A}
+  end
+end

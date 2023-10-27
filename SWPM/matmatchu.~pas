@@ -1,0 +1,601 @@
+unit matmatchu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, Grids, DBGridEh, StdCtrls, Buttons, ExtCtrls;
+
+type
+  Tfrmmatmatch = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
+    Edit1: TEdit;
+    Panel2: TPanel;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    Panel3: TPanel;
+    DBGridEh1: TDBGridEh;
+    DataSource1: TDataSource;
+    Query1: TClientDataSet;
+    tblMATmatch: TClientDataSet;
+    Query2: TClientDataSet;
+    procedure BitBtn4Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure tblMATmatchAfterPost(DataSet: TDataSet);
+    procedure DBGridEh1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmmatmatch: Tfrmmatmatch;
+
+implementation
+
+USES MAINFORMU, WL1MATFORMU, PSMATFORMU, PBMATFORMU, PSMATFORM1U, remarksformu,
+  popcformu, soppcformu;
+
+{$R *.dfm}
+
+procedure Tfrmmatmatch.BitBtn4Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmmatmatch.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  if tblmatmatch.State=dsedit then tblmatmatch.Post;
+  action:=cafree;
+  frmmatmatch:=nil;
+end;
+
+procedure Tfrmmatmatch.SpeedButton1Click(Sender: TObject);
+begin
+  screen.cursor:=crHourglass;
+  if edit1.text>'' then begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'j_no',ptinput);
+      commandtext:='execute procedure gen_tblmatmatch(:j_no)';
+      params[0].asstring:=edit1.text+'%';
+      execute;
+    end;
+    with tblmatmatch do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'j_no',ptinput);
+      params.createparam(ftstring,'flag1',ptinput);
+      commandtext:='select * from tblmatmatch where j_no like :j_no and flag1=:flag1';
+      params[0].asstring:=edit1.text+'%';
+      params[1].asstring:='0';
+      open;
+    end;
+  end else begin
+    with tblmatmatch do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'flag1',ptinput);
+      commandtext:='select * from tblmatmatch where flag1=:flag1';
+      params[0].asstring:='0';
+      open;
+    end;
+  end;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmmatmatch.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then speedbutton1click(self);
+end;
+
+procedure Tfrmmatmatch.DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then sendmessage(dbgrideh1.handle,wm_keydown,vk_tab,0);
+end;
+
+procedure Tfrmmatmatch.BitBtn2Click(Sender: TObject);
+begin
+  IF TBLMATMATCH.STATE=DSEDIT THEN TBLMATMATCH.POST;
+end;
+
+procedure Tfrmmatmatch.tblMATmatchAfterPost(DataSet: TDataSet);
+begin
+  IF TBLMATMATCH.ApplyUpdates(-1)>0 THEN BEGIN
+    WITH QUERY1 DO BEGIN
+      CLOSE;
+      PARAMS.CLEAR;
+      PARAMS.CREATEPARAM(FTINTEGER,'WL3T',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'WLF3',PTINPUT);
+      PARAMS.CREATEPARAM(FTDATE,'WL3',PTINPUT);
+      PARAMS.CREATEPARAM(FTINTEGER,'WL1T',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'WLF1',PTINPUT);
+      PARAMS.CREATEPARAM(FTDATE,'WL1',PTINPUT);
+      PARAMS.CREATEPARAM(FTDATE,'KCRQ',PTINPUT);
+      PARAMS.CREATEPARAM(FTINTEGER,'WL2T',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'WLF2',PTINPUT);
+      PARAMS.CREATEPARAM(FTDATE,'WL2',PTINPUT);
+      PARAMS.CREATEPARAM(FTDATE,'KCRQ1',PTINPUT);
+      PARAMS.CREATEPARAM(FTINTEGER,'WL4T',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'WLF4',PTINPUT);
+      PARAMS.CREATEPARAM(FTDATE,'WL4',PTINPUT);
+      PARAMS.CREATEPARAM(FTINTEGER,'WL5T',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'WLF5',PTINPUT);
+      PARAMS.CREATEPARAM(FTDATE,'WL5',PTINPUT);
+      PARAMS.CREATEPARAM(FTINTEGER,'WL6T',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'WLF6',PTINPUT);
+      PARAMS.CREATEPARAM(FTDATE,'WL6',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'KHB',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'ZY',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'ZD',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'CCB',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'GCB',PTINPUT);
+      PARAMS.CREATEPARAM(FTstring,'PBRQ',PTINPUT);
+      PARAMS.CREATEPARAM(FTDATE,'YHRQ',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'BRAND',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'PSRQ',PTINPUT);
+      PARAMS.CREATEPARAM(FTINTEGER,'WL7T',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'WLF7',PTINPUT);
+      PARAMS.CREATEPARAM(FTDATE,'WL7',PTINPUT);
+      params.createparam(ftstring,'wl1r',ptinput);
+      params.createparam(ftstring,'wl2r',ptinput);
+      params.createparam(ftstring,'wl3r',ptinput);
+      params.createparam(ftstring,'wl4r',ptinput);
+      params.createparam(ftstring,'wl5r',ptinput);
+      params.createparam(ftstring,'wl6r',ptinput);
+      params.createparam(ftstring,'wl7r',ptinput);
+      params.createparam(ftstring,'wl8r',ptinput);
+      params.createparam(ftstring,'bzzl',ptinput);
+      params.createparam(ftinteger,'wl8t',ptinput);
+      params.createparam(ftstring,'wlf8',ptinput);
+      params.createparam(ftdate,'wl8',ptinput);
+      params.createparam(ftinteger,'wl1z',ptinput);
+      params.createparam(ftinteger,'wl1p',ptinput);
+      params.createparam(ftinteger,'wl2z',ptinput);
+      params.createparam(ftinteger,'wl2p',ptinput);
+      params.createparam(ftinteger,'wl3z',ptinput);
+      params.createparam(ftinteger,'wl3p',ptinput);
+      params.createparam(ftinteger,'wl4z',ptinput);
+      params.createparam(ftinteger,'wl4p',ptinput);
+      params.createparam(ftinteger,'wl5z',ptinput);
+      params.createparam(ftinteger,'wl5p',ptinput);
+      params.createparam(ftinteger,'wl6z',ptinput);
+      params.createparam(ftinteger,'wl6p',ptinput);
+      params.createparam(ftinteger,'wl7z',ptinput);
+      params.createparam(ftinteger,'wl7p',ptinput);
+      params.createparam(ftinteger,'wl8z',ptinput);
+      params.createparam(ftinteger,'wl8p',ptinput);
+      PARAMS.CREATEPARAM(FTSTRING,'SOPNO',PTINPUT);
+      PARAMS.CREATEPARAM(FTINTEGER,'ORDLINE',PTINPUT);
+      PARAMS.CREATEPARAM(FTSTRING,'ACOL',PTINPUT);
+      params.createparam(ftstring,'j2_job',ptinput);
+      COMMANDTEXT:='UPDATE TBLMATMATCH SET WL3T=:WL3T,WLF3=:WLF3,WL3=:WL3,WL1T=:WL1T,'
+                  +'WLF1=:WLF1,WL1=:WL1,KCRQ=:KCRQ,WL2T=:WL2T,WLF2=:WLF2,WL2=:WL2,KCRQ1=:KCRQ1,'
+                  +'WL4T=:WL4T,WLF4=:WLF4,WL4=:WL4,WL5T=:WL5T,WLF5=:WLF5,WL5=:WL5,WL6T=:WL6T,'
+                  +'WLF6=:WLF6,WL6=:WL6,KHB=:KHB,ZY=:ZY,ZD=:ZD,CCB=:CCB,GCB=:GCB,PBRQ=:PBRQ,'
+                  +'YHRQ=:YHRQ,BRAND=:BRAND,PSRQ=:PSRQ,WL7T=:WL7T,WLF7=:WLF7,WL7=:WL7,'
+                  +'wl1r=:wl1r,wl2r=:wl2r,wl3r=:wl3r,wl4r=:wl4r,wl5r=:wl5r,wl6r=:wl6r,wl7r=:wl7r,'
+                  +'wl8r=:wl8r,bzzl=:bzzl,wl8t=:wl8t,wlf8=:wlf8,wl8=:wl8,wl1z=:wl1z,wl1p=:wl1p,'
+                  +'wl2z=:wl2z,wl2p=:wl2p,wl3z=:wl3z,wl3p=:wl3p,wl4z=:wl4z,wl4p=:wl4p,wl5z=:wl5z,wl5p=:wl5p,'
+                  +'wl6z=:wl6z,wl6p=:wl6p,wl7z=:wl7z,wl7p=:wl7p,wl8z=:wl8z,wl8p=:wl8p '
+                  +'WHERE SOPNO=:SOPNO AND ORDLINE=:ORDLINE AND ACOL=:ACOL and j2_job=:j2_job';
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL3T').ISNULL THEN
+      PARAMS[0].ASINTEGER:=TBLMATMATCH.FIELDBYNAME('WL3T').VALUE
+      ELSE PARAMS[0].ASINTEGER:=6;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WLF3').ISNULL THEN
+      PARAMS[1].ASSTRING:=TBLMATMATCH.FIELDBYNAME('WLF3').VALUE
+      ELSE PARAMS[1].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL3').ISNULL THEN
+      PARAMS[2].ASDATE:=TBLMATMATCH.FIELDBYNAME('WL3').VALUE;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL1T').ISNULL THEN
+      PARAMS[3].ASINTEGER:=TBLMATMATCH.FIELDBYNAME('WL1T').VALUE
+      ELSE PARAMS[3].ASINTEGER:=5;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WLF1').ISNULL THEN
+      PARAMS[4].ASSTRING:=TBLMATMATCH.FIELDBYNAME('WLF1').VALUE
+      ELSE PARAMS[4].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL1').ISNULL THEN
+      PARAMS[5].ASDATE:=TBLMATMATCH.FIELDBYNAME('WL1').VALUE;
+      IF NOT TBLMATMATCH.FIELDBYNAME('KCRQ').ISNULL THEN
+      PARAMS[6].ASDATE:=TBLMATMATCH.FIELDBYNAME('KCRQ').VALUE;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL2T').ISNULL THEN
+      PARAMS[7].ASINTEGER:=TBLMATMATCH.FIELDBYNAME('WL2T').VALUE
+      ELSE PARAMS[7].ASINTEGER:=3;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WLF2').ISNULL THEN
+      PARAMS[8].ASSTRING:=TBLMATMATCH.FIELDBYNAME('WLF2').VALUE
+      ELSE PARAMS[8].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL2').ISNULL THEN
+      PARAMS[9].ASDATE:=TBLMATMATCH.FIELDBYNAME('WL2').VALUE;
+      IF NOT TBLMATMATCH.FIELDBYNAME('KCRQ1').ISNULL THEN
+      PARAMS[10].ASDATE:=TBLMATMATCH.FIELDBYNAME('KCRQ1').VALUE;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL4T').ISNULL THEN
+      PARAMS[11].ASINTEGER:=TBLMATMATCH.FIELDBYNAME('WL4T').VALUE
+      ELSE PARAMS[11].ASINTEGER:=2;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WLF4').ISNULL THEN
+      PARAMS[12].ASSTRING:=TBLMATMATCH.FIELDBYNAME('WLF4').VALUE
+      ELSE PARAMS[12].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL4').ISNULL THEN
+      PARAMS[13].ASDATE:=TBLMATMATCH.FIELDBYNAME('WL4').VALUE;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL5T').ISNULL THEN
+      PARAMS[14].ASINTEGER:=TBLMATMATCH.FIELDBYNAME('WL5T').VALUE
+      ELSE PARAMS[14].ASINTEGER:=2;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WLF5').ISNULL THEN
+      PARAMS[15].ASSTRING:=TBLMATMATCH.FIELDBYNAME('WLF5').VALUE
+      ELSE PARAMS[15].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL5').ISNULL THEN
+      PARAMS[16].ASDATE:=TBLMATMATCH.FIELDBYNAME('WL5').VALUE;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL6T').ISNULL THEN
+      PARAMS[17].ASINTEGER:=TBLMATMATCH.FIELDBYNAME('WL6T').VALUE
+      ELSE PARAMS[17].ASINTEGER:=3;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WLF6').ISNULL THEN
+      PARAMS[18].ASSTRING:=TBLMATMATCH.FIELDBYNAME('WLF6').VALUE
+      ELSE PARAMS[18].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL6').ISNULL THEN
+      PARAMS[19].ASDATE:=TBLMATMATCH.FIELDBYNAME('WL6').VALUE;
+      IF NOT TBLMATMATCH.FIELDBYNAME('KHB').ISNULL THEN
+      PARAMS[20].ASSTRING:=TBLMATMATCH.FIELDBYNAME('KHB').VALUE
+      ELSE PARAMS[20].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('ZY').ISNULL THEN
+      PARAMS[21].ASSTRING:=TBLMATMATCH.FIELDBYNAME('ZY').VALUE
+      ELSE PARAMS[21].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('ZD').ISNULL THEN
+      PARAMS[22].ASSTRING:=TBLMATMATCH.FIELDBYNAME('ZD').VALUE
+      ELSE PARAMS[22].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('CCB').ISNULL THEN
+      PARAMS[23].ASSTRING:=TBLMATMATCH.FIELDBYNAME('CCB').VALUE
+      ELSE PARAMS[23].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('GCB').ISNULL THEN
+      PARAMS[24].ASSTRING:=TBLMATMATCH.FIELDBYNAME('GCB').VALUE
+      ELSE PARAMS[24].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('PBRQ').ISNULL THEN
+      PARAMS[25].ASstring:=TBLMATMATCH.FIELDBYNAME('PBRQ').VALUE
+      else params[25].asstring:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('YHRQ').ISNULL THEN
+      PARAMS[26].ASDATE:=TBLMATMATCH.FIELDBYNAME('YHRQ').VALUE;
+      IF NOT TBLMATMATCH.FIELDBYNAME('BRAND').ISNULL THEN
+      PARAMS[27].ASSTRING:=TBLMATMATCH.FIELDBYNAME('BRAND').VALUE
+      ELSE PARAMS[27].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('PSRQ').ISNULL THEN
+      PARAMS[28].ASSTRING:=TBLMATMATCH.FIELDBYNAME('PSRQ').VALUE
+      ELSE PARAMS[28].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL7T').ISNULL THEN
+      PARAMS[29].ASINTEGER:=TBLMATMATCH.FIELDBYNAME('WL7T').VALUE
+      ELSE PARAMS[29].ASINTEGER:=3;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WLF7').ISNULL THEN
+      PARAMS[30].ASSTRING:=TBLMATMATCH.FIELDBYNAME('WLF7').VALUE
+      ELSE PARAMS[30].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL7').ISNULL THEN
+      PARAMS[31].ASDATE:=TBLMATMATCH.FIELDBYNAME('WL7').VALUE;
+      if not tblmatmatch.fieldbyname('wl1r').isnull then
+      params[32].asstring:=tblmatmatch.fieldbyname('wl1r').value
+      else params[32].asstring:='';
+      if not tblmatmatch.fieldbyname('wl2r').isnull then
+      params[33].asstring:=tblmatmatch.fieldbyname('wl2r').value
+      else params[33].asstring:='';
+      if not tblmatmatch.fieldbyname('wl3r').isnull then
+      params[34].asstring:=tblmatmatch.fieldbyname('wl3r').value
+      else params[34].asstring:='';
+      if not tblmatmatch.fieldbyname('wl4r').isnull then
+      params[35].asstring:=tblmatmatch.fieldbyname('wl4r').value
+      else params[35].asstring:='';
+      if not tblmatmatch.fieldbyname('wl5r').isnull then
+      params[36].asstring:=tblmatmatch.fieldbyname('wl5r').value
+      else params[36].asstring:='';
+      if not tblmatmatch.fieldbyname('wl6r').isnull then
+      params[37].asstring:=tblmatmatch.fieldbyname('wl6r').value
+      else params[37].asstring:='';
+      if not tblmatmatch.fieldbyname('wl7r').isnull then
+      params[38].asstring:=tblmatmatch.fieldbyname('wl7r').value
+      else params[38].asstring:='';
+      if not tblmatmatch.fieldbyname('wl8r').isnull then
+      params[39].asstring:=tblmatmatch.fieldbyname('wl8r').value
+      else params[39].asstring:='';
+      if not tblmatmatch.fieldbyname('bzzl').isnull then
+      params[40].asstring:=tblmatmatch.fieldbyname('bzzl').value
+      else params[40].asstring:='';
+      if not tblmatmatch.fieldbyname('wl8t').isnull then
+      params[41].asinteger:=tblmatmatch.fieldbyname('wl8t').value
+      else params[41].asinteger:=7;
+      IF NOT TBLMATMATCH.FIELDBYNAME('WLF8').ISNULL THEN
+      PARAMS[42].ASSTRING:=TBLMATMATCH.FIELDBYNAME('WLF8').VALUE
+      ELSE PARAMS[42].ASSTRING:='';
+      IF NOT TBLMATMATCH.FIELDBYNAME('WL8').ISNULL THEN
+      PARAMS[43].ASDATE:=TBLMATMATCH.FIELDBYNAME('WL8').VALUE;
+      if not tblmatmatch.fieldbyname('wl1z').isnull then
+      params[44].asinteger:=tblmatmatch.fieldbyname('wl1z').value
+      else params[44].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl1p').isnull then
+      params[45].asinteger:=tblmatmatch.fieldbyname('wl1p').value
+      else params[45].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl2z').isnull then
+      params[46].asinteger:=tblmatmatch.fieldbyname('wl2z').value
+      else params[46].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl2p').isnull then
+      params[47].asinteger:=tblmatmatch.fieldbyname('wl2p').value
+      else params[47].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl3z').isnull then
+      params[48].asinteger:=tblmatmatch.fieldbyname('wl3z').value
+      else params[48].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl3p').isnull then
+      params[49].asinteger:=tblmatmatch.fieldbyname('wl3p').value
+      else params[49].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl4z').isnull then
+      params[50].asinteger:=tblmatmatch.fieldbyname('wl4z').value
+      else params[50].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl4p').isnull then
+      params[51].asinteger:=tblmatmatch.fieldbyname('wl4p').value
+      else params[51].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl5z').isnull then
+      params[52].asinteger:=tblmatmatch.fieldbyname('wl5z').value
+      else params[52].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl5p').isnull then
+      params[53].asinteger:=tblmatmatch.fieldbyname('wl5p').value
+      else params[53].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl6z').isnull then
+      params[54].asinteger:=tblmatmatch.fieldbyname('wl6z').value
+      else params[54].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl6p').isnull then
+      params[55].asinteger:=tblmatmatch.fieldbyname('wl6p').value
+      else params[55].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl7z').isnull then
+      params[56].asinteger:=tblmatmatch.fieldbyname('wl7z').value
+      else params[56].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl7p').isnull then
+      params[57].asinteger:=tblmatmatch.fieldbyname('wl7p').value
+      else params[57].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl8z').isnull then
+      params[58].asinteger:=tblmatmatch.fieldbyname('wl8z').value
+      else params[58].asinteger:=0;
+      if not tblmatmatch.fieldbyname('wl8p').isnull then
+      params[59].asinteger:=tblmatmatch.fieldbyname('wl8p').value
+      else params[59].asinteger:=0;
+      PARAMS[60].ASSTRING:=TBLMATMATCH.FIELDBYNAME('SOPNO').VALUE;
+      PARAMS[61].ASINTEGER:=TBLMATMATCH.FIELDBYNAME('ORDLINE').VALUE;
+      PARAMS[62].ASSTRING:=TBLMATMATCH.FIELDBYNAME('ACOL').VALUE;
+      params[63].asstring:=tblmatmatch.fieldbyname('j2_job').value;
+      EXECUTE;
+    END;
+  END;
+end;
+
+procedure Tfrmmatmatch.DBGridEh1DblClick(Sender: TObject);
+begin
+  screen.cursor:=crHourglass;
+  //if not dbgrideh1.fields[0].isnull then begin
+  if tblmatmatch.Active then begin
+    if dbgrideh1.selectedindex=60 then begin
+      if frmwl1mat=nil then frmwl1mat:=tfrmwl1mat.create(nil);
+      with frmwl1mat.query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'jno',ptinput);
+        params.createparam(ftstring,'job',ptinput);
+        params.createparam(ftstring,'acol',ptinput);
+        params.createparam(ftstring,'sopno',ptinput);
+        params.createparam(ftinteger,'ordline',ptinput);
+        commandtext:='execute procedure gen_wl1matmatch(:jno,:job,:acol,:sopno,:ordline)';
+        params[0].asstring:=tblmatmatch.fieldbyname('j_no').value;
+        params[1].asstring:=tblmatmatch.fieldbyname('j2_job').value;
+        params[2].asstring:=tblmatmatch.fieldbyname('acol').value;
+        params[3].asstring:=tblmatmatch.fieldbyname('sopno').value;
+        params[4].asinteger:=tblmatmatch.fieldbyname('ordline').value;
+        execute;
+      end;
+      with frmwl1mat.Query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'jno',ptinput);
+        params.createparam(ftstring,'job',ptinput);
+        params.createparam(ftstring,'acol',ptinput);
+        params.createparam(ftstring,'sopno',ptinput);
+        params.createparam(ftinteger,'ordline',ptinput);
+        commandtext:='select * from tblwl1matmatch where j_no=:jno and j2_job=:job and acol=:acol and sopno=:sopno and ordline=:ordline';
+        params[0].asstring:=tblmatmatch.fieldbyname('j_no').value;
+        params[1].asstring:=tblmatmatch.fieldbyname('j2_job').value;
+        params[2].asstring:=tblmatmatch.fieldbyname('acol').value;
+        params[3].asstring:=tblmatmatch.fieldbyname('sopno').value;
+        params[4].asinteger:=tblmatmatch.fieldbyname('ordline').value;
+        open;
+      end;
+      frmwl1mat.DBGridEh1.ReadOnly:=false;
+      frmwl1mat.Show;
+    {
+    end else if dbgrideh1.selectedindex=32 then begin
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'jno',ptinput);
+        commandtext:='select distinct j_no from tblpsmat where j_no=:jno';
+        params[0].asstring:=tblmatmatch.fieldbyname('j_no').value;
+        open;
+        if not fieldbyname('j_no').isnull then begin
+          if frmpsmat1=nil then frmpsmat1:=tfrmpsmat1.create(nil);
+          with frmpsmat1.Query1 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'jno',ptinput);
+            commandtext:='select * from tblpsmat where j_no=:jno';
+            params[0].asstring:=tblmatmatch.fieldbyname('j_no').value;
+            open;
+          end;
+          frmpsmat1.Show;
+        end else begin
+          if frmpsmat=nil then frmpsmat:=tfrmpsmat.create(nil);
+          with frmpsmat.query2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'jno',ptinput);
+            params.createparam(ftstring,'job',ptinput);
+            params.createparam(ftstring,'acol',ptinput);
+            params.createparam(ftstring,'sopno',ptinput);
+            params.createparam(ftinteger,'ordline',ptinput);
+            commandtext:='execute procedure gen_psmatmatch(:jno,:job,:acol,:sopno,:ordline)';
+            params[0].asstring:=tblmatmatch.fieldbyname('j_no').value;
+            params[1].asstring:=tblmatmatch.fieldbyname('j2_job').value;
+            params[2].asstring:=tblmatmatch.fieldbyname('acol').value;
+            params[3].asstring:=tblmatmatch.fieldbyname('sopno').value;
+            params[4].asinteger:=tblmatmatch.fieldbyname('ordline').value;
+            execute;
+          end;
+          with frmpsmat.Query1 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'jno',ptinput);
+            params.createparam(ftstring,'job',ptinput);
+            params.createparam(ftstring,'acol',ptinput);
+            params.createparam(ftstring,'sopno',ptinput);
+            params.createparam(ftinteger,'ordline',ptinput);
+            commandtext:='select * from tblpsmatmatch where j_no=:jno and j2_job=:job and acol=:acol and sopno=:sopno and ordline=:ordline';
+            params[0].asstring:=tblmatmatch.fieldbyname('j_no').value;
+            params[1].asstring:=tblmatmatch.fieldbyname('j2_job').value;
+            params[2].asstring:=tblmatmatch.fieldbyname('acol').value;
+            params[3].asstring:=tblmatmatch.fieldbyname('sopno').value;
+            params[4].asinteger:=tblmatmatch.fieldbyname('ordline').value;
+            open;
+          end;
+          frmpsmat.DBGridEh1.ReadOnly:=false;
+          frmpsmat.show;
+        end;
+      end;
+    end else if dbgrideh1.selectedindex=33 then begin
+      if frmpbmat=nil then frmpbmat:=tfrmpbmat.create(nil);
+      with frmpbmat.query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'jno',ptinput);
+        params.createparam(ftstring,'job',ptinput);
+        params.createparam(ftstring,'acol',ptinput);
+        params.createparam(ftstring,'sopno',ptinput);
+        params.createparam(ftinteger,'ordline',ptinput);
+        commandtext:='execute procedure gen_pbmatmatch(:jno,:job,:acol,:sopno,:ordline)';
+        params[0].asstring:=tblmatmatch.fieldbyname('j_no').value;
+        params[1].asstring:=tblmatmatch.fieldbyname('j2_job').value;
+        params[2].asstring:=tblmatmatch.fieldbyname('acol').value;
+        params[3].asstring:=tblmatmatch.fieldbyname('sopno').value;
+        params[4].asinteger:=tblmatmatch.fieldbyname('ordline').value;
+        execute;
+      end;
+      with frmpbmat.Query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'jno',ptinput);
+        params.createparam(ftstring,'job',ptinput);
+        params.createparam(ftstring,'acol',ptinput);
+        params.createparam(ftstring,'sopno',ptinput);
+        params.createparam(ftinteger,'ordline',ptinput);
+        commandtext:='select * from tblpbmatmatch where j_no=:jno and j2_job=:job and acol=:acol and sopno=:sopno and ordline=:ordline';
+        params[0].asstring:=tblmatmatch.fieldbyname('j_no').value;
+        params[1].asstring:=tblmatmatch.fieldbyname('j2_job').value;
+        params[2].asstring:=tblmatmatch.fieldbyname('acol').value;
+        params[3].asstring:=tblmatmatch.fieldbyname('sopno').value;
+        params[4].asinteger:=tblmatmatch.fieldbyname('ordline').value;
+        open;
+      end;
+      frmpbmat.DBGridEh1.ReadOnly:=false;
+      frmpbmat.show;
+    }
+    end else if dbgrideh1.selectedindex=5 then begin
+      if frmremarks=nil then frmremarks:=tfrmremarks.create(nil);
+      frmremarks.DBMemo1.DataSource:=datasource1;
+      frmremarks.DBMemo1.DataField:='WL3R';
+      frmremarks.DBMemo1.ReadOnly:=false;
+      frmremarks.Show;
+    end else if dbgrideh1.selectedindex=10 then begin
+      if frmremarks=nil then frmremarks:=tfrmremarks.create(nil);
+      frmremarks.DBMemo1.DataSource:=datasource1;
+      frmremarks.DBMemo1.DataField:='WL1R';
+      frmremarks.DBMemo1.ReadOnly:=false;
+      frmremarks.Show;
+    end else if dbgrideh1.selectedindex=16 then begin
+      if frmremarks=nil then frmremarks:=tfrmremarks.create(nil);
+      frmremarks.DBMemo1.DataSource:=datasource1;
+      frmremarks.DBMemo1.DataField:='WL2R';
+      frmremarks.DBMemo1.ReadOnly:=false;
+      frmremarks.Show;
+    end else if dbgrideh1.selectedindex=22 then begin
+      if frmremarks=nil then frmremarks:=tfrmremarks.create(nil);
+      frmremarks.DBMemo1.DataSource:=datasource1;
+      frmremarks.DBMemo1.DataField:='WL7R';
+      frmremarks.DBMemo1.ReadOnly:=false;
+      frmremarks.Show;
+    end else if dbgrideh1.selectedindex=27 then begin
+      if frmremarks=nil then frmremarks:=tfrmremarks.create(nil);
+      frmremarks.DBMemo1.DataSource:=datasource1;
+      frmremarks.DBMemo1.DataField:='WL4R';
+      frmremarks.DBMemo1.ReadOnly:=false;
+      frmremarks.Show;
+    end else if dbgrideh1.selectedindex=32 then begin
+      if frmremarks=nil then frmremarks:=tfrmremarks.create(nil);
+      frmremarks.DBMemo1.DataSource:=datasource1;
+      frmremarks.DBMemo1.DataField:='WL5R';
+      frmremarks.DBMemo1.ReadOnly:=false;
+      frmremarks.Show;
+    end else if dbgrideh1.selectedindex=37 then begin
+      if frmremarks=nil then frmremarks:=tfrmremarks.create(nil);
+      frmremarks.DBMemo1.DataSource:=datasource1;
+      frmremarks.DBMemo1.DataField:='WL6R';
+      frmremarks.DBMemo1.ReadOnly:=false;
+      frmremarks.Show;
+    end else if dbgrideh1.SelectedIndex in [6,11,17,23,28,33] then begin
+      if frmpopc=nil then frmpopc:=tfrmpopc.create(nil);
+      with frmpopc.tblpopc do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        commandtext:='select * from erp_popanel where cono=''P1'' and flag1=''0'' and jobno=:x1';
+        params[0].asstring:=tblmatmatch.fieldbyname('j_no').value;
+        open;
+      end;
+      frmpopc.show;
+    end else if dbgrideh1.selectedindex=38 then begin
+      if frmsoppc=nil then frmsoppc:=tfrmsoppc.create(nil);
+      with frmsoppc.query1 do begin
+        close;
+        commandtext:='select prjno as [Project],jobno as [Job No],ordl as [Line],lbl as LBL,hh as HH,hg as HG,st as ST '
+                    +'from s99vf403.phgdb_test.dbo.pk_soppc02 where flg1=''0'' and prjno='''+tblmatmatch.fieldbyname('j_no').value+'''';
+        open;
+      end;
+      frmsoppc.show;
+    end else if dbgrideh1.SelectedIndex=43 then begin
+      if frmsoppc=nil then frmsoppc:=tfrmsoppc.create(nil);
+      with frmsoppc.query1 do begin
+        close;
+        commandtext:='select prjno as [Project],jobno as [Job No],ordl as [Line],pb as PB,ctn as CTN '
+                    +'from s99vf403.phgdb_test.dbo.pk_soppc02 where flg1=''0'' and prjno='''+tblmatmatch.fieldbyname('j_no').value+'''';
+        open;
+      end;
+      frmsoppc.show;
+    end else if dbgrideh1.SelectedIndex=46 then begin
+      if frmsoppc=nil then frmsoppc:=tfrmsoppc.create(nil);
+      with frmsoppc.query1 do begin
+        close;
+        commandtext:='select prjno as [Project],jobno as [Job No],ordl as [Line],appdate as [SZ Fitting Approved] '
+                    +'from s99vf403.phgdb_test.dbo.pk_soppc02 where flg1=''0'' and prjno='''+tblmatmatch.fieldbyname('j_no').value+'''';
+        open;
+      end;
+      frmsoppc.show;
+    end else if dbgrideh1.SelectedIndex in [47,48,49,50,51] then begin
+      if frmsoppc=nil then frmsoppc:=tfrmsoppc.create(nil);
+      with frmsoppc.query1 do begin
+        close;
+        commandtext:='select prjno as [Project],jobno as [Job No],ordl as [Line],pp as PP,s_c as SC,os as OS '
+                    +'from s99vf403.phgdb_test.dbo.pk_soppc02 where flg1=''0'' and prjno='''+tblmatmatch.fieldbyname('j_no').value+'''';
+        open;
+      end;
+      frmsoppc.show;
+    end;
+  end;
+  screen.cursor:=crDefault;
+end;
+
+end.
+ 

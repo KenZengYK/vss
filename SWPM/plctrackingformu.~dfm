@@ -1,0 +1,2416 @@
+object frmplctracking: Tfrmplctracking
+  Left = 192
+  Top = 114
+  Width = 409
+  Height = 259
+  Caption = 'PLC - Setup Change Tracking'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 32
+    Top = 32
+    Width = 38
+    Height = 13
+    Caption = 'Factory '
+  end
+  object Label2: TLabel
+    Left = 216
+    Top = 32
+    Width = 52
+    Height = 13
+    Caption = 'Workshop '
+  end
+  object Label3: TLabel
+    Left = 32
+    Top = 64
+    Width = 47
+    Height = 13
+    Caption = 'Customer '
+  end
+  object Label4: TLabel
+    Left = 216
+    Top = 64
+    Width = 53
+    Height = 13
+    Caption = 'Prod Code '
+  end
+  object ComboBox1: TComboBox
+    Left = 80
+    Top = 32
+    Width = 89
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    ItemIndex = 3
+    TabOrder = 0
+    Text = 'ALL'
+    Items.Strings = (
+      'SL'
+      'FJ'
+      'KB'
+      'ALL')
+  end
+  object ComboBox2: TComboBox
+    Left = 272
+    Top = 32
+    Width = 89
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    TabOrder = 1
+    OnEnter = ComboBox2Enter
+    Items.Strings = (
+      'SL'
+      'FJ'
+      'KB')
+  end
+  object ComboBox3: TComboBox
+    Left = 80
+    Top = 64
+    Width = 89
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    TabOrder = 2
+    OnEnter = ComboBox3Enter
+    Items.Strings = (
+      'SL'
+      'FJ'
+      'KB')
+  end
+  object ComboBox4: TComboBox
+    Left = 272
+    Top = 64
+    Width = 89
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    TabOrder = 3
+    Items.Strings = (
+      'B'
+      'K'
+      'U'
+      'S'
+      'B+K'
+      'B+U'
+      'K+U'
+      'B+K+U')
+  end
+  object GroupBox1: TGroupBox
+    Left = 40
+    Top = 96
+    Width = 321
+    Height = 57
+    Caption = 'Delivery Date Period'
+    TabOrder = 4
+    object Label5: TLabel
+      Left = 8
+      Top = 24
+      Width = 26
+      Height = 13
+      Caption = 'From '
+    end
+    object Label6: TLabel
+      Left = 176
+      Top = 24
+      Width = 16
+      Height = 13
+      Caption = 'To '
+    end
+    object DateEdit1: TDateEdit
+      Left = 40
+      Top = 24
+      Width = 113
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 0
+    end
+    object DateEdit2: TDateEdit
+      Left = 200
+      Top = 24
+      Width = 113
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 1
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 40
+    Top = 168
+    Width = 73
+    Height = 25
+    Caption = 'Preview'
+    TabOrder = 5
+    OnClick = BitBtn1Click
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+      00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+      8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+      8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+      8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+      03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+      03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+      33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+      33333337FFFF7733333333300000033333333337777773333333}
+    NumGlyphs = 2
+  end
+  object BitBtn2: TBitBtn
+    Left = 112
+    Top = 168
+    Width = 73
+    Height = 25
+    TabOrder = 6
+    Kind = bkClose
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 8
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 40
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 72
+  end
+  object Query4: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 104
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 136
+  end
+  object ppDBPipeline1: TppDBPipeline
+    UserName = 'DBPipeline1'
+    Left = 168
+  end
+  object ppReport1: TppReport
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.Orientation = poLandscape
+    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 210079
+    PrinterSetup.mmPaperWidth = 297127
+    PrinterSetup.PaperSize = 9
+    AllowPrintToFile = True
+    DeviceType = 'Screen'
+    OnPreviewFormCreate = ppReport1PreviewFormCreate
+    Left = 200
+    Version = '6.03'
+    mmColumnWidth = 0
+    object ppHeaderBand1: TppHeaderBand
+      mmBottomOffset = 0
+      mmHeight = 39688
+      mmPrintPosition = 0
+      object ppShape1: TppShape
+        UserName = 'Shape1'
+        Brush.Color = 14941178
+        mmHeight = 21167
+        mmLeft = 794
+        mmTop = 18521
+        mmWidth = 282840
+        BandType = 0
+      end
+      object ppShape41: TppShape
+        UserName = 'Shape41'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 264584
+        mmTop = 34396
+        mmWidth = 8996
+        BandType = 0
+      end
+      object ppShape40: TppShape
+        UserName = 'Shape40'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 237861
+        mmTop = 34396
+        mmWidth = 8202
+        BandType = 0
+      end
+      object ppShape39: TppShape
+        UserName = 'Shape39'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 221986
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape38: TppShape
+        UserName = 'Shape38'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 210344
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape34: TppShape
+        UserName = 'Shape303'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 112713
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape35: TppShape
+        UserName = 'Shape35'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 124354
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape36: TppShape
+        UserName = 'Shape36'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 140229
+        mmTop = 34396
+        mmWidth = 8202
+        BandType = 0
+      end
+      object ppShape37: TppShape
+        UserName = 'Shape37'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 166952
+        mmTop = 34396
+        mmWidth = 8996
+        BandType = 0
+      end
+      object ppShape33: TppShape
+        UserName = 'Shape33'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 81227
+        mmTop = 34396
+        mmWidth = 8996
+        BandType = 0
+      end
+      object ppShape32: TppShape
+        UserName = 'Shape302'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 54504
+        mmTop = 34396
+        mmWidth = 8202
+        BandType = 0
+      end
+      object ppShape31: TppShape
+        UserName = 'Shape301'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 38629
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape30: TppShape
+        UserName = 'Shape30'
+        Brush.Color = 16365224
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 26988
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape29: TppShape
+        UserName = 'Shape29'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 273580
+        mmTop = 34396
+        mmWidth = 9790
+        BandType = 0
+      end
+      object ppShape28: TppShape
+        UserName = 'Shape28'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 246063
+        mmTop = 34396
+        mmWidth = 8996
+        BandType = 0
+      end
+      object ppShape27: TppShape
+        UserName = 'Shape27'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 225690
+        mmTop = 34396
+        mmWidth = 4233
+        BandType = 0
+      end
+      object ppShape26: TppShape
+        UserName = 'Shape101'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 214048
+        mmTop = 34396
+        mmWidth = 4233
+        BandType = 0
+      end
+      object ppShape25: TppShape
+        UserName = 'Shape25'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 175948
+        mmTop = 34396
+        mmWidth = 9790
+        BandType = 0
+      end
+      object ppShape24: TppShape
+        UserName = 'Shape24'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 148432
+        mmTop = 34396
+        mmWidth = 8996
+        BandType = 0
+      end
+      object ppShape23: TppShape
+        UserName = 'Shape23'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 128059
+        mmTop = 34396
+        mmWidth = 4233
+        BandType = 0
+      end
+      object ppShape22: TppShape
+        UserName = 'Shape22'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 116417
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape21: TppShape
+        UserName = 'Shape21'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 89959
+        mmTop = 34396
+        mmWidth = 10319
+        BandType = 0
+      end
+      object ppShape20: TppShape
+        UserName = 'Shape20'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 62442
+        mmTop = 34396
+        mmWidth = 9260
+        BandType = 0
+      end
+      object ppShape19: TppShape
+        UserName = 'Shape19'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 42333
+        mmTop = 34396
+        mmWidth = 4233
+        BandType = 0
+      end
+      object ppShape18: TppShape
+        UserName = 'Shape18'
+        Brush.Color = 14539518
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 30692
+        mmTop = 34396
+        mmWidth = 4233
+        BandType = 0
+      end
+      object ppShape14: TppShape
+        UserName = 'Shape14'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 132027
+        mmTop = 34396
+        mmWidth = 8202
+        BandType = 0
+      end
+      object ppShape15: TppShape
+        UserName = 'Shape15'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 157427
+        mmTop = 34396
+        mmWidth = 9525
+        BandType = 0
+      end
+      object ppShape16: TppShape
+        UserName = 'Shape16'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 229659
+        mmTop = 34396
+        mmWidth = 8202
+        BandType = 0
+      end
+      object ppShape17: TppShape
+        UserName = 'Shape17'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 255059
+        mmTop = 34396
+        mmWidth = 9525
+        BandType = 0
+      end
+      object ppShape13: TppShape
+        UserName = 'Shape13'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 71702
+        mmTop = 34396
+        mmWidth = 9525
+        BandType = 0
+      end
+      object ppShape12: TppShape
+        UserName = 'Shape12'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 46302
+        mmTop = 34396
+        mmWidth = 8202
+        BandType = 0
+      end
+      object ppShape11: TppShape
+        UserName = 'Shape11'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 218017
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape10: TppShape
+        UserName = 'Shape10'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 206375
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape9: TppShape
+        UserName = 'Shape9'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 120386
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape8: TppShape
+        UserName = 'Shape8'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 108479
+        mmTop = 34396
+        mmWidth = 4233
+        BandType = 0
+      end
+      object ppShape7: TppShape
+        UserName = 'Shape7'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 34660
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape6: TppShape
+        UserName = 'Shape6'
+        Brush.Color = 14873052
+        Pen.Style = psClear
+        mmHeight = 5027
+        mmLeft = 23019
+        mmTop = 34396
+        mmWidth = 3969
+        BandType = 0
+      end
+      object ppShape5: TppShape
+        UserName = 'Shape5'
+        Brush.Color = 8454143
+        Pen.Style = psClear
+        mmHeight = 4763
+        mmLeft = 100277
+        mmTop = 18785
+        mmWidth = 85196
+        BandType = 0
+      end
+      object ppShape4: TppShape
+        UserName = 'Shape4'
+        Brush.Color = 8454143
+        Pen.Style = psClear
+        mmHeight = 20373
+        mmLeft = 1058
+        mmTop = 18785
+        mmWidth = 13494
+        BandType = 0
+      end
+      object ppShape3: TppShape
+        UserName = 'Shape3'
+        Brush.Color = 10024081
+        Pen.Style = psClear
+        mmHeight = 4763
+        mmLeft = 185473
+        mmTop = 18785
+        mmWidth = 97896
+        BandType = 0
+      end
+      object ppLabel12: TppLabel
+        UserName = 'Label102'
+        AutoSize = False
+        Caption = 
+          'Current Opt Performance (based on selected styles/range & select' +
+          'ed delivery period)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 186532
+        mmTop = 19844
+        mmWidth = 95779
+        BandType = 0
+      end
+      object ppShape2: TppShape
+        UserName = 'Shape2'
+        Brush.Color = 10024081
+        Pen.Style = psClear
+        mmHeight = 4763
+        mmLeft = 14552
+        mmTop = 19050
+        mmWidth = 85725
+        BandType = 0
+      end
+      object ppLabel1: TppLabel
+        UserName = 'Label1'
+        AutoSize = False
+        Caption = 'Phase of Learning Curve - Setup Change Tracking'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 4995
+        mmLeft = 14288
+        mmTop = 5821
+        mmWidth = 253207
+        BandType = 0
+      end
+      object ppLabel2: TppLabel
+        UserName = 'Label2'
+        Caption = 'Proj'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 1852
+        mmTop = 23019
+        mmWidth = 3471
+        BandType = 0
+      end
+      object ppLabel3: TppLabel
+        UserName = 'Label3'
+        Caption = 'Code'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 1852
+        mmTop = 27781
+        mmWidth = 4445
+        BandType = 0
+      end
+      object ppLine2: TppLine
+        UserName = 'Line2'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 21167
+        mmLeft = 7938
+        mmTop = 18521
+        mmWidth = 3440
+        BandType = 0
+      end
+      object ppLabel4: TppLabel
+        UserName = 'Label4'
+        Caption = 'Prod'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 8434
+        mmTop = 23019
+        mmWidth = 4064
+        BandType = 0
+      end
+      object ppLabel5: TppLabel
+        UserName = 'Label5'
+        Caption = 'Code'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 8467
+        mmTop = 27781
+        mmWidth = 4445
+        BandType = 0
+      end
+      object ppLine3: TppLine
+        UserName = 'Line3'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 21167
+        mmLeft = 14288
+        mmTop = 18521
+        mmWidth = 3440
+        BandType = 0
+      end
+      object ppLine4: TppLine
+        UserName = 'Line4'
+        Weight = 0.75
+        mmHeight = 3969
+        mmLeft = 14288
+        mmTop = 23548
+        mmWidth = 269346
+        BandType = 0
+      end
+      object ppLine5: TppLine
+        UserName = 'Line5'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 21167
+        mmLeft = 100013
+        mmTop = 18521
+        mmWidth = 3440
+        BandType = 0
+      end
+      object ppLine6: TppLine
+        UserName = 'Line6'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 21167
+        mmLeft = 185473
+        mmTop = 18521
+        mmWidth = 3440
+        BandType = 0
+      end
+      object ppLabel6: TppLabel
+        UserName = 'Label6'
+        Caption = 'Effective'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 14817
+        mmTop = 24871
+        mmWidth = 7366
+        BandType = 0
+      end
+      object ppLabel7: TppLabel
+        UserName = 'Label7'
+        Caption = '(Change)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 14817
+        mmTop = 28046
+        mmWidth = 7705
+        BandType = 0
+      end
+      object ppLabel8: TppLabel
+        UserName = 'Label8'
+        Caption = 'Date'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 14817
+        mmTop = 31221
+        mmWidth = 3810
+        BandType = 0
+      end
+      object ppLabel9: TppLabel
+        UserName = 'Label9'
+        Caption = 'From'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 14817
+        mmTop = 34396
+        mmWidth = 4445
+        BandType = 0
+      end
+      object ppLine7: TppLine
+        UserName = 'Line7'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 15875
+        mmLeft = 22754
+        mmTop = 23548
+        mmWidth = 2117
+        BandType = 0
+      end
+      object ppLabel10: TppLabel
+        UserName = 'Label10'
+        AutoSize = False
+        Caption = 'Setup Comparison - next version (new plan)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 17198
+        mmTop = 19844
+        mmWidth = 79904
+        BandType = 0
+      end
+      object ppLabel11: TppLabel
+        UserName = 'Label101'
+        AutoSize = False
+        Caption = 'Setup Comparison - last version'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 103717
+        mmTop = 19844
+        mmWidth = 78846
+        BandType = 0
+      end
+      object ppLine8: TppLine
+        UserName = 'Line8'
+        Weight = 0.75
+        mmHeight = 3969
+        mmLeft = 22754
+        mmTop = 28046
+        mmWidth = 23548
+        BandType = 0
+      end
+      object ppLabel13: TppLabel
+        UserName = 'Label11'
+        Caption = 'Phase'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 31485
+        mmTop = 24606
+        mmWidth = 6350
+        BandType = 0
+      end
+      object ppLine9: TppLine
+        UserName = 'Line9'
+        Weight = 0.75
+        mmHeight = 1588
+        mmLeft = 22754
+        mmTop = 34131
+        mmWidth = 77258
+        BandType = 0
+      end
+      object ppLabel14: TppLabel
+        UserName = 'Label12'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2582
+        mmLeft = 23283
+        mmTop = 35454
+        mmWidth = 2709
+        BandType = 0
+      end
+      object ppLabel15: TppLabel
+        UserName = 'Label15'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2582
+        mmLeft = 27252
+        mmTop = 35454
+        mmWidth = 3048
+        BandType = 0
+      end
+      object ppLabel16: TppLabel
+        UserName = 'Label16'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2582
+        mmLeft = 31221
+        mmTop = 35454
+        mmWidth = 2498
+        BandType = 0
+      end
+      object ppLine10: TppLine
+        UserName = 'Line10'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5556
+        mmLeft = 26723
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine11: TppLine
+        UserName = 'Line101'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5556
+        mmLeft = 30692
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine12: TppLine
+        UserName = 'Line102'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 11377
+        mmLeft = 34396
+        mmTop = 28046
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLabel17: TppLabel
+        UserName = 'Label17'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 34925
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel18: TppLabel
+        UserName = 'Label18'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 38894
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel19: TppLabel
+        UserName = 'Label19'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 42863
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine13: TppLine
+        UserName = 'Line13'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 15875
+        mmLeft = 46038
+        mmTop = 23548
+        mmWidth = 2117
+        BandType = 0
+      end
+      object ppLine14: TppLine
+        UserName = 'Line103'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5556
+        mmLeft = 38365
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine15: TppLine
+        UserName = 'Line15'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 42333
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine16: TppLine
+        UserName = 'Line16'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 15875
+        mmLeft = 71438
+        mmTop = 23548
+        mmWidth = 2117
+        BandType = 0
+      end
+      object ppLabel20: TppLabel
+        UserName = 'Label13'
+        Caption = 'From'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2582
+        mmLeft = 25929
+        mmTop = 29898
+        mmWidth = 5292
+        BandType = 0
+      end
+      object ppLabel21: TppLabel
+        UserName = 'Label14'
+        Caption = 'To'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 38894
+        mmTop = 29898
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel22: TppLabel
+        UserName = 'Label22'
+        Caption = 'Ttl Sect Hr '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 51329
+        mmTop = 24342
+        mmWidth = 11377
+        BandType = 0
+      end
+      object ppLabel23: TppLabel
+        UserName = 'Label23'
+        Caption = '(Phase From / '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2582
+        mmLeft = 51329
+        mmTop = 27517
+        mmWidth = 14605
+        BandType = 0
+      end
+      object ppLabel24: TppLabel
+        UserName = 'Label24'
+        Caption = 'Phase To)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2582
+        mmLeft = 51329
+        mmTop = 30692
+        mmWidth = 10202
+        BandType = 0
+      end
+      object ppLabel25: TppLabel
+        UserName = 'Label25'
+        Caption = 'W/Ave'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2582
+        mmLeft = 74083
+        mmTop = 24342
+        mmWidth = 6392
+        BandType = 0
+      end
+      object ppLabel26: TppLabel
+        UserName = 'Label26'
+        Caption = 'Eff % by Phase'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2582
+        mmLeft = 74083
+        mmTop = 27517
+        mmWidth = 15071
+        BandType = 0
+      end
+      object ppLabel27: TppLabel
+        UserName = 'Label27'
+        Caption = '(based on Line GSD)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2582
+        mmLeft = 74083
+        mmTop = 30692
+        mmWidth = 20913
+        BandType = 0
+      end
+      object ppLabel28: TppLabel
+        UserName = 'Label28'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 48948
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel29: TppLabel
+        UserName = 'Label29'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 56621
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel30: TppLabel
+        UserName = 'Label30'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 65617
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine17: TppLine
+        UserName = 'Line17'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 54240
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine18: TppLine
+        UserName = 'Line18'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 62442
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLabel31: TppLabel
+        UserName = 'Label31'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 75142
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel32: TppLabel
+        UserName = 'Label32'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 83608
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel33: TppLabel
+        UserName = 'Label301'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 93398
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine19: TppLine
+        UserName = 'Line19'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 80963
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine20: TppLine
+        UserName = 'Line20'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 89959
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLabel34: TppLabel
+        UserName = 'Label34'
+        Caption = 'Effective'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 100542
+        mmTop = 24871
+        mmWidth = 7408
+        BandType = 0
+      end
+      object ppLabel35: TppLabel
+        UserName = 'Label35'
+        Caption = '(Change)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 100542
+        mmTop = 28046
+        mmWidth = 7673
+        BandType = 0
+      end
+      object ppLabel36: TppLabel
+        UserName = 'Label36'
+        Caption = 'Date'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 100542
+        mmTop = 31221
+        mmWidth = 3704
+        BandType = 0
+      end
+      object ppLabel37: TppLabel
+        UserName = 'Label37'
+        Caption = 'From'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 100542
+        mmTop = 34396
+        mmWidth = 4498
+        BandType = 0
+      end
+      object ppLine21: TppLine
+        UserName = 'Line21'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 15875
+        mmLeft = 108479
+        mmTop = 23548
+        mmWidth = 2117
+        BandType = 0
+      end
+      object ppLine22: TppLine
+        UserName = 'Line22'
+        Weight = 0.75
+        mmHeight = 3969
+        mmLeft = 108479
+        mmTop = 28046
+        mmWidth = 23548
+        BandType = 0
+      end
+      object ppLabel38: TppLabel
+        UserName = 'Label38'
+        Caption = 'Phase'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 117211
+        mmTop = 24606
+        mmWidth = 6350
+        BandType = 0
+      end
+      object ppLine23: TppLine
+        UserName = 'Line23'
+        Weight = 0.75
+        mmHeight = 1323
+        mmLeft = 108479
+        mmTop = 34131
+        mmWidth = 175155
+        BandType = 0
+      end
+      object ppLabel39: TppLabel
+        UserName = 'Label39'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 109009
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel40: TppLabel
+        UserName = 'Label40'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 112977
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel41: TppLabel
+        UserName = 'Label41'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 116946
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine24: TppLine
+        UserName = 'Line104'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5556
+        mmLeft = 112448
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine25: TppLine
+        UserName = 'Line25'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5556
+        mmLeft = 116417
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine26: TppLine
+        UserName = 'Line26'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 11377
+        mmLeft = 120121
+        mmTop = 28046
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLabel42: TppLabel
+        UserName = 'Label42'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 120650
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel43: TppLabel
+        UserName = 'Label43'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 124619
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel44: TppLabel
+        UserName = 'Label44'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 128588
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine27: TppLine
+        UserName = 'Line27'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 15875
+        mmLeft = 131763
+        mmTop = 23548
+        mmWidth = 2117
+        BandType = 0
+      end
+      object ppLine28: TppLine
+        UserName = 'Line28'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5556
+        mmLeft = 124090
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine29: TppLine
+        UserName = 'Line29'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 128059
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine30: TppLine
+        UserName = 'Line30'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 15875
+        mmLeft = 157163
+        mmTop = 23548
+        mmWidth = 2117
+        BandType = 0
+      end
+      object ppLabel45: TppLabel
+        UserName = 'Label45'
+        Caption = 'From'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 111654
+        mmTop = 29898
+        mmWidth = 5292
+        BandType = 0
+      end
+      object ppLabel46: TppLabel
+        UserName = 'Label46'
+        Caption = 'To'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 124619
+        mmTop = 29898
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel47: TppLabel
+        UserName = 'Label47'
+        Caption = 'Ttl Sect Hr '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 137054
+        mmTop = 24342
+        mmWidth = 11377
+        BandType = 0
+      end
+      object ppLabel48: TppLabel
+        UserName = 'Label48'
+        Caption = '(Phase From / '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 137054
+        mmTop = 27517
+        mmWidth = 14552
+        BandType = 0
+      end
+      object ppLabel49: TppLabel
+        UserName = 'Label49'
+        Caption = 'Phase To)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 137054
+        mmTop = 30692
+        mmWidth = 10319
+        BandType = 0
+      end
+      object ppLabel50: TppLabel
+        UserName = 'Label50'
+        Caption = 'W/Ave'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 159809
+        mmTop = 24342
+        mmWidth = 6350
+        BandType = 0
+      end
+      object ppLabel51: TppLabel
+        UserName = 'Label51'
+        Caption = 'Eff % by Phase'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 159809
+        mmTop = 27517
+        mmWidth = 15081
+        BandType = 0
+      end
+      object ppLabel52: TppLabel
+        UserName = 'Label52'
+        Caption = '(based on Line GSD)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 159809
+        mmTop = 30692
+        mmWidth = 20902
+        BandType = 0
+      end
+      object ppLabel53: TppLabel
+        UserName = 'Label53'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 134673
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel54: TppLabel
+        UserName = 'Label54'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 142346
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel55: TppLabel
+        UserName = 'Label302'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 151342
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine31: TppLine
+        UserName = 'Line31'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 139965
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine32: TppLine
+        UserName = 'Line32'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 148167
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLabel56: TppLabel
+        UserName = 'Label56'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 160867
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel57: TppLabel
+        UserName = 'Label57'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 169334
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel82: TppLabel
+        UserName = 'Label82'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 179123
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine33: TppLine
+        UserName = 'Line33'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 166688
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine34: TppLine
+        UserName = 'Line201'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 175684
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLabel58: TppLabel
+        UserName = 'Label58'
+        Caption = 'Delivery '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 191559
+        mmTop = 24871
+        mmWidth = 7408
+        BandType = 0
+      end
+      object ppLabel59: TppLabel
+        UserName = 'Label59'
+        Caption = 'Period'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 191559
+        mmTop = 28046
+        mmWidth = 5556
+        BandType = 0
+      end
+      object ppLabel60: TppLabel
+        UserName = 'Label60'
+        Caption = 'To'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 200025
+        mmTop = 35719
+        mmWidth = 2117
+        BandType = 0
+      end
+      object ppLabel61: TppLabel
+        UserName = 'Label61'
+        Caption = 'From'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 5
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2117
+        mmLeft = 188384
+        mmTop = 35719
+        mmWidth = 4498
+        BandType = 0
+      end
+      object ppLine35: TppLine
+        UserName = 'Line35'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 15875
+        mmLeft = 206111
+        mmTop = 23548
+        mmWidth = 2117
+        BandType = 0
+      end
+      object ppLine36: TppLine
+        UserName = 'Line36'
+        Weight = 0.75
+        mmHeight = 3969
+        mmLeft = 206111
+        mmTop = 28046
+        mmWidth = 23548
+        BandType = 0
+      end
+      object ppLabel62: TppLabel
+        UserName = 'Label62'
+        Caption = 'Phase'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 214842
+        mmTop = 24606
+        mmWidth = 6350
+        BandType = 0
+      end
+      object ppLabel63: TppLabel
+        UserName = 'Label63'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 206640
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel64: TppLabel
+        UserName = 'Label401'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 210609
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel65: TppLabel
+        UserName = 'Label65'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 214578
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine38: TppLine
+        UserName = 'Line38'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5556
+        mmLeft = 210080
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine39: TppLine
+        UserName = 'Line39'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5556
+        mmLeft = 214048
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine40: TppLine
+        UserName = 'Line40'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 11377
+        mmLeft = 217753
+        mmTop = 28046
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLabel66: TppLabel
+        UserName = 'Label66'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 218282
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel67: TppLabel
+        UserName = 'Label67'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 222250
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel68: TppLabel
+        UserName = 'Label68'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 226219
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine41: TppLine
+        UserName = 'Line41'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 15875
+        mmLeft = 229394
+        mmTop = 23548
+        mmWidth = 2117
+        BandType = 0
+      end
+      object ppLine42: TppLine
+        UserName = 'Line42'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5556
+        mmLeft = 221721
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine43: TppLine
+        UserName = 'Line43'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 225690
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine44: TppLine
+        UserName = 'Line301'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 15875
+        mmLeft = 254794
+        mmTop = 23548
+        mmWidth = 2117
+        BandType = 0
+      end
+      object ppLabel69: TppLabel
+        UserName = 'Label69'
+        Caption = 'From'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 209286
+        mmTop = 29898
+        mmWidth = 5292
+        BandType = 0
+      end
+      object ppLabel70: TppLabel
+        UserName = 'Label70'
+        Caption = 'To'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 222250
+        mmTop = 29898
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel71: TppLabel
+        UserName = 'Label71'
+        Caption = 'Ttl Sect Hr '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 234686
+        mmTop = 24342
+        mmWidth = 11377
+        BandType = 0
+      end
+      object ppLabel72: TppLabel
+        UserName = 'Label72'
+        Caption = '(Phase From / '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 234686
+        mmTop = 27517
+        mmWidth = 14552
+        BandType = 0
+      end
+      object ppLabel73: TppLabel
+        UserName = 'Label73'
+        Caption = 'Phase To)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 234686
+        mmTop = 30692
+        mmWidth = 10319
+        BandType = 0
+      end
+      object ppLabel74: TppLabel
+        UserName = 'Label501'
+        Caption = 'W/Ave'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 257440
+        mmTop = 24342
+        mmWidth = 6350
+        BandType = 0
+      end
+      object ppLabel75: TppLabel
+        UserName = 'Label75'
+        Caption = 'Eff Performance % '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2582
+        mmLeft = 257440
+        mmTop = 27517
+        mmWidth = 19304
+        BandType = 0
+      end
+      object ppLabel76: TppLabel
+        UserName = 'Label76'
+        Caption = '(based on Line GSD)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 257440
+        mmTop = 30692
+        mmWidth = 20902
+        BandType = 0
+      end
+      object ppLabel77: TppLabel
+        UserName = 'Label77'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 232305
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel78: TppLabel
+        UserName = 'Label78'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 239978
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel79: TppLabel
+        UserName = 'Label79'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 248973
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine45: TppLine
+        UserName = 'Line45'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 237596
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine46: TppLine
+        UserName = 'Line46'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 245798
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLabel80: TppLabel
+        UserName = 'Label80'
+        Caption = 'SL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 258498
+        mmTop = 35454
+        mmWidth = 2646
+        BandType = 0
+      end
+      object ppLabel81: TppLabel
+        UserName = 'Label81'
+        Caption = 'KB'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 266965
+        mmTop = 35454
+        mmWidth = 3175
+        BandType = 0
+      end
+      object ppLabel83: TppLabel
+        UserName = 'Label83'
+        Caption = 'FJ'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 276755
+        mmTop = 35454
+        mmWidth = 2381
+        BandType = 0
+      end
+      object ppLine47: TppLine
+        UserName = 'Line47'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 264319
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine48: TppLine
+        UserName = 'Line48'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 273315
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLine37: TppLine
+        UserName = 'Line37'
+        Position = lpLeft
+        Weight = 0.75
+        mmHeight = 5292
+        mmLeft = 195263
+        mmTop = 34131
+        mmWidth = 1588
+        BandType = 0
+      end
+      object ppLabel84: TppLabel
+        UserName = 'Label20'
+        Caption = 'Printed On '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 240242
+        mmTop = 14288
+        mmWidth = 11377
+        BandType = 0
+      end
+      object ppSystemVariable1: TppSystemVariable
+        UserName = 'SystemVariable1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 6
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2646
+        mmLeft = 254001
+        mmTop = 14288
+        mmWidth = 9525
+        BandType = 0
+      end
+    end
+    object ppDetailBand1: TppDetailBand
+      mmBottomOffset = 0
+      mmHeight = 6350
+      mmPrintPosition = 0
+      object ppLine1: TppLine
+        UserName = 'Line1'
+        Visible = False
+        Weight = 0.75
+        mmHeight = 3969
+        mmLeft = 16140
+        mmTop = 2381
+        mmWidth = 13229
+        BandType = 4
+      end
+    end
+    object ppFooterBand1: TppFooterBand
+      mmBottomOffset = 0
+      mmHeight = 2910
+      mmPrintPosition = 0
+    end
+  end
+end

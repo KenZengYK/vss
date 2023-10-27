@@ -1,0 +1,37 @@
+unit pdn_destformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, DB, ADODB;
+
+type
+  Tfrmpdn_dest = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpdn_dest: Tfrmpdn_dest;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+procedure Tfrmpdn_dest.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmpdn_dest:=nil;
+end;
+
+end.

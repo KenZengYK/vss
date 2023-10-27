@@ -1,0 +1,59 @@
+unit artnoformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DB, Grids, DBGridEh, DBClient;
+
+type
+  Tfrmartno = class(TForm)
+    query1: TClientDataSet;
+    DBGridEh1: TDBGridEh;
+    DataSource1: TDataSource;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmartno: Tfrmartno;
+
+implementation
+
+uses mainformu, gsdtmuformu;
+
+{$R *.dfm}
+
+procedure Tfrmartno.BitBtn1Click(Sender: TObject);
+begin
+  if query1.Active then begin
+    frmgsdtmu.ComboBox1.text:=query1.fieldbyname('cust').value;
+    frmgsdtmu.ComboBox2.Text:=query1.fieldbyname('ptyp').value;
+    frmgsdtmu.Edit1.Text:=query1.fieldbyname('artno').value;
+    with frmgsdtmu.query2 do begin
+      close;
+      params.clear;
+      commandtext:='select * from ie_cactmuf0 where cust='''+frmgsdtmu.combobox1.text+''' and ptyp='''+frmgsdtmu.combobox2.text+''' and artno='''+frmgsdtmu.edit1.text+'''';
+      open;
+      if not fieldbyname('bsize').isnull then frmgsdtmu.edit2.text:=fieldbyname('bsize').value else frmgsdtmu.edit2.text:='';
+      if not fieldbyname('btmu').isnull then frmgsdtmu.cxcurrencyedit1.Value:=fieldbyname('btmu').value else frmgsdtmu.cxcurrencyedit1.value:=0;
+      if not fieldbyname('bsize1').isnull then frmgsdtmu.edit3.text:=fieldbyname('bsize1').value else frmgsdtmu.edit3.text:='';
+      if not fieldbyname('btmu1').isnull then frmgsdtmu.cxcurrencyedit2.Value:=fieldbyname('btmu1').value else frmgsdtmu.cxcurrencyedit2.value:=0;
+    end;
+    with frmgsdtmu.query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from ie_cactmuf where cust='''+frmgsdtmu.combobox1.text+''' and ptyp='''+frmgsdtmu.combobox2.text+''' and artno='''+frmgsdtmu.edit1.text+'''';
+      open;
+    end;
+  end;
+  frmartno.close;
+end;
+
+end.
+ 

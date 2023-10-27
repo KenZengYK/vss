@@ -1,0 +1,132 @@
+unit lworksheetformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGridEh, ExtCtrls, StdCtrls, DB, DBClient, Buttons;
+
+type
+  Tfrmlwsheet = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    DBGridEh1: TDBGridEh;
+    Label1: TLabel;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    DataSource1: TDataSource;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    ComboBox2: TComboBox;
+    Label3: TLabel;
+    ComboBox3: TComboBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    SpeedButton1: TSpeedButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmlwsheet: Tfrmlwsheet;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+procedure Tfrmlwsheet.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmlwsheet:=nil;
+end;
+
+procedure Tfrmlwsheet.DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then sendmessage(dbgrideh1.Handle,wm_keydown,vk_tab,0);
+end;
+
+procedure Tfrmlwsheet.Query1NewRecord(DataSet: TDataSet);
+var
+  seq:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq) as seq1 from tbllinewk';
+    open;
+    if not fieldbyname('seq1').isnull then seq:=fieldbyname('seq1').value+1
+    else seq1:=1;
+  end;
+  query1.fieldbyname('date1').value:=date;
+  query1.fieldbyname('seq').value:=seq;
+  query1.fieldbyname('pline').value:=combobox3.text;
+end;
+
+procedure Tfrmlwsheet.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'seq',ptinput);
+      commandtext:='select seq from tbllinewk where seq=:seq';
+      params[0].asinteger:=query1.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('seq').isnull then begin
+        with query3 do begin
+          close;
+          params.clear;
+          commandtext:='select *';
+        end;
+      end else begin
+        with query3 do begin
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmlwsheet.BitBtn1Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmlwsheet.BitBtn2Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmlwsheet.BitBtn3Click(Sender: TObject);
+begin
+  if (query1.state=dsedit) or (query1.state=dsinsert) then query1.post;
+end;
+
+procedure Tfrmlwsheet.BitBtn4Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmlwsheet.SpeedButton1Click(Sender: TObject);
+begin
+  //
+end;
+
+end.

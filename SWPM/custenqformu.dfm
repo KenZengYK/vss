@@ -1,0 +1,1737 @@
+object frmcustenq: Tfrmcustenq
+  Left = 192
+  Top = 112
+  Caption = 'Order Enquiry / SO Issue'
+  ClientHeight = 186
+  ClientWidth = 679
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 679
+    Height = 89
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitWidth = 108
+    object Label1: TLabel
+      Left = 16
+      Top = 16
+      Width = 35
+      Height = 13
+      Caption = 'OE No.'
+    end
+    object Label2: TLabel
+      Left = 432
+      Top = 16
+      Width = 72
+      Height = 13
+      Caption = 'Customer Code'
+    end
+    object Label3: TLabel
+      Left = 632
+      Top = 16
+      Width = 82
+      Height = 13
+      Caption = 'Product Category'
+    end
+    object Label4: TLabel
+      Left = 160
+      Top = 40
+      Width = 82
+      Height = 13
+      Caption = 'OE Delivery Date'
+    end
+    object Label5: TLabel
+      Left = 432
+      Top = 40
+      Width = 54
+      Height = 13
+      Caption = 'Enquiry Qty'
+    end
+    object Label6: TLabel
+      Left = 632
+      Top = 40
+      Width = 77
+      Height = 13
+      Caption = 'Enquiry O/S Qty'
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 160
+      Top = 16
+      Width = 23
+      Height = 22
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        333333333333333333FF33333333333330003FF3FFFFF3333777003000003333
+        300077F777773F333777E00BFBFB033333337773333F7F33333FE0BFBF000333
+        330077F3337773F33377E0FBFBFBF033330077F3333FF7FFF377E0BFBF000000
+        333377F3337777773F3FE0FBFBFBFBFB039977F33FFFFFFF7377E0BF00000000
+        339977FF777777773377000BFB03333333337773FF733333333F333000333333
+        3300333777333333337733333333333333003333333333333377333333333333
+        333333333333333333FF33333333333330003333333333333777333333333333
+        3000333333333333377733333333333333333333333333333333}
+      NumGlyphs = 2
+      OnClick = SpeedButton1Click
+    end
+    object DBText1: TDBText
+      Left = 824
+      Top = 54
+      Width = 72
+      Height = 24
+      AutoSize = True
+      DataField = 'EQSTA'
+      DataSource = DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -20
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 232
+      Top = 16
+      Width = 47
+      Height = 13
+      Caption = 'Balancing'
+      Visible = False
+    end
+    object Label8: TLabel
+      Left = 16
+      Top = 40
+      Width = 35
+      Height = 13
+      Caption = 'Factory'
+    end
+    object DBText2: TDBText
+      Left = 384
+      Top = 43
+      Width = 25
+      Height = 17
+      DataField = 'EQWK'
+      DataSource = DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 376
+      Top = 43
+      Width = 9
+      Height = 13
+      Caption = '(  '
+    end
+    object Label10: TLabel
+      Left = 406
+      Top = 43
+      Width = 9
+      Height = 13
+      Caption = ' ) '
+    end
+    object Label11: TLabel
+      Left = 280
+      Top = 64
+      Width = 70
+      Height = 13
+      Caption = 'OE Ex-fty Date'
+    end
+    object Label12: TLabel
+      Left = 208
+      Top = 67
+      Width = 9
+      Height = 13
+      Caption = '(  '
+    end
+    object DBText3: TDBText
+      Left = 496
+      Top = 67
+      Width = 25
+      Height = 17
+      DataField = 'EXWK'
+      DataSource = DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label13: TLabel
+      Left = 238
+      Top = 67
+      Width = 9
+      Height = 13
+      Caption = ' ) '
+    end
+    object Label14: TLabel
+      Left = 16
+      Top = 64
+      Width = 57
+      Height = 13
+      Caption = 'OE T3 Date'
+    end
+    object Label15: TLabel
+      Left = 488
+      Top = 67
+      Width = 9
+      Height = 13
+      Caption = '(  '
+    end
+    object DBText4: TDBText
+      Left = 216
+      Top = 67
+      Width = 25
+      Height = 17
+      DataField = 'T3WK'
+      DataSource = DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label16: TLabel
+      Left = 518
+      Top = 67
+      Width = 9
+      Height = 13
+      Caption = ' ) '
+    end
+    object Label17: TLabel
+      Left = 552
+      Top = 64
+      Width = 82
+      Height = 13
+      Caption = 'Ship Mode(LCL)  '
+    end
+    object DBEdit1: TDBEdit
+      Left = 56
+      Top = 16
+      Width = 105
+      Height = 21
+      Color = 11463662
+      DataField = 'EQNO'
+      DataSource = DataSource1
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object DBComboBox1: TDBComboBox
+      Left = 512
+      Top = 16
+      Width = 97
+      Height = 21
+      DataField = 'EQCUSN'
+      DataSource = DataSource1
+      TabOrder = 2
+    end
+    object DBComboBox2: TDBComboBox
+      Left = 720
+      Top = 16
+      Width = 65
+      Height = 21
+      DataField = 'EQCAT'
+      DataSource = DataSource1
+      Items.Strings = (
+        'P'
+        'B'
+        'K'
+        'U')
+      TabOrder = 3
+    end
+    object DBDateTimeEditEh1: TDBDateTimeEditEh
+      Left = 248
+      Top = 40
+      Width = 121
+      Height = 21
+      DataField = 'EQDT'
+      DataSource = DataSource1
+      EditButtons = <>
+      Kind = dtkDateEh
+      TabOrder = 4
+      Visible = True
+    end
+    object DBNumberEditEh1: TDBNumberEditEh
+      Left = 512
+      Top = 40
+      Width = 97
+      Height = 21
+      DataField = 'EQQTY'
+      DataSource = DataSource1
+      EditButtons = <>
+      TabOrder = 5
+      Visible = True
+    end
+    object DBNumberEditEh2: TDBNumberEditEh
+      Left = 720
+      Top = 40
+      Width = 97
+      Height = 21
+      Color = 11463662
+      DataField = 'EQOQTY'
+      DataSource = DataSource1
+      EditButtons = <>
+      ReadOnly = True
+      TabOrder = 6
+      Visible = True
+    end
+    object DBComboBox3: TDBComboBox
+      Left = 288
+      Top = 16
+      Width = 121
+      Height = 21
+      DataField = 'EQTYPE'
+      DataSource = DataSource1
+      Items.Strings = (
+        'Requisition'
+        'Booking'
+        'Open')
+      TabOrder = 1
+      Visible = False
+    end
+    object DBEdit2: TDBEdit
+      Left = 56
+      Top = 40
+      Width = 57
+      Height = 21
+      DataField = 'TPLANT'
+      DataSource = DataSource1
+      TabOrder = 7
+    end
+    object DBDateTimeEditEh2: TDBDateTimeEditEh
+      Left = 360
+      Top = 64
+      Width = 121
+      Height = 21
+      DataField = 'EXFTY'
+      DataSource = DataSource1
+      EditButtons = <>
+      Kind = dtkDateEh
+      TabOrder = 8
+      Visible = True
+    end
+    object DBDateTimeEditEh3: TDBDateTimeEditEh
+      Left = 80
+      Top = 64
+      Width = 121
+      Height = 21
+      DataField = 'T3'
+      DataSource = DataSource1
+      EditButtons = <>
+      Kind = dtkDateEh
+      TabOrder = 9
+      Visible = True
+    end
+    object DBComboBox4: TDBComboBox
+      Left = 632
+      Top = 64
+      Width = 81
+      Height = 21
+      DataField = 'SHPM'
+      DataSource = DataSource1
+      Items.Strings = (
+        'P'
+        'B'
+        'K'
+        'U')
+      TabOrder = 10
+    end
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 89
+    Width = 679
+    Height = 56
+    Align = alClient
+    DataSource = DataSource2
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'EQLINE'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'OE Line'
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'EQSO'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Sales Order'
+        OnEditButtonClick = DBGridEh1Columns1EditButtonClick
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EQSOL'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'SO Line'
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EQWO'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Work Order'
+        Width = 72
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EQART'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'PH Style'
+        Width = 91
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EQCSTYLE'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Cust Style'
+        Width = 146
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EQQTY'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'SO Line Qty'
+        Width = 68
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EQSTA'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Project Process'
+        Width = 56
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EQEXFT'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'SO Delivery Date'
+        Width = 85
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 145
+    Width = 679
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    ExplicitTop = -41
+    ExplicitWidth = 108
+    object BitBtn1: TBitBtn
+      Left = 16
+      Top = 8
+      Width = 129
+      Height = 25
+      Caption = 'New Order Enquiry'
+      DoubleBuffered = True
+      Glyph.Data = {
+        E6000000424DE60000000000000076000000280000000E0000000E0000000100
+        0400000000007000000000000000000000001000000000000000000000000000
+        BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3300333333333333330033333333333333003333300033333300333330F03333
+        3300333330F033333300330000F000033300330FFFFFFF033300330000F00003
+        3300333330F033333300333330F0333333003333300033333300333333333333
+        33003333333333333300}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 144
+      Top = 8
+      Width = 105
+      Height = 25
+      Caption = 'Enquiry Drop'
+      DoubleBuffered = True
+      Glyph.Data = {
+        E6000000424DE60000000000000076000000280000000E0000000E0000000100
+        0400000000007000000000000000000000001000000000000000000000000000
+        BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3300333333333333330033333333333333003333333333333300333333333333
+        330033333333333333003300000000003300330FFFFFFFF03300330000000000
+        3300333333333333330033333333333333003333333333333300333333333333
+        33003333333333333300}
+      ParentDoubleBuffered = False
+      TabOrder = 1
+      OnClick = BitBtn2Click
+    end
+    object BitBtn3: TBitBtn
+      Left = 248
+      Top = 8
+      Width = 89
+      Height = 25
+      Caption = 'Order Line'
+      DoubleBuffered = True
+      Glyph.Data = {
+        E6000000424DE60000000000000076000000280000000E0000000E0000000100
+        0400000000007000000000000000000000001000000000000000000000000000
+        BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3300333333333333330033333333333333003333300033333300333330F03333
+        3300333330F033333300330000F000033300330FFFFFFF033300330000F00003
+        3300333330F033333300333330F0333333003333300033333300333333333333
+        33003333333333333300}
+      ParentDoubleBuffered = False
+      TabOrder = 2
+      OnClick = BitBtn3Click
+    end
+    object BitBtn4: TBitBtn
+      Left = 336
+      Top = 8
+      Width = 81
+      Height = 25
+      Caption = 'Order Line'
+      DoubleBuffered = True
+      Glyph.Data = {
+        E6000000424DE60000000000000076000000280000000E0000000E0000000100
+        0400000000007000000000000000000000001000000000000000000000000000
+        BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3300333333333333330033333333333333003333333333333300333333333333
+        330033333333333333003300000000003300330FFFFFFFF03300330000000000
+        3300333333333333330033333333333333003333333333333300333333333333
+        33003333333333333300}
+      ParentDoubleBuffered = False
+      TabOrder = 3
+      OnClick = BitBtn4Click
+    end
+    object BitBtn5: TBitBtn
+      Left = 416
+      Top = 8
+      Width = 57
+      Height = 25
+      Caption = 'Save'
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 4
+      OnClick = BitBtn5Click
+    end
+    object BitBtn6: TBitBtn
+      Left = 472
+      Top = 8
+      Width = 97
+      Height = 25
+      Caption = 'Partial Cancel'
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        333333333333333333333333333333333333333FFF33FF333FFF339993370733
+        999333777FF37FF377733339993000399933333777F777F77733333399970799
+        93333333777F7377733333333999399933333333377737773333333333990993
+        3333333333737F73333333333331013333333333333777FF3333333333910193
+        333333333337773FF3333333399000993333333337377737FF33333399900099
+        93333333773777377FF333399930003999333337773777F777FF339993370733
+        9993337773337333777333333333333333333333333333333333333333333333
+        3333333333333333333333333333333333333333333333333333}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 5
+      OnClick = BitBtn6Click
+    end
+    object BitBtn7: TBitBtn
+      Left = 568
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Preview'
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 6
+      OnClick = BitBtn7Click
+    end
+    object BitBtn8: TBitBtn
+      Left = 640
+      Top = 8
+      Width = 65
+      Height = 25
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 7
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_custenq1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    AfterOpen = Query1AfterOpen
+    AfterPost = Query1AfterPost
+    Left = 264
+    Top = 136
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    OnDataChange = DataSource1DataChange
+    Left = 296
+    Top = 136
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_custenq2'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    AfterPost = Query2AfterPost
+    OnNewRecord = Query2NewRecord
+    Left = 328
+    Top = 136
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 392
+    Top = 136
+  end
+  object Query4: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 424
+    Top = 136
+  end
+  object DataSource2: TDataSource
+    DataSet = Query2
+    Left = 360
+    Top = 136
+  end
+  object Query5: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_custenq1 where eqno='#39'0001502'#39
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 456
+    Top = 136
+  end
+  object ppDBPipeline1: TppDBPipeline
+    DataSource = DataSource3
+    UserName = 'DBPipeline1'
+    Left = 552
+    Top = 136
+  end
+  object ppReport1: TppReport
+    AutoStop = False
+    DataPipeline = ppDBPipeline1
+    PassSetting = psTwoPass
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.PaperName = 'Letter'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.SaveDeviceSettings = False
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 279401
+    PrinterSetup.mmPaperWidth = 215900
+    PrinterSetup.PaperSize = 1
+    DeviceType = 'Screen'
+    EmailSettings.ReportFormat = 'PDF'
+    OnPreviewFormCreate = ppReport1PreviewFormCreate
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = False
+    OutlineSettings.Visible = False
+    PDFSettings.EmbedFontOptions = []
+    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.Enabled = False
+    Left = 584
+    Top = 136
+    Version = '11.07'
+    mmColumnWidth = 0
+    DataPipelineName = 'ppDBPipeline1'
+    object ppHeaderBand1: TppHeaderBand
+      mmBottomOffset = 0
+      mmHeight = 35190
+      mmPrintPosition = 0
+      object ppLabel1: TppLabel
+        UserName = 'Label1'
+        HyperlinkColor = clBlue
+        AutoSize = False
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Order Enquiry'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 18
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 7408
+        mmLeft = 72761
+        mmTop = 4763
+        mmWidth = 51858
+        BandType = 0
+      end
+      object ppLabel2: TppLabel
+        UserName = 'Label2'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'OE No.'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3302
+        mmLeft = 2910
+        mmTop = 15610
+        mmWidth = 9144
+        BandType = 0
+      end
+      object ppDBText1: TppDBText
+        UserName = 'DBText1'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQNO'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3387
+        mmLeft = 15081
+        mmTop = 15610
+        mmWidth = 10964
+        BandType = 0
+      end
+      object ppLabel3: TppLabel
+        UserName = 'Label3'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Customer'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 75936
+        mmTop = 15610
+        mmWidth = 13208
+        BandType = 0
+      end
+      object ppDBText2: TppDBText
+        UserName = 'DBText2'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQCUSN'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3387
+        mmLeft = 92604
+        mmTop = 15610
+        mmWidth = 9313
+        BandType = 0
+      end
+      object ppLabel4: TppLabel
+        UserName = 'Label4'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Product Category'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 118798
+        mmTop = 15610
+        mmWidth = 23548
+        BandType = 0
+      end
+      object ppDBText3: TppDBText
+        UserName = 'DBText3'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQCAT'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3387
+        mmLeft = 146315
+        mmTop = 15610
+        mmWidth = 2032
+        BandType = 0
+      end
+      object ppLabel5: TppLabel
+        UserName = 'Label5'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Delivery Date'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 26458
+        mmTop = 20373
+        mmWidth = 19579
+        BandType = 0
+      end
+      object ppDBText4: TppDBText
+        UserName = 'DBText4'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQDT'
+        DataPipeline = ppDBPipeline1
+        DisplayFormat = 'yyyy/MM/dd'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3387
+        mmLeft = 47361
+        mmTop = 20373
+        mmWidth = 14139
+        BandType = 0
+      end
+      object ppLabel6: TppLabel
+        UserName = 'Label6'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'OE Qty (pcs) '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 75936
+        mmTop = 20373
+        mmWidth = 17822
+        BandType = 0
+      end
+      object ppDBText5: TppDBText
+        UserName = 'DBText5'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQQTY'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3387
+        mmLeft = 96309
+        mmTop = 20373
+        mmWidth = 9398
+        BandType = 0
+      end
+      object ppLabel7: TppLabel
+        UserName = 'Label7'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'OE O/S Qty (pcs) '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 118798
+        mmTop = 20373
+        mmWidth = 23537
+        BandType = 0
+      end
+      object ppDBText6: TppDBText
+        UserName = 'DBText6'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQOQTY'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3387
+        mmLeft = 146315
+        mmTop = 20373
+        mmWidth = 8763
+        BandType = 0
+      end
+      object ppShape1: TppShape
+        UserName = 'Shape1'
+        mmHeight = 10054
+        mmLeft = 2646
+        mmTop = 25135
+        mmWidth = 196057
+        BandType = 0
+      end
+      object ppLabel8: TppLabel
+        UserName = 'Label8'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'OE'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3302
+        mmLeft = 3440
+        mmTop = 26723
+        mmWidth = 3979
+        BandType = 0
+      end
+      object ppLabel9: TppLabel
+        UserName = 'Label9'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Line'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 3440
+        mmTop = 30692
+        mmWidth = 5821
+        BandType = 0
+      end
+      object ppLabel10: TppLabel
+        UserName = 'Label10'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Sales Order'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 20373
+        mmTop = 28310
+        mmWidth = 15875
+        BandType = 0
+      end
+      object ppLabel11: TppLabel
+        UserName = 'Label11'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'SO '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 43127
+        mmTop = 26723
+        mmWidth = 4911
+        BandType = 0
+      end
+      object ppLabel12: TppLabel
+        UserName = 'Label12'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Line '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 43127
+        mmTop = 30692
+        mmWidth = 6646
+        BandType = 0
+      end
+      object ppLabel13: TppLabel
+        UserName = 'Label101'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Work Order'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 63236
+        mmTop = 28310
+        mmWidth = 15610
+        BandType = 0
+      end
+      object ppLabel14: TppLabel
+        UserName = 'Label14'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'PH Style'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 84138
+        mmTop = 28046
+        mmWidth = 11377
+        BandType = 0
+      end
+      object ppLabel15: TppLabel
+        UserName = 'Label15'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Cust Style'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3440
+        mmLeft = 106892
+        mmTop = 28310
+        mmWidth = 13758
+        BandType = 0
+      end
+      object ppLabel16: TppLabel
+        UserName = 'Label16'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Line Qty (pcs) '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 139700
+        mmTop = 30692
+        mmWidth = 19558
+        BandType = 0
+      end
+      object ppLabel17: TppLabel
+        UserName = 'Label17'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Status'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 165894
+        mmTop = 28046
+        mmWidth = 8636
+        BandType = 0
+      end
+      object ppLabel18: TppLabel
+        UserName = 'Label18'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'OE Ex-fty '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 182034
+        mmTop = 26723
+        mmWidth = 13420
+        BandType = 0
+      end
+      object ppLabel19: TppLabel
+        UserName = 'Label13'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Printed On'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 7
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2921
+        mmLeft = 170657
+        mmTop = 16404
+        mmWidth = 12488
+        BandType = 0
+      end
+      object ppSystemVariable1: TppSystemVariable
+        UserName = 'SystemVariable1'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 7
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2921
+        mmLeft = 185738
+        mmTop = 16404
+        mmWidth = 10837
+        BandType = 0
+      end
+      object ppLabel20: TppLabel
+        UserName = 'Label20'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Page'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 7
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2921
+        mmLeft = 170657
+        mmTop = 20373
+        mmWidth = 5842
+        BandType = 0
+      end
+      object ppSystemVariable2: TppSystemVariable
+        UserName = 'SystemVariable2'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        VarType = vtPageSet
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 7
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 2921
+        mmLeft = 185738
+        mmTop = 20373
+        mmWidth = 6350
+        BandType = 0
+      end
+      object ppLabel21: TppLabel
+        UserName = 'Label21'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'OE Type'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3175
+        mmLeft = 35454
+        mmTop = 15610
+        mmWidth = 11377
+        BandType = 0
+      end
+      object ppDBText16: TppDBText
+        UserName = 'DBText16'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQTYPE'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3387
+        mmLeft = 49742
+        mmTop = 15610
+        mmWidth = 15452
+        BandType = 0
+      end
+      object ppLabel22: TppLabel
+        UserName = 'Label22'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Factory'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 2910
+        mmTop = 20373
+        mmWidth = 10075
+        BandType = 0
+      end
+      object ppDBText17: TppDBText
+        UserName = 'DBText17'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'TPLANT'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3387
+        mmLeft = 15081
+        mmTop = 20373
+        mmWidth = 3641
+        BandType = 0
+      end
+      object ppLabel23: TppLabel
+        UserName = 'Label23'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Date'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 182034
+        mmTop = 30692
+        mmWidth = 6096
+        BandType = 0
+      end
+      object ppLabel24: TppLabel
+        UserName = 'Label24'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = 'Cfmd SO '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 143140
+        mmTop = 26723
+        mmWidth = 12954
+        BandType = 0
+      end
+      object ppDBText18: TppDBText
+        UserName = 'DBText18'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQWK'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3387
+        mmLeft = 63765
+        mmTop = 20373
+        mmWidth = 3133
+        BandType = 0
+      end
+      object ppLabel25: TppLabel
+        UserName = 'Label25'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = '( '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 62706
+        mmTop = 20373
+        mmWidth = 1736
+        BandType = 0
+      end
+      object ppLabel26: TppLabel
+        UserName = 'Label26'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Caption = ' ) '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3387
+        mmLeft = 67204
+        mmTop = 20373
+        mmWidth = 2540
+        BandType = 0
+      end
+    end
+    object ppDetailBand1: TppDetailBand
+      mmBottomOffset = 0
+      mmHeight = 4233
+      mmPrintPosition = 0
+      object ppDBText7: TppDBText
+        UserName = 'DBText7'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQLINE'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3260
+        mmLeft = 3440
+        mmTop = 529
+        mmWidth = 10414
+        BandType = 4
+      end
+      object ppDBText8: TppDBText
+        UserName = 'DBText8'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQSO'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3260
+        mmLeft = 20373
+        mmTop = 529
+        mmWidth = 8213
+        BandType = 4
+      end
+      object ppDBText9: TppDBText
+        UserName = 'DBText9'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQSOL'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3260
+        mmLeft = 43127
+        mmTop = 529
+        mmWidth = 9779
+        BandType = 4
+      end
+      object ppDBText10: TppDBText
+        UserName = 'DBText10'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQEXFT'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3260
+        mmLeft = 182034
+        mmTop = 529
+        mmWidth = 11303
+        BandType = 4
+      end
+      object ppDBText11: TppDBText
+        UserName = 'DBText11'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQSTA_1'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3260
+        mmLeft = 166159
+        mmTop = 529
+        mmWidth = 12785
+        BandType = 4
+      end
+      object ppDBText12: TppDBText
+        UserName = 'DBText12'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQWO'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3260
+        mmLeft = 63236
+        mmTop = 529
+        mmWidth = 9102
+        BandType = 4
+      end
+      object ppDBText13: TppDBText
+        UserName = 'DBText13'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQART'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3260
+        mmLeft = 84667
+        mmTop = 529
+        mmWidth = 9779
+        BandType = 4
+      end
+      object ppDBText14: TppDBText
+        UserName = 'DBText14'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQCSTYLE'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3260
+        mmLeft = 107156
+        mmTop = 529
+        mmWidth = 15155
+        BandType = 4
+      end
+      object ppDBText15: TppDBText
+        UserName = 'DBText15'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        DataField = 'EQQTY_1'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 8
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 3260
+        mmLeft = 143140
+        mmTop = 529
+        mmWidth = 13081
+        BandType = 4
+      end
+    end
+    object ppFooterBand1: TppFooterBand
+      mmBottomOffset = 0
+      mmHeight = 6350
+      mmPrintPosition = 0
+    end
+    object ppParameterList1: TppParameterList
+    end
+  end
+  object Query6: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_custenq1 a,tbl_custenq2 b where a.eqno=b.eqno'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 488
+    Top = 136
+  end
+  object DataSource3: TDataSource
+    DataSet = Query5
+    Left = 520
+    Top = 136
+  end
+end

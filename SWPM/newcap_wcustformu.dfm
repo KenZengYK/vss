@@ -1,0 +1,1177 @@
+object frmnewcap_wcust: Tfrmnewcap_wcust
+  Left = 192
+  Top = 114
+  Width = 696
+  Height = 480
+  Caption = 'Customer Profile - Cycle Time'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel3: TPanel
+    Left = 0
+    Top = 0
+    Width = 688
+    Height = 49
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    Visible = False
+    object Label2: TLabel
+      Left = 24
+      Top = 16
+      Width = 49
+      Height = 13
+      Caption = 'Cust Code'
+    end
+    object Label3: TLabel
+      Left = 192
+      Top = 16
+      Width = 35
+      Height = 13
+      Caption = 'Factory'
+    end
+    object Label4: TLabel
+      Left = 328
+      Top = 16
+      Width = 27
+      Height = 13
+      Caption = 'Team'
+    end
+    object Label7: TLabel
+      Left = 464
+      Top = 16
+      Width = 65
+      Height = 13
+      Caption = 'Project Group'
+    end
+    object ComboBox2: TComboBox
+      Left = 80
+      Top = 16
+      Width = 89
+      Height = 21
+      CharCase = ecUpperCase
+      ItemHeight = 13
+      TabOrder = 0
+      OnChange = ComboBox2Change
+    end
+    object ComboBox3: TComboBox
+      Left = 232
+      Top = 16
+      Width = 73
+      Height = 21
+      CharCase = ecUpperCase
+      ItemHeight = 13
+      TabOrder = 1
+      Items.Strings = (
+        'SL'
+        'KB'
+        'FJ')
+    end
+    object ComboBox4: TComboBox
+      Left = 360
+      Top = 16
+      Width = 81
+      Height = 21
+      CharCase = ecUpperCase
+      ItemHeight = 13
+      TabOrder = 2
+      Items.Strings = (
+        'A'
+        'B'
+        'C'
+        'D')
+    end
+    object xh1: TRadioGroup
+      Left = 648
+      Top = 8
+      Width = 193
+      Height = 33
+      Columns = 3
+      ItemIndex = 1
+      Items.Strings = (
+        'All'
+        'Active'
+        'Inactive')
+      TabOrder = 3
+    end
+    object ComboBox5: TComboBox
+      Left = 536
+      Top = 16
+      Width = 89
+      Height = 21
+      CharCase = ecUpperCase
+      ItemHeight = 13
+      TabOrder = 4
+      OnChange = ComboBox2Change
+      Items.Strings = (
+        'A'
+        'B'
+        'C'
+        'D')
+    end
+  end
+  object DBGridEh2: TDBGridEh
+    Left = 0
+    Top = 49
+    Width = 688
+    Height = 356
+    Align = alClient
+    AllowedOperations = [alopInsertEh, alopUpdateEh, alopAppendEh]
+    DataSource = DataSource2
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    FrozenCols = 2
+    ParentShowHint = False
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'GRP'
+        Footers = <>
+        Title.Caption = 'Div'
+        Width = 33
+      end
+      item
+        EditButtons = <>
+        FieldName = 'CUST'
+        Footers = <>
+        Title.Caption = 'ERP Cust Code'
+        Width = 42
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ACT'
+        Footers = <>
+        Title.Caption = 'Active'
+        Width = 35
+      end
+      item
+        EditButtons = <>
+        FieldName = 'FCUST'
+        Footers = <>
+        Title.Caption = 'Final Cust'
+        Width = 41
+      end
+      item
+        EditButtons = <>
+        FieldName = 'CGRP'
+        Footers = <>
+        PickList.Strings = (
+          'Category 1'
+          'Category 2'
+          'Category 3')
+        Title.Caption = 'Category'
+        Title.Hint = 
+          'Category 1   ( Buyer booked capacity )'#13#10'Category 2   ( PH intern' +
+          'al estimation based on previous performance )'#13#10'Category 3   ( No' +
+          ' capacity booking, just by order )'
+        Width = 79
+      end
+      item
+        EditButtons = <>
+        FieldName = 'PGRP'
+        Footers = <>
+        Title.Caption = 'Project Group'
+        Width = 48
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ADDR'
+        Footers = <>
+        Title.Caption = 'Country'
+        Width = 57
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AGT'
+        Footers = <>
+        Title.Caption = 'Agent'
+      end
+      item
+        EditButtons = <>
+        FieldName = 'LST2'
+        Footers = <>
+        Title.Caption = 'Brand Code'
+        Width = 43
+      end
+      item
+        EditButtons = <>
+        FieldName = 'LST2D'
+        Footers = <>
+        Title.Caption = 'Brand Name'
+        Width = 134
+      end
+      item
+        EditButtons = <>
+        FieldName = 'TPLANT'
+        Footers = <>
+        Title.Caption = 'Fty'
+        Width = 37
+      end
+      item
+        EditButtons = <>
+        FieldName = 'PORTL'
+        Footers = <>
+        Title.Caption = 'Port of Loading'
+        Width = 43
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ORDDAY'
+        Footers = <>
+        Title.Caption = 'Order Enquiry to Order Confirm (days)|Initial'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ORDDAY_R'
+        Footers = <>
+        Title.Caption = 'Order Enquiry to Order Confirm (days)|Flow / Repeat'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AB2'
+        Footers = <>
+        Title.Caption = 'Sample Process Days (pre-production stage)| '
+        Width = 20
+      end
+      item
+        EditButtons = <>
+        FieldName = 'PSP1'
+        Footers = <>
+        Title.Caption = 
+          'Sample Process Days (pre-production stage)|(Working days)|Initia' +
+          'l'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'PSP1_R'
+        Footers = <>
+        Title.Caption = 
+          'Sample Process Days (pre-production stage)|(Working days)|Flow /' +
+          ' Repeat'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'PSP2'
+        Footers = <>
+        Title.Caption = 
+          'Sample Process Days (pre-production stage)|(Calendar days)|Initi' +
+          'al'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'PSP2_R'
+        Footers = <>
+        Title.Caption = 
+          'Sample Process Days (pre-production stage)|(Calendar days)|Flow ' +
+          '/ Repeat'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AB3'
+        Footers = <>
+        Title.Caption = 'Mat'#39'l Process Days (incl lab dip to bulk s/s app)| '
+        Width = 20
+      end
+      item
+        EditButtons = <>
+        FieldName = 'MPUR1'
+        Footers = <>
+        Title.Caption = 
+          'Mat'#39'l Process Days (incl lab dip to bulk s/s app)|(Working days)' +
+          '|Initial'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'MPUR1_R'
+        Footers = <>
+        Title.Caption = 
+          'Mat'#39'l Process Days (incl lab dip to bulk s/s app)|(Working days)' +
+          '|Flow / Repeat'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'MPUR2'
+        Footers = <>
+        Title.Caption = 
+          'Mat'#39'l Process Days (incl lab dip to bulk s/s app)|(Calendar days' +
+          ')|Initial'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'MPUR2_R'
+        Footers = <>
+        Title.Caption = 
+          'Mat'#39'l Process Days (incl lab dip to bulk s/s app)|(Calendar days' +
+          ')|Flow / Repeat'
+        Width = 40
+      end
+      item
+        Color = 13094650
+        EditButtons = <>
+        FieldName = 'FRST'
+        Footers = <>
+        Title.Caption = 'RWO 1st Station/Fty Start CT (Working days)|Initial'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'FRST_R'
+        Footers = <>
+        Title.Caption = 'RWO 1st Station/Fty Start CT (Working days)|Flow / Repeat'
+        Width = 40
+      end
+      item
+        Color = 13094650
+        EditButtons = <>
+        FieldName = 'LSTR'
+        Footers = <>
+        Title.Caption = 'RWO Fty/Line work Start CT (Working days)|Initial'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'LSTR_R'
+        Footers = <>
+        Title.Caption = 'RWO Fty/Line work Start CT (Working days)|Flow / Repeat'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'PMTH'
+        Footers = <>
+        Title.Caption = 'Packing Method'
+        Width = 53
+      end
+      item
+        EditButtons = <>
+        FieldName = 'BZNY'
+        Footers = <>
+        Title.Caption = 'Packing (Cartoning) section hr'
+        Width = 55
+      end
+      item
+        EditButtons = <>
+        FieldName = 'BZJS'
+        Footers = <>
+        Title.Caption = 'Inspect (Repack) section hr'
+        Width = 51
+      end
+      item
+        EditButtons = <>
+        FieldName = 'IRATIO'
+        Footers = <>
+        Title.Caption = 'Inspection|Ratio'
+        Width = 56
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ITIME'
+        Footers = <>
+        Title.Caption = 'Inspection CT (Working days)'
+        Visible = False
+        Width = 52
+      end
+      item
+        EditButtons = <>
+        FieldName = 'LPORT'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(LCL)|Port of Discharge'
+        Width = 73
+      end
+      item
+        EditButtons = <>
+        FieldName = 'LMTH'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(LCL)|Loading Method'
+        Visible = False
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EXFWK'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(LCL)|RWO Ex-fty|Day'
+        Width = 32
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EXFTM'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(LCL)|RWO Ex-fty|Time'
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'CJSWK'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(LCL)|Closing|Day'
+        Width = 31
+      end
+      item
+        EditButtons = <>
+        FieldName = 'CJSSJ'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(LCL)|Closing|Time'
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ETD'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(LCL)|ETD'
+        Width = 37
+      end
+      item
+        EditButtons = <>
+        FieldName = 'TTIME'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(LCL)|Transit CT (Days)'
+        Width = 38
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EXFWK1'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(FCL)|RWO Ex-fty|Day'
+        Width = 32
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EXFTM1'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(FCL)|RWO Ex-fty|Time'
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'CJSWK1'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(FCL)|Closing|Day'
+        Width = 32
+      end
+      item
+        EditButtons = <>
+        FieldName = 'CJSSJ1'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(FCL)|Closing|Time'
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ETD1'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(FCL)|ETD'
+        Width = 37
+      end
+      item
+        EditButtons = <>
+        FieldName = 'TTIME1'
+        Footers = <>
+        Title.Caption = 'Shipment by Boat(FCL)|Transit CT (Days)'
+        Width = 38
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ALPORT'
+        Footers = <>
+        Title.Caption = 'Shipment by Air|Port of discharge'
+        Width = 82
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AEXFWK'
+        Footers = <>
+        Title.Caption = 'Shipment by Air|RWO Ex-fty|Day'
+        Width = 37
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AEXFTM'
+        Footers = <>
+        Title.Caption = 'Shipment by Air|RWO Ex-fty|Time'
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ACJSWK'
+        Footers = <>
+        Title.Caption = 'Shipment by Air|Closing|Day'
+        Width = 32
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ACJSSJ'
+        Footers = <>
+        Title.Caption = 'Shipment by Air|Closing|Time'
+        Width = 49
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AETD'
+        Footers = <>
+        Title.Caption = 'Shipment by Air|ETD'
+        Width = 37
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ATTIME'
+        Footers = <>
+        Title.Caption = 'Shipment by Air|Transit CT (Days)'
+        Width = 38
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ALPORT1'
+        Footers = <>
+        Title.Caption = 'Shipment by Air(FCL)|Port of discharge'
+        Visible = False
+        Width = 82
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AEXFWK1'
+        Footers = <>
+        Title.Caption = 'Shipment by Air(FCL)|RWO Ex-fty|Day'
+        Visible = False
+        Width = 32
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AEXFTM1'
+        Footers = <>
+        Title.Caption = 'Shipment by Air(FCL)|RWO Ex-fty|Time'
+        Visible = False
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ACJSWK1'
+        Footers = <>
+        Title.Caption = 'Shipment by Air(FCL)|Closing|Day'
+        Visible = False
+        Width = 32
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ACJSSJ1'
+        Footers = <>
+        Title.Caption = 'Shipment by Air(FCL)|Closing|Time'
+        Visible = False
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'AETD1'
+        Footers = <>
+        Title.Caption = 'Shipment by Air(FCL)|ETD'
+        Visible = False
+        Width = 37
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ATTIME1'
+        Footers = <>
+        Title.Caption = 'Shipment by Air(FCL)|Transit CT (Days)'
+        Visible = False
+        Width = 38
+      end
+      item
+        EditButtons = <>
+        FieldName = 'SDUE'
+        Footers = <>
+        Visible = False
+      end
+      item
+        Color = 13094650
+        EditButtons = <>
+        FieldName = 'EXFDAY'
+        Footers = <>
+        Title.Caption = 'WO Ex-fty/SO Del CT (Days)'
+        Width = 49
+      end
+      item
+        Color = 13094650
+        EditButtons = <>
+        FieldName = 'YSZQ1'
+        Footers = <>
+        Title.Caption = 
+          'Standard Default of 1st RWO Fty Start/Ex-Fty CT|(Working days)|I' +
+          'nitial'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'YSZQ1_R'
+        Footers = <>
+        Title.Caption = 
+          'Standard Default of 1st RWO Fty Start/Ex-Fty CT|(Working days)|F' +
+          'low / Repeat'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'YSZQ01'
+        Footers = <>
+        Title.Caption = 
+          'Standard Default of 1st RWO Fty Start/Ex-Fty CT|(Calendar days)|' +
+          'Initial'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'YSZQ01_R'
+        Footers = <>
+        Title.Caption = 
+          'Standard Default of 1st RWO Fty Start/Ex-Fty CT|(Calendar days)|' +
+          'Flow / Repeat'
+        Width = 40
+      end
+      item
+        Color = 13094650
+        EditButtons = <>
+        FieldName = 'YSZQ'
+        Footers = <>
+        Title.Caption = 
+          'Best Default of 1st RWO Fty Start/Ex-Fty CT|(Working days)|Initi' +
+          'al'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'YSZQ_R'
+        Footers = <>
+        Title.Caption = 
+          'Best Default of 1st RWO Fty Start/Ex-Fty CT|(Working days)|Flow ' +
+          '/ Repeat'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'YSZQ0'
+        Footers = <>
+        Title.Caption = 
+          'Best Default of 1st RWO Fty Start/Ex-Fty CT|(Calendar days)|Init' +
+          'ial'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'YSZQ0_R'
+        Footers = <>
+        Title.Caption = 
+          'Best Default of 1st RWO Fty Start/Ex-Fty CT|(Calendar days)|Flow' +
+          ' / Repeat'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'SP1'
+        Footers = <>
+        Title.Caption = 'Sample Process Days (production stage)|Initial'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'SP1_R'
+        Footers = <>
+        Title.Caption = 'Sample Process Days (production stage)|Flow / Repeat'
+        Width = 40
+      end
+      item
+        Color = 13499643
+        EditButtons = <>
+        FieldName = 'TCT1'
+        Footers = <>
+        Title.Caption = 'Total CT|(Working days)|Initial'
+        Width = 40
+      end
+      item
+        Color = 13499643
+        EditButtons = <>
+        FieldName = 'TCT1_R'
+        Footers = <>
+        Title.Caption = 'Total CT|(Working days)|Flow / Repeat'
+        Width = 40
+      end
+      item
+        Color = 13499643
+        EditButtons = <>
+        FieldName = 'TCT2'
+        Footers = <>
+        Title.Caption = 'Total CT|(Calendar days)|Initial'
+        Width = 40
+      end
+      item
+        Color = 13499643
+        EditButtons = <>
+        FieldName = 'TCT2_R'
+        Footers = <>
+        Title.Caption = 'Total CT|(Calendar days)|Flow / Repeat'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'RQTY'
+        Footers = <>
+        Title.Caption = 'Total Qty of 1st RWO|Initial'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'RQTY1'
+        Footers = <>
+        Title.Caption = 'Total Qty of 1st RWO|Flow / Repeat'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'RLINE'
+        Footers = <>
+        Title.Caption = '1st Line #'
+        Width = 34
+      end>
+  end
+  object Panel4: TPanel
+    Left = 0
+    Top = 405
+    Width = 688
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    object BitBtn9: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 65
+      Height = 25
+      Caption = 'Exit'
+      TabOrder = 0
+      Kind = bkClose
+    end
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from cust_exfty'
+    FieldDefs = <
+      item
+        Name = 'CUST'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'LST2'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'LST2D'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'SEQ'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TPLANT'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'FRST'
+        DataType = ftFloat
+      end
+      item
+        Name = 'EXFWK'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'EXFTM'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'EXFDAY'
+        DataType = ftFloat
+      end
+      item
+        Name = 'LSTR'
+        DataType = ftFloat
+      end
+      item
+        Name = 'BZJS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'PMTH'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'CJSWK'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'CJSSJ'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'REMK'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'AEXFWK'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'AEXFTM'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACJSWK'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACJSSJ'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'LPORT'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ALPORT'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'FCUST'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'PGRP'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'AGT'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ADDR'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'PORTL'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'LMTH'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'SDUE'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'IRATIO'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'TTIME'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ITIME'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ATTIME'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ETD'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'AETD'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'GRP'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'YSZQ'
+        DataType = ftFloat
+      end
+      item
+        Name = 'RQTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'BZNY'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ACT'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'RLINE'
+        DataType = ftInteger
+      end
+      item
+        Name = 'RQTY1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CGRP'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'YSZQ1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ORDDAY'
+        DataType = ftFloat
+      end
+      item
+        Name = 'PSP1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'PSP2'
+        DataType = ftFloat
+      end
+      item
+        Name = 'MPUR1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'MPUR2'
+        DataType = ftFloat
+      end
+      item
+        Name = 'YSZQ01'
+        DataType = ftFloat
+      end
+      item
+        Name = 'YSZQ0'
+        DataType = ftFloat
+      end
+      item
+        Name = 'SP1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'TCT1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'TCT2'
+        DataType = ftFloat
+      end
+      item
+        Name = 'AB2'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'AB3'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'ORDDAY_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'PSP1_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'PSP2_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'MPUR1_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'MPUR2_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'FRST_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'LSTR_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'YSZQ_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'YSZQ1_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'YSZQ0_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'YSZQ01_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'SP1_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'TCT1_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'TCT2_R'
+        DataType = ftFloat
+      end
+      item
+        Name = 'LPORT1'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'EXFWK1'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'EXFTM1'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'CJSWK1'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'CJSSJ1'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ETD1'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'TTIME1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ALPORT1'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'AEXFWK1'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'AEXFTM1'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ACJSWK1'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACJSSJ1'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'AETD1'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ATTIME1'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'grp;agt;cust;fcust;tplant;pmth;lport'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 56
+    Top = 168
+  end
+  object DataSource2: TDataSource
+    DataSet = Query2
+    Left = 88
+    Top = 168
+  end
+end

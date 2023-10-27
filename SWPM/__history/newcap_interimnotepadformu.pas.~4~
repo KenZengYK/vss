@@ -1,0 +1,47 @@
+unit newcap_interimnotepadformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxContainer, cxEdit, StdCtrls, Buttons, Mask, rxToolEdit, cxTextEdit, cxMemo,
+  cxDBEdit, ExtCtrls, DB, DBClient;
+
+type
+  Tfrmnewcap_interimnotepad = class(TForm)
+    Panel1: TPanel;
+    cxDBMemo1: TcxDBMemo;
+    Panel2: TPanel;
+    Label3: TLabel;
+    Edit1: TEdit;
+    Label4: TLabel;
+    DateEdit1: TDateEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query1TPLANT: TWideStringField;
+    Query1YR: TIntegerField;
+    Query1BI: TWideStringField;
+    Query1VER: TIntegerField;
+    Query1DT: TDateField;
+    Query1REMARKS: TWideStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_interimnotepad: Tfrmnewcap_interimnotepad;
+
+implementation
+
+uses mainformu, newcap_salesinterimformu;
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,610 @@
+object frmnewcap_fcdetailworksheet: Tfrmnewcap_fcdetailworksheet
+  Left = 0
+  Top = 0
+  Caption = 'Factory Capacity Balance Option - Detail Worksheet'
+  ClientHeight = 526
+  ClientWidth = 985
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 985
+    Height = 62
+    Align = alTop
+    TabOrder = 0
+    object Label11: TLabel
+      Left = 24
+      Top = 14
+      Width = 44
+      Height = 13
+      Caption = 'Factory: '
+    end
+    object DBText2: TDBText
+      Left = 71
+      Top = 14
+      Width = 65
+      Height = 17
+      DataField = 'TPLANT'
+      DataSource = DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label12: TLabel
+      Left = 160
+      Top = 14
+      Width = 29
+      Height = 13
+      Caption = 'Year: '
+    end
+    object DBText3: TDBText
+      Left = 195
+      Top = 14
+      Width = 65
+      Height = 17
+      DataField = 'YR'
+      DataSource = DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label13: TLabel
+      Left = 280
+      Top = 14
+      Width = 37
+      Height = 13
+      Caption = 'Month: '
+    end
+    object DBText4: TDBText
+      Left = 323
+      Top = 14
+      Width = 65
+      Height = 17
+      DataField = 'M1'
+      DataSource = DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label14: TLabel
+      Left = 450
+      Top = 12
+      Width = 46
+      Height = 16
+      Caption = 'Option: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 120
+      Top = 34
+      Width = 23
+      Height = 22
+      Hint = 'First Week'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 142
+      Top = 34
+      Width = 23
+      Height = 22
+      Hint = 'Prior Week'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object SpeedButton3: TSpeedButton
+      Left = 361
+      Top = 34
+      Width = 23
+      Height = 22
+      Hint = 'Next Week'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object SpeedButton4: TSpeedButton
+      Left = 384
+      Top = 34
+      Width = 23
+      Height = 22
+      Hint = 'Last Week'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Edit1: TEdit
+      Left = 165
+      Top = 35
+      Width = 196
+      Height = 21
+      TabOrder = 0
+      Text = 'Edit1'
+    end
+  end
+  object DBCtrlGrid1: TDBCtrlGrid
+    Left = 0
+    Top = 62
+    Width = 985
+    Height = 423
+    Align = alClient
+    DataSource = DataSource1
+    PanelHeight = 141
+    PanelWidth = 968
+    TabOrder = 1
+    ExplicitTop = 41
+    ExplicitHeight = 428
+    object Label1: TLabel
+      Left = 8
+      Top = 8
+      Width = 57
+      Height = 13
+      Caption = 'Prod Code: '
+    end
+    object DBText1: TDBText
+      Left = 71
+      Top = 8
+      Width = 65
+      Height = 17
+      DataField = 'FLAG6'
+      DataSource = DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label21: TLabel
+      Left = 327
+      Top = 8
+      Width = 325
+      Height = 13
+      Caption = '[LB% included in Eff%, and only apply to Assembly Lines] '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Visible = False
+    end
+    object GroupBox1: TGroupBox
+      Left = 8
+      Top = 27
+      Width = 313
+      Height = 110
+      Caption = 'Front Phase Opt Ws'
+      TabOrder = 0
+      object Label2: TLabel
+        Left = 8
+        Top = 28
+        Width = 60
+        Height = 13
+        Caption = 'On-line WF: '
+      end
+      object Label3: TLabel
+        Left = 8
+        Top = 55
+        Width = 59
+        Height = 13
+        Caption = 'W/A Eff %: '
+      end
+      object Label4: TLabel
+        Left = 174
+        Top = 55
+        Width = 51
+        Height = 13
+        Caption = 'W/A SAH: '
+      end
+      object Label15: TLabel
+        Left = 8
+        Top = 82
+        Width = 59
+        Height = 13
+        Caption = 'W/A CU %: '
+      end
+      object Label16: TLabel
+        Left = 174
+        Top = 82
+        Width = 65
+        Height = 13
+        Caption = 'Working Hrs: '
+      end
+      object DBEdit1: TDBEdit
+        Left = 72
+        Top = 28
+        Width = 81
+        Height = 21
+        DataField = 'FWF'
+        DataSource = DataSource1
+        TabOrder = 0
+      end
+      object DBEdit2: TDBEdit
+        Left = 72
+        Top = 55
+        Width = 81
+        Height = 21
+        DataField = 'FEFF'
+        DataSource = DataSource1
+        TabOrder = 1
+      end
+      object DBEdit3: TDBEdit
+        Left = 229
+        Top = 55
+        Width = 76
+        Height = 21
+        DataField = 'FSAH'
+        DataSource = DataSource1
+        TabOrder = 2
+      end
+      object DBEdit10: TDBEdit
+        Left = 72
+        Top = 82
+        Width = 81
+        Height = 21
+        DataField = 'FCU'
+        DataSource = DataSource1
+        TabOrder = 3
+      end
+      object DBEdit11: TDBEdit
+        Left = 240
+        Top = 82
+        Width = 65
+        Height = 21
+        DataField = 'FHRS'
+        DataSource = DataSource1
+        TabOrder = 4
+      end
+    end
+    object GroupBox2: TGroupBox
+      Left = 327
+      Top = 27
+      Width = 314
+      Height = 110
+      Caption = 'Assembly Lines'
+      TabOrder = 1
+      object Label5: TLabel
+        Left = 8
+        Top = 28
+        Width = 60
+        Height = 13
+        Caption = 'On-line WF: '
+      end
+      object Label6: TLabel
+        Left = 8
+        Top = 55
+        Width = 59
+        Height = 13
+        Caption = 'W/A Eff %: '
+      end
+      object Label7: TLabel
+        Left = 176
+        Top = 55
+        Width = 51
+        Height = 13
+        Caption = 'W/A SAH: '
+      end
+      object Label17: TLabel
+        Left = 8
+        Top = 82
+        Width = 59
+        Height = 13
+        Caption = 'W/A CU %: '
+      end
+      object Label18: TLabel
+        Left = 174
+        Top = 82
+        Width = 65
+        Height = 13
+        Caption = 'Working Hrs: '
+      end
+      object DBEdit4: TDBEdit
+        Left = 72
+        Top = 28
+        Width = 81
+        Height = 21
+        DataField = 'AWF'
+        DataSource = DataSource1
+        TabOrder = 0
+      end
+      object DBEdit5: TDBEdit
+        Left = 72
+        Top = 55
+        Width = 81
+        Height = 21
+        DataField = 'AEFF'
+        DataSource = DataSource1
+        TabOrder = 1
+      end
+      object DBEdit6: TDBEdit
+        Left = 229
+        Top = 55
+        Width = 76
+        Height = 21
+        DataField = 'ASAH'
+        DataSource = DataSource1
+        TabOrder = 2
+      end
+      object DBEdit12: TDBEdit
+        Left = 72
+        Top = 82
+        Width = 81
+        Height = 21
+        DataField = 'ACU'
+        DataSource = DataSource1
+        TabOrder = 3
+      end
+      object DBEdit13: TDBEdit
+        Left = 240
+        Top = 82
+        Width = 65
+        Height = 21
+        DataField = 'AHRS'
+        DataSource = DataSource1
+        TabOrder = 4
+      end
+    end
+    object GroupBox3: TGroupBox
+      Left = 647
+      Top = 27
+      Width = 313
+      Height = 110
+      Caption = 'End Phase Opt Ws'
+      TabOrder = 2
+      object Label8: TLabel
+        Left = 8
+        Top = 28
+        Width = 60
+        Height = 13
+        Caption = 'On-line WF: '
+      end
+      object Label9: TLabel
+        Left = 8
+        Top = 55
+        Width = 59
+        Height = 13
+        Caption = 'W/A Eff %: '
+      end
+      object Label10: TLabel
+        Left = 174
+        Top = 55
+        Width = 51
+        Height = 13
+        Caption = 'W/A SAH: '
+      end
+      object Label19: TLabel
+        Left = 8
+        Top = 82
+        Width = 59
+        Height = 13
+        Caption = 'W/A CU %: '
+      end
+      object Label20: TLabel
+        Left = 174
+        Top = 82
+        Width = 65
+        Height = 13
+        Caption = 'Working Hrs: '
+      end
+      object DBEdit7: TDBEdit
+        Left = 72
+        Top = 28
+        Width = 81
+        Height = 21
+        DataField = 'EWF'
+        DataSource = DataSource1
+        TabOrder = 0
+      end
+      object DBEdit8: TDBEdit
+        Left = 72
+        Top = 55
+        Width = 81
+        Height = 21
+        DataField = 'EEFF'
+        DataSource = DataSource1
+        TabOrder = 1
+      end
+      object DBEdit9: TDBEdit
+        Left = 229
+        Top = 55
+        Width = 76
+        Height = 21
+        DataField = 'ESAH'
+        DataSource = DataSource1
+        TabOrder = 2
+      end
+      object DBEdit14: TDBEdit
+        Left = 72
+        Top = 82
+        Width = 81
+        Height = 21
+        DataField = 'ECU'
+        DataSource = DataSource1
+        TabOrder = 3
+      end
+      object DBEdit15: TDBEdit
+        Left = 240
+        Top = 82
+        Width = 65
+        Height = 21
+        DataField = 'EHRS'
+        DataSource = DataSource1
+        TabOrder = 4
+      end
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 485
+    Width = 985
+    Height = 41
+    Align = alBottom
+    TabOrder = 2
+    ExplicitTop = 469
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 1
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_cap_ftyelements_worksheet'
+    FieldDefs = <
+      item
+        Name = 'TPLANT'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'SEQ'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'YR'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'M1'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'RSEQ'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'FLAG6'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'FWF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'FSAH'
+        DataType = ftFloat
+      end
+      item
+        Name = 'FEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ALINE'
+        DataType = ftFloat
+      end
+      item
+        Name = 'AWF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ASAH'
+        DataType = ftFloat
+      end
+      item
+        Name = 'AEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'EWF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ESAH'
+        DataType = ftFloat
+      end
+      item
+        Name = 'EEFF'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'tplant;seq;yr;m1;rseq'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterOpen = Query1AfterOpen
+    AfterPost = Query1AfterPost
+    Left = 256
+    Top = 200
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 288
+    Top = 200
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 320
+    Top = 200
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 352
+    Top = 200
+  end
+end

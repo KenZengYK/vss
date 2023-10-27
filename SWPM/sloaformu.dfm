@@ -1,0 +1,401 @@
+object frm_sloa: Tfrm_sloa
+  Left = 192
+  Top = 114
+  BorderIcons = []
+  Caption = 'Module for SLOA'
+  ClientHeight = 447
+  ClientWidth = 401
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  Visible = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 32
+    Top = 24
+    Width = 38
+    Height = 13
+    Caption = 'Factory '
+  end
+  object Label2: TLabel
+    Left = 216
+    Top = 24
+    Width = 27
+    Height = 13
+    Caption = 'Team'
+  end
+  object Label3: TLabel
+    Left = 32
+    Top = 48
+    Width = 47
+    Height = 13
+    Caption = 'Customer '
+  end
+  object Label4: TLabel
+    Left = 200
+    Top = 48
+    Width = 50
+    Height = 13
+    Caption = 'Cust Style '
+  end
+  object Label7: TLabel
+    Left = 224
+    Top = 400
+    Width = 147
+    Height = 26
+    Caption = '[PJ = Projection'#13#10' C1 = Greige Commitment]'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object ComboBox1: TComboBox
+    Left = 80
+    Top = 24
+    Width = 81
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 0
+    Text = 'SL'
+    Items.Strings = (
+      'SL'
+      'KB'
+      'FJ')
+  end
+  object ComboBox2: TComboBox
+    Left = 248
+    Top = 24
+    Width = 65
+    Height = 21
+    CharCase = ecUpperCase
+    ItemIndex = 2
+    TabOrder = 1
+    Text = 'C'
+    Items.Strings = (
+      'A'
+      'B'
+      'C'
+      'D')
+  end
+  object ComboBox3: TComboBox
+    Left = 80
+    Top = 48
+    Width = 81
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 2
+    Text = 'TAMA'
+  end
+  object Edit1: TEdit
+    Left = 248
+    Top = 48
+    Width = 129
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 3
+  end
+  object GroupBox1: TGroupBox
+    Left = 32
+    Top = 72
+    Width = 345
+    Height = 41
+    Caption = 'Date Range'
+    TabOrder = 4
+    object Label5: TLabel
+      Left = 16
+      Top = 16
+      Width = 26
+      Height = 13
+      Caption = 'From '
+    end
+    object Label6: TLabel
+      Left = 200
+      Top = 16
+      Width = 16
+      Height = 13
+      Caption = 'To '
+    end
+    object DateEdit1: TDateEdit
+      Left = 48
+      Top = 16
+      Width = 121
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 0
+    end
+    object DateEdit2: TDateEdit
+      Left = 216
+      Top = 16
+      Width = 121
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 1
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 32
+    Top = 120
+    Width = 345
+    Height = 185
+    Caption = 'Reports'
+    TabOrder = 5
+    object xh1: TCheckBox
+      Left = 8
+      Top = 16
+      Width = 329
+      Height = 17
+      Caption = 'Flag Expanation that is suitable for OA'
+      Checked = True
+      State = cbChecked
+      TabOrder = 0
+    end
+    object xh2: TCheckBox
+      Left = 8
+      Top = 32
+      Width = 329
+      Height = 17
+      Caption = 'RWO Waiting for scheduling'
+      Checked = True
+      State = cbChecked
+      TabOrder = 1
+    end
+    object xh3: TCheckBox
+      Left = 8
+      Top = 48
+      Width = 329
+      Height = 17
+      Caption = 'Factory Output - Styles Image && Color illustration'
+      Checked = True
+      State = cbChecked
+      TabOrder = 2
+    end
+    object xh4: TCheckBox
+      Left = 8
+      Top = 160
+      Width = 329
+      Height = 17
+      Caption = 'Factory Output - Styles Image & Color illustration - Planning'
+      TabOrder = 3
+      Visible = False
+    end
+    object xh5: TCheckBox
+      Left = 8
+      Top = 64
+      Width = 329
+      Height = 17
+      Caption = 'RWO Fty Start Date and QN Start CT and Start Date Dashboard'
+      Checked = True
+      State = cbChecked
+      TabOrder = 4
+    end
+    object xh6: TCheckBox
+      Left = 8
+      Top = 80
+      Width = 329
+      Height = 17
+      Caption = 'Weekly Output GAI - Actual Index'
+      Checked = True
+      State = cbChecked
+      TabOrder = 5
+    end
+    object xh7: TCheckBox
+      Left = 8
+      Top = 96
+      Width = 329
+      Height = 17
+      Caption = 'Factory Delivery Dashboard ( On-time/Lock Diff ) - WIP'
+      Checked = True
+      State = cbChecked
+      TabOrder = 6
+    end
+    object xh8: TCheckBox
+      Left = 8
+      Top = 112
+      Width = 329
+      Height = 17
+      Caption = 'Factory Delivery Dashboard ( On-time/Lock Diff ) - Planning'
+      Checked = True
+      State = cbChecked
+      TabOrder = 7
+    end
+    object xh9: TCheckBox
+      Left = 8
+      Top = 128
+      Width = 329
+      Height = 17
+      Caption = 'QN Transit Summary ( only for selected QNs)'
+      Checked = True
+      State = cbChecked
+      TabOrder = 8
+    end
+    object xh10: TCheckBox
+      Left = 8
+      Top = 144
+      Width = 329
+      Height = 17
+      Caption = 'Planning && Scheduling Reports'
+      Checked = True
+      State = cbChecked
+      TabOrder = 9
+    end
+    object xh11: TCheckBox
+      Left = 8
+      Top = 160
+      Width = 329
+      Height = 17
+      Caption = 'Glossary'
+      Checked = True
+      State = cbChecked
+      TabOrder = 10
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 400
+    Width = 73
+    Height = 25
+    Caption = 'Preview'
+    DoubleBuffered = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+      00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+      8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+      8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+      8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+      03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+      03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+      33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+      33333337FFFF7733333333300000033333333337777773333333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 6
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 104
+    Top = 400
+    Width = 73
+    Height = 25
+    DoubleBuffered = True
+    Kind = bkClose
+    ParentDoubleBuffered = False
+    TabOrder = 7
+  end
+  object GroupBox3: TGroupBox
+    Left = 32
+    Top = 312
+    Width = 345
+    Height = 81
+    Caption = 'Worksheet'
+    TabOrder = 8
+    object BitBtn3: TBitBtn
+      Left = 8
+      Top = 16
+      Width = 153
+      Height = 25
+      Caption = 'HK/Factory Calendar'
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn3Click
+    end
+    object BitBtn4: TBitBtn
+      Left = 184
+      Top = 16
+      Width = 153
+      Height = 25
+      Caption = 'Customer Profile'
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 1
+      OnClick = BitBtn4Click
+    end
+    object BitBtn5: TBitBtn
+      Left = 8
+      Top = 48
+      Width = 97
+      Height = 25
+      Caption = 'Capacity Planning '
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 2
+      OnClick = BitBtn5Click
+    end
+    object BitBtn6: TBitBtn
+      Left = 120
+      Top = 48
+      Width = 49
+      Height = 25
+      Caption = 'PDN'
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 3
+      OnClick = BitBtn6Click
+    end
+    object BitBtn7: TBitBtn
+      Left = 184
+      Top = 48
+      Width = 153
+      Height = 25
+      Caption = 'Order Summary(PJ or C1)'
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 4
+      OnClick = BitBtn7Click
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 8
+    Top = 65529
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 40
+    Top = 65529
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 72
+    Top = 65529
+  end
+  object ClientDataSet2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 104
+    Top = 65529
+  end
+  object DataSet2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    Parameters = <>
+    Left = 136
+    Top = 65528
+  end
+end

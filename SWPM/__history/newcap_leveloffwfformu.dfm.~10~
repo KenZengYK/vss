@@ -1,0 +1,384 @@
+object frmnewcap_leveloffwf: Tfrmnewcap_leveloffwf
+  Left = 0
+  Top = 0
+  Caption = 'CP - Balancing - Level-off WF'
+  ClientHeight = 424
+  ClientWidth = 727
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 727
+    Height = 49
+    Align = alTop
+    TabOrder = 0
+    object Label2: TLabel
+      Left = 317
+      Top = 16
+      Width = 49
+      Height = 13
+      Caption = 'For month'
+    end
+    object Label1: TLabel
+      Left = 419
+      Top = 40
+      Width = 3
+      Height = 13
+    end
+    object Label5: TLabel
+      Left = 24
+      Top = 16
+      Width = 43
+      Height = 13
+      Caption = 'Factory  '
+    end
+    object Label6: TLabel
+      Left = 186
+      Top = 16
+      Width = 25
+      Height = 13
+      Caption = 'Year '
+    end
+    object Label3: TLabel
+      Left = 469
+      Top = 16
+      Width = 3
+      Height = 13
+    end
+    object SpinEdit1: TSpinEdit
+      Left = 381
+      Top = 16
+      Width = 57
+      Height = 22
+      MaxValue = 12
+      MinValue = 1
+      TabOrder = 0
+      Value = 1
+    end
+    object ComboBox3: TComboBox
+      Left = 73
+      Top = 16
+      Width = 81
+      Height = 21
+      TabOrder = 1
+      Items.Strings = (
+        'SL'
+        'FJ'
+        'GG'
+        'KB'
+        'RX'
+        'CG')
+    end
+    object SpinEdit2: TSpinEdit
+      Left = 218
+      Top = 16
+      Width = 65
+      Height = 22
+      MaxValue = 2020
+      MinValue = 2011
+      TabOrder = 2
+      Value = 2011
+    end
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 49
+    Width = 727
+    Height = 334
+    Align = alClient
+    TabOrder = 1
+    ExplicitLeft = -8
+    ExplicitTop = -109
+    ExplicitWidth = 735
+    ExplicitHeight = 533
+    object cxView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsData.Inserting = False
+      OptionsView.HeaderAutoHeight = True
+      object GRP1: TcxGridDBColumn
+        Caption = 'Class'
+        DataBinding.FieldName = 'GRP1'
+        Visible = False
+        GroupIndex = 0
+        Options.Filtering = False
+        Options.Sorting = False
+      end
+      object SEQ1: TcxGridDBColumn
+        DataBinding.FieldName = 'SEQ1'
+        Visible = False
+        Options.Filtering = False
+        Options.Sorting = False
+      end
+      object SDESC1: TcxGridDBColumn
+        Caption = 'Item(s)'
+        DataBinding.FieldName = 'SDESC1'
+        Options.Filtering = False
+        Options.Sorting = False
+        Width = 152
+      end
+      object TTL: TcxGridDBColumn
+        Caption = 'Total'
+        DataBinding.FieldName = 'TTL'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.0000'
+        Properties.ReadOnly = True
+        Options.Editing = False
+        Options.Filtering = False
+        Options.Sorting = False
+        Width = 82
+      end
+      object WFP: TcxGridDBColumn
+        Caption = '%'
+        DataBinding.FieldName = 'WFP'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00;-0.00;'#39#39
+        Properties.ReadOnly = True
+        Width = 48
+      end
+      object W1: TcxGridDBColumn
+        DataBinding.FieldName = 'W1'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DecimalPlaces = 4
+        Properties.DisplayFormat = '0.0000'
+        Options.Filtering = False
+        Options.Sorting = False
+        Width = 75
+      end
+      object W2: TcxGridDBColumn
+        DataBinding.FieldName = 'W2'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DecimalPlaces = 4
+        Properties.DisplayFormat = '0.0000'
+        Options.Filtering = False
+        Options.Sorting = False
+        Width = 75
+      end
+      object W3: TcxGridDBColumn
+        DataBinding.FieldName = 'W3'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DecimalPlaces = 4
+        Properties.DisplayFormat = '0.0000'
+        Options.Filtering = False
+        Options.Sorting = False
+        Width = 75
+      end
+      object W4: TcxGridDBColumn
+        DataBinding.FieldName = 'W4'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DecimalPlaces = 4
+        Properties.DisplayFormat = '0.0000'
+        Options.Filtering = False
+        Options.Sorting = False
+        Width = 75
+      end
+      object W5: TcxGridDBColumn
+        DataBinding.FieldName = 'W5'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DecimalPlaces = 4
+        Properties.DisplayFormat = '0.0000'
+        Options.Filtering = False
+        Options.Sorting = False
+        Width = 75
+      end
+      object W6: TcxGridDBColumn
+        DataBinding.FieldName = 'W6'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DecimalPlaces = 4
+        Properties.DisplayFormat = '0.0000'
+        Options.Filtering = False
+        Options.Sorting = False
+        Width = 75
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxView1
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 383
+    Width = 727
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    ExplicitLeft = -8
+    ExplicitWidth = 735
+    object BitBtn2: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn2Click
+    end
+    object BitBtn5: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 1
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_cap_ftyelements_wk'
+    FieldDefs = <
+      item
+        Name = 'TPLANT'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'YR'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'M1'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'SEQ'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'SDESC'
+        DataType = ftWideString
+        Size = 80
+      end
+      item
+        Name = 'SEQ1'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'SDESC1'
+        DataType = ftWideString
+        Size = 80
+      end
+      item
+        Name = 'W1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'W2'
+        DataType = ftFloat
+      end
+      item
+        Name = 'W3'
+        DataType = ftFloat
+      end
+      item
+        Name = 'W4'
+        DataType = ftFloat
+      end
+      item
+        Name = 'W5'
+        DataType = ftFloat
+      end
+      item
+        Name = 'W6'
+        DataType = ftFloat
+      end
+      item
+        Name = 'SEQ2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TTL'
+        DataType = ftFloat
+      end
+      item
+        Name = 'GRP1'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'FCHOICE'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'CFMD'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'APPR'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'WFP'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'tplant;seq;seq2;seq1'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterOpen = Query1AfterOpen
+    AfterPost = Query1AfterPost
+    Left = 152
+    Top = 144
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 184
+    Top = 144
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 216
+    Top = 144
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 248
+    Top = 144
+  end
+end

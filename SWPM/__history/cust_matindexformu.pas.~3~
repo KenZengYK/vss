@@ -1,0 +1,46 @@
+unit cust_matindexformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, StdCtrls, Buttons, GridsEh, DBGridEh;
+
+type
+  Tfrmcust_matindex = class(TForm)
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcust_matindex: Tfrmcust_matindex;
+
+implementation
+
+uses mainformu, custformu;
+
+{$R *.dfm}
+
+procedure Tfrmcust_matindex.BitBtn1Click(Sender: TObject);
+begin
+  if (query1.State=dsEdit) then query1.Post;
+end;
+
+procedure Tfrmcust_matindex.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  //
+end;
+
+end.

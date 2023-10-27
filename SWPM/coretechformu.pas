@@ -1,0 +1,299 @@
+unit coretechformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, Mask, rxToolEdit, Buttons, GridsEh, DBGridEh,
+  DB, DBClient;
+
+type
+  Tfrmcoretech = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DateEdit1: TDateEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    DBGridEh1: TDBGridEh;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DataSource1: TDataSource;
+    BitBtn5: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure DateEdit1Change(Sender: TObject);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure querycsectchange(Sender: TField);
+    procedure queryshchange(Sender: TField);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure DBGridEh1Enter(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcoretech: Tfrmcoretech;
+
+implementation
+
+uses mainformu, worksheet, coretechscheduleformu, coretech_reportsformu;
+
+{$R *.dfm}
+
+procedure Tfrmcoretech.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmcoretech:=nil;
+end;
+
+procedure Tfrmcoretech.FormShow(Sender: TObject);
+begin
+  dateedit1.date:=date;
+end;
+
+procedure Tfrmcoretech.DateEdit1Change(Sender: TObject);
+begin
+  screen.Cursor:=crSQLWait;
+  try
+    //create the new records for core tech
+    if dateedit1.date=date then begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        commandtext:='execute procedure sp_gen_coretech_d_newdt(:x1)';
+        params[0].asdate:=dateedit1.date;
+        execute;
+      end;
+    end;
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      commandtext:='select * from tbl_coretech_d where dt=:x1';
+      params[0].asdate:=dateedit1.date;
+      open;
+    end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmcoretech.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('csect').onchange:=querycsectchange;
+  query1.fieldbyname('sjcl').onchange:=querycsectchange;
+  query1.fieldbyname('sh1').onchange:=queryshchange;
+  query1.fieldbyname('sh2').onchange:=queryshchange;
+  query1.fieldbyname('sh3').onchange:=queryshchange;
+  query1.fieldbyname('sh4').onchange:=queryshchange;
+  query1.fieldbyname('sh5').onchange:=queryshchange;
+end;
+
+procedure Tfrmcoretech.querycsectchange(Sender: TField);
+var
+  mbcl,csect,sjcl:double;
+begin
+  if not query1.FieldByName('csect').isnull then begin
+    csect:=query1.fieldbyname('csect').value;
+    mbcl:=query1.fieldbyname('csect').value*query1.fieldbyname('xjs').value;
+  end else begin
+    csect:=0;
+    mbcl:=0;
+  end;
+  if not query1.fieldbyname('sjcl').isnull then sjcl:=query1.fieldbyname('sjcl').value
+  else sjcl:=0;
+  query1.fieldbyname('xc').value:=sjcl-mbcl;
+  if mbcl>0 then query1.fieldbyname('eff').value:=sjcl*100.00/mbcl
+  else query1.fieldbyname('eff').value:=0;
+  query1.fieldbyname('je').value:=query1.fieldbyname('dj').value*sjcl;
+end;
+
+procedure Tfrmcoretech.queryshchange(Sender: TField);
+var
+  sh1,sh2,sh3,sh4,sh5:double;
+begin
+  if not query1.fieldbyname('sh1').isnull then sh1:=query1.fieldbyname('sh1').value
+  else sh1:=0;
+  if not query1.fieldbyname('sh2').isnull then sh2:=query1.fieldbyname('sh2').value
+  else sh2:=0;
+  if not query1.fieldbyname('sh3').isnull then sh3:=query1.fieldbyname('sh3').value
+  else sh3:=0;
+  if not query1.fieldbyname('sh4').isnull then sh4:=query1.fieldbyname('sh4').value
+  else sh4:=0;
+  if not query1.fieldbyname('sh5').isnull then sh5:=query1.fieldbyname('sh5').value
+  else sh5:=0;
+  query1.fieldbyname('zsh').value:=sh1+sh2+sh3+sh4+sh5;
+end;
+
+procedure Tfrmcoretech.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftfloat,'x3',ptinput);
+      params.createparam(ftfloat,'x4',ptinput);
+      params.createparam(ftfloat,'x5',ptinput);
+      params.createparam(ftfloat,'x6',ptinput);
+      params.createparam(ftfloat,'x7',ptinput);
+      params.createparam(ftfloat,'x8',ptinput);
+      params.createparam(ftfloat,'x9',ptinput);
+      params.createparam(ftfloat,'x10',ptinput);
+      params.createparam(ftfloat,'x11',ptinput);
+      params.createparam(ftfloat,'x12',ptinput);
+      params.createparam(ftfloat,'x13',ptinput);
+      params.createparam(ftstring,'x14',ptinput);
+      params.createparam(ftstring,'x15',ptinput);
+      params.createparam(ftinteger,'x16',ptinput);
+      params.createparam(ftinteger,'x17',ptinput);
+      params.createparam(ftdate,'x18',ptinput);
+      commandtext:='update tbl_coretech_d set zb=:x1,xm=:x2,csect=:x3,sjcl=:x4,xc=:x5,eff=:x6,je=:x7,sh1=:x8,sh2=:x9,sh3=:x10,sh4=:x11,sh5=:x12,zsh=:x13,bz=:x14 '
+                  +'where pline=:x15 and seq=:x16 and dseq=:x17 and dt=:x18';
+      if not query1.fieldbyname('zb').isnull then
+      params[0].asstring:=query1.fieldbyname('zb').value
+      else params[0].asstring:='';
+      if not query1.fieldbyname('xm').isnull then
+      params[1].asstring:=query1.fieldbyname('xm').value
+      else params[1].asstring:='';
+      if not query1.fieldbyname('csect').isnull then
+      params[2].asfloat:=query1.fieldbyname('csect').value
+      else params[2].asfloat:=0;
+      if not query1.fieldbyname('sjcl').isnull then
+      params[3].asfloat:=query1.fieldbyname('sjcl').value
+      else params[3].asfloat:=0;
+      if not query1.fieldbyname('xc').isnull then
+      params[4].asfloat:=query1.fieldbyname('xc').value
+      else params[4].asfloat:=0;
+      if not query1.fieldbyname('eff').isnull then
+      params[5].asfloat:=query1.fieldbyname('eff').value
+      else params[5].asfloat:=0;
+      if not query1.fieldbyname('je').isnull then
+      params[6].asfloat:=query1.fieldbyname('je').value
+      else params[6].asfloat:=0;
+      if not query1.fieldbyname('sh1').isnull then
+      params[7].asfloat:=query1.fieldbyname('sh1').value
+      else params[7].asfloat:=0;
+      if not query1.fieldbyname('sh2').isnull then
+      params[8].asfloat:=query1.fieldbyname('sh2').value
+      else params[8].asfloat:=0;
+      if not query1.fieldbyname('sh3').isnull then
+      params[9].asfloat:=query1.fieldbyname('sh3').value
+      else params[9].asfloat:=0;
+      if not query1.fieldbyname('sh4').isnull then
+      params[10].asfloat:=query1.fieldbyname('sh4').value
+      else params[10].asfloat:=0;
+      if not query1.fieldbyname('sh5').isnull then
+      params[11].asfloat:=query1.fieldbyname('sh5').value
+      else params[11].asfloat:=0;
+      if not query1.fieldbyname('zsh').isnull then
+      params[12].asfloat:=query1.fieldbyname('zsh').value
+      else params[12].asfloat:=0;
+      if not query1.fieldbyname('bz').isnull then
+      params[13].asstring:=query1.fieldbyname('bz').value
+      else params[13].asstring:='';
+      params[14].asstring:=query1.fieldbyname('pline').value;
+      params[15].asinteger:=query1.fieldbyname('seq').value;
+      params[16].asinteger:=query1.fieldbyname('dseq').value;
+      params[17].asdate:=query1.fieldbyname('dt').value;
+      execute;
+    end;
+  end;
+end;
+
+procedure Tfrmcoretech.BitBtn2Click(Sender: TObject);
+begin
+  screen.Cursor:=crSQLWait;
+  try
+    //create the new records for core tech
+    if dateedit1.date<=date then begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        params.createparam(ftdate,'x4',ptinput);
+        commandtext:='execute procedure sp_gen_coretech_d_copy(:x1,:x2,:x3,:x4)';
+        params[0].asstring:=query1.fieldbyname('pline').value;
+        params[1].asinteger:=query1.fieldbyname('seq').value;
+        params[2].asinteger:=query1.fieldbyname('dseq').value;
+        params[3].asdate:=dateedit1.date;
+        execute;
+      end;
+    end;
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      commandtext:='select * from tbl_coretech_d where dt=:x1';
+      params[0].asdate:=dateedit1.date;
+      open;
+    end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmcoretech.BitBtn1Click(Sender: TObject);
+begin
+  if frmcoretechschedule=nil then frmcoretechschedule:=tfrmcoretechschedule.Create(nil);
+  frmcoretechschedule.dateedit1.date:=date;
+  frmcoretechschedule.Show;
+end;
+
+procedure Tfrmcoretech.BitBtn3Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmcoretech.BitBtn4Click(Sender: TObject);
+begin
+  if frmcoretech_reports=nil then frmcoretech_reports:=tfrmcoretech_reports.Create(nil);
+  frmcoretech_reports.show;
+end;
+
+procedure Tfrmcoretech.FormActivate(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    commandtext:='select * from tbl_coretech_d where dt=:x1';
+    params[0].asdate:=dateedit1.date;
+    open;
+  end;
+end;
+
+procedure Tfrmcoretech.DBGridEh1Enter(Sender: TObject);
+begin
+  dbgrideh1.Columns[3].PickList.clear;
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct xm from tbl_coretech_d where xm is not null';
+    open;
+    first;
+    while not eof do begin
+      dbgrideh1.Columns[3].PickList.add(fieldbyname('xm').value);
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+end;
+
+end.

@@ -1,0 +1,710 @@
+object frmrwosampleqty: Tfrmrwosampleqty
+  Left = 0
+  Top = 0
+  Caption = 'Sample Qty Checking'
+  ClientHeight = 418
+  ClientWidth = 732
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 24
+    Width = 57
+    Height = 13
+    Caption = 'Project No. '
+  end
+  object Label2: TLabel
+    Left = 247
+    Top = 24
+    Width = 38
+    Height = 13
+    Caption = 'WO No.'
+  end
+  object Label3: TLabel
+    Left = 424
+    Top = 24
+    Width = 56
+    Height = 13
+    Caption = 'Color Code '
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 24
+    Top = 56
+    Width = 681
+    Height = 297
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'Tahoma'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'projectno'
+        Footers = <>
+        Title.Caption = 'Project #'
+        Width = 89
+      end
+      item
+        EditButtons = <>
+        FieldName = 'workorderno'
+        Footers = <>
+        Title.Caption = 'WO #'
+        Width = 69
+      end
+      item
+        EditButtons = <>
+        FieldName = 'customerstyleno'
+        Footers = <>
+        Title.Caption = 'Cust Style'
+        Width = 173
+      end
+      item
+        EditButtons = <>
+        FieldName = 'colorcode'
+        Footers = <>
+        Title.Caption = 'Clr Code'
+        Width = 42
+      end
+      item
+        EditButtons = <>
+        FieldName = 'rwo'
+        Footers = <>
+        Title.Caption = 'RWO #'
+        Width = 40
+      end
+      item
+        EditButtons = <>
+        FieldName = 'sizecup'
+        Footers = <>
+        Title.Caption = 'Size'
+        Width = 53
+      end
+      item
+        EditButtons = <>
+        FieldName = 'sampleqty'
+        Footers = <>
+        Title.Caption = 'Sample Qty'
+        Width = 63
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 24
+    Top = 368
+    Width = 113
+    Height = 25
+    Caption = 'Export to Excel'
+    DoubleBuffered = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
+      333333333333337FF3333333333333903333333333333377FF33333333333399
+      03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
+      99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
+      99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
+      03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
+      33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
+      33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
+      3333777777333333333333333333333333333333333333333333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 4
+  end
+  object Edit1: TEdit
+    Left = 80
+    Top = 24
+    Width = 129
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 0
+  end
+  object Edit2: TEdit
+    Left = 291
+    Top = 24
+    Width = 102
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 1
+  end
+  object Edit3: TEdit
+    Left = 480
+    Top = 24
+    Width = 57
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 3
+  end
+  object BitBtn2: TBitBtn
+    Left = 136
+    Top = 368
+    Width = 73
+    Height = 25
+    Caption = 'Exit'
+    DoubleBuffered = True
+    Kind = bkClose
+    ParentDoubleBuffered = False
+    TabOrder = 5
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOQuery1
+    Left = 624
+    Top = 8
+  end
+  object ADOQuery1: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CursorType = ctStatic
+    CommandTimeout = 300
+    Parameters = <>
+    SQL.Strings = (
+      
+        'select distinct projectno,workorderno,customerstyleno,colorcode,' +
+        'rwo,'
+      'rtrim(custsize)+rtrim(custcup) as sizecup,sampleqty'
+      
+        'from [ph.rwo1]..view_woc_rwo where projectno='#39'MNSU-530'#39' and samp' +
+        'leqty>0')
+    Left = 584
+    Top = 8
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_lwo_sample where j2_job='#39'W174869'#39
+    FieldDefs = <
+      item
+        Name = 'PLINE'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 5
+      end
+      item
+        Name = 'SEQ'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'J_NO'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'ORDLINE'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'J2_JOB'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'RWO'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'ACOL'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 3
+      end
+      item
+        Name = 'DID'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CUP'
+        DataType = ftWideString
+        Size = 5
+      end
+      item
+        Name = 'SIZ'
+        DataType = ftWideString
+        Size = 5
+      end
+      item
+        Name = 'PSIZ'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'PQTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TQTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'S_SP'
+        DataType = ftInteger
+      end
+      item
+        Name = 'S_WR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'S_LS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T2_SP'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T2_WR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T2_LS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'AQ_SP'
+        DataType = ftInteger
+      end
+      item
+        Name = 'AQ_WR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'AQ_LS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T3_SP'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T3_WR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T3_LS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T1_SP'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T1_WR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T1_LS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T1USER'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'SUSER'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'AQUSER'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'T2USER'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'T3USER'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'S2W'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'S_SP1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'S_SP2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'S_SP3'
+        DataType = ftInteger
+      end
+      item
+        Name = 'S_SP4'
+        DataType = ftInteger
+      end
+      item
+        Name = 'S_SP5'
+        DataType = ftInteger
+      end
+      item
+        Name = 'S_PDN1'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'S_PDN2'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'S_PDN3'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'S_PDN4'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'S_PDN5'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'T2_SP1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T2_SP2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T2_SP3'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T2_SP4'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T2_SP5'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T2_PDN1'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'T2_PDN2'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'T2_PDN3'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'T2_PDN4'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'T2_PDN5'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'AQ_SP1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'AQ_SP2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'AQ_SP3'
+        DataType = ftInteger
+      end
+      item
+        Name = 'AQ_SP4'
+        DataType = ftInteger
+      end
+      item
+        Name = 'AQ_SP5'
+        DataType = ftInteger
+      end
+      item
+        Name = 'AQ_PDN1'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'AQ_PDN2'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'AQ_PDN3'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'AQ_PDN4'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'AQ_PDN5'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'T3_SP1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T3_SP2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T3_SP3'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T3_SP4'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T3_SP5'
+        DataType = ftInteger
+      end
+      item
+        Name = 'T3_PDN1'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'T3_PDN2'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'T3_PDN3'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'T3_PDN4'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'T3_PDN5'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'PPSP'
+        DataType = ftInteger
+      end
+      item
+        Name = 'S_LSREASON'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'S_WRREASON'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'T2_LSREASON'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'T2_WRREASON'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'AQ_LSREASON'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'AQ_WRREASON'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'T3_LSREASON'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'T3_WRREASON'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'TST_SP'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TST_SP1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TST_SP2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TST_SP3'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TST_SP4'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TST_SP5'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TST_PDN1'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'TST_PDN2'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'TST_PDN3'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'TST_PDN4'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'TST_PDN5'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'REPLENISH_QTY'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ATST_SP'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ATST_SP1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ATST_SP2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ATST_SP3'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ATST_SP4'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ATST_SP5'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ATST_PDN1'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'ATST_PDN2'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'ATST_PDN3'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'ATST_PDN4'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'ATST_PDN5'
+        DataType = ftWideString
+        Size = 20
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 56
+    Top = 128
+  end
+  object DataSource2: TDataSource
+    DataSet = Query1
+    Left = 88
+    Top = 128
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 120
+    Top = 128
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 152
+    Top = 128
+  end
+end

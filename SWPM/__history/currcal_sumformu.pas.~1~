@@ -1,0 +1,827 @@
+unit currcal_sumformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ppBands, ppClass, ppStrtch, ppMemo, ppCtrls, ppVar, ppPrnabl,
+  ppCache, ppProd, ppReport, DB, DBClient, ppComm, ppRelatv, ppDB,
+  ppDBPipe, ppDBBDE, ppViewr, Txcomp;
+
+type
+  Tfrmcurrcal_sum = class(TForm)
+    DataSource2: TDataSource;
+    ppBDEPipeline1: TppBDEPipeline;
+    ClientDataSet1: TClientDataSet;
+    ClientDataSet2: TClientDataSet;
+    ClientDataSet3: TClientDataSet;
+    ppReport2: TppReport;
+    ppHeaderBand2: TppHeaderBand;
+    ppLabel11: TppLabel;
+    ppLabel14: TppLabel;
+    date01: TppLabel;
+    ppLabel16: TppLabel;
+    date02: TppLabel;
+    ppLabel18: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel19: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLabel20: TppLabel;
+    ppLabel30: TppLabel;
+    sj01: TppLabel;
+    ppLabel31: TppLabel;
+    sj02: TppLabel;
+    ppLabel32: TppLabel;
+    sj03: TppLabel;
+    ppLabel34: TppLabel;
+    sj04: TppLabel;
+    ppLabel35: TppLabel;
+    sj05: TppLabel;
+    ppLabel37: TppLabel;
+    sj11: TppLabel;
+    ppLabel39: TppLabel;
+    sj12: TppLabel;
+    ppLabel41: TppLabel;
+    sj13: TppLabel;
+    ppLabel43: TppLabel;
+    sj14: TppLabel;
+    ppLabel45: TppLabel;
+    sj15: TppLabel;
+    ppShape2: TppShape;
+    ppLabel13: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLabel33: TppLabel;
+    ppLabel46: TppLabel;
+    ppLine8: TppLine;
+    ppLabel47: TppLabel;
+    ppLine9: TppLine;
+    ppLabel48: TppLabel;
+    ppLine10: TppLine;
+    ppLabel49: TppLabel;
+    ppLabel50: TppLabel;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLabel51: TppLabel;
+    ppLabel52: TppLabel;
+    ppLabel53: TppLabel;
+    ppLabel55: TppLabel;
+    ppLabel56: TppLabel;
+    ppLabel58: TppLabel;
+    ppLabel59: TppLabel;
+    ppLabel61: TppLabel;
+    ppLabel62: TppLabel;
+    ppLine16: TppLine;
+    ppLabel64: TppLabel;
+    ppLabel66: TppLabel;
+    ppLabel67: TppLabel;
+    ppLine7: TppLine;
+    ppLabel24: TppLabel;
+    ppLine19: TppLine;
+    tst01: TppLabel;
+    ppLine20: TppLine;
+    ppLabel71: TppLabel;
+    ppLine22: TppLine;
+    ppLabel57: TppLabel;
+    ppLine72: TppLine;
+    ppLabel83: TppLabel;
+    ppLabel84: TppLabel;
+    ppLabel85: TppLabel;
+    ppLine73: TppLine;
+    ppLabel86: TppLabel;
+    ppLabel87: TppLabel;
+    ppLabel93: TppLabel;
+    ppLabel94: TppLabel;
+    ppLabel96: TppLabel;
+    ppLabel97: TppLabel;
+    ppLabel112: TppLabel;
+    fty001: TppLabel;
+    ppDetailBand2: TppDetailBand;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppDBText23: TppDBText;
+    ppDBText24: TppDBText;
+    ppDBText26: TppDBText;
+    ppDBText27: TppDBText;
+    ddcu001: TppLabel;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppFooterBand2: TppFooterBand;
+    ppSummaryBand2: TppSummaryBand;
+    ppLine23: TppLine;
+    ppLine24: TppLine;
+    ottl002: TppDBCalc;
+    gross002: TppDBCalc;
+    ppDBCalc18: TppDBCalc;
+    ppDBCalc19: TppDBCalc;
+    ppDBCalc20: TppDBCalc;
+    ppDBCalc21: TppDBCalc;
+    ttl002: TppDBCalc;
+    ppDBCalc23: TppDBCalc;
+    ppDBCalc24: TppDBCalc;
+    ppDBCalc25: TppDBCalc;
+    ppDBCalc26: TppDBCalc;
+    ppDBCalc27: TppDBCalc;
+    ppDBCalc28: TppDBCalc;
+    DCU002: TppLabel;
+    ppLabel63: TppLabel;
+    ppLine25: TppLine;
+    ppLabel65: TppLabel;
+    ppDBCalc62: TppDBCalc;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppShape3: TppShape;
+    ppDBCalc3: TppDBCalc;
+    ppDBCalc4: TppDBCalc;
+    ppDBCalc5: TppDBCalc;
+    gross001: TppDBCalc;
+    ppLabel40: TppLabel;
+    ppLabel42: TppLabel;
+    ppLabel44: TppLabel;
+    S01: TppLabel;
+    S02: TppLabel;
+    s03: TppLabel;
+    ppDBCalc7: TppDBCalc;
+    ttl001: TppDBCalc;
+    ppDBCalc9: TppDBCalc;
+    ppDBCalc10: TppDBCalc;
+    ppDBCalc11: TppDBCalc;
+    ppDBCalc12: TppDBCalc;
+    ppDBCalc13: TppDBCalc;
+    ppDBCalc14: TppDBCalc;
+    ottl001: TppDBCalc;
+    dcu001: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    ppLabel22: TppLabel;
+    s04: TppLabel;
+    o001: TppLabel;
+    b001: TppLabel;
+    d001: TppLabel;
+    n1001: TppLabel;
+    n2001: TppLabel;
+    o1001: TppLabel;
+    o2001: TppLabel;
+    n001: TppLabel;
+    d00101: TppLabel;
+    wc001: TppLabel;
+    a001: TppLabel;
+    r001: TppLabel;
+    e001: TppLabel;
+    dc001: TppLabel;
+    l001: TppLabel;
+    z001: TppLabel;
+    o002: TppLabel;
+    b002: TppLabel;
+    d002: TppLabel;
+    n1002: TppLabel;
+    n2002: TppLabel;
+    o1002: TppLabel;
+    o2002: TppLabel;
+    n002: TppLabel;
+    d00102: TppLabel;
+    wc002: TppLabel;
+    l002: TppLabel;
+    z002: TppLabel;
+    a002: TppLabel;
+    r002: TppLabel;
+    e002: TppLabel;
+    dc002: TppLabel;
+    o003: TppLabel;
+    b003: TppLabel;
+    d003: TppLabel;
+    n1003: TppLabel;
+    n2003: TppLabel;
+    o1003: TppLabel;
+    o2003: TppLabel;
+    n003: TppLabel;
+    d00103: TppLabel;
+    wc003: TppLabel;
+    l003: TppLabel;
+    z003: TppLabel;
+    a003: TppLabel;
+    r003: TppLabel;
+    e003: TppLabel;
+    dc003: TppLabel;
+    ppReport3: TppReport;
+    ppHeaderBand3: TppHeaderBand;
+    ppLabel72: TppLabel;
+    ppLabel79: TppLabel;
+    ppSystemVariable3: TppSystemVariable;
+    ppLabel80: TppLabel;
+    ppSystemVariable4: TppSystemVariable;
+    ppLabel81: TppLabel;
+    ppShape4: TppShape;
+    ppLabel104: TppLabel;
+    ppLabel107: TppLabel;
+    ppLabel108: TppLabel;
+    ppLabel109: TppLabel;
+    ppLabel110: TppLabel;
+    ppLine28: TppLine;
+    ppLabel115: TppLabel;
+    ppLabel117: TppLabel;
+    ppLine32: TppLine;
+    ppLabel118: TppLabel;
+    ppLine33: TppLine;
+    ppLabel119: TppLabel;
+    ppLine34: TppLine;
+    ppLabel120: TppLabel;
+    ppLabel121: TppLabel;
+    ppLine36: TppLine;
+    ppLine37: TppLine;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLabel122: TppLabel;
+    ppLabel123: TppLabel;
+    ppLabel124: TppLabel;
+    ppLabel126: TppLabel;
+    ppLabel127: TppLabel;
+    ppLabel128: TppLabel;
+    ppLabel129: TppLabel;
+    ppLabel130: TppLabel;
+    ppLabel131: TppLabel;
+    ppLine40: TppLine;
+    ppLabel132: TppLabel;
+    ppLabel133: TppLabel;
+    ppLabel134: TppLabel;
+    ppLine42: TppLine;
+    ppLine44: TppLine;
+    ppLabel138: TppLabel;
+    ppLine45: TppLine;
+    ppLabel139: TppLabel;
+    ppLabel73: TppLabel;
+    dt001: TppLabel;
+    ppLabel75: TppLabel;
+    dt002: TppLabel;
+    ppLine74: TppLine;
+    ppLine75: TppLine;
+    ppLabel88: TppLabel;
+    ppLabel89: TppLabel;
+    ppLabel90: TppLabel;
+    ppLine76: TppLine;
+    ppLabel91: TppLabel;
+    ppLabel92: TppLabel;
+    ppLabel95: TppLabel;
+    ppLabel101: TppLabel;
+    ppLabel26: TppLabel;
+    fty002: TppLabel;
+    ppLine5: TppLine;
+    ppLabel29: TppLabel;
+    ppDetailBand3: TppDetailBand;
+    ppDBText30: TppDBText;
+    ppDBText33: TppDBText;
+    ppDBText34: TppDBText;
+    ppDBText35: TppDBText;
+    ppDBText37: TppDBText;
+    ppDBText39: TppDBText;
+    ppDBText40: TppDBText;
+    ppDBText41: TppDBText;
+    ppDBText42: TppDBText;
+    ppDBText43: TppDBText;
+    ppDBText44: TppDBText;
+    ppDBText45: TppDBText;
+    ppDBText47: TppDBText;
+    ppDBText48: TppDBText;
+    ddcu01: TppLabel;
+    ppDBText6: TppDBText;
+    ppDBText8: TppDBText;
+    pday01: TppLabel;
+    ppFooterBand3: TppFooterBand;
+    ppSummaryBand3: TppSummaryBand;
+    ppLabel76: TppLabel;
+    ppDBCalc49: TppDBCalc;
+    ppDBCalc50: TppDBCalc;
+    ppDBCalc51: TppDBCalc;
+    ppDBCalc52: TppDBCalc;
+    ppDBCalc53: TppDBCalc;
+    ppDBCalc54: TppDBCalc;
+    ppDBCalc55: TppDBCalc;
+    ppDBCalc56: TppDBCalc;
+    ppDBCalc57: TppDBCalc;
+    ppDBCalc58: TppDBCalc;
+    ppDBCalc59: TppDBCalc;
+    ppDBCalc60: TppDBCalc;
+    ppDBCalc61: TppDBCalc;
+    ADCU01: TppLabel;
+    ppDBCalc65: TppDBCalc;
+    ppDBCalc69: TppDBCalc;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppLine27: TppLine;
+    ppLine29: TppLine;
+    ppDBCalc36: TppDBCalc;
+    ppDBCalc37: TppDBCalc;
+    ppDBCalc38: TppDBCalc;
+    ppDBCalc39: TppDBCalc;
+    ppDBCalc40: TppDBCalc;
+    ppDBCalc41: TppDBCalc;
+    ppDBCalc42: TppDBCalc;
+    ppDBCalc43: TppDBCalc;
+    ppDBCalc44: TppDBCalc;
+    ppDBCalc45: TppDBCalc;
+    ppDBCalc46: TppDBCalc;
+    ppDBCalc47: TppDBCalc;
+    ppDBCalc48: TppDBCalc;
+    sdcu01: TppLabel;
+    ppLabel78: TppLabel;
+    ppDBCalc63: TppDBCalc;
+    ppDBCalc66: TppDBCalc;
+    ppLabel1: TppLabel;
+    ppDBText1: TppDBText;
+    ppDBCalc8: TppDBCalc;
+    lines001: TppLabel;
+    ppLine6: TppLine;
+    ppLabel2: TppLabel;
+    ppDBText2: TppDBText;
+    lines002: TppLabel;
+    ppLabel3: TppLabel;
+    avg001: TppLabel;
+    avg002: TppLabel;
+    avg003: TppLabel;
+    avg004: TppLabel;
+    avg005: TppLabel;
+    avg006: TppLabel;
+    avg007: TppLabel;
+    avg008: TppLabel;
+    avg009: TppLabel;
+    avg010: TppLabel;
+    avg011: TppLabel;
+    avg012: TppLabel;
+    avg013: TppLabel;
+    avg014: TppLabel;
+    avg015: TppLabel;
+    avg018: TppLabel;
+    ppLine11: TppLine;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ddf01: TppLabel;
+    ddf02: TppLabel;
+    sdf01: TppLabel;
+    sdf02: TppLabel;
+    adf01: TppLabel;
+    adf02: TppLabel;
+    adf03: TppLabel;
+    adf04: TppLabel;
+    ppLabel6: TppLabel;
+    ppLine17: TppLine;
+    ppLabel7: TppLabel;
+    diff01: TppLabel;
+    diff02: TppLabel;
+    sdif01: TppLabel;
+    sdif02: TppLabel;
+    sdif11: TppLabel;
+    sdif12: TppLabel;
+    sdif21: TppLabel;
+    sdif31: TppLabel;
+    sdif32: TppLabel;
+    sdif22: TppLabel;
+    fdif01: TppLabel;
+    fdif02: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel36: TppLabel;
+    procedure ppDetailBand2BeforePrint(Sender: TObject);
+    procedure ppGroupFooterBand1BeforePrint(Sender: TObject);
+    procedure ppSummaryBand2BeforePrint(Sender: TObject);
+    procedure ppReport2PreviewFormCreate(Sender: TObject);
+    procedure ppReport3PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand3BeforePrint(Sender: TObject);
+    procedure ppGroupFooterBand2BeforePrint(Sender: TObject);
+    procedure ppSummaryBand3BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcurrcal_sum: Tfrmcurrcal_sum;
+
+implementation
+
+uses mainformu, currcalformu;
+
+{$R *.dfm}
+
+procedure Tfrmcurrcal_sum.ppDetailBand2BeforePrint(Sender: TObject);
+begin
+  if clientdataset3.fieldbyname('csect').value>0 then ddcu001.Caption:=formatfloat('0.00',clientdataset3.fieldbyname('ttl').value*100.0/clientdataset3.fieldbyname('csect').value)
+  else ddcu001.caption:='--';
+  diff01.Caption:=formatfloat('+0.0;-0.0',clientdataset3.fieldbyname('csect').value-clientdataset3.fieldbyname('ottl').value);
+  diff02.Caption:=formatfloat('+0.0;-0.0',clientdataset3.fieldbyname('csect').value-clientdataset3.fieldbyname('workero').value);
+end;
+
+procedure Tfrmcurrcal_sum.ppGroupFooterBand1BeforePrint(Sender: TObject);
+begin
+  s01.Caption:='';
+  s02.Caption:='';
+  s03.Caption:='';
+  s04.Caption:='';
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select count(distinct date1) as cnt,sum(ottl) as n1,sum(workero) as n2,sum(csect) as n3,sum(sectt) as n4,sum(sectt1) as n5,'
+                +'sum(sectc) as n6,sum(osect) as n7,sum(ttl) as n8,sum(workerc) as n9,sum(lsect) as n10,sum(zsect) as n11,sum(asect) as n12,'
+                +'sum(rsect) as n13,sum(esect) as n14 from week52 where tshop=:x1 and date1>=:x2 and date1<=:x3 and wday=''S'' and tshop>'''' and lactive=1';
+    params[0].asstring:=clientdataset3.fieldbyname('tshop').value;
+    params[1].asdate:=frmcurrcal.dateedit1.date;
+    params[2].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    if not fieldbyname('n1').isnull then begin
+      s01.Caption:=fieldbyname('cnt').asstring;
+      o002.Caption:=formatfloat('0.0',fieldbyname('n1').value);
+      b002.Caption:=formatfloat('0.0',fieldbyname('n2').value);
+      d002.Caption:=formatfloat('0.0',fieldbyname('n3').value);
+      n1002.Caption:=formatfloat('0.0',fieldbyname('n4').value);
+      n2002.Caption:=formatfloat('0.0',fieldbyname('n5').value);
+      o1002.Caption:=formatfloat('0.0',fieldbyname('n6').value);
+      o2002.Caption:=formatfloat('0.0',fieldbyname('n7').value);
+      n002.Caption:=formatfloat('0.0',fieldbyname('n8').value);
+      d00102.Caption:=formatfloat('0.0',fieldbyname('n3').value);
+      wc002.Caption:=formatfloat('0.0',fieldbyname('n9').value);
+      l002.Caption:=formatfloat('0.0',fieldbyname('n10').value);
+      z002.Caption:=formatfloat('0.0',fieldbyname('n11').value);
+      a002.Caption:=formatfloat('0.0',fieldbyname('n12').value);
+      r002.Caption:=formatfloat('0.0',fieldbyname('n13').value);
+      e002.Caption:=formatfloat('0.0',fieldbyname('n14').value);
+      if fieldbyname('n3').value>0 then dc002.Caption:='100.00' else dc002.Caption:='--';
+      sdif11.Caption:=formatfloat('+0.0;-0.0',fieldbyname('n3').value-fieldbyname('n1').value);
+      sdif12.Caption:=formatfloat('+0.0;-0.0',fieldbyname('n3').value-fieldbyname('n2').value);
+    end else begin
+      o002.Caption:='0.0';
+      b002.Caption:='0.0';
+      d002.Caption:='0.0';
+      n1002.Caption:='0.0';
+      n2002.Caption:='0.0';
+      o1002.Caption:='0.0';
+      o2002.Caption:='0.0';
+      n002.Caption:='0.0';
+      d00102.Caption:='0.0';
+      wc002.Caption:='0.0';
+      l002.Caption:='0.0';
+      z002.Caption:='0.0';
+      a002.Caption:='0.0';
+      r002.Caption:='0.0';
+      e002.Caption:='0.0';
+      dc002.Caption:='--';
+      sdif11.Caption:='0.0';
+      sdif12.Caption:='0.0';
+    end;
+  end;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select count(distinct date1) as cnt,sum(ottl) as n1,sum(workero) as n2,sum(csect) as n3,sum(sectt) as n4,sum(sectt1) as n5,'
+                +'sum(sectc) as n6,sum(osect) as n7,sum(ttl) as n8,sum(workerc) as n9,sum(lsect) as n10,sum(zsect) as n11,sum(asect) as n12,'
+                +'sum(rsect) as n13,sum(esect) as n14 from week52 where tshop=:x1 and date1>=:x2 and date1<=:x3 and wday=''H'' and tshop>'''' and lactive=1';
+    params[0].asstring:=clientdataset3.fieldbyname('tshop').value;
+    params[1].asdate:=frmcurrcal.dateedit1.date;
+    params[2].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    if not fieldbyname('n1').isnull then begin
+      s02.Caption:=fieldbyname('cnt').asstring;
+      o003.Caption:=formatfloat('0.0',fieldbyname('n1').value);
+      b003.Caption:=formatfloat('0.0',fieldbyname('n2').value);
+      d003.Caption:=formatfloat('0.0',fieldbyname('n3').value);
+      n1003.Caption:=formatfloat('0.0',fieldbyname('n4').value);
+      n2003.Caption:=formatfloat('0.0',fieldbyname('n5').value);
+      o1003.Caption:=formatfloat('0.0',fieldbyname('n6').value);
+      o2003.Caption:=formatfloat('0.0',fieldbyname('n7').value);
+      n003.Caption:=formatfloat('0.0',fieldbyname('n8').value);
+      d00103.Caption:=formatfloat('0.0',fieldbyname('n3').value);
+      wc003.Caption:=formatfloat('0.0',fieldbyname('n9').value);
+      l003.Caption:=formatfloat('0.0',fieldbyname('n10').value);
+      z003.Caption:=formatfloat('0.0',fieldbyname('n11').value);
+      a003.Caption:=formatfloat('0.0',fieldbyname('n12').value);
+      r003.Caption:=formatfloat('0.0',fieldbyname('n13').value);
+      e003.Caption:=formatfloat('0.0',fieldbyname('n14').value);
+      if fieldbyname('n3').value>0 then dc003.Caption:='100.00' else dc003.Caption:='--';
+      sdif21.Caption:=formatfloat('+0.0;-0.0',fieldbyname('n3').value-fieldbyname('n1').value);
+      sdif22.Caption:=formatfloat('+0.0;-0.0',fieldbyname('n3').value-fieldbyname('n2').value);
+    end else begin
+      o003.Caption:='0.0';
+      b003.Caption:='0.0';
+      d003.Caption:='0.0';
+      n1003.Caption:='0.0';
+      n2003.Caption:='0.0';
+      o1003.Caption:='0.0';
+      o2003.Caption:='0.0';
+      n003.Caption:='0.0';
+      d00103.Caption:='0.0';
+      wc003.Caption:='0.0';
+      l003.Caption:='0.0';
+      z003.Caption:='0.0';
+      a003.Caption:='0.0';
+      r003.Caption:='0.0';
+      e003.Caption:='0.0';
+      dc003.Caption:='--';
+      sdif21.Caption:='0.0';
+      sdif22.Caption:='0.0';
+    end;
+  end;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select count(distinct date1) as cnt,sum(ottl) as n1,sum(workero) as n2,sum(csect) as n3,sum(sectt) as n4,sum(sectt1) as n5,'
+                +'sum(sectc) as n6,sum(osect) as n7,sum(ttl) as n8,sum(workerc) as n9,sum(lsect) as n10,sum(zsect) as n11,sum(asect) as n12,'
+                +'sum(rsect) as n13,sum(esect) as n14 from week52 where tshop=:x1 and date1>=:x2 and date1<=:x3 and wday=''W'' and tshop>'''' and lactive=1';
+    params[0].asstring:=clientdataset3.fieldbyname('tshop').value;
+    params[1].asdate:=frmcurrcal.dateedit1.date;
+    params[2].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    if not fieldbyname('n1').isnull then begin
+      s03.Caption:=fieldbyname('cnt').asstring;
+      o001.Caption:=formatfloat('0.0',fieldbyname('n1').value);
+      b001.Caption:=formatfloat('0.0',fieldbyname('n2').value);
+      d001.Caption:=formatfloat('0.0',fieldbyname('n3').value);
+      n1001.Caption:=formatfloat('0.0',fieldbyname('n4').value);
+      n2001.Caption:=formatfloat('0.0',fieldbyname('n5').value);
+      o1001.Caption:=formatfloat('0.0',fieldbyname('n6').value);
+      o2001.Caption:=formatfloat('0.0',fieldbyname('n7').value);
+      n001.Caption:=formatfloat('0.0',fieldbyname('n8').value);
+      d00101.Caption:=formatfloat('0.0',fieldbyname('n3').value);
+      wc001.Caption:=formatfloat('0.0',fieldbyname('n9').value);
+      l001.Caption:=formatfloat('0.0',fieldbyname('n10').value);
+      z001.Caption:=formatfloat('0.0',fieldbyname('n11').value);
+      a001.Caption:=formatfloat('0.0',fieldbyname('n12').value);
+      r001.Caption:=formatfloat('0.0',fieldbyname('n13').value);
+      e001.Caption:=formatfloat('0.0',fieldbyname('n14').value);
+      if fieldbyname('n3').value>0 then dc001.Caption:=formatfloat('0.00',fieldbyname('n8').Value*100.0/fieldbyname('n1').value)
+      else dc001.Caption:='--';
+      sdif01.Caption:=formatfloat('+0.0;-0.0',fieldbyname('n3').value-fieldbyname('n1').value);
+      sdif02.Caption:=formatfloat('+0.0;-0.0',fieldbyname('n3').value-fieldbyname('n2').value);
+    end else begin
+      o001.Caption:='0.0';
+      b001.Caption:='0.0';
+      d001.Caption:='0.0';
+      n1001.Caption:='0.0';
+      n2001.Caption:='0.0';
+      o1001.Caption:='0.0';
+      o2001.Caption:='0.0';
+      n001.Caption:='0.0';
+      d00101.Caption:='0.0';
+      wc001.Caption:='0.0';
+      l001.Caption:='0.0';
+      z001.Caption:='0.0';
+      a001.Caption:='0.0';
+      r001.Caption:='0.0';
+      e001.Caption:='0.0';
+      dc001.Caption:='--';
+      sdif01.Caption:='0.0';
+      sdif02.Caption:='0.0';
+    end;
+  end;
+
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    commandtext:='select sum(ottl) as s1,sum(csect) as s2,sum(workero) as s3 from week52 where date1>=:x1 and date1<=:x2 and tshop=:x3 and csect>0 and tshop>'''' and lactive=1';
+    params[0].asdate:=frmcurrcal.dateedit1.date;
+    params[1].asdate:=frmcurrcal.dateedit2.date;
+    params[2].asstring:=clientdataset3.fieldbyname('tshop').value;
+    open;
+    if not fieldbyname('s1').isnull then begin
+      sdif31.Caption:=formatfloat('+0.0;-0.0',fieldbyname('s2').value-fieldbyname('s1').value);
+      sdif32.Caption:=formatfloat('+0.0;-0.0',fieldbyname('s2').value-fieldbyname('s3').value);
+    end;
+  end;
+
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select count(distinct date1) as cnt from week52 where tshop=:x1 and date1>=:x2 and date1<=:x3 and csect>0 and tshop>'''' and lactive=1';
+    params[0].asstring:=clientdataset3.fieldbyname('tshop').value;
+    params[1].asdate:=frmcurrcal.dateedit1.date;
+    params[2].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    if not fieldbyname('cnt').isnull then
+    s04.Caption:=fieldbyname('cnt').asstring;
+  end;
+
+  //dcu
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    commandtext:='select sum(ttl*100.0)/sum(csect) as dcu from week52 where date1>=:x1 and date1<=:x2 and tshop=:x3 and csect>0 and tshop>'''' and lactive=1';
+    params[0].asdate:=frmcurrcal.dateedit1.date;
+    params[1].asdate:=frmcurrcal.dateedit2.date;
+    params[2].asstring:=clientdataset3.fieldbyname('tshop').value;
+    open;
+    if not fieldbyname('dcu').isnull then dcu001.Caption:=formatfloat('0.00',fieldbyname('dcu').Value) else dcu001.Caption:='0.00';
+  end;
+end;
+
+procedure Tfrmcurrcal_sum.ppSummaryBand2BeforePrint(Sender: TObject);
+var
+  tplant:string;
+begin
+  if frmcurrcal.combobox1.text<>'KBT' then tplant:=frmcurrcal.combobox1.text else tplant:='KB';
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(ttl*100.0)/sum(csect) as dcu from week52 where date1>=:x1 and date1<=:x2 and csect>0 and lactive=1';
+    if frmcurrcal.combobox1.text>'' then commandtext:=commandtext+' and tplant='''+tplant+'''';
+    params[0].asdate:=frmcurrcal.dateedit1.date;
+    params[1].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    if not fieldbyname('dcu').isnull then dcu002.Caption:=formatfloat('0.00',fieldbyname('dcu').Value) else dcu002.Caption:='0.00';
+  end;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select count(distinct tshop) as s1,count(distinct line) as s2 from week52 where date1>=:x1 and date1<=:x2 and tshop>'''' and lactive=1';
+    if frmcurrcal.combobox1.text>'' then commandtext:=commandtext+' and tplant='''+tplant+'''';
+    params[0].asdate:=frmcurrcal.dateedit1.date;
+    params[1].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    if not fieldbyname('s1').isnull then
+    lines001.Caption:='# of workshop:  '+fieldbyname('s1').AsString+'    # of line:  '+fieldbyname('s2').asstring;
+  end;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(ottl) as s1,sum(csect) as s2,sum(workero) as s3 from week52 where date1>=:x1 and date1<=:x2 and tshop>'''' and lactive=1';
+    if frmcurrcal.combobox1.text>'' then commandtext:=commandtext+' and tplant='''+tplant+'''';
+    params[0].asdate:=frmcurrcal.dateedit1.date;
+    params[1].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    if not fieldbyname('n1').isnull then begin
+      fdif01.Caption:=formatfloat('+0.0;-0.0',fieldbyname('s2').value-fieldbyname('s1').value);
+      fdif02.Caption:=formatfloat('+0.0;-0.0',fieldbyname('s2').value-fieldbyname('s3').value);
+    end;
+  end;
+end;
+
+procedure Tfrmcurrcal_sum.ppReport2PreviewFormCreate(Sender: TObject);
+begin
+  ppReport2.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport2.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmcurrcal_sum.ppReport3PreviewFormCreate(Sender: TObject);
+begin
+  ppReport3.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport3.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmcurrcal_sum.ppDetailBand3BeforePrint(Sender: TObject);
+begin
+  if clientdataset3.FieldByName('csect').isnull then ddcu01.Caption:='--'
+  else begin
+    if clientdataset3.fieldbyname('csect').value>0 then
+    ddcu01.Caption:=formatfloat('0.00',clientdataset3.fieldbyname('ttl').value*100.0/clientdataset3.fieldbyname('csect').value)
+    else ddcu01.Caption:='--';
+  end;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select distinct count(distinct date1) as cnt from week52 where tshop=:x1 and date1>=:x2 and date1<=:x3 and csect>0 and tshop>'''' and lactive=1';
+    params[0].asstring:=clientdataset3.fieldbyname('tshop').value;
+    params[1].asdate:=frmcurrcal.dateedit1.date;
+    params[2].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    pday01.Caption:=fieldbyname('cnt').asstring;
+  end;
+  if not clientdataset3.fieldbyname('csect').isnull then begin
+    ddf01.Caption:=formatfloat('+0.0;-0.0',clientdataset3.fieldbyname('csect').value-clientdataset3.fieldbyname('ottl').value);
+    ddf02.Caption:=formatfloat('+0.0;-0.0',clientdataset3.fieldbyname('csect').value-clientdataset3.fieldbyname('workero').value);
+  end;
+end;
+
+procedure Tfrmcurrcal_sum.ppGroupFooterBand2BeforePrint(Sender: TObject);
+var
+  tplant:string;
+begin
+  if frmcurrcal.combobox1.text<>'KBT' then tplant:=frmcurrcal.combobox1.text else tplant:='KB';
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(ttl*100.0)/sum(csect) as dcu from week52 where date1>=:x1 and date1<=:x2 and csect>0 and lactive=1 and tplant='''+clientdataset3.fieldbyname('tplant').value+'''';
+    if frmcurrcal.combobox1.text>'' then commandtext:=commandtext+' and tplant='''+tplant+'''';
+    params[0].asdate:=frmcurrcal.dateedit1.date;
+    params[1].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    if not fieldbyname('dcu').isnull then sdcu01.Caption:=formatfloat('0.00',fieldbyname('dcu').Value) else sdcu01.Caption:='0.00';
+  end;
+  //sdf01.Caption:=formatfloat('+0.0;-0.0',ppdbcalc37.FieldValue-ppdbcalc36.FieldValue);
+  //sdf02.Caption:=formatfloat('+0.0;-0.0',ppdbcalc37.FieldValue-ppdbcalc66.FieldValue);
+end;
+
+procedure Tfrmcurrcal_sum.ppSummaryBand3BeforePrint(Sender: TObject);
+var
+  tplant:string;
+begin
+  if frmcurrcal.combobox1.text<>'KBT' then tplant:=frmcurrcal.combobox1.text else tplant:='KB';
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(ttl*100.0)/sum(csect) as dcu from week52 where date1>=:x1 and date1<=:x2 and csect>0 and tshop>'''' and lactive=1';
+    if frmcurrcal.combobox1.text>'' then commandtext:=commandtext+' and tplant='''+tplant+'''';
+    params[0].asdate:=frmcurrcal.dateedit1.date;
+    params[1].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    if not fieldbyname('dcu').isnull then begin
+      adcu01.Caption:=formatfloat('0.00',fieldbyname('dcu').Value);
+      avg018.Caption:=formatfloat('0.00',fieldbyname('dcu').Value);
+    end else begin
+      adcu01.Caption:='0.00';
+      avg018.Caption:='0.00';
+    end;
+  end;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(ottl) as s1,sum(workero) as s2,sum(csect) as s3,sum(sectt) as s4,sum(sectt1) as s5,sum(sectc) as s6,sum(osect) as s7,'
+                +'sum(ttl) as s8,sum(workerc) as s9,sum(lsect) as s10,sum(zsect) as s11,sum(asect) as s12,sum(rsect) as s13,sum(esect) as s14,'
+                +'count(distinct line) as s15,count(distinct tshop) as s16 from week52 where date1>=:x1 and date1<=:x2 and tshop>'''' and lactive=1';
+    if frmcurrcal.combobox1.text>'' then commandtext:=commandtext+' and tplant='''+tplant+'''';
+    params[0].asdate:=frmcurrcal.dateedit1.date;
+    params[1].asdate:=frmcurrcal.dateedit2.date;
+    open;
+    if not fieldbyname('s1').isnull then begin
+      avg001.Caption:=formatfloat('0.0',fieldbyname('s1').value/fieldbyname('s15').value);
+      avg002.Caption:=formatfloat('0.0',fieldbyname('s2').value/fieldbyname('s15').value);
+      avg003.Caption:=formatfloat('0.0',fieldbyname('s3').value/fieldbyname('s15').value);
+      avg004.Caption:=formatfloat('0.0',fieldbyname('s4').value/fieldbyname('s15').value);
+      avg005.Caption:=formatfloat('0.0',fieldbyname('s5').value/fieldbyname('s15').value);
+      avg006.Caption:=formatfloat('0.0',fieldbyname('s6').value/fieldbyname('s15').value);
+      avg007.Caption:=formatfloat('0.0',fieldbyname('s7').value/fieldbyname('s15').value);
+      avg008.Caption:=formatfloat('0.0',fieldbyname('s3').value/fieldbyname('s15').value);
+      avg009.Caption:=formatfloat('0.0',fieldbyname('s8').value/fieldbyname('s15').value);
+      avg010.Caption:=formatfloat('0.0',fieldbyname('s9').value/fieldbyname('s15').value);
+      avg011.Caption:=formatfloat('0.0',fieldbyname('s10').value/fieldbyname('s15').value);
+      avg012.Caption:=formatfloat('0.0',fieldbyname('s11').value/fieldbyname('s15').value);
+      avg013.Caption:=formatfloat('0.0',fieldbyname('s12').value/fieldbyname('s15').value);
+      avg014.Caption:=formatfloat('0.0',fieldbyname('s13').value/fieldbyname('s15').value);
+      avg015.Caption:=formatfloat('0.0',fieldbyname('s14').value/fieldbyname('s15').value);
+      lines002.Caption:='# of workshop: '+fieldbyname('s16').asstring+'  # of line: '+fieldbyname('s15').asstring;
+      sdf01.Caption:=formatfloat('+0.0;-0.0',fieldbyname('s3').value-fieldbyname('s1').value);
+      sdf02.Caption:=formatfloat('+0.0;-0.0',fieldbyname('s3').value-fieldbyname('s2').value);
+      adf01.Caption:=formatfloat('+0.0;-0.0',fieldbyname('s3').value/fieldbyname('s16').value-fieldbyname('s1').value/fieldbyname('s16').value);
+      adf02.Caption:=formatfloat('+0.0;-0.0',fieldbyname('s3').value/fieldbyname('s16').value-fieldbyname('s2').value/fieldbyname('s16').value);
+      adf03.Caption:=formatfloat('+0.0;-0.0',fieldbyname('s3').value/fieldbyname('s15').value-fieldbyname('s1').value/fieldbyname('s15').value);
+      adf04.Caption:=formatfloat('+0.0;-0.0',fieldbyname('s3').value/fieldbyname('s15').value-fieldbyname('s2').value/fieldbyname('s15').value);
+    end;
+  end;
+end;
+
+end.
+ 

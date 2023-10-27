@@ -1,0 +1,42 @@
+unit db_repformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, DB, DBClient, StdCtrls, Buttons,
+  Mask, ToolEdit;
+
+type
+  Tfrmdb_rep = class(TForm)
+    Panel2: TPanel;
+    DBGridEh1: TDBGridEh;
+    Splitter1: TSplitter;
+    Query4: TClientDataSet;
+    Query3: TClientDataSet;
+    Query2: TClientDataSet;
+    DataSource1: TDataSource;
+    Query1: TClientDataSet;
+    RadioGroup1: TRadioGroup;
+    RadioGroup2: TRadioGroup;
+    CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
+    BitBtn1: TBitBtn;
+    Label1: TLabel;
+    DateEdit1: TDateEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmdb_rep: Tfrmdb_rep;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+end.

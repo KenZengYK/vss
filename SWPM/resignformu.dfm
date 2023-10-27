@@ -1,0 +1,179 @@
+object frmresign: Tfrmresign
+  Left = 192
+  Top = 114
+  Caption = 'Resign'
+  ClientHeight = 448
+  ClientWidth = 688
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 688
+    Height = 65
+    Align = alTop
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 144
+      Top = 16
+      Width = 34
+      Height = 13
+      Caption = 'WF ID '
+    end
+    object DBText1: TDBText
+      Left = 184
+      Top = 16
+      Width = 113
+      Height = 17
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object DBText2: TDBText
+      Left = 280
+      Top = 16
+      Width = 113
+      Height = 17
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 456
+      Top = 16
+      Width = 62
+      Height = 13
+      Caption = 'Resign Date '
+    end
+    object Label3: TLabel
+      Left = 16
+      Top = 40
+      Width = 117
+      Height = 16
+      Caption = 'Resign Reason: -  '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsItalic]
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 16
+      Top = 16
+      Width = 38
+      Height = 13
+      Caption = 'Factory '
+    end
+    object DBText3: TDBText
+      Left = 64
+      Top = 16
+      Width = 49
+      Height = 17
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object wwDBDateTimePicker1: TDBDateTimeEditEh
+      Left = 528
+      Top = 16
+      Width = 121
+      Height = 21
+      EditButtons = <>
+      Kind = dtkDateEh
+      TabOrder = 0
+      Visible = True
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 407
+    Width = 688
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+    end
+    object BitBtn2: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Confirm'
+      DoubleBuffered = True
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333333333333333330000333333333333333333333333F33333333333
+        00003333344333333333333333388F3333333333000033334224333333333333
+        338338F3333333330000333422224333333333333833338F3333333300003342
+        222224333333333383333338F3333333000034222A22224333333338F338F333
+        8F33333300003222A3A2224333333338F3838F338F33333300003A2A333A2224
+        33333338F83338F338F33333000033A33333A222433333338333338F338F3333
+        0000333333333A222433333333333338F338F33300003333333333A222433333
+        333333338F338F33000033333333333A222433333333333338F338F300003333
+        33333333A222433333333333338F338F00003333333333333A22433333333333
+        3338F38F000033333333333333A223333333333333338F830000333333333333
+        333A333333333333333338330000333333333333333333333333333333333333
+        0000}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 1
+    end
+    object BitBtn3: TBitBtn
+      Left = 168
+      Top = 8
+      Width = 73
+      Height = 25
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 2
+    end
+  end
+  object DBMemo1: TDBMemo
+    Left = 0
+    Top = 65
+    Width = 688
+    Height = 342
+    Align = alClient
+    TabOrder = 2
+  end
+end

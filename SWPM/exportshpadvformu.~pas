@@ -1,0 +1,87 @@
+unit exportshpadvformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, ToolEdit, QExport3, QExport3XLS, DB,
+  DBClient;
+
+type
+  Tfrmexportshpadv = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    GroupBox1: TGroupBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Label2: TLabel;
+    DateEdit1: TDateEdit;
+    Label3: TLabel;
+    DateEdit2: TDateEdit;
+    XLS1: TQExport3XLS;
+    SaveDialog1: TSaveDialog;
+    Query1: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmexportshpadv: Tfrmexportshpadv;
+
+implementation
+
+uses mainformu, pdnpastformu;
+
+{$R *.dfm}
+
+procedure Tfrmexportshpadv.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmexportshpadv:=nil;
+end;
+
+procedure Tfrmexportshpadv.BitBtn1Click(Sender: TObject);
+begin
+  screen.Cursor:=crSQLWait;
+  try
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparams(ftdate,'x1',ptinput);
+      params.createparams(ftdate,'x2',ptinput);
+      commandtext:='select distinct a.pdn as "PDN Ref #",b.exfty as "Ex-fty Date",a.inv as "PH Invoice Nr.",'
+                  +'a.sopno as "SO #",a.j_no as "Project #",a.j2_job as "WO #",c.artno as "PH Style",a.acol as "Clr Code",'
+                  +'a.t4qty as "Shipped Qty",a.hsname as "Name of Product",a.curn40 as "Currency",a.uprc55 as "Unit Price",a.tprc as "Total Value (HKD)" '
+                  +'from tbl_pdn_shpadvice2 a,tbl_pdn_shpadvice1 b,tblshedule c '
+                  +'where a.tplant=b.tplant and a.shpno=b.shpno and a.j2_job=c.j2_job and a.acol=c.acol '
+                  +'and a.tplant='''+combobox1.text+''' and b.exfty>=:x1 and b.exfty<=:x2';
+      params[0].asdate:=dateedit1.date;
+      params[1].asdate:=dateedit2.date;
+      open;
+      if recordcount>0 then begin
+        savedialog1.Execute;
+        xls1.FileName:=savedialog1.FileName;
+        xls1.Execute;
+      end;
+    end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmexportshpadv.FormShow(Sender: TObject);
+var
+  y,m,d:word;
+begin
+  decodedate(date,y,m,d);
+  dateedit1.date:=encodedate(y,m,1);
+  dateedit2.date:=date;
+end;
+
+end.

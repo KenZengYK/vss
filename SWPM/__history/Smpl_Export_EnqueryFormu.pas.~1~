@@ -1,0 +1,26 @@
+unit Smpl_Export_EnqueryFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  Tfrmsmpl_export_enquery = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsmpl_export_enquery: Tfrmsmpl_export_enquery;
+
+implementation
+
+uses mainformu, Smpl_ExportFormu;
+
+{$R *.dfm}
+
+end.

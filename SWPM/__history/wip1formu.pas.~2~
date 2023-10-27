@@ -1,0 +1,123 @@
+unit wip1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, StdCtrls, Mask, rxToolEdit, ExtCtrls, DB,
+  DBClient, Buttons;
+
+type
+  TfrmWIP1 = class(TForm)
+    Panel1: TPanel;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    DateEdit1: TDateEdit;
+    DBGridEh1: TDBGridEh;
+    Label3: TLabel;
+    DateEdit2: TDateEdit;
+    Panel2: TPanel;
+    Query1: TClientDataSet;
+    DataSource3: TDataSource;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    procedure DateEdit1Change(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBGridEh1SortMarkingChanged(Sender: TObject);
+    procedure DBGridEh1TitleBtnClick(Sender: TObject; ACol: Integer;
+      Column: TColumnEh);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmWIP1: TfrmWIP1;
+
+implementation
+
+uses mainformu, wipprintformu;
+
+{$R *.dfm}
+
+procedure TfrmWIP1.DateEdit1Change(Sender: TObject);
+begin
+  screen.Cursor:=crSQLWait;
+  try
+  if combobox1.text>'' then begin
+    if (dateedit1.date>0) and (dateedit2.date>0) then begin
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        params.createparam(ftstring,'x3',ptinput);
+        commandtext:='select * from sp_gettransit(:x1,:x2,:x3) where qty>0';
+        params[0].asdate:=dateedit1.date;
+        params[1].asdate:=dateedit2.date;
+        params[2].asstring:=combobox1.text;
+        open;
+      end;
+    end;
+  end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmWIP1.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmwip1:=nil;
+end;
+
+procedure TfrmWIP1.DBGridEh1SortMarkingChanged(Sender: TObject);
+var i :Integer;
+    s:String;
+   function DeleteStr(str:String; sunstr:String): String;
+   var i:Integer;
+   begin
+     i := Pos(sunstr,str);
+     if i <> 0 then Delete(str,i,Length(sunstr));
+     Result := str;
+   end;
+begin
+  s := '';
+  for i := 0 to DBGridEh1.SortMarkedColumns.Count-1 do
+   if DBGridEh1.SortMarkedColumns[i].Title.SortMarker = smUpEh then
+     s := s + DBGridEh1.SortMarkedColumns[i].FieldName + ' DESC , '
+   else
+     s := s + DBGridEh1.SortMarkedColumns[i].FieldName + ', ';
+  if s <> '' then s := ' ORDER BY ' + Copy(s,1,Length(s)-2);
+  s := DeleteStr(s,'1');
+  with (DBGridEh1.DataSource.DataSet as TclientDataSet) do begin
+    if name='Query1' then begin
+      close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        params.createparam(ftstring,'x3',ptinput);
+        commandtext:='select * from sp_gettransit(:x1,:x2,:x3) where qty>0'+s;
+        params[0].asdate:=dateedit1.date;
+        params[1].asdate:=dateedit2.date;
+        params[2].asstring:=combobox1.text;
+      open;
+    end;
+  end;
+end;
+
+procedure TfrmWIP1.DBGridEh1TitleBtnClick(Sender: TObject; ACol: Integer;
+  Column: TColumnEh);
+begin
+  case Column.Title.SortMarker of
+    smNoneEh: Column.Title.SortMarker := smDownEh;
+    smDownEh: Column.Title.SortMarker := smUpEh;
+    smUpEh: Column.Title.SortMarker := smNoneEh;
+  end;
+end;
+
+end.

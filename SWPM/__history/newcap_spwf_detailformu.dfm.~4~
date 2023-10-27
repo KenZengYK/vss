@@ -1,0 +1,164 @@
+object frmnewcap_spwf_detail: Tfrmnewcap_spwf_detail
+  Left = 0
+  Top = 0
+  Caption = 'Detail information by operation'
+  ClientHeight = 257
+  ClientWidth = 525
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 0
+    Width = 525
+    Height = 216
+    Align = alClient
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'Tahoma'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 216
+    Width = 525
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 1
+    ExplicitLeft = 56
+    ExplicitTop = 200
+    ExplicitWidth = 185
+    object BitBtn5: TBitBtn
+      Left = 24
+      Top = 6
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 0
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_cap_spwf01'
+    FieldDefs = <
+      item
+        Name = 'TPLANT'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'GRP'
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'WFID'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'WFNAME'
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'DT'
+        Attributes = [faRequired]
+        DataType = ftDate
+      end
+      item
+        Name = 'J_NO'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'J2_JOB'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'STYLE'
+        DataType = ftWideString
+        Size = 35
+      end
+      item
+        Name = 'RWO'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'ACOL'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'FCCS'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'QTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TSAH'
+        DataType = ftFloat
+      end
+      item
+        Name = 'SECT'
+        DataType = ftFloat
+      end
+      item
+        Name = 'EFF'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'grp;wfid;dt;j2_job;acol;rwo;fccs;opt'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 208
+    Top = 88
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 248
+    Top = 88
+  end
+end

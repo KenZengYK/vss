@@ -1,0 +1,342 @@
+unit newcap_rwodetailformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, DB, DBClient, StdCtrls, Buttons,
+  ppProd, ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppPrnabl,
+  ppCtrls, ppBands, ppCache, ppVar, ppViewr, Txcomp, ppStrtch, ppSubRpt;
+
+type
+  Tfrmnewcap_rwodetail = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppSummaryBand1: TppSummaryBand;
+    ppDBText1: TppDBText;
+    ppLabel5: TppLabel;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppShape2: TppShape;
+    ppLabel17: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    ppLabel18: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel19: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    Query2: TClientDataSet;
+    del001: TppLabel;
+    Label1: TLabel;
+    yrmn001: TppLabel;
+    sub001: TppLabel;
+    prj001: TppLabel;
+    sty001: TppLabel;
+    wo001: TppLabel;
+    rwo001: TppLabel;
+    clr001: TppLabel;
+    ppLabel20: TppLabel;
+    Panel2: TPanel;
+    Label2: TLabel;
+    xh1: TRadioButton;
+    xh2: TRadioButton;
+    Query3: TClientDataSet;
+    DataSource2: TDataSource;
+    ppDBPipeline2: TppDBPipeline;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppLabel21: TppLabel;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand2: TppDetailBand;
+    ppSummaryBand2: TppSummaryBand;
+    dt002: TppDBText;
+    qty002: TppDBText;
+    ppColumnHeaderBand1: TppColumnHeaderBand;
+    ppColumnFooterBand1: TppColumnFooterBand;
+    dt001: TppLabel;
+    qty001: TppLabel;
+    ppShape3: TppShape;
+    ppShape4: TppShape;
+    Query1TPLANT: TStringField;
+    Query1CUSTOMER: TStringField;
+    Query1J_NO: TStringField;
+    Query1CSTYLE: TStringField;
+    Query1QTY: TIntegerField;
+    Query1SAH: TFloatField;
+    Query1DDT: TDateField;
+    Query1EXDT: TDateField;
+    Query1T3DT: TDateField;
+    Query1AT3DT: TDateField;
+    Query1T3YR: TIntegerField;
+    Query1T3MN: TIntegerField;
+    Query1T3WK: TIntegerField;
+    Query1FLAG6: TStringField;
+    Query1DIFF: TIntegerField;
+    Query1DTYR: TIntegerField;
+    Query1DTMN: TIntegerField;
+    Query1DTWK: TIntegerField;
+    Query1T3WKS: TIntegerField;
+    Query1DTWKS: TIntegerField;
+    Query1AT3YR: TIntegerField;
+    Query1AT3MN: TIntegerField;
+    Query1AT3WKS: TIntegerField;
+    Query1AT3WK: TIntegerField;
+    Query1J2_JOB: TStringField;
+    Query1ACOL: TStringField;
+    Query1WOC: TStringField;
+    Query1RWO: TStringField;
+    Query1FWDT: TDateField;
+    Query1SHPM: TStringField;
+    Query1LWDT: TDateField;
+    Query1BT3DT: TDateField;
+    Query1BT3YR: TIntegerField;
+    Query1BT3MN: TIntegerField;
+    Query1BT3WK: TIntegerField;
+    Query1BT3WKS: TIntegerField;
+    Query1DFW: TIntegerField;
+    Query1DLW: TIntegerField;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure xh1Click(Sender: TObject);
+    procedure Query1AT3DTGetText(Sender: TField; var Text: String;
+      DisplayText: Boolean);
+    procedure Query1DIFFGetText(Sender: TField; var Text: String;
+      DisplayText: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_rwodetail: Tfrmnewcap_rwodetail;
+
+implementation
+
+uses mainformu, newcap_styleformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_rwodetail.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_rwodetail:=nil;
+end;
+
+procedure Tfrmnewcap_rwodetail.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  Tppviewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmnewcap_rwodetail.BitBtn1Click(Sender: TObject);
+var
+  dt1,dt2:tdate;
+  fty:string;
+  m1:integer;
+begin
+  screen.cursor:=crSQLWait;
+  try
+  m1:=strtoint(label1.caption);
+  if frmnewcap_style.combobox1.text='CHINA' then fty:='SL' else if frmnewcap_style.combobox1.text='THAI' then fty:='KB' else fty:=frmnewcap_style.combobox1.text;
+  dt1:=encodedate(frmnewcap_style.spinedit1.value,m1,1);
+  if m1=12 then dt2:=encodedate(frmnewcap_style.spinedit1.value+1,1,1)
+  else dt2:=encodedate(frmnewcap_style.spinedit1.value,m1+1,1);
+  if not query1.fieldbyname('j_no').isnull then begin
+    if dbgrideh1.Columns[6].Title.Caption='Del Qty' then begin
+      sub001.Caption:='-  Del Qty ';
+      del001.Caption:='Del';
+    end else if dbgrideh1.Columns[6].Title.Caption='T3 Qty' then begin
+      sub001.Caption:='-  T3 Qty ';
+      del001.Caption:='T3';
+    end else if dbgrideh1.Columns[6].Title.Caption='aT3 Qty' then begin
+      sub001.Caption:='-  aT3 Qty ';
+      del001.Caption:='aT3';
+    end else if dbgrideh1.Columns[6].Title.Caption='Go to previous Qty' then begin
+      sub001.Caption:='-  T3/aT3 Qty go to previous months ';
+      del001.Caption:='Go to prev';
+    end else if dbgrideh1.Columns[6].Title.Caption='Come fm future Qty' then begin
+      sub001.Caption:='-  T3/aT3 Qty come from future months ';
+      del001.Caption:='Come fm future';
+    end;
+
+    with query3 do begin
+      close;
+      params.clear;
+      if xh1.Checked then begin
+        if dbgrideh1.Columns[6].Title.Caption='Del Qty' then begin
+          params.createparam(ftdate,'x1',ptinput);
+          params.createparam(ftdate,'x2',ptinput);
+          commandtext:='select distinct ddt,sum(qty) as qty from tbl_cap_erprwo where tplant='''+fty+''' and substr(j_no,1,4)='''+frmnewcap_style.query1.fieldbyname('cust').value+''' and substr(flag6,1,1)='''+frmnewcap_style.query1.fieldbyname('flag6').value+'''';
+          commandtext:=commandtext+' and ddt>=:x1 and ddt<=:x2 group by ddt order by ddt';
+        end else if dbgrideh1.Columns[6].Title.Caption='T3 Qty' then begin
+          params.createparam(ftdate,'x3',ptinput);
+          params.createparam(ftdate,'x4',ptinput);
+          commandtext:='select distinct bt3dt as ddt,sum(qty) as qty from tbl_cap_erprwo where tplant='''+fty+''' and substr(j_no,1,4)='''+frmnewcap_style.query1.fieldbyname('cust').value+''' and substr(flag6,1,1)='''+frmnewcap_style.query1.fieldbyname('flag6').value+'''';
+          commandtext:=commandtext+' and bt3dt>=:x3 and bt3dt<=:x4 and t3dt=at3dt group by bt3dt order by ddt';
+        end else if dbgrideh1.Columns[6].Title.Caption='aT3 Qty' then begin
+          params.createparam(ftdate,'x5',ptinput);
+          params.createparam(ftdate,'x6',ptinput);
+          commandtext:='select distinct at3dt as ddt,sum(qty) as qty from tbl_cap_erprwo where tplant='''+fty+''' and substr(j_no,1,4)='''+frmnewcap_style.query1.fieldbyname('cust').value+''' and substr(flag6,1,1)='''+frmnewcap_style.query1.fieldbyname('flag6').value+'''';
+          commandtext:=commandtext+' and at3dt>=:x5 and at3dt<=:x6 and t3dt<>at3dt group by at3dt order by ddt';
+        end else if dbgrideh1.Columns[6].Title.Caption='Go to previous Qty' then begin
+          params.createparam(ftdate,'x7',ptinput);
+          params.createparam(ftdate,'x8',ptinput);
+          params.createparam(ftdate,'x9',ptinput);
+          params.createparam(ftdate,'x10',ptinput);
+          commandtext:='select distinct ddt,sum(qty) as qty from tbl_cap_erprwo where tplant='''+fty+''' and substr(j_no,1,4)='''+frmnewcap_style.query1.fieldbyname('cust').value+''' and substr(flag6,1,1)='''+frmnewcap_style.query1.fieldbyname('flag6').value+'''';
+          commandtext:=commandtext+' and ddt>=:x7 and ddt<=:x8 and (at3dt<:x9 or at3dt>:x10) group by ddt order by ddt';
+        end else if dbgrideh1.Columns[6].Title.Caption='Come fm future Qty' then begin
+          params.createparam(ftdate,'x11',ptinput);
+          params.createparam(ftdate,'x12',ptinput);
+          params.createparam(ftdate,'x13',ptinput);
+          params.createparam(ftdate,'x14',ptinput);
+          commandtext:='select distinct ddt,sum(qty) as qty from tbl_cap_erprwo where tplant='''+fty+''' and substr(j_no,1,4)='''+frmnewcap_style.query1.fieldbyname('cust').value+''' and substr(flag6,1,1)='''+frmnewcap_style.query1.fieldbyname('flag6').value+'''';
+          commandtext:=commandtext+' and at3dt>=:x11 and at3dt<=:x12 and (ddt<:x13 or ddt>:x14) group by ddt order by ddt';
+        end;
+      end else begin
+        if dbgrideh1.Columns[6].Title.Caption='Del Qty' then begin
+          params.createparam(ftdate,'x1',ptinput);
+          params.createparam(ftdate,'x2',ptinput);
+          commandtext:='select distinct fwdt as ddt,sum(qty) as qty from tbl_cap_erprwo where tplant='''+fty+''' and substr(j_no,1,4)='''+frmnewcap_style.query1.fieldbyname('cust').value+''' and substr(flag6,1,1)='''+frmnewcap_style.query1.fieldbyname('flag6').value+'''';
+          commandtext:=commandtext+' and ddt>=:x1 and ddt<=:x2 group by fwdt order by ddt';
+        end else if dbgrideh1.Columns[6].Title.Caption='T3 Qty' then begin
+          params.createparam(ftdate,'x3',ptinput);
+          params.createparam(ftdate,'x4',ptinput);
+          commandtext:='select distinct fwdt as ddt,sum(qty) as qty from tbl_cap_erprwo where tplant='''+fty+''' and substr(j_no,1,4)='''+frmnewcap_style.query1.fieldbyname('cust').value+''' and substr(flag6,1,1)='''+frmnewcap_style.query1.fieldbyname('flag6').value+'''';
+          commandtext:=commandtext+' and t3dt>=:x3 and t3dt<=:x4 and t3dt=at3dt group by fwdt order by ddt';
+        end else if dbgrideh1.Columns[6].Title.Caption='aT3 Qty' then begin
+          params.createparam(ftdate,'x5',ptinput);
+          params.createparam(ftdate,'x6',ptinput);
+          commandtext:='select distinct fwdt as ddt,sum(qty) as qty from tbl_cap_erprwo where tplant='''+fty+''' and substr(j_no,1,4)='''+frmnewcap_style.query1.fieldbyname('cust').value+''' and substr(flag6,1,1)='''+frmnewcap_style.query1.fieldbyname('flag6').value+'''';
+          commandtext:=commandtext+' and at3dt>=:x5 and at3dt<=:x6 and t3dt<>at3dt group by fwdt order by ddt';
+        end else if dbgrideh1.Columns[6].Title.Caption='Go to previous Qty' then begin
+          params.createparam(ftdate,'x7',ptinput);
+          params.createparam(ftdate,'x8',ptinput);
+          params.createparam(ftdate,'x9',ptinput);
+          params.createparam(ftdate,'x10',ptinput);
+          commandtext:='select distinct fwdt as ddt,sum(qty) as qty from tbl_cap_erprwo where tplant='''+fty+''' and substr(j_no,1,4)='''+frmnewcap_style.query1.fieldbyname('cust').value+''' and substr(flag6,1,1)='''+frmnewcap_style.query1.fieldbyname('flag6').value+'''';
+          commandtext:=commandtext+' and ddt>=:x7 and ddt<=:x8 and (at3dt<:x9 or at3dt>:x10) group by fwdt order by ddt';
+        end else if dbgrideh1.Columns[6].Title.Caption='Come fm future Qty' then begin
+          params.createparam(ftdate,'x11',ptinput);
+          params.createparam(ftdate,'x12',ptinput);
+          params.createparam(ftdate,'x13',ptinput);
+          params.createparam(ftdate,'x14',ptinput);
+          commandtext:='select distinct fwdt as ddt,sum(qty) as qty from tbl_cap_erprwo where tplant='''+fty+''' and substr(j_no,1,4)='''+frmnewcap_style.query1.fieldbyname('cust').value+''' and substr(flag6,1,1)='''+frmnewcap_style.query1.fieldbyname('flag6').value+'''';
+          commandtext:=commandtext+' and at3dt>=:x11 and at3dt<=:x12 and (ddt<:x13 or ddt>:x14) group by fwdt order by ddt';
+        end;
+      end;
+      if dbgrideh1.Columns[6].Title.Caption='Del Qty' then begin
+        params.ParambyName('x1').asdate:=dt1;
+        params.ParamByName('x2').asdate:=dt2-1;
+      end else if dbgrideh1.Columns[6].Title.Caption='T3 Qty' then begin
+        params.ParambyName('x3').asdate:=dt1;
+        params.ParamByName('x4').asdate:=dt2-1;
+      end else if dbgrideh1.Columns[6].Title.Caption='aT3 Qty' then begin
+        params.ParambyName('x5').asdate:=dt1;
+        params.ParamByName('x6').asdate:=dt2-1;
+      end else if dbgrideh1.Columns[6].Title.Caption='Go to previous Qty' then begin
+        params.ParambyName('x7').asdate:=dt1;
+        params.ParamByName('x8').asdate:=dt2-1;
+        params.ParambyName('x9').asdate:=dt1;//dt3;
+        params.ParamByName('x10').asdate:=dt2-1;//dt1-1;
+      end else if dbgrideh1.Columns[6].Title.Caption='Come fm future Qty' then begin
+        params.ParambyName('x11').asdate:=dt1;//dt2;
+        params.ParamByName('x12').asdate:=dt2-1;//dt4-1;
+        params.ParambyName('x13').asdate:=dt1;
+        params.ParamByName('x14').asdate:=dt2-1;
+      end;
+      open;
+    end;
+
+    if xh1.Checked then sub001.Caption:=sub001.Caption+' (Sorting by '+xh1.Caption+')'
+    else if xh2.Checked then sub001.Caption:=sub001.Caption+' (Sorting by FW Start Date)';
+    yrmn001.Caption:='For:  '+inttostr(frmnewcap_style.SpinEdit1.value)+'-'+label1.caption;
+    prj001.Caption:=copy(dbgrideh1.Columns[0].Footer.value,pos(':',dbgrideh1.Columns[0].Footer.value)+1,3);
+    sty001.Caption:=dbgrideh1.Columns[2].Footer.value;
+    wo001.Caption:=dbgrideh1.Columns[3].Footer.value;
+    rwo001.Caption:=dbgrideh1.Columns[5].Footer.value;
+    clr001.Caption:=dbgrideh1.Columns[6].Footer.value;
+
+    if xh1.checked then dt001.Caption:=xh1.Caption
+    else if xh2.Checked then dt001.Caption:=xh2.Caption;
+    qty001.Caption:=dbgrideh1.Columns[6].Title.Caption;
+
+    ppReport1.Print;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmnewcap_rwodetail.xh1Click(Sender: TObject);
+begin
+  if xh1.Checked then begin
+    with query1 do begin
+      editkey;
+      if dbgrideh1.Columns[6].Title.Caption='T3 Qty' then indexname:='idx2'
+      else if dbgrideh1.Columns[6].Title.Caption='aT3 Qty' then indexname:='idx3'
+      else indexname:='idx1';
+      setkey;
+      first;
+    end;
+  end else if xh2.Checked then begin
+    with query1 do begin
+      editkey;
+      indexname:='idx4';
+      setkey;
+      first;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_rwodetail.Query1AT3DTGetText(Sender: TField;
+  var Text: String; DisplayText: Boolean);
+begin
+  if query1.fieldbyname('t3dt').value=query1.fieldbyname('at3dt').value then
+  text:='';
+end;
+
+procedure Tfrmnewcap_rwodetail.Query1DIFFGetText(Sender: TField;
+  var Text: String; DisplayText: Boolean);
+begin
+  if query1.fieldbyname('t3dt').value=query1.fieldbyname('at3dt').value then
+  text:='0';
+end;
+
+end.

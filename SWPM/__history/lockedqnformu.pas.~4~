@@ -1,0 +1,61 @@
+unit lockedqnformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridBandedTableView, cxGridDBBandedTableView, StdCtrls, Buttons, ExtCtrls,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, DBClient;
+
+type
+  Tfrmlockedqn = class(TForm)
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    cxView1: TcxGridDBBandedTableView;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    SaveDialog1: TSaveDialog;
+    cxView1PLINE: TcxGridDBBandedColumn;
+    cxView1LOCKCFKS: TcxGridDBBandedColumn;
+    cxView1J_NO: TcxGridDBBandedColumn;
+    cxView1J2_JOB: TcxGridDBBandedColumn;
+    cxView1CSTYLE: TcxGridDBBandedColumn;
+    cxView1ACOL: TcxGridDBBandedColumn;
+    cxView1RWO: TcxGridDBBandedColumn;
+    cxView1FCCS: TcxGridDBBandedColumn;
+    cxView1LOCK_DT: TcxGridDBBandedColumn;
+    cxView1LOCK_GAP: TcxGridDBBandedColumn;
+    cxView1CFKSRQ: TcxGridDBBandedColumn;
+    cxView1KDJS: TcxGridDBBandedColumn;
+    cxView1S_DEF: TcxGridDBBandedColumn;
+    cxView1S_BUFF: TcxGridDBBandedColumn;
+    cxView1FW_DEF: TcxGridDBBandedColumn;
+    cxView1FW_ADJ: TcxGridDBBandedColumn;
+    cxView1FW_ACT: TcxGridDBBandedColumn;
+    cxView1FW_BUFF: TcxGridDBBandedColumn;
+    cxView1EX_DEF: TcxGridDBBandedColumn;
+    cxView1EX_ADJ: TcxGridDBBandedColumn;
+    cxView1EX_BUFF: TcxGridDBBandedColumn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmlockedqn: Tfrmlockedqn;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+end.

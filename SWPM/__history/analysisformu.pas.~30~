@@ -1,0 +1,318 @@
+unit analysisformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DB, DBClient, ADODB, Menus;
+
+type
+  Tfrmanalysis = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn7: TBitBtn;
+    BitBtn8: TBitBtn;
+    BitBtn9: TBitBtn;
+    BitBtn10: TBitBtn;
+    BitBtn11: TBitBtn;
+    ClientDataSet2: TClientDataSet;
+    DataSet2: TADOQuery;
+    BitBtn12: TBitBtn;
+    BitBtn13: TBitBtn;
+    BitBtn14: TBitBtn;
+    BitBtn15: TBitBtn;
+    BitBtn16: TBitBtn;
+    BitBtn17: TBitBtn;
+    BitBtn18: TBitBtn;
+    BitBtn19: TBitBtn;
+    BitBtn20: TBitBtn;
+    PopupMenu1: TPopupMenu;
+    laborstimeefficiencyold1: TMenuItem;
+    BitBtn21: TBitBtn;
+    BitBtn22: TBitBtn;
+    BitBtn23: TBitBtn;
+    BitBtn24: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn10Click(Sender: TObject);
+    procedure BitBtn11Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+    procedure BitBtn12Click(Sender: TObject);
+    procedure BitBtn14Click(Sender: TObject);
+    procedure BitBtn15Click(Sender: TObject);
+    procedure BitBtn13Click(Sender: TObject);
+    procedure BitBtn16Click(Sender: TObject);
+    procedure BitBtn17Click(Sender: TObject);
+    procedure BitBtn18Click(Sender: TObject);
+    procedure BitBtn19Click(Sender: TObject);
+    procedure laborstimeefficiencyold1Click(Sender: TObject);
+    procedure BitBtn20Click(Sender: TObject);
+    procedure BitBtn22Click(Sender: TObject);
+    procedure BitBtn23Click(Sender: TObject);
+    procedure BitBtn24Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmanalysis: Tfrmanalysis;
+  logseq:integer;
+
+implementation
+
+uses mainformu, wipimageformu, lineeffformu, wkfformu, fgaiformu, fwfformu,
+  pechartformu, calendarchartformu, ftyanalysisformu, dailyreportformu,
+  dailyreport1formu, custtransformu, onholdformu, ordersummaryformu,
+  gainotepadformu, addreportsformu, gapercentageformu, gainotepadanalysisformu,
+  plctrackingformu, line_opt_cmpformu, t3at3_qtyamtformu,
+  transitbalancingformu, timeeff_newformu, output_faesahformu, timeeffformu,
+  outstandingsampleformu, outstandinggainotepadformu, CmpGAINotepadformu,
+  shp_accountformu;
+
+{$R *.dfm}
+
+procedure Tfrmanalysis.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  if frmordersummary<>nil then frmordersummary:=nil;
+  if frmdailyreport1<>nil then frmdailyreport1:=nil;
+  action:=cafree;
+  frmanalysis:=nil;
+end;
+
+procedure Tfrmanalysis.BitBtn20Click(Sender: TObject);
+begin
+  if frmoutstandingsample=nil then frmoutstandingsample:=tfrmoutstandingsample.create(nil);
+  frmoutstandingsample.show;
+end;
+
+procedure Tfrmanalysis.BitBtn22Click(Sender: TObject);
+begin
+  if frm_outstandinggainotepad=nil then frm_outstandinggainotepad:=tfrm_outstandinggainotepad.create(nil);
+  frm_outstandinggainotepad.show;
+end;
+
+procedure Tfrmanalysis.BitBtn23Click(Sender: TObject);
+begin
+  if frmcmpgainotepad=nil then frmcmpgainotepad:=tfrmcmpgainotepad.create(nil);
+  frmcmpgainotepad.show;
+end;
+
+procedure Tfrmanalysis.BitBtn24Click(Sender: TObject);
+begin
+  if frmshp_account=nil then frmshp_account:=tfrmshp_account.create(nil);
+  frmshp_account.show;
+end;
+
+procedure Tfrmanalysis.BitBtn2Click(Sender: TObject);
+begin
+  if frmlineeff=nil then frmlineeff:=tfrmlineeff.create(nil);
+  frmlineeff.show;
+end;
+
+procedure Tfrmanalysis.BitBtn3Click(Sender: TObject);
+begin
+  if frmwkf=nil then frmwkf:=tfrmwkf.create(nil);
+  frmwkf.show;
+end;
+
+procedure Tfrmanalysis.BitBtn6Click(Sender: TObject);
+begin
+  if frmdailyreport1=nil then frmdailyreport1:=tfrmdailyreport1.Create(nil);
+  frmdailyreport1.ComboBox1.Text:='';
+  frmdailyreport1.ComboBox2.Text:='';
+  frmdailyreport1.Edit1.Text:='';
+  frmdailyreport1.DateEdit1.date:=date-2;
+  frmdailyreport1.Show;
+end;
+
+procedure Tfrmanalysis.BitBtn7Click(Sender: TObject);
+begin
+  if frmpechart=nil then frmpechart:=tfrmpechart.Create(nil);
+  frmpechart.Show;
+end;
+
+procedure Tfrmanalysis.BitBtn5Click(Sender: TObject);
+begin
+  if frmcalendarchart=nil then frmcalendarchart:=tfrmcalendarchart.create(nil);
+  frmcalendarchart.show;
+end;
+
+procedure Tfrmanalysis.BitBtn8Click(Sender: TObject);
+begin
+  if frmftyanalysis=nil then frmftyanalysis:=tfrmftyanalysis.create(nil);
+  frmftyanalysis.show;
+end;
+
+procedure Tfrmanalysis.BitBtn1Click(Sender: TObject);
+begin
+  if frmcusttrans=nil then frmcusttrans:=tfrmcusttrans.create(nil);
+  frmcusttrans.opt1.ItemIndex:=0;
+  frmcusttrans.gb1.Caption:='Invoiced Period';
+  frmcusttrans.DateEdit1.Date:=encodedate(2012,1,1);
+  frmcusttrans.DateEdit2.Date:=date;
+  frmcusttrans.opt01.Caption:='Complete';
+  frmcusttrans.opt02.Caption:='Mishandling';
+  frmcusttrans.opt01.Checked:=true;
+  frmcusttrans.opt02.Checked:=true;
+  frmcusttrans.Show;
+end;
+
+procedure Tfrmanalysis.BitBtn4Click(Sender: TObject);
+begin
+  if frmonhold=nil then frmonhold:=tfrmonhold.Create(nil);
+  frmonhold.show;
+end;
+
+procedure Tfrmanalysis.BitBtn10Click(Sender: TObject);
+begin
+  if frmordersummary=nil then frmordersummary:=tfrmordersummary.create(nil);
+  frmordersummary.show;
+end;
+
+procedure Tfrmanalysis.BitBtn11Click(Sender: TObject);
+begin
+  if frmgainotepad=nil then frmgainotepad:=tfrmgainotepad.Create(nil);
+  frmgainotepad.Show;
+end;
+
+procedure Tfrmanalysis.FormCreate(Sender: TObject);
+begin
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          commandtext:='select max(dseq) as q1 from tbl_logging where seq=:x1';
+          params[0].asinteger:=frmmain.SpinEdit1.Value;
+          open;
+          if not fieldbyname('q1').isnull then logseq:=fieldbyname('q1').value+1
+          else logseq:=2;
+        end;
+        {
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          params.CreateParam(ftstring,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftdatetime,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftinteger,'x6',ptinput);
+          commandtext:='insert into tbl_logging(seq,usr,frmid,strdt,ip,dseq) values(:x1,:x2,:x3,:x4,:x5,:x6)';
+          params[0].asinteger:=frmmain.spinedit1.Value;
+          params[1].AsString:=frmmain.combobox1.text;
+          params[2].AsString:='Analysis Report';
+          params[3].AsDateTime:=now;
+          params[4].asstring:=frmmain.tcp1.LocalIP;
+          params[5].AsInteger:=logseq;
+          execute;
+        end;
+        }
+        with dataset2 do begin
+          close;
+          sql.text:='insert into [Sys.Authority].dbo.sysuseinfo(menuid,userid,starttime) values(:x1,:x2,:x3)';
+          parameters[0].Value:='LWPM - Analysis Report';
+          parameters[1].value:=frmmain.combobox1.text;
+          parameters[2].Value:=now;
+          execsql;
+        end;
+end;
+
+procedure Tfrmanalysis.FormDestroy(Sender: TObject);
+begin
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftdatetime,'x1',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          params.createparam(ftinteger,'x3',ptinput);
+          commandtext:='update tbl_logging set enddt=:x1 where seq=:x2 and dseq=:x3';
+          params[0].AsDateTime:=now;
+          params[1].asinteger:=frmmain.spinedit1.Value;
+          params[2].asinteger:=logseq;
+          execute;
+        end;
+end;
+
+procedure Tfrmanalysis.laborstimeefficiencyold1Click(Sender: TObject);
+begin
+  if frmtimeeff=nil then frmtimeeff:=tfrmtimeeff.create(nil);
+  frmtimeeff.Show;
+end;
+
+procedure Tfrmanalysis.BitBtn9Click(Sender: TObject);
+begin
+  if frmaddreports=nil then frmaddreports:=tfrmaddreports.Create(nil);
+  frmaddreports.Show;
+end;
+
+procedure Tfrmanalysis.BitBtn12Click(Sender: TObject);
+begin
+  if frmgapercentage=nil then frmgapercentage:=tfrmgapercentage.Create(nil);
+  frmgapercentage.DateEdit1.date:=date;
+  frmgapercentage.DateEdit2.Date:=date;
+  frmgapercentage.Show;
+end;
+
+procedure Tfrmanalysis.BitBtn14Click(Sender: TObject);
+begin
+  if frmgainotepadanalysis=nil then frmgainotepadanalysis:=tfrmgainotepadanalysis.Create(nil);
+  frmgainotepadanalysis.DateEdit1.Date:=date;
+  frmgainotepadanalysis.DateEdit2.Date:=date;
+  frmgainotepadanalysis.Show;
+end;
+
+procedure Tfrmanalysis.BitBtn15Click(Sender: TObject);
+begin
+  if frmplctracking=nil then frmplctracking:=tfrmplctracking.Create(nil);
+  frmplctracking.show;
+end;
+
+procedure Tfrmanalysis.BitBtn13Click(Sender: TObject);
+begin
+  if frmline_opt_cmp=nil then frmline_opt_cmp:=tfrmline_opt_cmp.Create(nil);
+  frmline_opt_cmp.show;
+end;
+
+procedure Tfrmanalysis.BitBtn16Click(Sender: TObject);
+begin
+  if frmt3at3_qtyamt=nil then frmt3at3_qtyamt:=tfrmt3at3_qtyamt.Create(nil);
+  frmt3at3_qtyamt.Show;
+end;
+
+procedure Tfrmanalysis.BitBtn17Click(Sender: TObject);
+begin
+  if frmtransitbalancing=nil then frmtransitbalancing:=tfrmtransitbalancing.create(nil);
+  frmtransitbalancing.show;
+end;
+
+procedure Tfrmanalysis.BitBtn18Click(Sender: TObject);
+begin
+  //if frmtimeeff=nil then frmtimeeff:=tfrmtimeeff.create(nil);
+  //frmtimeeff.Show;
+  if frmtimeeff_new=nil then frmtimeeff_new:=tfrmtimeeff_new.create(nil);
+  frmtimeeff_new.Show;
+end;
+
+procedure Tfrmanalysis.BitBtn19Click(Sender: TObject);
+begin
+  if frmoutput_faesah=nil then frmoutput_faesah:=tfrmoutput_faesah.create(nil);
+  frmoutput_faesah.Show;
+end;
+
+end.

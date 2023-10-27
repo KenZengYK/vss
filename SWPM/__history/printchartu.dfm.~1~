@@ -1,0 +1,165 @@
+object frmprintchart: Tfrmprintchart
+  Left = -4
+  Top = -4
+  Width = 808
+  Height = 608
+  Caption = 'frmprintchart'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Scaled = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object QuickRep1: TQuickRep
+    Left = 0
+    Top = 0
+    Width = 1123
+    Height = 794
+    Frame.Color = clBlack
+    Frame.DrawTop = False
+    Frame.DrawBottom = False
+    Frame.DrawLeft = False
+    Frame.DrawRight = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Style = []
+    Functions.Strings = (
+      'PAGENUMBER'
+      'COLUMNNUMBER'
+      'REPORTTITLE')
+    Functions.DATA = (
+      '0'
+      '0'
+      #39#39)
+    Options = [FirstPageHeader, LastPageFooter]
+    Page.Columns = 1
+    Page.Orientation = poLandscape
+    Page.PaperSize = A4
+    Page.Values = (
+      100
+      2100
+      100
+      2970
+      100
+      100
+      0)
+    PrinterSettings.Copies = 1
+    PrinterSettings.Duplex = False
+    PrinterSettings.FirstPage = 0
+    PrinterSettings.LastPage = 0
+    PrinterSettings.OutputBin = Auto
+    PrintIfEmpty = True
+    SnapToGrid = True
+    Units = MM
+    Zoom = 100
+    object TitleBand1: TQRBand
+      Left = 38
+      Top = 794
+      Width = 1047
+      Height = 1
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      AlignToBottom = False
+      Color = clWhite
+      ForceNewColumn = False
+      ForceNewPage = False
+      Size.Values = (
+        2.64583333333333
+        2770.1875)
+      BandType = rbTitle
+    end
+    object PageHeaderBand1: TQRBand
+      Left = 38
+      Top = 38
+      Width = 1047
+      Height = 756
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      AlignToBottom = False
+      Color = clWhite
+      ForceNewColumn = False
+      ForceNewPage = False
+      Size.Values = (
+        2000.25
+        2770.1875)
+      BandType = rbPageHeader
+      object QRChart1: TQRChart
+        Left = 0
+        Top = 19
+        Width = 1046
+        Height = 718
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          1899.70833333333
+          0
+          50.2708333333333
+          2767.54166666667)
+        object QRDBChart1: TQRDBChart
+          Left = -1
+          Top = -1
+          Width = 1
+          Height = 1
+          BackWall.Brush.Color = clWhite
+          BackWall.Brush.Style = bsClear
+          Title.Text.Strings = (
+            '')
+          Title.Visible = False
+          BottomAxis.ExactDateTime = False
+          BottomAxis.LabelsAngle = 90
+          BottomAxis.LabelsSeparation = 0
+          BottomAxis.LabelStyle = talText
+          BottomAxis.TickOnLabelsOnly = False
+          Legend.ColorWidth = 10
+          Legend.TopPos = 4
+          Legend.Visible = False
+          MaxPointsPerPage = 100
+          object Series1: TFastLineSeries
+            Marks.ArrowLength = 8
+            Marks.Visible = False
+            DataSource = ClientDataSet1
+            SeriesColor = clRed
+            Title = #36554#32299#38283#22987#26085#26399
+            XLabelsSource = 'pline'
+            LinePen.Color = clGreen
+            XValues.DateTime = False
+            XValues.Name = 'X'
+            XValues.Multiplier = 1
+            XValues.Order = loAscending
+            YValues.DateTime = True
+            YValues.Name = 'Y'
+            YValues.Multiplier = 1
+            YValues.Order = loNone
+            YValues.ValueSource = 'ksrq'
+          end
+        end
+      end
+    end
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    CommandText = 
+      'select distinct pline,max(cfksrq) as ksrq from tblshedule group ' +
+      'by pline order by pline'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 240
+    Top = 24
+  end
+end

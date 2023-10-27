@@ -1,0 +1,79 @@
+object frmetam_shipmarks: Tfrmetam_shipmarks
+  Left = 0
+  Top = 0
+  Caption = 'ETAM Shipping Marks'
+  ClientHeight = 362
+  ClientWidth = 575
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 321
+    Width = 575
+    Height = 41
+    Align = alBottom
+    TabOrder = 0
+    ExplicitLeft = 8
+    ExplicitTop = 280
+    ExplicitWidth = 185
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 0
+    Width = 575
+    Height = 321
+    Align = alClient
+    TabOrder = 1
+    ExplicitLeft = 72
+    ExplicitTop = 8
+    ExplicitWidth = 250
+    ExplicitHeight = 200
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.CancelOnExit = False
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      OptionsView.GroupByBox = False
+      object cxGrid1DBTableView1SPM1: TcxGridDBColumn
+        Caption = 'Shipping Marks'
+        DataBinding.FieldName = 'SPM1'
+        PropertiesClassName = 'TcxRichEditProperties'
+        Properties.MemoMode = True
+        Properties.ReadOnly = True
+        Properties.VisibleLineCount = 15
+        HeaderAlignmentHorz = taCenter
+        Width = 550
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object Query1: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 'select * from tbl_inv_cust1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 288
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 344
+  end
+end

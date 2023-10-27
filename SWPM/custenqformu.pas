@@ -1,0 +1,626 @@
+unit custenqformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, Grids, DBGridEh, StdCtrls, Mask, DBCtrls, Buttons,
+  DBCtrlsEh, DB, DBClient, ppProd, ppClass, ppReport, ppComm, ppRelatv,
+  ppDB, ppDBPipe, ppPrnabl, ppCtrls, ppBands, ppCache, ppVar, ppViewr,
+  GridsEh, DateUtils, ppParameter;
+
+type
+  Tfrmcustenq = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    Label1: TLabel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    DBComboBox1: TDBComboBox;
+    Label3: TLabel;
+    DBComboBox2: TDBComboBox;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    Label4: TLabel;
+    DBDateTimeEditEh1: TDBDateTimeEditEh;
+    Label5: TLabel;
+    DBNumberEditEh1: TDBNumberEditEh;
+    Label6: TLabel;
+    DBNumberEditEh2: TDBNumberEditEh;
+    SpeedButton1: TSpeedButton;
+    DBText1: TDBText;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    DataSource2: TDataSource;
+    Query5: TClientDataSet;
+    BitBtn7: TBitBtn;
+    BitBtn8: TBitBtn;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    Query6: TClientDataSet;
+    DataSource3: TDataSource;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppDBText1: TppDBText;
+    ppLabel3: TppLabel;
+    ppDBText2: TppDBText;
+    ppLabel4: TppLabel;
+    ppDBText3: TppDBText;
+    ppLabel5: TppLabel;
+    ppDBText4: TppDBText;
+    ppLabel6: TppLabel;
+    ppDBText5: TppDBText;
+    ppLabel7: TppLabel;
+    ppDBText6: TppDBText;
+    ppShape1: TppShape;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppLabel19: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel20: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    Label7: TLabel;
+    DBComboBox3: TDBComboBox;
+    ppLabel21: TppLabel;
+    ppDBText16: TppDBText;
+    Label8: TLabel;
+    DBEdit2: TDBEdit;
+    ppLabel22: TppLabel;
+    ppDBText17: TppDBText;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    DBText2: TDBText;
+    ppDBText18: TppDBText;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    DBDateTimeEditEh2: TDBDateTimeEditEh;
+    Label12: TLabel;
+    DBText3: TDBText;
+    Label13: TLabel;
+    Label14: TLabel;
+    DBDateTimeEditEh3: TDBDateTimeEditEh;
+    Label15: TLabel;
+    DBText4: TDBText;
+    Label16: TLabel;
+    Label17: TLabel;
+    DBComboBox4: TDBComboBox;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure Query2NewRecord(DataSet: TDataSet);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure DBGridEh1Columns1EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure Query2AfterPost(DataSet: TDataSet);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure Queryeqqtychange(Sender: TField);
+    procedure Queryeqdtchange(Sender: TField);
+    procedure Queryeqdt1change(Sender: TField);
+    procedure Queryeqdt2change(Sender: TField);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure newenquiry;
+  end;
+
+var
+  frmcustenq: Tfrmcustenq;
+
+implementation
+
+uses mainformu, capformu, selenqformu, selsales;
+
+{$R *.dfm}
+
+procedure Tfrmcustenq.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmcustenq:=nil;
+end;
+
+procedure Tfrmcustenq.BitBtn1Click(Sender: TObject);
+begin
+  newenquiry;
+  dbedit1.SetFocus;
+end;
+
+procedure Tfrmcustenq.BitBtn2Click(Sender: TObject);
+var
+  cal:boolean;
+begin
+  bitbtn3click(self);
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    commandtext:='select eqline from tbl_custenq2 where eqso>'''' and eqno=:x1';
+    params[0].asstring:=query1.fieldbyname('eqno').value;
+    open;
+    if fieldbyname('eqline').isnull then begin
+      if application.MessageBox('Want to drop this project enquiry?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+        with query1 do begin
+          edit;
+          fieldbyname('eqsta').value:='Dropped';
+          post;
+        end;
+      end;
+    end else begin
+      showmessage('There are some sales order for this project enquiry, you can not drop this project enquiry!');
+    end;
+  end;
+end;
+
+procedure Tfrmcustenq.Query2NewRecord(DataSet: TDataSet);
+var
+  eqline,eqseq:integer;
+begin
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select max(eqseq) as i1 from tbl_custenq2';
+    open;
+    if not fieldbyname('i1').isnull then eqseq:=fieldbyname('i1').value+1 else eqseq:=1;
+  end;
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select max(eqline) as i1 from tbl_custenq2 where eqno='''+query1.fieldbyname('eqno').value+'''';
+    open;
+    if not fieldbyname('i1').isnull then eqline:=fieldbyname('i1').value+1 else eqline:=1;
+  end;
+  query2.fieldbyname('cono').value:='P1';
+  query2.fieldbyname('eqno').value:=query1.fieldbyname('eqno').value;
+  query2.fieldbyname('eqseq').value:=eqseq;
+  query2.fieldbyname('eqline').value:=eqline;
+end;
+
+procedure Tfrmcustenq.BitBtn3Click(Sender: TObject);
+begin
+  dbgrideh1.SetFocus;
+  dbgrideh1.SelectedIndex:=0;
+  query2.Append;
+end;
+
+procedure Tfrmcustenq.BitBtn4Click(Sender: TObject);
+var
+  ttlqty:integer;
+begin
+  if application.MessageBox('Delete this SO line?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='delete from tbl_custenq2 where eqno=:x1 and eqseq=:x2';
+      params[0].asstring:=query2.fieldbyname('eqno').value;
+      params[1].asinteger:=query2.fieldbyname('eqseq').value;
+      execute;
+    end;
+    with query3 do begin
+      close;
+      params.clear;
+      commandtext:='select sum(eqqty) as q1 from tbl_custenq2 where eqno='''+query2.fieldbyname('eqno').value+'''';
+      open;
+      if not fieldbyname('q1').isnull then ttlqty:=fieldbyname('q1').value else ttlqty:=0;
+    end;
+    with query1 do begin
+      edit;
+      fieldbyname('eqoqty').value:=fieldbyname('eqqty').value-ttlqty;
+      post;
+    end;
+    query2.delete;
+  end;
+end;
+
+procedure Tfrmcustenq.BitBtn5Click(Sender: TObject);
+begin
+  if (query1.state=dsinsert) or (query1.state=dsedit) then query1.post;
+  if (query2.state=dsinsert) or (query2.state=dsedit) then query2.post;
+end;
+
+procedure Tfrmcustenq.SpeedButton1Click(Sender: TObject);
+begin
+  if frmselenq=nil then frmselenq:=tfrmselenq.create(nil);
+  frmselenq.Show;
+end;
+
+procedure Tfrmcustenq.FormShow(Sender: TObject);
+begin
+  dbcombobox1.Items.clear;
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct cust from cust_exfty';
+    open;
+    first;
+    while not eof do begin
+      dbcombobox1.items.add(fieldbyname('cust').value);
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+end;
+
+procedure Tfrmcustenq.newenquiry;
+var
+  eqno:string;
+begin
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select max(eqno) as eqn from tbl_custenq1';
+    open;
+    if not fieldbyname('eqn').isnull then eqno:=fieldbyname('eqn').value else eqno:='0';
+  end;
+  eqno:=copy('000000'+inttostr(strtoint(eqno)+1),length('000000'+inttostr(strtoint(eqno)+1))-6,7);
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x0',ptinput);
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    commandtext:='insert into tbl_custenq1(cono,eqno,eqqty,eqoqty,eqsta,tplant) values(:x0,:x1,:x2,:x3,:x4,:x5)';
+    params[0].asstring:='P1';
+    params[1].asstring:=eqno;
+    params[2].asinteger:=0;
+    params[3].asinteger:=0;
+    params[4].asstring:='Enquiry';
+    params[5].asstring:='SL';
+    execute;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_custenq1 where eqno='''+eqno+'''';
+    open;
+  end;
+end;
+
+procedure Tfrmcustenq.DBGridEh1Columns1EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+var
+  dt:tdatetime;
+begin
+  if query2.state=dsinsert then query2.post;
+  if frmselsales=nil then frmselsales:=tfrmselsales.create(nil);
+  dt:=now;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    commandtext:='execute procedure sp_genselenq(:x1,:x2,:x3)';
+    params[0].asdatetime:=dt;
+    params[1].asstring:=query1.fieldbyname('eqcusn').value;
+    params[2].asstring:=query1.fieldbyname('eqcat').value;
+    execute;
+  end;
+  with frmselsales.Query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select * from tbl_enqsel where dt=:x1';
+    params[0].asdatetime:=dt;
+    open;
+  end;
+  frmselsales.Show;
+end;
+
+procedure Tfrmcustenq.DataSource1DataChange(Sender: TObject;
+  Field: TField);
+begin
+  if query1.state=dsbrowse then begin
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_custenq2 where eqno='''+query1.fieldbyname('eqno').value+'''';
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmcustenq.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      params.createparam(ftstring,'x6',ptinput);
+      params.createparam(ftstring,'x8',ptinput);
+      params.createparam(ftstring,'x9',ptinput);
+      params.createparam(ftinteger,'x10',ptinput);
+      params.createparam(ftdate,'x11',ptinput);
+      params.createparam(ftinteger,'x12',ptinput);
+      params.createparam(ftdate,'x13',ptinput);
+      params.createparam(ftinteger,'x14',ptinput);
+      params.createparam(ftstring,'x15',ptinput);
+      params.createparam(ftstring,'x7',ptinput);
+      commandtext:='update tbl_custenq1 set eqcusn=:x1,eqcat=:x2,eqdt=:x3,eqqty=:x4,eqoqty=:x5,eqsta=:x6,eqtype=:x8,tplant=:x9,eqwk=:x10,'
+                  +'exfty=:x11,exwk=:x12,t3=:x13,t3wk=:x14,shpm=:x15 where eqno=:x7';
+      if not query1.fieldbyname('eqcusn').isnull then
+      params[0].asstring:=query1.fieldbyname('eqcusn').value
+      else params[0].asstring:='';
+      if not query1.fieldbyname('eqcat').isnull then
+      params[1].asstring:=query1.fieldbyname('eqcat').value
+      else params[1].asstring:='';
+      if not query1.fieldbyname('eqdt').isnull then
+      params[2].asdate:=query1.fieldbyname('eqdt').value;
+      if not query1.fieldbyname('eqqty').isnull then
+      params[3].asinteger:=query1.fieldbyname('eqqty').value
+      else params[3].asinteger:=0;
+      if not query1.fieldbyname('eqoqty').isnull then
+      params[4].asinteger:=query1.fieldbyname('eqoqty').value
+      else params[4].asinteger:=0;
+      params[5].asstring:=query1.fieldbyname('eqsta').value;
+      if not query1.fieldbyname('eqtype').isnull then
+      params[6].asstring:=query1.fieldbyname('eqtype').value
+      else params[6].asstring:='';
+      if not query1.fieldbyname('tplant').isnull then
+      params[7].asstring:=query1.fieldbyname('tplant').value
+      else params[7].asstring:='SL';
+      if not query1.fieldbyname('eqwk').isnull then
+      params[8].asinteger:=query1.fieldbyname('eqwk').value;
+      if not query1.fieldbyname('exfty').isnull then
+      params[9].asdate:=query1.fieldbyname('exfty').value;
+      if not query1.fieldbyname('exwk').isnull then
+      params[10].asinteger:=query1.fieldbyname('exwk').value;
+      if not query1.fieldbyname('t3').isnull then
+      params[11].asdate:=query1.fieldbyname('t3').value;
+      if not query1.fieldbyname('t3wk').isnull then
+      params[12].asinteger:=query1.fieldbyname('t3wk').value;
+      if not query1.fieldbyname('shpm').isnull then
+      params[13].asstring:=query1.fieldbyname('shpm').value
+      else params[13].asstring:='';
+      params[14].asstring:=query1.fieldbyname('eqno').value;
+      execute;
+    end;
+  end;
+end;
+
+procedure Tfrmcustenq.Query2AfterPost(DataSet: TDataSet);
+var
+  ttlqty:integer;
+begin
+  if query2.ApplyUpdates(-1)>0 then begin
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='select eqseq from tbl_custenq2 where eqno=:x1 and eqseq=:x2';
+      params[0].asstring:=query2.fieldbyname('eqno').value;
+      params[1].asinteger:=query2.fieldbyname('eqseq').value;
+      open;
+      if not fieldbyname('eqseq').isnull then begin
+        with query4 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftinteger,'x3',ptinput);
+          params.createparam(ftstring,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftstring,'x6',ptinput);
+          params.createparam(ftinteger,'x7',ptinput);
+          params.createparam(ftstring,'x8',ptinput);
+          params.createparam(ftdate,'x9',ptinput);
+          params.createparam(ftstring,'x10',ptinput);
+          params.createparam(ftinteger,'x11',ptinput);
+          commandtext:='update tbl_custenq2 set eqline=:x1,eqso=:x2,eqsol=:x3,eqwo=:x4,eqart=:x5,'
+                      +'eqcstyle=:x6,eqqty=:x7,eqsta=:x8,eqexft=:x9 where eqno=:x10 and eqseq=:x11';
+          params[0].asinteger:=query2.fieldbyname('eqline').value;
+          if not query2.fieldbyname('eqso').isnull then
+          params[1].asstring:=query2.fieldbyname('eqso').value
+          else params[1].asstring:='';
+          if not query2.fieldbyname('eqsol').isnull then
+          params[2].asinteger:=query2.fieldbyname('eqsol').value
+          else params[2].asinteger:=0;
+          if not query2.fieldbyname('eqwo').isnull then
+          params[3].asstring:=query2.fieldbyname('eqwo').value
+          else params[3].asstring:='';
+          if not query2.fieldbyname('eqart').isnull then
+          params[4].asstring:=query2.fieldbyname('eqart').value
+          else params[4].asstring:='';
+          if not query2.fieldbyname('eqcstyle').isnull then
+          params[5].asstring:=query2.fieldbyname('eqcstyle').value
+          else params[5].asstring:='';
+          if not query2.fieldbyname('eqqty').isnull then
+          params[6].asinteger:=query2.fieldbyname('eqqty').value
+          else params[6].asinteger:=0;
+          if not query2.fieldbyname('eqsta').isnull then
+          params[7].asstring:=query2.fieldbyname('eqsta').value
+          else params[7].asstring:='0';
+          if not query2.fieldbyname('eqexft').isnull then
+          params[8].asdate:=query2.fieldbyname('eqexft').value;
+          params[9].asstring:=query2.fieldbyname('eqno').value;
+          params[10].asinteger:=query2.fieldbyname('eqseq').value;
+          execute;
+        end;
+      end else begin
+        with query4 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftinteger,'x3',ptinput);
+          params.createparam(ftstring,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftstring,'x6',ptinput);
+          params.createparam(ftinteger,'x7',ptinput);
+          params.createparam(ftstring,'x8',ptinput);
+          params.createparam(ftdate,'x9',ptinput);
+          params.createparam(ftstring,'x10',ptinput);
+          params.createparam(ftinteger,'x11',ptinput);
+          commandtext:='insert into tbl_custenq2(eqline,eqso,eqsol,eqwo,eqart,eqcstyle,eqqty,eqsta,eqexft,eqno,eqseq,cono) '
+                      +'values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8,:x9,:x10,:x11,1)';
+          params[0].asinteger:=query2.fieldbyname('eqline').value;
+          if not query2.fieldbyname('eqso').isnull then
+          params[1].asstring:=query2.fieldbyname('eqso').value
+          else params[1].asstring:='';
+          if not query2.fieldbyname('eqsol').isnull then
+          params[2].asinteger:=query2.fieldbyname('eqsol').value
+          else params[2].asinteger:=0;
+          if not query2.fieldbyname('eqwo').isnull then
+          params[3].asstring:=query2.fieldbyname('eqwo').value
+          else params[3].asstring:='';
+          if not query2.fieldbyname('eqart').isnull then
+          params[4].asstring:=query2.fieldbyname('eqart').value
+          else params[4].asstring:='';
+          if not query2.fieldbyname('eqcstyle').isnull then
+          params[5].asstring:=query2.fieldbyname('eqcstyle').value
+          else params[5].asstring:='';
+          if not query2.fieldbyname('eqqty').isnull then
+          params[6].asinteger:=query2.fieldbyname('eqqty').value
+          else params[6].asinteger:=0;
+          if not query2.fieldbyname('eqsta').isnull then
+          params[7].asstring:=query2.fieldbyname('eqsta').value
+          else params[7].asstring:='0';
+          if not query2.fieldbyname('eqexft').isnull then
+          params[8].asdate:=query2.fieldbyname('eqexft').value;
+          params[9].asstring:=query2.fieldbyname('eqno').value;
+          params[10].asinteger:=query2.fieldbyname('eqseq').value;
+          execute;
+        end;
+      end;
+    end;
+  end;
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select sum(eqqty) as q1 from tbl_custenq2 where eqno='''+query2.fieldbyname('eqno').value+'''';
+    open;
+    if not fieldbyname('q1').isnull then ttlqty:=fieldbyname('q1').value else ttlqty:=0;
+  end;
+  with query1 do begin
+    edit;
+    fieldbyname('eqoqty').value:=fieldbyname('eqqty').value-ttlqty;
+    post;
+  end;
+end;
+
+procedure Tfrmcustenq.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('eqqty').onchange:=queryeqqtychange;
+  query1.fieldbyname('eqdt').onchange:=queryeqdtchange;
+  query1.fieldbyname('exfty').onchange:=queryeqdt1change;
+  query1.fieldbyname('t3').onchange:=queryeqdt2change;
+end;
+
+procedure Tfrmcustenq.Queryeqqtychange(Sender: TField);
+var
+  ttlqty,q1:integer;
+begin
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select sum(eqqty) as q1 from tbl_custenq2 where eqno='''+query1.fieldbyname('eqno').value+'''';
+    open;
+    if not fieldbyname('q1').isnull then ttlqty:=fieldbyname('q1').value else ttlqty:=0;
+  end;
+  if query1.fieldbyname('eqqty').isnull then q1:=0 else q1:=query1.fieldbyname('eqqty').value;
+  query1.fieldbyname('eqoqty').value:=q1-ttlqty;
+end;
+
+procedure Tfrmcustenq.BitBtn6Click(Sender: TObject);
+var
+  cfm:boolean;
+begin
+  bitbtn3click(self);
+  if application.MessageBox('Want to confirm this project enquiry?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+    with query1 do begin
+      edit;
+      fieldbyname('eqsta').value:='Cancelled';
+      post;
+    end;
+  end;
+end;
+
+procedure Tfrmcustenq.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmcustenq.BitBtn7Click(Sender: TObject);
+begin
+  with query5 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    commandtext:='select * from tbl_custenq1 a,tbl_custenq2 b where a.eqno=b.eqno and a.eqno=:x1 order by b.eqseq';
+    params[0].asstring:=query1.fieldbyname('eqno').value;
+    open;
+    if not fieldbyname('eqno').isnull then ppReport1.Print;
+  end;
+end;
+
+procedure Tfrmcustenq.Queryeqdtchange(Sender: TField);
+begin
+  if not query1.fieldbyname('eqdt').isnull then
+  query1.fieldbyname('eqwk').value:=weekof(query1.fieldbyname('eqdt').value);
+end;
+
+procedure Tfrmcustenq.Queryeqdt1change(Sender: TField);
+begin
+  if not query1.fieldbyname('exfty').isnull then
+  query1.fieldbyname('exwk').value:=weekof(query1.fieldbyname('exfty').value);
+end;
+
+procedure Tfrmcustenq.Queryeqdt2change(Sender: TField);
+begin
+  if not query1.fieldbyname('t3').isnull then
+  query1.fieldbyname('t3wk').value:=weekof(query1.fieldbyname('t3').value);
+end;
+
+end.

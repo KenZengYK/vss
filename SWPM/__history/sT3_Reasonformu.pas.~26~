@@ -1,0 +1,165 @@
+unit sT3_Reasonformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, StdCtrls, Buttons, DB, DBClient;
+
+type
+  TfrmsT3_Reason = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsT3_Reason: TfrmsT3_Reason;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure TfrmsT3_Reason.BitBtn1Click(Sender: TObject);
+begin
+  dbgrideh1.SetFocus;
+  dbgrideh1.SelectedIndex:=0;
+  query1.Append;
+end;
+
+procedure TfrmsT3_Reason.BitBtn2Click(Sender: TObject);
+begin
+  if application.MessageBox('Want to delete this reason?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='delete from tbl_st3_reason where seq=:x1';
+      params[0].asinteger:=query1.fieldbyname('seq').value;
+      execute;
+    end;
+    query1.delete;
+  end;
+end;
+
+procedure TfrmsT3_Reason.BitBtn3Click(Sender: TObject);
+begin
+  if (query1.state=dsinsert) or (query1.state=dsedit) then query1.post;
+end;
+
+procedure TfrmsT3_Reason.BitBtn5Click(Sender: TObject);
+begin
+  if (query1.state=dsinsert) or (query1.state=dsedit) then query1.post;
+  if not query1.fieldbyname('rcde').isnull then begin
+    worksheet1.tblshedule.edit;
+    if not query1.fieldbyname('rdesc_e').isnull then
+    worksheet1.tblshedule.fieldbyname('ltc_rm').value:=query1.fieldbyname('rdesc_e').value
+    worksheet1.tblshedule.fieldbyname('ltc_rm').value:='';
+    worksheet1.tblshedule.post;
+  end;
+  frmsT3_Reason.close;
+end;
+
+procedure TfrmsT3_Reason.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmsT3_Reason:=nil;
+end;
+
+procedure TfrmsT3_Reason.FormShow(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_st3_reason';
+    open;
+  end;
+end;
+
+procedure TfrmsT3_Reason.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'seq',ptinput);
+    commandtext:='select seq from tbl_st3_reason where seq=:x1';
+    params[0].asinteger:=query1.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('seq').isnull then begin
+      str1:='update tbl_st3_reason set ';
+      if not query1.fieldbyname('rcde').isnull then
+      str1:=str1+'rcde='''+query1.fieldbyname('rcde').value+''','
+      else str1:=str1+'rcde='''',';
+      if not query1.fieldbyname('rdesc').isnull then
+      str1:=str1+'rdesc='''+query1.fieldbyname('rdesc').value+''','
+      else str1:=str1+'rdesc='''',';
+      if not query1.fieldbyname('rdesc_e').isnull then
+      str1:=str1+'rdesc_e='''+query1.fieldbyname('rdesc_e').value+''' '
+      else str1:=str1+'rdesc_e='''' ';
+      str1:=str1+'where seq='+query1.fieldbyname('seq').asstring;
+      if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+    end else begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'seq',ptinput);
+        params.createparam(ftstring,'rcde',ptinput);
+        params.createparam(ftstring,'rdesc',ptinput);
+        params.createparam(ftstring,'rdesc_e',ptinput);
+        commandtext:='insert into tbl_st3_reason(seq,rcde,rdesc,rdesc_e) values(:x1,:x2,:x3,:x4)';
+        params[0].asinteger:=query1.fieldbyname('seq').value;
+        if not query1.fieldbyname('rcde').isnull then
+        params[1].asstring:=query1.fieldbyname('rcde').value
+        else params[1].asstring:='';
+        if not query1.fieldbyname('rdesc').isnull then
+        params[2].asstring:=query1.fieldbyname('rdesc').value
+        else params[2].asstring:='';
+        if not query1.fieldbyname('rdesc_e').isnull then
+        params[3].asstring:=query1.fieldbyname('rdesc_e').value
+        else params[3].asstring:='';
+        execute;
+      end;
+    end;
+  end;
+end;
+
+procedure TfrmsT3_Reason.Query1NewRecord(DataSet: TDataSet);
+var
+  seq:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq) as seq1 from tbl_st3_reason';
+    open;
+    if not fieldbyname('seq1').isnull then seq:=fieldbyname('seq1').value+1
+    else seq:=1;
+  end;
+  query1.fieldbyname('seq').value:=seq;
+end;
+
+end.

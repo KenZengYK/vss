@@ -1,0 +1,1106 @@
+unit xgslu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Spin, Buttons, Db, DBClient;
+
+type
+  Tfrmxgsl = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    opt1: TRadioButton;
+    opt2: TRadioButton;
+    ComboBox1: TComboBox;
+    SpinEdit1: TSpinEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    ClientDataSet1: TClientDataSet;
+    ClientDataSet2: TClientDataSet;
+    ClientDataSet3: TClientDataSet;
+    SpeedButton1: TSpeedButton;
+    ClientDataSet4: TClientDataSet;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ComboBox1Enter(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmxgsl: Tfrmxgsl;
+  tm: Tdatetime;
+
+implementation
+uses mainformu, worksheet, cmfpformu;
+{$R *.DFM}
+
+procedure Tfrmxgsl.BitBtn1Click(Sender: TObject);
+var
+  seq1,seq2,ordline,var1,qrxc,rid,qty:integer;
+  fyl,ysjhl,float1,float2,var2,var3,var4,float3:double;
+  PLINE,sopno,artno,acol,j_no,j2_job,khzl,pflag1,flag5,cstyle,jhrs,dbzs,tplant,tshop,rwo,flag6,flag1,lflag,flag3,fccs:string;
+  yqlcrq,qrlcrq,plan_date,cplan:tdatetime;
+  lstrs,trs,tbu,tmu:double;
+  flag2,lflag1,cwo:string;
+  fccs1:string;
+  pstr:string;
+begin
+  screen.cursor:=crhourglass;
+  if opt1.Checked then begin
+    if combobox1.Text=worksheet1.tblshedule.fieldbyname('pline').value then exit;
+  end;
+  if spinedit1.value>0 then begin
+    PLINE:=WORKSHEET1.TBLSHEDULE.FIELDBYNAME('PLINE').VALUE;
+    if combobox1.text>'' then begin
+      with clientdataset1 do begin
+        close;
+        params.clear;
+        commandtext:='select tplant,tshop from tblline where pline='''+combobox1.text+'''';
+        open;
+        if not fieldbyname('tplant').isnull then tplant:=fieldbyname('tplant').value else tplant:='SL';
+        if not fieldbyname('tshop').isnull then tshop:=fieldbyname('tshop').value else tshop:='';
+      end;
+    end;
+    trs:=worksheet1.tblshedule.fieldbyname('trs').value;
+    ordline:=worksheet1.tblshedule.fieldbyname('ordline').value;
+    if not worksheet1.tblshedule.fieldbyname('cwo').isnull then
+    cwo:=worksheet1.tblshedule.fieldbyname('cwo').value else cwo:='';
+    if not worksheet1.tblshedule.fieldbyname('tmu').isnull then
+    tmu:=worksheet1.tblshedule.fieldbyname('tmu').value else tmu:=0;
+    //if not worksheet1.tblshedule.fieldbyname('fyl').isnull then
+    //fyl:=worksheet1.tblshedule.fieldbyname('fyl').value else fyl:=1;
+    fyl:=1;
+    if not worksheet1.tblshedule.fieldbyname('ysjhl').isnull then
+    ysjhl:=worksheet1.tblshedule.fieldbyname('ysjhl').value else ysjhl:=100;
+    sopno:=worksheet1.tblshedule.fieldbyname('sopno').value;
+    artno:=worksheet1.tblshedule.fieldbyname('artno').value;
+    acol:=worksheet1.tblshedule.fieldbyname('acol').value;
+    j_no:=worksheet1.tblshedule.fieldbyname('j_no').value;
+    j2_job:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+    seq2:=worksheet1.tblshedule.fieldbyname('seq').value;
+    yqlcrq:=worksheet1.tblshedule.fieldbyname('yqlcrq').value;
+    if not worksheet1.tblshedule.FieldByName('qrlcrq').isnull then
+    qrlcrq:=worksheet1.tblshedule.fieldbyname('qrlcrq').value;
+    if not worksheet1.tblshedule.fieldbyname('khzl').isnull then
+    khzl:=worksheet1.tblshedule.fieldbyname('khzl').value
+    else khzl:='';
+    if not worksheet1.tblshedule.fieldbyname('pflag1').isnull then
+    pflag1:=worksheet1.tblshedule.fieldbyname('pflag1').value
+    else pflag1:='';
+    if not worksheet1.tblshedule.fieldbyname('flag5').isnull then
+    flag5:=worksheet1.tblshedule.fieldbyname('flag5').value
+    else flag5:='';
+    if not worksheet1.tblshedule.fieldbyname('cstyle').isnull then
+    cstyle:=worksheet1.tblshedule.fieldbyname('cstyle').value
+    else cstyle:='';
+    if not worksheet1.tblshedule.fieldbyname('jhrs').isnull then
+    jhrs:=worksheet1.tblshedule.fieldbyname('jhrs').value
+    else jhrs:='';
+    if not worksheet1.tblshedule.fieldbyname('plan_date').isnull then
+    plan_date:=worksheet1.tblshedule.fieldbyname('plan_date').value;
+    if not worksheet1.tblshedule.fieldbyname('cplan').isnull then
+    cplan:=worksheet1.tblshedule.fieldbyname('cplan').value
+    else begin
+      if not worksheet1.tblshedule.fieldbyname('plan_date').isnull then
+      cplan:=worksheet1.tblshedule.fieldbyname('plan_date').value;
+    end;
+    if not worksheet1.tblshedule.fieldbyname('qrxc').isnull then
+    qrxc:=worksheet1.tblshedule.fieldbyname('qrxc').value
+    else qrxc:=0;
+    if not worksheet1.tblshedule.fieldbyname('rid').isnull then
+    rid:=worksheet1.tblshedule.fieldbyname('rid').value else rid:=0;
+    if not worksheet1.tblshedule.fieldbyname('dbzs').isnull then
+    dbzs:=worksheet1.tblshedule.fieldbyname('dbzs').value
+    else dbzs:=' ';
+    //if not worksheet1.tblshedule.fieldbyname('tplant').isnull then
+    //tplant:=worksheet1.tblshedule.fieldbyname('tplant').value
+    //else tplant:=' ';
+    if not worksheet1.tblshedule.fieldbyname('rwo').isnull then
+    rwo:=worksheet1.tblshedule.fieldbyname('rwo').value
+    else rwo:='1/1';
+    if not worksheet1.tblshedule.fieldbyname('lstrs').isnull then
+    lstrs:=worksheet1.tblshedule.fieldbyname('lstrs').value
+    else lstrs:=0;
+    if not worksheet1.tblshedule.fieldbyname('flag6').isnull then
+    flag6:=worksheet1.tblshedule.fieldbyname('flag6').value
+    else flag6:='';
+    if not worksheet1.tblshedule.fieldbyname('flag1').isnull then
+    flag1:=worksheet1.tblshedule.fieldbyname('flag1').value
+    else flag1:='0';
+    if not worksheet1.tblshedule.fieldbyname('flag2').isnull then
+    flag2:=worksheet1.tblshedule.fieldbyname('flag2').value
+    else flag2:='Q';
+    if not worksheet1.tblshedule.fieldbyname('flag3').isnull then
+    flag3:=worksheet1.tblshedule.fieldbyname('flag3').value
+    else flag3:='';
+    if not worksheet1.tblshedule.fieldbyname('fccs').isnull then
+    fccs:=worksheet1.tblshedule.fieldbyname('fccs').value
+    else fccs:='';
+    if not worksheet1.tblshedule.fieldbyname('qty').isnull then
+    qty:=worksheet1.tblshedule.fieldbyname('qty').value else qty:=worksheet1.tblshedule.fieldbyname('scqty').value;
+    if not worksheet1.tblshedule.fieldbyname('tbu').isnull then
+    tbu:=worksheet1.tblshedule.fieldbyname('tbu').value else tbu:=100;
+    if not worksheet1.tblshedule.fieldbyname('lflag').isnull then begin
+      if ((copy(worksheet1.tblshedule.fieldbyname('lflag').value,1,1)='!') or (copy(worksheet1.tblshedule.fieldbyname('lflag').value,1,1)='^')) then
+      lflag:=worksheet1.tblshedule.fieldbyname('lflag').value
+      else lflag:='!'+copy(worksheet1.tblshedule.fieldbyname('lflag').value,1,1);
+    end else lflag:='!0';
+    if opt1.Checked then begin
+      //opt1
+      if spinedit1.Value=strtoint(edit1.Text) then begin
+        if combobox1.text<>pline then begin
+          with clientdataset1 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'pline',ptinput);
+            commandtext:='select max(seq) as seq1 from tblshedule where pline=:pline';
+            params[0].asstring:=combobox1.text;
+            open;
+            if not fieldbyname('seq1').isnull then seq1:=fieldbyname('seq1').value+1
+            else seq1:=1;
+          end;
+          //
+          with clientdataset2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftinteger,'x4',ptinput);
+            commandtext:='update line_shjs set pline=:x1,seq=:x2 where pline=:x3 and seq=:x4';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=pline;
+            params[3].AsInteger:=seq2;
+            execute;
+          end;
+          with clientdataset2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftinteger,'x4',ptinput);
+            commandtext:='update tbl_lwo set pline=:x1,seq=:x2 where pline=:x3 and seq=:x4';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=pline;
+            params[3].AsInteger:=seq2;
+            execute;
+          end;
+          with clientdataset2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftinteger,'x4',ptinput);
+            commandtext:='update tbl_lwo_sew set pline=:x1,seq=:x2 where pline=:x3 and seq=:x4';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=pline;
+            params[3].AsInteger:=seq2;
+            execute;
+          end;
+          with clientdataset2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftinteger,'x4',ptinput);
+            commandtext:='update tbl_lwo_dt set pline=:x1,seq=:x2 where pline=:x3 and seq=:x4';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=pline;
+            params[3].AsInteger:=seq2;
+            execute;
+          end;
+          with clientdataset2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftinteger,'x4',ptinput);
+            commandtext:='update tbl_lwo_sewdt set pline=:x1,seq=:x2 where pline=:x3 and seq=:x4';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=pline;
+            params[3].AsInteger:=seq2;
+            execute;
+          end;
+          with clientdataset2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftinteger,'x4',ptinput);
+            commandtext:='update tbl_notepad set pline=:x1,pseq=:x2 where pline=:x3 and pseq=:x4';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=pline;
+            params[3].AsInteger:=seq2;
+            execute;
+          end;
+          with clientdataset2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftinteger,'x4',ptinput);
+            commandtext:='update tbl_schstatus set pline=:x1,seq=:x2 where pline=:x3 and seq=:x4';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=pline;
+            params[3].AsInteger:=seq2;
+            execute;
+          end;
+          //
+          with clientdataset1 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'pline',ptinput);
+            commandtext:='select workert,ysjhl from tblline where upper(pline)=:pline';
+            params[0].asstring:=uppercase(combobox1.text);
+            open;
+            //if not fieldbyname('workert').isnull then trs:=fieldbyname('workert').value else trs:=25;
+            if not fieldbyname('ysjhl').isnull then ysjhl:=fieldbyname('ysjhl').value else ysjhl:=100;
+          end;
+          fyl:=1.00;
+          if lstrs=0 then lstrs:=25;
+          {
+          with clientdataset2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftstring,'x5',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftinteger,'x4',ptinput);
+            commandtext:='update tblshedule set pline=:x1,seq=:x2,tshop=:x5 where pline=:x3 and seq=:x4';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=tshop;
+            params[3].asstring:=pline;
+            params[4].AsInteger:=seq2;
+            execute;
+          end;
+          }
+        end;
+          //showmessage('0');
+          //{
+          with clientdataset1 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'pline',ptinput);
+            params.createparam(ftinteger,'seq',ptinput);
+            params.createparam(ftstring,'khzl',ptinput);
+            params.createparam(ftfloat,'tmu',ptinput);
+            params.createparam(ftfloat,'trs',ptinput);
+            params.createparam(ftfloat,'ysjhl',ptinput);
+            params.createparam(ftstring,'sopno',ptinput);
+            params.createparam(ftstring,'j_no',ptinput);
+            params.createparam(ftstring,'artno',ptinput);
+            params.createparam(ftstring,'acol',ptinput);
+            params.CreateParam(ftstring,'j2_job',ptinput);
+            params.createparam(ftinteger,'ordline',ptinput);
+            params.createparam(ftdatetime,'yqlcrq',ptinput);
+            params.createparam(ftstring,'pflag1',ptinput);
+            params.createparam(ftstring,'flag5',ptinput);
+            params.createparam(ftstring,'jhrs',ptinput);
+            params.createparam(ftdate,'plan_date',ptinput);
+            params.createparam(ftinteger,'qrxc',ptinput);
+            params.createparam(ftinteger,'scqty',ptinput);
+            params.createparam(ftfloat,'fyl',ptinput);
+            params.createparam(ftboolean,'yzh',ptinput);
+            params.createparam(ftinteger,'xs',ptinput);
+            params.createparam(ftfloat,'sclhjs',ptinput);
+            params.createparam(ftfloat,'qyjs',ptinput);
+            params.createparam(ftinteger,'rid',ptinput);
+            params.createparam(ftstring,'dbzs',ptinput);
+            params.createparam(ftstring,'tplant',ptinput);
+            params.createparam(ftstring,'rwo',ptinput);
+            params.createparam(ftfloat,'lstrs',ptinput);
+            params.createparam(ftstring,'flag1',ptinput);
+            params.createparam(ftstring,'flag2',ptinput);
+            params.createparam(ftstring,'flag6',ptinput);
+            params.createparam(ftinteger,'xjs',ptinput);
+            params.createparam(ftfloat,'jxjs',ptinput);
+            params.createparam(ftfloat,'phiszjs',ptinput);
+            params.createparam(ftfloat,'shjs',ptinput);
+            params.createparam(ftfloat,'zjs',ptinput);
+            params.createparam(ftinteger,'qty',ptinput);
+            params.createparam(ftfloat,'tbu',ptinput);
+            params.createparam(ftstring,'lflag',ptinput);
+            params.createparam(ftdate,'cplan',ptinput);
+            params.createparam(ftstring,'fccs',ptinput);
+            params.createparam(ftstring,'flag3',ptinput);
+            params.createparam(ftstring,'tshop',ptinput);
+            params.CreateParam(ftstring,'cwo',ptinput);
+            commandtext:='insert into tblshedule(pline,seq,khzl,tmu,trs,ysjhl,sopno,j_no,artno,acol,j2_job,ordline,'
+                        +'yqlcrq,pflag1,flag5,cstyle,jhrs,plan_date,qrxc,scqty,fyl,yzh,xs,sclhjs,qyjs,'
+                        +'rid,dbzs,tplant,rwo,lstrs,flag1,flag2,flag6,xjs,jxjs,phiszjs,shjs,zjs,qty,tbu,lflag,cplan,fccs,flag3,tshop,dta,cwo) '
+                        +'values(:pline,:seq,:khzl,:tmu,:trs,:ysjhl,:sopno,:j_no,:artno,:acol,:j2_job,:ordline,'
+                        +':yqlcrq,:pflag1,:flag5,:cstyle,:jhrs,:plan_date,:qrxc,:scqty,:fyl,:yzh,:xs,:sclhjs,:qyjs,'
+                        +':rid,:dbzs,:tplant,:rwo,:lstrs,:flag1,:flag2,:flag6,:xjs,:jxjs,:phiszjs,:shjs,:zjs,:qty,:tbu,:lflag,:cplan,:fccs,:flag3,:tshop,''1'',:cwo)';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=khzl;
+            params[3].asfloat:=tmu;
+            params[4].asfloat:=trs;
+            params[5].asfloat:=ysjhl;
+            params[6].AsString:=sopno;
+            params[7].asstring:=j_no;
+            params[8].AsString:=artno;
+            params[9].asstring:=acol;
+            params[10].asstring:=j2_job;
+            params[11].asinteger:=ordline;
+            params[12].asdatetime:=yqlcrq;
+            params[13].asstring:=pflag1;
+            params[14].asstring:=flag5;
+            params[15].asstring:=cstyle;
+            params[16].asstring:=jhrs;
+            if plan_date>0 then params[17].asdate:=plan_date;
+            params[18].asinteger:=qrxc;
+            params[19].asinteger:=spinedit1.Value;
+            params[20].asfloat:=fyl;
+            params[21].asboolean:=false;
+            params[22].asinteger:=1;
+            params[23].asfloat:=0;
+            params[24].asfloat:=0;
+            params[25].asinteger:=rid;
+            params[26].asstring:=dbzs;
+            params[27].asstring:=tplant;
+            params[28].asstring:=rwo;
+            params[29].asfloat:=lstrs;
+            params[30].asstring:=flag1;
+            params[31].asstring:=flag2;
+            params[32].asstring:=flag6;
+            if tmu>0 then begin
+              float1:=0.5*lstrs/(tmu*fyl);
+              params[33].asinteger:=ceiling(float1);
+              params[34].asfloat:=float1;
+              float2:=spinedit1.value/float1;
+              float3:=spinedit1.Value*100.00/float1/ysjhl;
+              params[35].asfloat:=float2;
+              params[36].asfloat:=float3-float2;
+              params[37].asfloat:=float3;
+            end else begin
+              params[33].asinteger:=0;
+              params[34].asfloat:=0;
+              params[35].asfloat:=0;
+              params[36].asfloat:=0;
+              params[37].asfloat:=0;
+            end;
+            params[38].asinteger:=qty;
+            params[39].asfloat:=tbu;
+            params[40].asstring:=lflag;
+            if cplan>0 then params[41].asdate:=cplan;
+            params[42].asstring:=fccs;
+            params[43].asstring:=flag3;
+            params[44].asstring:=tshop;
+            params[45].asstring:=cwo;
+            execute;
+          end;
+          //showmessage('1');
+          with clientdataset3 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            commandtext:='execute procedure sp_calcflag4_1(:x1,:x2)';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            execute;
+          end;
+          //showmessage('2');
+        //end;
+        with clientdataset1 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'pline',ptinput);
+          params.createparam(ftinteger,'seq',ptinput);
+          commandtext:='delete from tblshedule where pline=:pline and seq=:seq';
+          params[0].asstring:=pline;
+          params[1].asinteger:=seq2;
+          execute;
+        end;
+        worksheet1.tblshedule.Delete;
+        if (worksheet1.tblshedule.fieldbyname('pline').value=pline) and (worksheet1.tblshedule.fieldbyname('seq').value>seq2) then begin
+          if not worksheet1.tblshedule.fieldbyname('lflag').isnull then begin
+            if ((copy(worksheet1.tblshedule.fieldbyname('lflag').value,1,1)='!') or (copy(worksheet1.tblshedule.fieldbyname('lflag').value,1,1)='^')) then
+            lflag1:=worksheet1.tblshedule.fieldbyname('lflag').value
+            else lflag1:='!'+copy(worksheet1.tblshedule.fieldbyname('lflag').value,1,1);
+            worksheet1.tblshedule.Edit;
+            worksheet1.tblshedule.fieldbyname('lflag').value:=lflag1;
+            worksheet1.tblshedule.Post;
+          end;
+        end;
+        //}
+        //worksheet1.speedbutton1click(self);
+      end else begin
+        with worksheet1.tblshedule do begin
+          edit;
+          fieldbyname('scqty').value:=fieldbyname('scqty').value-spinedit1.Value;
+          post;
+        end;
+        if (pos('d',fccs)>0) or (pos('u',fccs)>0) then begin
+          if pos('d',fccs)>0 then fccs1:=copy(fccs,1,pos('d',fccs)-1)
+          else if pos('u',fccs)>0 then fccs1:=copy(fccs,1,pos('u',fccs)-1);
+
+          with clientdataset4 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftstring,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftstring,'x4',ptinput);
+            params.createparam(ftstring,'x5',ptinput);
+            commandtext:='select max(fccs) as fs from tblshedule where j_no=:x1 and j2_job=:x2 and rwo=:x3 and acol=:x4 and fccs like :x5';
+            params[0].asstring:=worksheet1.tblshedule.fieldbyname('j_no').value;
+            params[1].asstring:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+            params[2].asstring:=worksheet1.tblshedule.fieldbyname('rwo').value;
+            params[3].asstring:=worksheet1.tblshedule.fieldbyname('acol').value;
+            params[4].asstring:=fccs1+'d%';
+            open;
+          end;
+          if clientdataset4.fieldbyname('fs').value<>fccs1+'d' then begin
+            with clientdataset4 do begin
+              close;
+              params.clear;
+              //params.createparam(ftinteger,'x0',ptinput);
+              //params.createparam(ftinteger,'x1',ptinput);
+              params.createparam(ftstring,'x2',ptinput);
+              params.createparam(ftstring,'x3',ptinput);
+              params.createparam(ftstring,'x4',ptinput);
+              params.createparam(ftstring,'x5',ptinput);
+              params.createparam(ftstring,'x6',ptinput);
+              if length(fccs1)=3 then
+              commandtext:='select max(cast(rtrim(substr(fccs,5,6)) as integer)) as fs from tblshedule where j_no=:x2 and j2_job=:x3 and rwo=:x4 and acol=:x5 and fccs like :x6'
+              else if length(fccs1)=4 then
+              commandtext:='select max(cast(rtrim(substr(fccs,6,7)) as integer)) as fs from tblshedule where j_no=:x2 and j2_job=:x3 and rwo=:x4 and acol=:x5 and fccs like :x6'
+              else if length(fccs1)=5 then
+              commandtext:='select max(cast(rtrim(substr(fccs,7,8)) as integer)) as fs from tblshedule where j_no=:x2 and j2_job=:x3 and rwo=:x4 and acol=:x5 and fccs like :x6';
+              //params[0].asinteger:=length(fccs1)+1;
+              //params[1].asinteger:=length(fccs1)+2;
+              params[0].asstring:=worksheet1.tblshedule.fieldbyname('j_no').value;
+              params[1].asstring:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+              params[2].asstring:=worksheet1.tblshedule.fieldbyname('rwo').value;
+              params[3].asstring:=worksheet1.tblshedule.fieldbyname('acol').value;
+              params[4].asstring:=fccs1+'d%';
+              open;
+              if not fieldbyname('fs').isnull then fccs:=fccs1+'d'+inttostr(fieldbyname('fs').value+1);
+            end;
+          end else fccs:=fccs1+'d1';
+          {
+          with clientdataset4 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftstring,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftstring,'x4',ptinput);
+            params.createparam(ftstring,'x5',ptinput);
+            commandtext:='select max(fccs) as fs from tblshedule where j_no=:x1 and j2_job=:x2 and rwo=:x3 and acol=:x4 and fccs like :x5 and f_right(rtrim(fccs),1)<>''u''';
+            params[0].asstring:=worksheet1.tblshedule.fieldbyname('j_no').value;
+            params[1].asstring:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+            params[2].asstring:=worksheet1.tblshedule.fieldbyname('rwo').value;
+            params[3].asstring:=worksheet1.tblshedule.fieldbyname('acol').value;
+            params[4].asstring:=copy(fccs,1,length(trim(fccs))-2)+'%';
+            open;
+            fccs1:=fieldbyname('fs').Value;
+            if copy(fccs,length(trim(fccs)),1)='u' then begin
+              if copy(fccs1,length(trim(fccs1)),1)<>'d' then begin
+                if copy(fccs1,length(trim(fccs1))-1,1)<>'d' then begin
+                  fccs1:=copy(fccs1,length(trim(fccs1))-1,2);
+                  fccs:=copy(fccs,1,length(fccs)-1)+'d'+inttostr(strtoint(fccs1)+1);
+                end else begin
+                  fccs1:=copy(fccs1,length(trim(fccs1)),1);
+                  fccs:=copy(fccs,1,length(fccs)-1)+'d'+inttostr(strtoint(fccs1)+1);
+                end;
+              end else fccs:=fccs1+'1';
+            end else begin
+              if copy(fccs1,length(trim(fccs1)),1)<>'d' then begin
+                if copy(fccs1,length(trim(fccs1))-1,1)='d' then begin
+                  fccs1:=copy(fccs1,length(trim(fccs1)),1);
+                  if copy(fccs,length(trim(fccs)),1)='d' then
+                  fccs:=copy(fccs,1,length(fccs))+inttostr(strtoint(fccs1)+1)
+                  else fccs:=copy(fccs,1,length(fccs)-1)+inttostr(strtoint(fccs1)+1);
+                end else begin
+                  fccs1:=copy(fccs1,length(trim(fccs1))-1,2);
+                  if copy(fccs,length(trim(fccs)),1)='d' then
+                  fccs:=copy(fccs,1,length(fccs))+inttostr(strtoint(fccs1)+1)
+                  else if copy(fccs,length(trim(fccs))-1,1)<>'d' then
+                  fccs:=copy(fccs,1,length(fccs)-2)+inttostr(strtoint(fccs1)+1)
+                  else fccs:=copy(fccs,1,length(fccs)-1)+inttostr(strtoint(fccs1)+1);
+                end;
+              end else fccs:=fccs1+'1';
+            end;
+          end;
+          }
+        end else begin
+          fccs:='';
+          flag3:='';
+        end;
+        if combobox1.text<>pline then begin
+          with clientdataset1 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'pline',ptinput);
+            commandtext:='select max(seq) as seq1 from tblshedule where pline=:pline';
+            params[0].asstring:=combobox1.text;
+            open;
+            if not fieldbyname('seq1').isnull then seq1:=fieldbyname('seq1').value+1
+            else seq1:=1;
+          end;
+          //
+          with clientdataset1 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'pline',ptinput);
+            commandtext:='select workert,ysjhl from tblline where upper(pline)=:pline';
+            params[0].asstring:=uppercase(combobox1.text);
+            open;
+            //if not fieldbyname('workert').isnull then trs:=fieldbyname('workert').value else trs:=25;
+            if not fieldbyname('ysjhl').isnull then ysjhl:=fieldbyname('ysjhl').value else ysjhl:=100;
+          end;
+          fyl:=1.00;
+          if lstrs=0 then lstrs:=25;
+          //showmessage('10');
+          with clientdataset1 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'pline',ptinput);
+            params.createparam(ftinteger,'seq',ptinput);
+            params.createparam(ftstring,'khzl',ptinput);
+            params.createparam(ftfloat,'tmu',ptinput);
+            params.createparam(ftfloat,'trs',ptinput);
+            params.createparam(ftfloat,'ysjhl',ptinput);
+            params.createparam(ftstring,'sopno',ptinput);
+            params.createparam(ftstring,'j_no',ptinput);
+            params.createparam(ftstring,'artno',ptinput);
+            params.createparam(ftstring,'acol',ptinput);
+            params.CreateParam(ftstring,'j2_job',ptinput);
+            params.createparam(ftinteger,'ordline',ptinput);
+            params.createparam(ftdatetime,'yqlcrq',ptinput);
+            params.createparam(ftstring,'pflag1',ptinput);
+            params.createparam(ftstring,'flag5',ptinput);
+            params.createparam(ftstring,'jhrs',ptinput);
+            params.createparam(ftdate,'plan_date',ptinput);
+            params.createparam(ftinteger,'qrxc',ptinput);
+            params.createparam(ftinteger,'scqty',ptinput);
+            params.createparam(ftfloat,'fyl',ptinput);
+            params.createparam(ftboolean,'yzh',ptinput);
+            params.createparam(ftinteger,'xs',ptinput);
+            params.createparam(ftfloat,'sclhjs',ptinput);
+            params.createparam(ftfloat,'qyjs',ptinput);
+            params.createparam(ftinteger,'rid',ptinput);
+            params.createparam(ftstring,'dbzs',ptinput);
+            params.createparam(ftstring,'tplant',ptinput);
+            params.createparam(ftstring,'rwo',ptinput);
+            params.createparam(ftfloat,'lstrs',ptinput);
+            params.createparam(ftstring,'flag1',ptinput);
+            params.createparam(ftstring,'flag2',ptinput);
+            params.createparam(ftstring,'flag6',ptinput);
+            params.createparam(ftinteger,'xjs',ptinput);
+            params.createparam(ftfloat,'jxjs',ptinput);
+            params.createparam(ftfloat,'phiszjs',ptinput);
+            params.createparam(ftfloat,'shjs',ptinput);
+            params.createparam(ftfloat,'zjs',ptinput);
+            params.createparam(ftinteger,'qty',ptinput);
+            params.createparam(ftfloat,'tbu',ptinput);
+            params.createparam(ftstring,'lflag',ptinput);
+            params.createparam(ftdate,'cplan',ptinput);
+            params.createparam(ftstring,'fccs',ptinput);
+            params.createparam(ftstring,'flag3',ptinput);
+            params.createparam(ftstring,'tshop',ptinput);
+            params.createparam(ftstring,'cwo',ptinput);
+            commandtext:='insert into tblshedule(pline,seq,khzl,tmu,trs,ysjhl,sopno,j_no,artno,acol,j2_job,ordline,'
+                        +'yqlcrq,pflag1,flag5,cstyle,jhrs,plan_date,qrxc,scqty,fyl,yzh,xs,sclhjs,qyjs,'
+                        +'rid,dbzs,tplant,rwo,lstrs,flag1,flag2,flag6,xjs,jxjs,phiszjs,shjs,zjs,qty,tbu,lflag,cplan,fccs,flag3,tshop,cwo) '
+                        +'values(:pline,:seq,:khzl,:tmu,:trs,:ysjhl,:sopno,:j_no,:artno,:acol,:j2_job,:ordline,'
+                        +':yqlcrq,:pflag1,:flag5,:cstyle,:jhrs,:plan_date,:qrxc,:scqty,:fyl,:yzh,:xs,:sclhjs,:qyjs,'
+                        +':rid,:dbzs,:tplant,:rwo,:lstrs,:flag1,:flag2,:flag6,:xjs,:jxjs,:phiszjs,:shjs,:zjs,:qty,:tbu,:lflag,:cplan,:fccs,:flag3,:tshop,:cwo)';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=khzl;
+            params[3].asfloat:=tmu;
+            params[4].asfloat:=trs;
+            params[5].asfloat:=ysjhl;
+            params[6].AsString:=sopno;
+            params[7].asstring:=j_no;
+            params[8].AsString:=artno;
+            params[9].asstring:=acol;
+            params[10].asstring:=j2_job;
+            params[11].asinteger:=ordline;
+            params[12].asdatetime:=yqlcrq;
+            params[13].asstring:=pflag1;
+            params[14].asstring:=flag5;
+            params[15].asstring:=cstyle;
+            params[16].asstring:=jhrs;
+            if plan_date>0 then params[17].asdate:=plan_date;
+            params[18].asinteger:=qrxc;
+            params[19].asinteger:=spinedit1.Value;
+            params[20].asfloat:=fyl;
+            params[21].asboolean:=false;
+            params[22].asinteger:=1;
+            params[23].asfloat:=0;
+            params[24].asfloat:=0;
+            params[25].asinteger:=rid;
+            params[26].asstring:=dbzs;
+            params[27].asstring:=tplant;
+            params[28].asstring:=rwo;
+            params[29].asfloat:=lstrs;
+            params[30].asstring:=flag1;
+            params[31].asstring:=flag2;
+            params[32].asstring:=flag6;
+            if tmu>0 then begin
+              float1:=0.5*lstrs/(tmu*fyl);
+              params[33].asinteger:=ceiling(float1);
+              params[34].asfloat:=float1;
+              float2:=spinedit1.value/float1;
+              float3:=spinedit1.Value*100.00/float1/ysjhl;
+              params[35].asfloat:=float2;
+              params[36].asfloat:=float3-float2;
+              params[37].asfloat:=float3;
+            end else begin
+              params[33].asinteger:=0;
+              params[34].asfloat:=0;
+              params[35].asfloat:=0;
+              params[36].asfloat:=0;
+              params[37].asfloat:=0;
+            end;
+            params[38].asinteger:=qty;
+            params[39].asfloat:=tbu;
+            params[40].asstring:=lflag;
+            if cplan>0 then params[41].asdate:=cplan;
+            params[42].asstring:=fccs;
+            params[43].asstring:=flag3;
+            params[44].asstring:=tshop;
+            params[45].asstring:=cwo;
+            execute;
+          end;
+          //showmessage('11');
+          with clientdataset3 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            commandtext:='execute procedure sp_calcflag4_1(:x1,:x2)';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            execute;
+          end;
+          //showmessage('12');
+        end else begin
+          with clientdataset1 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'pline',ptinput);
+            commandtext:='select max(seq) as seq1 from tblshedule where pline=:pline';
+            params[0].asstring:=pline;
+            open;
+            seq1:=fieldbyname('seq1').value+1;
+          end;
+          //showmessage('20');
+          with clientdataset1 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'pline',ptinput);
+            params.createparam(ftinteger,'seq',ptinput);
+            params.createparam(ftstring,'khzl',ptinput);
+            params.createparam(ftfloat,'tmu',ptinput);
+            params.createparam(ftfloat,'trs',ptinput);
+            params.createparam(ftfloat,'ysjhl',ptinput);
+            params.createparam(ftstring,'sopno',ptinput);
+            params.createparam(ftstring,'j_no',ptinput);
+            params.createparam(ftstring,'artno',ptinput);
+            params.createparam(ftstring,'acol',ptinput);
+            params.CreateParam(ftstring,'j2_job',ptinput);
+            params.createparam(ftinteger,'ordline',ptinput);
+            params.createparam(ftdatetime,'yqlcrq',ptinput);
+            params.createparam(ftstring,'pflag1',ptinput);
+            params.createparam(ftstring,'flag5',ptinput);
+            params.createparam(ftstring,'jhrs',ptinput);
+            params.createparam(ftdate,'plan_date',ptinput);
+            params.createparam(ftinteger,'qrxc',ptinput);
+            params.createparam(ftinteger,'scqty',ptinput);
+            params.createparam(ftfloat,'fyl',ptinput);
+            params.createparam(ftboolean,'yzh',ptinput);
+            params.createparam(ftinteger,'xs',ptinput);
+            params.createparam(ftfloat,'sclhjs',ptinput);
+            params.createparam(ftfloat,'qyjs',ptinput);
+            params.createparam(ftinteger,'rid',ptinput);
+            params.createparam(ftstring,'dbzs',ptinput);
+            params.createparam(ftstring,'tplant',ptinput);
+            params.createparam(ftstring,'rwo',ptinput);
+            params.createparam(ftfloat,'lstrs',ptinput);
+            params.createparam(ftstring,'flag1',ptinput);
+            params.createparam(ftstring,'flag2',ptinput);
+            params.createparam(ftstring,'flag6',ptinput);
+            params.createparam(ftinteger,'xjs',ptinput);
+            params.createparam(ftfloat,'jxjs',ptinput);
+            params.createparam(ftfloat,'phiszjs',ptinput);
+            params.createparam(ftfloat,'shjs',ptinput);
+            params.createparam(ftfloat,'zjs',ptinput);
+            params.createparam(ftinteger,'qty',ptinput);
+            params.createparam(ftfloat,'tbu',ptinput);
+            params.createparam(ftstring,'lflag',ptinput);
+            params.createparam(ftdate,'cplan',ptinput);
+            params.createparam(ftstring,'fccs',ptinput);
+            params.createparam(ftstring,'flag3',ptinput);
+            params.createparam(ftstring,'tshop',ptinput);
+            params.createparam(ftstring,'cwo',ptinput);
+            commandtext:='insert into tblshedule(pline,seq,khzl,tmu,trs,ysjhl,sopno,j_no,artno,acol,j2_job,ordline,'
+                        +'yqlcrq,pflag1,flag5,cstyle,jhrs,plan_date,qrxc,scqty,fyl,yzh,xs,sclhjs,qyjs,'
+                        +'rid,dbzs,tplant,rwo,lstrs,flag1,flag2,flag6,xjs,jxjs,phiszjs,shjs,zjs,qty,tbu,lflag,cplan,fccs,flag3,tshop,cwo) '
+                        +'values(:pline,:seq,:khzl,:tmu,:trs,:ysjhl,:sopno,:j_no,:artno,:acol,:j2_job,:ordline,'
+                        +':yqlcrq,:pflag1,:flag5,:cstyle,:jhrs,:plan_date,:qrxc,:scqty,:fyl,:yzh,:xs,:sclhjs,:qyjs,'
+                        +':rid,:dbzs,:tplant,:rwo,:lstrs,:flag1,:flag2,:flag6,:xjs,:jxjs,:phiszjs,:shjs,:zjs,:qty,:tbu,:lflag,:cplan,:fccs,:flag3,:tshop,:cwo)';
+            params[0].asstring:=pline;
+            params[1].asinteger:=seq1;
+            params[2].asstring:=khzl;
+            params[3].asfloat:=tmu;
+            params[4].asfloat:=trs;
+            params[5].asfloat:=ysjhl;
+            params[6].AsString:=sopno;
+            params[7].asstring:=j_no;
+            params[8].AsString:=artno;
+            params[9].asstring:=acol;
+            params[10].asstring:=j2_job;
+            params[11].asinteger:=ordline;
+            params[12].asdatetime:=yqlcrq;
+            params[13].asstring:=pflag1;
+            params[14].asstring:=flag5;
+            params[15].asstring:=cstyle;
+            params[16].asstring:=jhrs;
+            if plan_date>0 then params[17].asdate:=plan_date;
+            params[18].asinteger:=qrxc;
+            params[19].asinteger:=spinedit1.Value;
+            params[20].asfloat:=fyl;
+            params[21].asboolean:=false;
+            params[22].asinteger:=1;
+            params[23].asfloat:=0;
+            params[24].asfloat:=0;
+            params[25].asinteger:=rid;
+            params[26].asstring:=dbzs;
+            params[27].asstring:=tplant;
+            params[28].asstring:=rwo;
+            params[29].asfloat:=lstrs;
+            params[30].asstring:=flag1;
+            params[31].asstring:=flag2;
+            params[32].asstring:=flag6;
+            if tmu>0 then begin
+              float1:=0.5*lstrs/(tmu*fyl);
+              params[33].asinteger:=ceiling(float1);
+              params[34].asfloat:=float1;
+              float2:=spinedit1.value/float1;
+              float3:=spinedit1.Value*100.00/float1/ysjhl;
+              params[35].asfloat:=float2;
+              params[36].asfloat:=float3-float2;
+              params[37].asfloat:=float3;
+            end else begin
+              params[33].asinteger:=0;
+              params[34].asfloat:=0;
+              params[35].asfloat:=0;
+              params[36].asfloat:=0;
+              params[37].asfloat:=0;
+            end;
+            params[38].asinteger:=qty;
+            params[39].asfloat:=tbu;
+            params[40].asstring:=lflag;
+            if cplan>0 then params[41].asdate:=cplan;
+            params[42].asstring:=fccs;
+            params[43].asstring:=flag3;
+            params[44].asstring:=tshop;
+            params[45].asstring:=cwo;
+            execute;
+          end;
+          //showmessage('21');
+          with worksheet1.tblshedule do begin
+            append;
+            fieldbyname('pline').value:=pline;
+            fieldbyname('seq').value:=seq1;
+            fieldbyname('khzl').value:=khzl;
+            fieldbyname('tmu').value:=tmu;
+            fieldbyname('trs').value:=trs;
+            fieldbyname('ysjhl').value:=ysjhl;
+            fieldbyname('sopno').value:=sopno;
+            fieldbyname('j_no').value:=j_no;
+            fieldbyname('artno').value:=artno;
+            fieldbyname('acol').value:=acol;
+            fieldbyname('j2_job').value:=j2_job;
+            fieldbyname('ordline').value:=ordline;
+            fieldbyname('yqlcrq').value:=yqlcrq;
+            fieldbyname('pflag1').value:=pflag1;
+            fieldbyname('flag5').value:=flag5;
+            fieldbyname('cstyle').value:=cstyle;
+            fieldbyname('jhrs').value:=jhrs;
+            fieldbyname('plan_date').value:=plan_date;
+            fieldbyname('qrxc').value:=qrxc;
+            fieldbyname('scqty').value:=spinedit1.Value;
+            fieldbyname('fyl').value:=1.00;
+            fieldbyname('yzh').value:=false;
+            fieldbyname('xs').value:=1;
+            fieldbyname('sclhjs').value:=0;
+            fieldbyname('qyjs').value:=0;
+            fieldbyname('rid').value:=rid;
+            fieldbyname('dbzs').value:=dbzs;
+            fieldbyname('lstrs').value:=lstrs;
+            if tmu>0 then begin
+              float1:=0.5*lstrs/(tmu*fyl);
+              fieldbyname('xjs').value:=float1;
+              fieldbyname('jxjs').value:=float1;
+              float2:=spinedit1.value/float1;
+              float3:=spinedit1.value*100.00/float1/ysjhl;
+              fieldbyname('phiszjs').value:=float2;
+              fieldbyname('shjs').value:=float3-float2;
+              fieldbyname('zjs').value:=float3;
+            end else begin
+              fieldbyname('xjs').value:=0;
+              fieldbyname('phiszjs').value:=0;
+              fieldbyname('shjs').value:=0;
+              fieldbyname('zktd').value:=0;
+              fieldbyname('zjs').value:=0;
+            end;
+            fieldbyname('tplant').value:=tplant;
+            fieldbyname('rwo').value:=rwo;
+            fieldbyname('flag1').value:=flag1;
+            fieldbyname('flag2').value:=flag2;
+            fieldbyname('flag6').value:=flag6;
+            fieldbyname('qty').value:=qty;
+            fieldbyname('tbu').value:=tbu;
+            fieldbyname('lflag').value:=lflag;
+            fieldbyname('cplan').value:=cplan;
+            fieldbyname('fccs').value:=fccs;
+            fieldbyname('flag3').value:=flag3;
+            fieldbyname('tshop').value:=tshop;
+            fieldbyname('cwo').value:=cwo;
+            post;
+          end;
+          //showmessage('22');
+        end;
+        //showmessage('23');
+          with clientdataset3 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            commandtext:='execute procedure sp_calcflag4_1(:x1,:x2)';
+            params[0].asstring:=pline;
+            params[1].asinteger:=seq2;
+            execute;
+          end;
+          with clientdataset3 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            commandtext:='execute procedure sp_calcflag4_1(:x1,:x2)';
+            params[0].asstring:=combobox1.text;
+            params[1].asinteger:=seq1;
+            execute;
+          end;
+          //showmessage('24');
+        //Generate Split QN
+        if tm>encodedate(2008,1,1) then begin
+          //showmessage('30');
+          with clientdataset3 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftinteger,'x4',ptinput);
+            params.createparam(ftdatetime,'x5',ptinput);
+            commandtext:='execute procedure sp_splitqn(:x1,:x2,:x3,:x4,:x5)';
+            params[0].asstring:=pline;
+            params[1].asinteger:=seq2;
+            params[2].asstring:=combobox1.Text;
+            params[3].asinteger:=seq1;
+            params[4].asdatetime:=tm;
+            execute;
+          end;
+          //showmessage('31');
+        end;
+
+      end;
+    end else begin
+      //opt2
+      if spinedit1.value=strtoint(edit1.Text) then begin
+        //
+            with clientdataset1 do begin
+              close;
+              params.clear;
+              params.createparam(ftinteger,'x0',ptinput);
+              params.createparam(ftstring,'x1',ptinput);
+              params.createparam(ftstring,'x2',ptinput);
+              params.createparam(ftstring,'x3',ptinput);
+              params.createparam(ftinteger,'x4',ptinput);
+              commandtext:='update tbl_sop set rqty=rqty+:x0 where j_no=:x1 and j2_job=:x2 and acol=:x3 and rid=:x4 and flag1=''0''';
+              params[0].asinteger:=worksheet1.tblshedule.fieldbyname('scqty').value;
+              params[1].asstring:=worksheet1.tblshedule.fieldbyname('j_no').value;
+              params[2].asstring:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+              params[3].asstring:=worksheet1.tblshedule.fieldbyname('acol').value;
+              params[4].asinteger:=worksheet1.tblshedule.fieldbyname('rid').value;
+              execute;
+            end;
+        //
+        with clientdataset1 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'pline',ptinput);
+          params.createparam(ftinteger,'seq',ptinput);
+          commandtext:='delete from tblshedule where pline=:pline and seq=:seq';
+          params[0].asstring:=pline;
+          params[1].asinteger:=seq2;
+          execute;
+        end;
+        worksheet1.tblshedule.Delete;
+      end else begin
+        //
+            with clientdataset1 do begin
+              close;
+              params.clear;
+              params.createparam(ftinteger,'x0',ptinput);
+              params.createparam(ftstring,'x1',ptinput);
+              params.createparam(ftstring,'x2',ptinput);
+              params.createparam(ftstring,'x3',ptinput);
+              params.createparam(ftinteger,'x4',ptinput);
+              commandtext:='update tbl_sop set rqty=rqty+:x0 where j_no=:x1 and j2_job=:x2 and acol=:x3 and rid=:x4 and flag1=''0''';
+              params[0].asinteger:=spinedit1.Value;
+              params[1].asstring:=worksheet1.tblshedule.fieldbyname('j_no').value;
+              params[2].asstring:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+              params[3].asstring:=worksheet1.tblshedule.fieldbyname('acol').value;
+              params[4].asinteger:=worksheet1.tblshedule.fieldbyname('rid').value;
+              execute;
+            end;
+        //
+        with worksheet1.tblshedule do begin
+          edit;
+          fieldbyname('scqty').value:=fieldbyname('scqty').value-spinedit1.Value;
+          post;
+        end;
+      end;
+    end;
+
+    //showmessage('40');
+    with clientdataset2 do begin
+      {
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='execute procedure sp_updfccs(:x1)';
+      params[0].asstring:=j_no;
+      execute;
+      }
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        params.createparam(ftstring,'x3',ptinput);
+        params.createparam(ftstring,'x4',ptinput);
+        //commandtext:='execute procedure sp_updfccs_null(:x1,:x2)';
+        commandtext:='execute procedure sp_updfccs_rwo_new(:x1,:x2,:x3,:x4)';
+        params[0].asstring:=worksheet1.tblshedule.fieldbyname('j_no').value;
+        params[1].asstring:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+        params[2].asstring:=worksheet1.tblshedule.fieldbyname('rwo').value;
+        params[3].asstring:=worksheet1.tblshedule.fieldbyname('acol').value;
+        //params[1].asstring:='1';
+        execute;
+    end;
+    //showmessage('41');
+  end;
+  close;
+  screen.cursor:=crdefault;
+  {
+    pstr:='4 '+pline+' '+inttostr(seq2)+' '+combobox1.text+' '+edit1.Text+' '+inttostr(spinedit1.Value);
+    if pos('test',lowercase(application.ExeName))>0 then
+    winexec(pchar(extractfilepath(application.exename)+'lwpm_replication_test.exe '+pstr),sw_hide)
+    else winexec(pchar(extractfilepath(application.exename)+'lwpm_replication.exe '+pstr),sw_hide);
+    }
+end;
+
+procedure Tfrmxgsl.ComboBox1Enter(Sender: TObject);
+begin
+  combobox1.items.clear;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct pline from tblline where lactive=1';
+    open;
+    first;
+    while not eof do begin
+      if not fieldbyname('pline').isnull then
+      combobox1.items.add(fieldbyname('pline').value);
+      next;
+    end;
+  end;
+end;
+
+procedure Tfrmxgsl.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmxgsl:=nil;
+end;
+
+procedure Tfrmxgsl.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmxgsl.FormShow(Sender: TObject);
+begin
+  spinedit1.MaxValue:=strtoint(edit1.text);
+  spinedit1.Value:=strtoint(edit1.text);
+end;
+
+procedure Tfrmxgsl.SpeedButton1Click(Sender: TObject);
+begin
+  tm:=now;
+  with clientdataset3 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdatetime,'x3',ptinput);
+    commandtext:='execute procedure sp_genlwo_tmp(:x1,:x2,:x3)';
+    params[0].asstring:=worksheet1.tblshedule.fieldbyname('pline').value;
+    params[1].asinteger:=worksheet1.tblshedule.fieldbyname('seq').value;
+    params[2].asdatetime:=tm;
+    execute;
+  end;
+  if frmcmfp=nil then frmcmfp:=tfrmcmfp.create(nil);
+  with frmcmfp.Query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdatetime,'x3',ptinput);
+    commandtext:='select * from tbl_lwo_tmp where pline=:x1 and seq=:x2 and dt=:x3';
+    params[0].asstring:=worksheet1.tblshedule.fieldbyname('pline').value;
+    params[1].asinteger:=worksheet1.tblshedule.fieldbyname('seq').value;
+    params[2].asdatetime:=tm;
+    open;
+  end;
+  frmcmfp.Label1.Caption:='XGSL';
+  frmcmfp.DBGridEh1.Columns[8].Visible:=false;
+  frmcmfp.DBGridEh1.Columns[9].Visible:=false;
+  frmcmfp.DBGridEh1.Columns[7].Title.caption:='QN Transfer Qty';
+  frmcmfp.show;
+end;
+
+end.
+

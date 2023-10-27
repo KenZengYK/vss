@@ -1,0 +1,633 @@
+unit shpadvice1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, StdCtrls, Buttons, DB, DBTables, DBClient,
+  ppProd, ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppViewr, Txcomp,
+  ppCtrls, ppPrnabl, ppBands, ppCache, ppVar, QExport3, QExport3XLS,
+  ppStrtch, ppMemo, shellapi;
+
+type
+  Tfrmshpadvice1 = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Edit1: TEdit;
+    SpeedButton1: TSpeedButton;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query4: TClientDataSet;
+    Query5: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Label2: TLabel;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText22: TppDBText;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel30: TppLabel;
+    ppLabel31: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel32: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLabel12: TppLabel;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    BitBtn4: TBitBtn;
+    ppLabel26: TppLabel;
+    shpno001: TppLabel;
+    ppLabel27: TppLabel;
+    exfty001: TppLabel;
+    ppSummaryBand1: TppSummaryBand;
+    ppLabel28: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    ppDBCalc3: TppDBCalc;
+    ppDBCalc4: TppDBCalc;
+    ppDBCalc5: TppDBCalc;
+    ppLabel29: TppLabel;
+    ppDBCalc6: TppDBCalc;
+    ppDBCalc7: TppDBCalc;
+    ppDBCalc8: TppDBCalc;
+    ppDBCalc9: TppDBCalc;
+    ppDBCalc10: TppDBCalc;
+    ppShape2: TppShape;
+    BitBtn5: TBitBtn;
+    XLS1: TQExport3XLS;
+    SaveDialog1: TSaveDialog;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    BitBtn6: TBitBtn;
+    CheckBox1: TCheckBox;
+    x1: TppLabel;
+    x3: TppDBText;
+    x2: TppLabel;
+    ppLabel33: TppLabel;
+    ppMemo1: TppMemo;
+    Label3: TLabel;
+    Memo1: TMemo;
+    DataSource2: TDataSource;
+    BitBtn7: TBitBtn;
+    BitBtn8: TBitBtn;
+    ppLabel34: TppLabel;
+    signature001: TppLabel;
+    Query6: TClientDataSet;
+    ppImage1: TppImage;
+    ppLabel35: TppLabel;
+    ppLabel37: TppLabel;
+    ppDBText19: TppDBText;
+    ppLabel36: TppLabel;
+    fty001: TppLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure Edit1Change(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure ppSummaryBand1BeforePrint(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure DBGridEh1Columns2EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmshpadvice1: Tfrmshpadvice1;
+
+implementation
+
+uses mainformu, shpadviceformu, shpadvice2formu, pdninvoiceformu, pdninvoice_lardformu;
+
+{$R *.dfm}
+
+procedure Tfrmshpadvice1.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmshpadvice1:=nil;
+end;
+
+procedure Tfrmshpadvice1.BitBtn1Click(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    commandtext:='update tbl_pdn_shpadvice1 set notepad=:x1 where tplant=:x2 and shpno=:x3';
+    params[0].asstring:=memo1.Text;
+    params[1].asstring:=query1.fieldbyname('tplant').value;
+    params[2].asstring:=query1.fieldbyname('shpno').value;
+    execute;
+  end;
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmshpadvice1.SpeedButton1Click(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    commandtext:='select tplant,yr,wk from tbl_pdn_shpadvice1 where tplant=:x1 and shpno=:x2';
+    params[0].asstring:=query1.fieldbyname('tplant').value;
+    params[1].asstring:=query1.fieldbyname('shpno').value;
+    open;
+  end;
+  if frmshpadvice2=nil then frmshpadvice2:=tfrmshpadvice2.Create(nil);
+  frmshpadvice2.ComboBox1.Text:=query2.fieldbyname('tplant').value;
+  frmshpadvice2.yEdit1.Value:=query2.fieldbyname('yr').Value;
+  frmshpadvice2.wEdit1.Value:=query2.fieldbyname('wk').Value;
+  //if frmshpadvice2=nil then frmshpadvice2:=tfrmshpadvice2.create(nil);
+  //frmshpadvice2.Combobox1.text:=frmshpadvice.ComboBox1.text;
+  //frmshpadvice2.yEdit1.Value:=frmshpadvice.yEdit1.Value;
+  //frmshpadvice2.wEdit1.Value:=frmshpadvice.wEdit1.Value;
+  {
+  with frmshpadvice2.Query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select * from tbl_pdn_shpadvice1 where tplant=:x1 and yr=:x2 and wk=:x3';
+    params[0].asstring:=frmshpadvice.combobox1.text;
+    params[1].asinteger:=frmshpadvice.yEdit1.value;
+    params[2].asinteger:=frmshpadvice.wEdit1.Value;
+    open;
+  end;
+  }
+  frmshpadvice2.Show;
+end;
+
+procedure Tfrmshpadvice1.BitBtn2Click(Sender: TObject);
+begin
+  //
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    commandtext:='select tplant,yr,wk from tbl_pdn_shpadvice1 where tplant=:x1 and shpno=:x2';
+    params[0].asstring:=query1.fieldbyname('tplant').value;
+    params[1].asstring:=query1.fieldbyname('shpno').value;
+    open;
+  end;
+  if frmshpadvice=nil then frmshpadvice:=tfrmshpadvice.Create(nil);
+  frmshpadvice.yEdit1.Value:=query2.fieldbyname('yr').Value;
+  frmshpadvice.wEdit1.Value:=query2.fieldbyname('wk').Value;
+  frmshpadvice.ComboBox1.Text:=query2.fieldbyname('tplant').value;
+  frmshpadvice.BitBtn1.Visible:=false;
+  frmshpadvice.BitBtn2.Visible:=false;
+  frmshpadvice.BitBtn3.Visible:=false;
+  frmshpadvice.BitBtn4.Visible:=true;
+  frmshpadvice.BitBtn5.Visible:=true;
+  frmshpadvice.Show;
+end;
+
+procedure Tfrmshpadvice1.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+   with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    params.createparam(ftinteger,'x4',ptinput);
+    commandtext:='update tbl_pdn_shpadvice2 set inv=:x1 where tplant=:x2 and shpno=:x3 and sseq=:x4';
+    if not query1.fieldbyname('inv').isnull then
+    params[0].asstring:=query1.fieldbyname('inv').value
+    else params[0].asstring:='';
+    params[1].asstring:=query1.fieldbyname('tplant').value;
+    params[2].asstring:=query1.fieldbyname('shpno').value;
+    params[3].asinteger:=query1.fieldbyname('sseq').value;
+    execute;
+   end; 
+  end;
+end;
+
+procedure Tfrmshpadvice1.Edit1Change(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_pdn_shpadvice2 where tplant='''+label2.caption+''' and shpno='''+edit1.text+'''';
+    open;
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select notepad from tbl_pdn_shpadvice1 where tplant='''+label2.caption+''' and shpno='''+edit1.text+'''';
+    open;
+    if not fieldbyname('notepad').isnull then
+    memo1.Text:=fieldbyname('notepad').value else memo1.Lines.Clear;
+  end;
+end;
+
+procedure Tfrmshpadvice1.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmshpadvice1.BitBtn3Click(Sender: TObject);
+var
+  tplant,shpno:string;
+  sseq,i,j:integer;
+begin
+  if DBGridEh1.SelectedRows.Count>0 then begin
+    with DBGridEh1.DataSource.DataSet do begin
+      for i:=0 to DBGridEh1.SelectedRows.Count-1 do begin
+        GotoBookmark(pointer(DBGridEh1.SelectedRows.Items[i]));
+        tplant:=fieldbyname('tplant').Value;
+        shpno:=fieldbyname('shpno').Value;
+        sseq:=fieldbyname('sseq').value;
+        with query2 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftinteger,'x3',ptinput);
+          commandtext:='delete from tbl_pdn_shpadvice2 where tplant=:x1 and shpno=:x2 and sseq=:x3';
+          params[0].asstring:=tplant;
+          params[1].asstring:=shpno;
+          params[2].asinteger:=sseq;
+          execute;
+        end;
+        {
+        with query2 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftinteger,'x3',ptinput);
+          commandtext:='update tbl_pdn_shpadvice2 set sseq=sseq-1 where tplant=:x1 and shpno=:x2 and sseq>=:x3';
+          params[0].asstring:=tplant;
+          params[1].asstring:=shpno;
+          params[2].asinteger:=sseq;
+          execute;
+        end;
+        }
+        application.ProcessMessages;
+      end;
+    end;
+    //--  --
+
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_pdn_shpadvice2 where tplant='''+tplant+''' and shpno='''+shpno+'''';
+      open;
+    end;
+  end else begin
+    if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      tplant:=query1.fieldbyname('tplant').value;
+      shpno:=query1.fieldbyname('shpno').value;
+      sseq:=query1.fieldbyname('sseq').value;
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        commandtext:='delete from tbl_pdn_shpadvice2 where tplant=:x1 and shpno=:x2 and sseq=:x3';
+        params[0].asstring:=tplant;
+        params[1].asstring:=shpno;
+        params[2].asinteger:=sseq;
+        execute;
+      end;
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        commandtext:='update tbl_pdn_shpadvice2 set sseq=sseq-1 where tplant=:x1 and shpno=:x2 and sseq>=:x3';
+        params[0].asstring:=tplant;
+        params[1].asstring:=shpno;
+        params[2].asinteger:=sseq;
+        execute;
+      end;
+    end;
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_pdn_shpadvice2 where tplant='''+tplant+''' and shpno='''+shpno+'''';
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmshpadvice1.BitBtn4Click(Sender: TObject);
+begin
+  bitbtn1click(self);
+  if checkbox1.Checked then begin
+    ppdbpipeline1.DataSource:=datasource1;
+    if not query1.fieldbyname('sseq').isnull then begin
+      with query2 do begin
+        close;
+        params.clear;
+        commandtext:='select exfty from tbl_pdn_shpadvice1 where tplant='''+query1.fieldbyname('tplant').value+''' and shpno='''+query1.fieldbyname('shpno').value+'''';
+        open;
+        if not fieldbyname('exfty').isnull then exfty001.Caption:=formatdatetime('yyyy/MM/dd',fieldbyname('exfty').value)
+        else exfty001.Caption:='';
+      end;
+      shpno001.Caption:=query1.fieldbyname('shpno').value;
+      x1.Visible:=true;
+      x2.Visible:=true;
+      fty001.caption:=query1.fieldbyname('tplant').value;
+      ppReport1.Print;
+    end;
+  end else begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='execute procedure sp_pdn_shpadvice2_clr(:x1,:x2)';
+      params[0].asstring:=query1.fieldbyname('tplant').value;
+      params[1].asstring:=query1.fieldbyname('shpno').value;
+      execute;
+    end;
+    with query5 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_pdn_shpadvice2_tmp where tplant='''+query1.fieldbyname('tplant').value+''' and shpno='''+query1.fieldbyname('shpno').value+''' '
+                  +'order by tplant,shpno,sseq';
+      open;
+    end;
+    ppdbpipeline1.DataSource:=datasource2;
+    if not query5.fieldbyname('sseq').isnull then begin
+      with query2 do begin
+        close;
+        params.clear;
+        commandtext:='select exfty from tbl_pdn_shpadvice1 where tplant='''+query1.fieldbyname('tplant').value+''' and shpno='''+query1.fieldbyname('shpno').value+'''';
+        open;
+        if not fieldbyname('exfty').isnull then exfty001.Caption:=formatdatetime('yyyy/MM/dd',fieldbyname('exfty').value)
+        else exfty001.Caption:='';
+      end;
+      shpno001.Caption:=query1.fieldbyname('shpno').value;
+      x1.Visible:=false;
+      x2.Visible:=false;
+      fty001.Caption:=query1.fieldbyname('tplant').value;
+      ppReport1.Print;
+    end;
+  end;
+end;
+
+procedure Tfrmshpadvice1.BitBtn5Click(Sender: TObject);
+begin
+  if checkbox1.Checked then begin
+    with query5 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select distinct tplant as "Factory",shpno as "Shipping Advice #",sseq as "Item #",'
+                  +'inv as "Invoice #",pdn as "PDN #",voyn as "Manifest #",sopno as "SO #",cust as "Cust Code",'
+                  +'j_no as "Project #",j2_job as "WO #",cstyle as "Cust Style",acol as "Clr Code",cat as "Category",'
+                  +'sqty as "PDN Qty",t4qty as "Actual Shipped Qty",exfty as "PDN plan Ex-fty date",'
+                  +'curn40 as "Currency",uprc as "Unit Price",tprc as "Total Value (HKD)",box as "# of Carton",'
+                  +'shpm as "Ship Mode",cbm as "Volume (CBM)" from tbl_pdn_shpadvice2 where tplant=:x1 and shpno=:x2 '
+                  +'order by tplant,shpno,sseq';
+      params[0].asstring:=query1.fieldbyname('tplant').value;
+      params[1].asstring:=query1.fieldbyname('shpno').value;
+      open;
+      if savedialog1.Execute then begin
+        xls1.FileName:=savedialog1.FileName;
+        xls1.Execute;
+      end;
+    end;
+  end else begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='execute procedure sp_pdn_shpadvice2_clr(:x1,:x2)';
+      params[0].asstring:=query1.fieldbyname('tplant').value;
+      params[1].asstring:=query1.fieldbyname('shpno').value;
+      execute;
+    end;
+    with query5 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select distinct tplant as "Factory",shpno as "Shipping Advice #",sseq as "Item #",'
+                  +'inv as "Invoice #",pdn as "PDN #",voyn as "Manifest #",sopno as "SO #",cust as "Cust Code",'
+                  +'j_no as "Project #",j2_job as "WO #",cstyle as "Cust Style",cat as "Category",'
+                  +'sqty as "PDN Qty",t4qty as "Actual Shipped Qty",exfty as "PDN plan Ex-fty date",'
+                  +'curn40 as "Currency",uprc as "Unit Price",tprc as "Total Value (HKD)",box as "# of Carton",'
+                  +'shpm as "Ship Mode",cbm as "Volume (CBM)" from tbl_pdn_shpadvice2_clr where tplant=:x1 and shpno=:x2 '
+                  +'order by tplant,shpno,sseq';
+      params[0].asstring:=query1.fieldbyname('tplant').value;
+      params[1].asstring:=query1.fieldbyname('shpno').value;
+      open;
+      if savedialog1.Execute then begin
+        xls1.FileName:=savedialog1.FileName;
+        xls1.Execute;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmshpadvice1.ppSummaryBand1BeforePrint(Sender: TObject);
+var
+  uimg:string;
+begin
+  ppMemo1.Lines.Clear;
+  ppMemo1.Text:=memo1.Text;
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select signed from tbl_pdn_shpadvice1 where tplant='''+query1.fieldbyname('tplant').value+''' and shpno='''+query1.fieldbyname('shpno').value+'''';
+    open;
+    if not fieldbyname('signed').isnull then signature001.Caption:=fieldbyname('signed').value
+    else signature001.Caption:='';
+  end;
+  if signature001.Caption>'' then begin
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='select uimg from tbluser where usr='''+signature001.Caption+'''';
+      open;
+      if not fieldbyname('uimg').isnull then uimg:=extractfiledir(application.ExeName)+'\signature\'+fieldbyname('uimg').value
+      else uimg:='';
+    end;
+    if uimg>'' then ppimage1.Picture.LoadFromFile(uimg);
+  end;
+end;
+
+procedure Tfrmshpadvice1.BitBtn6Click(Sender: TObject);
+var
+  str1,str2:string;
+begin
+  str1:=extractfiledir(application.exename);
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct shpno,wk from tbl_pdn_shpadvice1 where tplant='''+query1.fieldbyname('tplant').value+''' and shpno='''+query1.fieldbyname('shpno').value+'''';
+    open;
+  end;
+  str2:=query2.fieldbyname('shpno').value+' '+query2.fieldbyname('wk').asstring;
+  shellexecute(0,'open',pchar(str1+'\dotnet\send email.exe'),pchar(str2),nil,sw_show);
+end;
+
+procedure Tfrmshpadvice1.BitBtn7Click(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    commandtext:='update tbl_pdn_shpadvice1 set signed=:x1 where tplant=:x2 and shpno=:x3';
+    params[0].asstring:=frmmain.combobox1.Text;
+    params[1].asstring:=query1.fieldbyname('tplant').value;
+    params[2].asstring:=query1.fieldbyname('shpno').value;
+    execute;
+  end;
+end;
+
+procedure Tfrmshpadvice1.DBGridEh1Columns2EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+var
+  cust,tplant:string;
+begin
+  if not query1.fieldbyname('inv').isnull then begin
+    tplant:=query1.fieldbyname('tplant').value;
+    //if tplant='FJ' then tplant:='SL';
+    if query1.fieldbyname('inv').value>'' then begin
+      with query3 do begin
+        close;
+        params.clear;
+        commandtext:='select customer from tbl_pdn_m where tplant='''+query1.fieldbyname('tplant').value+''' and pdn='''+query1.fieldbyname('pdn').value+'''';
+        open;
+        if not fieldbyname('customer').isnull then cust:=fieldbyname('customer').value
+        else cust:='';
+      end;
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        params.createparam(ftstring,'x3',ptinput);
+        commandtext:='execute procedure sp_pdn_geninv(:x1,:x2,:x3)';
+        params[0].AsString:=query1.fieldbyname('tplant').value;
+        params[1].AsString:=query1.fieldbyname('inv').value;
+        params[2].asstring:=cust;
+        execute;
+      end;
+      if cust='ETAM' then begin
+        if frmpdninvoice=nil then frmpdninvoice:=tfrmpdninvoice.Create(nil);
+        with frmpdninvoice.Query1 do begin
+          close;
+          params.clear;
+          commandtext:='select * from tbl_pdn_inv where inv='''+query1.fieldbyname('inv').value+''' and tplant='''+tplant+'''';
+          open;
+        end;
+        frmpdninvoice.DBGridEh1.Columns[6].Title.caption:='ITEM No.';
+        frmpdninvoice.DBGridEh1.Columns[7].Visible:=true;
+        frmpdninvoice.DBGridEh1.Columns[9].Visible:=true;
+        frmpdninvoice.Show;
+      end else if (cust='MONO') or (cust='CANA') or (cust='QVCP') or (cust='HBIU') then begin
+        if frmpdninvoice=nil then frmpdninvoice:=tfrmpdninvoice.Create(nil);
+        with frmpdninvoice.Query1 do begin
+          close;
+          params.clear;
+          commandtext:='select * from tbl_pdn_inv where inv='''+query1.fieldbyname('inv').value+''' and tplant='''+tplant+'''';
+          open;
+        end;
+        if cust='CANA' then
+          frmpdninvoice.DBGridEh1.Columns[6].Title.caption:='ITEM No.'
+        else if cust='MONO' then
+          frmpdninvoice.DBGridEh1.Columns[6].Title.caption:='Article No.'
+        else if cust='QVCP' then
+          frmpdninvoice.DBGridEh1.Columns[6].Title.caption:='Style No.';
+        frmpdninvoice.DBGridEh1.Columns[7].Visible:=false;
+        frmpdninvoice.DBGridEh1.Columns[9].Visible:=false;
+        frmpdninvoice.Show;
+        frmpdninvoice.Show;
+      //end else if (cust='SARA') or (cust='HBIU') then begin
+        //
+      end else if (cust='LARD') or (cust='TAIL') or (cust='DAXO') or (cust='ELLO') then begin
+        if frmpdninvoice_lard=nil then frmpdninvoice_lard:=tfrmpdninvoice_lard.Create(nil);
+        with frmpdninvoice_lard.Query1 do begin
+          close;
+          params.clear;
+          commandtext:='select * from tbl_pdn_inv where inv='''+query1.fieldbyname('inv').value+''' and tplant='''+tplant+'''';
+          open;
+        end;
+        frmpdninvoice_lard.Show;
+      end;
+    end;
+  end;
+end;
+
+end.

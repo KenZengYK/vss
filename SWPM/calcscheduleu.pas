@@ -1,0 +1,60 @@
+unit calcscheduleu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Spin, Mask, rxToolEdit, Buttons;
+
+type
+  Tfrmcalcschedule = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    DateEdit1: TDateEdit;
+    SpinEdit1: TSpinEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcalcschedule: Tfrmcalcschedule;
+
+implementation
+uses mainformu, worksheet;
+{$R *.DFM}
+
+procedure Tfrmcalcschedule.BitBtn1Click(Sender: TObject);
+begin
+  screen.cursor:=crhourglass;
+  //if (dateedit1.text<>'    /  /  ') or (dateedit1.text<>'    -  -  ') then begin
+  if dateedit1.Date>0 then begin
+    worksheet1.tblshedule.edit;
+    worksheet1.tblshedule.fieldbyname('cfksjs').value:=spinedit1.value;
+    worksheet1.tblshedule.fieldbyname('cfksrq').value:=dateedit1.date;
+    worksheet1.tblshedule.post;
+    worksheet1.BitBtn1click(self);
+  end;
+  close;
+  screen.cursor:=crdefault;
+end;
+
+procedure Tfrmcalcschedule.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmcalcschedule.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmcalcschedule:=nil;
+end;
+
+end.

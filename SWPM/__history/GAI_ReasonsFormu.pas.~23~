@@ -1,0 +1,218 @@
+unit GAI_ReasonsFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, StdCtrls, Buttons, GridsEh, DBGridEh, ExtCtrls;
+
+type
+  TfrmGAI_Reasons = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn3: TBitBtn;
+    Query4: TClientDataSet;
+    DataSource1: TDataSource;
+    Query1: TClientDataSet;
+    DataSource2: TDataSource;
+    Label1: TLabel;
+    Panel2: TPanel;
+    Label46: TLabel;
+    chkb01: TCheckBox;
+    chkb02: TCheckBox;
+    chkb03: TCheckBox;
+    chkb04: TCheckBox;
+    Query5: TClientDataSet;
+    Query6: TClientDataSet;
+    procedure Query4AfterPost(DataSet: TDataSet);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure query1chk_change(Sender: TField);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmGAI_Reasons: TfrmGAI_Reasons;
+
+implementation
+
+uses mainformu, GAI_ActionlogFormu;
+
+{$R *.dfm}
+
+procedure TfrmGAI_Reasons.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+  if query4.state=dsedit then query4.post;
+  if label1.caption='850GAI' then begin
+    with frmGAI_Actionlog.Query4 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      commandtext:='select * from line_shjs_remarks_new1 where pline=:x1 and seq=:x2 and dt1=:x3 and chk=1 and spe=''SPE''';
+      params[0].asstring:=frmGAI_Actionlog.lblline.caption;
+      params[1].asinteger:=strtoint(frmGAI_Actionlog.label10.caption);
+      params[2].asdate:=frmGAI_Actionlog.dateedit1.date;
+      open;
+    end;
+    //frmGAI_Actionlog.Show;
+  end else if label1.caption='915GAI' then begin
+    with frmGAI_Actionlog.query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftdate,'x4',ptinput);
+      commandtext:='select * from tbl_e915_remarks1 where pline=:x1 and seq=:x2 and sdt1=:x3 and sdt2=:x4 and chk=1';
+      params[0].asstring:=frmGAI_Actionlog.lblline.caption;
+      params[1].asinteger:=strtoint(frmGAI_Actionlog.label10.caption);
+      params[2].asdate:=frmGAI_Actionlog.sdt01.date;
+      params[3].asdate:=frmGAI_Actionlog.sdt02.date;
+      open;
+    end;
+  end;
+  close;
+end;
+
+procedure TfrmGAI_Reasons.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmGAI_Reasons:=nil;
+end;
+
+procedure TfrmGAI_Reasons.FormShow(Sender: TObject);
+var
+  dt1:tdatetime;
+begin
+  if Label1.Caption='850GAI' then Begin
+    Panel2.Visible:=True;
+    if not frmGAI_Actionlog.dbgrideh1.fields[0].isnull then dt1:=frmGAI_Actionlog.dbgrideh1.fields[0].value
+    else dt1:=frmGAI_Actionlog.dateedit1.date;
+    with query5 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      commandtext:='select * from line_shjs_remarks1_sp where pline=:x1 and seq=:x2 and dt1=:x3';
+      params[0].asstring:=frmGAI_Actionlog.lblline.caption;
+      params[1].asinteger:=strtoint(frmGAI_Actionlog.label10.caption);
+      params[2].asdate:=dt1;//dateedit1.date;
+      open;
+    end;
+  end else Panel2.Visible:=False;
+end;
+
+procedure TfrmGAI_Reasons.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('chk').onchange:=query1chk_change;
+end;
+
+procedure TfrmGAI_Reasons.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  str1:='update tbl_e915_remarks1 set ';
+  if not query1.fieldbyname('oth').isnull then
+  str1:=str1+'oth='''+query1.fieldbyname('oth').asstring+''','
+  else str1:=str1+'oth='''',';
+
+  //{
+  if not query1.fieldbyname('dt1').isnull then begin
+    str1:=str1+'dt1='''+formatdatetime('yyyy/mm/dd',query1.fieldbyname('dt1').value)+''',';
+  end else str1:=str1+'dt1=null,';
+
+  if not query1.fieldbyname('cmp_dt').isnull then begin
+    str1:=str1+'cmp_dt='''+formatdatetime('yyyy/mm/dd',query1.fieldbyname('cmp_dt').value)+''',';
+  end else str1:=str1+'cmp_dt=null,';
+  //}
+  if not query1.fieldbyname('target_cmpdt').isnull then begin
+    str1:=str1+'target_cmpdt='''+formatdatetime('yyyy/mm/dd',query1.fieldbyname('target_cmpdt').value)+''',';
+  end else str1:=str1+'target_cmpdt=null,';
+
+  if not query1.fieldbyname('cmp1').isnull then begin
+    if query1.fieldbyname('cmp1').value=true then
+    str1:=str1+'cmp1=1,' else str1:=str1+'cmp1=0,';
+  end else str1:=str1+'cmp1=0,';
+  if not query1.fieldbyname('chk').isnull then begin
+    if query1.fieldbyname('chk').value=true then
+    str1:=str1+'chk=1 ' else str1:=str1+'chk=0 ';
+  end else str1:=str1+'chk=0 ';
+  str1:=str1+'where pline='''+query1.fieldbyname('pline').value+''' ';
+  str1:=str1+'and seq='+query1.fieldbyname('seq').asstring+' ';
+  str1:=str1+'and sdt1='''+formatdatetime('yyyy/MM/dd',query1.fieldbyname('sdt1').value)+''' ';
+  str1:=str1+'and sdt2='''+formatdatetime('yyyy/MM/dd',query1.fieldbyname('sdt2').value)+''' ';
+  str1:=str1+'and rseq='+query1.fieldbyname('rseq').asstring;
+  if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+end;
+
+procedure TfrmGAI_Reasons.query1chk_change(Sender: TField);
+begin
+  if frmGAI_Actionlog.dateedit1.date=0 then frmGAI_Actionlog.dateedit1.date:=date;
+  if not query1.fieldbyname('chk').isnull then begin
+    if query1.fieldbyname('chk').value=true then begin
+      query1.fieldbyname('dt1').value:=frmGAI_Actionlog.dateedit1.date;
+    end else query1.fieldbyname('dt1').value:=null;
+  end;
+end;
+
+procedure TfrmGAI_Reasons.Query4AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  str1:='update line_shjs_remarks_new1 set ';
+  if not query4.fieldbyname('opt').isnull then
+  str1:=str1+'opt='+query4.fieldbyname('opt').asstring+','
+  else str1:=str1+'opt=null,';
+  if not query4.fieldbyname('rs').isnull then
+  str1:=str1+'rs='+query4.fieldbyname('rs').asstring+','
+  else str1:=str1+'rs=null,';
+  if not query4.fieldbyname('rsbl').isnull then
+  str1:=str1+'rsbl='+query4.fieldbyname('rsbl').asstring+','
+  else str1:=str1+'rsbl=null,';
+  if not query4.fieldbyname('js').isnull then
+  str1:=str1+'js='+query4.fieldbyname('js').asstring+','
+  else str1:=str1+'js=null,';
+  if not query4.fieldbyname('jsbl').isnull then
+  str1:=str1+'jsbl='+query4.fieldbyname('jsbl').asstring+','
+  else str1:=str1+'jsbl=null,';
+  if not query4.fieldbyname('oth').isnull then
+  str1:=str1+'oth='''+query4.fieldbyname('oth').asstring+''','
+  else str1:=str1+'oth='''',';
+  if not query4.fieldbyname('wip1').isnull then begin
+    if query4.fieldbyname('wip1').value=true then
+    str1:=str1+'wip1=1,' else str1:=str1+'wip1=0,';
+  end else str1:=str1+'wip1=0,';
+  if not query4.fieldbyname('target_cmpdt').isnull then begin
+    str1:=str1+'target_cmpdt='''+formatdatetime('yyyy/mm/dd',query4.fieldbyname('target_cmpdt').value)+''',';
+  end else str1:=str1+'target_cmpdt=null,';
+  if not query4.fieldbyname('act_cmpdt').isnull then begin
+    str1:=str1+'act_cmpdt='''+formatdatetime('yyyy/mm/dd',query4.fieldbyname('act_cmpdt').value)+''',';
+  end else str1:=str1+'act_cmpdt=null,';
+  if not query4.fieldbyname('cmp1').isnull then begin
+    if query4.fieldbyname('cmp1').value=true then
+    str1:=str1+'cmp1=1,' else str1:=str1+'cmp1=0,';
+  end else str1:=str1+'wip1=0,';
+  if not query4.fieldbyname('chk').isnull then begin
+    if query4.fieldbyname('chk').value=true then
+    str1:=str1+'chk=1 ' else str1:=str1+'chk=0 ';
+  end else str1:=str1+'chk=0 ';
+  str1:=str1+'where pline='''+query4.fieldbyname('pline').value+''' ';
+  str1:=str1+'and seq='+query4.fieldbyname('seq').asstring+' ';
+  str1:=str1+'and dt1='''+formatdatetime('yyyy/MM/dd',query4.fieldbyname('dt1').value)+''' ';
+  str1:=str1+'and spe='''+query4.fieldbyname('spe').value+''' ';
+  str1:=str1+'and rseq='+query4.fieldbyname('rseq').asstring;
+  if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+end;
+
+end.

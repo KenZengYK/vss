@@ -1,0 +1,89 @@
+alter table tbl_rtrs2 drop dt11,drop dt12,drop dt13,drop dt14,drop dt15,drop dt16,drop dt17,drop dt18,drop dt19,drop dt20,
+drop tm11,drop tm12,drop tm13,drop tm14,drop tm15,drop tm16,drop tm17,drop tm18,drop tm19,drop tm20,
+drop pdn11,drop pdn12,drop pdn13,drop pdn14,drop pdn15,drop pdn16,drop pdn17,drop pdn18,drop pdn19,drop pdn20,
+drop bcn11,drop bcn12,drop bcn13,drop bcn14,drop bcn15,drop bcn16,drop bcn17,drop bcn18,drop bcn19,drop bcn20,
+drop q11,drop q12,drop q13,drop q14,drop q15,drop q16,drop q17,drop q18,drop q19,drop q20
+
+
+
+
+
+CREATE PROCEDURE SP_RTRS1 (
+    I_TPLANT VARCHAR(10) CHARACTER SET NONE,
+    I_JNO VARCHAR(20) CHARACTER SET NONE,
+    I_JOB VARCHAR(10) CHARACTER SET NONE,
+    I_RWO VARCHAR(10) CHARACTER SET NONE)
+AS
+DECLARE VARIABLE V_ACOL VARCHAR(3);
+DECLARE VARIABLE V_DID INTEGER;
+DECLARE VARIABLE V_SIZ VARCHAR(5);
+DECLARE VARIABLE V_PSIZ VARCHAR(10);
+DECLARE VARIABLE V_CUP VARCHAR(5);
+DECLARE VARIABLE V_QTY INTEGER;
+DECLARE VARIABLE V_TQTY INTEGER;
+DECLARE VARIABLE V_TTQTY INTEGER;
+DECLARE VARIABLE V_TSQTY INTEGER;
+DECLARE VARIABLE V_TPQTY INTEGER;
+DECLARE VARIABLE V_TFQTY INTEGER;
+DECLARE VARIABLE V_TEQTY INTEGER;
+DECLARE VARIABLE V_TIQTY INTEGER;
+DECLARE VARIABLE V_DID1 INTEGER;
+begin
+  /* Procedure Text */
+  for select distinct acol,did,siz,cup,psiz,sum(qty),sum(tqty),sum(ttqty),sum(tsqty),sum(tpqty),sum(tfqty),sum(teqty),sum(tiqty)
+  from tbl_lwo where j_no=:i_jno and j2_job=:i_job and rwo=:i_rwo group by acol,did,siz,cup,psiz
+  into :v_acol,:v_did,:v_siz,:v_cup,:v_psiz,:v_qty,:v_tqty,:v_ttqty,:v_tsqty,:v_tpqty,:v_tfqty,:v_teqty,:v_tiqty do begin
+    v_did1=-1;
+    select did from tbl_rtrs1 where tplant=:i_tplant and j_no=:i_jno and j2_job=:i_job and rwo=:i_rwo
+    and did=:v_did and psiz=:v_psiz into :v_did1;
+    if (v_did1 is null) then v_did1=-1;
+    if (v_did1>-1) then update tbl_rtrs1 set qty=:v_qty,tqty=:v_tqty,ttqty=:v_ttqty,tsqty=:v_tsqty,tpqty=:v_tpqty,tfqty=:v_tfqty,teqty=:v_teqty,tiqty=:v_tiqty
+      where tplant=:i_tplant and j_no=:i_jno and j2_job=:i_job and rwo=:i_rwo and did=:v_did and psiz=:v_psiz;
+    else insert into tbl_rtrs1(tplant,j_no,j2_job,rwo,acol,did,siz,cup,psiz,qty,tqty,ttqty,tsqty,tpqty,tfqty,teqty,tiqty,cmpf,cmpe,cmpi)
+      values(:i_tplant,:i_jno,:i_job,:i_rwo,:v_acol,:v_did,:v_siz,:v_cup,:v_psiz,:v_qty,:v_tqty,:v_ttqty,:v_tsqty,:v_tpqty,:v_tfqty,:v_teqty,:v_tiqty,0,0,0);
+  end
+
+  suspend;
+end
+
+
+
+
+
+CREATE PROCEDURE SP_RTRS2 (
+    I_TPLANT VARCHAR(10) CHARACTER SET NONE,
+    I_JNO VARCHAR(20) CHARACTER SET NONE,
+    I_JOB VARCHAR(10) CHARACTER SET NONE,
+    I_RWO VARCHAR(10) CHARACTER SET NONE,
+    I_TTYPE VARCHAR(10) CHARACTER SET NONE)
+AS
+DECLARE VARIABLE V_ACOL VARCHAR(3);
+DECLARE VARIABLE V_DID INTEGER;
+DECLARE VARIABLE V_SIZ VARCHAR(5);
+DECLARE VARIABLE V_PSIZ VARCHAR(10);
+DECLARE VARIABLE V_CUP VARCHAR(5);
+DECLARE VARIABLE V_QTY INTEGER;
+DECLARE VARIABLE V_TQTY INTEGER;
+DECLARE VARIABLE V_TTQTY INTEGER;
+DECLARE VARIABLE V_TSQTY INTEGER;
+DECLARE VARIABLE V_TPQTY INTEGER;
+DECLARE VARIABLE V_DID1 INTEGER;
+begin
+  /* Procedure Text */
+  update tbl_rtrs2 set flg='1' where tplant=:i_tplant and j_no=:i_jno and j2_job=:i_job and rwo=:i_rwo and ttype=:i_ttype;
+  for select distinct acol,did,siz,cup,psiz,qty,tqty,ttqty,tsqty,tpqty from tbl_rtrs1
+  into :v_acol,:v_did,:v_siz,:v_cup,:v_psiz,:v_qty,:v_tqty,:v_ttqty,:v_tsqty,:v_tpqty do begin
+    v_did1=-1;
+    select did from tbl_rtrs2 where tplant=:i_tplant and j_no=:i_jno and j2_job=:i_job and rwo=:i_rwo
+    and did=:v_did and psiz=:v_psiz and ttype=:i_ttype into :v_did1;
+    if (v_did1 is null) then v_did1=-1;
+    if (v_did1>-1) then update tbl_rtrs2 set qty=:v_qty,tqty=:v_tqty,ttqty=:v_ttqty,tsqty=:v_tsqty,tpqty=:v_tpqty,flg='0'
+      where tplant=:i_tplant and j_no=:i_jno and j2_job=:i_job and rwo=:i_rwo and did=:v_did and psiz=:v_psiz and ttype=:i_ttype;
+    else insert into tbl_rtrs2(tplant,j_no,j2_job,rwo,acol,did,siz,cup,psiz,qty,tqty,ttqty,tsqty,tpqty,ttype,flg)
+      values(:i_tplant,:i_jno,:i_job,:i_rwo,:v_acol,:v_did,:v_siz,:v_cup,:v_psiz,:v_qty,:v_tqty,:v_ttqty,:v_tsqty,:v_tpqty,:i_ttype,'0');
+  end
+
+  delete from tbl_rtrs2 where flg='1' and j_no=:i_tplant and j2_job=:i_job and rwo=:i_rwo and ttype=:i_ttype;
+
+  suspend;
+end

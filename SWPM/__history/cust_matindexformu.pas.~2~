@@ -1,0 +1,33 @@
+unit cust_matindexformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, StdCtrls, Buttons, GridsEh, DBGridEh;
+
+type
+  Tfrmcust_matindex = class(TForm)
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcust_matindex: Tfrmcust_matindex;
+
+implementation
+
+uses mainformu, custformu;
+
+{$R *.dfm}
+
+end.

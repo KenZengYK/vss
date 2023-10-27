@@ -1,0 +1,776 @@
+unit mwfformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGridEh, ExtCtrls, StdCtrls, Mask, DBCtrls, DBCtrlsEh,
+  Buttons, DB, DBClient, ppProd, ppClass, ppReport, ppComm, ppRelatv, ppDB,
+  ppDBPipe, ppBands, ppCache, ppCtrls, ppVar, ppPrnabl, ppViewr, Txcomp,
+  ppStrtch, ppMemo, GridsEh;
+
+type
+  Tfrmmwf = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBDateTimeEditEh1: TDBDateTimeEditEh;
+    Label4: TLabel;
+    DBEdit3: TDBEdit;
+    SpeedButton1: TSpeedButton;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    Query5: TClientDataSet;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    DataSource2: TDataSource;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn7: TBitBtn;
+    Label5: TLabel;
+    DBEdit4: TDBEdit;
+    Query6: TClientDataSet;
+    Query7: TClientDataSet;
+    Query8: TClientDataSet;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    DataSource3: TDataSource;
+    Edit1: TEdit;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppDBPipeline2: TppDBPipeline;
+    ppLabel3: TppLabel;
+    ppDBText2: TppDBText;
+    ppLabel4: TppLabel;
+    ppDBText3: TppDBText;
+    ppLabel5: TppLabel;
+    ppDBText4: TppDBText;
+    ppLabel6: TppLabel;
+    ppDBText5: TppDBText;
+    ppLabel7: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel8: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppShape1: TppShape;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppLabel12: TppLabel;
+    ppDBText8: TppDBText;
+    ppLabel13: TppLabel;
+    ppDBText9: TppDBText;
+    ppLabel14: TppLabel;
+    ppDBText10: TppDBText;
+    ppLabel15: TppLabel;
+    ppDBText11: TppDBText;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppSummaryBand1: TppSummaryBand;
+    ppLabel2: TppLabel;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppShape2: TppShape;
+    ppLabel16: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppShape3: TppShape;
+    ppMemo1: TppMemo;
+    ttl001: TppLabel;
+    ttl002: TppLabel;
+    ttl003: TppLabel;
+    ttl004: TppLabel;
+    ttl005: TppLabel;
+    ttl006: TppLabel;
+    Label6: TLabel;
+    DBEdit1: TDBEdit;
+    ppLabel24: TppLabel;
+    ppDBText1: TppDBText;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppLabel29: TppLabel;
+    ppLabel30: TppLabel;
+    ttl007: TppLabel;
+    ppLabel31: TppLabel;
+    ppLabel32: TppLabel;
+    ppLabel33: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel35: TppLabel;
+    ppLabel36: TppLabel;
+    ttl008: TppLabel;
+    ttl009: TppLabel;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLabel17: TppLabel;
+    ppLabel19: TppLabel;
+    ov002: TppLabel;
+    Query10: TClientDataSet;
+    DataSource4: TDataSource;
+    BitBtn8: TBitBtn;
+    BitBtn9: TBitBtn;
+    BitBtn10: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query2NewRecord(DataSet: TDataSet);
+    procedure Query2AfterPost(DataSet: TDataSet);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure DBGridEh1Enter(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure Query3NewRecord(DataSet: TDataSet);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit1Exit(Sender: TObject);
+    procedure DataSource2DataChange(Sender: TObject; Field: TField);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure DBGridEh1Columns5EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure Query3AfterPost(DataSet: TDataSet);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppGroupFooterBand1BeforePrint(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmmwf: Tfrmmwf;
+
+implementation
+
+uses mainformu, mwfenqformu, mwfskillformu, wfprocessformu;
+
+{$R *.dfm}
+
+procedure Tfrmmwf.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmmwf:=nil;
+end;
+
+procedure Tfrmmwf.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query5 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='select * from tblmwf where pline=:x1';
+      params[0].asstring:=query1.fieldbyname('pline').value;
+      open;
+      if not fieldbyname('pline').isnull then begin
+        with query6 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftdate,'x3',ptinput);
+          params.createparam(ftfloat,'x4',ptinput);
+          params.createparam(ftfloat,'x6',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          commandtext:='update tblmwf set tplant=:x1,thead=:x2,crdt=:x3,workert=:x4,workero=:x6 where pline=:x5';
+          if not query1.fieldbyname('tplant').isnull then
+          params[0].asstring:=query1.fieldbyname('tplant').value
+          else params[0].asstring:='SL';
+          if not query1.fieldbyname('thead').isnull then
+          params[1].asstring:=query1.fieldbyname('thead').value
+          else params[1].asstring:='';
+          if not query1.fieldbyname('crdt').isnull then
+          params[2].asdate:=query1.fieldbyname('crdt').value;
+          if not query1.fieldbyname('workert').isnull then
+          params[3].asfloat:=query1.fieldbyname('workert').value
+          else params[3].asfloat:=0;
+          if not query1.fieldbyname('workero').isnull then
+          params[4].asfloat:=query1.fieldbyname('workero').value
+          else params[4].asfloat:=0;
+          params[5].asstring:=query1.fieldbyname('pline').value;
+          execute;
+        end;
+      end else begin
+        with query6 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftdate,'x3',ptinput);
+          params.createparam(ftfloat,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftfloat,'x6',ptinput);
+          commandtext:='insert into tblmwf(tplant,thead,crdt,workert,pline,workero) values(:x1,:x2,:x3,:x4,:x5,:x6)';
+          if not query1.fieldbyname('tplant').isnull then
+          params[0].asstring:=query1.fieldbyname('tplant').value
+          else params[0].asstring:='SL';
+          if not query1.fieldbyname('thead').isnull then
+          params[1].asstring:=query1.fieldbyname('thead').value
+          else params[1].asstring:='';
+          if not query1.fieldbyname('crdt').isnull then
+          params[2].asdate:=query1.fieldbyname('crdt').value;
+          if not query1.fieldbyname('workert').isnull then
+          params[3].asfloat:=query1.fieldbyname('workert').value
+          else params[3].asfloat:=0;
+          params[4].asstring:=query1.fieldbyname('pline').value;
+          if not query1.fieldbyname('workero').isnull then
+          params[5].asfloat:=query1.fieldbyname('workero').value
+          else params[5].asfloat:=0;
+          execute;
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmmwf.DataSource1DataChange(Sender: TObject; Field: TField);
+begin
+  if not query1.fieldbyname('pline').isnull then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='select * from tblmwfid where pline=:x1';
+      params[0].asstring:=query1.fieldbyname('pline').value;
+      open;
+    end;
+  end else query1.close;
+end;
+
+procedure Tfrmmwf.Query1NewRecord(DataSet: TDataSet);
+begin
+  query1.fieldbyname('pline').value:='';
+  query1.fieldbyname('crdt').value:=date;
+  query1.fieldbyname('tplant').value:='SL';
+  query1.fieldbyname('workert').value:=0;
+end;
+
+procedure Tfrmmwf.BitBtn1Click(Sender: TObject);
+begin
+  if not query1.Active then begin
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tblmwf where pline=''''';
+      open;
+    end;
+  end;
+  edit1.SetFocus;
+  query1.append;
+end;
+
+procedure Tfrmmwf.Query2NewRecord(DataSet: TDataSet);
+begin
+  query2.fieldbyname('pline').value:=query1.fieldbyname('pline').value;
+  query2.fieldbyname('mwfid').value:='';
+  query2.fieldbyname('mwfdt').value:=date;
+end;
+
+procedure Tfrmmwf.Query2AfterPost(DataSet: TDataSet);
+begin
+ if query2.ApplyUpdates(-1)>0 then begin
+  with query5 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    commandtext:='select * from tblmwfid where pline=:x1 and mwfid=:x2';
+    params[0].asstring:=query2.fieldbyname('pline').value;
+    params[1].asstring:=query2.fieldbyname('mwfid').value;
+    open;
+    if not fieldbyname('mwfid').isnull then begin
+      with query6 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        params.createparam(ftstring,'x3',ptinput);
+        params.createparam(ftdate,'x6',ptinput);
+        params.createparam(ftstring,'x7',ptinput);
+        params.createparam(ftstring,'x8',ptinput);
+        params.createparam(ftstring,'x9',ptinput);
+        params.createparam(ftstring,'x4',ptinput);
+        params.createparam(ftstring,'x5',ptinput);
+        commandtext:='update tblmwfid set mwfna=:x1,mwfdt=:x2,mwfcp=:x3,mwfdt1=:x6,mwfarea=:x7,mwfsta=:x8,mwfstt=:x9 where pline=:x4 and mwfid=:x5';
+        if not query2.fieldbyname('mwfna').isnull then
+        params[0].asstring:=query2.fieldbyname('mwfna').value
+        else params[0].asstring:='';
+        if not query2.fieldbyname('mwfdt').isnull then
+        params[1].asdate:=query2.fieldbyname('mwfdt').value;
+        if not query2.fieldbyname('mwfcp').isnull then
+        params[2].asstring:=query2.fieldbyname('mwfcp').value
+        else params[2].asstring:='';
+        if not query2.fieldbyname('mwfdt1').isnull then
+        params[3].asdate:=query2.fieldbyname('mwfdt1').value;
+        if not query2.fieldbyname('mwfarea').isnull then
+        params[4].asstring:=query2.fieldbyname('mwfarea').value
+        else params[4].asstring:='';
+        if not query2.fieldbyname('mwfsta').isnull then
+        params[5].asstring:=query2.fieldbyname('mwfsta').value
+        else params[5].asstring:='';
+        if not query2.fieldbyname('mwfstt').isnull then
+        params[6].asstring:=query2.fieldbyname('mwfstt').value
+        else params[6].asstring:='';
+        params[7].asstring:=query2.fieldbyname('pline').value;
+        params[8].asstring:=query2.fieldbyname('mwfid').value;
+        execute;
+      end;
+    end else begin
+      with query6 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        params.createparam(ftstring,'x3',ptinput);
+        params.createparam(ftstring,'x4',ptinput);
+        params.createparam(ftstring,'x5',ptinput);
+        params.createparam(ftdate,'x6',ptinput);
+        params.createparam(ftstring,'x7',ptinput);
+        params.createparam(ftstring,'x8',ptinput);
+        params.createparam(ftstring,'x9',ptinput);
+        commandtext:='insert into tblmwfid(mwfna,mwfdt,mwfcp,pline,mwfid,mwfdt1,mwfarea,mwfsta,mwfstt) values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8,:x9)';
+        if not query2.fieldbyname('mwfna').isnull then
+        params[0].asstring:=query2.fieldbyname('mwfna').value
+        else params[0].asstring:='';
+        if not query2.fieldbyname('mwfdt').isnull then
+        params[1].asdate:=query2.fieldbyname('mwfdt').value;
+        if not query2.fieldbyname('mwfcp').isnull then
+        params[2].asstring:=query2.fieldbyname('mwfcp').value
+        else params[2].asstring:='';
+        params[3].asstring:=query2.fieldbyname('pline').value;
+        params[4].asstring:=query2.fieldbyname('mwfid').value;
+        if not query2.fieldbyname('mwfdt1').isnull then
+        params[5].asdate:=query2.fieldbyname('mwfdt1').value;
+        if not query2.fieldbyname('mwfarea').isnull then
+        params[6].asstring:=query2.fieldbyname('mwfarea').value
+        else params[6].asstring:='';
+        if not query2.fieldbyname('mwfsta').isnull then
+        params[7].asstring:=query2.fieldbyname('mwfsta').value
+        else params[7].asstring:='';
+        if not query2.fieldbyname('mwfstt').isnull then
+        params[8].asstring:=query2.fieldbyname('mwfstt').value
+        else params[8].asstring:='';
+        execute;
+      end;
+    end;
+  end;
+ end;
+  with query4 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    commandtext:='select count(*) as c1 from tblmwfid where pline=:x1';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    open;
+    if not fieldbyname('c1').isnull then begin
+      with query1 do begin
+        edit;
+        fieldbyname('workert').value:=query4.fieldbyname('c1').value;
+        post;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmmwf.BitBtn3Click(Sender: TObject);
+begin
+  dbgrideh1.SetFocus;
+  dbgrideh1.SelectedIndex:=0;
+  query2.Append;
+end;
+
+procedure Tfrmmwf.BitBtn5Click(Sender: TObject);
+begin
+  if (query1.state=dsedit) or (query1.state=dsinsert) then query1.post;
+  if (query2.state=dsedit) or (query2.state=dsinsert) then query2.post;
+  if (query3.state=dsedit) or (query3.state=dsinsert) then query3.post;
+end;
+
+procedure Tfrmmwf.BitBtn2Click(Sender: TObject);
+var
+  chdcount:integer;
+begin
+  if query1.Active then begin
+    with query4 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='select count(*) as c1 from tblmwfid where pline=:x1';
+      params[0].asstring:=query1.fieldbyname('pline').value;
+      open;
+      if not fieldbyname('c1').isnull then begin
+        if fieldbyname('c1').value>0 then begin
+          showmessage('There are some workforces in this unit, can not delete it!');
+        end else begin
+          if application.MessageBox('Want to delete this unit?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+            with query5 do begin
+              close;
+              params.clear;
+              params.CreateParam(ftstring,'x1',ptinput);
+              commandtext:='delete from tblmwf where pline=:x1';
+              params[0].asstring:=query1.fieldbyname('pline').value;
+              execute;
+            end;
+            query1.Delete;
+          end;
+        end;
+      end else begin
+        if application.MessageBox('Want to delete this unit?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+          with query5 do begin
+            close;
+            params.clear;
+            params.CreateParam(ftstring,'x1',ptinput);
+            commandtext:='delete from tblmwf where pline=:x1';
+            params[0].asstring:=query1.fieldbyname('pline').value;
+            execute;
+          end;
+          query1.Delete;
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmmwf.BitBtn4Click(Sender: TObject);
+begin
+  if query2.Active then begin
+    if application.MessageBox('Want to delete this workforce?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      with query5 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        commandtext:='delete from tblmwfop where pline=:x1 and mwfid=:x2';
+        params[0].asstring:=query2.fieldbyname('pline').value;
+        params[1].asstring:=query2.fieldbyname('mwfid').value;
+        execute;
+      end;
+      with query5 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        commandtext:='delete from tblmwfid where pline=:x1 and mwfid=:x2';
+        params[0].asstring:=query2.fieldbyname('pline').value;
+        params[1].asstring:=query2.fieldbyname('mwfid').value;
+        execute;
+      end;
+      query2.delete;
+      with query4 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        commandtext:='select count(*) as c1 from tblmwfid where pline=:x1';
+        params[0].asstring:=query1.fieldbyname('pline').value;
+        open;
+        if not fieldbyname('c1').isnull then begin
+          with query1 do begin
+            edit;
+            fieldbyname('workert').value:=query4.fieldbyname('c1').value;
+            post;
+          end;
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmmwf.DBGridEh1Enter(Sender: TObject);
+begin
+  if (query1.state=dsedit) or (query1.state=dsinsert) then query1.post;
+end;
+
+procedure Tfrmmwf.BitBtn6Click(Sender: TObject);
+begin
+  if (query1.state=dsedit) or (query1.state=dsinsert) then query1.post;
+  if (query2.state=dsedit) or (query2.state=dsinsert) then query2.post;
+  if (query3.state=dsedit) or (query3.state=dsinsert) then query3.post;
+  with query10 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tblmwf a,tblmwfid b where a.pline=b.pline and a.pline='''+query1.fieldbyname('pline').value+''' order by a.pline,b.mwfid';
+    open;
+    if not fieldbyname('pline').isnull then ppReport1.Print;
+  end;
+  //if not query1.fieldbyname('pline').isnull then ppReport1.Print;
+end;
+
+procedure Tfrmmwf.Query3NewRecord(DataSet: TDataSet);
+var
+  seq:integer;
+begin
+  with query5 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq) as s1 from tblmwfop';
+    open;
+    if not fieldbyname('s1').isnull then seq:=fieldbyname('s1').value+1 else seq:=1;
+  end;
+  query3.fieldbyname('pline').value:=query2.fieldbyname('pline').value;
+  query3.fieldbyname('mwfid').value:=query2.fieldbyname('mwfid').value;
+  query3.fieldbyname('seq').value:=seq;
+end;
+
+procedure Tfrmmwf.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then begin
+    edit1exit(self);
+  end;
+end;
+
+procedure Tfrmmwf.Edit1Exit(Sender: TObject);
+begin
+  if edit1.text>'' then begin
+    with query5 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='select * from tblmwf where pline=:x1';
+      params[0].asstring:=edit1.text;
+      open;
+      if fieldbyname('pline').isnull then begin
+        with query6 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.CreateParam(ftstring,'x2',ptinput);
+          params.createparam(ftdate,'x3',ptinput);
+          params.createparam(ftfloat,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          commandtext:='insert into tblmwf(pline,tplant,crdt,workert,thead) values(:x1,:x2,:x3,:x4,:x5)';
+          params[0].asstring:=edit1.text;
+          params[1].asstring:='SL';
+          params[2].asdate:=date;
+          params[3].asfloat:=0;
+          params[4].asstring:='';
+          execute;
+        end;
+      end;
+    end;
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='select * from tblmwf where pline=:x1';
+      params[0].asstring:=edit1.text;
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmmwf.DataSource2DataChange(Sender: TObject; Field: TField);
+begin
+  if not query2.FieldByName('mwfid').isnull then begin
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from tblmwfop where pline=:x1 and mwfid=:x2';
+      params[0].asstring:=query2.fieldbyname('pline').value;
+      params[1].asstring:=query2.fieldbyname('mwfid').value;
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmmwf.SpeedButton1Click(Sender: TObject);
+begin
+  if frmmwfenq=nil then frmmwfenq:=tfrmmwfenq.create(nil);
+  with frmmwfenq.Query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tblmwf';
+    open;
+  end;
+  frmmwfenq.Show;
+end;
+
+procedure Tfrmmwf.DBGridEh1Columns5EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+begin
+  if query2.active then begin
+    if not query2.fieldbyname('mwfid').isnull then begin
+      if frmmwfskill=nil then frmmwfskill:=tfrmmwfskill.Create(nil);
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        commandtext:='select * from tblmwfop where pline=:x1 and mwfid=:x2';
+        params[0].asstring:=query2.fieldbyname('pline').value;
+        params[1].asstring:=query2.fieldbyname('mwfid').value;
+        open;
+      end;
+      frmmwfskill.Show;
+    end;
+  end;
+end;
+
+procedure Tfrmmwf.Query3AfterPost(DataSet: TDataSet);
+begin
+  if query3.ApplyUpdates(-1)>0 then begin
+    with query5 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select seq from tblmwfop where seq=:x1';
+      params[0].asinteger:=query3.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('seq').IsNull then begin
+        with query6 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftfloat,'x3',ptinput);
+          params.createparam(ftinteger,'x4',ptinput);
+          commandtext:='update tblmwfop set mwfmc=:x1,mwfop=:x2,mwfmtm=:x3 where seq=:x4';
+          if not query3.fieldbyname('mwfmc').isnull then
+          params[0].AsString:=query3.fieldbyname('mwfmc').value
+          else params[0].asstring:='';
+          if not query3.fieldbyname('mwfop').isnull then
+          params[1].asstring:=query3.fieldbyname('mwfop').value
+          else params[1].asstring:='';
+          if not query3.fieldbyname('mwfmtm').isnull then
+          params[2].asfloat:=query3.fieldbyname('mwfmtm').value
+          else params[2].asfloat:=0;
+          params[3].asinteger:=query3.fieldbyname('seq').value;
+          execute;
+        end;
+      end else begin
+        with query6 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftfloat,'x3',ptinput);
+          params.createparam(ftinteger,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftstring,'x6',ptinput);
+          commandtext:='insert into tblmwfop(mwfmc,mwfop,mwfmtm,seq,pline,mwfid) values(:x1,:x2,:x3,:x4,:x5,:x6)';
+          if not query3.fieldbyname('mwfmc').isnull then
+          params[0].AsString:=query3.fieldbyname('mwfmc').value
+          else params[0].asstring:='';
+          if not query3.fieldbyname('mwfop').isnull then
+          params[1].asstring:=query3.fieldbyname('mwfop').value
+          else params[1].asstring:='';
+          if not query3.fieldbyname('mwfmtm').isnull then
+          params[2].asfloat:=query3.fieldbyname('mwfmtm').value
+          else params[2].asfloat:=0;
+          params[3].asinteger:=query3.fieldbyname('seq').value;
+          params[4].asstring:=query3.fieldbyname('pline').value;
+          params[5].asstring:=query3.fieldbyname('mwfid').value;
+          execute;
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmmwf.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmmwf.ppGroupFooterBand1BeforePrint(Sender: TObject);
+var
+  s1,s2,s3,s4,s5:double;
+begin
+  with query5 do begin
+    close;
+    params.clear;
+    commandtext:='select sum(workert) as s1,sum(workero) as s2,sum(gy) as s3 from tblline where tplant='''+query1.fieldbyname('tplant').value+''' and tshop>''''';
+    open;
+    s1:=fieldbyname('s1').value;
+    s2:=fieldbyname('s2').value;
+    s3:=fieldbyname('s3').value;
+  end;
+  s4:=query10.fieldbyname('workero').value;
+  s5:=query10.fieldbyname('workert').value;
+  ttl001.Caption:=formatfloat('#0',s1);
+  ttl002.Caption:=formatfloat('#0',s2);
+  ttl003.Caption:=formatfloat('+#0;-#0',s3);
+  ttl004.Caption:=formatfloat('#0',s4);
+  ttl005.Caption:=formatfloat('#0',s5);
+  ov002.Caption:=formatfloat('+#0;-#0',s5-s4);
+  if s1>0 then ttl006.Caption:=formatfloat('0.00 %',s4*100.0/s1) else ttl006.Caption:='0.00 %';
+  if s2>0 then ttl007.Caption:=formatfloat('0.00 %',s4*100.0/s2) else ttl007.Caption:='0.00 %';
+  if s1>0 then ttl008.Caption:=formatfloat('0.00 %',s5*100.0/s1) else ttl008.Caption:='0.00 %';
+  if s2>0 then ttl009.Caption:=formatfloat('0.00 %',s5*100.0/s2) else ttl009.Caption:='0.00 %';
+end;
+
+procedure Tfrmmwf.BitBtn7Click(Sender: TObject);
+begin
+  if frmwfprocess=nil then frmwfprocess:=tfrmwfprocess.create(nil);
+  frmwfprocess.Label2.Caption:='MWF';
+  frmwfprocess.Caption:='Resign';
+  frmwfprocess.Label1.Visible:=false;
+  frmwfprocess.ComboBox1.Visible:=false;
+  frmwfprocess.DBMemo1.DataSource:=datasource2;
+  frmwfprocess.DBText1.DataSource:=datasource2;
+  frmwfprocess.DBText2.DataSource:=datasource2;
+  frmwfprocess.DBMemo1.DataField:='MWFSTA';
+  frmwfprocess.DBText1.DataField:='MWFID';
+  frmwfprocess.DBText2.DataField:='MWFNA';
+  frmwfprocess.show;
+end;
+
+procedure Tfrmmwf.BitBtn8Click(Sender: TObject);
+begin
+  if frmwfprocess=nil then frmwfprocess:=tfrmwfprocess.create(nil);
+  frmwfprocess.Label2.Caption:='MWF';
+  frmwfprocess.Caption:='Transfer';
+  frmwfprocess.Label1.Visible:=true;
+  frmwfprocess.ComboBox1.Visible:=true;
+  frmwfprocess.DBMemo1.DataSource:=datasource2;
+  frmwfprocess.DBText1.DataSource:=datasource2;
+  frmwfprocess.DBText2.DataSource:=datasource2;
+  frmwfprocess.DBMemo1.DataField:='MWFSTA';
+  frmwfprocess.DBText1.DataField:='MWFID';
+  frmwfprocess.DBText2.DataField:='MWFNA';
+  frmwfprocess.show;
+end;
+
+procedure Tfrmmwf.BitBtn9Click(Sender: TObject);
+begin
+  if frmwfprocess=nil then frmwfprocess:=tfrmwfprocess.create(nil);
+  frmwfprocess.Label2.Caption:='MWF';
+  frmwfprocess.Caption:='Promotion';
+  frmwfprocess.Label1.Visible:=false;
+  frmwfprocess.ComboBox1.Visible:=false;
+  frmwfprocess.DBMemo1.DataSource:=datasource2;
+  frmwfprocess.DBText1.DataSource:=datasource2;
+  frmwfprocess.DBText2.DataSource:=datasource2;
+  frmwfprocess.DBMemo1.DataField:='MWFSTA';
+  frmwfprocess.DBText1.DataField:='MWFID';
+  frmwfprocess.DBText2.DataField:='MWFNA';
+  frmwfprocess.show;
+end;
+
+end.

@@ -1,0 +1,848 @@
+unit wkfsum1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ppStrtch, ppMemo, ppCtrls, ppBands, ppVar, ppPrnabl, ppClass,
+  ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, DB, DBClient,
+  myChkBox, ppViewr, StdCtrls, Mask, rxToolEdit, ppParameter;
+
+type
+  Tfrmwkfsum1 = class(TForm)
+    Query1: TClientDataSet;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    fty001: TppLabel;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel21: TppLabel;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLabel23: TppLabel;
+    ppLabel28: TppLabel;
+    ppLine21: TppLine;
+    ppLabel29: TppLabel;
+    ppLabel32: TppLabel;
+    ppLine22: TppLine;
+    ppLabel33: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel39: TppLabel;
+    ppLabel40: TppLabel;
+    ppLabel41: TppLabel;
+    ppLabel42: TppLabel;
+    ppLabel44: TppLabel;
+    ppLine46: TppLine;
+    ppLabel17: TppLabel;
+    ppLine48: TppLine;
+    ppLine49: TppLine;
+    ppLabel48: TppLabel;
+    ppLine50: TppLine;
+    ppLabel50: TppLabel;
+    ppLabel52: TppLabel;
+    ppLine55: TppLine;
+    ppLabel54: TppLabel;
+    ppLabel56: TppLabel;
+    ppLabel58: TppLabel;
+    ppLabel59: TppLabel;
+    ppLabel62: TppLabel;
+    ppLabel63: TppLabel;
+    ppLabel64: TppLabel;
+    ppLine60: TppLine;
+    ppLabel66: TppLabel;
+    ppLine62: TppLine;
+    ppLine63: TppLine;
+    ppLabel11: TppLabel;
+    ppLabel68: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel78: TppLabel;
+    ppLine70: TppLine;
+    ppLine72: TppLine;
+    ppLabel84: TppLabel;
+    ppLabel85: TppLabel;
+    ppLabel55: TppLabel;
+    ppLine9: TppLine;
+    ppLabel57: TppLabel;
+    ppLabel86: TppLabel;
+    ppLabel90: TppLabel;
+    ppLabel91: TppLabel;
+    ppLabel94: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel95: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLine26: TppLine;
+    ppLabel8: TppLabel;
+    ppLabel98: TppLabel;
+    ppLabel103: TppLabel;
+    ppLabel104: TppLabel;
+    ppLine1: TppLine;
+    ppLabel121: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel30: TppLabel;
+    ppDetailBand1: TppDetailBand;
+    ppLine47: TppLine;
+    ppShape6: TppShape;
+    ppShape5: TppShape;
+    ppShape14: TppShape;
+    ppShape10: TppShape;
+    ppShape7: TppShape;
+    ppLine28: TppLine;
+    ppLine30: TppLine;
+    ppLine31: TppLine;
+    ppLine34: TppLine;
+    ppLine37: TppLine;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    ppLine51: TppLine;
+    ppLine57: TppLine;
+    ppDBText22: TppDBText;
+    ppDBText23: TppDBText;
+    ppLine61: TppLine;
+    ppDBText25: TppDBText;
+    ppDBText26: TppDBText;
+    ppLine64: TppLine;
+    ppDBText27: TppDBText;
+    ppDBText30: TppDBText;
+    ppDBText32: TppDBText;
+    ppDBText33: TppDBText;
+    ppDBText34: TppDBText;
+    ppDBText24: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    ppLine71: TppLine;
+    ppDBText7: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText36: TppDBText;
+    ppLine76: TppLine;
+    ppLine77: TppLine;
+    ppDBText37: TppDBText;
+    ppDBText38: TppDBText;
+    ppDBText1: TppDBText;
+    ppLine33: TppLine;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppShape4: TppShape;
+    ppLabel45: TppLabel;
+    ppLabel46: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    lwf001: TppLabel;
+    swf001: TppLabel;
+    swf002: TppLabel;
+    mwf001: TppLabel;
+    mwf004: TppLabel;
+    avg001: TppLabel;
+    avg003: TppLabel;
+    avg004: TppLabel;
+    avg005: TppLabel;
+    ppDBCalc15: TppDBCalc;
+    mwf005: TppLabel;
+    swf006: TppLabel;
+    ppDBCalc17: TppDBCalc;
+    cwf001: TppLabel;
+    cwf002: TppLabel;
+    mc001: TppLabel;
+    mc003: TppLabel;
+    avg006: TppLabel;
+    avg007: TppLabel;
+    mc004: TppLabel;
+    tlwf001: TppLabel;
+    tcwf001: TppLabel;
+    tcwf002: TppLabel;
+    tswf001: TppLabel;
+    tswf002: TppLabel;
+    tswf006: TppLabel;
+    tmc001: TppLabel;
+    tmc003: TppLabel;
+    tmc004: TppLabel;
+    ppShape2: TppShape;
+    ttl001: TppLabel;
+    ppMemo1: TppMemo;
+    ppDBCalc3: TppDBCalc;
+    ppShape3: TppShape;
+    ppMemo2: TppMemo;
+    ppShape11: TppShape;
+    ppMemo3: TppMemo;
+    tmwf004: TppLabel;
+    tmwf001: TppLabel;
+    ppLabel31: TppLabel;
+    dt0001: TppLabel;
+    ppLabel36: TppLabel;
+    dt0002: TppLabel;
+    mychk01: TmyCheckBox;
+    ppLabel37: TppLabel;
+    wk001: TppLabel;
+    ppLabel43: TppLabel;
+    wk002: TppLabel;
+    mychk02: TmyCheckBox;
+    ppLabel49: TppLabel;
+    mon001: TppLabel;
+    ppLabel51: TppLabel;
+    mon002: TppLabel;
+    mychk03: TmyCheckBox;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppShape8: TppShape;
+    ppLabel3: TppLabel;
+    ppLabel6: TppLabel;
+    ppDBCalc4: TppDBCalc;
+    ppDBCalc5: TppDBCalc;
+    lwf0001: TppLabel;
+    swf0001: TppLabel;
+    swf0002: TppLabel;
+    mwf0001: TppLabel;
+    mwf0004: TppLabel;
+    avg0001: TppLabel;
+    avg0003: TppLabel;
+    avg0004: TppLabel;
+    avg0005: TppLabel;
+    ppDBCalc6: TppDBCalc;
+    mwf0005: TppLabel;
+    swf0006: TppLabel;
+    ppDBCalc7: TppDBCalc;
+    cwf0001: TppLabel;
+    cwf0002: TppLabel;
+    mc0001: TppLabel;
+    mc0003: TppLabel;
+    avg0006: TppLabel;
+    avg0007: TppLabel;
+    mc0004: TppLabel;
+    tlwf0001: TppLabel;
+    tcwf0001: TppLabel;
+    tcwf0002: TppLabel;
+    tswf0001: TppLabel;
+    tswf0002: TppLabel;
+    tswf0006: TppLabel;
+    tmc0001: TppLabel;
+    tmc0003: TppLabel;
+    tmc0004: TppLabel;
+    ttl0001: TppLabel;
+    ppDBCalc8: TppDBCalc;
+    tmwf0004: TppLabel;
+    tmwf0001: TppLabel;
+    DateEdit1: TDateEdit;
+    DateEdit2: TDateEdit;
+    ppDBText6: TppDBText;
+    ppDBText10: TppDBText;
+    ppLine2: TppLine;
+    ppLabel7: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel35: TppLabel;
+    ppLabel47: TppLabel;
+    tdiff001: TppLabel;
+    diff001: TppLabel;
+    tdiff0001: TppLabel;
+    diff0001: TppLabel;
+    title001: TppLabel;
+    ppLabel60: TppLabel;
+    ppLabel61: TppLabel;
+    title002: TppLabel;
+    ppLabel65: TppLabel;
+    peff001: TppLabel;
+    ttl002: TppLabel;
+    ppLabel1: TppLabel;
+    peff002: TppLabel;
+    ppLabel67: TppLabel;
+    ttlmwf001: TppLabel;
+    ppLabel53: TppLabel;
+    peff0001: TppLabel;
+    ttl0002: TppLabel;
+    ppLabel71: TppLabel;
+    peff0002: TppLabel;
+    procedure ppGroupFooterBand1BeforePrint(Sender: TObject);
+    procedure ppGroupFooterBand2BeforePrint(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmwkfsum1: Tfrmwkfsum1;
+
+implementation
+
+uses mainformu, wkfformu;
+
+{$R *.dfm}
+
+procedure Tfrmwkfsum1.ppGroupFooterBand1BeforePrint(Sender: TObject);
+var
+  f01,f02,f03,f04,f05,f06,f07,f08,mf01,mf04,f09,f10,f11,p1,p2,p3,fn03:double;
+  s1,s2,s3,s4:string;
+  lt1,p4:double;
+  dt1,dt2:tdate;
+begin
+  s1:='';s2:='';s3:='';s4:='';
+  dt1:=dateedit1.date;
+  dt2:=dateedit2.date;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select count(distinct cstyle) as c1,count(distinct pline) as p1,count(distinct j_no) as p2,count(*) as s4 from line_shjs where flag=''0'' and dt1>=:x1 and dt1<=:x2 and (flag6 is not null)';
+    commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('p2').isnull then s1:='project:  '+fieldbyname('p2').asstring+'    ';
+    if not fieldbyname('c1').IsNull then s2:='cust style:  '+fieldbyname('c1').asstring+'    ';
+    if not fieldbyname('p1').isnull then s3:='line:  '+fieldbyname('p1').asstring+'    ';
+    if not fieldbyname('s4').isnull then s4:='QN:  '+fieldbyname('s4').asstring+'    ';
+  end;
+  ttl001.Caption:=s1+s2+s3+s4;
+  f01:=0;f02:=0;f03:=0;f04:=0;f05:=0;f06:=0;f07:=0;f08:=0;f09:=0;f10:=0;f11:=0;fn03:=0;mf01:=0;mf04:=0;
+
+  with frmwkf.query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct pline,sum(gsdtrs*(asect+csect))/sum(asect+csect) as gsdtrs,sum(cwfttl*(asect+csect))/sum(asect+csect) as cwfttl,'
+                +'sum(cwfdiff*(asect+csect))/sum(asect+csect) as cwfdiff,sum(bwf*(asect+csect))/sum(asect+csect) as bwf,sum(bwfs*(asect+csect))/sum(asect+csect) as bwfs,'
+                +'sum(bwfn*(asect+csect))/sum(asect+csect) as bwfn,sum(bwfa*(asect+csect))/sum(asect+csect) as bwfa,sum(bwfttl*(asect+csect))/sum(asect+csect) as bwfttl,'
+                +'sum(mwflb*(asect+csect))/sum(asect+csect) as mwflb,sum(mwfttl*(asect+csect))/sum(asect+csect) as mwfttl,'
+                +'sum(cwfttlc*(asect+csect))/sum(asect+csect) as cwfttlc,sum(cwfdiffc*(asect+csect))/sum(asect+csect) as cwfdiffc,sum(mwfttlc*(asect+csect))/sum(asect+csect) as mwfttlc '
+                +'from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect+csect>0';
+    commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    commandtext:=commandtext+' group by pline';
+    //commandtext:='select distinct pline,gsdtrs,cwfttl,cwfdiff,bwf,bwfs,bwfn,bwfa,bwfttl,mwflb,mwfttl from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect+csect>0';
+    //commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      f01:=f01+fieldbyname('gsdtrs').value;
+      f02:=f02+fieldbyname('cwfttl').value;
+      f03:=f03+fieldbyname('cwfdiff').value;
+      if fieldbyname('cwfdiff').value<0 then
+      fn03:=fn03+fieldbyname('cwfdiff').value;
+      f04:=f04+fieldbyname('bwf').value;
+      f05:=f05+fieldbyname('bwfs').value;
+      f06:=f06+fieldbyname('bwfn').value;
+      f07:=f07+fieldbyname('bwfa').value;
+      f08:=f08+fieldbyname('bwfttl').value;
+      mf01:=mf01+fieldbyname('mwflb').value;
+      mf04:=mf04+fieldbyname('mwfttl').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+
+  with frmwkf.query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct pline,sum(gsdm*asect)/sum(asect) as gsdm,sum(gsdmttl*asect)/sum(asect) as gsdmttl from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect>0';
+    commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    commandtext:=commandtext+' group by pline';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      f09:=f09+fieldbyname('gsdm').value;
+      f10:=f10+fieldbyname('gsdmttl').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+
+  with frmwkf.query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct pline,gsdm,gsdmttl from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect=0 and csect>0';
+    commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      f09:=f09+fieldbyname('gsdm').value;
+      f10:=f10+fieldbyname('gsdmttl').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+
+  tlwf001.Caption:=formatfloat('#0.0',f01);
+  tcwf001.Caption:=formatfloat('#0.0',f02);
+  tcwf002.Caption:=formatfloat('#0.0',f03);
+  tswf001.Caption:=formatfloat('#0.0',f04);
+  tswf002.Caption:=formatfloat('+#0.0;-#0.0',f05);
+  tswf006.Caption:=formatfloat('#0.0',f06);
+  tmc001.Caption:=formatfloat('#0.0',f09);
+  tmc003.Caption:=formatfloat('#0.0',f10);
+  tmc004.Caption:=formatfloat('+#0.0;-#0.0',f10-f09);
+  tmwf001.Caption:=formatfloat('#0.0',mf01);
+  tmwf004.Caption:=formatfloat('#0.0',mf04);
+  tdiff001.Caption:=formatfloat('+#0.0;-#0.0',fn03);
+
+  lt1:=0;
+  with frmwkf.Query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(a.ltc_d) as ltc_d1 from tblshedule a,line_shjs b where a.pline=b.pline and a.seq=b.seq and b.flag=''0'' and b.dt1>=:x1 and b.dt1<=:x2 and ((a.ltc_ksrq>=b.dt1 and a.ltc_ksrq<=b.dt1) or (a.ltc_ksrq<b.dt1 and a.cfwcrq=b.dt1))';
+    commandtext:=commandtext+' and b.tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('ltc_d1').isnull then lt1:=fieldbyname('ltc_d1').value;
+  end;
+
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct sum(gsdtrs*(asect))/sum(asect) as lwf1,sum(gsdbn*(asect))/sum(asect) as lwf2,count(distinct pline) as tp,'
+                +'sum(gsdttl*(asect))/sum(asect) as lwf3,sum(bwf*(asect))/sum(asect) as swf1,sum(bwfs*(asect))/sum(asect) as swf2,'
+                +'sum(bwfa*(asect))/sum(asect) as swf3,sum(bwfttl*(asect))/sum(asect) as swf4,sum(bwfa1*(asect))/sum(asect) as swf5,'
+                +'sum(mwflb*(asect))/sum(asect) as mwf1,sum(mwfa*(asect))/sum(asect) as mwf2,sum(mwfbn*(asect))/sum(asect) as mwf3,'
+                +'sum(mwfttl*(asect))/sum(asect) as mwf4,sum(lbwf1*(asect))/sum(asect) as avg1,sum(lbwf2*(asect))/sum(asect) as avg2,'
+                +'sum(eff1*(asect))/sum(asect) as avg3,sum(eff2*(asect))/sum(asect) as avg4,sum(dbxl*(csect+asect))/sum(csect+asect) as avg5,'
+                +'sum(bwfn*(asect))/sum(asect) as swf6,sum(mwfs*(asect))/sum(asect) as mwf5,sum(cwfttl*(asect))/sum(asect) as cwf1,'
+                +'sum(cwfdiff*(asect))/sum(asect) as cwf2,sum(ulb*(asect))/sum(asect) as avg6,sum(gsdm*(asect))/sum(asect) as mc1,'
+                +'sum(gsdmbn*(asect))/sum(asect) as mc2,sum(gsdmttl*(asect))/sum(asect) as mc3,sum(bwfac*(asect))/sum(asect) as swf7,'
+                +'sum(mwfac*(asect))/sum(asect) as mwf6,sum(ulbac*(asect))/sum(asect) as avg7,sum(gsdmdiff*(asect))/sum(asect) as mc4 '
+                +'from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect>0';
+    commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('lwf1').isnull then lwf001.Caption:=formatfloat('0.00',fieldbyname('lwf1').value) else lwf001.Caption:='0.00';
+    if not fieldbyname('swf1').isnull then swf001.Caption:=formatfloat('0.00',fieldbyname('swf1').value) else swf001.Caption:='0.00';
+    if not fieldbyname('swf2').isnull then swf002.Caption:=formatfloat('0.00',fieldbyname('swf2').value) else swf002.Caption:='0.00';
+    if not fieldbyname('swf6').isnull then swf006.Caption:=formatfloat('0.00',fieldbyname('swf6').value) else swf006.Caption:='0.00';
+    if not fieldbyname('mwf1').isnull then mwf001.Caption:=formatfloat('0.00',fieldbyname('mwf1').value) else mwf001.Caption:='0.00';
+    if not fieldbyname('mwf4').isnull then mwf004.Caption:=formatfloat('0.00',fieldbyname('mwf4').value) else mwf004.Caption:='0.00';
+    if not fieldbyname('mwf5').isnull then mwf005.Caption:=formatfloat('0.00',fieldbyname('mwf5').value) else mwf005.Caption:='0.00';
+    if not fieldbyname('cwf1').isnull then cwf001.Caption:=formatfloat('0.00',fieldbyname('cwf1').value) else cwf001.Caption:='0.00';
+    if not fieldbyname('cwf2').isnull then cwf002.Caption:=formatfloat('0.00',fieldbyname('cwf2').value) else cwf002.Caption:='0.00';
+    if not fieldbyname('avg1').isnull then avg001.Caption:=formatfloat('0.00',fieldbyname('avg1').value) else avg001.Caption:='0.00';
+    if not fieldbyname('avg3').isnull then avg003.Caption:=formatfloat('0.00',fieldbyname('avg3').value) else avg003.Caption:='0.00';
+    if not fieldbyname('avg4').isnull then avg004.Caption:=formatfloat('0.00',fieldbyname('avg4').value) else avg004.Caption:='0.00';
+    //if not fieldbyname('avg5').isnull then avg005.Caption:=formatfloat('0.00',fieldbyname('avg5').value) else avg005.Caption:='0.00';
+    if not fieldbyname('avg6').isnull then avg006.Caption:=formatfloat('0.00',fieldbyname('avg6').value) else avg006.Caption:='0.00';
+    if not fieldbyname('avg7').isnull then avg007.Caption:=formatfloat('0.00',fieldbyname('avg7').value) else avg007.Caption:='0.00';
+    if not fieldbyname('mc1').isnull then mc001.Caption:=formatfloat('0.00',fieldbyname('mc1').value) else mc001.Caption:='0.00';
+    if not fieldbyname('mc3').isnull then mc003.Caption:=formatfloat('0.00',fieldbyname('mc3').value) else mc003.Caption:='0.00';
+    if not fieldbyname('mc4').isnull then mc004.Caption:=formatfloat('0.00',fieldbyname('mc4').value) else mc004.Caption:='0.00';
+    //tmwf001.Caption:=formatfloat('0.0',fieldbyname('mwf1').value*fieldbyname('tp').value);
+    //tmwf004.Caption:=formatfloat('0.0',fieldbyname('mwf4').value*fieldbyname('tp').value);
+    if fieldbyname('avg3').value>fieldbyname('avg4').value then avg004.Font.color:=clRed
+    else if fieldbyname('avg3').value=fieldbyname('avg4').value then avg004.Font.Color:=clBlack
+    else avg004.Font.Color:=clGreen;
+  end;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct sum(dbxl*(csect))/sum(csect) as avg5 from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and csect>0';
+    commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('avg5').isnull then avg005.Caption:=formatfloat('0.00',fieldbyname('avg5').value) else avg005.Caption:='0.00';
+  end;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(eff2*asect)/sum(asect) as s1,sum(asect) as s2 from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect>0';
+    commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('s1').isnull then p1:=fieldbyname('s1').value else p1:=0;
+    if not fieldbyname('s2').isnull then p2:=fieldbyname('s2').value else p2:=0;
+  end;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct sum(cwfdiff*(asect))/sum(asect) as avg5 from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect>0 and cwfdiff<0';
+    commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('avg5').isnull then diff001.Caption:=formatfloat('+#0.00;-#0.00',fieldbyname('avg5').value) else diff001.Caption:='0.00';
+  end;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(msect-asect) as s2 from tbl_qnwf where dt1>=:x1 and dt1<=:x2';
+    commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('s2').isnull then p4:=fieldbyname('s2').value else p4:=0;
+  end;
+  p3:=0;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct pline,tsect,dt1 from tbl_qnwf where dt1>=:x1 and dt1<=:x2';
+    commandtext:=commandtext+' and tshop='''+frmwkf.query1.fieldbyname('tshop').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      p3:=p3+fieldbyname('tsect').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  ttl002.Caption:='Total on-hold sect hr = '+formatfloat('0.0',p4)+'    Total Linkage Time = '+formatfloat('0.0',lt1)+'    Default ttl sect hr from current line work calendar = '+formatfloat('0.0',p3);//+'    Capacity Utilization %:  '+formatfloat('0.00',p2*100.0/p3)
+  if p3>0 then begin
+    peff001.Caption:=formatfloat('0.00',p1*p2/p3);
+    if p1*p2/p3>82.45 then peff001.Font.Color:=clGreen
+    else if p1*p2/p3=82.45 then peff001.Font.Color:=clBlack
+    else peff001.Font.Color:=clRed;
+    peff002.Caption:=formatfloat('0.00',p2*100.0/p3);
+    if p2*100.0/p3>97.0 then peff002.Font.Color:=clGreen
+    else if p2*100.0/p3=97.0 then peff002.Font.Color:=clBlack
+    else peff002.Font.Color:=clRed;
+  end else begin
+    peff001.Caption:='0.00';
+    peff001.Font.Color:=clRed;
+    peff002.Caption:='0.00';
+    peff002.Font.Color:=clRed;
+  end;
+end;
+
+procedure Tfrmwkfsum1.ppGroupFooterBand2BeforePrint(Sender: TObject);
+var
+  f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,p1,p2,p3,fn03,mf01,mf04:double;
+  s1,s2,s3,s4:string;
+  lt1,p4:double;
+  dt1,dt2:tdate;
+begin
+  s1:='';s2:='';s3:='';s4:='';
+  dt1:=dateedit1.date;
+  dt2:=dateedit2.date;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select count(distinct cstyle) as c1,count(distinct pline) as p1,count(distinct j_no) as p2,count(*) as s4 from line_shjs where flag=''0'' and dt1>=:x1 and dt1<=:x2 and (flag6 is not null)';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('p2').isnull then s1:='project:  '+fieldbyname('p2').asstring+'    ';
+    if not fieldbyname('c1').IsNull then s2:='cust style:  '+fieldbyname('c1').asstring+'    ';
+    if not fieldbyname('p1').isnull then s3:='line:  '+fieldbyname('p1').asstring+'    ';
+    if not fieldbyname('s4').isnull then s4:='QN:  '+fieldbyname('s4').asstring+'    ';
+  end;
+  ttl0001.Caption:=s1+s2+s3+s4;
+  f01:=0;f02:=0;f03:=0;f04:=0;f05:=0;f06:=0;f07:=0;f08:=0;f09:=0;f10:=0;f11:=0;fn03:=0;mf01:=0;mf04:=0;
+
+  with frmwkf.query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct pline,sum(gsdtrs*(asect+csect))/sum(asect+csect) as gsdtrs,sum(cwfttl*(asect+csect))/sum(asect+csect) as cwfttl,'
+                +'sum(cwfdiff*(asect+csect))/sum(asect+csect) as cwfdiff,sum(bwf*(asect+csect))/sum(asect+csect) as bwf,sum(bwfs*(asect+csect))/sum(asect+csect) as bwfs,'
+                +'sum(bwfn*(asect+csect))/sum(asect+csect) as bwfn,sum(bwfa*(asect+csect))/sum(asect+csect) as bwfa,sum(bwfttl*(asect+csect))/sum(asect+csect) as bwfttl,'
+                +'sum(mwflb*(asect+csect))/sum(asect+csect) as mwflb,sum(mwfttl*(asect+csect))/sum(asect+csect) as mwfttl,'
+                +'sum(cwfttlc*(asect+csect))/sum(asect+csect) as cwfttlc,sum(cwfdiffc*(asect+csect))/sum(asect+csect) as cwfdiffc,sum(mwfttlc*(asect+csect))/sum(asect+csect) as mwfttlc '
+                +'from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect+csect>0';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    commandtext:=commandtext+' group by pline';
+    //commandtext:='select distinct pline,gsdtrs,cwfttl,cwfdiff,bwf,bwfs,bwfn,bwfa,bwfttl,mwflb,mwfttl from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect+csect>0';
+    //commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      f01:=f01+fieldbyname('gsdtrs').value;
+      f02:=f02+fieldbyname('cwfttl').value;
+      f03:=f03+fieldbyname('cwfdiff').value;
+      if fieldbyname('cwfdiff').value<0 then
+      fn03:=fn03+fieldbyname('cwfdiff').value;
+      f04:=f04+fieldbyname('bwf').value;
+      f05:=f05+fieldbyname('bwfs').value;
+      f06:=f06+fieldbyname('bwfn').value;
+      f07:=f07+fieldbyname('bwfa').value;
+      f08:=f08+fieldbyname('bwfttl').value;
+      mf01:=mf01+fieldbyname('mwflb').value;
+      mf04:=mf04+fieldbyname('mwfttl').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+
+  with frmwkf.query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct pline,sum(gsdm*asect)/sum(asect) as gsdm,sum(gsdmttl*asect)/sum(asect) as gsdmttl from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect>0';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    commandtext:=commandtext+' group by pline';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      f09:=f09+fieldbyname('gsdm').value;
+      f10:=f10+fieldbyname('gsdmttl').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+
+  with frmwkf.query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct pline,gsdm,gsdmttl from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect=0 and csect>0';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      f09:=f09+fieldbyname('gsdm').value;
+      f10:=f10+fieldbyname('gsdmttl').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+
+  tlwf0001.Caption:=formatfloat('#0.0',f01);
+  tcwf0001.Caption:=formatfloat('#0.0',f02);
+  tcwf0002.Caption:=formatfloat('#0.0',f03);
+  tswf0001.Caption:=formatfloat('#0.0',f04);
+  tswf0002.Caption:=formatfloat('+#0.0;-#0.0',f05);
+  tswf0006.Caption:=formatfloat('#0.0',f06);
+  tmc0001.Caption:=formatfloat('#0.0',f09);
+  tmc0003.Caption:=formatfloat('#0.0',f10);
+  tmc0004.Caption:=formatfloat('+#0.0;-#0.0',f10-f09);
+  tmwf0001.Caption:=formatfloat('#0.0',mf01);
+  tmwf0004.Caption:=formatfloat('#0.0',mf04);
+  tdiff0001.Caption:=formatfloat('#0.0;-#0.0',fn03);
+
+  lt1:=0;
+  with frmwkf.Query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(a.ltc_d) as ltc_d1 from tblshedule a,line_shjs b where a.pline=b.pline and a.seq=b.seq and b.flag=''0'' and b.dt1>=:x1 and b.dt1<=:x2 and ((a.ltc_ksrq>=b.dt1 and a.ltc_ksrq<=b.dt1) or (a.ltc_ksrq<b.dt1 and a.cfwcrq=b.dt1))';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('ltc_d1').isnull then lt1:=fieldbyname('ltc_d1').value;
+  end;
+
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct sum(gsdtrs*(asect))/sum(asect) as lwf1,sum(gsdbn*(asect))/sum(asect) as lwf2,'
+                +'sum(gsdttl*(asect))/sum(asect) as lwf3,sum(bwf*(asect))/sum(asect) as swf1,sum(bwfs*(asect))/sum(asect) as swf2,'
+                +'sum(bwfa*(asect))/sum(asect) as swf3,sum(bwfttl*(asect))/sum(asect) as swf4,sum(bwfa1*(asect))/sum(asect) as swf5,'
+                +'sum(mwflb*(asect))/sum(asect) as mwf1,sum(mwfa*(asect))/sum(asect) as mwf2,sum(mwfbn*(asect))/sum(asect) as mwf3,'
+                +'sum(mwfttl*(asect))/sum(asect) as mwf4,sum(lbwf1*(asect))/sum(asect) as avg1,sum(lbwf2*(asect))/sum(asect) as avg2,'
+                +'sum(eff1*(asect))/sum(asect) as avg3,sum(eff2*(asect))/sum(asect) as avg4,sum(dbxl*(csect+asect))/sum(csect+asect) as avg5,'
+                +'sum(bwfn*(asect))/sum(asect) as swf6,sum(mwfs*(asect))/sum(asect) as mwf5,sum(cwfttl*(asect))/sum(asect) as cwf1,'
+                +'sum(cwfdiff*(asect))/sum(asect) as cwf2,sum(ulb*(asect))/sum(asect) as avg6,sum(gsdm*(asect))/sum(asect) as mc1,'
+                +'sum(gsdmbn*(asect))/sum(asect) as mc2,sum(gsdmttl*(asect))/sum(asect) as mc3,sum(bwfac*(asect))/sum(asect) as swf7,'
+                +'sum(mwfac*(asect))/sum(asect) as mwf6,sum(ulbac*(asect))/sum(asect) as avg7,sum(gsdmdiff*(asect))/sum(asect) as mc4 '
+                +'from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect>0';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('lwf1').isnull then lwf0001.Caption:=formatfloat('0.00',fieldbyname('lwf1').value) else lwf0001.Caption:='0.00';
+    if not fieldbyname('swf1').isnull then swf0001.Caption:=formatfloat('0.00',fieldbyname('swf1').value) else swf0001.Caption:='0.00';
+    if not fieldbyname('swf2').isnull then swf0002.Caption:=formatfloat('0.00',fieldbyname('swf2').value) else swf0002.Caption:='0.00';
+    if not fieldbyname('swf6').isnull then swf0006.Caption:=formatfloat('0.00',fieldbyname('swf6').value) else swf0006.Caption:='0.00';
+    if not fieldbyname('mwf1').isnull then mwf0001.Caption:=formatfloat('0.00',fieldbyname('mwf1').value) else mwf0001.Caption:='0.00';
+    if not fieldbyname('mwf4').isnull then mwf0004.Caption:=formatfloat('0.00',fieldbyname('mwf4').value) else mwf0004.Caption:='0.00';
+    if not fieldbyname('mwf5').isnull then mwf0005.Caption:=formatfloat('0.00',fieldbyname('mwf5').value) else mwf0005.Caption:='0.00';
+    if not fieldbyname('cwf1').isnull then cwf0001.Caption:=formatfloat('0.00',fieldbyname('cwf1').value) else cwf0001.Caption:='0.00';
+    if not fieldbyname('cwf2').isnull then cwf0002.Caption:=formatfloat('0.00',fieldbyname('cwf2').value) else cwf0002.Caption:='0.00';
+    if not fieldbyname('avg1').isnull then avg0001.Caption:=formatfloat('0.00',fieldbyname('avg1').value) else avg0001.Caption:='0.00';
+    if not fieldbyname('avg3').isnull then avg0003.Caption:=formatfloat('0.00',fieldbyname('avg3').value) else avg0003.Caption:='0.00';
+    if not fieldbyname('avg4').isnull then avg0004.Caption:=formatfloat('0.00',fieldbyname('avg4').value) else avg0004.Caption:='0.00';
+    //if not fieldbyname('avg5').isnull then avg0005.Caption:=formatfloat('0.00',fieldbyname('avg5').value) else avg0005.Caption:='0.00';
+    if not fieldbyname('avg6').isnull then avg0006.Caption:=formatfloat('0.00',fieldbyname('avg6').value) else avg0006.Caption:='0.00';
+    if not fieldbyname('avg7').isnull then avg0007.Caption:=formatfloat('0.00',fieldbyname('avg7').value) else avg0007.Caption:='0.00';
+    if not fieldbyname('mc1').isnull then mc0001.Caption:=formatfloat('0.00',fieldbyname('mc1').value) else mc0001.Caption:='0.00';
+    if not fieldbyname('mc3').isnull then mc0003.Caption:=formatfloat('0.00',fieldbyname('mc3').value) else mc0003.Caption:='0.00';
+    if not fieldbyname('mc4').isnull then mc0004.Caption:=formatfloat('0.00',fieldbyname('mc4').value) else mc0004.Caption:='0.00';
+    if fieldbyname('avg3').value>fieldbyname('avg4').value then avg0004.Font.Color:=clRed
+    else if fieldbyname('avg3').value=fieldbyname('avg4').value then avg0004.Font.Color:=clBlack
+    else avg0004.Font.Color:=clGreen;
+  end;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct sum(dbxl*(csect))/sum(csect) as avg5 from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and csect>0';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('avg5').isnull then avg0005.Caption:=formatfloat('0.00',fieldbyname('avg5').value) else avg0005.Caption:='0.00';
+  end;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(eff2*asect)/sum(asect) as s1,sum(asect) as s2 from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect>0';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('s1').isnull then p1:=fieldbyname('s1').value else p1:=0;
+    if not fieldbyname('s2').isnull then p2:=fieldbyname('s2').value else p2:=0;
+  end;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct sum(cwfdiff*(asect))/sum(asect) as avg5 from tbl_qnwf where dt1>=:x1 and dt1<=:x2 and asect>0 and cwfdiff<0';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('avg5').isnull then diff0001.Caption:=formatfloat('+#0.00;-#0.00',fieldbyname('avg5').value) else diff0001.Caption:='0.00';
+  end;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(msect-asect) as s2 from tbl_qnwf where dt1>=:x1 and dt1<=:x2';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('s2').isnull then p4:=fieldbyname('s2').value else p4:=0;
+  end;
+  p3:=0;
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct pline,tsect,dt1 from tbl_qnwf where dt1>=:x1 and dt1<=:x2';
+    commandtext:=commandtext+' and tplant='''+frmwkf.query1.fieldbyname('tplant').value+'''';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      p3:=p3+fieldbyname('tsect').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  ttl0002.Caption:='Total on-hold sect hr = '+formatfloat('0.0',p4)+'    Total Linkage Time = '+formatfloat('0.0',lt1)+'    Default ttl sect hr from current line work calendar = '+formatfloat('0.0',p3);//+'    Capacity Utilization %:  '+formatfloat('0.00',p2*100.0/p3)
+  if p3>0 then begin
+    peff0001.Caption:=formatfloat('0.00',p1*p2/p3);
+    if p1*p2/p3>82.45 then peff0001.Font.Color:=clGreen
+    else if p1*p2/p3=82.45 then peff0001.Font.Color:=clBlack
+    else peff0001.Font.Color:=clRed;
+    peff0002.Caption:=formatfloat('0.00',p2*100.0/p3);
+    if p2*100.0/p3>97.0 then peff0002.Font.Color:=clGreen
+    else if p2*100.0/p3=97.0 then peff0002.Font.Color:=clBlack
+    else peff0002.Font.Color:=clRed;
+  end else begin
+    peff0001.Caption:='0.00';
+    peff0001.Font.Color:=clRed;
+    peff0002.Caption:='0.00';
+    peff0002.Font.Color:=clRed;
+  end;
+
+  with frmwkf.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    commandtext:='select count(*) as cnt from tblswfid where tplant=:x1 and smf=''2''';
+    params[0].asstring:=frmwkf.Query1.fieldbyname('tplant').value;
+    open;
+    ttlmwf001.Caption:=fieldbyname('cnt').asstring;
+  end;
+end;
+
+procedure Tfrmwkfsum1.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmwkfsum1.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  //
+end;
+
+end.
+ 

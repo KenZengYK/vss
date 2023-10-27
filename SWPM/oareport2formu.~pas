@@ -1,0 +1,62 @@
+unit oareport2formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, ToolEdit;
+
+type
+  Tfrmoareport2 = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    ComboBox1: TComboBox;
+    ComboBox2: TComboBox;
+    DateEdit1: TDateEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmoareport2: Tfrmoareport2;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tfrmoareport2.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmoareport2:=nil;
+end;
+
+procedure Tfrmoareport2.BitBtn1Click(Sender: TObject);
+begin
+  screen.Cursor:=crSQLWait;
+  try
+  if frmoareport2.Caption='WIP Style Image && Color Plate Illustration - Workshop' then begin
+      if frmachieving=nil then frmachieving:=tfrmachieving.Create(nil);
+      frmachieving.FormStyle:=fsNormal;
+      frmachieving.Hide;
+      frmachieving.ComboBox1.text:=combobox1.text;
+      frmachieving.ComboBox2.Text:=combobox2.Text;
+      frmachieving.Edit2.Text:=frmoamodule.combobox3.Text;
+      frmachieving.DateEdit1.date:=dateedit1.Date;
+      frmachieving.DateEdit2.Date:=dateedit1.Date;
+      //frmachieving.WIPStylesImageIllustration1Click(self);
+      frmachieving.BitBtn5Click(self);
+  end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+end.

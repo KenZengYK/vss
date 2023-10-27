@@ -1,0 +1,159 @@
+object frmnewcap_cpsettings: Tfrmnewcap_cpsettings
+  Left = 192
+  Top = 114
+  Caption = 'Capacity Planning - Default Setup'
+  ClientHeight = 311
+  ClientWidth = 409
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 20
+  object BitBtn16: TBitBtn
+    Left = 24
+    Top = 32
+    Width = 369
+    Height = 25
+    Caption = 'Capture Factory Past Performance Data'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 0
+    OnClick = BitBtn16Click
+  end
+  object BitBtn17: TBitBtn
+    Left = 24
+    Top = 128
+    Width = 369
+    Height = 25
+    Caption = 'Capture Line Profile Key Data'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 3
+    OnClick = BitBtn17Click
+  end
+  object BitBtn18: TBitBtn
+    Left = 24
+    Top = 64
+    Width = 369
+    Height = 25
+    Caption = 'Factory Calendar on Weekly Working Time'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 1
+    OnClick = BitBtn18Click
+  end
+  object BitBtn19: TBitBtn
+    Left = 24
+    Top = 96
+    Width = 369
+    Height = 25
+    Caption = 'Capture Customer Profile Key Data'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 2
+    OnClick = BitBtn19Click
+  end
+  object BitBtn20: TBitBtn
+    Left = 48
+    Top = -16
+    Width = 369
+    Height = 25
+    Caption = 'BHDL of Assembly Line WF - Control and Maintain'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 4
+    Visible = False
+    OnClick = BitBtn20Click
+  end
+  object BitBtn1: TBitBtn
+    Left = 24
+    Top = 224
+    Width = 369
+    Height = 25
+    Caption = 'Elements for Factory Capacity Planning'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 6
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 24
+    Top = 192
+    Width = 369
+    Height = 25
+    Caption = 'CP Standard Ahead Days - Customer dependent'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 5
+    OnClick = BitBtn2Click
+  end
+  object BitBtn3: TBitBtn
+    Left = 48
+    Top = -16
+    Width = 369
+    Height = 25
+    Caption = 'BHDL of Core-tech WF - Control and Maintain'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 7
+    Visible = False
+    OnClick = BitBtn3Click
+  end
+  object BitBtn4: TBitBtn
+    Left = 48
+    Top = 80
+    Width = 369
+    Height = 25
+    Caption = 'BHDL of Specific WF - Control and Maintain'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 8
+    Visible = False
+  end
+  object BitBtn5: TBitBtn
+    Left = 48
+    Top = 112
+    Width = 369
+    Height = 25
+    Caption = 'BHDL of Bonding WF - Control and Maintain'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 9
+    Visible = False
+  end
+  object BitBtn6: TBitBtn
+    Left = 24
+    Top = 256
+    Width = 369
+    Height = 25
+    Caption = 'Exit'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 10
+    OnClick = BitBtn6Click
+  end
+  object BitBtn7: TBitBtn
+    Left = 24
+    Top = 160
+    Width = 369
+    Height = 25
+    Caption = 'HDL - Control and Maintain'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 11
+    OnClick = BitBtn7Click
+  end
+  object ClientDataSet2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 56
+  end
+end

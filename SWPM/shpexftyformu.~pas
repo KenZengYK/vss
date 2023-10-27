@@ -1,0 +1,35 @@
+unit shpexftyformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Mask, ToolEdit, Buttons;
+
+type
+  Tfrmshpexfty = class(TForm)
+    Label1: TLabel;
+    DateEdit1: TDateEdit;
+    BitBtn1: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmshpexfty: Tfrmshpexfty;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tfrmshpexfty.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmshpexfty:=nil;
+end;
+
+end.

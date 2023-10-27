@@ -1,0 +1,418 @@
+unit etam_ibookingformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, rxCurrEdit, StdCtrls, Mask, rxToolEdit, DBCtrls, ExtCtrls, Buttons,
+  GridsEh, DBGridEh, DB, DBClient, cxControls, cxSSheet, cxSSTypes, ShellApi,
+  ppProd, ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppBands,
+  ppCache, ppPrnabl, ppCtrls, ppVar, ppViewr, Txcomp, cxGraphics,
+  cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
+  ppParameter;
+
+type
+  Tfrmetam_ibooking = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    Label4: TLabel;
+    DBText4: TDBText;
+    Label5: TLabel;
+    Label6: TLabel;
+    DateEdit1: TDateEdit;
+    cEdit1: TCurrencyEdit;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    SaveDialog1: TSaveDialog;
+    sSheet1: TcxSpreadSheet;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppShape1: TppShape;
+    ppLabel10: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppLabel29: TppLabel;
+    ppLabel30: TppLabel;
+    ppLine8: TppLine;
+    ppLabel31: TppLabel;
+    ppLine9: TppLine;
+    ppLabel32: TppLabel;
+    ppLabel33: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel35: TppLabel;
+    ppLine10: TppLine;
+    ppLabel36: TppLabel;
+    ppLabel37: TppLabel;
+    ppShape2: TppShape;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLine19: TppLine;
+    ppLine20: TppLine;
+    ppLine21: TppLine;
+    ppLine22: TppLine;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    dt001: TppLabel;
+    ver001: TppLabel;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmetam_ibooking: Tfrmetam_ibooking;
+
+implementation
+
+uses mainformu, pdnformu, pdnprintformu;
+
+{$R *.dfm}
+
+procedure Tfrmetam_ibooking.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmetam_ibooking:=nil;
+end;
+
+procedure Tfrmetam_ibooking.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  {
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftdatetime,'x3',ptinput);
+      params.createparam(ftdatetime,'x4',ptinput);
+      params.createparam(ftstring,'x5',ptinput);
+      params.createparam(ftstring,'x6',ptinput);
+      params.createparam(ftstring,'x11',ptinput);
+      params.createparam(ftinteger,'x7',ptinput);
+      params.createparam(ftstring,'x8',ptinput);
+      params.createparam(ftstring,'x9',ptinput);
+      params.createparam(ftstring,'x10',ptinput);
+      commandtext:='update tbl_pdn_ibetam set season=:x1,custpc=:x2,exfty=:x3,lstqc=:x4,custbdc=:x5,remark=:x6,grp=:x11 '
+                  +'where seq=:x7 and j_no=:x8 and j2_job=:x9 and acol=:x10';
+      str1:='update tbl_pdn_ibetam set ';
+      if not query1.fieldbyname('season').isnull then
+      str1:=str1+'season='''+query1.fieldbyname('season').value+''','
+      else str1:=str1+'season='''',';
+      if not query1.fieldbyname('custpc').isnull then
+      str1:=str1+'custpc='''+query1.fieldbyname('custpc').value+''','
+      else str1:=str1+'custpc='''',';
+      if not query1.fieldbyname('exfty').isnull then
+      str1:=str1+'exfty='''+formatdatetime('yyyy-MM-dd',query1.fieldbyname('exfty').value)+''','
+      else str1:=str1+'exfty=null,';
+      if not query1.fieldbyname('lstqc').isnull then
+      str1:=str1+'lstqc='''+formatdatetime('yyyy-MM-dd',query1.fieldbyname('lstqc').value)+''','
+      else str1:=str1+'lstqc='''+formatdatetime('yyyy-MM-dd',date)+''',';
+      if not query1.fieldbyname('custbdc').isnull then
+      params[4].asstring:=query1.fieldbyname('custbdc').value
+      else params[4].asstring:='';
+      if not query1.fieldbyname('remark').isnull then
+      params[5].asstring:=query1.fieldbyname('remark').value
+      else params[5].asstring:='';
+      if not query1.fieldbyname('grp').isnull then
+      params[6].asstring:=query1.fieldbyname('grp').value
+      else params[6].asstring:='';
+      params[7].asinteger:=query1.fieldbyname('seq').value;
+      params[8].asstring:=query1.fieldbyname('j_no').value;
+      params[9].asstring:=query1.fieldbyname('j2_job').value;
+      params[10].asstring:=query1.fieldbyname('acol').value;
+
+      if not query1.fieldbyname('season').isnull then
+      params[0].asstring:=query1.fieldbyname('season').value
+      else params[0].asstring:='';
+      if not query1.fieldbyname('custpc').isnull then
+      params[1].asstring:=query1.fieldbyname('custpc').value
+      else params[1].asstring:='';
+      if not query1.fieldbyname('exfty').isnull then
+      params[2].asdatetime:=query1.fieldbyname('exfty').value;
+      if not query1.fieldbyname('lstqc').isnull then
+      params[3].asdatetime:=query1.fieldbyname('lstqc').value
+      else params[3].asdatetime:=now;
+      if not query1.fieldbyname('custbdc').isnull then
+      params[4].asstring:=query1.fieldbyname('custbdc').value
+      else params[4].asstring:='';
+      if not query1.fieldbyname('remark').isnull then
+      params[5].asstring:=query1.fieldbyname('remark').value
+      else params[5].asstring:='';
+      if not query1.fieldbyname('grp').isnull then
+      params[6].asstring:=query1.fieldbyname('grp').value
+      else params[6].asstring:='';
+      params[7].asinteger:=query1.fieldbyname('seq').value;
+      params[8].asstring:=query1.fieldbyname('j_no').value;
+      params[9].asstring:=query1.fieldbyname('j2_job').value;
+      params[10].asstring:=query1.fieldbyname('acol').value;
+      execute;
+    end;
+  end;
+  }
+
+end;
+
+procedure Tfrmetam_ibooking.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.Post;
+end;
+
+procedure Tfrmetam_ibooking.BitBtn2Click(Sender: TObject);
+begin
+  if query1.State=dsedit then query1.Post;
+  if not query1.fieldbyname('seq').isnull then begin
+    dt001.Caption:=dateedit1.Text;
+    ver001.Caption:=cEdit1.Text;
+    ppReport1.Print;
+  end;
+end;
+
+procedure Tfrmetam_ibooking.BitBtn3Click(Sender: TObject);
+var
+  cobject: TcxSSCellObject;
+  i:integer;
+begin
+  screen.cursor:=crHourglass;
+  try
+  //savedialog1.InitialDir:=extractfiledir(application.ExeName);
+  sSheet1.LoadFromFile(extractfilepath(application.ExeName)+'LWPM_IBETAM.xls');
+  if query1.state=dsedit then query1.post;
+  cobject:=sSheet1.Sheet.GetCellObject(7,7);
+  //cobject.Text:='Date 日期: '+formatdatetime('yyyy/MM/dd',query1.fieldbyname('exfty').value);
+  cobject.Text:='Date 日期: '+formatdatetime('yyyy/MM/dd',dateedit1.date);
+  cobject:=sSheet1.Sheet.GetCellObject(10,7);
+  cobject.Text:='Version: '+formatfloat('0.0',cedit1.value);
+  cobject:=sSheet1.Sheet.GetCellObject(7,9);
+  cobject.Text:='Week: '+query1.fieldbyname('wk').asstring;
+  cobject:=sSheet1.Sheet.GetCellObject(10,9);
+  cobject.Text:='PDN No: '+query1.fieldbyname('pdn').asstring;
+  i:=0;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    commandtext:='select * from tbl_pdn_ibetam where seq=:x1 order by seq,j_no,j2_job,acol';
+    params[0].asinteger:=query1.fieldbyname('seq').value;
+    open;
+    first;
+    while not eof do begin
+      cobject:=sSheet1.Sheet.GetCellObject(1,13+i);
+      {
+      cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eLeft].Style:=lsDouble;
+      cobject.Style.Borders.Edges[eRight].Style:=lsThin;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }
+      if not fieldbyname('j_no').IsNull then
+      cobject.text:=fieldbyname('j_no').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(2,13+i);
+      {
+      cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Style:=lsThin;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }
+      if not fieldbyname('season').isnull then
+      cobject.Text:=fieldbyname('season').value
+      else cobject.text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(3,13+i);
+      {cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Style:=lsThin;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }if not fieldbyname('custpc').isnull then
+      cobject.Text:=fieldbyname('custpc').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(4,13+i);
+      {cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Style:=lsThin;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }if not fieldbyname('custbdc').isnull then
+      cobject.Text:=fieldbyname('custbdc').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(5,13+i);
+      {cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Style:=lsThin;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }if not fieldbyname('grp').isnull then
+      cobject.Text:=fieldbyname('grp').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(6,13+i);
+      {cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Style:=lsThin;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }if not fieldbyname('cname').isnull then
+      cobject.Text:=fieldbyname('cname').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(7,13+i);
+      {cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Style:=lsThin;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }if not fieldbyname('acol').isnull then
+      cobject.Text:=fieldbyname('acol').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(8,13+i);
+      {cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Style:=lsThin;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }if not fieldbyname('sqty').isnull then
+      cobject.Text:=fieldbyname('sqty').asstring
+      else cobject.Text:='0';
+      cobject:=sSheet1.Sheet.GetCellObject(9,13+i);
+      {cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Style:=lsThin;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }if not fieldbyname('lstqc').isnull then
+      cobject.Text:=formatdatetime('yy/MM/dd, hh.nn',fieldbyname('lstqc').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(10,13+i);
+      {cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Style:=lsThin;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }if not fieldbyname('exfty').isnull then
+      cobject.Text:=formatdatetime('yy/MM/dd, hh.nn',fieldbyname('exfty').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(11,13+i);
+      {cobject.Style.Font.Size:=9;
+      cobject.Style.Borders.Edges[eLeft].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Color:=clBlack;
+      cobject.Style.Borders.Edges[eBottom].Color:=clBlack;
+      cobject.Style.Borders.Edges[eRight].Style:=lsDouble;
+      cobject.Style.Borders.Edges[eBottom].Style:=lsThin;
+      }if not fieldbyname('remark').isnull then
+      cobject.Text:=fieldbyname('remark').value
+      else cobject.Text:='';
+
+      i:=i+1;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+
+  savedialog1.Execute;
+  if pos('XLS',uppercase(savedialog1.FileName))>0 then
+  sSheet1.savetofile(savedialog1.FileName)
+  else sSheet1.SaveToFile(savedialog1.FileName+'.xls');
+
+  //shellexecute(0,'open',pchar(savedialog1.FileName+'.xls'),'','c:\temp',sw_show);
+  //winexec(pchar(savedialog1.FileName+'.xls'),sw_show);
+  showmessage('Completed!');
+  finally
+    cobject.Free;
+    screen.cursor:=crDefault
+  end;
+end;
+
+procedure Tfrmetam_ibooking.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+end.

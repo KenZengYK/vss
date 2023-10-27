@@ -1,0 +1,117 @@
+object frmnewcap_reports: Tfrmnewcap_reports
+  Left = 192
+  Top = 114
+  Width = 321
+  Height = 251
+  Caption = 'Capacity Planning - Analysis Reports'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object BitBtn11: TBitBtn
+    Left = 32
+    Top = 32
+    Width = 249
+    Height = 25
+    Caption = 'Elements for Factory Capacity Planning'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    OnClick = BitBtn11Click
+  end
+  object BitBtn5: TBitBtn
+    Left = 32
+    Top = 64
+    Width = 249
+    Height = 25
+    Caption = 'Capacity Planning - Comparison Reports'
+    Enabled = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    Visible = False
+    OnClick = BitBtn5Click
+    NumGlyphs = 2
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 96
+    Width = 249
+    Height = 25
+    Caption = 'Capacity Planning - Simple Version'
+    Enabled = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+    OnClick = BitBtn1Click
+    NumGlyphs = 2
+  end
+  object BitBtn12: TBitBtn
+    Left = 32
+    Top = 128
+    Width = 249
+    Height = 25
+    Caption = 'Comparison between Planning and Actual SAH'
+    Enabled = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+    OnClick = BitBtn12Click
+    NumGlyphs = 2
+  end
+  object BitBtn2: TBitBtn
+    Left = 32
+    Top = 160
+    Width = 249
+    Height = 25
+    Caption = 'Exit'
+    TabOrder = 4
+    OnClick = BitBtn2Click
+  end
+  object BitBtn3: TBitBtn
+    Left = 32
+    Top = 64
+    Width = 249
+    Height = 25
+    Caption = 'Customer Sales Order Summary'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 5
+    OnClick = BitBtn3Click
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 32
+    Top = 65528
+  end
+end

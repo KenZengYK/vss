@@ -1,0 +1,688 @@
+unit fprofileformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Mask, DBCtrls, ExtCtrls, Buttons, DB, DBClient, ppVar,
+  ppCtrls, ppPrnabl, ppClass, ppDB, ppBands, ppCache, ppProd, ppReport,
+  ppComm, ppRelatv, ppDBPipe, ppViewr, Txcomp, ppStrtch, ppMemo;
+
+type
+  Tfrmfprofile = class(TForm)
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    GroupBox1: TGroupBox;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+    GroupBox2: TGroupBox;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    Label9: TLabel;
+    DBEdit9: TDBEdit;
+    DBNavigator1: TDBNavigator;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query1TPLANT: TStringField;
+    Query1FTYMGR: TStringField;
+    Query1WF7: TFloatField;
+    Query1WF10: TFloatField;
+    Query1WF22: TFloatField;
+    Query1WF23: TFloatField;
+    Query1WF24: TFloatField;
+    Query1WF25: TFloatField;
+    Query1WF29: TFloatField;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppDBText1: TppDBText;
+    mgr001: TppLabel;
+    ppDBText2: TppDBText;
+    ppLabel3: TppLabel;
+    ppShape1: TppShape;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppDBText3: TppDBText;
+    ppLabel6: TppLabel;
+    ppDBText4: TppDBText;
+    ppLabel7: TppLabel;
+    ppDBText5: TppDBText;
+    ppShape2: TppShape;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppDBText6: TppDBText;
+    ppLabel10: TppLabel;
+    ppDBText7: TppDBText;
+    ppLabel11: TppLabel;
+    ppDBText8: TppDBText;
+    ppLabel12: TppLabel;
+    ppDBText9: TppDBText;
+    title001: TppLabel;
+    ppLabel13: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel14: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    SpeedButton3: TSpeedButton;
+    Query4: TClientDataSet;
+    DataSource2: TDataSource;
+    ppSummaryBand1: TppSummaryBand;
+    ppLabel15: TppLabel;
+    ppLine1: TppLine;
+    ppLabel16: TppLabel;
+    ppLine2: TppLine;
+    Label10: TLabel;
+    DBEdit10: TDBEdit;
+    Label11: TLabel;
+    DBEdit11: TDBEdit;
+    Label13: TLabel;
+    DBEdit13: TDBEdit;
+    Label14: TLabel;
+    DBEdit14: TDBEdit;
+    Query1WF41: TFloatField;
+    Query1WF42: TFloatField;
+    Query1WF43: TFloatField;
+    Query1WF44: TFloatField;
+    Query1WF45: TFloatField;
+    Query1WF46: TFloatField;
+    Query1WF401: TFloatField;
+    Query1WF402: TFloatField;
+    Query1WF403: TFloatField;
+    Query1WF404: TFloatField;
+    Query1WF405: TFloatField;
+    Query1WF406: TFloatField;
+    Label16: TLabel;
+    Label17: TLabel;
+    DBEdit16: TDBEdit;
+    DBEdit17: TDBEdit;
+    Label18: TLabel;
+    Label19: TLabel;
+    DBEdit18: TDBEdit;
+    DBEdit19: TDBEdit;
+    ppLabel17: TppLabel;
+    ppDBText10: TppDBText;
+    ppLabel18: TppLabel;
+    ppDBText11: TppDBText;
+    ppLabel20: TppLabel;
+    ppDBText13: TppDBText;
+    ppLabel21: TppLabel;
+    ppDBText14: TppDBText;
+    ppLabel23: TppLabel;
+    ppDBText16: TppDBText;
+    ppLabel24: TppLabel;
+    ppDBText17: TppDBText;
+    ppLabel26: TppLabel;
+    ppDBText19: TppDBText;
+    ppLabel27: TppLabel;
+    ppDBText20: TppDBText;
+    ppMemo1: TppMemo;
+    ppShape3: TppShape;
+    Label12: TLabel;
+    DBEdit12: TDBEdit;
+    Label15: TLabel;
+    DBEdit15: TDBEdit;
+    ppLabel19: TppLabel;
+    ppDBText12: TppDBText;
+    ppLabel22: TppLabel;
+    ppDBText15: TppDBText;
+    GroupBox3: TGroupBox;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    DBEdit20: TDBEdit;
+    DBEdit21: TDBEdit;
+    DBEdit22: TDBEdit;
+    DBEdit23: TDBEdit;
+    DBEdit24: TDBEdit;
+    DBEdit25: TDBEdit;
+    DBEdit26: TDBEdit;
+    GroupBox4: TGroupBox;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label30: TLabel;
+    Label31: TLabel;
+    Label32: TLabel;
+    DBEdit27: TDBEdit;
+    DBEdit28: TDBEdit;
+    DBEdit29: TDBEdit;
+    DBEdit30: TDBEdit;
+    DBEdit31: TDBEdit;
+    DBEdit32: TDBEdit;
+    Query1LR1: TFloatField;
+    Query1LR2: TFloatField;
+    Query1LR3: TFloatField;
+    Query1LR4: TFloatField;
+    Query1LR5: TFloatField;
+    Query1LR6: TFloatField;
+    Query1LE1: TFloatField;
+    Query1LE2: TFloatField;
+    Query1LE3: TFloatField;
+    Query1LE4: TFloatField;
+    Query1LE5: TFloatField;
+    Query1LE6: TFloatField;
+    Query1LE: TFloatField;
+    ppShape4: TppShape;
+    ppLabel25: TppLabel;
+    ppLabel28: TppLabel;
+    ppDBText18: TppDBText;
+    ppLabel29: TppLabel;
+    ppDBText21: TppDBText;
+    ppLabel30: TppLabel;
+    ppDBText22: TppDBText;
+    ppLabel31: TppLabel;
+    ppDBText23: TppDBText;
+    ppLabel32: TppLabel;
+    ppDBText24: TppDBText;
+    ppLabel33: TppLabel;
+    ppDBText25: TppDBText;
+    ppLabel34: TppLabel;
+    ppDBText26: TppDBText;
+    ppShape5: TppShape;
+    ppLabel35: TppLabel;
+    ppLabel55: TppLabel;
+    s01: TppLabel;
+    s02: TppLabel;
+    x09: TppLabel;
+    x003: TppLabel;
+    ppLabel136: TppLabel;
+    SpeedButton4: TSpeedButton;
+    Query1LR7: TFloatField;
+    Query1LR8: TFloatField;
+    Query1LE7: TFloatField;
+    Query1LE8: TFloatField;
+    Label33: TLabel;
+    DBEdit33: TDBEdit;
+    Label34: TLabel;
+    DBEdit34: TDBEdit;
+    Label35: TLabel;
+    DBEdit35: TDBEdit;
+    Label36: TLabel;
+    DBEdit36: TDBEdit;
+    ppLabel36: TppLabel;
+    ppDBText27: TppDBText;
+    ppLabel37: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel39: TppLabel;
+    ppLabel40: TppLabel;
+    ppLabel41: TppLabel;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText32: TppDBText;
+    d01: TppLabel;
+    d02: TppLabel;
+    d03: TppLabel;
+    d05: TppLabel;
+    d06: TppLabel;
+    d07: TppLabel;
+    ppLabel42: TppLabel;
+    ppLabel43: TppLabel;
+    ppLabel44: TppLabel;
+    ppLabel46: TppLabel;
+    ppLabel47: TppLabel;
+    ppLabel49: TppLabel;
+    ppLabel50: TppLabel;
+    ppLabel58: TppLabel;
+    ppLabel128: TppLabel;
+    p01: TppLabel;
+    p05: TppLabel;
+    p06: TppLabel;
+    p02: TppLabel;
+    p07: TppLabel;
+    p03: TppLabel;
+    ppLabel146: TppLabel;
+    ppLabel147: TppLabel;
+    ppDBText43: TppDBText;
+    ppDBText76: TppDBText;
+    d04: TppLabel;
+    d08: TppLabel;
+    ppLabel151: TppLabel;
+    ppLabel152: TppLabel;
+    ppLabel153: TppLabel;
+    p08: TppLabel;
+    p04: TppLabel;
+    ppLabel45: TppLabel;
+    ppDBText33: TppDBText;
+    ppLabel48: TppLabel;
+    ppDBText34: TppDBText;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1WF7Change(Sender: TField);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure Query1LR1Change(Sender: TField);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmfprofile: Tfrmfprofile;
+
+implementation
+
+uses mainformu, lineinfou, ftylearnformu;
+
+{$R *.dfm}
+
+procedure Tfrmfprofile.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmfprofile:=nil;
+end;
+
+procedure Tfrmfprofile.Query1WF7Change(Sender: TField);
+var
+  f7,f10,f22,f23,f24,f25,f41,f42,f43,f44,f45,f46,f401,f402,f403,f404,f405,f406:double;
+begin
+  if not query1.fieldbyname('wf7').isnull then f7:=query1.fieldbyname('wf7').value else f7:=0;
+  if not query1.fieldbyname('wf10').isnull then f10:=query1.fieldbyname('wf10').value else f10:=0;
+  if not query1.fieldbyname('wf22').isnull then f22:=query1.fieldbyname('wf22').value else f22:=0;
+  if not query1.fieldbyname('wf23').isnull then f23:=query1.fieldbyname('wf23').value else f23:=0;
+  if not query1.fieldbyname('wf24').isnull then f24:=query1.fieldbyname('wf24').value else f24:=0;
+  if not query1.fieldbyname('wf25').isnull then f25:=query1.fieldbyname('wf25').value else f25:=0;
+  if not query1.fieldbyname('wf41').isnull then f41:=query1.fieldbyname('wf41').value else f41:=0;
+  if not query1.fieldbyname('wf42').isnull then f42:=query1.fieldbyname('wf42').value else f42:=0;
+  if not query1.fieldbyname('wf43').isnull then f43:=query1.fieldbyname('wf43').value else f43:=0;
+  if not query1.fieldbyname('wf44').isnull then f44:=query1.fieldbyname('wf44').value else f44:=0;
+  if not query1.fieldbyname('wf45').isnull then f45:=query1.fieldbyname('wf45').value else f45:=0;
+  if not query1.fieldbyname('wf46').isnull then f46:=query1.fieldbyname('wf46').value else f46:=0;
+  if not query1.fieldbyname('wf401').isnull then f401:=query1.fieldbyname('wf401').value else f401:=0;
+  if not query1.fieldbyname('wf402').isnull then f402:=query1.fieldbyname('wf402').value else f402:=0;
+  if not query1.fieldbyname('wf403').isnull then f403:=query1.fieldbyname('wf403').value else f403:=0;
+  if not query1.fieldbyname('wf404').isnull then f404:=query1.fieldbyname('wf404').value else f404:=0;
+  if not query1.fieldbyname('wf405').isnull then f405:=query1.fieldbyname('wf405').value else f405:=0;
+  if not query1.fieldbyname('wf406').isnull then f406:=query1.fieldbyname('wf406').value else f406:=0;
+  query1.fieldbyname('wf29').value:=f23+f24+f25+f401+f402+f403+f404+f405+f406-f7-f10-f22-f41-f42-f43-f44-f45-f46;
+end;
+
+procedure Tfrmfprofile.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftfloat,'f7',ptinput);
+      params.createparam(ftfloat,'f10',ptinput);
+      params.createparam(ftfloat,'f22',ptinput);
+      params.createparam(ftfloat,'f23',ptinput);
+      params.createparam(ftfloat,'f24',ptinput);
+      params.createparam(ftfloat,'f25',ptinput);
+      params.createparam(ftfloat,'f29',ptinput);
+      params.createparam(ftfloat,'f41',ptinput);
+      params.createparam(ftfloat,'f42',ptinput);
+      params.createparam(ftfloat,'f43',ptinput);
+      params.createparam(ftfloat,'f44',ptinput);
+      params.createparam(ftfloat,'f45',ptinput);
+      params.createparam(ftfloat,'f46',ptinput);
+      params.createparam(ftfloat,'f401',ptinput);
+      params.createparam(ftfloat,'f402',ptinput);
+      params.createparam(ftfloat,'f403',ptinput);
+      params.createparam(ftfloat,'f404',ptinput);
+      params.createparam(ftfloat,'f405',ptinput);
+      params.createparam(ftfloat,'f406',ptinput);
+      params.createparam(ftfloat,'l01',ptinput);
+      params.createparam(ftfloat,'l02',ptinput);
+      params.createparam(ftfloat,'l03',ptinput);
+      params.createparam(ftfloat,'l04',ptinput);
+      params.createparam(ftfloat,'l05',ptinput);
+      params.createparam(ftfloat,'l06',ptinput);
+      params.createparam(ftfloat,'l11',ptinput);
+      params.createparam(ftfloat,'l12',ptinput);
+      params.createparam(ftfloat,'l13',ptinput);
+      params.createparam(ftfloat,'l14',ptinput);
+      params.createparam(ftfloat,'l15',ptinput);
+      params.createparam(ftfloat,'l16',ptinput);
+      params.createparam(ftfloat,'l17',ptinput);
+      params.createparam(ftfloat,'l08',ptinput);
+      params.createparam(ftfloat,'l09',ptinput);
+      params.createparam(ftfloat,'l18',ptinput);
+      params.createparam(ftfloat,'l19',ptinput);
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='update tblplant set wf7=:f7,wf10=:f10,wf22=:f22,wf23=:f23,wf24=:f24,wf25=:f25,wf29=:f29,'
+                  +'wf41=:f41,wf42=:f42,wf43=:f43,wf44=:f44,wf45=:f45,wf46=:f46,wf401=:f401,wf402=:f402,'
+                  +'wf403=:f403,wf404=:f404,wf405=:f405,wf406=:f406,lr1=:l01,lr2=:l02,lr3=:l03,lr4=:l04,lr5=:l05,lr6=:l06,'
+                  +'le1=:l11,le2=:l12,le3=:l13,le4=:l14,le5=:l15,le6=:l16,le=:l17,lr7=:l08,lr8=:l09,le7=:l18,le8=:l19 where tplant=:x1';
+      if not query1.fieldbyname('wf7').isnull then
+      params[0].asfloat:=query1.fieldbyname('wf7').value
+      else params[0].asfloat:=0;
+      if not query1.fieldbyname('wf10').isnull then
+      params[1].asfloat:=query1.fieldbyname('wf10').value
+      else params[1].asfloat:=0;
+      if not query1.fieldbyname('wf22').isnull then
+      params[2].asfloat:=query1.fieldbyname('wf22').value
+      else params[2].asfloat:=0;
+      if not query1.fieldbyname('wf23').isnull then
+      params[3].asfloat:=query1.fieldbyname('wf23').value
+      else params[3].asfloat:=0;
+      if not query1.fieldbyname('wf24').isnull then
+      params[4].asfloat:=query1.fieldbyname('wf24').value
+      else params[4].asfloat:=0;
+      if not query1.fieldbyname('wf25').isnull then
+      params[5].asfloat:=query1.fieldbyname('wf25').value
+      else params[5].asfloat:=0;
+      params[6].asfloat:=query1.fieldbyname('wf29').value;
+      if not query1.fieldbyname('wf41').isnull then
+      params[7].asfloat:=query1.fieldbyname('wf41').value
+      else params[7].asfloat:=0;
+      if not query1.fieldbyname('wf42').isnull then
+      params[8].asfloat:=query1.fieldbyname('wf42').value
+      else params[8].asfloat:=0;
+      if not query1.fieldbyname('wf43').isnull then
+      params[9].asfloat:=query1.fieldbyname('wf43').value
+      else params[9].asfloat:=0;
+      if not query1.fieldbyname('wf44').isnull then
+      params[10].asfloat:=query1.fieldbyname('wf44').value
+      else params[10].asfloat:=0;
+      if not query1.fieldbyname('wf45').isnull then
+      params[11].asfloat:=query1.fieldbyname('wf45').value
+      else params[11].asfloat:=0;
+      if not query1.fieldbyname('wf46').isnull then
+      params[12].asfloat:=query1.fieldbyname('wf46').value
+      else params[12].asfloat:=0;
+      if not query1.fieldbyname('wf401').isnull then
+      params[13].asfloat:=query1.fieldbyname('wf401').value
+      else params[13].asfloat:=0;
+      if not query1.fieldbyname('wf402').isnull then
+      params[14].asfloat:=query1.fieldbyname('wf402').value
+      else params[14].asfloat:=0;
+      if not query1.fieldbyname('wf403').isnull then
+      params[15].asfloat:=query1.fieldbyname('wf403').value
+      else params[15].asfloat:=0;
+      if not query1.fieldbyname('wf404').isnull then
+      params[16].asfloat:=query1.fieldbyname('wf404').value
+      else params[16].asfloat:=0;
+      if not query1.fieldbyname('wf405').isnull then
+      params[17].asfloat:=query1.fieldbyname('wf405').value
+      else params[17].asfloat:=0;
+      if not query1.fieldbyname('wf406').isnull then
+      params[18].asfloat:=query1.fieldbyname('wf406').value
+      else params[18].asfloat:=0;
+      if not query1.fieldbyname('lr1').isnull then
+      params[19].asfloat:=query1.fieldbyname('lr1').value
+      else params[19].asfloat:=0;
+      if not query1.fieldbyname('lr2').isnull then
+      params[20].asfloat:=query1.fieldbyname('lr2').value
+      else params[20].asfloat:=0;
+      if not query1.fieldbyname('lr3').isnull then
+      params[21].asfloat:=query1.fieldbyname('lr3').value
+      else params[21].asfloat:=0;
+      if not query1.fieldbyname('lr4').isnull then
+      params[22].asfloat:=query1.fieldbyname('lr4').value
+      else params[22].asfloat:=0;
+      if not query1.fieldbyname('lr5').isnull then
+      params[23].asfloat:=query1.fieldbyname('lr5').value
+      else params[23].asfloat:=0;
+      if not query1.fieldbyname('lr6').isnull then
+      params[24].asfloat:=query1.fieldbyname('lr6').value
+      else params[24].asfloat:=0;
+      if not query1.fieldbyname('le1').isnull then
+      params[25].asfloat:=query1.fieldbyname('le1').value
+      else params[25].asfloat:=0;
+      if not query1.fieldbyname('le2').isnull then
+      params[26].asfloat:=query1.fieldbyname('le2').value
+      else params[26].asfloat:=0;
+      if not query1.fieldbyname('le3').isnull then
+      params[27].asfloat:=query1.fieldbyname('le3').value
+      else params[27].asfloat:=0;
+      if not query1.fieldbyname('le4').isnull then
+      params[28].asfloat:=query1.fieldbyname('le4').value
+      else params[28].asfloat:=0;
+      if not query1.fieldbyname('le5').isnull then
+      params[29].asfloat:=query1.fieldbyname('le5').value
+      else params[29].asfloat:=0;
+      if not query1.fieldbyname('le6').isnull then
+      params[30].asfloat:=query1.fieldbyname('le6').value
+      else params[30].asfloat:=0;
+      if not query1.fieldbyname('le').isnull then
+      params[31].asfloat:=query1.fieldbyname('le').value
+      else params[31].asfloat:=0;
+      if not query1.fieldbyname('lr7').isnull then
+      params[32].asfloat:=query1.fieldbyname('lr7').value
+      else params[32].asfloat:=0;
+      if not query1.fieldbyname('lr8').isnull then
+      params[33].asfloat:=query1.fieldbyname('lr8').value
+      else params[33].asfloat:=0;
+      if not query1.fieldbyname('le7').isnull then
+      params[34].asfloat:=query1.fieldbyname('le7').value
+      else params[34].asfloat:=0;
+      if not query1.fieldbyname('le8').isnull then
+      params[35].asfloat:=query1.fieldbyname('le8').value
+      else params[35].asfloat:=0;
+      params[36].asstring:=query1.fieldbyname('tplant').value;
+      execute;
+    end;
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftfloat,'f7',ptinput);
+    params.createparam(ftfloat,'f10',ptinput);
+    params.createparam(ftfloat,'f22',ptinput);
+    params.createparam(ftfloat,'f23',ptinput);
+    params.createparam(ftfloat,'f24',ptinput);
+    params.createparam(ftfloat,'f25',ptinput);
+    params.createparam(ftfloat,'f29',ptinput);
+    params.createparam(ftfloat,'f41',ptinput);
+    params.createparam(ftfloat,'f42',ptinput);
+    params.createparam(ftfloat,'f43',ptinput);
+    params.createparam(ftfloat,'f44',ptinput);
+    params.createparam(ftfloat,'f401',ptinput);
+    params.createparam(ftfloat,'f402',ptinput);
+    params.createparam(ftfloat,'f403',ptinput);
+    params.createparam(ftfloat,'f404',ptinput);
+    params.createparam(ftstring,'x1',ptinput);
+    commandtext:='update tblline set wf7=:f7,wf10=:f10,wf22=:f22,wf23=:f23,wf24=:f24,wf25=:f25,wf29=:f29,'
+                +'wf41=:f41,wf42=:f42,wf43=:f43,wf44=:f44,wf45=:f401,wf46=:f402,wf47=:f403,wf48=:f404 where tplant=:x1';
+    if not query1.fieldbyname('wf7').isnull then
+    params[0].asfloat:=query1.fieldbyname('wf7').value
+    else params[0].asfloat:=0;
+    if not query1.fieldbyname('wf10').isnull then
+    params[1].asfloat:=query1.fieldbyname('wf10').value
+    else params[1].asfloat:=0;
+    if not query1.fieldbyname('wf22').isnull then
+    params[2].asfloat:=query1.fieldbyname('wf22').value
+    else params[2].asfloat:=0;
+    if not query1.fieldbyname('wf23').isnull then
+    params[3].asfloat:=query1.fieldbyname('wf23').value
+    else params[3].asfloat:=0;
+    if not query1.fieldbyname('wf24').isnull then
+    params[4].asfloat:=query1.fieldbyname('wf24').value
+    else params[4].asfloat:=0;
+    if not query1.fieldbyname('wf25').isnull then
+    params[5].asfloat:=query1.fieldbyname('wf25').value
+    else params[5].asfloat:=0;
+    params[6].asfloat:=query1.fieldbyname('wf29').value;
+    if not query1.fieldbyname('wf41').isnull then
+    params[7].asfloat:=query1.fieldbyname('wf41').value
+    else params[7].asfloat:=0;
+    if not query1.fieldbyname('wf42').isnull then
+    params[8].asfloat:=query1.fieldbyname('wf42').value
+    else params[8].asfloat:=0;
+    if not query1.fieldbyname('wf43').isnull then
+    params[9].asfloat:=query1.fieldbyname('wf43').value
+    else params[9].asfloat:=0;
+    if not query1.fieldbyname('wf44').isnull then
+    params[10].asfloat:=query1.fieldbyname('wf44').value
+    else params[10].asfloat:=0;
+    if not query1.fieldbyname('wf401').isnull then
+    params[11].asfloat:=query1.fieldbyname('wf401').value
+    else params[11].asfloat:=0;
+    if not query1.fieldbyname('wf402').isnull then
+    params[12].asfloat:=query1.fieldbyname('wf402').value
+    else params[12].asfloat:=0;
+    if not query1.fieldbyname('wf403').isnull then
+    params[13].asfloat:=query1.fieldbyname('wf403').value
+    else params[13].asfloat:=0;
+    if not query1.fieldbyname('wf404').isnull then
+    params[14].asfloat:=query1.fieldbyname('wf404').value
+    else params[14].asfloat:=0;
+    params[15].asstring:=query1.fieldbyname('tplant').value;
+    execute;
+  end;
+end;
+
+procedure Tfrmfprofile.SpeedButton1Click(Sender: TObject);
+begin
+  if query1.Active then begin
+    with query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tblplant where tplant='''+query1.fieldbyname('tplant').value+'''';
+      open;
+    end;
+    ppDBPipeLine1.DataSource:=datasource2;
+    title001.Caption:='- '+query4.fieldbyname('tplant').value;
+    ppReport1.Print;
+  end;
+end;
+
+procedure Tfrmfprofile.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomSetting:=zs100percent;
+end;
+
+procedure Tfrmfprofile.SpeedButton2Click(Sender: TObject);
+begin
+  if query1.Active then begin
+    ppDBpipeline1.DataSource:=datasource1;
+    title001.Caption:='';
+    ppReport1.Print;
+  end;
+end;
+
+procedure Tfrmfprofile.ppDetailBand1BeforePrint(Sender: TObject);
+var
+  tt01,xy01:integer;
+begin
+    if ppDBPipeLine1.datasource.DataSet.fieldbyname('tplant').value='SL' then
+    mgr001.Caption:='Senior Factory Manager '
+    else mgr001.Caption:='Factory Manager ';
+    //
+    {
+    xy01:=20;
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='select * from tblplant where tplant=:x1';
+      params[0].asstring:=query1.fieldbyname('tplant').value;
+      open;
+      tt01:=fieldbyname('lr1').value+fieldbyname('lr2').value+fieldbyname('lr3').value+fieldbyname('lr4').value+fieldbyname('lr5').value+fieldbyname('lr6').value+fieldbyname('lr7').value+fieldbyname('lr8').value;
+      if fieldbyname('tplant').value='KB' then xy01:=20 else xy01:=24;
+      d01.Caption:=' / '+formatfloat('#0.0',fieldbyname('lr1').Value/xy01);
+      p01.Caption:='('+formatfloat('#0.0',fieldbyname('lr1').Value/xy01)+'-'+formatfloat('#0.0',fieldbyname('lr1').Value/xy01)+')';
+      d02.Caption:=' / '+formatfloat('#0.0',fieldbyname('lr2').Value/xy01);
+      p02.Caption:='('+formatfloat('#0.0',(fieldbyname('lr1').Value)/xy01)+'-'
+      +formatfloat('#0.0',(fieldbyname('lr1').value+fieldbyname('lr2').Value)/xy01)+')';
+      d03.Caption:=' / '+formatfloat('#0.0',fieldbyname('lr3').Value/xy01);
+      p03.Caption:='('+formatfloat('#0.0',(fieldbyname('lr2').Value+fieldbyname('lr1').value)/xy01)+'-'
+      +formatfloat('#0.0',(fieldbyname('lr1').value+fieldbyname('lr2').value+fieldbyname('lr3').Value)/xy01)+')';
+      d04.Caption:=' / '+formatfloat('#0.0',fieldbyname('lr4').Value/xy01);
+      p04.Caption:='('+formatfloat('#0.0',(fieldbyname('lr3').Value+fieldbyname('lr2').value+fieldbyname('lr1').value)/xy01)+'-'
+      +formatfloat('#0.0',(fieldbyname('lr1').value+fieldbyname('lr2').value+fieldbyname('lr3').Value+fieldbyname('lr4').Value)/xy01)+')';
+      d05.Caption:=' / '+formatfloat('#0.0',fieldbyname('lr5').Value/xy01);
+      p05.Caption:='('+formatfloat('#0.0',(fieldbyname('lr4').Value+fieldbyname('lr3').value+fieldbyname('lr2').value+fieldbyname('lr1').value)/xy01)+'-'
+      +formatfloat('#0.0',(fieldbyname('lr1').value+fieldbyname('lr2').value+fieldbyname('lr3').Value+fieldbyname('lr4').Value+fieldbyname('lr5').Value)/xy01)+')';
+      d06.Caption:=' / '+formatfloat('#0.0',fieldbyname('lr6').Value/xy01);
+      p06.Caption:='('+formatfloat('#0.0',(fieldbyname('lr5').Value+fieldbyname('lr4').value+fieldbyname('lr3').value+fieldbyname('lr2').value+fieldbyname('lr1').value)/xy01)+'-'
+      +formatfloat('#0.0',(fieldbyname('lr1').value+fieldbyname('lr2').value+fieldbyname('lr3').Value+fieldbyname('lr4').Value+fieldbyname('lr5').Value+fieldbyname('lr6').Value)/xy01)+')';
+      d07.Caption:=' / '+formatfloat('#0.0',fieldbyname('lr7').Value/xy01);
+      p07.Caption:='('+formatfloat('#0.0',(fieldbyname('lr6').value+fieldbyname('lr5').Value+fieldbyname('lr4').value+fieldbyname('lr3').value+fieldbyname('lr2').value+fieldbyname('lr1').value)/xy01)+'-'
+      +formatfloat('#0.0',(fieldbyname('lr1').value+fieldbyname('lr2').value+fieldbyname('lr3').Value+fieldbyname('lr4').Value+fieldbyname('lr5').Value+fieldbyname('lr6').Value+fieldbyname('lr7').value)/xy01)+')';
+      d08.Caption:=' / '+formatfloat('#0.0',fieldbyname('lr8').Value/xy01);
+      p08.Caption:='('+formatfloat('#0.0',(fieldbyname('lr7').value+fieldbyname('lr6').value+fieldbyname('lr5').Value+fieldbyname('lr4').value+fieldbyname('lr3').value+fieldbyname('lr2').value+fieldbyname('lr1').value)/xy01)+'-'
+      +formatfloat('#0.0',(fieldbyname('lr1').value+fieldbyname('lr2').value+fieldbyname('lr3').Value+fieldbyname('lr4').Value+fieldbyname('lr5').Value+fieldbyname('lr6').Value+fieldbyname('lr7').value+fieldbyname('lr8').value)/xy01)+')';
+      s01.Caption:=inttostr(tt01);
+      s02.Caption:=' / Total Working Days: '+formatfloat('#0.0',tt01/xy01);
+    end;
+    }
+end;
+
+procedure Tfrmfprofile.Query1LR1Change(Sender: TField);
+var
+  le1,le2,le3,le4,le5,le6,le7,le8,lr1,lr2,lr3,lr4,lr5,lr6,lr7,lr8:double;
+begin
+  if not query1.fieldbyname('le1').isnull then le1:=query1.fieldbyname('le1').value else le1:=0;
+  if not query1.fieldbyname('le2').isnull then le2:=query1.fieldbyname('le2').value else le2:=0;
+  if not query1.fieldbyname('le3').isnull then le3:=query1.fieldbyname('le3').value else le3:=0;
+  if not query1.fieldbyname('le4').isnull then le4:=query1.fieldbyname('le4').value else le4:=0;
+  if not query1.fieldbyname('le5').isnull then le5:=query1.fieldbyname('le5').value else le5:=0;
+  if not query1.fieldbyname('le6').isnull then le6:=query1.fieldbyname('le6').value else le6:=0;
+  if not query1.fieldbyname('le7').isnull then le7:=query1.fieldbyname('le7').value else le7:=0;
+  if not query1.fieldbyname('le8').isnull then le8:=query1.fieldbyname('le8').value else le8:=0;
+  if not query1.fieldbyname('lr1').isnull then lr1:=query1.fieldbyname('lr1').value else lr1:=0;
+  if not query1.fieldbyname('lr2').isnull then lr2:=query1.fieldbyname('lr2').value else lr2:=0;
+  if not query1.fieldbyname('lr3').isnull then lr3:=query1.fieldbyname('lr3').value else lr3:=0;
+  if not query1.fieldbyname('lr4').isnull then lr4:=query1.fieldbyname('lr4').value else lr4:=0;
+  if not query1.fieldbyname('lr5').isnull then lr5:=query1.fieldbyname('lr5').value else lr5:=0;
+  if not query1.fieldbyname('lr6').isnull then lr6:=query1.fieldbyname('lr6').value else lr6:=0;
+  if not query1.fieldbyname('lr7').isnull then lr7:=query1.fieldbyname('lr7').value else lr7:=0;
+  if not query1.fieldbyname('lr8').isnull then lr8:=query1.fieldbyname('lr8').value else lr8:=0;
+  if lr1+lr2+lr3+lr4+lr5+lr6+lr7+lr8>0 then
+  query1.fieldbyname('le').value:=(le1*lr1+le2*lr2+le3*lr3+le4*lr4+le5*lr5+le6*lr6+le7*lr7+le8*lr8)/(lr1+lr2+lr3+lr4+lr5+lr6+lr7+lr8)
+  else query1.fieldbyname('le').value:=0;
+end;
+
+procedure Tfrmfprofile.SpeedButton4Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmfprofile.SpeedButton3Click(Sender: TObject);
+begin
+  if frmftylearn=nil then frmftylearn:=tfrmftylearn.create(nil);
+  with frmftylearn.query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tblplant_learn where tplant='''+query1.fieldbyname('tplant').value+'''';
+    open;
+  end;
+  frmftylearn.show;
+end;
+
+procedure Tfrmfprofile.Query1AfterOpen(DataSet: TDataSet);
+begin
+  (query1.fieldbyname('le1') as tfloatfield).displayformat:='#0.00';
+  (query1.fieldbyname('le2') as tfloatfield).displayformat:='#0.00';
+  (query1.fieldbyname('le3') as tfloatfield).displayformat:='#0.00';
+  (query1.fieldbyname('le4') as tfloatfield).displayformat:='#0.00';
+  (query1.fieldbyname('le5') as tfloatfield).displayformat:='#0.00';
+  (query1.fieldbyname('le6') as tfloatfield).displayformat:='#0.00';
+  (query1.fieldbyname('le7') as tfloatfield).displayformat:='#0.00';
+  (query1.fieldbyname('le8') as tfloatfield).displayformat:='#0.00';
+  (query1.fieldbyname('le') as tfloatfield).displayformat:='#0.00';
+end;
+
+end.

@@ -1,0 +1,49 @@
+object frmcap_wowithoutsah: Tfrmcap_wowithoutsah
+  Left = 0
+  Top = 0
+  Caption = 'WO list without SAH'
+  ClientHeight = 336
+  ClientWidth = 681
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 0
+    Width = 681
+    Height = 295
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = 40
+    ExplicitTop = 16
+    ExplicitWidth = 250
+    ExplicitHeight = 200
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 295
+    Width = 681
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitLeft = 72
+    ExplicitTop = 240
+    ExplicitWidth = 185
+  end
+end

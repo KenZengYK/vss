@@ -1,0 +1,3396 @@
+unit achievingformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, ppProd, ppClass, ppReport, ppComm, ppRelatv, ppDB,
+  ppDBPipe, DB, DBClient, Grids, DBGridEh, StdCtrls, Buttons, ppCtrls,
+  ppVar, ppPrnabl, ppBands, ppCache, ppViewr, Txcomp, Mask, ToolEdit,
+  myChkBox, ppStrtch, ppSubRpt, ppMemo, Menus, GridsEh, dateutils, ADODB,
+  cxStyles, cxCustomData, cxGraphics, cxFilter, cxData, cxDataStorage,
+  cxEdit, cxDBData, cxGridCustomTableView, cxGridTableView,
+  cxGridBandedTableView, cxGridDBBandedTableView, cxControls,
+  cxGridCustomView, cxClasses, cxGridLevel, cxGrid, siComp;
+
+type
+  Tfrmachieving = class(TForm)
+    Panel1: TPanel;
+    Label5: TLabel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    Panel2: TPanel;
+    Label4: TLabel;
+    Query1: TClientDataSet;
+    Query1PLINE: TStringField;
+    Query1SEQ: TIntegerField;
+    Query1DSEQ: TIntegerField;
+    Query1DATE1: TDateField;
+    Query1SHJS: TFloatField;
+    Query1ZKTD: TFloatField;
+    Query1SCLHJS: TFloatField;
+    Query1QYJS: TFloatField;
+    Query1FLAG: TStringField;
+    Query1SJRS: TFloatField;
+    Query1SJYC: TFloatField;
+    Query1SJRS1: TFloatField;
+    Query1SJRS2: TFloatField;
+    Query1PQTY: TFloatField;
+    Query1AQTY: TFloatField;
+    Query1DIFF: TFloatField;
+    Query1AQTY1: TFloatField;
+    Query1EOT: TFloatField;
+    Query1EFF1: TFloatField;
+    Query1EFF2: TFloatField;
+    Query1XJS: TFloatField;
+    Query1CSTYLE: TStringField;
+    Query1J2_JOB: TStringField;
+    Query1LSTR: TFloatField;
+    Query1ZHJS: TFloatField;
+    Query1LFLAG: TStringField;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DataSource1: TDataSource;
+    ppDBPipeline1: TppDBPipeline;
+    ComboBox1: TComboBox;
+    BitBtn4: TBitBtn;
+    Query1TPLANT: TStringField;
+    Query1TSHOP: TStringField;
+    Label1: TLabel;
+    ComboBox2: TComboBox;
+    DBGridEh1: TDBGridEh;
+    Query1DT1: TDateField;
+    Query1CSECT: TFloatField;
+    Query1DBXL: TFloatField;
+    Query1RWO: TStringField;
+    Query1PSECT: TFloatField;
+    Query1KSJS: TFloatField;
+    Query1J_NO: TStringField;
+    Query1FCCS: TStringField;
+    Label2: TLabel;
+    DateEdit1: TDateEdit;
+    Query1ACOL: TStringField;
+    Query1SCQTY: TIntegerField;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    title01: TppLabel;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    ppLabel4: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel5: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel36: TppLabel;
+    ppLabel37: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel40: TppLabel;
+    ppLabel41: TppLabel;
+    ppLabel45: TppLabel;
+    ppLabel51: TppLabel;
+    ppLabel52: TppLabel;
+    ppLabel54: TppLabel;
+    ppLabel55: TppLabel;
+    ppLabel56: TppLabel;
+    ppLabel57: TppLabel;
+    ppLabel58: TppLabel;
+    ppLabel59: TppLabel;
+    ppLabel61: TppLabel;
+    ppLabel64: TppLabel;
+    ppLabel66: TppLabel;
+    ppLabel69: TppLabel;
+    ppLabel70: TppLabel;
+    ppLabel77: TppLabel;
+    ppLabel78: TppLabel;
+    ppLabel79: TppLabel;
+    ppLabel81: TppLabel;
+    ppLine2: TppLine;
+    ppLine4: TppLine;
+    ppLine7: TppLine;
+    ppLine10: TppLine;
+    ppLine12: TppLine;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLine19: TppLine;
+    ppLine22: TppLine;
+    ppLabel3: TppLabel;
+    ppLine24: TppLine;
+    ppLine25: TppLine;
+    ppLabel86: TppLabel;
+    ppLabel87: TppLabel;
+    ppLine3: TppLine;
+    ppLine26: TppLine;
+    ppLine23: TppLine;
+    ppLine27: TppLine;
+    ppLine28: TppLine;
+    ppLabel20: TppLabel;
+    fty001: TppLabel;
+    shop001: TppLabel;
+    ppLabel24: TppLabel;
+    date001: TppLabel;
+    ppLabel32: TppLabel;
+    ppLine29: TppLine;
+    ppLabel49: TppLabel;
+    ppLabel53: TppLabel;
+    ppLine30: TppLine;
+    ppLabel67: TppLabel;
+    ppLine31: TppLine;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppLabel72: TppLabel;
+    ppLabel75: TppLabel;
+    ppLabel82: TppLabel;
+    ppLabel83: TppLabel;
+    ppLabel84: TppLabel;
+    ppDetailBand1: TppDetailBand;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    r01: TppDBText;
+    j01: TppDBText;
+    r02: TppDBText;
+    j02: TppDBText;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText23: TppDBText;
+    ppDBText29: TppDBText;
+    ppDBText30: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText6: TppDBText;
+    ppLabel15: TppLabel;
+    ppDBText27: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText32: TppDBText;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppShape2: TppShape;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc4: TppDBCalc;
+    ppDBCalc5: TppDBCalc;
+    ppDBCalc6: TppDBCalc;
+    ppDBCalc7: TppDBCalc;
+    ppDBCalc8: TppDBCalc;
+    total001: TppLabel;
+    Query1FLAG3: TStringField;
+    Query1FLAG6: TStringField;
+    Query1FLAGS: TStringField;
+    ppDBText34: TppDBText;
+    ppDBText35: TppDBText;
+    opt1: TRadioGroup;
+    ppLabel93: TppLabel;
+    ppDBCalc11: TppDBCalc;
+    ppDBCalc12: TppDBCalc;
+    x002: TppLabel;
+    x003: TppLabel;
+    title001: TppLabel;
+    ppLabel6: TppLabel;
+    ppShape10: TppShape;
+    ppShape8: TppShape;
+    ppShape6: TppShape;
+    ppShape12: TppShape;
+    ppShape11: TppShape;
+    ppShape3: TppShape;
+    ppShape13: TppShape;
+    Query1CFM: TBooleanField;
+    ppLine8: TppLine;
+    ppLabel85: TppLabel;
+    myDBCheckBox1: TmyDBCheckBox;
+    ppLine9: TppLine;
+    ppLabel88: TppLabel;
+    Query1DFLAG: TStringField;
+    ppLine34: TppLine;
+    ppShape14: TppShape;
+    ppDBText1: TppDBText;
+    Query1MARKS: TStringField;
+    Query4: TClientDataSet;
+    DataSource2: TDataSource;
+    ppDBPipeline2: TppDBPipeline;
+    ppLine35: TppLine;
+    ppLabel91: TppLabel;
+    ppLabel92: TppLabel;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand2: TppDetailBand;
+    ppSummaryBand2: TppSummaryBand;
+    ppDBText36: TppDBText;
+    ppColumnHeaderBand1: TppColumnHeaderBand;
+    ppColumnFooterBand1: TppColumnFooterBand;
+    ppLabel94: TppLabel;
+    eff2002: TppLabel;
+    ppLabel95: TppLabel;
+    Query1LST: TStringField;
+    Query5: TClientDataSet;
+    date1001: TppLabel;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    Query1DSECT: TFloatField;
+    Query1LFLAG1: TFloatField;
+    Query1TRS: TFloatField;
+    ppLabel14: TppLabel;
+    ppLine20: TppLine;
+    Query1CEOT: TFloatField;
+    ppLabel28: TppLabel;
+    ppLabel71: TppLabel;
+    ppDBText2: TppDBText;
+    ppDBCalc19: TppDBCalc;
+    ppLabel13: TppLabel;
+    ppLabel63: TppLabel;
+    dbxl01: TppLabel;
+    dbxl02: TppLabel;
+    ppLabel73: TppLabel;
+    Query1PQTY1: TFloatField;
+    lstr01: TppLabel;
+    trs01: TppLabel;
+    sjrs101: TppLabel;
+    sjrs201: TppLabel;
+    sjrs01: TppLabel;
+    sjyc01: TppLabel;
+    Query1MPSECT: TFloatField;
+    Query1PEFF: TFloatField;
+    Query1LST1: TStringField;
+    Query1KSJS1: TFloatField;
+    ppDBText24: TppDBText;
+    ppLine1: TppLine;
+    ppDBText26: TppDBText;
+    ppDBText38: TppDBText;
+    ppLabel74: TppLabel;
+    ppLabel76: TppLabel;
+    ppLabel96: TppLabel;
+    ppLabel97: TppLabel;
+    BitBtn5: TBitBtn;
+    Query6: TClientDataSet;
+    DataSource3: TDataSource;
+    ppDBPipeline3: TppDBPipeline;
+    ppShape7: TppShape;
+    ppMemo1: TppMemo;
+    ppLine21: TppLine;
+    ppLabel99: TppLabel;
+    pcflag1: TppLabel;
+    scqty01: TppLabel;
+    bal001: TppLabel;
+    ppLine36: TppLine;
+    BitBtn6: TBitBtn;
+    Query7: TClientDataSet;
+    DataSource4: TDataSource;
+    ppDBPipeline4: TppDBPipeline;
+    ppReport2: TppReport;
+    ppHeaderBand2: TppHeaderBand;
+    ppDetailBand3: TppDetailBand;
+    ppFooterBand2: TppFooterBand;
+    imgtitle001: TppLabel;
+    ppLabel101: TppLabel;
+    tplant002: TppLabel;
+    y01: TppLabel;
+    tshop002: TppLabel;
+    ppLabel103: TppLabel;
+    date002: TppLabel;
+    ppLabel104: TppLabel;
+    ppSystemVariable3: TppSystemVariable;
+    ppLabel105: TppLabel;
+    ppSystemVariable4: TppSystemVariable;
+    ppShape9: TppShape;
+    ppLabel106: TppLabel;
+    ppLabel107: TppLabel;
+    ppLabel108: TppLabel;
+    ppLabel109: TppLabel;
+    ppLabel110: TppLabel;
+    ppLabel111: TppLabel;
+    ppLabel112: TppLabel;
+    ppLabel113: TppLabel;
+    ppLabel114: TppLabel;
+    ppLabel115: TppLabel;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppImage1: TppImage;
+    ppDBText33: TppDBText;
+    ppDBText39: TppDBText;
+    ppDBText40: TppDBText;
+    ppImage2: TppImage;
+    ppDBText41: TppDBText;
+    ppDBText42: TppDBText;
+    ppDBText43: TppDBText;
+    ppDBText44: TppDBText;
+    PopupMenu1: TPopupMenu;
+    WIPStylesImageIllustration1: TMenuItem;
+    ppDBMemo1: TppDBMemo;
+    ppLine11: TppLine;
+    ppLabel7: TppLabel;
+    ppLabel43: TppLabel;
+    ppDBText15: TppDBText;
+    ppLabel44: TppLabel;
+    ppLine13: TppLine;
+    ppLine37: TppLine;
+    ppLabel46: TppLabel;
+    ppLabel47: TppLabel;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLine41: TppLine;
+    ppLine42: TppLine;
+    ppLine43: TppLine;
+    ppLine44: TppLine;
+    ppLine45: TppLine;
+    ttl002: TppLabel;
+    peff001: TppLabel;
+    ppShape4: TppShape;
+    ppMemo2: TppMemo;
+    BitBtn7: TBitBtn;
+    ppGroup3: TppGroup;
+    ppGroupHeaderBand3: TppGroupHeaderBand;
+    ppGroupFooterBand3: TppGroupFooterBand;
+    ppShape5: TppShape;
+    ppMemo3: TppMemo;
+    phase001: TppLabel;
+    ppShape15: TppShape;
+    Query1MWFLB: TFloatField;
+    Query1MWFS: TFloatField;
+    Query1MWFA: TFloatField;
+    Query1MWFAC: TFloatField;
+    Query1MWFBN: TFloatField;
+    Query1GSDMBN: TFloatField;
+    Query1RFIDP: TStringField;
+    y0001: TppLabel;
+    y0002: TppDBText;
+    ppLabel48: TppLabel;
+    ppDBCalc13: TppDBCalc;
+    ppReport3: TppReport;
+    ppHeaderBand3: TppHeaderBand;
+    ppLabel50: TppLabel;
+    ppLabel80: TppLabel;
+    tplant003: TppLabel;
+    ppLabel116: TppLabel;
+    date003: TppLabel;
+    ppLabel118: TppLabel;
+    ppSystemVariable5: TppSystemVariable;
+    ppLabel119: TppLabel;
+    ppSystemVariable6: TppSystemVariable;
+    ppShape16: TppShape;
+    ppLabel120: TppLabel;
+    ppLabel121: TppLabel;
+    ppLabel123: TppLabel;
+    ppLabel124: TppLabel;
+    ppLabel125: TppLabel;
+    ppLabel126: TppLabel;
+    ppDetailBand4: TppDetailBand;
+    ppDBText37: TppDBText;
+    ppFooterBand3: TppFooterBand;
+    ppGroup4: TppGroup;
+    ppGroupHeaderBand4: TppGroupHeaderBand;
+    ppDBText50: TppDBText;
+    ppImage4: TppImage;
+    ppGroupFooterBand4: TppGroupFooterBand;
+    ppColumnHeaderBand2: TppColumnHeaderBand;
+    ppColumnFooterBand2: TppColumnFooterBand;
+    ppLabel100: TppLabel;
+    ppDBText16: TppDBText;
+    ppSummaryBand3: TppSummaryBand;
+    ttlqty001: TppLabel;
+    ppShape17: TppShape;
+    ttl001: TppLabel;
+    ppShape18: TppShape;
+    ppSummaryBand4: TppSummaryBand;
+    ppShape19: TppShape;
+    ttl003: TppLabel;
+    ppShape20: TppShape;
+    ppMemo4: TppMemo;
+    ppShape21: TppShape;
+    ppMemo5: TppMemo;
+    ppLine46: TppLine;
+    ppLine47: TppLine;
+    ppLine48: TppLine;
+    ppLine49: TppLine;
+    ppLine50: TppLine;
+    ppLine51: TppLine;
+    ppLine52: TppLine;
+    ppLine53: TppLine;
+    ppLabel89: TppLabel;
+    ppDBText45: TppDBText;
+    ppGroup5: TppGroup;
+    ppGroupHeaderBand5: TppGroupHeaderBand;
+    ppGroupFooterBand5: TppGroupFooterBand;
+    ppLine58: TppLine;
+    ppLine59: TppLine;
+    ppGroup6: TppGroup;
+    ppGroupHeaderBand6: TppGroupHeaderBand;
+    ppGroupFooterBand6: TppGroupFooterBand;
+    ppLine60: TppLine;
+    ppLine54: TppLine;
+    ppLine56: TppLine;
+    ppLine57: TppLine;
+    ppImage3: TppImage;
+    lflag01: TppLabel;
+    Query1MWFSC: TFloatField;
+    Query1MWFLBC: TFloatField;
+    Query1MWFBNC: TFloatField;
+    ppImage5: TppImage;
+    BitBtn8: TBitBtn;
+    ppLabel98: TppLabel;
+    ppGroup7: TppGroup;
+    ppGroupHeaderBand7: TppGroupHeaderBand;
+    ppGroupFooterBand7: TppGroupFooterBand;
+    x0001: TppLabel;
+    x0002: TppLabel;
+    Query8: TClientDataSet;
+    DataSource5: TDataSource;
+    ksjs1001: TppLabel;
+    lst1001: TppLabel;
+    ppLine55: TppLine;
+    ppLine61: TppLine;
+    ppLabel29: TppLabel;
+    ppLabel33: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel35: TppLabel;
+    prj001: TppLabel;
+    prj002: TppLabel;
+    xttl02: TppLabel;
+    ppLine5: TppLine;
+    ppLabel30: TppLabel;
+    prj003: TppLabel;
+    ppShape23: TppShape;
+    ppLabel31: TppLabel;
+    ppDBCalc2: TppDBCalc;
+    ppDBCalc3: TppDBCalc;
+    lflag1001: TppLabel;
+    lflag1002: TppLabel;
+    lflag1003: TppLabel;
+    ppDBText7: TppDBText;
+    x005: TppLabel;
+    ppLabel39: TppLabel;
+    lflag1004: TppLabel;
+    ppLabel42: TppLabel;
+    wkno01: TppLabel;
+    ppLabel90: TppLabel;
+    ppLabel62: TppLabel;
+    Label3: TLabel;
+    Edit1: TEdit;
+    linex01: TppLabel;
+    line001: TppLabel;
+    Query1PRJ1: TFloatField;
+    Query1PRJ2: TFloatField;
+    Query1PRJ3: TFloatField;
+    Query1PRJ4: TFloatField;
+    DateEdit2: TDateEdit;
+    Edit2: TEdit;
+    Query10: TClientDataSet;
+    PDFFILES1: TMenuItem;
+    ClientDataSet2: TClientDataSet;
+    DataSet2: TADOQuery;
+    conf001: TppLabel;
+    ReviewWAveLineEff1: TMenuItem;
+    ROQuery1: TClientDataSet;
+    siLang1: TsiLang;
+    BitBtn9: TBitBtn;
+    lbl850: TLabel;
+    Query1AQTY_SP: TFloatField;
+    Query1AQTY1_SP: TFloatField;
+    Query1DIFF_SP: TFloatField;
+    Query1DBXL_SP: TFloatField;
+    Query1EFF2_SP: TFloatField;
+    Query1SJRS3: TFloatField;
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure QuerySCLHJSChange(Sender: TField);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure Query1SJRS1Change(Sender: TField);
+    procedure Query1AQTYChange(Sender: TField);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure ppSummaryBand1BeforePrint(Sender: TObject);
+    procedure DBGridEh1TitleClick(Column: TColumnEh);
+    procedure DBGridEh1DblClick(Sender: TObject);
+    procedure DBGridEh1Columns13EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure DBGridEh1Columns21EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure DBGridEh1Columns8EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure ppGroupFooterBand1BeforePrint(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure ppReport2PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand3BeforePrint(Sender: TObject);
+    procedure WIPStylesImageIllustration1Click(Sender: TObject);
+    procedure ppGroupHeaderBand2BeforePrint(Sender: TObject);
+    procedure DBGridEh1Columns35EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure ppGroupFooterBand3BeforePrint(Sender: TObject);
+    procedure ppGroupHeaderBand4BeforePrint(Sender: TObject);
+    procedure ppReport3PreviewFormCreate(Sender: TObject);
+    procedure ppSummaryBand3BeforePrint(Sender: TObject);
+    procedure ppSummaryBand4BeforePrint(Sender: TObject);
+    procedure DBGridEh1Columns32EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure Query1MWFLBChange(Sender: TField);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure temp_flag;
+    procedure temp_flag1;
+    procedure PDFFILES1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure Query1CFMChange(Sender: TField);
+    procedure ReviewWAveLineEff1Click(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+    procedure ComboBox2Change(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmachieving: Tfrmachieving;
+  vcol,vstyle:string;
+  tm1:tdatetime;
+  logseq:integer;
+
+implementation
+
+uses mainformu, flagformu, ganoteformu, ttlcshformu, zktdformu, lwoformu,
+  trsummaryformu, nextdayformu, wipimgformu, esewnformu, wnoteformu,
+  fgaiformu, fstyleimgformu, rsycformu, qnwkfformu, pdfgaiformu,
+  ganotepadformu, ganotepad_engformu, qneffformu, gai_notepad_chnformu,
+  gai_notepad_engformu, zktd_wfformu;
+
+{$R *.dfm}
+
+procedure Tfrmachieving.Query1AfterPost(DataSet: TDataSet);
+var
+  x1,x2,x3,x4,x5,x6:double;
+  ors,oyc:double;
+  dt1:tdate;
+  pstr:string;
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftfloat,'x1',ptinput);
+      params.createparam(ftfloat,'x2',ptinput);
+      params.createparam(ftfloat,'x6',ptinput);
+      params.createparam(ftfloat,'x7',ptinput);
+      params.createparam(ftfloat,'x8',ptinput);
+      params.createparam(ftfloat,'x9',ptinput);
+      params.createparam(ftfloat,'x10',ptinput);
+      params.createparam(ftfloat,'x11',ptinput);
+      params.createparam(ftfloat,'x12',ptinput);
+      params.createparam(ftfloat,'x13',ptinput);
+      params.createparam(ftfloat,'x14',ptinput);
+      params.createparam(ftfloat,'x15',ptinput);
+      params.createparam(ftfloat,'x16',ptinput);
+      params.createparam(ftfloat,'x17',ptinput);
+      params.createparam(ftfloat,'x18',ptinput);
+      params.createparam(ftfloat,'x19',ptinput);
+      params.createparam(ftdate,'x20',ptinput);
+      params.createparam(ftfloat,'x21',ptinput);
+      params.createparam(ftboolean,'x22',ptinput);
+      params.createparam(ftstring,'x23',ptinput);
+      //params.createparam(ftstring,'x24',ptinput);
+      params.createparam(ftfloat,'x25',ptinput);
+      params.createparam(ftfloat,'x26',ptinput);
+      params.createparam(ftfloat,'x27',ptinput);
+      params.createparam(ftfloat,'x28',ptinput);
+      params.createparam(ftfloat,'x29',ptinput);
+      params.createparam(ftfloat,'x30',ptinput);
+      params.createparam(ftfloat,'x31',ptinput);
+      params.createparam(ftfloat,'x32',ptinput);
+      params.createparam(ftfloat,'x33',ptinput);
+      params.createparam(ftfloat,'x34',ptinput);
+      params.createparam(ftfloat,'x35',ptinput);
+      params.createparam(ftfloat,'x36',ptinput);
+      params.createparam(ftfloat,'x37',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      commandtext:='update line_shjs set zktd=:x1,sclhjs=:x2,qyjs=:x6,sjrs1=:x7,sjrs2=:x8,sjrs=:x9,sjyc=:x10,pqty=:x11,aqty=:x12,diff=:x13,'
+                  +'eot=:x14,aqty1=:x15,eff1=:x16,eff2=:x17,zhjs=:x18,dbxl=:x19,dt1=:x20,csect=:x21,cfm=:x22,dflag=:x23,ceot=:x25,'//marks=:x24,ceot=:x25,'
+                  +'mwflb=:x26,mwfs=:x27,mwfa=:x28,mwfac=:x29,mwfbn=:x30,gsdmbn=:x31,aqty_sp=:x32,aqty1_sp=:x33,diff_sp=:x34,dbxl_sp=:x35,eff2_sp=:x36,sjrs3=:x37 '
+                  +'where pline=:x3 and seq=:x4 and dseq=:x5';
+      if not query1.fieldbyname('zktd').isnull then
+      params[0].asfloat:=query1.fieldbyname('zktd').value
+      else params[0].asfloat:=0;
+      if not query1.fieldbyname('sclhjs').isnull then
+      params[1].asfloat:=query1.fieldbyname('sclhjs').value
+      else params[1].asfloat:=0;
+      if not query1.fieldbyname('qyjs').IsNull then
+      params[2].asfloat:=query1.fieldbyname('qyjs').value
+      else params[2].asfloat:=0;
+      params[3].asfloat:=query1.fieldbyname('sjrs1').value;
+      params[4].asfloat:=query1.fieldbyname('sjrs2').value;
+      params[5].asfloat:=query1.fieldbyname('sjrs').value;
+      params[6].asfloat:=query1.fieldbyname('sjyc').value;
+      params[7].asfloat:=query1.fieldbyname('pqty').value;
+      params[8].asfloat:=query1.fieldbyname('aqty').value;
+      params[9].asfloat:=query1.fieldbyname('diff').value;
+      if not query1.fieldbyname('eot').isnull then
+      params[10].asfloat:=query1.fieldbyname('eot').value
+      else params[10].asfloat:=0;
+      if not query1.fieldbyname('aqty1').isnull then
+      params[11].asfloat:=query1.fieldbyname('aqty1').value
+      else params[11].asfloat:=0;
+      params[12].asfloat:=query1.fieldbyname('eff1').value;
+      params[13].asfloat:=query1.fieldbyname('eff2').value;
+      if not query1.fieldbyname('zhjs').isnull then
+      params[14].asfloat:=query1.fieldbyname('zhjs').value
+      else params[14].asfloat:=0;
+      if not query1.fieldbyname('dbxl').isnull then
+      params[15].asfloat:=query1.fieldbyname('dbxl').value
+      else params[15].asfloat:=0;
+      if not query1.fieldbyname('dt1').isnull then
+      params[16].asdate:=query1.fieldbyname('dt1').value;
+      if not query1.fieldbyname('csect').isnull then
+      params[17].asfloat:=query1.fieldbyname('csect').value
+      else params[17].asfloat:=0;
+      if not query1.fieldbyname('cfm').isnull then
+      params[18].asboolean:=query1.fieldbyname('cfm').value
+      else params[18].asboolean:=false;
+      if not query1.fieldbyname('dflag').isnull then
+      params[19].asstring:=query1.fieldbyname('dflag').value
+      else params[19].asstring:='';
+      //if not query1.fieldbyname('marks').isnull then
+      //params[20].asstring:=query1.fieldbyname('marks').value
+      //else params[20].asstring:='';
+      if not query1.fieldbyname('ceot').isnull then
+      params[20].asfloat:=query1.fieldbyname('ceot').value
+      else params[20].asfloat:=0;
+      if not query1.fieldbyname('mwflb').isnull then
+      params[21].asfloat:=query1.fieldbyname('mwflb').value
+      else params[21].asfloat:=0;
+      if not query1.fieldbyname('mwfs').isnull then
+      params[22].asfloat:=query1.fieldbyname('mwfs').value
+      else params[22].asfloat:=0;
+      if not query1.fieldbyname('mwfa').isnull then
+      params[23].asfloat:=query1.fieldbyname('mwfa').value
+      else params[23].asfloat:=0;
+      if not query1.fieldbyname('mwfac').isnull then
+      params[24].asfloat:=query1.fieldbyname('mwfac').value
+      else params[24].asfloat:=0;
+      if not query1.fieldbyname('mwfbn').isnull then
+      params[25].asfloat:=query1.fieldbyname('mwfbn').value
+      else params[25].asfloat:=0;
+      if not query1.fieldbyname('gsdmbn').isnull then
+      params[26].asfloat:=query1.fieldbyname('gsdmbn').value
+      else params[26].asfloat:=0;
+      if not query1.fieldbyname('aqty_sp').isnull then
+      params[27].asfloat:=query1.fieldbyname('aqty_sp').value
+      else params[27].asfloat:=0;
+      if not query1.fieldbyname('aqty1_sp').isnull then
+      params[28].asfloat:=query1.fieldbyname('aqty1_sp').value
+      else params[28].asfloat:=0;
+      if not query1.fieldbyname('diff_sp').isnull then
+      params[29].asfloat:=query1.fieldbyname('diff_sp').value
+      else params[29].asfloat:=0;
+      if not query1.fieldbyname('dbxl_sp').isnull then
+      params[30].asfloat:=query1.fieldbyname('dbxl_sp').value
+      else params[30].asfloat:=0;
+      if not query1.fieldbyname('eff2_sp').isnull then
+      params[31].asfloat:=query1.fieldbyname('eff2_sp').value
+      else params[31].asfloat:=0;
+      if not query1.fieldbyname('sjrs3').isnull then
+      params[32].asfloat:=query1.fieldbyname('sjrs3').value
+      else params[32].asfloat:=0;
+      params[33].asstring:=query1.fieldbyname('pline').value;
+      params[34].asinteger:=query1.fieldbyname('seq').value;
+      params[35].asinteger:=query1.fieldbyname('dseq').value;
+      execute;
+    end;
+  end;
+  {
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='select max(date1) as dt from line_shjs where pline=:x1 and seq=:x2 and (aqty>0 or aqty1>0)';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asinteger:=query1.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('dt').isnull then dt1:=fieldbyname('dt').value
+    else dt1:=encodedate(1899,12,30);
+  end;
+  }
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'pline',ptinput);
+    params.createparam(ftinteger,'seq',ptinput);
+    commandtext:='select sum(zktd) as x1,sum(sclhjs) as x2,sum(qyjs) as x3,sum(zhjs) as x4,sum(eot) as x5 from line_shjs where pline=:pline and seq=:seq and flag=''0''';
+    //commandtext:='select sum(shjs+zktd) as x1,sum(sclhjs) as x2,sum(qyjs) as x3,sum(zhjs) as x4,sum(eot) as x5 from line_shjs where pline=:pline and seq=:seq and flag=''0''';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asinteger:=query1.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('x1').isnull then x1:=fieldbyname('x1').value else x1:=0;
+    if not fieldbyname('x2').isnull then x2:=fieldbyname('x2').value else x2:=0;
+    if not fieldbyname('x3').isnull then x3:=fieldbyname('x3').value else x3:=0;
+    if not fieldbyname('x4').isnull then x4:=fieldbyname('x4').value else x4:=0;
+    if not fieldbyname('x5').isnull then x5:=fieldbyname('x5').value else x5:=0;
+  end;
+  // Re-calculate average
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='select sum(sjrs*csect)/sum(csect) as s3,'
+                +'sum(sjyc*csect)/sum(csect) as s4,sum(eff2*csect)/sum(csect) as s6 '
+                +'from line_shjs where pline=:x1 and seq=:x2 and flag=''0'' and csect>0';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asinteger:=query1.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('s3').isnull then begin
+      ors:=fieldbyname('s3').value;
+      oyc:=fieldbyname('s4').value;
+      x6:=fieldbyname('s6').value;
+    end else begin
+      ors:=0;
+      oyc:=0;
+      x6:=0;
+    end;
+  end;
+
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftfloat,'x1',ptinput);
+    params.createparam(ftfloat,'x2',ptinput);
+    params.createparam(ftfloat,'x3',ptinput);
+    params.createparam(ftfloat,'x4',ptinput);
+    params.createparam(ftfloat,'x5',ptinput);
+    params.createparam(ftfloat,'x6',ptinput);
+    params.createparam(ftfloat,'x7',ptinput);
+    params.createparam(ftfloat,'x10',ptinput);
+    params.createparam(ftstring,'x8',ptinput);
+    params.createparam(ftinteger,'x9',ptinput);
+    commandtext:='update tblshedule set zktd=:x1,sclhjs=:x2,qyjs=:x3,zhjs=:x4,bcjs=:x5,sjrs=:x6,sjyc=:x7,jhl=:x10 where pline=:x8 and seq=:x9';
+    params[0].asfloat:=x1;
+    params[1].asfloat:=x2;
+    params[2].asfloat:=x3;
+    params[3].asfloat:=x4;
+    params[4].asfloat:=x5;
+    params[5].asfloat:=ors;
+    params[6].asfloat:=oyc;
+    params[7].asfloat:=x6;
+    params[8].asstring:=query1.fieldbyname('pline').value;
+    params[9].asinteger:=query1.fieldbyname('seq').value;
+    execute;
+  end;
+    {
+    pstr:='10 '+query1.fieldbyname('pline').value+' '+query1.fieldbyname('seq').asstring+' '+query1.fieldbyname('dseq').asstring;
+    if pos('test',lowercase(application.ExeName))>0 then
+    winexec(pchar(extractfilepath(application.exename)+'lwpm_replication_test.exe '+pstr),sw_hide)
+    else winexec(pchar(extractfilepath(application.exename)+'lwpm_replication.exe '+pstr),sw_hide);
+    }
+end;
+
+procedure Tfrmachieving.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  if frmnextday<>nil then frmnextday:=nil;
+  if frmwipimg<>nil then frmwipimg:=nil;
+  if frmfgai<>nil then frmfgai:=nil;
+  if frmfstyleimg<>nil then frmfstyleimg:=nil;
+  if query1.state=dsedit then query1.post;
+  action:=cafree;
+  frmachieving:=nil;
+end;
+
+procedure Tfrmachieving.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmachieving.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('sclhjs').OnChange:=querysclhjschange;
+  query1.fieldbyname('qyjs').OnChange:=querysclhjschange;
+  (query1.fieldbyname('dbxl') as tfloatfield).displayformat:='0.00;;''';
+  (query1.fieldbyname('pqty1') as tfloatfield).displayformat:='#0;;''';
+  (query1.fieldbyname('csect') as tfloatfield).displayformat:='0.00;;''';
+end;
+
+procedure Tfrmachieving.QuerySCLHJSChange(Sender: TField);
+var
+  i1,i2:double;
+begin
+  if not query1.fieldbyname('sclhjs').isnull then i1:=query1.fieldbyname('sclhjs').value
+  else i1:=0;
+  if not query1.fieldbyname('qyjs').isnull then i2:=query1.fieldbyname('qyjs').value
+  else i2:=0;
+  query1.fieldbyname('zktd').value:=i1+i2;
+end;
+
+procedure Tfrmachieving.ComboBox1Change(Sender: TObject);
+begin
+  //{
+  screen.cursor:=crSQLWait;
+  try
+  tm1:=now;
+  if dateedit1.date>0 then begin
+    with ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      commandtext:='execute procedure sp_updlineshjs_lst_pline(:x1,:x2,:x3,:x4)';
+      params[0].asdate:=dateedit1.date;
+      if combobox1.text<>'KBT' then
+      params[1].asstring:=combobox1.text
+      else params[1].asstring:='KB';
+      params[2].asstring:=combobox2.text;
+      params[3].asstring:=edit1.text;
+      execute;
+    end;
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftdate,'x4',ptinput);
+      params.createparam(ftstring,'x5',ptinput);
+      commandtext:='execute procedure sp_tbl_lineshjs_pline(:x1,:x2,:x3,:x4,:x5)';
+      params[0].asdatetime:=tm1;
+      if combobox1.text<>'KBT' then
+      params[1].asstring:=combobox1.text
+      else params[1].asstring:='KB';
+      params[2].asstring:=combobox2.text;
+      params[3].asdate:=dateedit1.date;
+      params[4].asstring:=edit1.text;
+      execute;
+    end;
+  end;
+  //}
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select * from line_shjs a where a.flag=''0'' and a.dt1<=:x1 and a.dt1=:x2 and (a.flag3 is null) '
+                  +'and (a.aqty=0 and a.aqty1=0 and (a.csect>0 or a.csect is null))'
+      else commandtext:='select * from line_shjs a where a.flag=''0'' and a.dt1<=:x1 and a.dt1=:x2 and (a.flag6 is not null)';
+      if combobox1.text>'' then begin
+        if combobox1.text<>'KBT' then
+        commandtext:=commandtext+' and a.tplant='''+combobox1.text+''''
+        else commandtext:=commandtext+' and a.tplant=''KB''';
+      end;
+      if combobox2.text>'' then commandtext:=commandtext+' and a.tshop='''+combobox2.text+'''';
+      if edit1.Text>'' then commandtext:=commandtext+' and a.pline='''+edit1.text+'''';
+      params[0].asdate:=date;
+      params[1].asdate:=dateedit1.date;
+      open;
+    end;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmachieving.Query1SJRS1Change(Sender: TField);
+var
+  sjrs1,sjrs2,sjrs3:double;
+begin
+  if not query1.fieldbyname('sjrs1').isnull then
+  sjrs1:=query1.fieldbyname('sjrs1').value else sjrs1:=0;
+  if not query1.fieldbyname('sjrs2').isnull then
+  sjrs2:=query1.fieldbyname('sjrs2').value else sjrs2:=0;
+  if not query1.fieldbyname('sjrs3').isnull then
+  sjrs3:=query1.fieldbyname('sjrs3').value else sjrs3:=0;
+  query1.fieldbyname('sjrs').value:=sjrs1+sjrs2+sjrs3;
+end;
+
+procedure Tfrmachieving.Query1AQTYChange(Sender: TField);
+var
+  pqty,aqty,aqty1,js0,js1,js2,xxx001:double;
+  i1:integer;
+  dt1:tdate;
+  s1:string;
+begin
+  if not query1.fieldbyname('pqty').isnull then
+  pqty:=query1.fieldbyname('pqty').value else pqty:=0;
+  if not query1.fieldbyname('aqty').isnull then
+  aqty:=query1.fieldbyname('aqty').value else aqty:=0;
+  if not query1.fieldbyname('aqty1').isnull then
+  aqty1:=query1.fieldbyname('aqty1').value else aqty1:=0;
+  query1.fieldbyname('diff').value:=aqty+aqty1;
+  {
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    commandtext:='select ltype from tblline where pline=:x1';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    open;
+    s1:=fieldbyname('ltype').value;
+  end;
+  //s1:=copy(query1.fieldbyname('pline').value,1,2);
+  if query1.fieldbyname('csect').isnull then js0:=query1.fieldbyname('psect').value*query1.fieldbyname('eff1').value/100.0
+  else js0:=query1.fieldbyname('csect').value*query1.fieldbyname('eff1').value/100.0;
+  if not query1.fieldbyname('xjs').isnull then begin
+    js1:=aqty/query1.fieldbyname('xjs').value;//*100.0/query1.fieldbyname('eff1').value;//*query1.fieldbyname('eff1').value/100.0;
+    js2:=aqty1/query1.fieldbyname('xjs').value*100.0/query1.fieldbyname('eff1').value;//*100.0/query1.fieldbyname('eff1').value;//*query1.fieldbyname('eff1').value/100.0;
+  end else begin
+    js1:=0;
+    js2:=0;
+  end;
+  }
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      commandtext:='select ttl from week52 where line=:x1 and date1=:x2';
+      params[0].asstring:=query1.fieldbyname('pline').value;
+      params[1].asdate:=query1.fieldbyname('dt1').value;
+      open;
+      if not fieldbyname('ttl').isnull then js0:=fieldbyname('ttl').value else js0:=0;
+    end;
+  if not query1.fieldbyname('lst').isnull then begin
+    if query1.fieldbyname('lst').value='s' then js0:=0;
+  end;
+  if not query1.fieldbyname('eot').isnull then begin
+    if query1.fieldbyname('eot').value>js0 then js0:=query1.fieldbyname('eot').value;
+  end;
+  js1:=js0-(aqty*100.00/query1.fieldbyname('xjs').value/query1.fieldbyname('eff1').value);
+  //js1:=js0-(query1.fieldbyname('aqty').value/query1.fieldbyname('xjs').value);
+  if js1>=0 then begin
+    query1.fieldbyname('sclhjs').value:=js1;
+    query1.fieldbyname('qyjs').value:=0.0;
+  end else begin
+    query1.fieldbyname('sclhjs').value:=0.0;
+    query1.fieldbyname('qyjs').value:=js1;
+  end;
+  //if js0>0 then query1.fieldbyname('eff2').value:=js1*100.0/js0 else query1.fieldbyname('eff2').value:=0;
+  if not query1.fieldbyname('csect').isnull then begin
+    if query1.fieldbyname('csect').value>0 then begin
+      query1.fieldbyname('eff2').value:=query1.fieldbyname('aqty').value*100.0/(query1.fieldbyname('csect').value*query1.fieldbyname('xjs').value);
+      query1.fieldbyname('eff2_sp').value:=query1.fieldbyname('aqty_sp').value*100.0/(query1.fieldbyname('csect').value*query1.fieldbyname('xjs').value);
+    end else begin
+      query1.fieldbyname('eff2').value:=0;
+      query1.fieldbyname('eff2_sp').value:=0;
+    end;
+  end;
+  {
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select count(*) as cnt from line_shjs where pline=:x1 and seq=:x2 and dt1>:x3 and flag=''0''';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asinteger:=query1.fieldbyname('seq').value;
+    params[2].asdate:=query1.fieldbyname('dt1').value;
+    open;
+    if not fieldbyname('cnt').isnull then i1:=fieldbyname('cnt').value else i1:=0;
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='select min(dt1) as dt from line_shjs where pline=:x1 and seq=:x2 and flag=''0''';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asinteger:=query1.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('dt').isnull then dt1:=fieldbyname('dt').value else dt1:=encodedate(1899,12,30);
+  end;
+  if ((i1>0) and (s1='1')) then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      commandtext:='select secto from week52 where line=:x1 and date1=:x2';
+      params[0].asstring:=query1.fieldbyname('pline').value;
+      params[1].asdate:=query1.fieldbyname('dt1').value;
+      open;
+      if js0<fieldbyname('secto').value then js0:=fieldbyname('secto').value;
+    end;
+  end;
+
+  query1.fieldbyname('zhjs').value:=(-1.0)*js2;
+  if query1.fieldbyname('aqty').value>=query1.fieldbyname('pqty').value then begin
+    if query1.fieldbyname('pqty').value>0 then begin
+      query1.fieldbyname('qyjs').value:=(query1.fieldbyname('pqty').value-query1.fieldbyname('aqty').value)/query1.fieldbyname('xjs').value*100.0/query1.fieldbyname('eff1').value;
+      query1.fieldbyname('sclhjs').value:=0.0;
+    end else begin
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        commandtext:='select csect from week52 where line=:x1 and date1=:x2';
+        params[0].asstring:=query1.fieldbyname('pline').value;
+        params[1].asdate:=query1.fieldbyname('dt1').value;
+        open;
+        xxx001:=fieldbyname('csect').value;
+      end;
+      if xxx001>=query1.fieldbyname('csect').Value then begin
+        query1.fieldbyname('sclhjs').value:=xxx001-query1.fieldbyname('csect').value;
+        query1.fieldbyname('qyjs').value:=0;
+      end else begin
+        query1.fieldbyname('qyjs').value:=query1.fieldbyname('csect').value-xxx001;
+        query1.fieldbyname('sclhjs').value:=0;
+      end;
+    end;
+  end else begin
+    query1.fieldbyname('sclhjs').value:=(query1.fieldbyname('pqty').value-query1.fieldbyname('aqty').value)/query1.fieldbyname('xjs').value*100.0/query1.fieldbyname('eff1').value;
+    query1.fieldbyname('qyjs').value:=0.0;
+  end;
+  }
+  query1.fieldbyname('zhjs').value:=(-1.0)*aqty1/query1.fieldbyname('xjs').value*100.0/query1.fieldbyname('eff1').value;
+  //query1.fieldbyname('zhjs').value:=(-1.0)*aqty1/query1.fieldbyname('xjs').value;
+  if not query1.fieldbyname('ceot').isnull then begin
+    if query1.fieldbyname('ceot').value>0 then begin
+    //query1.fieldbyname('dbxl').value:=(-1.0)*query1.fieldbyname('zhjs').value/query1.fieldbyname('ceot').value*query1.fieldbyname('eff1').value
+      query1.fieldbyname('dbxl').value:=query1.fieldbyname('aqty1').value*100.00/(query1.fieldbyname('ceot').value*query1.fieldbyname('xjs').value);
+      query1.fieldbyname('dbxl_sp').value:=query1.fieldbyname('aqty1_sp').value*100.00/(query1.fieldbyname('ceot').value*query1.fieldbyname('xjs').value);
+    end else begin
+      query1.fieldbyname('dbxl').value:=0;
+      query1.fieldbyname('dbxl_sp').value:=0;
+    end;
+  end;
+  if query1.fieldbyname('dt1').isnull then query1.FieldByName('dt1').value:=query1.fieldbyname('date1').value;
+  //query1.fieldbyname('eff2').value:=query1.fieldbyname('psect').value*100.0/(query1.fieldbyname('psect').value+query1.fieldbyname('sclhjs').value+query1.fieldbyname('shjs').value-query1.fieldbyname('qyjs').value);
+end;
+
+procedure Tfrmachieving.BitBtn2Click(Sender: TObject);
+var
+  cfm:boolean;
+  cnf:string;
+begin
+  screen.Cursor:=crSQLWait;
+  if query1.state=dsedit then query1.post;
+
+  with query8 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      params.createparam(ftdatetime,'x3',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select distinct a.*,b.psect as p1,b.eot as e1,b.tm as tm1,b.prj1,b.prj2,b.prj3,b.prj4 from line_shjs a,tbl_line_shjs b where a.flag=''0'' and a.dt1<=:x1 and a.dt1=:x2 and (a.flag3 is null) '
+                  +'and (a.aqty=0 and a.aqty1=0 and (a.csect>0 or a.csect is null)) and a.pline=b.pline and a.seq=b.seq and a.dseq=b.dseq and b.tm=:x3'
+      else commandtext:='select distinct a.*,b.psect as p1,b.eot as e1,b.tm as tm1,b.prj1,b.prj2,b.prj3,b.prj4 from line_shjs a,tbl_line_shjs b '
+                       +'where a.flag=''0'' and a.dt1<=:x1 and a.dt1=:x2 and (a.flag6 is not null) and a.pline=b.pline and a.seq=b.seq and a.dseq=b.dseq and b.tm=:x3';
+      if combobox1.text>'' then begin
+        if combobox1.text<>'KBT' then
+        commandtext:=commandtext+' and a.tplant='''+combobox1.text+''''
+        else commandtext:=commandtext+' and a.tplant=''KB''';
+      end;
+      if combobox2.text>'' then commandtext:=commandtext+' and a.tshop='''+combobox2.text+'''';
+      if edit1.text>'' then commandtext:=commandtext+' and a.pline='''+edit1.text+'''';
+      params[0].asdate:=date;
+      params[1].asdate:=dateedit1.date;
+      params[2].asdatetime:=tm1;
+      open;
+    end;
+  end;
+
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select cfm from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag3 is null) and (aqty=0 and aqty1=0 and (csect>0 or csect is null)) and cfm=0'
+      else commandtext:='select cfm from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null) and cfm=0';
+    end;
+    if combobox1.text>'' then begin
+      if combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+    if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+    if dateedit1.date>0 then begin
+      params[0].asdate:=date;
+      params[1].asdate:=dateedit1.date;
+      open;
+      if not fieldbyname('cfm').isnull then cfm:=fieldbyname('cfm').value else cfm:=true;
+    end;
+  end;
+  if query1.Active then begin
+   if (combobox2.text>'') or (edit1.text>'') then begin
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select usr1 from tbl_wksremarks where dt1=:x1 and tshop=:x2';
+      params[0].asdate:=dateedit1.date;
+      params[1].asstring:=combobox2.text;
+      open;
+      if not fieldbyname('usr1').isnull then cnf:=fieldbyname('usr1').value
+      else cnf:='';
+    end;
+    with query4 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      if dateedit1.date>0 then begin
+        params.createparam(ftdate,'x2',ptinput);
+        if opt1.ItemIndex=0 then
+        commandtext:='select distinct pline,marks from line_shjs where flag=''0'' and marks>'''' and dt1<=:x1 and dt1=:x2 and (flag3 is null) and (aqty=0 and aqty1=0 and (csect>0 or csect is null))'
+        else commandtext:='select distinct pline,marks from line_shjs where flag=''0'' and marks>'''' and dt1<=:x1 and dt1=:x2 and (flag6 is not null)';
+      end;
+      if combobox1.text>'' then begin
+        if combobox1.text<>'KBT' then
+        commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+        else commandtext:=commandtext+' and tplant=''KB''';
+      end;
+      if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+      if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+      if dateedit1.date>0 then begin
+        params[0].asdate:=date;
+        params[1].asdate:=dateedit1.date;
+        open;
+      end;
+    end;
+    if combobox1.text>'' then
+    fty001.Caption:=combobox1.text
+    else fty001.Caption:=query1.fieldbyname('tplant').value;
+    shop001.Caption:=combobox2.Text;
+    if dateedit1.date>0 then begin
+      date001.Caption:=formatdatetime('yyyy/MM/dd',dateedit1.date);
+      wkno01.Caption:=inttostr(weekof(dateedit1.date));
+    end else begin
+      date001.Caption:='    /  /  ';
+      wkno01.Caption:='';
+    end;
+    if opt1.ItemIndex=0 then
+    title001.Caption:='('+opt1.Items[0]+')'
+    else begin
+      if cfm=false then title001.Caption:='* Confirmation - incomplete *'
+      else title001.Caption:='* Confirmed *';
+    end;
+    if pos('test',application.ExeName)>0 then title001.Caption:=title001.Caption+'  - Test';
+    if edit1.text>'' then begin
+      linex01.Visible:=true;
+      line001.Caption:=edit1.text;
+      title01.Caption:='LWPM  ----  Line Daily Output Goal Achievement Indicator - Actual index ';
+    end else begin
+      linex01.Visible:=false;
+      line001.Caption:='';
+      title01.Caption:='LWPM  ----  Workshop Daily Output Goal Achievement Indicator - Actual index ';
+    end;
+    if cfm=true then begin
+      if cnf>'' then
+      conf001.Caption:='Confirmed by:  '+cnf
+      else conf001.Caption:='';
+    end else conf001.caption:='';
+    ppReport1.Print;
+   end else if combobox1.text>'' then begin
+     if frmfgai=nil then frmfgai:=tfrmfgai.Create(nil);
+     if combobox1.text<>'KBT' then
+     frmfgai.ComboBox1.text:=combobox1.text
+     else frmfgai.combobox1.text:='KB';
+     frmfgai.DateEdit1.Date:=dateedit1.date;
+     frmfgai.DateEdit2.Date:=dateedit1.date;
+     with frmfgai.query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      if dateedit1.date>0 then begin
+        params.createparam(ftdate,'x2',ptinput);
+        params.createparam(ftdatetime,'x3',ptinput);
+        if opt1.ItemIndex=0 then
+        commandtext:='select a.*,b.psect as p1,b.eot as e1,b.tm as tm1,b.prj1,b.prj2,b.prj3,b.prj4 from line_shjs a,tbl_line_shjs b where a.flag=''0'' and a.dt1<=:x1 and a.dt1=:x2 and (a.flag3 is null) '
+                    +'and (a.aqty=0 and a.aqty1=0 and (a.csect>0 or a.csect is null)) and a.pline=b.pline and a.seq=b.seq and a.dseq=b.dseq and b.tm=:x3'
+        else commandtext:='select a.*,b.psect as p1,b.eot as e1,b.tm as tm1,b.prj1,b.prj2,b.prj3,b.prj4 from line_shjs a,tbl_line_shjs b where a.flag=''0'' and a.dt1<=:x1 and a.dt1=:x2 and (a.flag6 is not null) and a.pline=b.pline and a.seq=b.seq and a.dseq=b.dseq and b.tm=:x3';
+        if combobox1.text>'' then begin
+          if combobox1.text<>'KBT' then
+          commandtext:=commandtext+' and a.tplant='''+combobox1.text+''''
+          else commandtext:=commandtext+' and a.tplant=''KB''';
+        end;
+        commandtext:=commandtext+' order by a.tshop,a.tplant';
+        params[0].asdate:=date;
+        params[1].asdate:=dateedit1.date;
+        params[2].asdatetime:=tm1;
+        open;
+      end;
+     end;
+     frmfgai.BitBtn1click(self);
+   end;
+  end;
+  screen.Cursor:=crDefault;
+end;
+
+procedure Tfrmachieving.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmachieving.FormShow(Sender: TObject);
+begin
+  combobox2.items.clear;
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct tshop from tblline where tshop is not null';
+    open;
+    first;
+    while not eof do begin
+      combobox2.items.add(fieldbyname('tshop').value);
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    commandtext:='select r40 from tbluser where usr=:x1';
+    params[0].asstring:=frmmain.ComboBox1.text;
+    open;
+    if fieldbyname('r40').value=true then begin
+      dbgrideh1.Columns[48].ReadOnly:=false;
+      bitbtn6.Enabled:=true;
+    end else begin
+      dbgrideh1.columns[48].ReadOnly:=true;
+      bitbtn6.Enabled:=false;
+    end;
+  end;
+  vcol:='';
+  vstyle:='';
+  if lbl850.caption<>'SPE' then
+  frmachieving.Caption:=frmachieving.Caption+' - Assembly + Specific'
+  else frmachieving.Caption:=frmachieving.Caption+' - Assembly';
+end;
+
+procedure Tfrmachieving.ppDetailBand1BeforePrint(Sender: TObject);
+var
+  pc001:string;
+  sc001,ba001:double;
+begin
+  if query8.fieldbyname('eff2').value>0 then eff2002.Caption:=formatfloat('0.00',query8.fieldbyname('eff2').value)
+  else eff2002.Caption:='--';
+  if not query8.fieldbyname('date1').isnull then date1001.Caption:=formatdatetime('yy/MM/dd',query8.fieldbyname('date1').value)
+  else date1001.Caption:='--';
+
+  if query8.fieldbyname('dbxl').value=0 then dbxl01.Caption:='--'
+  else dbxl01.caption:=formatfloat('0.00',query8.fieldbyname('dbxl').value);
+
+  with frmachieving.Query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    commandtext:='select lbact,rfidp from tblline where pline=:x1';
+    params[0].asstring:=frmachieving.Query8.fieldbyname('pline').value;
+    open;
+    if fieldbyname('lbact').value=false then ppDBText29.Font.Style:=[fsBold]
+    else ppDBText29.Font.Style:=[];
+    if not fieldbyname('rfidp').isnull then phase001.Caption:=fieldbyname('rfidp').value
+    else phase001.Caption:='0';
+  end;
+  //pcflag1 & scqty1 & bal001
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='select cfmd from tbl_lwo_dt where pline=:x1 and seq=:x2';
+    params[0].asstring:=frmachieving.Query8.fieldbyname('pline').value;
+    params[1].asinteger:=frmachieving.Query8.fieldbyname('seq').value;
+    open;
+    if fieldbyname('cfmd').isnull then pc001:='0'
+    else if fieldbyname('cfmd').value=true then pc001:='1'
+    else pc001:='0';
+ end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='select sum(pqty) as q1,sum(tqty) as q2 from tbl_lwo where pline=:x1 and seq=:x2';
+    params[0].asstring:=frmachieving.Query8.fieldbyname('pline').value;
+    params[1].asinteger:=frmachieving.Query8.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('q1').isnull then begin
+      if pc001='0' then sc001:=fieldbyname('q1').value
+      else sc001:=fieldbyname('q2').value;
+    end else sc001:=query1.fieldbyname('scqty').value;
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select sum(diff) as q3 from line_shjs where pline=:x1 and seq=:x2 and dt1<=:x3 and flag=''0''';
+    params[0].asstring:=frmachieving.Query8.fieldbyname('pline').value;
+    params[1].asinteger:=frmachieving.Query8.fieldbyname('seq').value;
+    params[2].asdate:=frmachieving.Query8.fieldbyname('dt1').value;
+    open;
+    if not fieldbyname('q3').isnull then ba001:=fieldbyname('q3').value
+    else ba001:=0; 
+  end;
+  if pc001='0' then pcflag1.Caption:='p'
+  else pcflag1.Caption:='C';
+  scqty01.Caption:=formatfloat('#0',sc001);
+  bal001.Caption:=formatfloat('#0',sc001-ba001);
+  application.ProcessMessages;
+  if not query8.fieldbyname('lst1').isnull then begin
+    if query8.fieldbyname('lst1').value<>'z' then begin
+      lst1001.Caption:=query8.fieldbyname('lst1').value;
+      ksjs1001.Caption:=formatfloat('0.0',query8.fieldbyname('ksjs1').value);
+    end else begin
+      lst1001.Caption:='';
+      ksjs1001.Caption:='';
+    end;
+  end else begin
+    lst1001.Caption:='';
+    ksjs1001.Caption:='';
+  end;
+
+  prj001.Caption:=formatfloat('#0',frmachieving.Query8.fieldbyname('prj1').value);
+  prj002.Caption:=formatfloat('#0.00',frmachieving.Query8.fieldbyname('prj2').value);
+  prj003.Caption:=formatfloat('#0.0',frmachieving.Query8.fieldbyname('prj3').value);
+  if frmachieving.Query8.fieldbyname('lstr').value>frmachieving.Query8.fieldbyname('sjrs').value then r02.Font.Color:=clRed
+  else if frmachieving.Query8.fieldbyname('lstr').value<frmachieving.Query8.fieldbyname('sjrs').value then r02.Font.color:=clGreen
+  else r02.Font.Color:=clBlack;
+  if frmachieving.Query8.fieldbyname('trs').value>frmachieving.Query8.fieldbyname('sjyc').value then j02.Font.Color:=clRed
+  else if frmachieving.Query8.fieldbyname('trs').value<frmachieving.Query8.fieldbyname('sjyc').value then j02.Font.color:=clGreen
+  else j02.Font.Color:=clBlack;
+  if frmachieving.Query8.fieldbyname('lflag1').value>frmachieving.Query8.fieldbyname('prj3').value then begin
+    prj001.Font.Color:=clRed;
+    prj002.Font.Color:=clRed;
+    prj003.Font.Color:=clRed;
+  end else if frmachieving.Query8.fieldbyname('lflag1').value<frmachieving.Query8.fieldbyname('prj3').value then begin
+    prj001.Font.Color:=clGreen;
+    prj002.Font.Color:=clGreen;
+    prj003.Font.Color:=clGreen;
+  end else begin
+    prj001.Font.Color:=clBlack;
+    prj002.Font.Color:=clBlack;
+    prj003.Font.Color:=clBlack;
+  end;
+  if frmachieving.Query8.fieldbyname('pqty').value=0 then begin
+    prj001.Font.Color:=clBlack;
+    prj002.Font.Color:=clBlack;
+    prj003.Font.Color:=clBlack;
+    lflag1001.Caption:='--';
+    lflag1002.Caption:='--';
+    lflag1003.Caption:='--';
+    lflag1004.Caption:='--';
+  end else begin
+    lflag1001.Caption:=formatfloat('0.0',frmachieving.Query8.fieldbyname('lflag1').value);
+    lflag1002.Caption:=formatfloat('#0',frmachieving.Query8.fieldbyname('pqty').value);
+    lflag1003.Caption:=formatfloat('0.00',frmachieving.Query8.fieldbyname('shjs').value);
+    lflag1004.Caption:=formatfloat('0.00',frmachieving.Query8.fieldbyname('eff1').value);
+  end;
+end;
+
+procedure Tfrmachieving.BitBtn3Click(Sender: TObject);
+begin
+  if query1.Active then begin
+    if not query1.fieldbyname('pline').isnull then begin
+      if frmtrsummary=nil then frmtrsummary:=tfrmtrsummary.Create(nil);
+      frmtrsummary.Edit1.Text:=query1.fieldbyname('j_no').value;
+      frmtrsummary.Edit2.Text:=query1.fieldbyname('j2_job').value;
+      frmtrsummary.Edit3.Text:=query1.fieldbyname('rwo').value;
+      frmtrsummary.Show;
+    end;
+  end;
+end;
+
+procedure Tfrmachieving.ppSummaryBand1BeforePrint(Sender: TObject);
+var
+  s1,s2,s3,s4,s5:string;
+begin
+  s1:='';s2:='';s3:='';s4:='';s5:='';
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select count(distinct cstyle) as c1,count(distinct pline) as p1,count(distinct j_no) as p2,count(*) as s4,count(distinct acol) as s5 '
+                  +'from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (aqty=0 and aqty1=0 and (csect>0 or csect is null)) and (flag3 is null)'
+      else
+      commandtext:='select count(distinct cstyle) as c1,count(distinct pline) as p1,count(distinct j_no) as p2,count(*) as s4,count(distinct acol) as s5 '
+                  +'from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null)';
+    end;
+    if combobox1.text>'' then begin
+      if combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+    if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+    params[0].asdate:=date;
+    if dateedit1.date>0 then params[1].asdate:=dateedit1.date;
+    open;
+    if not fieldbyname('p2').isnull then s1:='project :  '+fieldbyname('p2').asstring+'    ';
+    if not fieldbyname('c1').IsNull then s2:='cust style :  '+fieldbyname('c1').asstring+'    ';
+    if not fieldbyname('p1').isnull then s3:='line :  '+fieldbyname('p1').asstring+'    ';
+    if not fieldbyname('s4').isnull then s4:='QN :  '+fieldbyname('s4').asstring+'    ';
+    if not fieldbyname('s5').isnull then s5:='Clr :  '+fieldbyname('s5').asstring+'    ';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select sum(eff2*(csect+ceot))/sum(csect+ceot) as s2 from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (aqty=0 and aqty1=0 and (csect+ceot>0 or csect is null)) and (flag3 is null) and csect+ceot>0'
+      else
+      commandtext:='select sum(eff2*(csect+ceot))/sum(csect+ceot) as s2 from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null) and csect+ceot>0';
+    end;
+    if combobox1.text>'' then begin
+      if combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+    if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+    params[0].asdate:=date;
+    if dateedit1.date>0 then params[1].asdate:=dateedit1.date;
+    open;
+    if not fieldbyname('s2').isnull then x003.Caption:=formatfloat('0.00',fieldbyname('s2').value)
+    else x003.Caption:='0.00';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select sum(eff1*(csect+ceot))/sum(csect+ceot) as s1 from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (aqty=0 and aqty1=0 and (csect+ceot>0 or csect is null)) and (flag3 is null) and csect+ceot>0 and pqty>0'
+      else
+      commandtext:='select sum(eff1*(csect+ceot))/sum(csect+ceot) as s1 from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null) and csect+ceot>0 and pqty>0';
+    end;
+    if combobox1.text>'' then begin
+      if combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+    if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+    params[0].asdate:=date;
+    if dateedit1.date>0 then params[1].asdate:=dateedit1.date;
+    open;
+    if not fieldbyname('s1').isnull then x002.Caption:=formatfloat('0.00',fieldbyname('s1').value)
+    else x002.Caption:='0.00';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      params.createparam(ftdatetime,'x3',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select sum(b.prj4*(a.csect+a.ceot))/sum(a.csect+a.ceot) as s1 from line_shjs a,tbl_line_shjs b where a.flag=''0'' and a.dt1<=:x1 and a.dt1=:x2 '
+                  +'and (a.aqty=0 and a.aqty1=0 and (a.csect+a.ceot>0 or a.csect is null)) and (a.flag3 is null) and a.csect+a.ceot>0 and a.pline=b.pline and a.seq=b.seq and a.dseq=b.dseq and b.tm=:x3'
+      else
+      commandtext:='select sum(b.prj4*(a.csect+a.ceot))/sum(a.csect+a.ceot) as s1 from line_shjs a,tbl_line_shjs b where a.flag=''0'' and a.dt1<=:x1 and a.dt1=:x2 '
+                  +'and (a.flag6 is not null) and a.csect+a.ceot>0 and a.pline=b.pline and a.seq=b.seq and a.dseq=b.dseq and b.tm=:x3';
+    end;
+    if combobox1.text>'' then begin
+      if combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and a.tplant='''+combobox1.text+''''
+      else commandtext:=commandtext+' and a.tplant=''KB''';
+    end;
+    if combobox2.text>'' then commandtext:=commandtext+' and a.tshop='''+combobox2.text+'''';
+    if edit1.text>'' then commandtext:=commandtext+' and a.pline='''+edit1.text+'''';
+    params[0].asdate:=date;
+    if dateedit1.date>0 then params[1].asdate:=dateedit1.date;
+    params[2].asdatetime:=frmachieving.Query8.fieldbyname('tm1').value;
+    open;
+    if not fieldbyname('s1').isnull then x005.Caption:=formatfloat('0.00',fieldbyname('s1').value)
+    else x005.Caption:='0.00';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select sum(dbxl*(ceot+csect))/sum(ceot+csect) as s1 from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (aqty=0 and aqty1=0 and (ceot>0 or csect is null)) and (flag3 is null) and (ceot+csect)>0 and dbxl>0'
+      else
+      commandtext:='select sum(dbxl*(ceot+csect))/sum(ceot+csect) as s1 from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null) and (ceot+csect)>0 and dbxl>0';
+    end;
+    if combobox1.text>'' then begin
+      if combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+    if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+    params[0].asdate:=date;
+    if dateedit1.date>0 then params[1].asdate:=dateedit1.date;
+    open;
+    if not fieldbyname('s1').isnull then dbxl02.Caption:=formatfloat('0.00',fieldbyname('s1').value)
+    else dbxl02.Caption:='0.00';
+  end;
+  total001.Caption:=s1+s2+s3+s4+s5;
+end;
+
+procedure Tfrmachieving.DBGridEh1TitleClick(Column: TColumnEh);
+var
+  r26,r27,r28,r29,r30,r31,r32,r33,r34,r41,r43:boolean;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select r26,r27,r28,r29,r30,r31,r32,r33,r34,r41,r43 from tbluser where usr='''+frmmain.ComboBox1.text+'''';
+    open;
+    r26:=fieldbyname('r26').value;
+    r27:=fieldbyname('r27').value;
+    r28:=fieldbyname('r28').value;
+    r29:=fieldbyname('r29').value;
+    r30:=fieldbyname('r30').value;
+    r31:=fieldbyname('r31').value;
+    r32:=fieldbyname('r32').value;
+    r33:=fieldbyname('r33').value;
+    r34:=fieldbyname('r34').value;
+    r41:=fieldbyname('r41').value;
+    r43:=fieldbyname('r43').value;
+  end;
+  if column=dbgrideh1.Columns[0] then begin
+    if frmflag=nil then frmflag:=tfrmflag.create(nil);
+    frmflag.Label1.caption:='13';
+    frmflag.Caption:='Flag Explanation - RTPS''s Status/實時生產系統情況';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=13';
+      open;
+    end;
+    if r41 then begin
+      frmflag.DBGridEh1.ReadOnly:=false;
+      frmflag.DBMemo1.ReadOnly:=false;
+      frmflag.BitBtn1.Enabled:=true;
+      frmflag.BitBtn2.Enabled:=true;
+    end else begin
+      frmflag.DBGridEh1.ReadOnly:=true;
+      frmflag.DBMemo1.ReadOnly:=true;
+      frmflag.BitBtn1.Enabled:=false;
+      frmflag.BitBtn2.Enabled:=false;
+    end;
+    frmflag.Show;
+    frmflag.DBGridEh1.SetFocus;
+  end else if column=dbgrideh1.Columns[3] then begin
+    if frmflag=nil then frmflag:=tfrmflag.create(nil);
+    frmflag.Label1.caption:='6';
+    frmflag.Caption:='Flag Explanation - Product Category/產品種類';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=6';
+      open;
+    end;
+    if r27 then begin
+      frmflag.DBGridEh1.ReadOnly:=false;
+      frmflag.DBMemo1.ReadOnly:=false;
+      frmflag.BitBtn1.Enabled:=true;
+      frmflag.BitBtn2.Enabled:=true;
+    end else begin
+      frmflag.DBGridEh1.ReadOnly:=true;
+      frmflag.DBMemo1.ReadOnly:=true;
+      frmflag.BitBtn1.Enabled:=false;
+      frmflag.BitBtn2.Enabled:=false;
+    end;
+    frmflag.Show;
+    frmflag.DBGridEh1.SetFocus;
+  end else if column=dbgrideh1.Columns[18] then begin
+    if frmflag=nil then frmflag:=tfrmflag.create(nil);
+    frmflag.Label1.caption:='11';
+    //frmflag.Caption:='Flag Explanation - Scheduling ahead or behind / 排程前移或落后';
+    frmflag.Caption:='Flag Explanation - Impact Code/衝擊顯示';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=11';
+      open;
+    end;
+    if r34 then begin
+      frmflag.DBGridEh1.ReadOnly:=false;
+      frmflag.DBMemo1.ReadOnly:=false;
+      frmflag.BitBtn1.Enabled:=true;
+      frmflag.BitBtn2.Enabled:=true;
+    end else begin
+      frmflag.DBGridEh1.ReadOnly:=true;
+      frmflag.DBMemo1.ReadOnly:=true;
+      frmflag.BitBtn1.Enabled:=false;
+      frmflag.BitBtn2.Enabled:=false;
+    end;
+    frmflag.Show;
+    frmflag.DBGridEh1.SetFocus;
+  end else if column=dbgrideh1.Columns[19] then begin
+    if frmflag=nil then frmflag:=tfrmflag.create(nil);
+    frmflag.Label1.caption:='4';
+    frmflag.Caption:='Flag Explanation - Default phase of line eff as at date(on-std)/預設當日段拉效率(制作中規範)';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=4';
+      open;
+    end;
+    if r31 then begin
+      frmflag.DBGridEh1.ReadOnly:=false;
+      frmflag.DBMemo1.ReadOnly:=false;
+      frmflag.BitBtn1.Enabled:=true;
+      frmflag.BitBtn2.Enabled:=true;
+    end else begin
+      frmflag.DBGridEh1.ReadOnly:=true;
+      frmflag.DBMemo1.ReadOnly:=true;
+      frmflag.BitBtn1.Enabled:=false;
+      frmflag.BitBtn2.Enabled:=false;
+    end;
+    frmflag.Show;
+    frmflag.DBGridEh1.SetFocus;
+  end else if column=dbgrideh1.Columns[23] then begin
+    if frmflag=nil then frmflag:=tfrmflag.create(nil);
+    frmflag.Label1.caption:='3';
+    frmflag.Caption:='Flag Explanation - QN/SQN Dynamic Process at workshop[As at Date]/數頁/游數頁動力流程-車間[當日]';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=3';
+      open;
+    end;
+    if r32 then begin
+      frmflag.DBGridEh1.ReadOnly:=false;
+      frmflag.DBMemo1.ReadOnly:=false;
+      frmflag.BitBtn1.Enabled:=true;
+      frmflag.BitBtn2.Enabled:=true;
+    end else begin
+      frmflag.DBGridEh1.ReadOnly:=true;
+      frmflag.DBMemo1.ReadOnly:=true;
+      frmflag.BitBtn1.Enabled:=false;
+      frmflag.BitBtn2.Enabled:=false;
+    end;
+    frmflag.Show;
+    frmflag.DBGridEh1.SetFocus;
+  end else if column=dbgrideh1.Columns[44] then begin
+    if frmflag=nil then frmflag:=tfrmflag.create(nil);
+    frmflag.Label1.caption:='15';
+    frmflag.Caption:='Flag Explanation - Current phase of line eff as at date(opt perf) /現況當日段拉效率 (制作中表現)';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=15';
+      open;
+    end;
+    if r43 then begin
+      frmflag.DBGridEh1.ReadOnly:=false;
+      frmflag.DBMemo1.ReadOnly:=false;
+      frmflag.BitBtn1.Enabled:=true;
+      frmflag.BitBtn2.Enabled:=true;
+    end else begin
+      frmflag.DBGridEh1.ReadOnly:=true;
+      frmflag.DBMemo1.ReadOnly:=true;
+      frmflag.BitBtn1.Enabled:=false;
+      frmflag.BitBtn2.Enabled:=false;
+    end;
+    frmflag.Show;
+    frmflag.DBGridEh1.SetFocus;
+  end else begin
+    //Frozen columns
+    if dbgrideh1.FrozenCols=0 then dbgrideh1.FrozenCols:=column.Index+1
+    else dbgrideh1.FrozenCols:=0;
+  end;
+end;
+
+procedure Tfrmachieving.DBGridEh1DblClick(Sender: TObject);
+var
+  dif:string;
+begin
+  if dbgrideh1.SelectedIndex=40 then begin
+    dif:='1';
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      commandtext:='select seq from line_shjs_remarks1 where pline=:x1 and seq=:x2 and dt1=:x3';
+      params[0].asstring:=query1.fieldbyname('pline').value;
+      params[1].asinteger:=query1.fieldbyname('seq').value;
+      params[2].asdate:=query1.fieldbyname('dt1').value;
+      open;
+      if not fieldbyname('seq').isnull then dif:='1' else dif:='2';
+    end;
+    if not query1.fieldbyname('marks').isnull then begin
+      if query1.fieldbyname('marks').value>'' then dif:='2'
+      else dif:='1';
+    end else dif:='1';
+    if dif='2' then begin
+      if frmganote=nil then frmganote:=tfrmganote.Create(nil);
+      frmganote.DBText1.DataSource:=frmachieving.datasource1;
+      frmganote.DBText2.DataSource:=frmachieving.datasource1;
+      frmganote.DBText3.DataSource:=frmachieving.datasource1;
+      frmganote.DBText4.DataSource:=frmachieving.datasource1;
+      frmganote.DBText5.DataSource:=frmachieving.datasource1;
+      frmganote.DBMemo1.DataBinding.DataSource:=frmachieving.datasource1;
+      frmganote.Label6.caption:='ACHI';
+      frmganote.Show;
+    end else if dif='1' then begin
+     if (query1.fieldbyname('tplant').value<>'KB') then begin
+      {
+      if frmganotepad=nil then frmganotepad:=tfrmganotepad.Create(nil);
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.createparam(ftdate,'x3',ptinput);
+        commandtext:='execute procedure sp_line_shjs_remarks(:x1,:x2,:x3)';
+        params[0].asstring:=query1.fieldbyname('pline').value;
+        params[1].asinteger:=query1.fieldbyname('seq').value;
+        params[2].asdate:=query1.fieldbyname('dt1').value;
+        execute;
+      end;
+      frmganotepad.Label23.Caption:='ACHI';
+      frmganotepad.Show;
+      }
+      if frmgai_notepad_chn=nil then frmgai_notepad_chn:=tfrmgai_notepad_chn.Create(nil);
+      with ROQuery1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.createparam(ftdate,'x3',ptinput);
+        commandtext:='execute procedure sp_line_shjs_remarks_new(:x1,:x2,:x3)';
+        params[0].asstring:=query1.fieldbyname('pline').value;
+        params[1].asinteger:=query1.fieldbyname('seq').value;
+        params[2].asdate:=query1.fieldbyname('dt1').value;
+        execute;
+      end;
+      frmgai_notepad_chn.Label41.Caption:='ACHI';
+      frmgai_notepad_chn.Show;
+     end else if query1.fieldbyname('tplant').value='KB' then begin
+      {
+      if frmganotepad_eng=nil then frmganotepad_eng:=tfrmganotepad_eng.Create(nil);
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.createparam(ftdate,'x3',ptinput);
+        commandtext:='execute procedure sp_line_shjs_remarks(:x1,:x2,:x3)';
+        params[0].asstring:=query1.fieldbyname('pline').value;
+        params[1].asinteger:=query1.fieldbyname('seq').value;
+        params[2].asdate:=query1.fieldbyname('dt1').value;
+        execute;
+      end;
+      frmganotepad_eng.Label23.Caption:='ACHI';
+      frmganotepad_eng.Show;
+      }
+      if frmgai_notepad_eng=nil then frmgai_notepad_eng:=tfrmgai_notepad_eng.Create(nil);
+      with ROQuery1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.createparam(ftdate,'x3',ptinput);
+        commandtext:='execute procedure sp_line_shjs_remarks_new(:x1,:x2,:x3)';
+        params[0].asstring:=query1.fieldbyname('pline').value;
+        params[1].asinteger:=query1.fieldbyname('seq').value;
+        params[2].asdate:=query1.fieldbyname('dt1').value;
+        execute;
+      end;
+      frmgai_notepad_eng.Label41.Caption:='ACHI';
+      frmgai_notepad_eng.Show;
+     end;
+    end;
+  end;
+end;
+
+procedure Tfrmachieving.DBGridEh1Columns13EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+begin
+  if frmttlcsh=nil then frmttlcsh:=tfrmttlcsh.Create(nil);
+  frmttlcsh.DBText1.DataSource:=frmachieving.DataSource1;
+  frmttlcsh.DBText2.DataSource:=frmachieving.DataSource1;
+  frmttlcsh.DBText3.DataSource:=frmachieving.DataSource1;
+  frmttlcsh.DBText4.DataSource:=frmachieving.DataSource1;
+  frmttlcsh.DBText5.DataSource:=frmachieving.DataSource1;
+  frmttlcsh.DBText6.DataSource:=frmachieving.DataSource1;
+  frmttlcsh.DateEdit1.Date:=frmachieving.query1.fieldbyname('dt1').value;
+  frmttlcsh.Label4.Caption:='ACHIEVE';
+  if pos('F',query1.fieldbyname('pline').value)>0 then begin
+    frmttlcsh.Label31.Visible:=true;
+    frmttlcsh.Edit1.Visible:=true;
+  end else begin
+    frmttlcsh.Label31.Visible:=false;
+    frmttlcsh.Edit1.Visible:=false;
+  end;
+  with ROQuery1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='execute procedure sp_genqncalendar(:x1,:x2,:x3)';
+    params[0].asstring:=frmachieving.query1.fieldbyname('pline').value;
+    params[1].asinteger:=frmachieving.query1.fieldbyname('seq').value;
+    params[2].asdate:=frmachieving.query1.fieldbyname('dt1').value;
+    execute;
+  end;
+  frmttlcsh.Show;
+end;
+
+procedure Tfrmachieving.DBGridEh1Columns21EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+var
+  dt1:tdate;
+  pline:string;
+  seq:integer;
+  tm:tdatetime;
+  r12:boolean;
+  pstr:string;
+  flag3:string;
+begin
+  pline:=query1.fieldbyname('pline').value;
+  seq:=query1.fieldbyname('seq').value;
+  with query3 do begin
+    close;
+    params.clear;
+    PARAMS.CREATEPARAM(FTSTRING,'X1',PTINPUT);
+    PARAMS.CREATEPARAM(FTINTEGER,'X2',PTINPUT);
+    commandtext:='select flag3 from tblshedule where pline=:x1 and seq=:x2';
+    PARAMS[0].ASSTRING:=pline;
+    PARAMS[1].ASINTEGER:=seq;
+    open;
+    if not fieldbyname('flag3').isnull then flag3:=fieldbyname('flag3').value else flag3:='';
+  end;
+  tm:=now;
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbluser where usr='''+frmmain.ComboBox1.text+'''';
+    open;
+    if not fieldbyname('r12').isnull then r12:=fieldbyname('r12').value else r12:=false;
+  end;
+    if r12=true then begin
+      if ((flag3>'') and (flag3<'x')) then begin
+        WITH ROQuery1 DO BEGIN
+          CLOSE;
+          PARAMS.CLEAR;
+          PARAMS.CREATEPARAM(FTSTRING,'X1',PTINPUT);
+          PARAMS.CREATEPARAM(FTINTEGER,'X2',PTINPUT);
+          params.createparam(ftdatetime,'x3',ptinput);
+          COMMANDTEXT:='EXECUTE PROCEDURE SP_DIVIDEDSHJS(:X1,:X2,:x3)';
+          PARAMS[0].ASSTRING:=pline;
+          PARAMS[1].ASINTEGER:=seq;
+          params[2].asdatetime:=tm;
+          EXECUTE;
+        END;
+        WITH ROQuery1 DO BEGIN
+          CLOSE;
+          PARAMS.CLEAR;
+          PARAMS.CREATEPARAM(FTSTRING,'X1',PTINPUT);
+          PARAMS.CREATEPARAM(FTINTEGER,'X2',PTINPUT);
+          COMMANDTEXT:='EXECUTE PROCEDURE SP_updlineshjs_001(:X1,:X2)';
+          PARAMS[0].ASSTRING:=pline;
+          PARAMS[1].ASINTEGER:=seq;
+          EXECUTE;
+        END;
+      end;
+        WITH ROQuery1 DO BEGIN
+          CLOSE;
+          PARAMS.CLEAR;
+          PARAMS.CREATEPARAM(FTSTRING,'X1',PTINPUT);
+          PARAMS.CREATEPARAM(FTINTEGER,'X2',PTINPUT);
+          COMMANDTEXT:='EXECUTE PROCEDURE SP_updlineshjslst(:X1,:X2)';
+          PARAMS[0].ASSTRING:=pline;
+          PARAMS[1].ASINTEGER:=seq;
+          EXECUTE;
+        END;
+        with query3 do begin
+          close;
+          params.clear;
+          PARAMS.CREATEPARAM(FTSTRING,'X1',PTINPUT);
+          PARAMS.CREATEPARAM(FTINTEGER,'X2',PTINPUT);
+          commandtext:='select min(dt1) as dt from line_shjs where pline=:x1 and seq=:x2 and flag=''0'' and ksjs>0 order by dt1';
+          PARAMS[0].ASSTRING:=pline;
+          PARAMS[1].ASINTEGER:=seq;
+          open;
+          if not fieldbyname('dt').isnull then dt1:=fieldbyname('dt').value else dt1:=encodedate(1899,12,30);
+        end;
+      //end;
+        {
+    pstr:='5 '+query1.fieldbyname('pline').value+' '+query1.fieldbyname('seq').asstring;
+    if pos('test',lowercase(application.ExeName))>0 then
+    winexec(pchar(extractfilepath(application.exename)+'lwpm_replication_test.exe '+pstr),sw_hide)
+    else winexec(pchar(extractfilepath(application.exename)+'lwpm_replication.exe '+pstr),sw_hide);
+    }
+    end;
+        if frmzktd=nil then frmzktd:=tfrmzktd.create(nil);
+        frmzktd.lbl850.Caption:=lbl850.Caption;
+        if lbl850.Caption='SPE' then begin
+          frmzktd.DBGridEh1.columns[24].FieldName:='AQTY_SP';
+          frmzktd.DBGridEh1.columns[25].FieldName:='AQTY1_SP';
+          frmzktd.DBGridEh1.columns[26].FieldName:='DIFF_SP';
+          frmzktd.DBGridEh1.columns[29].FieldName:='DBXL_SP';
+          frmzktd.DBGridEh1.columns[32].FieldName:='EFF2_SP';
+        end else begin
+          frmzktd.DBGridEh1.columns[24].FieldName:='AQTY';
+          frmzktd.DBGridEh1.columns[25].FieldName:='AQTY1';
+          frmzktd.DBGridEh1.columns[26].FieldName:='DIFF';
+          frmzktd.DBGridEh1.columns[29].FieldName:='DBXL';
+          frmzktd.DBGridEh1.columns[32].FieldName:='EFF2';
+        end;
+        with frmzktd.query1 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'pline',ptinput);
+          params.createparam(ftinteger,'seq',ptinput);
+          commandtext:='select * from line_shjs where pline=:x1 and seq=:x2 AND FLAG=''0''';
+          params[0].asstring:=pline;
+          params[1].asinteger:=seq;
+          open;
+        end;
+        frmzktd.DBText1.DataSource:=datasource1;
+        frmzktd.DBText2.DataSource:=datasource1;
+        frmzktd.DBText3.DataSource:=datasource1;
+        frmzktd.DBText4.DataSource:=datasource1;
+        frmzktd.DBText5.DataSource:=datasource1;
+        frmzktd.DBText6.DataSource:=datasource1;
+        frmzktd.DBText7.DataSource:=datasource1;
+        frmzktd.DBText8.DataSource:=datasource1;
+        frmzktd.Show;
+end;
+
+procedure Tfrmachieving.DBGridEh1Columns8EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+begin
+    //create or view LWO
+    if frmlwo=nil then frmlwo:=tfrmlwo.create(nil);
+    with ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='execute procedure sp_tbllwo(:x1,:x2)';
+      params[0].asstring:=query1.fieldbyname('pline').value;
+      params[1].asinteger:=query1.fieldbyname('seq').value;
+      execute;
+    end;
+    frmlwo.Label8.Caption:='GAI';
+    with frmlwo.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='select * from tbl_lwo where pline=:x1 and seq=:x2';
+      params[0].asstring:=query1.fieldbyname('pline').value;
+      params[1].asinteger:=query1.fieldbyname('seq').value;
+      open;
+    end;
+    frmlwo.dbtext1.DataSource:=DataSource1;
+    frmlwo.dbtext2.DataSource:=DataSource1;
+    frmlwo.dbtext3.DataSource:=DataSource1;
+    frmlwo.dbtext4.DataSource:=DataSource1;
+    frmlwo.dbtext5.DataSource:=DataSource1;
+    frmlwo.dbtext6.DataSource:=DataSource1;
+    frmlwo.dbtext7.DataSource:=DataSource1;
+    frmlwo.show;
+end;
+
+procedure Tfrmachieving.ppGroupFooterBand1BeforePrint(Sender: TObject);
+var
+  f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,p1,p2,p3:double;
+  str1,str2:string;
+  s1,s2,s3,s4:string;
+  lt1,p4,p5:double;
+  w1,w2:double;
+begin
+  f01:=0;f02:=0;f03:=0;f04:=0;f05:=0;
+
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select distinct pline,lstr,trs,sjrs1,sjrs2,sjyc from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag3 is null) and (aqty=0 and aqty1=0 and (csect>0 or csect is null))'
+      else commandtext:='select distinct pline,lstr,trs,sjrs1,sjrs2,sjyc from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null)';
+      if combobox1.text>'' then begin
+        if combobox1.text<>'KBT' then
+        commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+        else commandtext:=commandtext+' and tplant=''KB''';
+      end;
+      if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+      if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+      params[0].asdate:=date;
+      params[1].asdate:=dateedit1.date;
+      open;
+      first;
+      while not eof do begin
+        f01:=f01+fieldbyname('lstr').value;
+        //f02:=f02+fieldbyname('trs').value;
+        f03:=f03+fieldbyname('sjrs1').value;
+        f04:=f04+fieldbyname('sjrs2').value;
+        //f05:=f05+fieldbyname('sjyc').value;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select distinct pline,trs,sjyc from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag3 is null) and (aqty=0 and aqty1=0 and (csect>0 or csect is null)) and csect=0'
+      else commandtext:='select distinct pline,trs,sjyc from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null) and csect=0';
+      if combobox1.text>'' then begin
+        if combobox1.text<>'KBT' then
+        commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+        else commandtext:=commandtext+' and tplant=''KB''';
+      end;
+      if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+      if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+      params[0].asdate:=date;
+      params[1].asdate:=dateedit1.date;
+      open;
+      first;
+      while not eof do begin
+        f02:=f02+fieldbyname('trs').value;
+        f05:=f05+fieldbyname('sjyc').value;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+  f01:=0;f03:=0;f04:=0;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select distinct pline,sum(trs*(csect+ceot))/sum(csect+ceot) as trs,sum(sjyc*(csect+ceot))/sum(csect+ceot) as sjyc,'
+                  +'sum(lstr*(csect+ceot))/sum(csect+ceot) as s1,sum(sjrs1*(csect+ceot))/sum(csect+ceot) as s2,sum(sjrs2*(csect+ceot))/sum(csect+ceot) as s3 '
+                  +'from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag3 is null) and (aqty=0 and aqty1=0 and (csect>0 or csect is null)) and (csect+ceot)>0'
+      else
+      commandtext:='select distinct pline,sum(trs*(csect+ceot))/sum(csect+ceot) as trs,sum(sjyc*(csect+ceot))/sum(csect+ceot) as sjyc,'
+                  +'sum(lstr*(csect+ceot))/sum(csect+ceot) as s1,sum(sjrs1*(csect+ceot))/sum(csect+ceot) as s2,sum(sjrs2*(csect+ceot))/sum(csect+ceot) as s3 '
+                  +'from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null) and (csect+ceot)>0';
+      if combobox1.text>'' then begin
+        if combobox1.text<>'KBT' then
+        commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+        else commandtext:=commandtext+' and tplant=''KB''';
+      end;
+      if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+      if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+      commandtext:=commandtext+' group by pline';
+      params[0].asdate:=date;
+      params[1].asdate:=dateedit1.date;
+      open;
+      first;
+      while not eof do begin
+        f01:=f01+fieldbyname('s1').value;
+        f03:=f03+fieldbyname('s2').value;
+        f04:=f04+fieldbyname('s3').value;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+  f02:=0;f05:=0;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select distinct pline,sum(trs*csect)/sum(csect) as trs,sum(sjyc*csect)/sum(csect) as sjyc from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag3 is null) and (aqty=0 and aqty1=0 and (csect>0 or csect is null)) and csect>0'
+      else commandtext:='select distinct pline,sum(trs*csect)/sum(csect) as trs,sum(sjyc*csect)/sum(csect) as sjyc from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null) and csect>0';
+      if combobox1.text>'' then begin
+        if combobox1.text<>'KBT' then
+        commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+        else commandtext:=commandtext+' and tplant=''KB''';
+      end;
+      if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+      if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+      commandtext:=commandtext+' group by pline';
+      params[0].asdate:=date;
+      params[1].asdate:=dateedit1.date;
+      open;
+      first;
+      while not eof do begin
+        f02:=f02+fieldbyname('trs').value;
+        f05:=f05+fieldbyname('sjyc').value;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+
+  lstr01.Caption:=formatfloat('0.0',f01);
+  trs01.Caption:=formatfloat('0.0',f02);
+  sjrs101.Caption:=formatfloat('0.0',f03);
+  sjrs201.Caption:=formatfloat('0.0',f04);
+  sjrs01.Caption:=formatfloat('0.0',f03+f04);
+  sjyc01.Caption:=formatfloat('0.0',f05);
+
+  ppMemo1.Lines.Clear;
+  ppMemo1.Lines.add('Linkage Time(LT):'+'      as at  '+copy(date001.Caption,3,15));
+  lt1:=0;
+  p5:=0;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select csect from week52 where line=:x1 and date1=:x2';
+    params[0].asstring:=query8.fieldbyname('pline').value;
+    params[1].asdate:=query8.fieldbyname('dt1').value;
+    open;
+    if not fieldbyname('csect').isnull then p5:=fieldbyname('csect').value else p5:=0;
+  end;
+  //try
+  with frmachieving.query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x0',ptinput);
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftfloat,'x3',ptinput);
+    commandtext:='select distinct pline,seq from tblshedule where ltc_ksrq=:x0';
+    if frmachieving.combobox1.text>'' then begin
+      if frmachieving.combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+frmachieving.combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if frmachieving.combobox2.Text>'' then commandtext:=commandtext+' and tshop='''+frmachieving.combobox2.text+'''';
+    if frmachieving.edit1.text>'' then commandtext:=commandtext+' and pline='''+frmachieving.edit1.text+'''';
+    commandtext:=commandtext+' union select distinct pline,max(seq) as seq from tblshedule b where ((cfwcrq=:x1) or (ltc_ksrq=:x2)) and cfwcjs<:x3';
+    if frmachieving.combobox1.text>'' then begin
+      if frmachieving.combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+frmachieving.combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if frmachieving.combobox2.Text>'' then commandtext:=commandtext+' and tshop='''+frmachieving.combobox2.text+'''';
+    if frmachieving.edit1.text>'' then commandtext:=commandtext+' and pline='''+frmachieving.edit1.text+'''';
+    commandtext:=commandtext+' and (ltc_ksrq is not null) group by pline';
+    params[0].asdate:=frmachieving.Query8.fieldbyname('dt1').value;//frmachieving.dateedit1.Date+1;
+    params[1].asdate:=frmachieving.Query8.fieldbyname('dt1').value;//frmachieving.dateedit1.date+1;
+    params[2].asdate:=frmachieving.Query8.fieldbyname('dt1').value;//frmachieving.dateedit1.date+1;
+    params[3].asfloat:=p5;
+    open;
+    first;
+    while not eof do begin
+      with frmachieving.Query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.Createparam(ftdate,'x3',ptinput);
+        commandtext:='select a.ltc_d,a.cfwcrq,a.cfwcjs,a.ltc_ksrq,a.ltc_ksjs,a.flag3,b.lst1 from tblshedule a,line_shjs b '
+                    +'where a.pline=b.pline and a.seq=b.seq and a.pline=:x1 and seq=:x2 and b.flag=''0'' '
+                    +'and b.dt1<=:x3 and ((a.ltc_ksrq=b.dt1) or (a.ltc_ksrq>b.dt1 and b.lst1=''x''))';//and a.cfwcrq=b.dt1))';
+        params[0].asstring:=frmachieving.query2.fieldbyname('pline').value;
+        params[1].asinteger:=frmachieving.query2.fieldbyname('seq').value;
+        params[2].asdate:=frmachieving.Query8.fieldbyname('dt1').value;
+        open;
+        if not fieldbyname('lst1').isnull then str2:=fieldbyname('lst1').value else str2:='c';
+        if not fieldbyname('flag3').isnull then begin
+          if pos('x',fieldbyname('flag3').value)>0 then str2:='x';
+        end;
+        if not fieldbyname('ltc_d').isnull then begin
+          if (str2='x') and (fieldbyname('ltc_d').value<15) and (fieldbyname('ltc_d').value>=0) then begin
+            if fieldbyname('cfwcrq').value>fieldbyname('ltc_ksrq').value then
+            str1:=frmachieving.query2.fieldbyname('pline').value+':  LT'+str2+' = '+formatfloat('0.0',0)+' sect hr'
+            else str1:=frmachieving.query2.fieldbyname('pline').value+':  LT'+str2+' = '+formatfloat('0.0',fieldbyname('ltc_d').value)+' sect hr';
+            str1:=str1+'  (from '+formatdatetime('yy/MM/dd',fieldbyname('cfwcrq').value)+'  '+formatfloat('0.0',fieldbyname('cfwcjs').value)+' sect hr';
+            str1:=str1+'  to '+formatdatetime('yy/MM/dd',fieldbyname('ltc_ksrq').value)+'  '+formatfloat('0.0',fieldbyname('ltc_ksjs').value)+' sect hr)';
+            if fieldbyname('cfwcrq').value>fieldbyname('ltc_ksrq').value then lt1:=lt1+0
+            else begin
+              if fieldbyname('ltc_d').value<=fieldbyname('ltc_ksjs').value then
+              lt1:=lt1+fieldbyname('ltc_d').value
+              else lt1:=lt1+fieldbyname('ltc_ksjs').value;
+            end;
+            ppmemo1.Lines.add(str1);
+          end;
+        end;
+      end;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    commandtext:='select sum(eff2*csect)/sum(csect) as s1,sum(csect) as s2 from line_shjs where dt1=:x1 and csect>0 and flag=''0''';
+    if combobox1.text>'' then begin
+      if combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+    if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+    params[0].asdate:=dateedit1.date;
+    open;
+    if not fieldbyname('s1').isnull then p1:=fieldbyname('s1').value else p1:=0;
+    if not fieldbyname('s2').isnull then p2:=fieldbyname('s2').value else p2:=0;
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    //commandtext:='select sum(eot-csect) as s2 from line_shjs where dt1=:x1 and flag=''0''';
+    commandtext:='select sum(csect) as s2 from line_shjs where dt1=:x1 and flag=''0''';
+    if combobox1.text>'' then begin
+      if combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+    if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+    params[0].asdate:=dateedit1.date;
+    open;
+    if not fieldbyname('s2').isnull then p4:=fieldbyname('s2').value else p4:=0;
+  end;
+
+  w1:=0;w2:=0;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select distinct pline,psect,eot from tbl_line_shjs where tm=:x1';
+    params[0].asdatetime:=tm1;//query8.fieldbyname('tm1').value;
+    open;
+    first;
+    while not eof do begin
+      w1:=w1+fieldbyname('psect').value;
+      w2:=w2+fieldbyname('eot').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  x0001.Caption:=formatfloat('0.0',w1);
+  x0002.Caption:=formatfloat('0.0',w2);
+
+  p3:=0;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    commandtext:='select distinct line,csect from week52 where date1=:x1 and tplant>'''' and tshop>''''';
+    if combobox1.text>'' then begin
+      if combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+    if edit1.text>'' then commandtext:=commandtext+' and line='''+edit1.text+'''';
+    params[0].asdate:=dateedit1.date;
+    open;
+    first;
+    while not eof do begin
+      p3:=p3+fieldbyname('csect').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  if p3>0 then peff001.Caption:='Productivity eff %: '+formatfloat('0.00',p1*p2/p3) else peff001.Caption:='Productivity eff %: 0.00';
+  if p3>0 then
+  //ttl002.Caption:='Total on-hold sect hr = '+formatfloat('0.0',w2-p4)+'    Default ttl sect hr from current line work calendar = '+formatfloat('0.0',p3)+'    Capacity Utilization %:  '+formatfloat('0.00',p2*100.0/p3)
+  //else ttl002.Caption:='Total on-hold sect hr = '+formatfloat('0.0',w2-p4)+'    Default ttl sect hr from current line work calendar = '+formatfloat('0.0',p3)+'    Capacity Utilization %:  0.00';
+  ttl002.Caption:='Total on-hold sect hr = '+formatfloat('0.0',p3-p4)+'    Total Linkage Time(sect hr) = '+formatfloat('0.0',lt1)+'    Capacity Utilization %:  '+formatfloat('0.00',p2*100.0/p3)
+  else ttl002.Caption:='Total on-hold sect hr = '+formatfloat('0.0',p3-p4)+'    Total Linkage Time(sect hr) = '+formatfloat('0.0',lt1)+'    Capacity Utilization %:  0.00';
+  ppmemo1.Lines.add('Total Linkage Time(sect hr) = '+formatfloat('0.0',lt1));//+'        as at  '+copy(date001.Caption,3,15));
+  x0001.Caption:=formatfloat('0.0',p3);
+  x0002.Caption:=formatfloat('0.0',p3);
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select sum(floor(lflag1)*(ceot+csect))/sum(ceot+csect) as s1 from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (aqty=0 and aqty1=0 and (ceot>0 or csect is null)) and (flag3 is null) and (ceot+csect)>0'
+      else
+      commandtext:='select sum(floor(lflag1)*(ceot+csect))/sum(ceot+csect) as s1 from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null) and (ceot+csect)>0';
+    end;
+    if combobox1.text>'' then begin
+      if combobox1.text<>'KBT' then
+      commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+      else commandtext:=commandtext+' and tplant=''KB''';
+    end;
+    if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+    if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+    params[0].asdate:=date;
+    if dateedit1.date>0 then params[1].asdate:=dateedit1.date;
+    open;
+    if not fieldbyname('s1').isnull then lflag01.Caption:=formatfloat('0.0',fieldbyname('s1').value)
+    else lflag01.Caption:='0.0';
+  end;
+  ttl002.Caption:=ttl002.Caption+'    Current phase of line efficiency: '+lflag01.Caption;//+'    Curr LWs Date is as at that date';
+  xttl02.Caption:='Curr LWs Date is as at  '+copy(date001.Caption,3,15);
+end;
+
+procedure Tfrmachieving.BitBtn4Click(Sender: TObject);
+var
+  tm:tdatetime;
+  dt:tdate;
+  cfm:boolean;
+begin
+  screen.Cursor:=crSQLWait;
+  try
+    tm:=now;
+    if (combobox2.text>'') and (dateedit1.date>0) then begin
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        if dateedit1.date>0 then begin
+          params.createparam(ftdate,'x2',ptinput);
+          if opt1.ItemIndex=0 then
+          commandtext:='select cfm from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag3 is null) and (aqty=0 and aqty1=0 and (csect>0 or csect is null)) and cfm=0'
+          else commandtext:='select cfm from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null) and cfm=0';
+        end;
+        if combobox1.text>'' then begin
+          if combobox1.text<>'KBT' then
+          commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+          else commandtext:=commandtext+' and tplant=''KB''';
+        end;
+        if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+        if dateedit1.date>0 then begin
+          params[0].asdate:=date;
+          params[1].asdate:=dateedit1.date;
+          open;
+          if not fieldbyname('cfm').isnull then cfm:=fieldbyname('cfm').value else cfm:=true;
+        end;
+      end;
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        commandtext:='select min(dt1) as dt from line_shjs where dt1>:x1';
+        if combobox1.text>'' then begin
+          if combobox1.text<>'KBT' then
+          commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+          else commandtext:=commandtext+' and tplant=''KB''';
+        end;
+        if combobox2.Text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+        params[0].asdate:=dateedit1.date;
+        open;
+        if not fieldbyname('dt').IsNull then dt:=fieldbyname('dt').value else dt:=dateedit1.date+1;
+      end;
+      //'s'
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        commandtext:='select distinct a.pline,a.seq from tblshedule a,line_shjs b where a.pline=b.pline and a.seq=b.seq and b.dt1=:x1';
+        if combobox1.text>'' then begin
+          if combobox1.text<>'KBT' then
+          commandtext:=commandtext+' and b.tplant='''+combobox1.text+''''
+          else commandtext:=commandtext+' and b.tplant=''KB''';
+        end;
+        if combobox2.Text>'' then commandtext:=commandtext+' and b.tshop='''+combobox2.text+'''';
+        params[0].asdate:=dt;//dateedit1.Date+1;
+        open;
+        first;
+        while not eof do begin
+          with query3 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftdatetime,'x3',ptinput);
+            params.createparam(ftdate,'x4',ptinput);
+            //commandtext:='execute procedure sp_gennextga(:x1,:x2,:x3)';
+            commandtext:='execute procedure sp_gen_line_next_1(:x1,:x2,:x3,:x4)';
+            params[0].asstring:=query2.fieldbyname('pline').value;
+            params[1].asinteger:=query2.fieldbyname('seq').value;
+            params[2].asdatetime:=tm;
+            params[3].asdate:=dateedit1.date;
+            execute;
+          end;
+          application.ProcessMessages;
+          next;
+        end;
+      end;
+      //not 's'
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        commandtext:='select distinct pline,seq from tblshedule where cfksrq<=:x1 and ((flag3='''') or (flag3 is null)) and yzh=0';
+        if combobox1.text>'' then begin
+          if combobox1.text<>'KBT' then
+          commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+          else commandtext:=commandtext+' and tplant=''KB''';
+        end;
+        if combobox2.Text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+        params[0].asdate:=dt;
+        open;
+        first;
+        while not eof do begin
+          with query3 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftdatetime,'x3',ptinput);
+            commandtext:='execute procedure sp_dividedshjs_01(:x1,:x2,:x3)';
+            params[0].asstring:=query2.fieldbyname('pline').value;
+            params[1].asinteger:=query2.fieldbyname('seq').value;
+            params[2].asdatetime:=tm;
+            execute;
+          end;
+
+          with query3 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftinteger,'x2',ptinput);
+            params.createparam(ftdatetime,'x3',ptinput);
+            params.createparam(ftdate,'x4',ptinput);
+            commandtext:='execute procedure sp_gen_line_next_01(:x1,:x2,:x3,:x4)';
+            params[0].asstring:=query2.fieldbyname('pline').value;
+            params[1].asinteger:=query2.fieldbyname('seq').value;
+            params[2].asdatetime:=tm;
+            params[3].asdate:=dt;
+            execute;
+          end;
+          application.ProcessMessages;
+          next;
+        end;
+      end;
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        commandtext:='execute procedure sp_gen_linenext_1(:x1)';
+        params[0].AsDateTime:=tm;
+        execute;
+      end;
+      with query6 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        commandtext:='select * from line_shjs_next where tm=:x1 order by pline,seq,dseq';// and dt1>=:x2';
+        params[0].asdatetime:=tm;
+        open;
+        if not fieldbyname('pline').isnull then begin
+          if frmnextday=nil then frmnextday:=tfrmnextday.Create(nil);
+          frmnextday.fty001.Caption:=combobox1.text;
+          frmnextday.shop001.Caption:=combobox2.Text;
+          if dateedit1.date>0 then
+          frmnextday.date001.Caption:=formatdatetime('yyyy/MM/dd',dt)
+          else frmnextday.date001.Caption:='    /  /  ';
+          if cfm=false then frmnextday.title001.Caption:='* Confirmation - incomplete *'
+          else frmnextday.title001.Caption:='* Confirmed *';
+          if pos('test',application.ExeName)>0 then frmnextday.title001.Caption:=frmnextday.title001.Caption+' -Test';
+          frmnextday.ppReport1.Print;
+        end;
+      end;
+    end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmachieving.BitBtn5Click(Sender: TObject);
+var
+  tm:tdatetime;
+begin
+  screen.Cursor:=crSQLWait;
+  tm:=now;
+  try
+    if ((combobox1.text>'') or (combobox2.text>'')) and (dateedit1.Date>0) then begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        params.createparam(ftdate,'x3',ptinput);
+        params.createparam(ftdatetime,'x4',ptinput);
+        commandtext:='execute procedure sp_genftystyleimg(:x1,:x2,:x3,:x4)';
+        if combobox1.text<>'KBT' then
+        params[0].asstring:=combobox1.text
+        else params[0].asstring:='KB';
+        params[1].asstring:=combobox2.text;
+        params[2].asdate:=dateedit1.date;
+        params[3].asdatetime:=tm;
+        execute;
+      end;
+      if combobox2.text>'' then begin
+      with query7 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        commandtext:='select * from tbl_op_styleimg where tm=:x1 order by cust,cstyle,acol,pline,seq';
+        params[0].asdatetime:=tm;
+        open;
+        if not fieldbyname('pline').isnull then begin
+          if combobox2.text>'' then begin
+            //imgtitle001.Caption:='WIP Styles Image Illustration - Workshop';
+            y01.Visible:=true;
+            //y001.Visible:=false;
+            //y002.Visible:=false;
+          end else if combobox1.Text>'' then begin
+            //imgtitle001.Caption:='WIP Styles Image Illustration - Factory';
+            y01.Visible:=false;
+            //y001.Visible:=true;
+            //y002.Visible:=true;
+          end;
+          if combobox1.text>'' then
+          tplant002.Caption:=combobox1.text
+          else tplant002.Caption:=query7.fieldbyname('tplant').value;
+          tshop002.Caption:=combobox2.text;
+          date002.Caption:=dateedit1.Text;
+          ppReport2.Print;
+        end;
+      end;
+      end else if combobox1.text>'' then begin
+      if frmfstyleimg=nil then frmfstyleimg:=tfrmfstyleimg.create(nil);
+      with frmfstyleimg.query7 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        commandtext:='select * from tbl_op_styleimg_2 where tm=:x1 order by cust,cstyle';
+        params[0].asdatetime:=tm;
+        open;
+        if not fieldbyname('tplant').isnull then begin
+          frmfstyleimg.tplant003.Caption:=combobox1.text;
+          frmfstyleimg.date003.Caption:=dateedit1.Text;
+          frmfstyleimg.ppReport3.Print;
+        end;
+      end;
+      end;
+    end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmachieving.ppReport2PreviewFormCreate(Sender: TObject);
+begin
+  ppReport2.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport2.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmachieving.ppDetailBand3BeforePrint(Sender: TObject);
+begin
+  ppimage2.Picture:=nil;
+  if query7.fieldbyname('cstyle').value<>vstyle then begin
+    if not query7.fieldbyname('colimg').isnull then begin
+      if fileexists(query7.fieldbyname('colimg').value) then ppimage2.Picture.LoadFromFile(query7.fieldbyname('colimg').value)
+      else ppimage2.Picture:=nil;
+    end else ppimage2.Picture:=nil;
+  end else begin
+    if query7.fieldbyname('acol').value<>vcol then begin
+      vcol:=query7.fieldbyname('acol').value;
+      if not query7.fieldbyname('colimg').isnull then begin
+        if fileexists(query7.fieldbyname('colimg').value) then ppimage2.Picture.LoadFromFile(query7.fieldbyname('colimg').value)
+      end else ppimage2.Picture:=nil;
+    end else ppimage2.Picture:=nil;
+  end;
+    vstyle:=query7.fieldbyname('cstyle').value;
+end;
+
+procedure Tfrmachieving.WIPStylesImageIllustration1Click(Sender: TObject);
+var
+  tm:tdatetime;
+  cust:string;
+begin
+  screen.Cursor:=crSQLWait;
+  tm:=now;
+  //cust:=inputbox('Customer:','Please input customer code:','TAMA');
+  cust:=edit2.text;
+  if cust>'' then begin
+  try
+    if ((combobox1.text>'') or (combobox2.text>'')) then begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        params.createparam(ftdatetime,'x3',ptinput);
+        params.createparam(ftstring,'x4',ptinput);
+        params.createparam(ftdate,'x5',ptinput);
+        params.createparam(ftdate,'x6',ptinput);
+        commandtext:='execute procedure sp_genftystyleimg_01(:x1,:x2,:x3,:x4,:x5,:x6)';
+        if combobox1.text<>'KBT' then
+        params[0].asstring:=combobox1.text
+        else params[0].asstring:='KB';
+        params[1].asstring:=combobox2.text;
+        params[2].asdatetime:=tm;
+        params[3].asstring:=uppercase(cust);
+        params[4].asdate:=dateedit1.Date;
+        params[5].AsDate:=dateedit2.Date;
+        execute;
+      end;
+      {
+      if frmwipimg=nil then frmwipimg:=tfrmwipimg.Create(nil);
+      with frmwipimg.query7 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        commandtext:='select * from tbl_op_styleimg where tm=:x1 order by cstyle,pline,seq';
+        params[0].asdatetime:=tm;
+        open;
+        if not fieldbyname('pline').isnull then begin
+          if combobox2.text>'' then begin
+            frmwipimg.title001.Caption:='Workshop WIP - Styles Image Illustration  - ('+uppercase(cust)+')';
+            frmwipimg.y01.Visible:=true;
+            frmwipimg.y001.Visible:=false;
+            frmwipimg.y002.Visible:=false;
+          end else if combobox1.text>'' then begin
+            frmwipimg.title001.Caption:='Factory WIP - Styles Image Illustration  - ('+uppercase(cust)+')';
+            frmwipimg.y01.Visible:=false;
+            frmwipimg.y001.Visible:=true;
+            frmwipimg.y002.Visible:=true;
+          end;
+          frmwipimg.tplant002.Caption:=combobox1.text;
+          frmwipimg.tshop002.Caption:=combobox2.text;
+          frmwipimg.ppReport2.Print;
+        end;
+      end;
+      }
+      if frmfstyleimg=nil then frmfstyleimg:=tfrmfstyleimg.create(nil);
+      with frmfstyleimg.query7 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        commandtext:='select * from tbl_op_styleimg_2 where tm=:x1 order by cust,cstyle';
+        params[0].asdatetime:=tm;
+        open;
+        if not fieldbyname('tplant').isnull then begin
+          frmfstyleimg.tplant003.Caption:=combobox1.text+'   Customer: '+edit2.text;
+          frmfstyleimg.dt001.Caption:='Date Range From : '+dateedit1.Text+'  To : '+dateedit2.text;
+          //frmfstyleimg.date003.Caption:=dateedit1.Text;
+          frmfstyleimg.ppReport3.Print;
+        end;
+      end;
+    end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+  end;
+end;
+
+procedure Tfrmachieving.ppGroupHeaderBand2BeforePrint(Sender: TObject);
+begin
+  ppimage1.Picture:=nil;
+  try
+    if not query7.fieldbyname('chartp').isnull then begin
+      if fileexists(query7.fieldbyname('chartp').value) then ppimage1.Picture.LoadFromFile(query7.fieldbyname('chartp').value)
+      else ppimage1.Picture:=nil;
+    end else ppimage1.Picture:=nil;
+    if not query7.fieldbyname('chart1p').isnull then begin
+      if fileexists(query7.fieldbyname('chart1p').value) then ppimage5.Picture.LoadFromFile(query7.fieldbyname('chart1p').value)
+      else ppimage5.Picture:=nil;
+    end else ppimage5.Picture:=nil;
+  except
+  end;
+end;
+
+procedure Tfrmachieving.DBGridEh1Columns35EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+var
+  dseq:integer;
+  tm:tdatetime;
+begin
+  screen.Cursor:=crSQLWait;
+  try
+  tm:=now;
+  with ROQuery1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='execute procedure sp_lwo_gensew(:x1,:x2)';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asinteger:=query1.fieldbyname('seq').value;
+    execute;
+  end;
+  with ROQuery1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdatetime,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_lwo_calc_sewdt_new(:x1,:x2,:x3,:x4)';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asinteger:=query1.fieldbyname('seq').value;
+    params[2].asdatetime:=tm;
+    params[3].asdate:=query1.fieldbyname('dt1').value;
+    open;
+    if not fieldbyname('dseq').isnull then dseq:=fieldbyname('dseq').value else dseq:=601;
+  end;
+  if frmesewn=nil then frmesewn:=tfrmesewn.create(nil);
+  frmesewn.Label8.Caption:='ACHIEVING';
+  with frmesewn.Query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    if lbl850.Caption='SPE' then
+    commandtext:='select * from tbl_lwo_sew_sp where pline=:x1 and seq=:x2'
+    else commandtext:='select * from tbl_lwo_sew where pline=:x1 and seq=:x2';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asinteger:=query1.fieldbyname('seq').value;
+    open;
+  end;
+  frmesewn.dbgrideh1.Columns[6].Field:=frmesewn.query1.fieldbyname('aq'+inttostr(dseq-600)+'');
+  frmesewn.dbgrideh1.Columns[7].Field:=frmesewn.query1.fieldbyname('a'+inttostr(dseq-600)+'01');
+  frmesewn.dbgrideh1.Columns[8].Field:=frmesewn.query1.fieldbyname('a'+inttostr(dseq-600)+'02');
+  frmesewn.dbgrideh1.Columns[9].Field:=frmesewn.query1.fieldbyname('a'+inttostr(dseq-600)+'03');
+  frmesewn.dbgrideh1.Columns[10].Field:=frmesewn.query1.fieldbyname('cq'+inttostr(dseq-600)+'');
+  frmesewn.dbtext1.DataSource:=DataSource1;
+  frmesewn.dbtext2.DataSource:=DataSource1;
+  frmesewn.dbtext3.DataSource:=DataSource1;
+  frmesewn.dbtext4.DataSource:=DataSource1;
+  frmesewn.dbtext5.DataSource:=DataSource1;
+  frmesewn.dbtext6.DataSource:=DataSource1;
+  frmesewn.dbtext7.DataSource:=DataSource1;
+  if lbl850.caption='SPE' then begin
+    frmesewn.Caption:=frmesewn.Caption+' - Assembly';
+    frmesewn.lbl850.Caption:='SPE';
+  end else begin
+    frmesewn.Caption:=frmesewn.Caption+' - Assembly + Specific';
+    frmesewn.lbl850.Caption:='';
+  end;
+  frmesewn.Show;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmachieving.BitBtn6Click(Sender: TObject);
+begin
+  if query1.Active then begin
+    if combobox2.text>'' then begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        commandtext:='select tshop from tbl_wksremarks where dt1=:x1 and tshop=:x2';
+        params[0].asdate:=dateedit1.date;
+        params[1].asstring:=combobox2.text;
+        open;
+        if fieldbyname('tshop').isnull then begin
+          with query2 do begin
+            close;
+            params.clear;
+            params.createparam(ftdate,'x1',ptinput);
+            params.createparam(ftstring,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            commandtext:='insert into tbl_wksremarks(dt1,tplant,tshop) values(:x1,:x2,:x3)';
+            params[0].asdate:=dateedit1.date;
+            params[1].asstring:=query1.fieldbyname('tplant').value;
+            params[2].asstring:=query1.fieldbyname('tshop').value;
+            execute;
+          end;
+        end;
+      end;
+      if frmwnote=nil then frmwnote:=tfrmwnote.Create(nil);
+      with frmwnote.Query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        commandtext:='select * from tbl_wksremarks where dt1=:x1 and tshop=:x2';
+        params[0].asdate:=dateedit1.date;
+        params[1].asstring:=combobox2.text;
+        open;
+      end;
+      frmwnote.show;
+    end;
+  end;
+end;
+
+procedure Tfrmachieving.ppGroupFooterBand3BeforePrint(Sender: TObject);
+var
+  str1:string;
+begin
+  if query8.fieldbyname('tplant').value='KB' then str1:='Senior Factory Manager Notepad : - '
+  else str1:='Factory Manager - Operations'' Notepad : - ';
+  ppMemo3.Lines.clear;
+  ppMemo3.Lines.Add(str1);
+
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      commandtext:='select distinct tshop,remarks from tbl_wksremarks where dt1=:x1';
+      if combobox1.text>'' then begin
+        if combobox1.text<>'KBT' then
+        commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+        else commandtext:=commandtext+' and tplant=''KB''';
+      end;
+      if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+      commandtext:=commandtext+' order by tshop';
+      params[0].asdate:=dateedit1.date;
+      open;
+      first;
+      while not eof do begin
+        if not fieldbyname('remarks').isnull then ppMemo3.Lines.Add(fieldbyname('tshop').value+' :  '+fieldbyname('remarks').value);
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  ppMemo3.Lines.Add('');
+end;
+
+procedure Tfrmachieving.ppGroupHeaderBand4BeforePrint(Sender: TObject);
+begin
+  try
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    commandtext:='select sum(scqty) as s1 from tbl_op_styleimg where tm=:x1 and cstyle=:x2 and cust='''+query7.fieldbyname('cust').value+'''';
+    params[0].asdatetime:=query7.fieldbyname('tm').value;
+    params[1].asstring:=query7.fieldbyname('cstyle').value;
+    open;
+    if not fieldbyname('s1').isnull then ttlqty001.Caption:=fieldbyname('s1').asstring else ttlqty001.caption:='0';
+  end;
+    if not query7.fieldbyname('chartp').isnull then ppimage4.Picture.LoadFromFile(query7.fieldbyname('chartp').value)
+    else ppimage4.Picture:=nil;
+  except
+  end;
+end;
+
+procedure Tfrmachieving.ppReport3PreviewFormCreate(Sender: TObject);
+begin
+  ppReport3.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport3.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmachieving.ppSummaryBand3BeforePrint(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select count(distinct cstyle) as s1,count(distinct tshop) as s2,count(distinct pline) as s3,count(distinct acol) as s4,count(distinct cust) as s5 from tbl_op_styleimg where tm=:x1';
+    params[0].asdatetime:=query7.fieldbyname('tm').value;
+    open;
+    if not fieldbyname('s1').isnull then begin
+      ttl001.Caption:='TTL      # of cust style:  '+fieldbyname('s1').asstring+'     # of clr:  '+fieldbyname('s4').asstring+'     # of workshop:  '+fieldbyname('s2').asstring+'     # of line:  '+fieldbyname('s3').asstring+'     # of cust:  '+fieldbyname('s5').asstring+'     ';
+    end else ttl001.Caption:='';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select sum(b.ttqty-b.tfqty) as s5 from tbl_op_styleimg a,tbl_lwo b where a.pline=b.pline and a.seq=b.seq and a.tm=:x1';
+    params[0].asdatetime:=query7.fieldbyname('tm').value;
+    open;
+    if not fieldbyname('s5').isnull then ttl003.Caption:=ttl003.Caption+'WIP Quantity:  '+fieldbyname('s5').asstring;
+  end;
+end;
+
+procedure Tfrmachieving.ppSummaryBand4BeforePrint(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select count(distinct cstyle) as s1,count(distinct pline) as s3,count(distinct acol) as s4,count(distinct cust) as s5 from tbl_op_styleimg where tm=:x1';
+    params[0].asdatetime:=query7.fieldbyname('tm').value;
+    open;
+    if not fieldbyname('s1').isnull then begin
+      ttl003.Caption:='TTL      # of cust style:  '+fieldbyname('s1').asstring+'     # of clr:  '+fieldbyname('s4').asstring+'     # of line:  '+fieldbyname('s3').asstring+'     # of cust:  '+fieldbyname('s5').asstring+'     ';
+    end else ttl003.Caption:='';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select sum(b.ttqty-b.tfqty) as s5 from tbl_op_styleimg a,tbl_lwo b where a.pline=b.pline and a.seq=b.seq and a.tm=:x1';
+    params[0].asdatetime:=query7.fieldbyname('tm').value;
+    open;
+    if not fieldbyname('s5').isnull then ttl003.Caption:=ttl003.Caption+'WIP Quantity:  '+fieldbyname('s5').asstring;
+  end;
+end;
+
+procedure Tfrmachieving.DBGridEh1Columns32EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+begin
+  //{
+  if frmrsyc=nil then frmrsyc:=tfrmrsyc.create(nil);
+  frmrsyc.DBText1.DataSource:=datasource1;//nil;
+  frmrsyc.DBText2.DataSource:=datasource1;//nil;
+  frmrsyc.DBText3.DataSource:=datasource1;//nil;
+  frmrsyc.DBText4.DataSource:=datasource1;//nil;
+  frmrsyc.DBText5.DataSource:=datasource1;//nil;
+  frmrsyc.DBText6.DataSource:=datasource1;//nil;
+  frmrsyc.DBText7.DataSource:=datasource1;//nil;
+  frmrsyc.DBText8.DataSource:=datasource1;//nil;
+  frmrsyc.DBGridEh1.DataSource:=datasource1;
+  frmrsyc.DataSource1.DataSet:=
+  frmrsyc.Show;
+  //}
+  {
+  if frmzktd_wf=nil then frmzktd_wf:=tfrmzktd_wf.create(nil);
+  frmzktd_wf.DBText1.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText2.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText3.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText4.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText5.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText6.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText7.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText8.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText9.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText10.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText11.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBText12.DataSource:=datasource1;//nil;
+  frmzktd_wf.DBEdit1.DataSource:=datasource1;//nil;
+  //frmrsyc.DBGridEh1.DataSource:=datasource1;
+  frmzktd_wf.Show;
+  }
+
+  {
+  if frmqnwkf=nil then frmqnwkf:=tfrmqnwkf.Create(nil);
+  frmqnwkf.Label1.caption:='ACHIEVING';
+  frmqnwkf.Show;
+  }
+end;
+
+procedure Tfrmachieving.Query1MWFLBChange(Sender: TField);
+var
+  s1,s2,s3,s4:double;
+begin
+  if not query1.fieldbyname('mwflb').isnull then s1:=query1.fieldbyname('mwflb').value else s1:=0;
+  if not query1.fieldbyname('mwfa').isnull then s2:=query1.fieldbyname('mwfa').value else s2:=0;
+  if not query1.fieldbyname('mwfac').isnull then s3:=query1.fieldbyname('mwfac').value else s3:=0;
+  if not query1.fieldbyname('mwfs').isnull then s4:=query1.fieldbyname('mwfs').value else s4:=0;
+  query1.fieldbyname('sjrs2').value:=s1+s2+s3+s4;
+end;
+
+procedure Tfrmachieving.BitBtn8Click(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    if dateedit1.date>0 then begin
+      params.createparam(ftdate,'x2',ptinput);
+      if opt1.ItemIndex=0 then
+      commandtext:='select * from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag3 is null) and (aqty=0 and aqty1=0 and (csect>0 or csect is null))'
+      else commandtext:='select * from line_shjs where flag=''0'' and dt1<=:x1 and dt1=:x2 and (flag6 is not null)';
+      if combobox1.text>'' then begin
+        if combobox1.text<>'KBT' then
+        commandtext:=commandtext+' and tplant='''+combobox1.text+''''
+        else commandtext:=commandtext+' and tplant=''KB''';
+      end;
+      if combobox2.text>'' then commandtext:=commandtext+' and tshop='''+combobox2.text+'''';
+      if edit1.text>'' then commandtext:=commandtext+' and pline='''+edit1.text+'''';
+      params[0].asdate:=date;
+      params[1].asdate:=dateedit1.date;
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmachieving.temp_flag;
+begin
+    if frmflag=nil then frmflag:=tfrmflag.create(nil);
+    frmflag.Label1.caption:='13';
+    frmflag.Caption:='Flag Explanation - RFID''s Status';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=13';
+      open;
+    end;
+    with frmflag.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from flag_memo where fseq=13';
+      open;
+    end;
+    frmflag.BitBtn3click(self);
+
+    frmflag.Label1.caption:='6';
+    frmflag.Caption:='Flag Explanation - Product Category/產品種類';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=6';
+      open;
+    end;
+    with frmflag.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from flag_memo where fseq=6';
+      open;
+    end;
+    frmflag.BitBtn3click(self);
+
+    frmflag.Label1.caption:='11';
+    //frmflag.Caption:='Flag Explanation - Scheduling ahead or behind / 排程前移或落后';
+    frmflag.Caption:='Flag Explanation - Impact Code/衝擊顯示';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=11';
+      open;
+    end;
+    with frmflag.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from flag_memo where fseq=11';
+      open;
+    end;
+    frmflag.BitBtn3click(self);
+
+    frmflag.Label1.caption:='4';
+    frmflag.Caption:='Flag Explanation - Default phase of line eff as at date(opt perf)/預設當日段拉效率(制作中表現)';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=4';
+      open;
+    end;
+    with frmflag.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from flag_memo where fseq=4';
+      open;
+    end;
+    frmflag.BitBtn3click(self);
+
+    frmflag.Label1.caption:='3';
+    frmflag.Caption:='Flag Explanation - QN/SQN Dynamic Process at workshop[As at Date]/數頁/游數頁動力流程-車間[當日]';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=3';
+      open;
+    end;
+    with frmflag.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from flag_memo where fseq=3';
+      open;
+    end;
+    frmflag.BitBtn3click(self);
+
+    frmflag.Label1.caption:='15';
+    frmflag.Caption:='Flag Explanation - Current phase of line eff as at date(opt perf) /現況當日段拉效率 (制作中表現)';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=15';
+      open;
+    end;
+    with frmflag.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from flag_memo where fseq=15';
+      open;
+    end;
+    frmflag.BitBtn3click(self);
+
+    frmflag.Label1.caption:='5';
+    frmflag.Caption:='Flag Explanation - Locked Diff Process/鎖定差距流程';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from flag_marks where fseq=5';
+      open;
+    end;
+    with frmflag.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from flag_memo where fseq=5';
+      open;
+    end;
+    frmflag.BitBtn3click(self);
+    if frmflag<>nil then frmflag:=nil;
+end;
+
+procedure Tfrmachieving.temp_flag1;
+begin
+    if frmflag=nil then frmflag:=tfrmflag.create(nil);
+    frmflag.Label1.caption:='5';
+    frmflag.Caption:='Flag Explanation - Locked Diff Process/鎖定差距流程';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from flag_marks where fseq=5';
+      open;
+    end;
+    with frmflag.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from flag_memo where fseq=5';
+      open;
+    end;
+    frmflag.BitBtn3click(self);
+    if frmflag<>nil then frmflag:=nil;
+end;
+
+procedure Tfrmachieving.PDFFILES1Click(Sender: TObject);
+begin
+  //
+  if frmpdfgai=nil then frmpdfgai:=tfrmpdfgai.Create(nil);
+  frmpdfgai.ComboBox1.Text:='SL';
+  frmpdfgai.DateEdit1.date:=date;
+  frmpdfgai.DateEdit2.date:=date;
+  frmpdfgai.Show;
+end;
+
+procedure Tfrmachieving.FormCreate(Sender: TObject);
+begin
+  siLang1.LoadAllFromFile(extractfilepath(application.ExeName)+'LWPM_LANGUAGE.sil',false);
+  siLang1.Language:=frmmain.ComboBox2.text;
+  {
+  if lbl850.Caption='SPE' then begin
+    dbgrideh1.Columns[38].FieldName:='AQTY_SP';
+    dbgrideh1.Columns[39].FieldName:='AQTY1_SP';
+    dbgrideh1.Columns[40].FieldName:='DIFF_SP';
+    dbgrideh1.Columns[43].FieldName:='DBXL_SP';
+    dbgrideh1.Columns[47].FieldName:='EFF2_SP';
+  end else begin
+    dbgrideh1.Columns[38].FieldName:='AQTY';
+    dbgrideh1.Columns[39].FieldName:='AQTY1';
+    dbgrideh1.Columns[40].FieldName:='DIFF';
+    dbgrideh1.Columns[43].FieldName:='DBXL';
+    dbgrideh1.Columns[47].FieldName:='EFF2';
+  end;
+  }
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          commandtext:='select max(dseq) as q1 from tbl_logging where seq=:x1';
+          params[0].asinteger:=frmmain.SpinEdit1.Value;
+          open;
+          if not fieldbyname('q1').isnull then logseq:=fieldbyname('q1').value+1
+          else logseq:=2;
+        end;
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          params.CreateParam(ftstring,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftdatetime,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftinteger,'x6',ptinput);
+          commandtext:='insert into tbl_logging(seq,usr,frmid,strdt,ip,dseq) values(:x1,:x2,:x3,:x4,:x5,:x6)';
+          params[0].asinteger:=frmmain.spinedit1.Value;
+          params[1].AsString:=frmmain.combobox1.text;
+          params[2].AsString:='GAI';
+          params[3].AsDateTime:=now;
+          params[4].asstring:=frmmain.tcp1.LocalIP;
+          params[5].AsInteger:=logseq;
+          execute;
+        end;
+        with dataset2 do begin
+          close;
+          sql.text:='insert into [Sys.Authority].dbo.sysuseinfo(menuid,userid,starttime) values(:x1,:x2,:x3)';
+          parameters[0].Value:='LWPM - GAI';
+          parameters[1].value:=frmmain.combobox1.text;
+          parameters[2].Value:=now;
+          execsql;
+        end;
+end;
+
+procedure Tfrmachieving.FormDestroy(Sender: TObject);
+begin
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftdatetime,'x1',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          params.createparam(ftinteger,'x3',ptinput);
+          commandtext:='update tbl_logging set enddt=:x1 where seq=:x2 and dseq=:x3';
+          params[0].AsDateTime:=now;
+          params[1].asinteger:=frmmain.spinedit1.Value;
+          params[2].asinteger:=logseq;
+          execute;
+        end;
+end;
+
+procedure Tfrmachieving.Query1CFMChange(Sender: TField);
+begin
+  if query1.fieldbyname('cfm').value=true then begin
+    if combobox2.text>'' then begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        commandtext:='select * from tbl_wksremarks where dt1=:x1 and tshop=:x2';
+        params[0].asdate:=dateedit1.date;
+        params[1].asstring:=combobox2.text;
+        open;
+        if fieldbyname('tshop').isnull then begin
+          with query2 do begin
+            close;
+            params.clear;
+            params.createparam(ftdate,'x1',ptinput);
+            params.createparam(ftstring,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftstring,'x4',ptinput);
+            commandtext:='insert into tbl_wksremarks(dt1,tplant,tshop,usr1) values(:x1,:x2,:x3,:x4)';
+            params[0].asdate:=dateedit1.date;
+            params[1].asstring:=query1.fieldbyname('tplant').value;
+            params[2].asstring:=query1.fieldbyname('tshop').value;
+            params[3].asstring:=frmmain.ComboBox1.text;
+            execute;
+          end;
+        end else if fieldbyname('usr1').isnull then begin
+          with query2 do begin
+            close;
+            params.clear;
+            params.createparam(ftstring,'x1',ptinput);
+            params.createparam(ftdate,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            commandtext:='update tbl_wksremarks set usr1=:x1 where dt1=:x2 and tshop=:x3';
+            params[0].asstring:=frmmain.ComboBox1.text;
+            params[1].asdate:=dateedit1.date;
+            params[2].asstring:=query1.fieldbyname('tshop').value;
+            execute;
+          end;
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmachieving.ReviewWAveLineEff1Click(Sender: TObject);
+begin
+  //
+  if frmqneff=nil then frmqneff:=tfrmqneff.create(nil);
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='select sum(eff1*csect)/sum(csect) as s5,sum(eff2*csect)/sum(csect) as s6 '//,sum(peff*csect)/sum(csect) as s7 '
+                +'from line_shjs where pline=:x1 and seq=:x2 and flag=''0'' and csect>0';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asinteger:=query1.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('s5').IsNull then frmqneff.Label3.Caption:=formatfloat('0.00',fieldbyname('s5').value)
+    else frmqneff.Label3.Caption:='0.00';
+    if not fieldbyname('s6').isnull then frmqneff.Label4.Caption:=formatfloat('0.00',fieldbyname('s6').value)
+    else frmqneff.Label4.Caption:='0.00';
+  end;
+  frmqneff.show;
+end;
+
+procedure Tfrmachieving.BitBtn9Click(Sender: TObject);
+begin
+  combobox1change(self);
+end;
+
+procedure Tfrmachieving.ComboBox2Change(Sender: TObject);
+begin
+  if combobox2.text>'' then begin
+    if combobox1.text='' then begin
+      with query2 do begin
+        close;
+        params.clear;
+        commandtext:='select distinct tplant from tblline where tshop='''+combobox2.text+'''';
+        open;
+        if not fieldbyname('tplant').isnull then
+        combobox1.text:=fieldbyname('tplant').value;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmachieving.Edit1Change(Sender: TObject);
+begin
+  if edit1.text>'' then begin
+    if (combobox1.text='') or (combobox2.text='') then begin
+      with query2 do begin
+        close;
+        params.clear;
+        commandtext:='select distinct tplant,tshop from tblline where pline='''+edit1.text+'''';
+        open;
+        if not fieldbyname('tplant').isnull then
+        combobox1.text:=fieldbyname('tplant').value;
+        if not fieldbyname('tshop').isnull then
+        combobox2.text:=fieldbyname('tshop').value;
+      end;
+    end;
+  end;
+end;
+
+end.

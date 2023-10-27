@@ -1,0 +1,27 @@
+unit newcap_leveloffprintformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Buttons;
+
+type
+  Tfrmnewcap_leveloffprint = class(TForm)
+    RadioGroup1: TRadioGroup;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_leveloffprint: Tfrmnewcap_leveloffprint;
+
+implementation
+
+{$R *.dfm}
+
+end.

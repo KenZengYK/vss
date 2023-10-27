@@ -1,0 +1,231 @@
+object frmsot3: Tfrmsot3
+  Left = 192
+  Top = 114
+  Width = 673
+  Height = 467
+  Caption = 'Ex-fty Date and T3 Date for SO'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 41
+    Width = 665
+    Height = 351
+    Align = alClient
+    TabOrder = 1
+    object cxView1: TcxGridDBTableView
+      PopupMenu = PopupMenu1
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      Styles.Inactive = cxStyle1
+      object cxView1TPLANT: TcxGridDBColumn
+        Caption = 'Factory'
+        DataBinding.FieldName = 'TPLANT'
+        Visible = False
+        GroupIndex = 0
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Content = cxStyle2
+      end
+      object cxView1SOPNO: TcxGridDBColumn
+        Caption = 'SOP #'
+        DataBinding.FieldName = 'SOPNO'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Content = cxStyle2
+        Width = 69
+      end
+      object cxView1J_NO: TcxGridDBColumn
+        Caption = 'Project #'
+        DataBinding.FieldName = 'J_NO'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Content = cxStyle2
+        Width = 93
+      end
+      object cxView1ORDLINE: TcxGridDBColumn
+        Caption = 'Order Line'
+        DataBinding.FieldName = 'ORDLINE'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Content = cxStyle2
+        Width = 61
+      end
+      object cxView1DDT: TcxGridDBColumn
+        Caption = 'Delivery Date'
+        DataBinding.FieldName = 'DDT'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Styles.Content = cxStyle2
+        Width = 75
+      end
+      object cxView1EXFTY: TcxGridDBColumn
+        Caption = 'Ex-fty Date'
+        DataBinding.FieldName = 'EXFTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 72
+      end
+      object cxView1T3: TcxGridDBColumn
+        Caption = 'T3 Date'
+        DataBinding.FieldName = 'T3'
+        HeaderAlignmentHorz = taCenter
+        Width = 75
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxView1
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 665
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 40
+      Top = 8
+      Width = 64
+      Height = 13
+      Caption = 'Project Code '
+    end
+    object Edit1: TEdit
+      Left = 112
+      Top = 8
+      Width = 121
+      Height = 21
+      CharCase = ecUpperCase
+      TabOrder = 0
+      OnChange = Edit1Change
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 392
+    Width = 665
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      TabOrder = 0
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+    end
+    object BitBtn2: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Preview'
+      TabOrder = 1
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn3: TBitBtn
+      Left = 168
+      Top = 8
+      Width = 73
+      Height = 25
+      TabOrder = 2
+      Kind = bkClose
+    end
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 56
+    Top = 168
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_erpsop_t3'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    AfterOpen = Query1AfterOpen
+    AfterPost = Query1AfterPost
+    Left = 24
+    Top = 168
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 88
+    Top = 168
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 120
+    Top = 168
+  end
+  object cxStyleRepository1: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svColor]
+      Color = clHighlight
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 152
+    Top = 168
+    object ExpandAll1: TMenuItem
+      Caption = 'Expand All'
+      OnClick = ExpandAll1Click
+    end
+    object ColapseAll1: TMenuItem
+      Caption = 'Collapse All'
+      OnClick = ColapseAll1Click
+    end
+  end
+  object cxStyleRepository2: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxStyle2: TcxStyle
+      AssignedValues = [svColor]
+      Color = 13499643
+    end
+  end
+end

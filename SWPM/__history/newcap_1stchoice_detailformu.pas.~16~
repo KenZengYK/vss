@@ -1,0 +1,468 @@
+unit newcap_1stchoice_detailformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, StdCtrls, Buttons, DB, DBClient,
+  ComCtrls, Mask, rxToolEdit, rxCurrEdit, cxGraphics, cxControls,
+  cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit, cxTextEdit,
+  cxCurrencyEdit, cxDBEdit;
+
+type
+  Tfrmnewcap_1stchoice_dtl = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    BitBtn5: TBitBtn;
+    Label10: TLabel;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    DBGridEh1: TDBGridEh;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Query4: TClientDataSet;
+    DataSource2: TDataSource;
+    cEdit1: TcxDBCurrencyEdit;
+    cEdit2: TcxDBCurrencyEdit;
+    cEdit3: TcxDBCurrencyEdit;
+    cEdit4: TcxDBCurrencyEdit;
+    cEdit5: TcxDBCurrencyEdit;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure Queryflag6change(Sender: TField);
+    procedure Querywfchange(Sender: TField);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure DataSource1StateChange(Sender: TObject);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure Query4AfterOpen(DataSet: TDataSet);
+    procedure QueryHRchange(Sender: TField);
+    procedure Query4AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_1stchoice_dtl: Tfrmnewcap_1stchoice_dtl;
+
+implementation
+
+uses mainformu, newcap_1stchoiceformu, newcap_1stchoice_dtlpastformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_1stchoice_dtl.BitBtn1Click(Sender: TObject);
+begin
+  dbgrideh1.setfocus;
+  dbgrideh1.selectedindex:=0;
+  query1.append;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.BitBtn2Click(Sender: TObject);
+begin
+  if application.messagebox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='delete from tbl_cap_ftyelements_wk_dtl where dseq=:x1';
+      params[0].asinteger:=query1.fieldbyname('dseq').value;
+      execute;
+    end;
+    query1.delete;
+  end;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.BitBtn3Click(Sender: TObject);
+begin
+  if (query1.state=dsinsert) or (query1.state=dsedit) then query1.post;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.BitBtn4Click(Sender: TObject);
+begin
+  if frmnewcap_1stchoice_dtlpast=nil then frmnewcap_1stchoice_dtlpast:=tfrmnewcap_1stchoice_dtlpast.create(nil);
+  frmnewcap_1stchoice_dtlpast.label2.caption:=query1.fieldbyname('pline').value;
+  frmnewcap_1stchoice_dtlpast.show;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.DataSource1StateChange(Sender: TObject);
+begin
+  if query1.state=dsbrowse then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      commandtext:='select sum(ttl_wf*eff)/sum(ttl_wf) as x1,sum(ttl_wf*sah)/sum(ttl_wf) as x2 from tbl_cap_ftyelements_wk_dtl where tplant=:x1 and yr=:x2 and m1=:x3 and seq=:x4 and wk=:x5 and ttl_wf>0';
+      params[0].asstring:=frmnewcap_1stchoice.query1.fieldbyname('tplant').value;
+      params[1].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('yr').value;
+      params[2].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('m1').value;
+      params[3].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('seq').value;
+      params[4].asinteger:=strtoint(label10.caption);
+      open;
+      if not fieldbyname('x1').isnull then dbgrideh1.columns[8].footer.value:=formatfloat('0.00',fieldbyname('x1').value)
+      else dbgrideh1.columns[8].footer.value:='0.00';
+      if not fieldbyname('x2').isnull then dbgrideh1.columns[9].footer.value:=formatfloat('0.0000',fieldbyname('x2').value)
+      else dbgrideh1.columns[9].footer.value:='0.0000';
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_1stchoice_dtl:=nil;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.FormShow(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  pagecontrol1.activepage:=tabsheet1;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftinteger,'x4',ptinput);
+    params.createparam(ftinteger,'x5',ptinput);
+    commandtext:='execute procedure sp_cap_genftyelements_wk_dtl(:x1,:x2,:x3,:x4,:x5)';
+    params[0].asstring:=frmnewcap_1stchoice.query1.fieldbyname('tplant').value;
+    params[1].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('yr').value;
+    params[2].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('m1').value;
+    params[3].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('seq').value;
+    params[4].asinteger:=strtoint(label10.caption);
+    execute;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftinteger,'x4',ptinput);
+    params.createparam(ftinteger,'x5',ptinput);
+    commandtext:='select * from tbl_cap_ftyelements_wk_dtl where tplant=:x1 and yr=:x2 and m1=:x3 and seq=:x4 and wk=:x5';
+    params[0].asstring:=frmnewcap_1stchoice.query1.fieldbyname('tplant').value;
+    params[1].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('yr').value;
+    params[2].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('m1').value;
+    params[3].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('seq').value;
+    params[4].asinteger:=strtoint(label10.caption);
+    open;
+  end;
+  with query4 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftinteger,'x4',ptinput);
+    params.createparam(ftinteger,'x5',ptinput);
+    commandtext:='select * from tbl_cap_ftyelements_wk_dtl1 where tplant=:x1 and yr=:x2 and m1=:x3 and seq=:x4 and wk=:x5';
+    params[0].asstring:=frmnewcap_1stchoice.query1.fieldbyname('tplant').value;
+    params[1].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('yr').value;
+    params[2].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('m1').value;
+    params[3].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('seq').value;
+    params[4].asinteger:=strtoint(label10.caption);
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('flag6').onchange:=queryflag6change;
+  query1.fieldbyname('f_wf').onchange:=querywfchange;
+  query1.fieldbyname('a_wf').onchange:=querywfchange;
+  query1.fieldbyname('e_wf').onchange:=querywfchange;
+  if query1.state=dsbrowse then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      commandtext:='select sum(ttl_wf*eff)/sum(ttl_wf) as x1,sum(ttl_wf*sah)/sum(ttl_wf) as x2 from tbl_cap_ftyelements_wk_dtl where tplant=:x1 and yr=:x2 and m1=:x3 and seq=:x4 and wk=:x5 and ttl_wf>0';
+      params[0].asstring:=frmnewcap_1stchoice.query1.fieldbyname('tplant').value;
+      params[1].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('yr').value;
+      params[2].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('m1').value;
+      params[3].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('seq').value;
+      params[4].asinteger:=strtoint(label10.caption);
+      open;
+      if not fieldbyname('x1').isnull then dbgrideh1.columns[8].footer.value:=formatfloat('0.00',fieldbyname('x1').value)
+      else dbgrideh1.columns[8].footer.value:='0.00';
+      if not fieldbyname('x2').isnull then dbgrideh1.columns[9].footer.value:=formatfloat('0.0000',fieldbyname('x2').value)
+      else dbgrideh1.columns[9].footer.value:='0.0000';
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    commandtext:='select dseq from tbl_cap_ftyelements_wk_dtl where dseq=:x1';
+    params[0].asinteger:=query1.fieldbyname('dseq').value;
+    open;
+    if fieldbyname('dseq').isnull then begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        params.createparam(ftinteger,'x4',ptinput);
+        params.createparam(ftinteger,'x5',ptinput);
+        params.createparam(ftinteger,'x6',ptinput);
+        params.createparam(ftstring,'x7',ptinput);
+        params.createparam(ftinteger,'x8',ptinput);
+        params.createparam(ftinteger,'x9',ptinput);
+        params.createparam(ftinteger,'x10',ptinput);
+        params.createparam(ftinteger,'x11',ptinput);
+        params.createparam(ftfloat,'x12',ptinput);
+        params.createparam(ftfloat,'x13',ptinput);
+        params.createparam(ftstring,'x14',ptinput);
+        params.createparam(ftstring,'x15',ptinput);
+        params.createparam(ftstring,'x16',ptinput);
+        params.createparam(ftstring,'x17',ptinput);
+        commandtext:='insert into tbl_cap_ftyelements_wk_dtl(tplant,yr,m1,seq,wk,dseq,flag6,f_wf,a_wf,e_wf,ttl_wf,eff,sah,tshop,pline,mcust,remarks) '
+                    +'values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8,:x9,:x10,:x11,:x12,:x13,:x14,:x15,:x16,:x17)';
+        params[0].asstring:=query1.fieldbyname('tplant').value;
+        params[1].asinteger:=query1.fieldbyname('yr').value;
+        params[2].asinteger:=query1.fieldbyname('m1').value;
+        params[3].asinteger:=query1.fieldbyname('seq').value;
+        params[4].asinteger:=query1.fieldbyname('wk').value;
+        params[5].asinteger:=query1.fieldbyname('dseq').value;
+        if not query1.fieldbyname('flag6').isnull then
+        params[6].asstring:=query1.fieldbyname('flag6').value
+        else params[6].asstring:='';
+        if not query1.fieldbyname('f_wf').isnull then
+        params[7].asinteger:=query1.fieldbyname('f_wf').value
+        else params[7].asinteger:=0;
+        if not query1.fieldbyname('a_wf').isnull then
+        params[8].asinteger:=query1.fieldbyname('a_wf').value
+        else params[8].asinteger:=0;
+        if not query1.fieldbyname('e_wf').isnull then
+        params[9].asinteger:=query1.fieldbyname('e_wf').value
+        else params[9].asinteger:=0;
+        if not query1.fieldbyname('ttl_wf').isnull then
+        params[10].asinteger:=query1.fieldbyname('ttl_wf').value
+        else params[10].asinteger:=0;
+        if not query1.fieldbyname('eff').isnull then
+        params[11].asfloat:=query1.fieldbyname('eff').value
+        else params[11].asfloat:=0;
+        if not query1.fieldbyname('sah').isnull then
+        params[12].asfloat:=query1.fieldbyname('sah').value
+        else params[12].asfloat:=0;
+        if not query1.fieldbyname('tshop').isnull then
+        params[13].asstring:=query1.fieldbyname('tshop').value
+        else params[13].asstring:='';
+        if not query1.fieldbyname('pline').isnull then
+        params[14].asstring:=query1.fieldbyname('pline').value
+        else params[14].asstring:='';
+        if not query1.fieldbyname('mcust').isnull then
+        params[15].asstring:=query1.fieldbyname('mcust').value
+        else params[15].asstring:='';
+        if not query1.fieldbyname('remarks').isnull then
+        params[16].asstring:=query1.fieldbyname('remarks').value
+        else params[16].asstring:='';
+        execute;
+      end;
+    end else begin
+      str1:='update tbl_cap_ftyelements_wk_dtl set ';
+      if not query1.fieldbyname('flag6').isnull then
+      str1:=str1+'flag6='''+query1.fieldbyname('flag6').value+''','
+      else str1:=str1+'flag6='''',';
+      if not query1.fieldbyname('tshop').isnull then
+      str1:=str1+'tshop='''+query1.fieldbyname('tshop').value+''','
+      else str1:=str1+'tshop='''',';
+      if not query1.fieldbyname('pline').isnull then
+      str1:=str1+'pline='''+query1.fieldbyname('pline').value+''','
+      else str1:=str1+'pline='''',';
+      if not query1.fieldbyname('mcust').isnull then
+      str1:=str1+'mcust='''+query1.fieldbyname('mcust').value+''','
+      else str1:=str1+'mcust='''',';
+      if not query1.fieldbyname('remarks').isnull then
+      str1:=str1+'remarks='''+query1.fieldbyname('remarks').value+''','
+      else str1:=str1+'remarks='''',';
+      if not query1.fieldbyname('f_wf').isnull then
+      str1:=str1+'f_wf='+query1.fieldbyname('f_wf').asstring+','
+      else str1:=str1+'f_wf=0,';
+      if not query1.fieldbyname('a_wf').isnull then
+      str1:=str1+'a_wf='+query1.fieldbyname('a_wf').asstring+','
+      else str1:=str1+'a_wf=0,';
+      if not query1.fieldbyname('e_wf').isnull then
+      str1:=str1+'e_wf='+query1.fieldbyname('e_wf').asstring+','
+      else str1:=str1+'e_wf=0,';
+      if not query1.fieldbyname('ttl_wf').isnull then
+      str1:=str1+'ttl_wf='+query1.fieldbyname('ttl_wf').asstring+','
+      else str1:=str1+'ttl_wf=0,';
+      if not query1.fieldbyname('eff').isnull then
+      str1:=str1+'eff='+query1.fieldbyname('eff').asstring+','
+      else str1:=str1+'eff=0,';
+      if not query1.fieldbyname('sah').isnull then
+      str1:=str1+'sah='+query1.fieldbyname('sah').asstring+' '
+      else str1:=str1+'sah=0 ';
+      str1:=str1+'where dseq='+query1.fieldbyname('dseq').asstring;
+      if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+    end;
+  end;
+
+  //if query1.state=dsbrowse then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      commandtext:='select sum(ttl_wf*eff)/sum(ttl_wf) as x1,sum(ttl_wf*sah)/sum(ttl_wf) as x2 from tbl_cap_ftyelements_wk_dtl where tplant=:x1 and yr=:x2 and m1=:x3 and seq=:x4 and wk=:x5 and ttl_wf>0';
+      params[0].asstring:=frmnewcap_1stchoice.query1.fieldbyname('tplant').value;
+      params[1].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('yr').value;
+      params[2].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('m1').value;
+      params[3].asinteger:=frmnewcap_1stchoice.query1.fieldbyname('seq').value;
+      params[4].asinteger:=strtoint(label10.caption);
+      open;
+      if not fieldbyname('x1').isnull then dbgrideh1.columns[8].footer.value:=formatfloat('0.00',fieldbyname('x1').value)
+      else dbgrideh1.columns[8].footer.value:='0.00';
+      if not fieldbyname('x2').isnull then dbgrideh1.columns[9].footer.value:=formatfloat('0.0000',fieldbyname('x2').value)
+      else dbgrideh1.columns[9].footer.value:='0.0000';
+    end;
+  //end;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.Query1NewRecord(DataSet: TDataSet);
+var
+  dseq:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(dseq) as x1 from tbl_cap_ftyelements_wk_dtl';
+    open;
+    if not fieldbyname('x1').isnull then dseq:=fieldbyname('dseq').value+1
+    else dseq:=1;
+  end;
+  query1.fieldbyname('tplant').value:=frmnewcap_1stchoice.query1.fieldbyname('tplant').value;
+  query1.fieldbyname('yr').value:=frmnewcap_1stchoice.query1.fieldbyname('y1').value;
+  query1.fieldbyname('m1').value:=frmnewcap_1stchoice.query1.fieldbyname('m1').value;
+  query1.fieldbyname('seq').value:=frmnewcap_1stchoice.query1.fieldbyname('seq').value;
+  query1.fieldbyname('wk').value:=strtoint(label10.caption);
+  query1.fieldbyname('dseq').value:=dseq;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.Query4AfterOpen(DataSet: TDataSet);
+begin
+  query4.fieldbyname('nhr').onchange:=queryHRchange;
+  query4.fieldbyname('ohr').onchange:=queryHRchange;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.Query4AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  str1:='update tbl_cap_ftyelements_wk_dtl1 set ';
+  if not query4.fieldbyname('nhr').isnull then
+  str1:=str1+'nhr='+query4.fieldbyname('nhr').asstring+','
+  else str1:=str1+'nhr=0,';
+  if not query4.fieldbyname('ohr').isnull then
+  str1:=str1+'ohr='+query4.fieldbyname('ohr').asstring+','
+  else str1:=str1+'ohr=0,';
+  if not query4.fieldbyname('ttl').isnull then
+  str1:=str1+'ttl='+query4.fieldbyname('ttl').asstring+','
+  else str1:=str1+'ttl=0,';
+  if not query4.fieldbyname('wday').isnull then
+  str1:=str1+'wday='+query4.fieldbyname('wday').asstring+','
+  else str1:=str1+'wday=0,';
+  if not query4.fieldbyname('cu').isnull then
+  str1:=str1+'cu='+query4.fieldbyname('cu').asstring+' '
+  else str1:=str1+'cu=0 ';
+  str1:=str1+'where tplant='''+query4.fieldbyname('tplant').value+''' ';
+  str1:=str1+'and yr='+query4.fieldbyname('yr').asstring+' ';
+  str1:=str1+'and m1='+query4.fieldbyname('m1').asstring+' ';
+  str1:=str1+'and seq='+query4.fieldbyname('seq').asstring+' ';
+  str1:=str1+'and wk='+query4.fieldbyname('wk').asstring;
+  if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.Queryflag6change(Sender: TField);
+begin
+  if query1.fieldbyname('flag6').value='B' then begin
+    if query1.fieldbyname('f_wf').value=0 then query1.fieldbyname('f_wf').value:=5;
+    if query1.fieldbyname('a_wf').value=0 then query1.fieldbyname('a_wf').value:=22;
+    if query1.fieldbyname('e_wf').value=0 then query1.fieldbyname('e_wf').value:=5;
+  end else if query1.fieldbyname('flag6').value='K' then begin
+    query1.fieldbyname('f_wf').value:=0;
+    if query1.fieldbyname('a_wf').value=0 then query1.fieldbyname('a_wf').value:=17;
+    if query1.fieldbyname('e_wf').value=0 then query1.fieldbyname('e_wf').value:=5;
+  end else if query1.fieldbyname('flag6').value='U' then begin
+    if query1.fieldbyname('f_wf').value=0 then query1.fieldbyname('f_wf').value:=5;
+    if query1.fieldbyname('a_wf').value=0 then query1.fieldbyname('a_wf').value:=22;
+    if query1.fieldbyname('e_wf').value=0 then query1.fieldbyname('e_wf').value:=5;
+  end;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.QueryHRchange(Sender: TField);
+var
+  nhr,ohr:double;
+begin
+  nhr:=0; ohr:=0;
+  if not query4.fieldbyname('nhr').isnull then nhr:=query4.fieldbyname('nhr').value;
+  if not query4.fieldbyname('ohr').isnull then ohr:=query4.fieldbyname('ohr').value;
+  query4.fieldbyname('ttl').value:=nhr+ohr;
+end;
+
+procedure Tfrmnewcap_1stchoice_dtl.Querywfchange(Sender: TField);
+var
+  fwf,awf,ewf:integer;
+begin
+  fwf:=0; awf:=0; ewf:=0;
+  if not query1.fieldbyname('f_wf').isnull then fwf:=query1.fieldbyname('f_wf').value;
+  if not query1.fieldbyname('a_wf').isnull then awf:=query1.fieldbyname('a_wf').value;
+  if not query1.fieldbyname('e_wf').isnull then ewf:=query1.fieldbyname('e_wf').value;
+  query1.fieldbyname('ttl_wf').value:=fwf+awf+ewf;
+end;
+
+end.

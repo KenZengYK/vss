@@ -1,0 +1,47 @@
+object frmnewcap_fty1: Tfrmnewcap_fty1
+  Left = 192
+  Top = 114
+  Width = 696
+  Height = 480
+  Caption = 'Factory Capacity Planning - New Version'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 16
+    Width = 38
+    Height = 13
+    Caption = 'Factory '
+  end
+  object ComboBox1: TComboBox
+    Left = 80
+    Top = 16
+    Width = 113
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    ItemIndex = 0
+    TabOrder = 0
+    Text = 'SL'
+    Items.Strings = (
+      'SL'
+      'KB'
+      'FJ')
+  end
+  object GroupBox1: TGroupBox
+    Left = 24
+    Top = 56
+    Width = 473
+    Height = 153
+    Caption = 'Ratio, W/A SAH, Eff% for B/K/U'
+    TabOrder = 1
+  end
+end

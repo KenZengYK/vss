@@ -1,0 +1,117 @@
+unit rwosampleqtyformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, GridsEh, DBGridEh, DB, ADODB, DBClient;
+
+type
+  Tfrmrwosampleqty = class(TForm)
+    DataSource1: TDataSource;
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Label3: TLabel;
+    Edit3: TEdit;
+    ADOQuery1: TADOQuery;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource2: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmrwosampleqty: Tfrmrwosampleqty;
+
+implementation
+
+uses mainformu, qn_sampleformu;
+
+{$R *.dfm}
+
+procedure Tfrmrwosampleqty.Edit1KeyPress(Sender: TObject; var Key: Char);
+var
+  tm:tdatetime;
+begin
+  if key=#13 then begin
+    screen.cursor:=crSQLWait;
+    try
+    tm:=now;
+    if frmrwosampleqty=nil then frmrwosampleqty:=tfrmrwosampleqty.create(nil);
+    with adoquery1 do begin
+      close;
+      sql.text:='select distinct projectno,workorderno,customerstyleno,colorcode,rwo,rtrim(custsize)+rtrim(custcup) as sizecup,sampleqty '
+               +'from [ph.rwo1]..view_woc_rwo where workorderno=:x1 and colorcode=:x2 and rwo=:x3 and sampleqty>0';
+      parameters[0].value:=query1.fieldbyname('j2_job').value;
+      parameters[1].value:=query1.fieldbyname('acol').value;
+      parameters[2].value:=query1.fieldbyname('rwo').value;
+      open;
+      first;
+      while not eof do begin
+        with query2 do begin
+          close;
+          params.clear;
+          params.createparam(ftdatetime,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftstring,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftstring,'x6',ptinput);
+          params.createparam(ftstring,'x7',ptinput);
+          params.createparam(ftinteger,'x8',ptinput);
+          commandtext:='insert into tbl_rwo_sample(tm,j_no,j2_job,cstyle,acol,rwo,psiz,sample) '
+                      +'values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8)';
+          params[0].asdatetime:=tm;
+          params[1].asstring:=adoquery1.fieldbyname('projectno').value;
+          params[2].asstring:=adoquery1.fieldbyname('workorderno').value;
+          params[3].asstring:=adoquery1.fieldbyname('customerstyleno').value;
+          params[4].asstring:=adoquery1.fieldbyname('colorcode').value;
+          params[5].asstring:=adoquery1.fieldbyname('rwo').value;
+          params[6].asstring:=adoquery1.fieldbyname('sizecup').value;
+          params[7].asinteger:=adoquery1.fieldbyname('sampleqty').value;
+          execute;
+        end;
+        application.processmessages;
+        next;
+      end;
+    end;
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='execute procedure sp_rwo_updsample(:x1)';
+      params[0].asdatetime:=tm;
+      execute;
+    end;
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='select * from tbl_rwo_sample where tm=:x1 order by j2_job,acol,psiz';
+      params[0].asdatetime:=tm;
+      open;
+    end;
+    finally
+      screen.cursor:=crDefault;
+    end;
+  end;
+end;
+
+procedure Tfrmrwosampleqty.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmrwosampleqty:=nil;
+end;
+
+end.

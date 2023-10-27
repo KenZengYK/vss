@@ -1,0 +1,77 @@
+unit pdfgaiformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, rxToolEdit, DB, DBClient;
+
+type
+  Tfrmpdfgai = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    GroupBox1: TGroupBox;
+    Label4: TLabel;
+    DateEdit1: TDateEdit;
+    Label2: TLabel;
+    DateEdit2: TDateEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Label3: TLabel;
+    ComboBox2: TComboBox;
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpdfgai: Tfrmpdfgai;
+
+implementation
+
+uses mainformu, achievingformu;
+
+{$R *.dfm}
+
+procedure Tfrmpdfgai.BitBtn1Click(Sender: TObject);
+begin
+      if frmachieving=nil then frmachieving:=tfrmachieving.Create(nil);
+      frmachieving.FormStyle:=fsNormal;
+      frmachieving.Hide;
+      frmachieving.ComboBox1.text:=combobox1.text;
+      frmachieving.ComboBox2.Text:=combobox2.text;
+      frmachieving.opt1.ItemIndex:=1;
+   with query1 do begin
+     close;
+     params.clear;
+     params.createparam(ftdate,'x1',ptinput);
+     params.createparam(ftdate,'x2',ptinput);
+     commandtext:='select distinct tshop,dt1 from line_shjs where tplant='''+combobox1.text+''' ';
+     if combobox2.text>'' then commandtext:=commandtext+'and tshop='''+combobox2.text+''' ';
+     commandtext:=commandtext+'and flag=''0'' and dt1>=:x1 and dt1<=:x2';
+     params[0].asdate:=dateedit1.date;
+     params[1].asdate:=dateedit2.date;
+     open;
+     first;
+     while not eof do begin
+       frmachieving.ComboBox2.Text:=fieldbyname('tshop').value;//combobox2.Text;
+       frmachieving.DateEdit1.date:=fieldbyname('dt1').value;//dateedit1.Date;
+       frmachieving.bitbtn8click(self);
+
+       frmachieving.ppReport1.DeviceType:='PDFFile';
+       frmachieving.ppReport1.ShowCancelDialog:=false;
+       frmachieving.ppReport1.ShowPrintDialog:=false;
+       frmachieving.ppReport1.TextFileName:=fieldbyname('tshop').value+'_'+formatdatetime('yyyyMMdd',fieldbyname('dt1').value)+'.pdf';
+       frmachieving.BitBtn2click(self);
+       application.ProcessMessages;
+       next;
+     end;
+   end;
+end;
+
+end.

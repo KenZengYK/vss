@@ -1,0 +1,82 @@
+unit Salesforecast_PDNformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, ExtCtrls, StdCtrls, Spin,
+  Buttons, DateUtils, cxGridExportLink;
+
+type
+  Tfrmsalesforecast_pdn = class(TForm)
+    Panel1: TPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel2: TPanel;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    SpinEdit1: TSpinEdit;
+    SpinEdit2: TSpinEdit;
+    Label3: TLabel;
+    SpinEdit3: TSpinEdit;
+    SpinEdit4: TSpinEdit;
+    BitBtn1: TBitBtn;
+    cxGrid1DBTableView1Column1: TcxGridDBColumn;
+    cxGrid1DBTableView1Column2: TcxGridDBColumn;
+    cxGrid1DBTableView1Column3: TcxGridDBColumn;
+    cxGrid1DBTableView1Column4: TcxGridDBColumn;
+    cxGrid1DBTableView1Column5: TcxGridDBColumn;
+    cxGrid1DBTableView1Column6: TcxGridDBColumn;
+    BitBtn5: TBitBtn;
+    BitBtn2: TBitBtn;
+    SaveDialog1: TSaveDialog;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsalesforecast_pdn: Tfrmsalesforecast_pdn;
+
+implementation
+
+uses mainformu, analysisformu;
+
+{$R *.dfm}
+
+procedure Tfrmsalesforecast_pdn.BitBtn5Click(Sender: TObject);
+begin
+  if savedialog1.Execute then begin
+    ExportGridToExcel(savedialog1.FileName,cxGrid1,false,true,false,'xls');
+  end;
+end;
+
+procedure Tfrmsalesforecast_pdn.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmsalesforecast_pdn:=nil;
+end;
+
+procedure Tfrmsalesforecast_pdn.FormShow(Sender: TObject);
+var
+  y,m,d:word;
+begin
+  decodedate(now,y,m,d);
+  spinedit1.value:=y;
+  spinedit2.value:=weekof(date);
+  spinedit3.value:=y;
+  spinedit4.value:=weekof(date);
+end;
+
+end.

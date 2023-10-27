@@ -1,0 +1,28 @@
+unit lineeff_1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons;
+
+type
+  Tfrmlineeff_1 = class(TForm)
+    rb1: TRadioButton;
+    rb2: TRadioButton;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmlineeff_1: Tfrmlineeff_1;
+
+implementation
+
+{$R *.dfm}
+
+end.

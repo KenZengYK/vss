@@ -1,0 +1,403 @@
+object frmtbfx1: Tfrmtbfx1
+  Left = 192
+  Top = 107
+  Width = 544
+  Height = 375
+  Caption = 'frmtbfx1'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Scaled = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object QuickRep1: TQuickRep
+    Left = 0
+    Top = 0
+    Width = 1123
+    Height = 794
+    Frame.Color = clBlack
+    Frame.DrawTop = False
+    Frame.DrawBottom = False
+    Frame.DrawLeft = False
+    Frame.DrawRight = False
+    DataSet = Query1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Style = []
+    Functions.Strings = (
+      'PAGENUMBER'
+      'COLUMNNUMBER'
+      'REPORTTITLE')
+    Functions.DATA = (
+      '0'
+      '0'
+      #39#39)
+    Options = [FirstPageHeader, LastPageFooter]
+    Page.Columns = 1
+    Page.Orientation = poLandscape
+    Page.PaperSize = A4
+    Page.Values = (
+      100
+      2100
+      100
+      2970
+      100
+      100
+      0)
+    PrinterSettings.Copies = 1
+    PrinterSettings.Duplex = False
+    PrinterSettings.FirstPage = 0
+    PrinterSettings.LastPage = 0
+    PrinterSettings.OutputBin = Auto
+    PrintIfEmpty = True
+    SnapToGrid = True
+    Units = MM
+    Zoom = 100
+    object TitleBand1: TQRBand
+      Left = 38
+      Top = 641
+      Width = 1047
+      Height = 3
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      AlignToBottom = False
+      Color = clWhite
+      ForceNewColumn = False
+      ForceNewPage = False
+      Size.Values = (
+        7.9375
+        2770.1875)
+      BandType = rbTitle
+    end
+    object SummaryBand1: TQRBand
+      Left = 38
+      Top = 644
+      Width = 1047
+      Height = 0
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      AlignToBottom = False
+      Color = clWhite
+      ForceNewColumn = False
+      ForceNewPage = False
+      Size.Values = (
+        0
+        2770.1875)
+      BandType = rbSummary
+    end
+    object PageHeaderBand1: TQRBand
+      Left = 38
+      Top = 38
+      Width = 1047
+      Height = 603
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      AlignToBottom = False
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      ForceNewColumn = False
+      ForceNewPage = False
+      ParentFont = False
+      Size.Values = (
+        1595.4375
+        2770.1875)
+      BandType = rbPageHeader
+      object QRLabel1: TQRLabel
+        Left = 419
+        Top = 56
+        Width = 208
+        Height = 25
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          66.1458333333333
+          1108.60416666667
+          148.166666666667
+          550.333333333333)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = #29983#29986#32218#29986#33021#20998#26512#22294#34920
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -21
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+        WordWrap = True
+        FontSize = 16
+      end
+      object QRLabel2: TQRLabel
+        Left = 776
+        Top = 80
+        Width = 49
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          2053.16666666667
+          211.666666666667
+          129.645833333333)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = #25171#21360#26085#26399
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 8
+      end
+      object QRSysData1: TQRSysData
+        Left = 848
+        Top = 80
+        Width = 31
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          2243.66666666667
+          211.666666666667
+          82.0208333333333)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        Color = clWhite
+        Data = qrsDate
+        Transparent = False
+        FontSize = 8
+      end
+      object QRLabel3: TQRLabel
+        Left = 776
+        Top = 104
+        Width = 25
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          2053.16666666667
+          275.166666666667
+          66.1458333333333)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = #38913#30908
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 8
+      end
+      object QRSysData2: TQRSysData
+        Left = 848
+        Top = 104
+        Width = 39
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          2243.66666666667
+          275.166666666667
+          103.1875)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        Color = clWhite
+        Data = qrsPageNumber
+        Transparent = False
+        FontSize = 8
+      end
+      object hd2: TQRLabel
+        Left = 459
+        Top = 88
+        Width = 129
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          1214.4375
+          232.833333333333
+          341.3125)
+        Alignment = taCenter
+        AlignToBand = False
+        AutoSize = False
+        AutoStretch = False
+        Caption = #25171#21360#26085#26399
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 8
+      end
+      object QRChart1: TQRChart
+        Left = 8
+        Top = 136
+        Width = 977
+        Height = 409
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          1082.14583333333
+          21.1666666666667
+          359.833333333333
+          2584.97916666667)
+        object QRDBChart1: TQRDBChart
+          Left = -1
+          Top = -1
+          Width = 1
+          Height = 1
+          BackWall.Brush.Color = clWhite
+          BackWall.Brush.Style = bsClear
+          Foot.Font.Charset = DEFAULT_CHARSET
+          Foot.Font.Color = clBlack
+          Foot.Font.Height = -11
+          Foot.Font.Name = 'Arial'
+          Foot.Font.Style = []
+          Foot.Text.Strings = (
+            #29983#29986#26085#26310'('#21608')')
+          Title.Text.Strings = (
+            'TQRChart')
+          Title.Visible = False
+          LeftAxis.DateTimeFormat = 'AMPM hh:mm'
+          LeftAxis.Title.Caption = #29983#29986#32218#29986#33021'('#20154'.'#31680')'
+          Legend.Visible = False
+          ScaleLastPage = False
+          object Series1: TFastLineSeries
+            Marks.ArrowLength = 8
+            Marks.Visible = False
+            DataSource = Query1
+            SeriesColor = clRed
+            Title = #29983#29986#32218#29986#33021#20998#26512
+            XLabelsSource = 'WKNO'
+            LinePen.Color = clRed
+            XValues.DateTime = False
+            XValues.Name = 'X'
+            XValues.Multiplier = 1
+            XValues.Order = loAscending
+            XValues.ValueSource = 'WKNO'
+            YValues.DateTime = False
+            YValues.Name = 'Y'
+            YValues.Multiplier = 1
+            YValues.Order = loNone
+            YValues.ValueSource = 'TCAP'
+          end
+        end
+      end
+    end
+    object PageFooterBand1: TQRBand
+      Left = 38
+      Top = 644
+      Width = 1047
+      Height = 40
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      AlignToBottom = False
+      Color = clWhite
+      ForceNewColumn = False
+      ForceNewPage = False
+      Size.Values = (
+        105.833333333333
+        2770.1875)
+      BandType = rbPageFooter
+    end
+    object DetailBand1: TQRBand
+      Left = 38
+      Top = 644
+      Width = 1047
+      Height = 0
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      AlignToBottom = False
+      Color = clWhite
+      ForceNewColumn = False
+      ForceNewPage = False
+      Size.Values = (
+        0
+        2770.1875)
+      BandType = rbDetail
+    end
+    object ColumnHeaderBand1: TQRBand
+      Left = 38
+      Top = 644
+      Width = 1047
+      Height = 0
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      AlignToBottom = False
+      Color = clWhite
+      ForceNewColumn = False
+      ForceNewPage = False
+      Size.Values = (
+        0
+        2770.1875)
+      BandType = rbColumnHeader
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 
+      'select line,wkno,secto*workert as tcap from week52 where line='#39'T' +
+      '01'#39' and wkno>=50'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 56
+    Top = 24
+  end
+end

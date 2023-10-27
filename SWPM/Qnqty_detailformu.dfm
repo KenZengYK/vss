@@ -1,0 +1,359 @@
+object frmqnqty_detail: Tfrmqnqty_detail
+  Left = 0
+  Top = 0
+  Caption = 'QN Qty with Flow 1 & 2'
+  ClientHeight = 407
+  ClientWidth = 870
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 366
+    Width = 870
+    Height = 41
+    Align = alBottom
+    TabOrder = 0
+    object BitBtn1: TBitBtn
+      Left = 16
+      Top = 8
+      Width = 81
+      Height = 25
+      Caption = 'Exit'
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 0
+    end
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 0
+    Width = 870
+    Height = 366
+    Align = alClient
+    TabOrder = 1
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+    end
+    object cxView1: TcxGridDBBandedTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = worksheet1.DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <
+        item
+          Kind = skSum
+          Column = cxView1scqty
+        end
+        item
+          Kind = skSum
+          Column = cxView1piqty
+        end
+        item
+          Kind = skSum
+          Column = cxView1bqty
+        end>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.CancelOnExit = False
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      OptionsView.Footer = True
+      OptionsView.GroupByBox = False
+      OptionsView.BandHeaderHeight = 30
+      Bands = <
+        item
+          Caption = 'Order Information'
+        end
+        item
+          Caption = 'AL#'
+        end
+        item
+          Caption = 'QN'#13#10'Qty'#13#10
+        end
+        item
+          Caption = 'Flow 1:'#13#10'Picked'#13#10'Qty'
+        end
+        item
+          Caption = 'Flow 2 (Sewn & T2)'
+        end
+        item
+          Caption = 'Ws Seq.'#13#10'based on'#13#10'PMC'
+          Position.BandIndex = 4
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Sewing Ws Code'
+          Position.BandIndex = 4
+          Position.ColIndex = 1
+        end
+        item
+          Caption = 'Based on accu. sewn Qty'
+          Position.BandIndex = 6
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'un-'#13#10'sewn'
+          Position.BandIndex = 4
+          Position.ColIndex = 2
+        end
+        item
+          Caption = 'T2 Qty'
+          Position.BandIndex = 4
+          Position.ColIndex = 3
+        end
+        item
+          Caption = '*'
+          Position.BandIndex = 4
+          Position.ColIndex = 4
+        end
+        item
+          Caption = 'Proj#'
+          Position.BandIndex = 0
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'WO#'
+          Position.BandIndex = 0
+          Position.ColIndex = 1
+        end
+        item
+          Caption = 'WO'#13#10'suffix'
+          Position.BandIndex = 0
+          Position.ColIndex = 2
+        end
+        item
+          Caption = 'CWO'#13#10'suffix'
+          Position.BandIndex = 0
+          Position.ColIndex = 3
+        end
+        item
+          Caption = 'QN'#13#10'suffix'
+          Position.BandIndex = 0
+          Position.ColIndex = 4
+        end
+        item
+          Caption = 'Cust Style'
+          Position.BandIndex = 0
+          Position.ColIndex = 5
+        end
+        item
+          Caption = 'PH'#13#10'Clr'#13#10'code'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 0
+          Position.ColIndex = 6
+        end>
+      object cxView1scqty: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'SCQTY'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 2
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1piqty: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'PIQTY'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 3
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1dta: TcxGridDBBandedColumn
+        Caption = 'IE'
+        DataBinding.FieldName = 'DTA'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 5
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1dta1: TcxGridDBBandedColumn
+        Caption = 'PMC'
+        DataBinding.FieldName = 'DTA1'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 5
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1pfqty: TcxGridDBBandedColumn
+        Caption = 'P'
+        DataBinding.FieldName = 'PFQTY'
+        Visible = False
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 7
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1pf_bqty: TcxGridDBBandedColumn
+        Caption = 'B'
+        DataBinding.FieldName = 'PF_bqty'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 7
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxView1pf_fqty: TcxGridDBBandedColumn
+        Caption = 'F'
+        DataBinding.FieldName = 'PF_fqty'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 7
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxView1sqty1: TcxGridDBBandedColumn
+        Caption = 'A'
+        DataBinding.FieldName = 'SQTY1'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 7
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+      object cxView1sqty: TcxGridDBBandedColumn
+        Caption = 'E'
+        DataBinding.FieldName = 'SQTY'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 7
+        Position.ColIndex = 4
+        Position.RowIndex = 0
+      end
+      object cxView1bqty: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'BQTY'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 8
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1t2qty: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'T2qty'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 9
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1bqty1: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'BQTY1'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 20
+        Position.BandIndex = 10
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column1: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'J_NO'
+        HeaderAlignmentHorz = taCenter
+        Width = 68
+        Position.BandIndex = 11
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column2: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'J2_JOB'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+        Position.BandIndex = 12
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column3: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'CWO'
+        HeaderAlignmentHorz = taCenter
+        Width = 33
+        Position.BandIndex = 13
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column4: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'RWO'
+        HeaderAlignmentHorz = taCenter
+        Width = 33
+        Position.BandIndex = 14
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column5: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'FCCS'
+        HeaderAlignmentHorz = taCenter
+        Width = 33
+        Position.BandIndex = 15
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column6: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'PLINE'
+        HeaderAlignmentHorz = taCenter
+        Width = 45
+        Position.BandIndex = 1
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column7: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'CSTYLE'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 100
+        Position.BandIndex = 16
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column8: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'acol'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 30
+        Position.BandIndex = 17
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxView1
+    end
+  end
+end

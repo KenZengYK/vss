@@ -1,0 +1,121 @@
+unit airnoticeformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DBCtrls, ExtCtrls, Buttons, DB, DBClient, Psock,
+  NMsmtp;
+
+type
+  Tfrmairnotice = class(TForm)
+    rg1: TRadioGroup;
+    rg2: TRadioGroup;
+    rg3: TRadioGroup;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    xh1: TCheckBox;
+    xh2: TCheckBox;
+    xh3: TCheckBox;
+    NMSMTP1: TNMSMTP;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure xh1Click(Sender: TObject);
+    procedure xh2Click(Sender: TObject);
+    procedure xh3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmairnotice: Tfrmairnotice;
+
+implementation
+
+uses mainformu, airrequestformu;
+
+{$R *.dfm}
+
+procedure Tfrmairnotice.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmairnotice:=nil;
+end;
+
+procedure Tfrmairnotice.BitBtn1Click(Sender: TObject);
+var
+  s1,s2,s3:string;
+begin
+  s1:='';s2:='';s3:='';
+  if (xh1.Checked or xh2.Checked or xh3.Checked) then begin
+    if (rg1.ItemIndex<0) and (rg2.ItemIndex<0) and (rg3.ItemIndex<0) then begin
+      showmessage('Please select one or more to notice!');
+    end else begin
+      if xh1.Checked then begin
+        if rg1.ItemIndex=0 then s1:='3.01'
+        else if rg1.ItemIndex=1 then s1:='3.02'
+        else if rg1.ItemIndex=2 then s1:='3.03'
+        else if rg1.ItemIndex=3 then s1:='3.04';
+      end;
+      if xh2.Checked then begin
+        if rg2.ItemIndex=0 then s2:='3.11'
+        else if rg2.ItemIndex=1 then s2:='3.12'
+        else if rg2.ItemIndex=2 then s2:='3.13'
+        else if rg2.ItemIndex=3 then s2:='3.14';
+      end;
+      if xh3.Checked then begin
+        if rg3.ItemIndex=0 then s3:='3.21'
+        else if rg3.ItemIndex=1 then s3:='3.22'
+        else if rg3.ItemIndex=2 then s3:='3.23'
+        else if rg3.ItemIndex=3 then s3:='3.24';
+      end;
+      if s1>'' then begin
+        if s2>'' then s2:=';'+s2
+        else if s3>'' then s3:=';'+s3;
+      end else begin
+        if s2>'' then begin
+          if s3>'' then s3:=';'+s3;
+        end;
+      end;
+      with frmairrequestform.query1 do begin
+        edit;
+        fieldbyname('stagecode').value:=s1+s2+s3;
+        if not fieldbyname('ulist').isnull then
+        fieldbyname('ulist').value:=trim(fieldbyname('ulist').value)+'3-'+frmmain.ComboBox1.text+';'
+        else fieldbyname('ulist').value:='3-'+frmmain.ComboBox1.text+';';
+        post;
+      end;
+      showmessage('OK');
+      frmairnotice.Close;
+    end;
+  end;
+end;
+
+procedure Tfrmairnotice.xh1Click(Sender: TObject);
+begin
+  if xh1.Checked then rg1.Enabled:=true else begin
+    rg1.Enabled:=false;
+    rg1.ItemIndex:=-1;
+  end;
+end;
+
+procedure Tfrmairnotice.xh2Click(Sender: TObject);
+begin
+  if xh2.Checked then rg2.Enabled:=true else begin
+    rg2.Enabled:=false;
+    rg2.ItemIndex:=-1;
+  end;
+end;
+
+procedure Tfrmairnotice.xh3Click(Sender: TObject);
+begin
+  if xh3.Checked then rg3.Enabled:=true else begin
+    rg3.Enabled:=false;
+    rg3.ItemIndex:=-1;
+  end;
+end;
+
+end.

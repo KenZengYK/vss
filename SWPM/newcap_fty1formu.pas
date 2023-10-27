@@ -1,0 +1,27 @@
+unit newcap_fty1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  Tfrmnewcap_fty1 = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    GroupBox1: TGroupBox;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_fty1: Tfrmnewcap_fty1;
+
+implementation
+
+{$R *.dfm}
+
+end.

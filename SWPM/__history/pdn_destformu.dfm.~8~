@@ -1,0 +1,85 @@
+object frmpdn_dest: Tfrmpdn_dest
+  Left = 0
+  Top = 0
+  Caption = #30446#30340#22320#22283#23478
+  ClientHeight = 362
+  ClientWidth = 618
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 0
+    Width = 618
+    Height = 321
+    Align = alClient
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'Tahoma'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'c_code'
+        Footers = <>
+        Title.Caption = #20195#34399
+        Width = 78
+      end
+      item
+        EditButtons = <>
+        FieldName = 'c_name'
+        Footers = <>
+        Title.Caption = #21517#31281
+        Width = 188
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 321
+    Width = 618
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitLeft = 8
+    ExplicitTop = 296
+    ExplicitWidth = 185
+  end
+  object ADODataSet1: TADODataSet
+    Connection = frmmain.ADOConn1
+    CursorType = ctStatic
+    CommandText = 'select * from phdb..tbl_pdn_dest'
+    CommandTimeout = 300
+    Parameters = <>
+    Left = 136
+    Top = 56
+  end
+  object DataSource1: TDataSource
+    DataSet = ADODataSet1
+    Left = 208
+    Top = 56
+  end
+end

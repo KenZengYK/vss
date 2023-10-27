@@ -1,0 +1,103 @@
+unit splitzjsu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, Db, DBTables;
+
+type
+  Tfrmsplitjob = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Edit1: TEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TQuery;
+    Query2: TQuery;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsplitjob: Tfrmsplitjob;
+
+implementation
+uses worksheet;
+{$R *.DFM}
+
+procedure Tfrmsplitjob.BitBtn1Click(Sender: TObject);
+var
+  scqty:integer;
+begin
+  screen.cursor:=crhourglass;
+  if strtoint(edit1.text)>=strtoint(label2.caption) then begin
+    application.MessageBox('修改總節數只能小于原總節數!','提示',mb_iconwarning+mb_ok);
+    edit1.setfocus;
+  end
+  else begin
+    if edit1.text='' then edit1.text:='0';
+    if edit1.text>'0' then begin
+      with query1 do begin
+        close;
+        sql.clear;
+        sql.add('delete from tblshedule1');
+        execsql;
+      end;
+      with query1 do begin
+        close;
+        sql.clear;
+        sql.add('insert into tblshedule1 select * from tblshedule a where a.pline=:pline and a.j_no=:j_no and a.j2_job=:j2_job and a.artno=:artno and a.acol=:acol and a.seq=:seq and a.phiszjs=:phiszjs');
+        prepare;
+        params[0].asstring:=worksheet1.schedule.fieldbyname('pline').value;
+        params[1].asstring:=worksheet1.schedule.fieldbyname('j_no').value;
+        params[2].asstring:=worksheet1.schedule.fieldbyname('j2_job').value;
+        params[3].asstring:=worksheet1.schedule.fieldbyname('artno').value;
+        params[4].asstring:=worksheet1.schedule.fieldbyname('acol').value;
+        params[5].asinteger:=worksheet1.schedule.fieldbyname('seq').value;
+        params[6].asinteger:=worksheet1.schedule.fieldbyname('phiszjs').value;
+        execsql;
+      end;
+      with query1 do begin
+        close;
+        sql.clear;
+        sql.add('select * from tblshedule1');
+        open;
+        edit;
+        fieldbyname('phiszjs').value:=strtoint(label2.caption)-strtoint(edit1.text);
+        fieldbyname('zjs').value:=fieldbyname('phiszjs').value+fieldbyname('zktd').value+fieldbyname('sctd').value+fieldbyname('sclhjs').value;
+        fieldbyname('scqty').value:=fieldbyname('phiszjs').value*fieldbyname('xjs').value;
+        scqty:=fieldbyname('scqty').value;
+        post;
+      end;
+      with worksheet1.schedule do begin
+        edit;
+        fieldbyname('phiszjs').value:=strtoint(edit1.text);
+        fieldbyname('zjs').value:=fieldbyname('phiszjs').value+fieldbyname('zktd').value+fieldbyname('sctd').value+fieldbyname('sclhjs').value;
+        fieldbyname('scqty').value:=fieldbyname('scqty').value-scqty;
+        post;
+      end;
+    end;
+  end;
+  close;
+  screen.cursor:=crdefault;  
+end;
+
+procedure Tfrmsplitjob.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmsplitjob.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if not (key in[#8,#48,#49,#50,#51,#52,#53,#54,#55,#56,#57]) then
+    key:=#0;
+end;
+
+end.

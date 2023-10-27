@@ -1,0 +1,137 @@
+unit qxglu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Db, DBClient, DBCtrls, Buttons, ExtDlgs, cxControls,
+  cxContainer, cxEdit, cxImage, cxDBEdit, ExtCtrls, Jpeg;
+
+type
+  Tfrmqxgl = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    GroupBox1: TGroupBox;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    DBCheckBox1: TDBCheckBox;
+    DBCheckBox2: TDBCheckBox;
+    DBCheckBox3: TDBCheckBox;
+    DBCheckBox4: TDBCheckBox;
+    DBCheckBox5: TDBCheckBox;
+    DBCheckBox6: TDBCheckBox;
+    DBCheckBox7: TDBCheckBox;
+    DBCheckBox8: TDBCheckBox;
+    DBCheckBox9: TDBCheckBox;
+    DBCheckBox10: TDBCheckBox;
+    Query2: TClientDataSet;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    DBCheckBox11: TDBCheckBox;
+    DBCheckBox12: TDBCheckBox;
+    DBCheckBox13: TDBCheckBox;
+    OpenPictureDialog1: TOpenPictureDialog;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmqxgl: Tfrmqxgl;
+
+implementation
+uses mainformu;
+{$R *.DFM}
+
+procedure Tfrmqxgl.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmqxgl.FormShow(Sender: TObject);
+begin
+  combobox1.text:='';
+  combobox1.items.clear;
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select usr from tbluser';
+    open;
+    first;
+    while not eof do begin
+      combobox1.items.add(fieldbyname('usr').value);
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+end;
+
+procedure Tfrmqxgl.ComboBox1Change(Sender: TObject);
+begin
+  if combobox1.text<>'' then begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'usr',ptinput);
+      commandtext:='select * from tbluser where upper(usr)=:usr';
+      params[0].asstring:=uppercase(combobox1.text);
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmqxgl.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmqxgl:=nil;
+end;
+
+procedure Tfrmqxgl.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftboolean,'r1',ptinput);
+      params.createparam(ftboolean,'r2',ptinput);
+      params.createparam(ftboolean,'r3',ptinput);
+      params.createparam(ftboolean,'r4',ptinput);
+      params.createparam(ftboolean,'r5',ptinput);
+      params.createparam(ftboolean,'r6',ptinput);
+      params.createparam(ftboolean,'r7',ptinput);
+      params.createparam(ftboolean,'r8',ptinput);
+      params.createparam(ftboolean,'r9',ptinput);
+      params.createparam(ftboolean,'r10',ptinput);
+      params.createparam(ftboolean,'r11',ptinput);
+      params.createparam(ftboolean,'r12',ptinput);
+      params.createparam(ftboolean,'r13',ptinput);
+      params.createparam(ftboolean,'r14',ptinput);
+      params.createparam(ftstring,'usr',ptinput);
+      commandtext:='update tbluser set r1=:r1,r2=:r2,r3=:r3,r4=:r4,r5=:r5,r6=:r6,r7=:r7,r8=:r8,r9=:r9,r10=:r10,r11=:r11,r12=:r12,r13=:r13,r14=:r14 where usr=:usr';
+      params[0].asboolean:=query1.fieldbyname('r1').value;
+      params[1].asboolean:=query1.fieldbyname('r2').value;
+      params[2].asboolean:=query1.fieldbyname('r3').value;
+      params[3].asboolean:=query1.fieldbyname('r4').value;
+      params[4].asboolean:=query1.fieldbyname('r5').value;
+      params[5].asboolean:=query1.fieldbyname('r6').value;
+      params[6].asboolean:=query1.fieldbyname('r7').value;
+      params[7].asboolean:=query1.fieldbyname('r8').value;
+      params[8].asboolean:=query1.fieldbyname('r9').value;
+      params[9].asboolean:=query1.fieldbyname('r10').value;
+      params[10].asboolean:=query1.fieldbyname('r11').value;
+      params[11].asboolean:=query1.fieldbyname('r12').value;
+      params[12].asboolean:=query1.fieldbyname('r13').value;
+      params[13].asboolean:=query1.fieldbyname('r14').value;
+      params[14].asstring:=query1.fieldbyname('usr').value;
+      execute;
+    end;
+  end;
+end;
+
+end.

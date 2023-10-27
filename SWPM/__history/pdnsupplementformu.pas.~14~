@@ -1,0 +1,438 @@
+unit pdnsupplementformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, StdCtrls, DBCtrls, Buttons, DB,
+  DBClient, cxControls, cxContainer, cxEdit, cxTextEdit, cxMaskEdit,
+  cxSpinEdit, cxTimeEdit, cxDBEdit, Mask, DBCtrlsEh, ppProd, ppClass,
+  ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppBands, ppCache, ppCtrls,
+  ppPrnabl, ppStrtch, ppSubRpt, ppViewr, Txcomp, cxGraphics, cxLookAndFeels,
+  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters, ppParameter;
+
+type
+  Tfrmpdnsupplement = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query4: TClientDataSet;
+    Query5: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Label3: TLabel;
+    DBComboBox1: TDBComboBox;
+    Label4: TLabel;
+    DBDTEdit1: TDBDateTimeEditEh;
+    DBTimeEdit1: TcxDBTimeEdit;
+    Label5: TLabel;
+    Label6: TLabel;
+    DBDateTimeEditEh1: TDBDateTimeEditEh;
+    Label7: TLabel;
+    DBEdit1: TDBEdit;
+    Label8: TLabel;
+    DBEdit2: TDBEdit;
+    Label9: TLabel;
+    DBEdit3: TDBEdit;
+    Label10: TLabel;
+    DBEdit4: TDBEdit;
+    BitBtn3: TBitBtn;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    pdn001: TppLabel;
+    ppLabel4: TppLabel;
+    manifest001: TppLabel;
+    ppShape1: TppShape;
+    ppLabel3: TppLabel;
+    ppLabel5: TppLabel;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppGroup3: TppGroup;
+    ppGroupHeaderBand3: TppGroupHeaderBand;
+    ppGroupFooterBand3: TppGroupFooterBand;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel23: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    mea001: TppLabel;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppLabel29: TppLabel;
+    truck001: TppLabel;
+    ppLabel31: TppLabel;
+    idate001: TppLabel;
+    ppLabel33: TppLabel;
+    itime001: TppLabel;
+    ppLabel35: TppLabel;
+    odate001: TppLabel;
+    ppLabel37: TppLabel;
+    vessel001: TppLabel;
+    ppLabel39: TppLabel;
+    port001: TppLabel;
+    ppLabel41: TppLabel;
+    dest001: TppLabel;
+    ppLabel43: TppLabel;
+    note001: TppLabel;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand2: TppDetailBand;
+    ppSummaryBand1: TppSummaryBand;
+    Query6: TClientDataSet;
+    DataSource2: TDataSource;
+    ppDBPipeline2: TppDBPipeline;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppSummaryBand2: TppSummaryBand;
+    ppLine19: TppLine;
+    ppLabel28: TppLabel;
+    ppLine20: TppLine;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    ppDBCalc3: TppDBCalc;
+    ppDBCalc4: TppDBCalc;
+    ppShape2: TppShape;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure FormShow(Sender: TObject);
+    procedure DBGridEh1Columns7EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure ppGroupFooterBand3BeforePrint(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpdnsupplement: Tfrmpdnsupplement;
+
+implementation
+
+uses mainformu, pdnformu, voyageformu, cartonmeasurement1formu;
+
+{$R *.dfm}
+
+procedure Tfrmpdnsupplement.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmpdnsupplement:=nil;
+end;
+
+procedure Tfrmpdnsupplement.BitBtn1Click(Sender: TObject);
+begin
+  if query1.State=dsedit then query1.post;
+  if frmvoyage.Query1.state=dsedit then frmvoyage.Query1.Post;
+end;
+
+procedure Tfrmpdnsupplement.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  {
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftfloat,'x2',ptinput);
+      params.createparam(ftfloat,'x3',ptinput);
+      params.createparam(ftdate,'x4',ptinput);
+      params.createparam(fttime,'x5',ptinput);
+      params.createparam(ftdate,'x6',ptinput);
+      params.createparam(ftstring,'x13',ptinput);
+      params.createparam(ftstring,'x7',ptinput);
+      params.createparam(ftstring,'x8',ptinput);
+      params.createparam(ftstring,'x9',ptinput);
+      params.createparam(ftstring,'x13',ptinput);
+      params.createparam(ftfloat,'x14',ptinput);
+      params.createparam(ftfloat,'x15',ptinput);
+      params.createparam(ftinteger,'x10',ptinput);
+      params.createparam(ftinteger,'x11',ptinput);
+      params.createparam(ftinteger,'x12',ptinput);
+      commandtext:='update tbl_pdn_pack set box=:x1,wght=:x2,cbm=:x3,indt=:x4,intm=:x5,ondt=:x6,truck=:x13,vess=:x7,lport=:x8,'
+                  +'dest=:x9,pkm=:x13,fobcost=:x14,fobcost1=:x15 where seq=:x10 and seq1=:x11 and dseq=:x12';
+      str1:='update tbl_pdn_pack set ';
+      if not query1.fieldbyname('box').isnull then
+      str1:=str1+'box='+query1.fieldbyname('box').asstring+','
+      else str1:=str1+'box=0,';
+      if not query1.fieldbyname('wght').isnull then
+      str1:=str1+'wght='+query1.fieldbyname('wght').asstring+','
+      else str1:=str1+'wght=0,';
+      if not query1.fieldbyname('cbm').isnull then
+      str1:=str1+'cbm='+query1.fieldbyname('cbm').asstring+','
+      else str1:=str1+'cbm=0,';
+      if not query1.fieldbyname('indt').isnull then
+      str1:=str1+'indt='''+formatdatetime('yyyy-MM-dd',query1.fieldbyname('indt').value)+''','
+      else str1:=str1+'indt=null,';
+      if not query1.fieldbyname('intm').isnull then
+      str1:=str1+'intm='''+formatdatetime('hh:nn:ss',query1.fieldbyname('intm').value)+''','
+      else str1:=str1+'intm=null,';
+      if not query1.fieldbyname('ondt').isnull then
+      str1:=str1+'ondt='''+formatdatetime('yyyy-MM-dd',query1.fieldbyname('ondt').value)+''','
+      else str1:=str1+'ondt=null,';
+      if not query1.fieldbyname('truck').isnull then
+      str1:=str1+'truck='''+query1.fieldbyname('truck').value+''','
+      else str1:=str1+'truck=''Truck'',';
+      if not query1.fieldbyname('vess').isnull then
+      str1:=str1+'vess='''+query1.fieldbyname('vess').value+''','
+      else str1:=str1+'vess='''',';
+      if not query1.fieldbyname('lport').isnull then
+      str1:=str1+'lport='''+query1.fieldbyname('lport').value+''','
+      else str1:=str1+'lport='''',';
+      if not query1.fieldbyname('dest').isnull then
+      str1:=str1+'dest='''+query1.fieldbyname('dest').value+''','
+      else str1:=str1+'dest='''',';
+      if not query1.fieldbyname('pkm').isnull then
+      str1:=str1+'pkm='''+query1.fieldbyname('pkm').value+''','
+      else str1:=str1+'pkm='''',';
+      if not query1.fieldbyname('fobcost').isnull then
+      str1:=str1+'fobcost='+query1.fieldbyname('fobcost').asstring+','
+      else str1:=str1+'fobcost=0,';
+      if not query1.fieldbyname('fobcost1').isnull then
+      str1:=str1+'fobcost1='+query1.fieldbyname('fobcost1').asstring+' '
+      else str1:=str1+'fobcost1=0 ';
+      str1:=str1+'where seq='+query1.fieldbyname('seq').asstring+' ';
+      str1:=str1+'and seq1='+query1.fieldbyname('seq1').asstring+' ';
+      str1:=str1+'and dseq='+query1.fieldbyname('dseq').asstring;
+
+      if not query1.fieldbyname('box').isnull then
+      params[0].asinteger:=query1.fieldbyname('box').value
+      else params[0].asinteger:=0;
+      if not query1.fieldbyname('wght').isnull then
+      params[1].asfloat:=query1.fieldbyname('wght').value
+      else params[1].asfloat:=0;
+      if not query1.fieldbyname('cbm').isnull then
+      params[2].asfloat:=query1.fieldbyname('cbm').value
+      else params[2].asfloat:=0;
+      if not query1.fieldbyname('indt').isnull then
+      params[3].asdate:=query1.fieldbyname('indt').value;
+      if not query1.fieldbyname('intm').isnull then
+      params[4].astime:=query1.fieldbyname('intm').value;
+      if not query1.fieldbyname('ondt').isnull then
+      params[5].asdate:=query1.fieldbyname('ondt').value;
+      if not query1.fieldbyname('truck').isnull then
+      params[6].asstring:=query1.fieldbyname('truck').value
+      else params[6].asstring:='Truck';
+      if not query1.fieldbyname('vess').isnull then
+      params[7].asstring:=query1.fieldbyname('vess').value
+      else params[7].asstring:='';
+      if not query1.fieldbyname('lport').isnull then
+      params[8].asstring:=query1.fieldbyname('lport').value
+      else params[8].asstring:='';
+      if not query1.fieldbyname('dest').isnull then
+      params[9].asstring:=query1.fieldbyname('dest').value
+      else params[9].asstring:='';
+      if not query1.fieldbyname('pkm').isnull then
+      params[10].asstring:=query1.fieldbyname('pkm').value
+      else params[10].asstring:='';
+      if not query1.fieldbyname('fobcost').isnull then
+      params[11].asfloat:=query1.fieldbyname('fobcost').value
+      else params[11].asfloat:=0;
+      if not query1.fieldbyname('fobcost1').isnull then
+      params[12].asfloat:=query1.fieldbyname('fobcost1').value
+      else params[12].asfloat:=0;
+      params[13].asinteger:=query1.fieldbyname('seq').value;
+      params[14].asinteger:=query1.fieldbyname('seq1').value;
+      params[15].asinteger:=query1.fieldbyname('dseq').value;
+      execute;
+    end;
+  end;
+  }
+end;
+
+procedure Tfrmpdnsupplement.FormShow(Sender: TObject);
+begin
+  {
+  if pos('TM',frmpdn.Query1.FieldByName('pdn').value)>0 then begin
+    dbgrideh1.Columns[10].PickList.clear;
+    dbgrideh1.Columns[10].PickList.add('HP');
+    dbgrideh1.Columns[10].PickList.add('BoxP');
+  end else if ((pos('SA',frmpdn.Query1.FieldByName('pdn').value)>0) or (pos('CA',frmpdn.Query1.FieldByName('pdn').value)>0)) then begin
+    dbgrideh1.Columns[10].PickList.clear;
+    dbgrideh1.Columns[10].PickList.add('CRP');
+    dbgrideh1.Columns[10].PickList.add('BP');
+  end else if pos('SL',frmpdn.Query1.FieldByName('pdn').value)>0 then begin
+    dbgrideh1.Columns[10].PickList.clear;
+    dbgrideh1.Columns[10].PickList.add('FP');
+    dbgrideh1.columns[10].PickList.add('CRP');
+  end else begin
+    dbgrideh1.Columns[10].PickList.clear;
+    dbgrideh1.Columns[10].PickList.add('CRP');
+    dbgrideh1.columns[10].PickList.add('BoxP');
+    dbgrideh1.columns[10].picklist.add('HP');
+  end;
+  }
+end;
+
+procedure Tfrmpdnsupplement.DBGridEh1Columns7EditButtonClick(
+  Sender: TObject; var Handled: Boolean);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='execute procedure sp_pdn_updpackdtl(:x1,:x2,:x3)';
+    params[0].asinteger:=query1.fieldbyname('seq').value;
+    params[1].asinteger:=query1.fieldbyname('seq1').value;
+    params[2].asinteger:=query1.fieldbyname('dseq').value;
+    execute;
+  end;
+  if frmcartonmeasurement1=nil then frmcartonmeasurement1:=tfrmcartonmeasurement1.Create(nil);
+  with frmcartonmeasurement1.Query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select * from tbl_pdn_pack_dtl where seq=:x1 and seq1=:x2 and dseq=:x3';
+    params[0].asinteger:=query1.fieldbyname('seq').value;
+    params[1].asinteger:=query1.fieldbyname('seq1').value;
+    params[2].asinteger:=query1.fieldbyname('dseq').value;
+    open;
+    if fieldbyname('xs').value=1 then begin
+      frmcartonmeasurement1.DBGridEh1.Columns[1].Title.Caption:='Carton Measurement (CM)|Length';
+      frmcartonmeasurement1.DBGridEh1.Columns[2].Title.Caption:='Carton Measurement (CM)|Width';
+      frmcartonmeasurement1.DBGridEh1.Columns[3].Title.Caption:='Carton Measurement (CM)|Height';
+    end else begin
+      frmcartonmeasurement1.DBGridEh1.Columns[1].Title.Caption:='Carton Measurement (Inch)|Length';
+      frmcartonmeasurement1.DBGridEh1.Columns[2].Title.Caption:='Carton Measurement (Inch)|Width';
+      frmcartonmeasurement1.DBGridEh1.Columns[3].Title.Caption:='Carton Measurement (Inch)|Height';
+    end;
+  end;
+  frmcartonmeasurement1.Show;
+end;
+
+procedure Tfrmpdnsupplement.BitBtn2Click(Sender: TObject);
+begin
+  if query1.Active then begin
+    bitbtn1click(self);
+    truck001.Caption:=''; idate001.Caption:=''; itime001.Caption:=''; odate001.Caption:='';
+    vessel001.Caption:=''; port001.Caption:=''; dest001.Caption:=''; note001.Caption:='';
+    mea001.Caption:='(CM)';
+    pdn001.Caption:=frmpdn.Query1.fieldbyname('pdn').value;
+    manifest001.Caption:=frmvoyage.Query1.fieldbyname('voyn').value;
+    if not frmvoyage.Query1.fieldbyname('truck').isnull then
+    truck001.Caption:=frmvoyage.Query1.fieldbyname('truck').value;
+    if not frmvoyage.Query1.fieldbyname('indt').isnull then
+    idate001.Caption:=formatdatetime('yyyy/MM/dd',frmvoyage.Query1.fieldbyname('indt').value);
+    if not frmvoyage.Query1.fieldbyname('intm').IsNull then
+    itime001.Caption:=formatdatetime('hh:nn',frmvoyage.Query1.fieldbyname('intm').value);
+    if not frmvoyage.Query1.fieldbyname('ondt').isnull then
+    odate001.Caption:=formatdatetime('yyyy/MM/dd',frmvoyage.Query1.fieldbyname('ondt').value);
+    if not frmvoyage.Query1.fieldbyname('vess').isnull then
+    vessel001.Caption:=frmvoyage.Query1.fieldbyname('vess').value;
+    if not frmvoyage.Query1.fieldbyname('lport').isnull then
+    port001.Caption:=frmvoyage.Query1.fieldbyname('lport').value;
+    if not frmvoyage.Query1.fieldbyname('dest').isnull then
+    dest001.Caption:=frmvoyage.Query1.fieldbyname('dest').value;
+    if not frmvoyage.Query1.fieldbyname('rair').isnull then
+    note001.Caption:=frmvoyage.Query1.fieldbyname('rair').value;
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='select cm1 from tbl_pdn_cbm where cbm=''A'' and cust='''+frmpdn.Query1.fieldbyname('cust').value+'''';
+      open;
+      if fieldbyname('cm1').value>0 then mea001.Caption:='(CM)' else mea001.Caption:='(Inch)';
+    end;
+    ppReport1.Print;
+  end;
+end;
+
+procedure Tfrmpdnsupplement.ppGroupFooterBand3BeforePrint(Sender: TObject);
+begin
+  with query6 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select * from tbl_pdn_pack_dtl where seq=:x1 and seq1=:x2 and dseq=:x3 and tbox>0 order by cbm';
+    params[0].asinteger:=query1.fieldbyname('seq').value;
+    params[1].asinteger:=query1.fieldbyname('seq1').value;
+    params[2].asinteger:=query1.fieldbyname('dseq').value;
+    open;
+  end;
+end;
+
+procedure Tfrmpdnsupplement.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+end.

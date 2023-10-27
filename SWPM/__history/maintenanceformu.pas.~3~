@@ -1,0 +1,200 @@
+unit maintenanceformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons;
+
+type
+  Tfrmmaintenance = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn7: TBitBtn;
+    BitBtn8: TBitBtn;
+    BitBtn9: TBitBtn;
+    BitBtn10: TBitBtn;
+    BitBtn11: TBitBtn;
+    BitBtn12: TBitBtn;
+    BitBtn13: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+    procedure BitBtn11Click(Sender: TObject);
+    procedure BitBtn10Click(Sender: TObject);
+    procedure BitBtn12Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmmaintenance: Tfrmmaintenance;
+
+implementation
+
+uses lineinfou, fprofileformu, wprofileformu, custformu, ftycalendarformu,
+  calendarformu, currcalformu, achievingformu, glossaryformu, prjcalformu;
+
+{$R *.dfm}
+
+procedure Tfrmmaintenance.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmmaintenance:=nil;
+end;
+
+procedure Tfrmmaintenance.BitBtn1Click(Sender: TObject);
+begin
+  if frmlineinfo=nil then frmlineinfo:=tfrmlineinfo.create(application);
+  frmlineinfo.bringtofront;
+  frmlineinfo.WindowState:=wsMaximized;
+  if pos('test',application.ExeName)>0 then frmlineinfo.Caption:=frmlineinfo.Caption+' - Test';
+end;
+
+procedure Tfrmmaintenance.BitBtn2Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmmaintenance.BitBtn3Click(Sender: TObject);
+begin
+  if frmfprofile=nil then frmfprofile:=tfrmfprofile.create(nil);
+  with frmfprofile.query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tblplant';// where tplant='''+tblline.fieldbyname('tplant').value+'''';
+    open;
+  end;
+  frmfprofile.show;
+end;
+
+procedure Tfrmmaintenance.BitBtn4Click(Sender: TObject);
+begin
+  if frmwprofile=nil then frmwprofile:=tfrmwprofile.create(nil);
+  with frmwprofile.query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tblwks';// where tshop='''+tblline.fieldbyname('tshop').value+'''';
+    open;
+  end;
+  frmwprofile.show;
+end;
+
+procedure Tfrmmaintenance.BitBtn5Click(Sender: TObject);
+begin
+  if frmcustomer=nil then frmcustomer:=tfrmcustomer.Create(application);
+  with frmcustomer.query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from cust_sku order by cust,ptyp,lst2,pcol,fits,sizs';
+    open;
+  end;
+  with frmcustomer.query2 do begin
+    close;
+    params.clear;
+    commandtext:='select * from cust_exfty';
+    open;
+  end;
+  frmcustomer.BringToFront;
+  frmcustomer.PageControl1.ActivePageIndex:=0;
+  frmcustomer.WindowState:=wsMaximized;
+  if pos('test',application.ExeName)>0 then frmcustomer.Caption:=frmcustomer.Caption+' - Test';
+end;
+
+procedure Tfrmmaintenance.BitBtn6Click(Sender: TObject);
+begin
+  if frmftycalendar=nil then frmftycalendar:=tfrmftycalendar.create(application);
+  frmftycalendar.BringToFront;
+  frmftycalendar.Left:=0;
+  frmftycalendar.top:=0;
+  frmftycalendar.Width:=666;
+  frmftycalendar.Height:=483;
+  frmftycalendar.windowstate:=wsnormal;
+  if pos('test',application.ExeName)>0 then frmftycalendar.Caption:=frmftycalendar.Caption+' - Test';
+  frmftycalendar.combobox1.text:='HK';
+  frmftycalendar.combobox1change(self);
+end;
+
+procedure Tfrmmaintenance.BitBtn7Click(Sender: TObject);
+begin
+  if frmftycalendar=nil then frmftycalendar:=tfrmftycalendar.create(application);
+  frmftycalendar.BringToFront;
+  frmftycalendar.Left:=0;
+  frmftycalendar.top:=0;
+  frmftycalendar.Width:=666;
+  frmftycalendar.Height:=483;
+  frmftycalendar.windowstate:=wsnormal;
+  if pos('test',application.ExeName)>0 then frmftycalendar.Caption:=frmftycalendar.Caption+' - Test';
+  frmftycalendar.combobox1.text:='SL';
+  frmftycalendar.combobox1change(self);
+end;
+
+procedure Tfrmmaintenance.BitBtn8Click(Sender: TObject);
+begin
+  if frmcalendar=nil then frmcalendar:=tfrmcalendar.create(application);
+  frmcalendar.BringToFront;
+  frmcalendar.WindowState:=wsMaximized;
+  if pos('test',application.ExeName)>0 then frmcalendar.Caption:=frmcalendar.Caption+' - Test';
+end;
+
+procedure Tfrmmaintenance.BitBtn9Click(Sender: TObject);
+begin
+  if frmcurrcal=nil then frmcurrcal:=tfrmcurrcal.create(application);
+  frmcurrcal.BringToFront;
+  frmcurrcal.windowstate:=wsmaximized;
+  if pos('test',application.ExeName)>0 then frmcurrcal.Caption:=frmcurrcal.Caption+' - Test';
+end;
+
+procedure Tfrmmaintenance.BitBtn10Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+    if frmachieving=nil then frmachieving:=tfrmachieving.Create(nil);
+    frmachieving.FormStyle:=fsNormal;
+    frmachieving.Hide;
+    //frmachieving.ComboBox1.text:=combobox1.text;
+    //frmachieving.ComboBox2.Text:=combobox2.Text;
+    //frmachieving.DateEdit1.date:=dateedit1.Date;
+    //frmachieving.opt1.ItemIndex:=1;
+    //frmachieving.bitbtn8click(self);
+    frmachieving.temp_flag;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmmaintenance.BitBtn11Click(Sender: TObject);
+begin
+  if frmglossary=nil then frmglossary:=tfrmglossary.Create(nil);
+  with frmglossary.Query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_glossary';
+    open;
+  end;
+  frmglossary.Show;
+end;
+
+procedure Tfrmmaintenance.BitBtn12Click(Sender: TObject);
+begin
+  if frmprjcal=nil then frmprjcal:=tfrmprjcal.create(application);
+  frmprjcal.BringToFront;
+  frmprjcal.WindowState:=wsMaximized;
+  if pos('test',application.ExeName)>0 then frmprjcal.Caption:=frmprjcal.Caption+' - Test';
+end;
+
+end.

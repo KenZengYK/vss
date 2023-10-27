@@ -1,0 +1,257 @@
+unit cartonmeasurement1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, StdCtrls, Buttons, ExtCtrls, GridsEh, DBGridEh;
+
+type
+  Tfrmcartonmeasurement1 = class(TForm)
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    Query5: TClientDataSet;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure DBGridEh1Columns0EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure querytboxchange(Sender: TField);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcartonmeasurement1: Tfrmcartonmeasurement1;
+
+implementation
+
+uses mainformu, pdnformu, pdnsupplementformu, cartonmeasurementformu;
+
+{$R *.dfm}
+
+procedure Tfrmcartonmeasurement1.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('tbox').onchange:=querytboxchange;
+end;
+
+procedure Tfrmcartonmeasurement1.DBGridEh1Columns0EditButtonClick(
+  Sender: TObject; var Handled: Boolean);
+begin
+  if frmcartonmeasurement=nil then frmcartonmeasurement:=tfrmcartonmeasurement.Create(nil);
+  with frmcartonmeasurement.Query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_pdn_cbm';
+    open;
+  end;
+  frmcartonmeasurement.Show;
+end;
+
+procedure Tfrmcartonmeasurement1.querytboxchange(Sender: TField);
+var
+  c1,c2,c3,xs,tbox:double;
+begin
+  c1:=query1.fieldbyname('c1').value;
+  c2:=query1.fieldbyname('c2').value;
+  c3:=query1.fieldbyname('c3').value;
+  xs:=query1.fieldbyname('xs').value;
+  if not query1.fieldbyname('tbox').isnull then
+  tbox:=query1.fieldbyname('tbox').value else tbox:=0;
+  query1.fieldbyname('tcbm1').value:=c1*xs*c2*xs*c3*xs*tbox/1000000.0;
+end;
+
+procedure Tfrmcartonmeasurement1.Query1NewRecord(DataSet: TDataSet);
+var
+  seq0:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq0) as q from tbl_pdn_pack_dtl';
+    open;
+    if not fieldbyname('q').isnull then seq0:=fieldbyname('q').value+1 else seq0:=1;
+  end;
+  query1.fieldbyname('seq').value:=frmpdnsupplement.Query1.fieldbyname('seq').value;
+  query1.fieldbyname('seq1').value:=frmpdnsupplement.Query1.fieldbyname('seq1').value;
+  query1.fieldbyname('dseq').value:=frmpdnsupplement.Query1.fieldbyname('dseq').value;
+  query1.fieldbyname('seq0').value:=seq0;
+end;
+
+procedure Tfrmcartonmeasurement1.Query1AfterPost(DataSet: TDataSet);
+var
+  x1,x2:double;
+  str1:string;
+begin
+  //if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select seq0 from tbl_pdn_pack_dtl where seq0=:x1';
+      params[0].asinteger:=query1.fieldbyname('seq0').value;
+      open;
+      if not fieldbyname('seq0').isnull then begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftfloat,'x2',ptinput);
+          params.createparam(ftfloat,'x3',ptinput);
+          params.createparam(ftfloat,'x4',ptinput);
+          params.createparam(ftfloat,'x5',ptinput);
+          params.createparam(ftfloat,'x6',ptinput);
+          params.createparam(ftinteger,'x7',ptinput);
+          commandtext:='update tbl_pdn_pack_dtl set cbm=:x1,c1=:x2,c2=:x3,c3=:x4,tbox=:x5,tcbm1=:x6 where seq0=:x7';
+          if not query1.fieldbyname('cbm').isnull then
+          params[0].asstring:=query1.fieldbyname('cbm').value
+          else params[0].asstring:='';
+          if not query1.fieldbyname('c1').isnull then
+          params[1].asfloat:=query1.fieldbyname('c1').value
+          else params[1].asfloat:=0;
+          if not query1.FieldByName('c2').isnull then
+          params[2].asfloat:=query1.fieldbyname('c2').value
+          else params[2].asfloat:=0;
+          if not query1.FieldByName('c3').isnull then
+          params[3].asfloat:=query1.fieldbyname('c3').value
+          else params[3].asfloat:=0;
+          if not query1.fieldbyname('tbox').isnull then
+          params[4].asfloat:=query1.fieldbyname('tbox').value
+          else params[4].asfloat:=0;
+          if not query1.fieldbyname('tcbm1').isnull then
+          params[5].asfloat:=query1.fieldbyname('tcbm1').Value
+          else params[5].asfloat:=0;
+          params[6].asinteger:=query1.fieldbyname('seq0').value;
+          execute;
+        end;
+      end else begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftfloat,'x2',ptinput);
+          params.createparam(ftfloat,'x3',ptinput);
+          params.createparam(ftfloat,'x4',ptinput);
+          params.createparam(ftfloat,'x5',ptinput);
+          params.createparam(ftfloat,'x6',ptinput);
+          params.createparam(ftinteger,'x7',ptinput);
+          params.createparam(ftinteger,'x8',ptinput);
+          params.createparam(ftinteger,'x9',ptinput);
+          params.createparam(ftinteger,'x10',ptinput);
+          commandtext:='insert into tbl_pdn_pack_dtl(cbm,c1,c2,c3,tbox,tcbm1,seq0,seq,seq1,dseq) values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8,:x9,:x10)';
+          if not query1.fieldbyname('cbm').isnull then
+          params[0].asstring:=query1.fieldbyname('cbm').value
+          else params[0].asstring:='';
+          if not query1.fieldbyname('c1').isnull then
+          params[1].asfloat:=query1.fieldbyname('c1').value
+          else params[1].asfloat:=0;
+          if not query1.FieldByName('c2').isnull then
+          params[2].asfloat:=query1.fieldbyname('c2').value
+          else params[2].asfloat:=0;
+          if not query1.FieldByName('c3').isnull then
+          params[3].asfloat:=query1.fieldbyname('c3').value
+          else params[3].asfloat:=0;
+          if not query1.fieldbyname('tbox').isnull then
+          params[4].asfloat:=query1.fieldbyname('tbox').value
+          else params[4].asfloat:=0;
+          if not query1.fieldbyname('tcbm1').isnull then
+          params[5].asfloat:=query1.fieldbyname('tcbm1').Value
+          else params[5].asfloat:=0;
+          params[6].asinteger:=query1.fieldbyname('seq0').value;
+          params[7].asinteger:=query1.fieldbyname('seq').value;
+          params[8].asinteger:=query1.fieldbyname('seq1').value;
+          params[9].asinteger:=query1.fieldbyname('dseq').value;
+          execute;
+        end;
+      end;
+    end;
+  //end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(tbox) as x1,sum(tcbm1) as x2 from tbl_pdn_pack_dtl where seq=:x1 and seq1=:x2 and dseq=:x3';
+    params[0].asinteger:=query1.fieldbyname('seq').value;
+    params[1].asinteger:=query1.fieldbyname('seq1').value;
+    params[2].asinteger:=query1.fieldbyname('dseq').value;
+    open;
+    if not fieldbyname('x1').isnull then x1:=fieldbyname('x1').value else x1:=0;
+    if not fieldbyname('x2').isnull then x2:=fieldbyname('x2').value else x2:=0;
+  end;
+  with frmpdnsupplement.Query1 do begin
+    edit;
+    fieldbyname('box').value:=x1;
+    fieldbyname('cbm').value:=x2;
+    post;
+  end;
+end;
+
+procedure Tfrmcartonmeasurement1.BitBtn1Click(Sender: TObject);
+begin
+  dbgrideh1.SetFocus;
+  dbgrideh1.SelectedIndex:=0;
+  query1.Append;
+end;
+
+procedure Tfrmcartonmeasurement1.BitBtn3Click(Sender: TObject);
+begin
+  if (query1.state=dsinsert) or (query1.state=dsedit) then query1.post;
+end;
+
+procedure Tfrmcartonmeasurement1.BitBtn2Click(Sender: TObject);
+var
+  x1,x2:double;
+begin
+  if not query1.fieldbyname('seq').isnull then begin
+    if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'x1',ptinput);
+        commandtext:='delete from tbl_pdn_pack_dtl where seq0=:x1';
+        params[0].asinteger:=query1.fieldbyname('seq0').value;
+        execute;
+      end;
+      query1.delete;
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        commandtext:='select sum(tbox) as x1,sum(tcbm1) as x2 from tbl_pdn_pack_dtl where seq=:x1 and seq1=:x2 and dseq=:x3';
+        params[0].asinteger:=query1.fieldbyname('seq').value;
+        params[1].asinteger:=query1.fieldbyname('seq1').value;
+        params[2].asinteger:=query1.fieldbyname('dseq').value;
+        open;
+        if not fieldbyname('x1').isnull then x1:=fieldbyname('x1').value else x1:=0;
+        if not fieldbyname('x2').isnull then x2:=fieldbyname('x2').value else x2:=0;
+      end;
+      with frmpdnsupplement.Query1 do begin
+        edit;
+        fieldbyname('box').value:=x1;
+        fieldbyname('cbm').value:=x2;
+        post;
+      end;
+    end;
+  end;
+end;
+
+end.
+ 

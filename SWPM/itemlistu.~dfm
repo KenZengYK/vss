@@ -1,0 +1,352 @@
+object frmitemlist: Tfrmitemlist
+  Left = 80
+  Top = 72
+  Width = 641
+  Height = 493
+  Caption = '要徑事件列表'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poDefault
+  Visible = True
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object SpeedButton1: TSpeedButton
+    Left = 144
+    Top = 419
+    Width = 30
+    Height = 30
+    Hint = '新增'
+    Glyph.Data = {
+      DE000000424DDE0000000000000076000000280000000D0000000D0000000100
+      0400000000006800000000000000000000001000000000000000000000000000
+      8000008000000080800080000000800080008080000080808000C0C0C0000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+      F000FFFFFFFFFFFFF000FFFFF000FFFFF000FFFFF0F0FFFFF000FFFFF0F0FFFF
+      F000FF0000F0000FF000FF0FFFFFFF0FF000FF0000F0000FF000FFFFF0F0FFFF
+      F000FFFFF0F0FFFFF000FFFFF000FFFFF000FFFFFFFFFFFFF000FFFFFFFFFFFF
+      F000}
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton1Click
+  end
+  object SpeedButton2: TSpeedButton
+    Left = 174
+    Top = 419
+    Width = 30
+    Height = 30
+    Hint = '插入'
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      33333333FF33333333FF333993333333300033377F3333333777333993333333
+      300033F77FFF3333377739999993333333333777777F3333333F399999933333
+      33003777777333333377333993333333330033377F3333333377333993333333
+      3333333773333333333F333333333333330033333333F33333773333333C3333
+      330033333337FF3333773333333CC333333333FFFFF77FFF3FF33CCCCCCCCCC3
+      993337777777777F77F33CCCCCCCCCC3993337777777777377333333333CC333
+      333333333337733333FF3333333C333330003333333733333777333333333333
+      3000333333333333377733333333333333333333333333333333}
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton2Click
+  end
+  object SpeedButton3: TSpeedButton
+    Left = 264
+    Top = 419
+    Width = 30
+    Height = 30
+    Hint = '選擇'
+    Glyph.Data = {
+      72010000424D7201000000000000760000002800000015000000150000000100
+      040000000000FC00000000000000000000001000000010000000000000000000
+      8000008000000080800080000000800080008080000080808000C0C0C0000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00888888888888
+      888888888355844444444444444888888F3A8488888888888848888880228487
+      7777777888488888899984877777778888488888822284878888888888488D88
+      8000848807070788884885D888B184807070707088488D5D8200848707070707
+      D5D5D5D5D00084807070707088488D5D8000848888888888884885D880008487
+      7777777888488D88800084877777778888488888800084877777778888488888
+      8303848888888888884888888606848777778884444888888D0D848777777884
+      748888888B0B8488888888844888888880638444444444448888888884A78888
+      8888888888888888814788888888888888888888843F}
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object SpeedButton4: TSpeedButton
+    Left = 204
+    Top = 419
+    Width = 30
+    Height = 30
+    Hint = '刪除'
+    Glyph.Data = {
+      DE000000424DDE0000000000000076000000280000000D0000000D0000000100
+      0400000000006800000000000000000000001000000000000000000000000000
+      8000008000000080800080000000800080008080000080808000C0C0C0000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+      F000FFFFFFFFFFFFF000FFFFFFFFFFFFF000FFFFFFFFFFFFF000FFFFFFFFFFFF
+      F000FF000000000FF000FF0FFFFFFF0FF000FF000000000FF000FFFFFFFFFFFF
+      F000FFFFFFFFFFFFF000FFFFFFFFFFFFF000FFFFFFFFFFFFF000FFFFFFFFFFFF
+      F000}
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton4Click
+  end
+  object SpeedButton5: TSpeedButton
+    Left = 234
+    Top = 419
+    Width = 30
+    Height = 30
+    Hint = '保存'
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      04000000000080000000CE0E0000C40E00001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+      2222200000000002222203300007030222220330000703000222033000000303
+      0222033333333303000203300000330303020307777703030302030777770303
+      0302030777770003030203077777070303020000000000000302220307777707
+      0302220000000000000222220307777707022222000000000002}
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton5Click
+  end
+  object SpeedButton6: TSpeedButton
+    Left = 294
+    Top = 419
+    Width = 30
+    Height = 30
+    Hint = '打印'
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+      00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+      8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+      8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+      8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+      03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+      03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+      33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+      33333337FFFF7733333333300000033333333337777773333333}
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton6Click
+  end
+  object SpeedButton7: TSpeedButton
+    Left = 324
+    Top = 419
+    Width = 30
+    Height = 30
+    Hint = '退出'
+    Glyph.Data = {
+      DE010000424DDE01000000000000760000002800000024000000120000000100
+      0400000000006801000000000000000000001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00388888888877
+      F7F787F8888888888333333F00004444400888FFF444448888888888F333FF8F
+      000033334D5007FFF4333388888888883338888F0000333345D50FFFF4333333
+      338F888F3338F33F000033334D5D0FFFF43333333388788F3338F33F00003333
+      45D50FEFE4333333338F878F3338F33F000033334D5D0FFFF43333333388788F
+      3338F33F0000333345D50FEFE4333333338F878F3338F33F000033334D5D0FFF
+      F43333333388788F3338F33F0000333345D50FEFE4333333338F878F3338F33F
+      000033334D5D0EFEF43333333388788F3338F33F0000333345D50FEFE4333333
+      338F878F3338F33F000033334D5D0EFEF43333333388788F3338F33F00003333
+      4444444444333333338F8F8FFFF8F33F00003333333333333333333333888888
+      8888333F00003333330000003333333333333FFFFFF3333F00003333330AAAA0
+      333333333333888888F3333F00003333330000003333333333338FFFF8F3333F
+      0000}
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = SpeedButton7Click
+  end
+  object Label1: TLabel
+    Left = 424
+    Top = 432
+    Width = 3
+    Height = 13
+    Visible = False
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 24
+    Top = 24
+    Width = 585
+    Height = 377
+    DataSource = DataSource1
+    Font.Charset = CHINESEBIG5_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = '新細明體'
+    Font.Style = []
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
+    ParentFont = False
+    TabOrder = 0
+    TitleFont.Charset = CHINESEBIG5_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = '新細明體'
+    TitleFont.Style = []
+    OnKeyPress = DBGridEh1KeyPress
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    FooterColor = clWindow
+    UseMultiTitle = True
+    Columns = <
+      item
+        Color = 11795962
+        FieldName = 'Seq'
+        ReadOnly = True
+        Title.Caption = '序號'
+        Width = 20
+        Footers = <>
+      end
+      item
+        FieldName = 'Bh'
+        Title.Caption = '代號'
+        Width = 40
+        Footers = <>
+      end
+      item
+        FieldName = 'Ms'
+        Title.Caption = '事件描述'
+        Width = 300
+        Footers = <>
+      end
+      item
+        FieldName = 'Days'
+        Title.Caption = '預設天數'
+        Width = 20
+        Footers = <>
+      end
+      item
+        FieldName = 'Dept'
+        Title.Caption = '部門'
+        Width = 40
+        Footers = <>
+      end
+      item
+        FieldName = 'Fzr1'
+        Title.Caption = '負責人|一'
+        Width = 60
+        Footers = <>
+      end
+      item
+        FieldName = 'Fzr2'
+        Title.Caption = '負責人|二'
+        Width = 60
+        Footers = <>
+      end>
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 24
+    Top = 419
+    Width = 120
+    Height = 30
+    DataSource = DataSource1
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
+    Hints.Strings = (
+      '第一條記錄'
+      '上一條記錄'
+      '下一條記錄'
+      '最后一條記錄'
+      'Insert record'
+      'Delete record'
+      'Edit record'
+      'Post edit'
+      'Cancel edit'
+      'Refresh data')
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 536
+    Top = 416
+  end
+  object ClientDataSet2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 568
+    Top = 416
+  end
+  object tblitem: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tblitem'
+    FieldDefs = <
+      item
+        Name = 'Seq'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Bh'
+        DataType = ftString
+        Size = 8
+      end
+      item
+        Name = 'Ms'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'Days'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Dept'
+        DataType = ftString
+        Size = 8
+      end
+      item
+        Name = 'Fzr1'
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'Fzr2'
+        DataType = ftString
+        Size = 15
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'seq'
+        Options = [ixUnique]
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterPost = tblitemAfterPost
+    OnNewRecord = tblitemNewRecord
+    Left = 472
+    Top = 416
+  end
+  object DataSource1: TDataSource
+    DataSet = tblitem
+    Left = 504
+    Top = 416
+  end
+end

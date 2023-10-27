@@ -1,0 +1,121 @@
+unit mcalformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, StdCtrls, Grids, Calendar, ExtCtrls, Buttons, DB;
+
+type
+  Tfrmmcal = class(TForm)
+    Label1: TLabel;
+    MonthCalendar1: TCalendar;
+    Panel1: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure MonthCalendar1Change(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure MonthCalendar1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmmcal: Tfrmmcal;
+
+implementation
+
+uses worksheet;
+
+{$R *.dfm}
+
+procedure Tfrmmcal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmmcal:=nil;
+end;
+
+procedure Tfrmmcal.MonthCalendar1Change(Sender: TObject);
+var
+  dt,dt1:tdatetime;
+  y,m,d:word;
+  xc:double;
+begin
+  panel1.Caption:=formatdatetime('yyyy-MM-dd',monthcalendar1.CalendarDate);
+  dt1:=monthcalendar1.CalendarDate;
+  if label1.Caption='V' then begin
+    if not worksheet1.tblshedule.FieldByName('cplan').isnull then dt:=worksheet1.tblshedule.fieldbyname('cplan').value
+    else dt:=worksheet1.tblshedule.fieldbyname('plan_date').value;
+    with worksheet1.tblshedule do begin
+      edit;
+      fieldbyname('unbal').value:=trunc(dt1)-trunc(dt);
+      post;
+    end;
+  end else begin
+    decodedate(worksheet1.tblshedule.fieldbyname('yqlcrq').value,y,m,d);
+    dt:=encodedate(y,m,d);
+    with worksheet1.tblshedule do begin
+      edit;
+      fieldbyname('qrxc').value:=trunc(dt1)-trunc(dt);
+      post;
+    end;
+  end;
+end;
+
+procedure Tfrmmcal.SpeedButton2Click(Sender: TObject);
+begin
+  monthcalendar1.PrevMonth;
+end;
+
+procedure Tfrmmcal.SpeedButton3Click(Sender: TObject);
+begin
+  monthcalendar1.NextMonth;
+end;
+
+procedure Tfrmmcal.SpeedButton1Click(Sender: TObject);
+begin
+  monthcalendar1.PrevYear;
+end;
+
+procedure Tfrmmcal.SpeedButton4Click(Sender: TObject);
+begin
+  monthcalendar1.NextYear;
+end;
+
+procedure Tfrmmcal.MonthCalendar1Click(Sender: TObject);
+var
+  dt,dt1:tdatetime;
+  y,m,d:word;
+  xc:double;
+begin
+  //dt1:=monthcalendar1.CalendarDate;
+  if label1.Caption='V' then begin
+    if not worksheet1.tblshedule.FieldByName('cplan').isnull then dt:=worksheet1.tblshedule.fieldbyname('cplan').value
+    else dt:=worksheet1.tblshedule.fieldbyname('plan_date').value;
+    showmessage(formatdatetime('yyyy/MM/dd',dt1));
+    showmessage(formatdatetime('yyyy/MM/dd',dt));
+    with worksheet1.tblshedule do begin
+      edit;
+      fieldbyname('unbal').value:=trunc(dt1)-trunc(dt);
+      post;
+    end;
+  end else begin
+    decodedate(worksheet1.tblshedule.fieldbyname('yqlcrq').value,y,m,d);
+    dt:=encodedate(y,m,d);
+    with worksheet1.tblshedule do begin
+      edit;
+      fieldbyname('qrxc').value:=trunc(dt1)-trunc(dt);
+      post;
+    end;
+  end;
+end;
+
+end.

@@ -1,0 +1,44 @@
+object frmremarks: Tfrmremarks
+  Left = 192
+  Top = 107
+  Width = 577
+  Height = 380
+  Caption = #20633#35387
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 312
+    Width = 569
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 1
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      TabOrder = 0
+      Kind = bkClose
+    end
+  end
+  object DBMemo1: TDBMemo
+    Left = 0
+    Top = 0
+    Width = 569
+    Height = 312
+    Align = alClient
+    ScrollBars = ssBoth
+    TabOrder = 0
+  end
+end

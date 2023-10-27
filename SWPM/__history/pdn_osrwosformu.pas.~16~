@@ -1,0 +1,75 @@
+unit pdn_osrwosformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, ExtCtrls, StdCtrls, Mask, RXSpin,
+  Buttons, DBClient, DateUtils;
+
+type
+  Tfrmpdn_osrwos = class(TForm)
+    Panel1: TPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel2: TPanel;
+    Label1: TLabel;
+    SpinEdit1: TRxSpinEdit;
+    Label2: TLabel;
+    SpinEdit2: TRxSpinEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    rb1: TRadioButton;
+    rb2: TRadioButton;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    cxGrid1DBTableView1J_NO: TcxGridDBColumn;
+    cxGrid1DBTableView1CSTYLE: TcxGridDBColumn;
+    cxGrid1DBTableView1QTY: TcxGridDBColumn;
+    cxGrid1DBTableView1EXDT: TcxGridDBColumn;
+    cxGrid1DBTableView1AT3DT: TcxGridDBColumn;
+    cxGrid1DBTableView1J2_JOB: TcxGridDBColumn;
+    cxGrid1DBTableView1ACOL: TcxGridDBColumn;
+    cxGrid1DBTableView1RWO: TcxGridDBColumn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpdn_osrwos: Tfrmpdn_osrwos;
+
+implementation
+
+uses mainformu, pdnformu;
+
+{$R *.dfm}
+
+procedure Tfrmpdn_osrwos.BitBtn1Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmpdn_osrwos.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmpdn_osrwos:=nil;
+end;
+
+procedure Tfrmpdn_osrwos.FormShow(Sender: TObject);
+begin
+  spinedit1.Value:=yearof(date);
+  spinedit2.Value:=weekoftheyear(date);
+end;
+
+end.

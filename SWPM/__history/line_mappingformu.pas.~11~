@@ -1,0 +1,87 @@
+unit line_mappingformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DBCtrls, StdCtrls, ExtCtrls, GridsEh, DBGridEh, Buttons, DB, DBClient;
+
+type
+  Tfrmline_mapping = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    DataSource1: TDataSource;
+    Query1TPLANT: TWideStringField;
+    Query1PLINE: TWideStringField;
+    Query1M_PLINE: TWideStringField;
+    procedure Query1M_PLINESetText(Sender: TField; const Text: string);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmline_mapping: Tfrmline_mapping;
+
+implementation
+
+uses mainformu, lineinfou;
+
+{$R *.dfm}
+
+procedure Tfrmline_mapping.BitBtn1Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmline_mapping.BitBtn2Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmline_mapping.BitBtn3Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmline_mapping.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmline_mapping:=nil;
+end;
+
+procedure Tfrmline_mapping.Query1AfterPost(DataSet: TDataSet);
+begin
+  //
+end;
+
+procedure Tfrmline_mapping.Query1M_PLINESetText(Sender: TField;
+  const Text: string);
+begin
+  Query1M_PLINE.Value:=uppercase(Text);
+end;
+
+procedure Tfrmline_mapping.Query1NewRecord(DataSet: TDataSet);
+begin
+  //
+end;
+
+end.

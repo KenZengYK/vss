@@ -1,0 +1,433 @@
+object frmmcinfo: Tfrmmcinfo
+  Left = 192
+  Top = 114
+  Width = 762
+  Height = 684
+  Caption = 'Information of Mc (by Brand/Model)'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 40
+    Top = 24
+    Width = 71
+    Height = 13
+    Caption = 'Brand / Model '
+  end
+  object DBText1: TDBText
+    Left = 120
+    Top = 24
+    Width = 233
+    Height = 17
+    DataField = 'MBRAND'
+    DataSource = frmmbrand.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Image1: TImage
+    Left = 32
+    Top = 392
+    Width = 321
+    Height = 193
+    Stretch = True
+  end
+  object GroupBox1: TGroupBox
+    Left = 32
+    Top = 48
+    Width = 689
+    Height = 337
+    Caption = 'Mc Information'
+    TabOrder = 0
+    object Label2: TLabel
+      Left = 16
+      Top = 24
+      Width = 90
+      Height = 13
+      Caption = 'Max Sewing speed'
+    end
+    object Label3: TLabel
+      Left = 352
+      Top = 24
+      Width = 100
+      Height = 13
+      Caption = 'Actual Sewing speed'
+    end
+    object Label4: TLabel
+      Left = 16
+      Top = 56
+      Width = 86
+      Height = 13
+      Caption = 'Max Needle throw'
+    end
+    object Label5: TLabel
+      Left = 352
+      Top = 56
+      Width = 73
+      Height = 13
+      Caption = 'Max Feed pitch'
+    end
+    object Label6: TLabel
+      Left = 16
+      Top = 88
+      Width = 70
+      Height = 13
+      Caption = 'Thread trimmer'
+    end
+    object Label7: TLabel
+      Left = 16
+      Top = 120
+      Width = 63
+      Height = 13
+      Caption = 'Stitch Length'
+    end
+    object Label8: TLabel
+      Left = 352
+      Top = 120
+      Width = 67
+      Height = 13
+      Caption = 'Lubricating Oil'
+    end
+    object Label9: TLabel
+      Left = 16
+      Top = 152
+      Width = 75
+      Height = 13
+      Caption = 'Brand of needle'
+    end
+    object Label10: TLabel
+      Left = 352
+      Top = 152
+      Width = 71
+      Height = 13
+      Caption = 'Type of needle'
+    end
+    object Label11: TLabel
+      Left = 16
+      Top = 184
+      Width = 67
+      Height = 13
+      Caption = 'Needle gauge'
+    end
+    object Label12: TLabel
+      Left = 352
+      Top = 184
+      Width = 47
+      Height = 13
+      Caption = 'Overedge'
+    end
+    object Label13: TLabel
+      Left = 16
+      Top = 216
+      Width = 69
+      Height = 13
+      Caption = 'Presser foot lift'
+    end
+    object Label14: TLabel
+      Left = 352
+      Top = 216
+      Width = 97
+      Height = 13
+      Caption = 'Differential feed ratio'
+    end
+    object Label15: TLabel
+      Left = 464
+      Top = 216
+      Width = 74
+      Height = 13
+      Caption = 'Gathering stitch'
+    end
+    object Label16: TLabel
+      Left = 464
+      Top = 240
+      Width = 76
+      Height = 13
+      Caption = 'Stretching stitch'
+    end
+    object Label17: TLabel
+      Left = 16
+      Top = 280
+      Width = 34
+      Height = 13
+      Caption = 'Thread'
+    end
+    object Label18: TLabel
+      Left = 352
+      Top = 272
+      Width = 59
+      Height = 13
+      Caption = 'Sewing area'
+    end
+    object Label19: TLabel
+      Left = 464
+      Top = 272
+      Width = 41
+      Height = 13
+      Caption = 'X(lateral)'
+    end
+    object Label20: TLabel
+      Left = 464
+      Top = 296
+      Width = 66
+      Height = 13
+      Caption = 'Y(longitudinal)'
+    end
+    object Label21: TLabel
+      Left = 352
+      Top = 88
+      Width = 62
+      Height = 13
+      Caption = 'Stitch system'
+    end
+    object Label22: TLabel
+      Left = 16
+      Top = 248
+      Width = 47
+      Height = 13
+      Caption = 'Needle lift'
+    end
+    object DBEdit1: TDBEdit
+      Left = 112
+      Top = 24
+      Width = 217
+      Height = 21
+      DataField = 'MAXSPEED'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 456
+      Top = 24
+      Width = 217
+      Height = 21
+      DataField = 'ASPEED'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 1
+    end
+    object DBEdit3: TDBEdit
+      Left = 112
+      Top = 56
+      Width = 217
+      Height = 21
+      DataField = 'MAXNEEDLE'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 2
+    end
+    object DBEdit4: TDBEdit
+      Left = 456
+      Top = 56
+      Width = 217
+      Height = 21
+      DataField = 'MAXFEED'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 3
+    end
+    object DBEdit5: TDBEdit
+      Left = 112
+      Top = 88
+      Width = 217
+      Height = 21
+      DataField = 'THRTIMER'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 4
+    end
+    object DBEdit6: TDBEdit
+      Left = 112
+      Top = 120
+      Width = 217
+      Height = 21
+      DataField = 'STITCH'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 6
+    end
+    object DBEdit7: TDBEdit
+      Left = 456
+      Top = 120
+      Width = 217
+      Height = 21
+      DataField = 'LUBOIL'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 7
+    end
+    object DBEdit8: TDBEdit
+      Left = 112
+      Top = 152
+      Width = 217
+      Height = 21
+      DataField = 'BNEEDLE'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 8
+    end
+    object DBEdit9: TDBEdit
+      Left = 456
+      Top = 152
+      Width = 217
+      Height = 21
+      DataField = 'TNEEDLE'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 9
+    end
+    object DBEdit10: TDBEdit
+      Left = 112
+      Top = 184
+      Width = 217
+      Height = 21
+      DataField = 'GNEEDLE'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 10
+    end
+    object DBEdit11: TDBEdit
+      Left = 456
+      Top = 184
+      Width = 217
+      Height = 21
+      DataField = 'OVEREDGE'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 11
+    end
+    object DBEdit12: TDBEdit
+      Left = 112
+      Top = 216
+      Width = 217
+      Height = 21
+      DataField = 'PFLIFT'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 12
+    end
+    object DBEdit13: TDBEdit
+      Left = 544
+      Top = 216
+      Width = 129
+      Height = 21
+      DataField = 'DIFFRATIO'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 13
+    end
+    object DBEdit14: TDBEdit
+      Left = 544
+      Top = 240
+      Width = 129
+      Height = 21
+      DataField = 'DIFFRATIO1'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 14
+    end
+    object DBEdit15: TDBEdit
+      Left = 112
+      Top = 280
+      Width = 217
+      Height = 21
+      DataField = 'THREAD'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 15
+    end
+    object DBEdit16: TDBEdit
+      Left = 544
+      Top = 272
+      Width = 129
+      Height = 21
+      DataField = 'SEWAREA'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 16
+    end
+    object DBEdit17: TDBEdit
+      Left = 544
+      Top = 296
+      Width = 129
+      Height = 21
+      DataField = 'SEWAREA1'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 17
+    end
+    object DBEdit18: TDBEdit
+      Left = 456
+      Top = 88
+      Width = 217
+      Height = 21
+      DataField = 'WFLIFT'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 5
+    end
+    object DBEdit19: TDBEdit
+      Left = 112
+      Top = 248
+      Width = 217
+      Height = 21
+      DataField = 'NLIFT'
+      DataSource = frmmbrand.DataSource1
+      TabOrder = 18
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 600
+    Width = 73
+    Height = 25
+    Caption = 'Save'
+    TabOrder = 1
+    OnClick = BitBtn1Click
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      04000000000080000000CE0E0000C40E00001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+      2222200000000002222203300007030222220330000703000222033000000303
+      0222033333333303000203300000330303020307777703030302030777770303
+      0302030777770003030203077777070303020000000000000302220307777707
+      0302220000000000000222220307777707022222000000000002}
+  end
+  object BitBtn2: TBitBtn
+    Left = 104
+    Top = 600
+    Width = 73
+    Height = 25
+    Caption = 'Image'
+    TabOrder = 2
+    OnClick = BitBtn2Click
+    NumGlyphs = 2
+  end
+  object BitBtn3: TBitBtn
+    Left = 176
+    Top = 600
+    Width = 73
+    Height = 25
+    TabOrder = 3
+    Kind = bkClose
+  end
+  object DBMemo1: TDBMemo
+    Left = 360
+    Top = 392
+    Width = 361
+    Height = 97
+    DataField = 'MEMO1'
+    DataSource = frmmbrand.DataSource1
+    ScrollBars = ssBoth
+    TabOrder = 4
+  end
+  object DBMemo2: TDBMemo
+    Left = 360
+    Top = 496
+    Width = 361
+    Height = 89
+    DataField = 'MEMO2'
+    DataSource = frmmbrand.DataSource1
+    ScrollBars = ssBoth
+    TabOrder = 5
+  end
+  object OpenDialog1: TOpenPictureDialog
+    Left = 72
+    Top = 384
+  end
+end

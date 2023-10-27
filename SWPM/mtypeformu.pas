@@ -1,0 +1,150 @@
+unit mtypeformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGridEh, StdCtrls, Buttons, DB, DBClient, GridsEh;
+
+type
+  Tfrmmtype = class(TForm)
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DataSource1: TDataSource;
+    BitBtn3: TBitBtn;
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmmtype: Tfrmmtype;
+
+implementation
+
+uses mainformu, allmcformu;
+
+{$R *.dfm}
+
+procedure Tfrmmtype.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select seq from tbl_mctype where seq=:x1';
+      params[0].asinteger:=query1.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('seq').isnull then begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftstring,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          commandtext:='update tbl_mctype set mtyp=:x1,mtyp1=:x3,mtyp2=:x4,mtyp3=:x5 where seq=:x2';
+          if not query1.fieldbyname('mtyp').isnull then
+          params[0].asstring:=query1.fieldbyname('mtyp').value
+          else params[0].asstring:='';
+          if not query1.FieldByName('mtyp1').IsNull then
+          params[1].asstring:=query1.fieldbyname('mtyp1').value
+          else params[1].asstring:='';
+          if not query1.fieldbyname('mtyp2').isnull then
+          params[2].asstring:=query1.fieldbyname('mtyp2').value
+          else params[2].asstring:='';
+          if not query1.fieldbyname('mtyp3').isnull then
+          params[3].asstring:=query1.fieldbyname('mtyp3').value
+          else params[3].asstring:='';
+          params[4].asinteger:=query1.fieldbyname('seq').value;
+          execute;
+        end;
+      end else begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftstring,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          commandtext:='insert into tbl_mctype(mtyp,seq,mtyp1,mtyp2,mtyp3) values(:x1,:x2,:x3,:x4,:x5)';
+          if not query1.fieldbyname('mtyp').isnull then
+          params[0].asstring:=query1.fieldbyname('mtyp').value
+          else params[0].asstring:='';
+          params[1].asinteger:=query1.fieldbyname('seq').value;
+          if not query1.FieldByName('mtyp1').IsNull then
+          params[2].asstring:=query1.fieldbyname('mtyp1').value
+          else params[2].asstring:='';
+          if not query1.fieldbyname('mtyp2').isnull then
+          params[3].asstring:=query1.fieldbyname('mtyp2').value
+          else params[3].asstring:='';
+          if not query1.fieldbyname('mtyp3').isnull then
+          params[4].asstring:=query1.fieldbyname('mtyp3').value
+          else params[4].asstring:='';
+          execute;
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmmtype.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmmtype:=nil;
+end;
+
+procedure Tfrmmtype.BitBtn1Click(Sender: TObject);
+begin
+  if (query1.state=dsinsert) or (query1.state=dsedit) then query1.post;
+end;
+
+procedure Tfrmmtype.Query1NewRecord(DataSet: TDataSet);
+var
+  seq:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq) as q1 from tbl_mctype';
+    open;
+    if not fieldbyname('q1').isnull then seq:=fieldbyname('q1').value+1
+    else seq:=1;
+  end;
+  query1.fieldbyname('seq').value:=seq;
+end;
+
+procedure Tfrmmtype.BitBtn2Click(Sender: TObject);
+begin
+  if (query1.state=dsedit) or (query1.state=dsinsert) then query1.post;
+  with frmallmc.Query1 do begin
+    edit;
+    if not query1.fieldbyname('mtyp').isnull then
+    fieldbyname('mtyp').value:=query1.fieldbyname('mtyp').value
+    else fieldbyname('mtyp').value:='';
+    fieldbyname('mtyp1').value:=query1.fieldbyname('mtyp1').value;
+    if not query1.fieldbyname('mtyp2').isnull then
+    fieldbyname('mtyp2').value:=query1.fieldbyname('mtyp2').value
+    else fieldbyname('mtyp2').value:='';
+    if not query1.fieldbyname('mtyp3').isnull then
+    fieldbyname('mtyp3').value:=query1.fieldbyname('mtyp3').value
+    else fieldbyname('mtyp3').value:='';
+    post;
+  end;
+  frmmtype.Close;
+end;
+
+end.

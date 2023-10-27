@@ -1,0 +1,259 @@
+unit printfjticketformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DBCtrls, cxControls, cxContainer, cxEdit, cxTextEdit,
+  cxMaskEdit, cxSpinEdit, Buttons, ADODB, DB, DBClient, ppProd, ppClass,
+  ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppBands, ppCache, ppCtrls,
+  ppPrnabl, ppStrtch, ppSubRpt, ppViewr, Txcomp;
+
+type
+  Tfrmprintfjticket = class(TForm)
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    Label4: TLabel;
+    DBText4: TDBText;
+    Label5: TLabel;
+    DBText5: TDBText;
+    Label6: TLabel;
+    DBText6: TDBText;
+    Label7: TLabel;
+    DBText7: TDBText;
+    Label8: TLabel;
+    sEdit1: TcxSpinEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    ADOQuery1: TADOQuery;
+    DataSource1: TDataSource;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppLabel1: TppLabel;
+    ppDBText1: TppDBText;
+    DataSource2: TDataSource;
+    ppDBPipeline2: TppDBPipeline;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand2: TppDetailBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppDBText3: TppDBText;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel8: TppLabel;
+    ppDBText2: TppDBText;
+    ppLabel9: TppLabel;
+    ppDBText4: TppDBText;
+    ppLabel10: TppLabel;
+    ppDBText5: TppDBText;
+    ppLabel11: TppLabel;
+    ppDBText6: TppDBText;
+    ppLabel12: TppLabel;
+    ppDBText7: TppDBText;
+    ppLabel13: TppLabel;
+    ppDBText8: TppDBText;
+    ppLabel14: TppLabel;
+    ppDBText9: TppDBText;
+    ppLabel15: TppLabel;
+    ppDBText10: TppDBText;
+    ppLabel16: TppLabel;
+    ppDBText11: TppDBText;
+    ppShape1: TppShape;
+    ppShape2: TppShape;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppShape3: TppShape;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppDBText12: TppDBText;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLine19: TppLine;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLine20: TppLine;
+    ppLine21: TppLine;
+    ppLine22: TppLine;
+    ppShape4: TppShape;
+    ppLabel22: TppLabel;
+    ppDBText15: TppDBText;
+    ppLabel23: TppLabel;
+    ppDBText16: TppDBText;
+    ppLabel24: TppLabel;
+    ppDBText17: TppDBText;
+    ppLabel25: TppLabel;
+    ppDBText18: TppDBText;
+    ppLabel26: TppLabel;
+    ppDBText19: TppDBText;
+    ppLabel27: TppLabel;
+    ppDBText20: TppDBText;
+    ppLabel28: TppLabel;
+    ppDBText21: TppDBText;
+    ppLabel29: TppLabel;
+    ppDBText22: TppDBText;
+    ppLabel30: TppLabel;
+    ppDBText23: TppDBText;
+    ppLabel31: TppLabel;
+    ppDBText24: TppDBText;
+    ppLine23: TppLine;
+    ppLine24: TppLine;
+    ppLine25: TppLine;
+    ppLine26: TppLine;
+    ppLine27: TppLine;
+    ppLine28: TppLine;
+    ppLabel33: TppLabel;
+    ppLine29: TppLine;
+    ppLine30: TppLine;
+    ppLine31: TppLine;
+    ppLabel34: TppLabel;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppColumnHeaderBand1: TppColumnHeaderBand;
+    ppColumnFooterBand1: TppColumnFooterBand;
+    ppLine2: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppShape5: TppShape;
+    ppShape6: TppShape;
+    ppLine1: TppLine;
+    ppLabel7: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLine9: TppLine;
+    ppShape7: TppShape;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppLabel19: TppLabel;
+    ppLabel32: TppLabel;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLabel35: TppLabel;
+    ppLabel36: TppLabel;
+    ppDBText25: TppDBText;
+    ppDBText26: TppDBText;
+    ppShape8: TppShape;
+    ppLine34: TppLine;
+    ppLine35: TppLine;
+    ppLine37: TppLine;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLine36: TppLine;
+    ppLabel37: TppLabel;
+    ppDBText27: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    ppSubReport2: TppSubReport;
+    ppChildReport2: TppChildReport;
+    ppTitleBand2: TppTitleBand;
+    ppDetailBand3: TppDetailBand;
+    ppSummaryBand2: TppSummaryBand;
+    ppShape11: TppShape;
+    ppShape12: TppShape;
+    ppLine46: TppLine;
+    ppLine47: TppLine;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText32: TppDBText;
+    ppDBText33: TppDBText;
+    ppLine48: TppLine;
+    ppLine49: TppLine;
+    ppLine50: TppLine;
+    ppLine51: TppLine;
+    ppDBText34: TppDBText;
+    ppDBText35: TppDBText;
+    ppDBText36: TppDBText;
+    tkt001: TppLabel;
+    tkt002: TppLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand3BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmprintfjticket: Tfrmprintfjticket;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure Tfrmprintfjticket.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmprintfjticket:=nil;
+end;
+
+procedure Tfrmprintfjticket.BitBtn1Click(Sender: TObject);
+begin
+  if sEdit1.value>0 then begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      commandtext:='select * from sp_printfjticket(:x1,:x2,:x3) order by bundle';
+      params[0].AsString:=worksheet1.tblshedule.fieldbyname('pline').value;
+      params[1].asinteger:=worksheet1.tblshedule.fieldbyname('seq').value;
+      params[2].asinteger:=sEdit1.Value;
+      open;
+      if not fieldbyname('cstyle').isnull then begin
+        with adoquery1 do begin
+          close;
+          sql.text:='exec phgdb.dbo.sp_getfjieboo :x1';
+          parameters[0].value:=query1.fieldbyname('cstyle').value;
+          //sql.Text:='select b.gxh,b.gxm from phgdb.dbo.ie_zygx a,phgdb.dbo.ie_zygx1 b '
+          //         +'where a.seq=b.seq and ((a.zd='''+query1.fieldbyname('cstyle').value+''') or (a.zd1='''+query1.fieldbyname('cstyle').value+''') '
+          //         +'or (a.kh='''+query1.fieldbyname('cstyle').value+''')) order by b.gxh';
+          open;
+        end;
+        ppReport1.Print;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmprintfjticket.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmprintfjticket.ppDetailBand3BeforePrint(Sender: TObject);
+begin
+  tkt001.Caption:='('+query1.fieldbyname('bundle').asstring+')';
+  tkt002.Caption:='('+query1.fieldbyname('bundle').asstring+')';
+end;
+
+end.

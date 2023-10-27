@@ -1,0 +1,314 @@
+unit sewnformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ppBands, ppCtrls, ppVar, ppPrnabl, ppClass, ppCache, ppProd,
+  ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, DB, DBClient, Grids,
+  DBGridEh, StdCtrls, Buttons, ToolEdit, Mask, DBCtrlsEh, DBCtrls, ExtCtrls,
+  ComCtrls, GridsEh;
+
+type
+  Tfrmsewn = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    DBText4: TDBText;
+    DBText5: TDBText;
+    DBText6: TDBText;
+    Label7: TLabel;
+    DBText7: TDBText;
+    lblcs: TLabel;
+    Label9: TLabel;
+    DateEdit1: TDateEdit;
+    Panel2: TPanel;
+    Label8: TLabel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    DBGridEh1: TDBGridEh;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    DataSource1: TDataSource;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppLabel1: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    fty001: TppLabel;
+    ppLabel7: TppLabel;
+    line001: TppLabel;
+    jno001: TppLabel;
+    ppLabel2: TppLabel;
+    job001: TppLabel;
+    rwo001: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel11: TppLabel;
+    cstyle001: TppLabel;
+    ppLabel12: TppLabel;
+    acol001: TppLabel;
+    ppLabel13: TppLabel;
+    scqty001: TppLabel;
+    ppLabel14: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel15: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    fccs001: TppLabel;
+    ppLabel22: TppLabel;
+    ppColumnHeaderBand1: TppColumnHeaderBand;
+    ppShape1: TppShape;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel10: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppDetailBand1: TppDetailBand;
+    ppShape2: TppShape;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppColumnFooterBand1: TppColumnFooterBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel16: TppLabel;
+    fdt001: TppLabel;
+    ppLabel17: TppLabel;
+    cfksrq001: TppLabel;
+    ppLabel18: TppLabel;
+    tzlcrq001: TppLabel;
+    ppLabel20: TppLabel;
+    yqlcrq001: TppLabel;
+    ppLabel19: TppLabel;
+    xc3001: TppLabel;
+    DateTimePicker1: TDateTimePicker;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+    function trans_num_ch(const s1:string):string;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsewn: Tfrmsewn;
+
+implementation
+
+uses mainformu, worksheet, lwoformu, zktdformu, achievingformu;
+
+{$R *.dfm}
+
+procedure Tfrmsewn.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmsewn:=nil;
+end;
+
+procedure Tfrmsewn.FormShow(Sender: TObject);
+begin
+    if frmlwo.label8.caption='GAI' then begin
+      dbtext1.DataSource:=frmachieving.DataSource1;
+      dbtext2.DataSource:=frmachieving.DataSource1;
+      dbtext3.DataSource:=frmachieving.DataSource1;
+      dbtext4.DataSource:=frmachieving.DataSource1;
+      dbtext5.DataSource:=frmachieving.DataSource1;
+      dbtext6.DataSource:=frmachieving.DataSource1;
+      dbtext7.DataSource:=frmachieving.DataSource1;
+    end else begin
+      dbtext1.DataSource:=worksheet1.DataSource1;
+      dbtext2.DataSource:=worksheet1.DataSource1;
+      dbtext3.DataSource:=worksheet1.DataSource1;
+      dbtext4.DataSource:=worksheet1.DataSource1;
+      dbtext5.DataSource:=worksheet1.DataSource1;
+      dbtext6.DataSource:=worksheet1.DataSource1;
+      dbtext7.DataSource:=worksheet1.DataSource1;
+    end;
+end;
+
+procedure Tfrmsewn.BitBtn1Click(Sender: TObject);
+var
+  dt:tdate;
+begin
+  bitbtn2.Enabled:=true;
+  if label8.Caption>'601' then
+  label8.Caption:=inttostr(strtoint(label8.Caption)-1)
+  else label8.Caption:='601';
+  lblcs.Caption:=trans_num_ch(label8.caption);
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdatetime,'x3',ptinput);
+    commandtext:='select dt from tbl_lwo_sewdt where pline=:x1 and seq=:x2 and tm=:x3 and dseq='+label8.Caption;
+    params[0].asstring:=frmlwo.query1.fieldbyname('pline').value;
+    params[1].asinteger:=frmlwo.query1.fieldbyname('seq').value;
+    params[2].asdatetime:=datetimepicker1.DateTime;
+    open;
+    if not fieldbyname('dt').isnull then dt:=fieldbyname('dt').value;
+  end;
+  dateedit1.Date:=dt;
+  dbgrideh1.Columns[6].Field:=query1.fieldbyname('aq'+inttostr(strtoint(label8.caption)-600)+'');
+  dbgrideh1.Columns[7].Field:=query1.fieldbyname('cq'+inttostr(strtoint(label8.caption)-600)+'');
+{
+  bitbtn2.Enabled:=true;
+  if lblcs.Caption='The tweentyth time' then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='select max(ted2) as dt from tbl_lwo where pline=:x1 and seq=:x2';
+      params[0].asstring:=frmlwo.query1.fieldbyname('pline').value;
+      params[1].asinteger:=frmlwo.query1.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('dt').isnull then dt:=fieldbyname('dt').value;
+    end;
+    dateedit1.Date:=dt;
+    dbgrideh1.Columns[2].Field:=frmlwo.query1.fieldbyname('eq2');
+    lblcs.Caption:='The second time';
+  end else if lblcs.Caption='The second time' then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='select max(ted1) as dt from tbl_lwo where pline=:x1 and seq=:x2';
+      params[0].asstring:=frmlwo.query1.fieldbyname('pline').value;
+      params[1].asinteger:=frmlwo.query1.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('dt').isnull then dt:=fieldbyname('dt').value;
+    end;
+    dateedit1.Date:=dt;
+    dbgrideh1.Columns[2].Field:=frmlwo.query1.fieldbyname('eq1');
+    lblcs.Caption:='The first time';
+    bitbtn1.Enabled:=false;
+  end;
+}
+end;
+
+procedure Tfrmsewn.BitBtn2Click(Sender: TObject);
+var
+  dt:tdate;
+  i1:integer;
+begin
+  bitbtn1.Enabled:=true;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdatetime,'x3',ptinput);
+    commandtext:='select max(dseq) as i1 from tbl_lwo_sewdt where pline=:x1 and seq=:x2 and tm=:x3';
+    params[0].asstring:=frmlwo.query1.fieldbyname('pline').value;
+    params[1].asinteger:=frmlwo.query1.fieldbyname('seq').value;
+    params[2].asdatetime:=datetimepicker1.DateTime;
+    open;
+    if not fieldbyname('i1').isnull then i1:=fieldbyname('i1').value else i1:=0;
+  end;
+  if label8.Caption<inttostr(i1) then
+  label8.Caption:=inttostr(strtoint(label8.Caption)+1)
+  else label8.Caption:=inttostr(i1);
+  lblcs.Caption:=trans_num_ch(label8.caption);
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdatetime,'x3',ptinput);
+    commandtext:='select dt from tbl_lwo_sewdt where pline=:x1 and seq=:x2 and tm=:x3 and dseq='+label8.Caption;
+    params[0].asstring:=frmlwo.query1.fieldbyname('pline').value;
+    params[1].asinteger:=frmlwo.query1.fieldbyname('seq').value;
+    params[2].asdatetime:=datetimepicker1.DateTime;
+    open;
+    if not fieldbyname('dt').isnull then dt:=fieldbyname('dt').value;
+  end;
+  dateedit1.Date:=dt;
+  dbgrideh1.Columns[6].Field:=query1.fieldbyname('aq'+inttostr(strtoint(label8.caption)-600)+'');
+  dbgrideh1.Columns[7].Field:=query1.fieldbyname('cq'+inttostr(strtoint(label8.caption)-600)+'');
+{
+  if lblcs.Caption='The first time' then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='select dt1 as dt from line_shjs where pline=:x1 and seq=:x2 and dseq=2';
+      params[0].asstring:=frmlwo.query1.fieldbyname('pline').value;
+      params[1].asinteger:=frmlwo.query1.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('dt').isnull then dt:=fieldbyname('dt').value;
+    end;
+    dateedit1.Date:=dt;
+    dbgrideh1.Columns[6].Field:=frmlwo.query1.fieldbyname('aq2');
+    dbgrideh1.Columns[7].Field:=frmlwo.query1.fieldbyname('cq2');
+    lblcs.Caption:='The second time';
+  end else if lblcs.Caption='The second time' then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='select dt1 as dt from line_shjs where pline=:x1 and seq=:x2 and dseq=3';
+      params[0].asstring:=frmlwo.query1.fieldbyname('pline').value;
+      params[1].asinteger:=frmlwo.query1.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('dt').isnull then dt:=fieldbyname('dt').value;
+    end;
+    dateedit1.Date:=dt;
+    dbgrideh1.Columns[6].Field:=frmlwo.query1.fieldbyname('aq3');
+    dbgrideh1.Columns[7].Field:=frmlwo.query1.fieldbyname('cq3');
+    lblcs.Caption:='The third time';
+    bitbtn2.Enabled:=false;
+  end;
+}
+end;
+
+function Tfrmsewn.trans_num_ch(const s1: string): string;
+var
+  n1:integer;
+begin
+  n1:=strtoint(s1)-600;
+  if n1=1 then result:='The first time'
+  else if n1=2 then result:='The second time'
+  else if n1=3 then result:='The third time'
+  else if n1=4 then result:='The forth time'
+  else if n1=5 then result:='The fifth time'
+  else if n1=6 then result:='The sixth time'
+  else if n1=7 then result:='The seventh time'
+  else if n1=8 then result:='The eighth time'
+  else if n1=9 then result:='The ninth time'
+  else if n1=10 then result:='The tenth time'
+  else if n1=11 then result:='The eleventh time'
+  else if n1=12 then result:='The twelveth time'
+  else if n1=13 then result:='The thirteenth time'
+  else if n1=14 then result:='The forteenth time'
+  else if n1=15 then result:='The fifteenth time'
+  else if n1=16 then result:='The sixteenth time'
+  else if n1=17 then result:='The seventeenth time'
+  else if n1=18 then result:='The eighteenth time'
+  else if n1=19 then result:='The ninteenth time'
+  else result:='The tweentyth time';
+end;
+
+end.
+ 

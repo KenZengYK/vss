@@ -1,0 +1,28 @@
+unit timeeff_notepadformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DBCtrls;
+
+type
+  Tfrmtimeeff_notepad = class(TForm)
+    Label1: TLabel;
+    DBMemo1: TDBMemo;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmtimeeff_notepad: Tfrmtimeeff_notepad;
+
+implementation
+
+{$R *.dfm}
+
+end.

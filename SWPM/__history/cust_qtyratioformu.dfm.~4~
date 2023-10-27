@@ -1,0 +1,245 @@
+object frmcust_qtyratio: Tfrmcust_qtyratio
+  Left = 0
+  Top = 0
+  Caption = 'Customer booking ratio per week (by month)'
+  ClientHeight = 434
+  ClientWidth = 665
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 8
+    Width = 53
+    Height = 13
+    Caption = 'Customer: '
+  end
+  object DBText1: TDBText
+    Left = 88
+    Top = 8
+    Width = 113
+    Height = 17
+    DataField = 'PGRP'
+    DataSource = frmcustomer.DataSource2
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 24
+    Top = 31
+    Width = 617
+    Height = 338
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'Tahoma'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'YR'
+        Footers = <>
+        PickList.Strings = (
+          '2014'
+          '2015'
+          '2016'
+          '2017'
+          '2018'
+          '2019'
+          '2020')
+        Title.Caption = 'Year'
+        Width = 59
+      end
+      item
+        EditButtons = <>
+        FieldName = 'M1'
+        Footers = <>
+        PickList.Strings = (
+          '1'
+          '2'
+          '3'
+          '4'
+          '5'
+          '6'
+          '7'
+          '8'
+          '9'
+          '10'
+          '11'
+          '12')
+        Title.Caption = 'Month'
+        Width = 53
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'W1'
+        Footers = <>
+        Title.Caption = 'Ratio %|Week 1'
+        Width = 75
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'W2'
+        Footers = <>
+        Title.Caption = 'Ratio %|Week 2'
+        Width = 75
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'W3'
+        Footers = <>
+        Title.Caption = 'Ratio %|Week 3'
+        Width = 75
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'W4'
+        Footers = <>
+        Title.Caption = 'Ratio %|Week 4'
+        Width = 75
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'W5'
+        Footers = <>
+        Title.Caption = 'Ratio %|Week 5'
+        Width = 75
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'W6'
+        Footers = <>
+        Title.Caption = 'Ratio %|Week 6'
+        Width = 75
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 24
+    Top = 384
+    Width = 73
+    Height = 25
+    Caption = 'BitBtn1'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 1
+  end
+  object BitBtn2: TBitBtn
+    Left = 96
+    Top = 384
+    Width = 73
+    Height = 25
+    Caption = 'BitBtn2'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 2
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from cust_exfty_qtyratio'
+    FieldDefs = <
+      item
+        Name = 'TPLANT'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'CUST'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'YR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'M1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'W1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'W2'
+        DataType = ftFloat
+      end
+      item
+        Name = 'W3'
+        DataType = ftFloat
+      end
+      item
+        Name = 'W4'
+        DataType = ftFloat
+      end
+      item
+        Name = 'W5'
+        DataType = ftFloat
+      end
+      item
+        Name = 'W6'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'IDX1'
+        Fields = 'tplant;cust'
+      end>
+    IndexName = 'IDX1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 248
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 280
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from cust_sku02'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 312
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 344
+  end
+end

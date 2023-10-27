@@ -1,0 +1,53 @@
+unit Onhand_dWFformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, GridsEh, DBGridEh, DB, DBClient;
+
+type
+  Tfrmonhand_dwf = class(TForm)
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmonhand_dwf: Tfrmonhand_dwf;
+
+implementation
+
+uses mainformu, newcapformu, newcap_1stchoiceformu;
+
+{$R *.dfm}
+
+procedure Tfrmonhand_dwf.BitBtn1Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+    if query1.state=dsedit then query1.post;
+    //if application.MessageBox('Update all balancing?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      //with query2 do begin
+        //close;
+        //params.clear;
+        //params.createparam(ftinteger,'x1',ptinput);
+        //commandtext:='execute procedure sp_cap_updonhandwf(:x1)';
+        //params[0].asinteger:=frmnewcap_1stchoice.spinedit2.value;
+        //execute;
+      //end;
+    //end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+end.

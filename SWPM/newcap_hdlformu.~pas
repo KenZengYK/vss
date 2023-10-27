@@ -1,0 +1,108 @@
+unit newcap_hdlformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons;
+
+type
+  Tfrmnewcap_HDL = class(TForm)
+    BitBtn20: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    procedure BitBtn20Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_HDL: Tfrmnewcap_HDL;
+
+implementation
+
+uses newcap_wfformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_HDL.BitBtn20Click(Sender: TObject);
+begin
+  if frmnewcap_wf=nil then frmnewcap_wf:=tfrmnewcap_wf.create(nil);
+  frmnewcap_wf.Caption:=bitbtn20.Caption;
+  frmnewcap_wf.label4.Caption:='LINE';
+  with frmnewcap_wf.dbgrideh1 do begin
+    columns[2].visible:=true;
+    columns[8].Visible:=true;
+    columns[14].visible:=true;
+    columns[15].Visible:=true;
+    columns[3].ReadOnly:=true;
+    columns[2].Title.Caption:='On-line WF (Captured from LWPM)|LB3';
+    columns[3].Title.Caption:='On-line WF (Captured from LWPM)|LB6';
+    columns[8].Title.Caption:='% Diff|LB6 vs LB3';
+    columns[9].Title.Caption:='% Diff|On-duty vs LB6';
+  end;
+  frmnewcap_wf.BitBtn2.enabled:=true;
+  frmnewcap_wf.show;
+end;
+
+procedure Tfrmnewcap_HDL.BitBtn3Click(Sender: TObject);
+begin
+  if frmnewcap_wf=nil then frmnewcap_wf:=tfrmnewcap_wf.create(nil);
+  frmnewcap_wf.Caption:=bitbtn3.Caption;
+  frmnewcap_wf.label4.Caption:='CORE-TECH';
+  with frmnewcap_wf.dbgrideh1 do begin
+    columns[2].visible:=false;
+    columns[8].Visible:=false;
+    columns[14].visible:=false;
+    columns[15].Visible:=false;
+    columns[3].ReadOnly:=false;
+    columns[2].Title.Caption:='On-line WF1|LB3';
+    columns[3].Title.Caption:='On-line WF';
+    //columns[8].Title.Caption:='% Diff|LB6 vs LB3';
+    columns[9].Title.Caption:='% Diff|On-duty vs On-line';
+  end;
+  frmnewcap_wf.BitBtn2.enabled:=false;
+  frmnewcap_wf.show;
+end;
+
+procedure Tfrmnewcap_HDL.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_hdl:=nil;
+end;
+
+procedure Tfrmnewcap_HDL.BitBtn6Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmnewcap_HDL.BitBtn4Click(Sender: TObject);
+begin
+  if frmnewcap_wf=nil then frmnewcap_wf:=tfrmnewcap_wf.create(nil);
+  frmnewcap_wf.Caption:=bitbtn3.Caption;
+  frmnewcap_wf.label4.Caption:='SPE';
+  with frmnewcap_wf.dbgrideh1 do begin
+    columns[2].visible:=false;
+    columns[8].Visible:=false;
+    columns[14].visible:=false;
+    columns[15].Visible:=false;
+    columns[3].ReadOnly:=false;
+    columns[2].Title.Caption:='On-line WF1|LB3';
+    columns[3].Title.Caption:='On-line WF';
+    //columns[8].Title.Caption:='% Diff|LB6 vs LB3';
+    columns[9].Title.Caption:='% Diff|On-duty vs On-line';
+  end;
+  frmnewcap_wf.BitBtn2.enabled:=false;
+  frmnewcap_wf.show;
+end;
+
+end.

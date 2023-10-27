@@ -1,0 +1,210 @@
+unit currstartformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGridEh, ExtCtrls, DBCtrls, StdCtrls, Buttons, DB,
+  DBClient, GridsEh, cxControls, cxContainer, cxEdit, cxTextEdit,
+  cxCurrencyEdit, CurrEdit, Mask, ToolEdit, RxRichEd;
+
+type
+  Tfrmcurrstart = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    Label4: TLabel;
+    DBText4: TDBText;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DataSource1: TDataSource;
+    Label5: TLabel;
+    DBText5: TDBText;
+    BitBtn3: TBitBtn;
+    Label6: TLabel;
+    DBText6: TDBText;
+    Label7: TLabel;
+    Label8: TLabel;
+    DateEdit1: TDateEdit;
+    CEdit1: TCurrencyEdit;
+    Label9: TLabel;
+    Memo1: TMemo;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcurrstart: Tfrmcurrstart;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure Tfrmcurrstart.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmcurrstart:=nil;
+end;
+
+procedure Tfrmcurrstart.Query1NewRecord(DataSet: TDataSet);
+var
+  seq:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq) as seq1 from tbl_rwofdt';
+    open;
+    if not fieldbyname('seq1').isnull then seq:=fieldbyname('seq1').value+1
+    else seq:=1;
+  end;
+  query1.fieldbyname('seq').value:=seq;
+  query1.fieldbyname('j_no').value:=worksheet1.tblshedule.fieldbyname('j_no').value;
+  query1.fieldbyname('j2_job').value:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+  query1.fieldbyname('rwo').value:=worksheet1.tblshedule.fieldbyname('rwo').value;
+  query1.fieldbyname('acol').value:=worksheet1.tblshedule.fieldbyname('acol').value;
+  if not worksheet1.tblshedule.fieldbyname('plan_date').isnull then
+  query1.fieldbyname('fdt').value:=worksheet1.tblshedule.fieldbyname('plan_date').value;
+  query1.fieldbyname('cplan').value:=date;
+  query1.fieldbyname('updt').value:=date;
+end;
+
+procedure Tfrmcurrstart.Query1AfterPost(DataSet: TDataSet);
+var
+  dt:tdate;
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'seq',ptinput);
+      commandtext:='select seq from tbl_rwofdt where seq=:seq';
+      params[0].asinteger:=query1.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('seq').isnull then begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftinteger,'seq',ptinput);
+          commandtext:='update tbl_rwofdt set cplan=:x1,rson=:x2 where seq=:seq';
+          if not query1.fieldbyname('cplan').isnull then
+          params[0].asdate:=query1.fieldbyname('cplan').value
+          else params[0].asdate:=date;
+          if not query1.fieldbyname('rson').isnull then
+          params[1].asstring:=query1.fieldbyname('rson').value
+          else params[1].asstring:='';
+          params[2].asinteger:=query1.fieldbyname('seq').value;
+          execute;
+        end;
+      end else begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftinteger,'seq',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftstring,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftdate,'x6',ptinput);
+          params.createparam(ftdate,'x7',ptinput);
+          params.createparam(ftstring,'x8',ptinput);
+          commandtext:='insert into tbl_rwofdt(cplan,rson,seq,j_no,j2_job,rwo,updt,fdt,acol) values(:x1,:x2,:seq,:x3,:x4,:x5,:x6,:x7,:x8)';
+          if not query1.fieldbyname('cplan').isnull then
+          params[0].asdate:=query1.fieldbyname('cplan').value
+          else params[0].asdate:=date;
+          if not query1.fieldbyname('rson').isnull then
+          params[1].asstring:=query1.fieldbyname('rson').value
+          else params[1].asstring:='';
+          params[2].asinteger:=query1.fieldbyname('seq').value;
+          params[3].asstring:=query1.fieldbyname('j_no').value;
+          params[4].asstring:=query1.fieldbyname('j2_job').value;
+          params[5].asstring:=query1.fieldbyname('rwo').value;
+          params[6].asdate:=query1.fieldbyname('updt').value;
+          params[7].asdate:=query1.fieldbyname('fdt').value;
+          params[8].asstring:=query1.fieldbyname('acol').value;
+          execute;
+        end;
+      end;
+    end;
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    //commandtext:='select * from sp_rtvcplan (:x1,:x2,:x3)';
+    commandtext:='select * from sp_rtvcplan_1(:x1,:x2,:x3,:x4)';
+    params[0].asstring:=query1.fieldbyname('j_no').value;
+    params[1].asstring:=query1.fieldbyname('j2_job').value;
+    params[2].asstring:=query1.fieldbyname('rwo').value;
+    params[3].asstring:=query1.fieldbyname('acol').value;
+    open;
+    if not fieldbyname('o_cplan').isnull then dt:=fieldbyname('o_cplan').value
+    else dt:=query1.fieldbyname('cplan').value;
+  end;
+  with worksheet1.tblshedule do begin
+    edit;
+    fieldbyname('cplan').value:=dt;
+    fieldbyname('xc4').value:=trunc(fieldbyname('plan_date').value)-trunc(dt);
+    post;
+  end;
+end;
+
+procedure Tfrmcurrstart.BitBtn1Click(Sender: TObject);
+begin
+  dbgrideh1.SetFocus;
+  dbgrideh1.SelectedIndex:=1;
+  query1.append;
+end;
+
+procedure Tfrmcurrstart.BitBtn2Click(Sender: TObject);
+begin
+  if (query1.state=dsinsert) or (query1.state=dsedit) then query1.post;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftfloat,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    params.createparam(ftstring,'x6',ptinput);
+    params.createparam(ftstring,'x7',ptinput);
+    commandtext:='update tbl_rwofdt set sby=:x1,cfmdt=:x2,knote=:x3 where j_no=:x4 and j2_job=:x5 and acol=:x6 and rwo=:x7';
+    params[0].asfloat:=cedit1.Value;
+    if dateedit1.Date>0 then
+    params[1].asdate:=dateedit1.date;
+    params[2].asstring:=memo1.Text;
+    params[3].AsString:=query1.fieldbyname('j_no').value;
+    params[4].AsString:=query1.fieldbyname('j2_job').value;
+    params[5].AsString:=query1.fieldbyname('acol').value;
+    params[6].AsString:=query1.fieldbyname('rwo').value;
+    execute;
+  end;
+end;
+
+end.

@@ -1,0 +1,308 @@
+object frmloan: Tfrmloan
+  Left = 192
+  Top = 114
+  Width = 809
+  Height = 537
+  Caption = 'Lend / Borrow SWF'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Splitter1: TSplitter
+    Left = 353
+    Top = 0
+    Width = 1
+    Height = 462
+    Cursor = crHSplit
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 353
+    Height = 462
+    Align = alLeft
+    BevelOuter = bvNone
+    TabOrder = 0
+    object Panel6: TPanel
+      Left = 0
+      Top = 0
+      Width = 353
+      Height = 41
+      Align = alTop
+      BevelOuter = bvNone
+      TabOrder = 0
+      object Label1: TLabel
+        Left = 24
+        Top = 8
+        Width = 82
+        Height = 13
+        Caption = 'Borrow from Line '
+      end
+      object ComboBox1: TComboBox
+        Left = 120
+        Top = 8
+        Width = 105
+        Height = 21
+        CharCase = ecUpperCase
+        ItemHeight = 13
+        TabOrder = 0
+        OnChange = ComboBox1Change
+      end
+    end
+    object DBGridEh1: TDBGridEh
+      Left = 0
+      Top = 41
+      Width = 353
+      Height = 421
+      Align = alClient
+      AllowedOperations = []
+      DataSource = DataSource1
+      Flat = False
+      FooterColor = clWindow
+      FooterFont.Charset = DEFAULT_CHARSET
+      FooterFont.Color = clWindowText
+      FooterFont.Height = -11
+      FooterFont.Name = 'MS Sans Serif'
+      FooterFont.Style = []
+      ReadOnly = True
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      UseMultiTitle = True
+      Columns = <
+        item
+          EditButtons = <>
+          FieldName = 'SWFID'
+          Footers = <>
+          Title.Caption = 'Stationed WF ID'
+          Width = 98
+        end
+        item
+          EditButtons = <>
+          FieldName = 'SWFNA'
+          Footers = <>
+          Title.Caption = 'Stationed WF Name'
+          Width = 127
+        end>
+    end
+  end
+  object Panel3: TPanel
+    Left = 395
+    Top = 0
+    Width = 406
+    Height = 462
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 1
+    object Panel7: TPanel
+      Left = 0
+      Top = 0
+      Width = 406
+      Height = 41
+      Align = alTop
+      BevelOuter = bvNone
+      TabOrder = 0
+      object Label2: TLabel
+        Left = 24
+        Top = 8
+        Width = 62
+        Height = 13
+        Caption = 'Lend to Line '
+      end
+      object ComboBox2: TComboBox
+        Left = 96
+        Top = 8
+        Width = 105
+        Height = 21
+        CharCase = ecUpperCase
+        ItemHeight = 13
+        TabOrder = 0
+        OnChange = ComboBox2Change
+      end
+    end
+    object DBGridEh2: TDBGridEh
+      Left = 0
+      Top = 41
+      Width = 406
+      Height = 421
+      Align = alClient
+      AllowedOperations = []
+      DataSource = DataSource2
+      Flat = False
+      FooterColor = clWindow
+      FooterFont.Charset = DEFAULT_CHARSET
+      FooterFont.Color = clWindowText
+      FooterFont.Height = -11
+      FooterFont.Name = 'MS Sans Serif'
+      FooterFont.Style = []
+      ReadOnly = True
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      UseMultiTitle = True
+      Columns = <
+        item
+          EditButtons = <>
+          FieldName = 'SWFID'
+          Footers = <>
+          Title.Caption = 'Stationed WF ID'
+          Width = 87
+        end
+        item
+          EditButtons = <>
+          FieldName = 'OPLINE'
+          Footers = <>
+          Title.Caption = 'Borrow from'
+          Width = 72
+        end
+        item
+          EditButtons = <>
+          FieldName = 'CPLINE'
+          Footers = <>
+          Title.Caption = 'Lend to'
+          Width = 73
+        end
+        item
+          EditButtons = <>
+          FieldName = 'DATE1'
+          Footers = <>
+          Title.Caption = 'Lend Date'
+          Width = 73
+        end
+        item
+          EditButtons = <>
+          FieldName = 'RET'
+          Footers = <>
+          Title.Caption = 'Returned'
+          Width = 52
+        end>
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Top = 462
+    Width = 801
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Preview'
+      TabOrder = 0
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn2: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      TabOrder = 1
+      Kind = bkClose
+    end
+  end
+  object Panel5: TPanel
+    Left = 354
+    Top = 0
+    Width = 41
+    Height = 462
+    Align = alLeft
+    TabOrder = 3
+    object SpeedButton1: TSpeedButton
+      Left = 8
+      Top = 152
+      Width = 25
+      Height = 25
+      Hint = 'Lend to'
+      Caption = '>>'
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = SpeedButton1Click
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 8
+      Top = 240
+      Width = 25
+      Height = 25
+      Hint = 'Return'
+      Caption = '<<'
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = SpeedButton2Click
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tblswfid'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 64
+    Top = 120
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 96
+    Top = 120
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 128
+    Top = 120
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 160
+    Top = 120
+  end
+  object Query4: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tblswfid_loan'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 472
+    Top = 120
+  end
+  object DataSource2: TDataSource
+    DataSet = Query4
+    Left = 504
+    Top = 120
+  end
+end

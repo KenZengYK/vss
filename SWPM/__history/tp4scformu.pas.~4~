@@ -1,0 +1,46 @@
+unit tp4scformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, rxToolEdit, QExport4, QExport4XLS, DB,
+  DBClient;
+
+type
+  Tfrmtp4sc = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    DateEdit1: TDateEdit;
+    DateEdit2: TDateEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    ClientDataSet5: TClientDataSet;
+    SaveDialog1: TSaveDialog;
+    xls1: TQExport4XLS;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmtp4sc: Tfrmtp4sc;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure Tfrmtp4sc.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmtp4sc:=nil;
+end;
+
+end.

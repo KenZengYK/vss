@@ -1,0 +1,162 @@
+unit shpadvice2formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, GridsEh, DBGridEh, StdCtrls, Buttons, Spin;
+
+type
+  Tfrmshpadvice2 = class(TForm)
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    ComboBox1: TComboBox;
+    yEdit1: TSpinEdit;
+    wEdit1: TSpinEdit;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn4Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmshpadvice2: Tfrmshpadvice2;
+
+implementation
+
+uses mainformu, shpadviceformu, shpadvice1formu;
+
+{$R *.dfm}
+
+procedure Tfrmshpadvice2.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmshpadvice2:=nil;
+end;
+
+procedure Tfrmshpadvice2.BitBtn1Click(Sender: TObject);
+begin
+  bitbtn4click(self);
+  if not query1.FieldByName('tplant').isnull then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='execute procedure sp_pdn_updshpadvice(:x1,:x2)';
+      params[0].asstring:=query1.fieldbyname('tplant').value;
+      params[1].asstring:=query1.fieldbyname('shpno').value;
+      execute;
+    end;
+    if frmshpadvice1=nil then frmshpadvice1:=tfrmshpadvice1.Create(nil);
+    frmshpadvice1.Label2.Caption:=query1.fieldbyname('tplant').value;
+    frmshpadvice1.Edit1.text:=query1.fieldbyname('shpno').value;
+    frmshpadvice1.Show;
+  end;
+  frmshpadvice2.Close;
+end;
+
+procedure Tfrmshpadvice2.ComboBox1Change(Sender: TObject);
+begin
+  with Query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select * from tbl_pdn_shpadvice1 where tplant=:x1 and yr=:x2 and wk=:x3';
+    params[0].asstring:=combobox1.text;
+    params[1].asinteger:=yEdit1.value;
+    params[2].asinteger:=wEdit1.Value;
+    open;
+  end;
+end;
+
+procedure Tfrmshpadvice2.BitBtn3Click(Sender: TObject);
+begin
+  if not query1.FieldByName('seq').IsNull then begin
+    if application.MessageBox('Delete this shipping advice?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+       with query2 do begin
+         close;
+         params.clear;
+         commandtext:='delete from tbl_pdn_shpadvice2 where tplant='''+query1.fieldbyname('tplant').value+''' and shpno='''+query1.fieldbyname('shpno').value+'''';
+         execute;
+         close;
+         params.clear;
+         commandtext:='delete from tbl_pdn_shpadvice1 where tplant='''+query1.fieldbyname('tplant').value+''' and shpno='''+query1.fieldbyname('shpno').value+'''';
+         execute;
+       end;
+       query1.Delete;
+    end;
+  end;
+end;
+
+procedure Tfrmshpadvice2.BitBtn2Click(Sender: TObject);
+var
+  shpno,ono:string;
+begin
+  ono:=query1.fieldbyname('shpno').value;
+  shpno:=inputbox('Change Shipping Advice #','Please input a new shipping advice #:',query1.fieldbyname('shpno').value);
+  if (shpno>'') and (shpno<>ono) then begin
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='update tbl_pdn_shpadvice1 set shpno='''+shpno+''' where tplant='''+query1.fieldbyname('tplant').value+''' and shpno='''+ono+'''';
+      execute;
+      close;
+      params.clear;
+      commandtext:='update tbl_pdn_shpadvice2 set shpno='''+shpno+''' where tplant='''+query1.fieldbyname('tplant').value+''' and shpno='''+ono+'''';
+      execute;
+    end;
+    with query1 do begin
+      edit;
+      fieldbyname('shpno').value:=shpno;
+      post;
+    end;
+  end;
+end;
+
+procedure Tfrmshpadvice2.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      commandtext:='update tbl_pdn_shpadvice1 set exfty=:x1 where tplant=:x2 and shpno=:x3';
+      if not query1.fieldbyname('exfty').isnull then
+      params[0].asdate:=query1.fieldbyname('exfty').value;
+      params[1].asstring:=query1.fieldbyname('tplant').value;
+      params[2].asstring:=query1.fieldbyname('shpno').value;
+      execute;
+    end;
+  end;
+end;
+
+procedure Tfrmshpadvice2.BitBtn4Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+end.

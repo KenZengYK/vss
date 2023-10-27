@@ -1,0 +1,45 @@
+unit lockcfksformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, RzEdit, RzDBEdit, Mask, rxToolEdit, RXDBCtrl;
+
+type
+  Tfrmlockcfks = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    DBDateEdit1: TDBDateEdit;
+    RzDBNumericEdit1: TRzDBNumericEdit;
+    BitBtn1: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmlockcfks: Tfrmlockcfks;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure Tfrmlockcfks.BitBtn1Click(Sender: TObject);
+begin
+  worksheet1.BitBtn2Click(self);
+  close;
+end;
+
+procedure Tfrmlockcfks.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmlockcfks:=nil;
+end;
+
+end.

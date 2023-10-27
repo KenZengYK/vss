@@ -1,0 +1,587 @@
+unit newcap_salesformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DateUtils, DB, DBClient;
+
+type
+  Tfrmnewcap_sales = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn7: TBitBtn;
+    BitBtn8: TBitBtn;
+    BitBtn9: TBitBtn;
+    BitBtn10: TBitBtn;
+    Query2: TClientDataSet;
+    Query1: TClientDataSet;
+    Query3: TClientDataSet;
+    Label1: TLabel;
+    Label2: TLabel;
+    BitBtn11: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+    procedure BitBtn10Click(Sender: TObject);
+    procedure BitBtn11Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_sales: Tfrmnewcap_sales;
+
+implementation
+
+uses mainformu, newcapformu, oaprojectionformu, newcap_cbookingformu,
+  newcap_ibookingformu, newcap_styleformu, newcap_nostyleformu,
+  newcap_salesbalformu, newcap_custstatusformu, newcap_salesbudgetformu,
+  newcap_salesinterimformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_sales.BitBtn10Click(Sender: TObject);
+var
+  rwo_syn:boolean;
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select rwo_syn from tbluser where usr='''+frmmain.combobox1.text+'''';
+    open;
+    if not fieldbyname('rwo_syn').isnull then rwo_syn:=fieldbyname('rwo_syn').value
+    else rwo_syn:=false;
+  end;
+  if (rwo_syn=true) then begin
+    screen.cursor:=crSQLWait;
+    try
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select tm from tbl_cap_syn';
+      open;
+      if not fieldbyname('tm').isnull then begin
+        showmessage('CWO data synchronization is not finished, pls wait!');
+      end else begin
+        if application.messagebox('Re-access CWO data? It will take more than 30 mins','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+          label1.caption:=formatdatetime('hhnnsszzz',now);
+          with query1 do begin
+            close;
+            params.clear;
+            params.createparam(ftdatetime,'x1',ptinput);
+            params.createparam(ftstring,'x2',ptinput);
+            commandtext:='insert into tbl_cap_syn(tm,usr) values(:x1,:x2)';
+            params[0].asdatetime:=now;
+            params[1].asstring:=frmmain.combobox1.text;
+            execute;
+          end;
+          with query1 do begin
+            close;
+            params.clear;
+            params.createparam(ftdate,'x1',ptinput);
+            commandtext:='delete from tbl_cap_erprwo where ddt>=:x1';
+            params[0].asdate:=date-210;
+            execute;
+          end;
+          //all confirmed RWO
+          with frmmain.adoquery1 do begin
+            close;
+            sql.clear;
+            sql.text:='select distinct factory,customer,projectno,workorderno,styleno,customerstyleno,colorcode,woc,rwo,factoryworkstartdate,category,sum(isnull(bulkqty,0)+isnull(sampleqty,0)) as qty,';
+            sql.text:=sql.text+'deliverydate,lclexftydate,fclexftyshipcompleted,t3date,ajustt3date,isnull(sah,0) as sah,shipmode,fwwindow,lwwindow,lineworkstartdate,salesorderline,assignfactory ';
+            sql.text:=sql.text+'from [ph.rwo1].dbo.view_woc_rwo where (t3date is not null) and deliverydate>=:x1 and (oaconfirm is not null)  ';
+            sql.text:=sql.text+'group by factory,customer,projectno,workorderno,styleno,customerstyleno,colorcode,woc,rwo,factoryworkstartdate,category,deliverydate,lclexftydate,';
+            sql.text:=sql.text+'fclexftyshipcompleted,t3date,ajustt3date,sah,shipmode,fwwindow,lwwindow,lineworkstartdate,salesorderline,assignfactory';
+            parameters[0].value:=date-210;
+            open;
+            first;
+            while not eof do begin
+              with query2 do begin
+                close;
+                params.clear;
+                params.createparam(ftstring,'x1',ptinput);
+                params.createparam(ftstring,'x2',ptinput);
+                params.createparam(ftstring,'x3',ptinput);
+                params.createparam(ftstring,'x4',ptinput);
+                params.createparam(ftstring,'x5',ptinput);
+                params.createparam(ftinteger,'x6',ptinput);
+                params.createparam(ftdate,'x7',ptinput);
+                params.createparam(ftdate,'x8',ptinput);
+                params.createparam(ftdate,'x9',ptinput);
+                params.createparam(ftdate,'x10',ptinput);
+                params.createparam(ftfloat,'x11',ptinput);
+                params.createparam(ftstring,'x12',ptinput);
+                params.createparam(ftstring,'x13',ptinput);
+                params.createparam(ftstring,'x14',ptinput);
+                params.createparam(ftstring,'x15',ptinput);
+                params.createparam(ftdate,'x16',ptinput);
+                params.createparam(ftstring,'x17',ptinput);
+                params.createparam(ftinteger,'x18',ptinput);
+                params.createparam(ftinteger,'x19',ptinput);
+                params.createparam(ftdate,'x20',ptinput);
+                params.createparam(ftinteger,'x21',ptinput);
+                params.createparam(ftstring,'x22',ptinput);
+                commandtext:='insert into tbl_cap_erprwo(tplant,customer,j_no,cstyle,flag6,qty,ddt,exdt,t3dt,at3dt,sah,j2_job,acol,woc,rwo,fwdt,shpm,dfw,dlw,lwdt,ordline,rwo_cfm,artno) '
+                            +'values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8,:x9,:x10,:x11,:x12,:x13,:x14,:x15,:x16,:x17,:x18,:x19,:x20,:x21,1,:x22)';
+                if not frmmain.adoquery1.fieldbyname('assignfactory').isnull then
+                params[0].asstring:=frmmain.adoquery1.fieldbyname('assignfactory').value
+                else params[0].asstring:=frmmain.adoquery1.fieldbyname('factory').value;
+                params[1].asstring:=frmmain.adoquery1.fieldbyname('customer').value;
+                params[2].asstring:=frmmain.adoquery1.fieldbyname('projectno').value;
+                if frmmain.adoquery1.fieldbyname('customerstyleno').value>'' then
+                params[3].asstring:=frmmain.adoquery1.fieldbyname('customerstyleno').value
+                else params[3].asstring:=frmmain.adoquery1.fieldbyname('styleno').value;
+                if not frmmain.adoquery1.fieldbyname('category').isnull then
+                params[4].asstring:=frmmain.adoquery1.fieldbyname('category').value
+                else params[4].asstring:='B1';
+                params[5].asinteger:=frmmain.adoquery1.fieldbyname('qty').value;
+                params[6].asdate:=frmmain.adoquery1.fieldbyname('deliverydate').value;
+                if not frmmain.adoquery1.fieldbyname('lclexftydate').isnull then
+                params[7].asdate:=frmmain.adoquery1.fieldbyname('lclexftydate').value
+                else if not frmmain.adoquery1.fieldbyname('fclexftyshipcompleted').isnull then
+                params[7].asdate:=frmmain.adoquery1.fieldbyname('fclexftyshipcompleted').value;
+                if not frmmain.adoquery1.fieldbyname('t3date').isnull then
+                params[8].asdate:=frmmain.adoquery1.fieldbyname('t3date').value;
+                if not frmmain.adoquery1.fieldbyname('ajustt3date').isnull then
+                params[9].asdate:=frmmain.adoquery1.fieldbyname('ajustt3date').value
+                else if not frmmain.adoquery1.fieldbyname('t3date').isnull then
+                params[9].asdate:=frmmain.adoquery1.fieldbyname('t3date').value;
+                if not frmmain.adoquery1.fieldbyname('sah').isnull then
+                params[10].asfloat:=frmmain.adoquery1.fieldbyname('sah').value
+                else params[10].asfloat:=0;
+                if not frmmain.adoquery1.fieldbyname('workorderno').isnull then
+                params[11].asstring:=frmmain.adoquery1.fieldbyname('workorderno').value
+                else params[11].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('colorcode').isnull then
+                params[12].asstring:=frmmain.adoquery1.fieldbyname('colorcode').value
+                else params[12].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('woc').isnull then
+                params[13].asstring:=frmmain.adoquery1.fieldbyname('woc').value
+                else params[13].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('rwo').isnull then
+                params[14].asstring:=frmmain.adoquery1.fieldbyname('rwo').value
+                else params[14].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('factoryworkstartdate').isnull then
+                params[15].asdate:=frmmain.adoquery1.fieldbyname('factoryworkstartdate').value
+                else params[15].asdate:=date;
+                if not frmmain.adoquery1.fieldbyname('shipmode').isnull then
+                params[16].asstring:=frmmain.adoquery1.fieldbyname('shipmode').value
+                else params[16].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('fwwindow').isnull then
+                params[17].asinteger:=frmmain.adoquery1.fieldbyname('fwwindow').value
+                else params[17].asinteger:=0;
+                if not frmmain.adoquery1.fieldbyname('lwwindow').isnull then
+                params[18].asinteger:=frmmain.adoquery1.fieldbyname('lwwindow').value
+                else params[18].asinteger:=0;
+                if not frmmain.adoquery1.fieldbyname('lineworkstartdate').isnull then
+                params[19].asdate:=frmmain.adoquery1.fieldbyname('lineworkstartdate').value
+                else params[19].asdate:=date;
+                params[20].asinteger:=frmmain.adoquery1.fieldbyname('salesorderline').value;
+                params[21].asstring:=frmmain.adoquery1.fieldbyname('styleno').value;
+                execute;
+              end;
+              application.ProcessMessages;
+              next;
+            end;
+          end;
+          //showmessage('0');
+          //all not confirmed RWO
+          with frmmain.adoquery1 do begin
+            close;
+            sql.clear;
+            sql.text:='select distinct factory,customer,projectno,workorderno,styleno,customerstyleno,colorcode,woc,rwo,factoryworkstartdate,category,sum(isnull(bulkqty,0)+isnull(sampleqty,0)) as qty,';
+            sql.text:=sql.text+'deliverydate,lclexftydate,fclexftyshipcompleted,t3date,ajustt3date,isnull(sah,0) as sah,shipmode,fwwindow,lwwindow,lineworkstartdate,salesorderline,assignfactory ';
+            sql.text:=sql.text+'from [ph.rwo1].dbo.view_woc_rwo where (t3date is not null) and deliverydate>=:x1 and (oaconfirm is null) ';
+            sql.text:=sql.text+'group by factory,customer,projectno,workorderno,styleno,customerstyleno,colorcode,woc,rwo,factoryworkstartdate,category,deliverydate,lclexftydate,';
+            sql.text:=sql.text+'fclexftyshipcompleted,t3date,ajustt3date,sah,shipmode,fwwindow,lwwindow,lineworkstartdate,salesorderline,assignfactory';
+            parameters[0].value:=date-210;
+            open;
+            first;
+            while not eof do begin
+              with query2 do begin
+                close;
+                params.clear;
+                params.createparam(ftstring,'x1',ptinput);
+                params.createparam(ftstring,'x2',ptinput);
+                params.createparam(ftstring,'x3',ptinput);
+                params.createparam(ftstring,'x4',ptinput);
+                params.createparam(ftstring,'x5',ptinput);
+                params.createparam(ftinteger,'x6',ptinput);
+                params.createparam(ftdate,'x7',ptinput);
+                params.createparam(ftdate,'x8',ptinput);
+                params.createparam(ftdate,'x9',ptinput);
+                params.createparam(ftdate,'x10',ptinput);
+                params.createparam(ftfloat,'x11',ptinput);
+                params.createparam(ftstring,'x12',ptinput);
+                params.createparam(ftstring,'x13',ptinput);
+                params.createparam(ftstring,'x14',ptinput);
+                params.createparam(ftstring,'x15',ptinput);
+                params.createparam(ftdate,'x16',ptinput);
+                params.createparam(ftstring,'x17',ptinput);
+                params.createparam(ftinteger,'x18',ptinput);
+                params.createparam(ftinteger,'x19',ptinput);
+                params.createparam(ftdate,'x20',ptinput);
+                params.createparam(ftinteger,'x21',ptinput);
+                params.createparam(ftstring,'x22',ptinput);
+                commandtext:='insert into tbl_cap_erprwo(tplant,customer,j_no,cstyle,flag6,qty,ddt,exdt,t3dt,at3dt,sah,j2_job,acol,woc,rwo,fwdt,shpm,dfw,dlw,lwdt,ordline,rwo_cfm,artno) '
+                            +'values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8,:x9,:x10,:x11,:x12,:x13,:x14,:x15,:x16,:x17,:x18,:x19,:x20,:x21,0,:x22)';
+                if not frmmain.adoquery1.fieldbyname('assignfactory').isnull then
+                params[0].asstring:=frmmain.adoquery1.fieldbyname('assignfactory').value
+                else params[0].asstring:=frmmain.adoquery1.fieldbyname('factory').value;
+                params[1].asstring:=frmmain.adoquery1.fieldbyname('customer').value;
+                params[2].asstring:=frmmain.adoquery1.fieldbyname('projectno').value;
+                if frmmain.adoquery1.fieldbyname('customerstyleno').value>'' then
+                params[3].asstring:=frmmain.adoquery1.fieldbyname('customerstyleno').value
+                else params[3].asstring:=frmmain.adoquery1.fieldbyname('styleno').value;
+                if not frmmain.adoquery1.fieldbyname('category').isnull then
+                params[4].asstring:=frmmain.adoquery1.fieldbyname('category').value
+                else params[4].asstring:='B1';
+                params[5].asinteger:=frmmain.adoquery1.fieldbyname('qty').value;
+                params[6].asdate:=frmmain.adoquery1.fieldbyname('deliverydate').value;
+                if not frmmain.adoquery1.fieldbyname('lclexftydate').isnull then
+                params[7].asdate:=frmmain.adoquery1.fieldbyname('lclexftydate').value
+                else if not frmmain.adoquery1.fieldbyname('fclexftyshipcompleted').isnull then
+                params[7].asdate:=frmmain.adoquery1.fieldbyname('fclexftyshipcompleted').value;
+                if not frmmain.adoquery1.fieldbyname('t3date').isnull then
+                params[8].asdate:=frmmain.adoquery1.fieldbyname('t3date').value;
+                if not frmmain.adoquery1.fieldbyname('ajustt3date').isnull then
+                params[9].asdate:=frmmain.adoquery1.fieldbyname('ajustt3date').value
+                else if not frmmain.adoquery1.fieldbyname('t3date').isnull then
+                params[9].asdate:=frmmain.adoquery1.fieldbyname('t3date').value;
+                if not frmmain.adoquery1.fieldbyname('sah').isnull then
+                params[10].asfloat:=frmmain.adoquery1.fieldbyname('sah').value
+                else params[10].asfloat:=0;
+                if not frmmain.adoquery1.fieldbyname('workorderno').isnull then
+                params[11].asstring:=frmmain.adoquery1.fieldbyname('workorderno').value
+                else params[11].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('colorcode').isnull then
+                params[12].asstring:=frmmain.adoquery1.fieldbyname('colorcode').value
+                else params[12].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('woc').isnull then
+                params[13].asstring:=frmmain.adoquery1.fieldbyname('woc').value
+                else params[13].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('rwo').isnull then
+                params[14].asstring:=frmmain.adoquery1.fieldbyname('rwo').value
+                else params[14].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('factoryworkstartdate').isnull then
+                params[15].asdate:=frmmain.adoquery1.fieldbyname('factoryworkstartdate').value
+                else params[15].asdate:=date;
+                if not frmmain.adoquery1.fieldbyname('shipmode').isnull then
+                params[16].asstring:=frmmain.adoquery1.fieldbyname('shipmode').value
+                else params[16].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('fwwindow').isnull then
+                params[17].asinteger:=frmmain.adoquery1.fieldbyname('fwwindow').value
+                else params[17].asinteger:=0;
+                if not frmmain.adoquery1.fieldbyname('lwwindow').isnull then
+                params[18].asinteger:=frmmain.adoquery1.fieldbyname('lwwindow').value
+                else params[18].asinteger:=0;
+                if not frmmain.adoquery1.fieldbyname('lineworkstartdate').isnull then
+                params[19].asdate:=frmmain.adoquery1.fieldbyname('lineworkstartdate').value
+                else params[19].asdate:=date;
+                params[20].asinteger:=frmmain.adoquery1.fieldbyname('salesorderline').value;
+                params[21].asstring:=frmmain.adoquery1.fieldbyname('styleno').value;
+                execute;
+              end;
+              application.ProcessMessages;
+              next;
+            end;
+          end;
+          {
+          with query1 do begin
+            close;
+            params.clear;
+            params.createparam(ftdate,'x1',ptinput);
+            commandtext:='delete from tbl_cap_erprwo_pii where ddt>=:x1';
+            params[0].asdate:=date-30;
+            execute;
+          end;
+          with frmmain.adoquery1 do begin
+            close;
+            sql.text:='select distinct factory,customer,projectno,workorderno,styleno,customerstyleno,colorcode,woc,rwo,rwoii,factoryworkstartdate,category,sum(bulkqty+sampleqty) as qty,';
+            sql.text:=sql.text+'deliverydate,lclexftydate,t3date,ajustt3date,sah,shipmode,fwwindow,lwwindow ';
+            sql.text:=sql.text+'from [ph.rwo1].dbo.view_woc_rwoii where (t3date is not null) and (oaconfirm is not null) and deliverydate>=:x1 ';
+            sql.text:=sql.text+'group by factory,customer,projectno,workorderno,styleno,customerstyleno,colorcode,woc,rwo,rwoii,factoryworkstartdate,category,deliverydate,lclexftydate,t3date,ajustt3date,sah,shipmode,fwwindow,lwwindow';
+            parameters[0].Value:=date-30;
+            open;
+            first;
+            while not eof do begin
+              with query2 do begin
+                close;
+                params.clear;
+                params.createparam(ftstring,'x1',ptinput);
+                params.createparam(ftstring,'x2',ptinput);
+                params.createparam(ftstring,'x3',ptinput);
+                params.createparam(ftstring,'x4',ptinput);
+                params.createparam(ftstring,'x5',ptinput);
+                params.createparam(ftinteger,'x6',ptinput);
+                params.createparam(ftdate,'x7',ptinput);
+                params.createparam(ftdate,'x8',ptinput);
+                params.createparam(ftdate,'x9',ptinput);
+                params.createparam(ftdate,'x10',ptinput);
+                params.createparam(ftfloat,'x11',ptinput);
+                params.createparam(ftstring,'x12',ptinput);
+                params.createparam(ftstring,'x13',ptinput);
+                params.createparam(ftstring,'x14',ptinput);
+                params.createparam(ftstring,'x15',ptinput);
+                params.createparam(ftdate,'x16',ptinput);
+                params.createparam(ftstring,'x17',ptinput);
+                params.createparam(ftinteger,'x18',ptinput);
+                params.createparam(ftinteger,'x19',ptinput);
+                params.createparam(ftstring,'x20',ptinput);
+                commandtext:='insert into tbl_cap_erprwo_pii(tplant,customer,j_no,cstyle,flag6,qty,ddt,exdt,t3dt,at3dt,sah,j2_job,acol,woc,rwo,fwdt,shpm,dfw,dlw,rwoii) '
+                            +'values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8,:x9,:x10,:x11,:x12,:x13,:x14,:x15,:x16,:x17,:x18,:x19,:x20)';
+                params[0].asstring:=frmmain.adoquery1.fieldbyname('factory').value;
+                params[1].asstring:=frmmain.adoquery1.fieldbyname('customer').value;
+                params[2].asstring:=frmmain.adoquery1.fieldbyname('projectno').value;
+                if frmmain.adoquery1.fieldbyname('customerstyleno').value>'' then
+                params[3].asstring:=frmmain.adoquery1.fieldbyname('customerstyleno').value
+                else params[3].asstring:=frmmain.adoquery1.fieldbyname('styleno').value;
+                if not frmmain.adoquery1.fieldbyname('category').isnull then
+                params[4].asstring:=frmmain.adoquery1.fieldbyname('category').value
+                else params[4].asstring:='B1';
+                params[5].asinteger:=frmmain.adoquery1.fieldbyname('qty').value;
+                params[6].asdate:=frmmain.adoquery1.fieldbyname('deliverydate').value;
+                params[7].asdate:=frmmain.adoquery1.fieldbyname('lclexftydate').value;
+                params[8].asdate:=frmmain.adoquery1.fieldbyname('t3date').value;
+                if not frmmain.adoquery1.fieldbyname('ajustt3date').isnull then
+                params[9].asdate:=frmmain.adoquery1.fieldbyname('ajustt3date').value
+                else params[9].asdate:=frmmain.adoquery1.fieldbyname('t3date').value;
+                if not frmmain.adoquery1.fieldbyname('sah').isnull then
+                params[10].asfloat:=frmmain.adoquery1.fieldbyname('sah').value
+                else params[10].asfloat:=0;
+                if not frmmain.adoquery1.fieldbyname('workorderno').isnull then
+                params[11].asstring:=frmmain.adoquery1.fieldbyname('workorderno').value
+                else params[11].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('colorcode').isnull then
+                params[12].asstring:=frmmain.adoquery1.fieldbyname('colorcode').value
+                else params[12].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('woc').isnull then
+                params[13].asstring:=frmmain.adoquery1.fieldbyname('woc').value
+                else params[13].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('rwo').isnull then
+                params[14].asstring:=frmmain.adoquery1.fieldbyname('rwo').value
+                else params[14].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('factoryworkstartdate').isnull then
+                params[15].asdate:=frmmain.adoquery1.fieldbyname('factoryworkstartdate').value
+                else params[15].asdate:=date;
+                if not frmmain.adoquery1.fieldbyname('shipmode').isnull then
+                params[16].asstring:=frmmain.adoquery1.fieldbyname('shipmode').value
+                else params[16].asstring:='';
+                if not frmmain.adoquery1.fieldbyname('fwwindow').isnull then
+                params[17].asinteger:=frmmain.adoquery1.fieldbyname('fwwindow').value
+                else params[17].asinteger:=0;
+                if not frmmain.adoquery1.fieldbyname('lwwindow').isnull then
+                params[18].asinteger:=frmmain.adoquery1.fieldbyname('lwwindow').value
+                else params[18].asinteger:=0;
+                if not frmmain.adoquery1.fieldbyname('rwoii').isnull then
+                params[19].asstring:=frmmain.adoquery1.fieldbyname('rwoii').value
+                else params[19].asstring:='';
+                execute;
+              end;
+              application.ProcessMessages;
+              next;
+            end;
+          end;
+          }
+          //showmessage('1');
+          with query2 do begin
+            close;
+            params.clear;
+            commandText:='execute procedure sp_cap_upderprwo';
+            execute;
+          end;
+          {
+          with query2 do begin
+            close;
+            params.clear;
+            commandText:='update tbl_cap_erprwo set qty=0 where j_no like ''ESSE%'' and ddt>=''2014-01-01'' and j_no not in (''ESSE-870'',''ESSE-871'',''ESSE-872'',''ESSE-873'',''ESSE-876'')';
+            execute;
+          end;
+          }
+          with query2 do begin
+            close;
+            params.clear;
+            commandText:='execute procedure sp_cap_reupdorders';
+            execute;
+          end;
+          with query2 do begin
+            close;
+            params.clear;
+            commandText:='execute procedure sp_cap_reupdorders1';
+            execute;
+          end;
+          //
+          with query1 do begin
+            close;
+            params.clear;
+            commandtext:='delete from tbl_cap_syn';
+            execute;
+          end;
+          label2.caption:=formatdatetime('hhnnsszzz',now);
+          showmessage('Finished!');
+        end;
+      end;
+    end;
+    finally
+      screen.cursor:=crDefault;
+    end;
+  end else showmessage('You have not right!');
+end;
+
+procedure Tfrmnewcap_sales.BitBtn11Click(Sender: TObject);
+var
+  r_sb:boolean;
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select rcap_si from tbluser where usr='''+frmmain.combobox1.text+'''';
+    open;
+    if not fieldbyname('rcap_si').isnull then r_sb:=fieldbyname('rcap_si').value
+    else r_sb:=false;
+  end;
+  if r_sb then begin
+    if frmnewcap_salesinterim=nil then frmnewcap_salesinterim:=tfrmnewcap_salesinterim.create(nil);
+    frmnewcap_salesinterim.windowstate:=wsMaximized;
+    frmnewcap_salesinterim.show;
+  end;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn1Click(Sender: TObject);
+begin
+  {
+  if frmoaprojection=nil then frmoaprojection:=tfrmoaprojection.Create(nil);
+  frmoaprojection.ComboBox1.Text:='SL';
+  frmoaprojection.SpinEdit1.Value:=yearof(date);
+  frmoaprojection.Show;
+  }
+  screen.cursor:=crSQLWait;
+  try
+  if frmnewcap_nostyle=nil then frmnewcap_nostyle:=tfrmnewcap_nostyle.create(nil);
+  frmnewcap_nostyle.show;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn4Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmnewcap_sales.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_sales:=nil;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn2Click(Sender: TObject);
+begin
+  if frmnewcap_cbooking=nil then frmnewcap_cbooking:=tfrmnewcap_cbooking.Create(nil);
+  frmnewcap_cbooking.ComboBox1.Text:='SL';
+  frmnewcap_cbooking.SpinEdit1.Value:=yearof(date);
+  frmnewcap_cbooking.Show;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn3Click(Sender: TObject);
+begin
+  if frmnewcap_ibooking=nil then frmnewcap_ibooking:=tfrmnewcap_ibooking.Create(nil);
+  frmnewcap_ibooking.ComboBox1.Text:='SL';
+  frmnewcap_ibooking.SpinEdit1.Value:=yearof(date);
+  frmnewcap_ibooking.Show;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn6Click(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select tm from tbl_cap_syn';
+    open;
+    if not fieldbyname('tm').isnull then begin
+      showmessage('CWO data synchronization is not finished, pls wait!');
+    end else begin
+      if frmnewcap_style=nil then frmnewcap_style:=tfrmnewcap_style.Create(nil);
+      frmnewcap_style.ComboBox1.Text:='SL';
+      frmnewcap_style.SpinEdit1.Value:=yearof(date);
+      frmnewcap_style.Show;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn7Click(Sender: TObject);
+begin
+  if frmoaprojection=nil then frmoaprojection:=tfrmoaprojection.Create(nil);
+  frmoaprojection.ComboBox1.Text:='SL';
+  frmoaprojection.SpinEdit1.Value:=yearof(date);
+  frmoaprojection.Show;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn8Click(Sender: TObject);
+begin
+  if frmnewcap_salesbal=nil then frmnewcap_salesbal:=tfrmnewcap_salesbal.Create(nil);
+  frmnewcap_salesbal.ComboBox1.Text:='SL';
+  frmnewcap_salesbal.SpinEdit1.Value:=yearof(date);
+  frmnewcap_salesbal.Show;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn9Click(Sender: TObject);
+var
+  r_sb:boolean;
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select rcap_sb from tbluser where usr='''+frmmain.combobox1.text+'''';
+    open;
+    if not fieldbyname('rcap_sb').isnull then r_sb:=fieldbyname('rcap_sb').value
+    else r_sb:=false;
+  end;
+  if r_sb then begin
+    if frmnewcap_salesbudget=nil then frmnewcap_salesbudget:=tfrmnewcap_salesbudget.create(nil);
+    frmnewcap_salesbudget.windowstate:=wsMaximized;
+    frmnewcap_salesbudget.show;
+  end;
+  //
+  {
+  if frmnewcap_custstatus=nil then frmnewcap_custstatus:=tfrmnewcap_custstatus.create(nil);
+  frmnewcap_custstatus.ComboBox1.Visible:=true;
+  frmnewcap_custstatus.ComboBox2.Visible:=true;
+  frmnewcap_custstatus.DBText1.Visible:=false;
+  frmnewcap_custstatus.DBText2.Visible:=false;
+  frmnewcap_custstatus.show;
+  }
+  {
+  if treeview1.Selected.Level=2 then begin
+  //if combobox3.text>'' then begin
+    if frmnewcap_custstatus=nil then frmnewcap_custstatus:=tfrmnewcap_custstatus.create(nil);
+    with frmnewcap_custstatus.query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from tbl_cap_custstatus where tplant=:x1 and cust=:x2';
+      params[0].asstring:=query1.fieldbyname('tplant').value;
+      params[1].asstring:=query1.fieldbyname('cust').value;
+      open;
+    end;
+    frmnewcap_custstatus.show;
+  end;
+  }
+end;
+
+end.

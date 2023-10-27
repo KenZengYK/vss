@@ -1,0 +1,52 @@
+object frmnewcap_leveloffprint: Tfrmnewcap_leveloffprint
+  Left = 0
+  Top = 0
+  Caption = 
+    'Group B - Time is based on T3 (std ahead) && aT3 date of CP'#39's Sa' +
+    'les Projection and RWO (customer dependent)'
+  ClientHeight = 153
+  ClientWidth = 345
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object RadioGroup1: TRadioGroup
+    Left = 32
+    Top = 32
+    Width = 281
+    Height = 49
+    Caption = 'Qty is solely on Level Off'
+    Columns = 2
+    ItemIndex = 0
+    Items.Strings = (
+      'Completed'
+      'Incomplete')
+    TabOrder = 0
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 96
+    Width = 81
+    Height = 25
+    Caption = 'BitBtn1'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 1
+  end
+  object BitBtn2: TBitBtn
+    Left = 112
+    Top = 96
+    Width = 81
+    Height = 25
+    Caption = 'Exit'
+    DoubleBuffered = True
+    Kind = bkClose
+    ParentDoubleBuffered = False
+    TabOrder = 2
+  end
+end

@@ -1,0 +1,261 @@
+unit noteformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, ComCtrls, StdCtrls, DBCtrls, Mask, ImgList, Buttons,
+  DB, DBClient, rxToolEdit, Grids, DBGridEh, GridsEh;
+
+type
+  Tfrmnote = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    ImageList1: TImageList;
+    Label4: TLabel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    DataSource1: TDataSource;
+    Label5: TLabel;
+    DateEdit1: TDateEdit;
+    DBGridEh1: TDBGridEh;
+    Panel3: TPanel;
+    DBMemo1: TDBMemo;
+    Label6: TLabel;
+    Label7: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnote: Tfrmnote;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure Tfrmnote.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnote:=nil;
+end;
+
+procedure Tfrmnote.BitBtn1Click(Sender: TObject);
+begin
+  query1.append;
+  dbmemo1.SetFocus;
+end;
+
+procedure Tfrmnote.BitBtn2Click(Sender: TObject);
+begin
+  if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='delete from tbl_notepad where seq=:x1';
+      params[0].asinteger:=query1.fieldbyname('seq').value;
+      execute;
+    end;
+    query1.Delete;
+  end;
+end;
+
+procedure Tfrmnote.BitBtn3Click(Sender: TObject);
+begin
+  if (query1.state=dsinsert) or (query1.state=dsedit) then query1.post;
+end;
+
+procedure Tfrmnote.BitBtn4Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmnote.Query1NewRecord(DataSet: TDataSet);
+var
+  seq:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq) as seq1 from tbl_notepad';
+    open;
+    if not fieldbyname('seq1').isnull then seq:=fieldbyname('seq1').value+1
+    else seq:=1;
+  end;
+  query1.fieldbyname('seq').value:=seq;
+  query1.fieldbyname('dt').value:=date;
+  if label6.caption='1' then begin
+    query1.fieldbyname('j_no').value:=worksheet1.tblshedule.fieldbyname('j_no').value;
+  end else if label6.caption='2' then begin
+    query1.fieldbyname('j_no').value:=worksheet1.tblshedule.fieldbyname('j_no').value;
+    query1.fieldbyname('j2_job').value:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+  end else if label6.caption='3' then begin
+    query1.fieldbyname('j_no').value:=worksheet1.tblshedule.fieldbyname('j_no').value;
+    query1.fieldbyname('j2_job').value:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+    query1.fieldbyname('cstyle').value:=worksheet1.tblshedule.fieldbyname('cstyle').value;
+  end else if label6.caption='4' then begin
+    query1.fieldbyname('j_no').value:=worksheet1.tblshedule.fieldbyname('j_no').value;
+    query1.fieldbyname('j2_job').value:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+    query1.fieldbyname('cstyle').value:=worksheet1.tblshedule.fieldbyname('cstyle').value;
+    query1.fieldbyname('rwo').value:=worksheet1.tblshedule.fieldbyname('rwo').value;
+  end else if label6.caption='5' then begin
+    query1.fieldbyname('j_no').value:=worksheet1.tblshedule.fieldbyname('j_no').value;
+    query1.fieldbyname('j2_job').value:=worksheet1.tblshedule.fieldbyname('j2_job').value;
+    query1.fieldbyname('cstyle').value:=worksheet1.tblshedule.fieldbyname('cstyle').value;
+    query1.fieldbyname('rwo').value:=worksheet1.tblshedule.fieldbyname('rwo').value;
+    query1.fieldbyname('lw').value:=worksheet1.tblshedule.fieldbyname('fccs').value;
+    query1.fieldbyname('pline').value:=worksheet1.tblshedule.fieldbyname('pline').value;
+    query1.fieldbyname('pseq').value:=worksheet1.tblshedule.fieldbyname('seq').value;
+  end;
+end;
+
+procedure Tfrmnote.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.applyupdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select seq from tbl_notepad where seq=:x1';
+      params[0].asinteger:=query1.fieldbyname('seq').value;
+      open;
+      if fieldbyname('seq').isnull then begin
+        with query3 do begin
+          close;
+          params.clear;
+          if label6.caption='1' then begin
+            params.createparam(ftinteger,'x1',ptinput);
+            params.createparam(ftstring,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftdate,'x4',ptinput);
+            commandtext:='insert into tbl_notepad(seq,j_no,rm,dt) values(:x1,:x2,:x3,:x4)';
+            params[0].asinteger:=query1.fieldbyname('seq').value;
+            params[1].asstring:=query1.fieldbyname('j_no').value;
+            if not query1.fieldbyname('rm').isnull then
+            params[2].asstring:=query1.fieldbyname('rm').value
+            else params[2].asstring:='';
+            params[3].asdate:=query1.fieldbyname('dt').value;
+            execute;
+          end else if label6.Caption='2' then begin
+            params.createparam(ftinteger,'x1',ptinput);
+            params.createparam(ftstring,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftstring,'x4',ptinput);
+            params.createparam(ftdate,'x5',ptinput);
+            commandtext:='insert into tbl_notepad(seq,j_no,j2_job,rm,dt) values(:x1,:x2,:x3,:x4,:x5)';
+            params[0].asinteger:=query1.fieldbyname('seq').value;
+            params[1].asstring:=query1.fieldbyname('j_no').value;
+            params[2].asstring:=query1.fieldbyname('j2_job').value;
+            if not query1.fieldbyname('rm').isnull then
+            params[3].asstring:=query1.fieldbyname('rm').value
+            else params[3].asstring:='';
+            params[4].asdate:=query1.fieldbyname('dt').value;
+            execute;
+          end else if label6.Caption='3' then begin
+            params.createparam(ftinteger,'x1',ptinput);
+            params.createparam(ftstring,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftstring,'x4',ptinput);
+            params.createparam(ftstring,'x5',ptinput);
+            params.createparam(ftdate,'x6',ptinput);
+            commandtext:='insert into tbl_notepad(seq,j_no,j2_job,cstyle,rm,dt) values(:x1,:x2,:x3,:x4,:x5,:x6)';
+            params[0].asinteger:=query1.fieldbyname('seq').value;
+            params[1].asstring:=query1.fieldbyname('j_no').value;
+            params[2].asstring:=query1.fieldbyname('j2_job').value;
+            params[3].asstring:=query1.fieldbyname('cstyle').value;
+            if not query1.fieldbyname('rm').isnull then
+            params[4].asstring:=query1.fieldbyname('rm').value
+            else params[4].asstring:='';
+            params[5].asdate:=query1.fieldbyname('dt').value;
+            execute;
+          end else if label6.Caption='4' then begin
+            params.createparam(ftinteger,'x1',ptinput);
+            params.createparam(ftstring,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftstring,'x4',ptinput);
+            params.createparam(ftstring,'x5',ptinput);
+            params.createparam(ftstring,'x6',ptinput);
+            params.createparam(ftdate,'x7',ptinput);
+            commandtext:='insert into tbl_notepad(seq,j_no,j2_job,cstyle,rwo,rm,dt) values(:x1,:x2,:x3,:x4,:x5,:x6,:x7)';
+            params[0].asinteger:=query1.fieldbyname('seq').value;
+            params[1].asstring:=query1.fieldbyname('j_no').value;
+            params[2].asstring:=query1.fieldbyname('j2_job').value;
+            params[3].asstring:=query1.fieldbyname('cstyle').value;
+            params[4].asstring:=query1.fieldbyname('rwo').value;
+            if not query1.fieldbyname('rm').isnull then
+            params[5].asstring:=query1.fieldbyname('rm').value
+            else params[5].asstring:='';
+            params[6].asdate:=query1.fieldbyname('dt').value;
+            execute;
+          end else if label6.Caption='5' then begin
+            params.createparam(ftinteger,'x1',ptinput);
+            params.createparam(ftstring,'x2',ptinput);
+            params.createparam(ftstring,'x3',ptinput);
+            params.createparam(ftstring,'x4',ptinput);
+            params.createparam(ftstring,'x5',ptinput);
+            params.createparam(ftstring,'x6',ptinput);
+            params.createparam(ftstring,'x7',ptinput);
+            params.createparam(ftinteger,'x8',ptinput);
+            params.createparam(ftstring,'x9',ptinput);
+            params.createparam(ftdate,'x10',ptinput);
+            commandtext:='insert into tbl_notepad(seq,j_no,j2_job,cstyle,rwo,lw,pline,pseq,rm,dt) values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8,:x9,:x10)';
+            params[0].asinteger:=query1.fieldbyname('seq').value;
+            params[1].asstring:=query1.fieldbyname('j_no').value;
+            params[2].asstring:=query1.fieldbyname('j2_job').value;
+            params[3].asstring:=query1.fieldbyname('cstyle').value;
+            params[4].asstring:=query1.fieldbyname('rwo').value;
+            params[5].asstring:=query1.fieldbyname('lw').value;
+            params[6].asstring:=query1.fieldbyname('pline').value;
+            params[7].asinteger:=query1.fieldbyname('pseq').value;
+            if not query1.fieldbyname('rm').isnull then
+            params[8].asstring:=query1.fieldbyname('rm').value
+            else params[8].asstring:='';
+            params[9].asdate:=query1.fieldbyname('dt').value;
+            execute;
+          end;
+        end;
+      end else begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          commandtext:='update tbl_notepad set rm=:x1 where seq=:x2';
+          if not query1.fieldbyname('rm').isnull then
+          params[0].asstring:=query1.fieldbyname('rm').value
+          else params[0].asstring:='';
+          params[1].asinteger:=query1.fieldbyname('seq').value;
+          execute;
+        end;
+      end;
+    end;
+  end;
+end;
+
+end.

@@ -1,0 +1,28 @@
+unit pdn_destformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh;
+
+type
+  Tfrmpdn_dest = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpdn_dest: Tfrmpdn_dest;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+end.

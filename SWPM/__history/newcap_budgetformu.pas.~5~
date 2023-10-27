@@ -1,0 +1,54 @@
+unit newcap_budgetformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons;
+
+type
+  Tfrmnewcap_budget = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_budget: Tfrmnewcap_budget;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_budget.BitBtn1Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmnewcap_budget.BitBtn2Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmnewcap_budget.BitBtn4Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmnewcap_budget.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_budget:=nil;
+end;
+
+end.

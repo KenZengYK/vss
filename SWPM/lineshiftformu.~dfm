@@ -1,0 +1,1437 @@
+object frmshift: Tfrmshift
+  Left = 192
+  Top = 105
+  Width = 696
+  Height = 482
+  Caption = 'Line Shift'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poDefault
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Splitter1: TSplitter
+    Left = 0
+    Top = 222
+    Width = 671
+    Height = 2
+    Cursor = crVSplit
+    Align = alTop
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 446
+    Width = 671
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 0
+    object BitBtn3: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      TabOrder = 0
+      OnClick = BitBtn3Click
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+    end
+    object BitBtn4: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Preview'
+      TabOrder = 1
+      OnClick = BitBtn4Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn5: TBitBtn
+      Left = 168
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      TabOrder = 2
+      Kind = bkClose
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 671
+    Height = 222
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 0
+      Top = 0
+      Width = 671
+      Height = 39
+      Align = alTop
+      Caption = '    '#13#10'      Factory : SL '#13#10'      '
+    end
+    object DBGridEh1: TDBGridEh
+      Left = 0
+      Top = 39
+      Width = 671
+      Height = 142
+      Align = alClient
+      DataSource = DataSource1
+      Flat = False
+      FooterColor = clWindow
+      FooterFont.Charset = DEFAULT_CHARSET
+      FooterFont.Color = clWindowText
+      FooterFont.Height = -11
+      FooterFont.Name = 'MS Sans Serif'
+      FooterFont.Style = []
+      Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      UseMultiTitle = True
+      OnKeyPress = DBGridEh1KeyPress
+      Columns = <
+        item
+          EditButtons = <>
+          FieldName = 'SFTC'
+          Footers = <>
+          Title.Caption = 'Shift Code'
+          Width = 35
+        end
+        item
+          EditButtons = <>
+          FieldName = 'SFT'
+          Footers = <>
+          Title.Caption = 'Shift'
+          Width = 76
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT01'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 1|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTS01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Break| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTE01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Break| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT01'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 1|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT02'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 2|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTS02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Break|  '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTE02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Break|  '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT02'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 2|Break|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST03'
+          Footers = <>
+          Title.Caption = 'OT 1|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET03'
+          Footers = <>
+          Title.Caption = 'OT 1|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT03'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'OT 1|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTS03'
+          Footers = <>
+          Title.Caption = 'OT 1|Break| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTE03'
+          Footers = <>
+          Title.Caption = 'OT 1|Break| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT03'
+          Footers = <>
+          Title.Caption = 'OT 1|Break|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST04'
+          Footers = <>
+          Title.Caption = 'OT 2|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET04'
+          Footers = <>
+          Title.Caption = 'OT 2|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT04'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'OT 2|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTS04'
+          Footers = <>
+          Title.Caption = 'OT 2|Break| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTE04'
+          Footers = <>
+          Title.Caption = 'OT 2|Break| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT04'
+          Footers = <>
+          Title.Caption = 'OT 2|Break|Hour'
+          Width = 30
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Total Work Hour'
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Total Break Hour'
+          Width = 35
+        end>
+    end
+    object Panel4: TPanel
+      Left = 0
+      Top = 181
+      Width = 671
+      Height = 41
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 1
+      object BitBtn1: TBitBtn
+        Left = 24
+        Top = 8
+        Width = 73
+        Height = 25
+        Caption = 'AddNew'
+        TabOrder = 0
+        OnClick = BitBtn1Click
+        Glyph.Data = {
+          E6000000424DE60000000000000076000000280000000E0000000E0000000100
+          0400000000007000000000000000000000001000000000000000000000000000
+          BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          3300333333333333330033333333333333003333300033333300333330F03333
+          3300333330F033333300330000F000033300330FFFFFFF033300330000F00003
+          3300333330F033333300333330F0333333003333300033333300333333333333
+          33003333333333333300}
+      end
+      object BitBtn2: TBitBtn
+        Left = 96
+        Top = 8
+        Width = 73
+        Height = 25
+        Caption = 'Delete'
+        TabOrder = 1
+        OnClick = BitBtn2Click
+        Glyph.Data = {
+          E6000000424DE60000000000000076000000280000000E0000000E0000000100
+          0400000000007000000000000000000000001000000000000000000000000000
+          BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          3300333333333333330033333333333333003333333333333300333333333333
+          330033333333333333003300000000003300330FFFFFFFF03300330000000000
+          3300333333333333330033333333333333003333333333333300333333333333
+          33003333333333333300}
+      end
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 224
+    Width = 671
+    Height = 222
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 2
+    object Label2: TLabel
+      Left = 0
+      Top = 0
+      Width = 671
+      Height = 26
+      Align = alTop
+      Caption = '      Factory : KB '#13#10'      '
+    end
+    object DBGridEh2: TDBGridEh
+      Left = 0
+      Top = 26
+      Width = 671
+      Height = 155
+      Align = alClient
+      DataSource = DataSource2
+      Flat = False
+      FooterColor = clWindow
+      FooterFont.Charset = DEFAULT_CHARSET
+      FooterFont.Color = clWindowText
+      FooterFont.Height = -11
+      FooterFont.Name = 'MS Sans Serif'
+      FooterFont.Style = []
+      Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      UseMultiTitle = True
+      OnKeyPress = DBGridEh2KeyPress
+      Columns = <
+        item
+          EditButtons = <>
+          FieldName = 'SFTC'
+          Footers = <>
+          Title.Caption = 'Shift Code'
+          Width = 35
+        end
+        item
+          EditButtons = <>
+          FieldName = 'SFT'
+          Footers = <>
+          Title.Caption = 'Shift'
+          Width = 76
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT01'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 1|Hour'
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTS01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Break| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTE01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Break| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT01'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 1|Hour'
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT02'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 2|Hour'
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTS02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Break| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTE02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Break| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT02'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 2|Hour'
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST03'
+          Footers = <>
+          Title.Caption = 'OT 1|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET03'
+          Footers = <>
+          Title.Caption = 'OT 1|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT03'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'OT 1|Hour'
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST04'
+          Footers = <>
+          Title.Caption = 'OT 2|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET04'
+          Footers = <>
+          Title.Caption = 'OT 2|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT04'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'OT 2|Hour'
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Total Work Hour'
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Total Break Hour'
+          Width = 35
+        end>
+    end
+    object Panel5: TPanel
+      Left = 0
+      Top = 181
+      Width = 671
+      Height = 41
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 1
+      object BitBtn6: TBitBtn
+        Left = 24
+        Top = 8
+        Width = 73
+        Height = 25
+        Caption = 'AddNew'
+        TabOrder = 0
+        OnClick = BitBtn6Click
+        Glyph.Data = {
+          E6000000424DE60000000000000076000000280000000E0000000E0000000100
+          0400000000007000000000000000000000001000000000000000000000000000
+          BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          3300333333333333330033333333333333003333300033333300333330F03333
+          3300333330F033333300330000F000033300330FFFFFFF033300330000F00003
+          3300333330F033333300333330F0333333003333300033333300333333333333
+          33003333333333333300}
+      end
+      object BitBtn7: TBitBtn
+        Left = 96
+        Top = 8
+        Width = 73
+        Height = 25
+        Caption = 'Delete'
+        TabOrder = 1
+        OnClick = BitBtn7Click
+        Glyph.Data = {
+          E6000000424DE60000000000000076000000280000000E0000000E0000000100
+          0400000000007000000000000000000000001000000000000000000000000000
+          BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          3300333333333333330033333333333333003333333333333300333333333333
+          330033333333333333003300000000003300330FFFFFFFF03300330000000000
+          3300333333333333330033333333333333003333333333333300333333333333
+          33003333333333333300}
+      end
+    end
+  end
+  object Panel6: TPanel
+    Left = 0
+    Top = 446
+    Width = 671
+    Height = 0
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 3
+    object Label3: TLabel
+      Left = 0
+      Top = 0
+      Width = 671
+      Height = 39
+      Align = alTop
+      Caption = '    '#13#10'      Factory : FJ '#13#10'      '
+    end
+    object DBGridEh3: TDBGridEh
+      Left = 0
+      Top = 39
+      Width = 671
+      Height = 145
+      Align = alClient
+      DataSource = DataSource3
+      Flat = False
+      FooterColor = clWindow
+      FooterFont.Charset = DEFAULT_CHARSET
+      FooterFont.Color = clWindowText
+      FooterFont.Height = -11
+      FooterFont.Name = 'MS Sans Serif'
+      FooterFont.Style = []
+      Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      UseMultiTitle = True
+      OnKeyPress = DBGridEh3KeyPress
+      Columns = <
+        item
+          EditButtons = <>
+          FieldName = 'SFTC'
+          Footers = <>
+          Title.Caption = 'Shift Code'
+          Width = 35
+        end
+        item
+          EditButtons = <>
+          FieldName = 'SFT'
+          Footers = <>
+          Title.Caption = 'Shift'
+          Width = 76
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT01'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 1|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTS01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Break| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTE01'
+          Footers = <>
+          Title.Caption = 'Normal 1|Break| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT01'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 1|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT02'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 2|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTS02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Break|  '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTE02'
+          Footers = <>
+          Title.Caption = 'Normal 2|Break|  '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT02'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Normal 2|Break|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST03'
+          Footers = <>
+          Title.Caption = 'OT 1|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET03'
+          Footers = <>
+          Title.Caption = 'OT 1|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT03'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'OT 1|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTS03'
+          Footers = <>
+          Title.Caption = 'OT 1|Break| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTE03'
+          Footers = <>
+          Title.Caption = 'OT 1|Break| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT03'
+          Footers = <>
+          Title.Caption = 'OT 1|Break|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ST04'
+          Footers = <>
+          Title.Caption = 'OT 2|Work Time| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'ET04'
+          Footers = <>
+          Title.Caption = 'OT 2|Work Time| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT04'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'OT 2|Hour'
+          Width = 30
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTS04'
+          Footers = <>
+          Title.Caption = 'OT 2|Break| '
+          Width = 35
+        end
+        item
+          DisplayFormat = 'hh:nn'
+          EditButtons = <>
+          FieldName = 'LTE04'
+          Footers = <>
+          Title.Caption = 'OT 2|Break| '
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT04'
+          Footers = <>
+          Title.Caption = 'OT 2|Break|Hour'
+          Width = 30
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'TT'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Total Work Hour'
+          Width = 35
+        end
+        item
+          Color = 11267047
+          DisplayFormat = '0.00'
+          EditButtons = <>
+          FieldName = 'LTT'
+          Footers = <>
+          ReadOnly = True
+          Title.Caption = 'Total Break Hour'
+          Width = 35
+        end>
+    end
+    object Panel7: TPanel
+      Left = 0
+      Top = -41
+      Width = 671
+      Height = 41
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 1
+      object BitBtn8: TBitBtn
+        Left = 24
+        Top = 8
+        Width = 73
+        Height = 25
+        Caption = 'AddNew'
+        TabOrder = 0
+        OnClick = BitBtn8Click
+        Glyph.Data = {
+          E6000000424DE60000000000000076000000280000000E0000000E0000000100
+          0400000000007000000000000000000000001000000000000000000000000000
+          BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          3300333333333333330033333333333333003333300033333300333330F03333
+          3300333330F033333300330000F000033300330FFFFFFF033300330000F00003
+          3300333330F033333300333330F0333333003333300033333300333333333333
+          33003333333333333300}
+      end
+      object BitBtn9: TBitBtn
+        Left = 96
+        Top = 8
+        Width = 73
+        Height = 25
+        Caption = 'Delete'
+        TabOrder = 1
+        OnClick = BitBtn9Click
+        Glyph.Data = {
+          E6000000424DE60000000000000076000000280000000E0000000E0000000100
+          0400000000007000000000000000000000001000000000000000000000000000
+          BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          3300333333333333330033333333333333003333333333333300333333333333
+          330033333333333333003300000000003300330FFFFFFFF03300330000000000
+          3300333333333333330033333333333333003333333333333300333333333333
+          33003333333333333300}
+      end
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_shift'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    AfterPost = Query1AfterPost
+    OnNewRecord = Query1NewRecord
+    Left = 88
+    Top = 88
+    object Query1SEQ: TIntegerField
+      FieldName = 'SEQ'
+    end
+    object Query1SFT: TStringField
+      FieldName = 'SFT'
+    end
+    object Query1SFTC: TStringField
+      FieldName = 'SFTC'
+      Size = 10
+    end
+    object Query1ST01: TTimeField
+      FieldName = 'ST01'
+      OnChange = Query1ST01Change
+    end
+    object Query1ET01: TTimeField
+      FieldName = 'ET01'
+      OnChange = Query1ST01Change
+    end
+    object Query1TT01: TFloatField
+      FieldName = 'TT01'
+      OnChange = Query1TT01Change
+    end
+    object Query1LTS01: TTimeField
+      FieldName = 'LTS01'
+      OnChange = Query1LTS01Change
+    end
+    object Query1LTE01: TTimeField
+      FieldName = 'LTE01'
+      OnChange = Query1LTS01Change
+    end
+    object Query1LTT01: TFloatField
+      FieldName = 'LTT01'
+      OnChange = Query1LTT01Change
+    end
+    object Query1ST02: TTimeField
+      FieldName = 'ST02'
+      OnChange = Query1ST02Change
+    end
+    object Query1ET02: TTimeField
+      FieldName = 'ET02'
+      OnChange = Query1ST02Change
+    end
+    object Query1TT02: TFloatField
+      FieldName = 'TT02'
+      OnChange = Query1TT01Change
+    end
+    object Query1LTS02: TTimeField
+      FieldName = 'LTS02'
+      OnChange = Query1LTS02Change
+    end
+    object Query1LTE02: TTimeField
+      FieldName = 'LTE02'
+      OnChange = Query1LTS02Change
+    end
+    object Query1LTT02: TFloatField
+      FieldName = 'LTT02'
+      OnChange = Query1LTT01Change
+    end
+    object Query1ST03: TTimeField
+      FieldName = 'ST03'
+      OnChange = Query1ST03Change
+    end
+    object Query1ET03: TTimeField
+      FieldName = 'ET03'
+      OnChange = Query1ST03Change
+    end
+    object Query1TT03: TFloatField
+      FieldName = 'TT03'
+      OnChange = Query1TT01Change
+    end
+    object Query1ST04: TTimeField
+      FieldName = 'ST04'
+      OnChange = Query1ST04Change
+    end
+    object Query1ET04: TTimeField
+      FieldName = 'ET04'
+      OnChange = Query1ST04Change
+    end
+    object Query1TT04: TFloatField
+      FieldName = 'TT04'
+      OnChange = Query1TT01Change
+    end
+    object Query1TT: TFloatField
+      FieldName = 'TT'
+    end
+    object Query1LTT: TFloatField
+      FieldName = 'LTT'
+      OnChange = Query1TT01Change
+    end
+    object Query1TPLANT: TStringField
+      FieldName = 'TPLANT'
+      Size = 10
+    end
+    object Query1LTS03: TTimeField
+      FieldName = 'LTS03'
+      OnChange = Query1LTS03Change
+    end
+    object Query1LTE03: TTimeField
+      FieldName = 'LTE03'
+      OnChange = Query1LTS03Change
+    end
+    object Query1LTT03: TFloatField
+      FieldName = 'LTT03'
+      OnChange = Query1LTT01Change
+    end
+    object Query1LTS04: TTimeField
+      FieldName = 'LTS04'
+      OnChange = Query1LTS04Change
+    end
+    object Query1LTE04: TTimeField
+      FieldName = 'LTE04'
+      OnChange = Query1LTS04Change
+    end
+    object Query1LTT04: TFloatField
+      FieldName = 'LTT04'
+      OnChange = Query1LTT01Change
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 120
+    Top = 88
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 152
+    Top = 88
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 184
+    Top = 88
+  end
+  object Query4: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_shift'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    AfterPost = Query4AfterPost
+    OnNewRecord = Query4NewRecord
+    Left = 216
+    Top = 88
+    object IntegerField1: TIntegerField
+      FieldName = 'SEQ'
+    end
+    object StringField1: TStringField
+      FieldName = 'SFT'
+    end
+    object StringField2: TStringField
+      FieldName = 'SFTC'
+      Size = 10
+    end
+    object TimeField1: TTimeField
+      FieldName = 'ST01'
+      OnChange = Query4ST01Change
+    end
+    object TimeField2: TTimeField
+      FieldName = 'ET01'
+      OnChange = Query4ST01Change
+    end
+    object FloatField1: TFloatField
+      FieldName = 'TT01'
+      OnChange = Query4TT01Change
+    end
+    object TimeField3: TTimeField
+      FieldName = 'LTS01'
+      OnChange = Query4LTS01Change
+    end
+    object TimeField4: TTimeField
+      FieldName = 'LTE01'
+      OnChange = Query4LTS01Change
+    end
+    object FloatField2: TFloatField
+      FieldName = 'LTT01'
+      OnChange = Query4LTT01Change
+    end
+    object TimeField5: TTimeField
+      FieldName = 'ST02'
+      OnChange = Query4ST02Change
+    end
+    object TimeField6: TTimeField
+      FieldName = 'ET02'
+      OnChange = Query4ST02Change
+    end
+    object FloatField3: TFloatField
+      FieldName = 'TT02'
+      OnChange = Query4TT01Change
+    end
+    object TimeField7: TTimeField
+      FieldName = 'LTS02'
+      OnChange = Query4LTS02Change
+    end
+    object TimeField8: TTimeField
+      FieldName = 'LTE02'
+      OnChange = Query4LTS02Change
+    end
+    object FloatField4: TFloatField
+      FieldName = 'LTT02'
+      OnChange = Query4LTT01Change
+    end
+    object TimeField9: TTimeField
+      FieldName = 'ST03'
+      OnChange = Query4ST03Change
+    end
+    object TimeField10: TTimeField
+      FieldName = 'ET03'
+      OnChange = Query4ST03Change
+    end
+    object FloatField5: TFloatField
+      FieldName = 'TT03'
+      OnChange = Query4TT01Change
+    end
+    object TimeField11: TTimeField
+      FieldName = 'ST04'
+      OnChange = Query4ST04Change
+    end
+    object TimeField12: TTimeField
+      FieldName = 'ET04'
+      OnChange = Query4ST04Change
+    end
+    object FloatField6: TFloatField
+      FieldName = 'TT04'
+      OnChange = Query4TT01Change
+    end
+    object FloatField7: TFloatField
+      FieldName = 'TT'
+    end
+    object FloatField8: TFloatField
+      FieldName = 'LTT'
+    end
+    object Query4TPLANT: TStringField
+      FieldName = 'TPLANT'
+      Size = 10
+    end
+    object Query4LTS03: TTimeField
+      FieldName = 'LTS03'
+    end
+    object Query4LTE03: TTimeField
+      FieldName = 'LTE03'
+    end
+    object Query4LTT03: TFloatField
+      FieldName = 'LTT03'
+    end
+    object Query4LTS04: TTimeField
+      FieldName = 'LTS04'
+    end
+    object Query4LTE04: TTimeField
+      FieldName = 'LTE04'
+    end
+    object Query4LTT04: TFloatField
+      FieldName = 'LTT04'
+    end
+  end
+  object DataSource2: TDataSource
+    DataSet = Query4
+    Left = 248
+    Top = 88
+  end
+  object ClientDataSet2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 280
+    Top = 88
+  end
+  object Query5: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_shift'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    AfterPost = Query5AfterPost
+    OnNewRecord = Query5NewRecord
+    Left = 312
+    Top = 88
+    object IntegerField2: TIntegerField
+      FieldName = 'SEQ'
+    end
+    object StringField3: TStringField
+      FieldName = 'SFT'
+    end
+    object StringField4: TStringField
+      FieldName = 'SFTC'
+      Size = 10
+    end
+    object TimeField13: TTimeField
+      FieldName = 'ST01'
+      OnChange = Query5ST01Change
+    end
+    object TimeField14: TTimeField
+      FieldName = 'ET01'
+      OnChange = Query5ST01Change
+    end
+    object FloatField9: TFloatField
+      FieldName = 'TT01'
+      OnChange = Query5TT01Change
+    end
+    object TimeField15: TTimeField
+      FieldName = 'LTS01'
+      OnChange = Query5LTS01Change
+    end
+    object TimeField16: TTimeField
+      FieldName = 'LTE01'
+      OnChange = Query5LTS01Change
+    end
+    object FloatField10: TFloatField
+      FieldName = 'LTT01'
+      OnChange = Query5LTT01Change
+    end
+    object TimeField17: TTimeField
+      FieldName = 'ST02'
+      OnChange = Query5ST02Change
+    end
+    object TimeField18: TTimeField
+      FieldName = 'ET02'
+      OnChange = Query5ST02Change
+    end
+    object FloatField11: TFloatField
+      FieldName = 'TT02'
+      OnChange = Query5TT01Change
+    end
+    object TimeField19: TTimeField
+      FieldName = 'LTS02'
+      OnChange = Query5LTS02Change
+    end
+    object TimeField20: TTimeField
+      FieldName = 'LTE02'
+      OnChange = Query5LTS02Change
+    end
+    object FloatField12: TFloatField
+      FieldName = 'LTT02'
+      OnChange = Query5LTT01Change
+    end
+    object TimeField21: TTimeField
+      FieldName = 'ST03'
+      OnChange = Query5ST03Change
+    end
+    object TimeField22: TTimeField
+      FieldName = 'ET03'
+      OnChange = Query5ST03Change
+    end
+    object FloatField13: TFloatField
+      FieldName = 'TT03'
+      OnChange = Query5TT01Change
+    end
+    object TimeField23: TTimeField
+      FieldName = 'ST04'
+      OnChange = Query5ST04Change
+    end
+    object TimeField24: TTimeField
+      FieldName = 'ET04'
+      OnChange = Query5ST04Change
+    end
+    object FloatField14: TFloatField
+      FieldName = 'TT04'
+      OnChange = Query5TT01Change
+    end
+    object FloatField15: TFloatField
+      FieldName = 'TT'
+    end
+    object FloatField16: TFloatField
+      FieldName = 'LTT'
+      OnChange = Query5TT01Change
+    end
+    object StringField5: TStringField
+      FieldName = 'TPLANT'
+      Size = 10
+    end
+    object TimeField25: TTimeField
+      FieldName = 'LTS03'
+      OnChange = Query5LTS03Change
+    end
+    object TimeField26: TTimeField
+      FieldName = 'LTE03'
+      OnChange = Query5LTS03Change
+    end
+    object FloatField17: TFloatField
+      FieldName = 'LTT03'
+      OnChange = Query5LTT01Change
+    end
+    object TimeField27: TTimeField
+      FieldName = 'LTS04'
+      OnChange = Query5LTS04Change
+    end
+    object TimeField28: TTimeField
+      FieldName = 'LTE04'
+      OnChange = Query5LTS04Change
+    end
+    object FloatField18: TFloatField
+      FieldName = 'LTT04'
+      OnChange = Query5LTT01Change
+    end
+  end
+  object DataSource3: TDataSource
+    DataSet = Query5
+    Left = 344
+    Top = 88
+  end
+end

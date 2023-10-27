@@ -1,0 +1,635 @@
+object frmdailyreport1: Tfrmdailyreport1
+  Left = 209
+  Top = 109
+  Width = 777
+  Height = 619
+  Caption = 'Daily Operation Report (Top Management)'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 24
+    Width = 38
+    Height = 13
+    Caption = 'Factory '
+  end
+  object Label2: TLabel
+    Left = 184
+    Top = 24
+    Width = 52
+    Height = 13
+    Caption = 'Workshop '
+  end
+  object Label3: TLabel
+    Left = 360
+    Top = 24
+    Width = 23
+    Height = 13
+    Caption = 'Line '
+  end
+  object Label4: TLabel
+    Left = 520
+    Top = 24
+    Width = 51
+    Height = 13
+    Caption = 'As at date '
+  end
+  object ComboBox1: TComboBox
+    Left = 64
+    Top = 24
+    Width = 89
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    TabOrder = 0
+    Text = 'SL'
+    OnChange = ComboBox1Change
+    Items.Strings = (
+      'SL'
+      'FJ'
+      'KB')
+  end
+  object ComboBox2: TComboBox
+    Left = 240
+    Top = 24
+    Width = 89
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    TabOrder = 1
+    Text = '4B'
+    OnChange = ComboBox2Change
+  end
+  object DateEdit1: TDateEdit
+    Left = 576
+    Top = 24
+    Width = 105
+    Height = 21
+    NumGlyphs = 2
+    TabOrder = 3
+  end
+  object Edit1: TComboBox
+    Left = 384
+    Top = 24
+    Width = 105
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    TabOrder = 2
+    Text = 'T002'
+    OnEnter = Edit1Enter
+  end
+  object opt1: TCheckBox
+    Left = 24
+    Top = 48
+    Width = 97
+    Height = 17
+    Caption = 'Factory: - '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    TabOrder = 4
+    OnClick = opt1Click
+  end
+  object GroupBox1: TGroupBox
+    Left = 24
+    Top = 64
+    Width = 321
+    Height = 161
+    TabOrder = 5
+    object Label5: TLabel
+      Left = 281
+      Top = 8
+      Width = 24
+      Height = 13
+      Caption = '[n.a.]'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 225
+      Top = 24
+      Width = 24
+      Height = 13
+      Caption = '[n.a.]'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      Visible = False
+    end
+    object Label7: TLabel
+      Left = 241
+      Top = 40
+      Width = 24
+      Height = 13
+      Caption = '[n.a.]'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 270
+      Top = 88
+      Width = 24
+      Height = 13
+      Caption = '[n.a.]'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object fo01: TCheckBox
+      Left = 8
+      Top = 8
+      Width = 273
+      Height = 17
+      Caption = '1. WIP Styles Image && Color Plate Illustration - Factory [n.a.]'
+      Enabled = False
+      TabOrder = 0
+    end
+    object fo02: TCheckBox
+      Left = 8
+      Top = 24
+      Width = 217
+      Height = 17
+      Caption = '2. Factory Daily Output GAI - Actual Index [n.a.]'
+      TabOrder = 1
+    end
+    object fo03: TCheckBox
+      Left = 8
+      Top = 40
+      Width = 233
+      Height = 17
+      Caption = '3. Factory Daily Output GAI - Projected Index [n.a.]'
+      Enabled = False
+      TabOrder = 2
+    end
+    object fo04: TCheckBox
+      Left = 8
+      Top = 56
+      Width = 281
+      Height = 17
+      Caption = '4. Factory LB (WF/Mc) Vs LE Dashboard - on-std'
+      TabOrder = 3
+    end
+    object fo05: TCheckBox
+      Left = 8
+      Top = 72
+      Width = 297
+      Height = 17
+      Caption = '5. Factory LB (WF/Mc) Vs LE Dashboard - opt perf '
+      TabOrder = 4
+    end
+    object fo06: TCheckBox
+      Left = 8
+      Top = 88
+      Width = 263
+      Height = 17
+      Caption = '6. Factory Delivery Dashboard (On-time / Lock Diff) [n.a.]'
+      Enabled = False
+      TabOrder = 5
+    end
+    object fo07: TCheckBox
+      Left = 8
+      Top = 104
+      Width = 305
+      Height = 17
+      Caption = '7. Default Factory'#39's Line work Calendar && CU% by Workshop'
+      TabOrder = 6
+    end
+    object fo08: TCheckBox
+      Left = 8
+      Top = 120
+      Width = 305
+      Height = 17
+      Caption = '8. Current Factory'#39's Line work Calendar && CU% by Workshop'
+      TabOrder = 7
+    end
+    object fo09: TCheckBox
+      Left = 8
+      Top = 136
+      Width = 297
+      Height = 17
+      Caption = '9. Factory Profile'
+      TabOrder = 8
+    end
+  end
+  object opt2: TCheckBox
+    Left = 352
+    Top = 48
+    Width = 113
+    Height = 17
+    Caption = 'Workshop: - '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    TabOrder = 6
+    OnClick = opt2Click
+  end
+  object GroupBox2: TGroupBox
+    Left = 352
+    Top = 64
+    Width = 393
+    Height = 161
+    TabOrder = 7
+    object wo01: TCheckBox
+      Left = 8
+      Top = 8
+      Width = 289
+      Height = 17
+      Caption = '1. WIP Styles Image && Color Plate Illustration - Workshop'
+      TabOrder = 0
+    end
+    object wo02: TCheckBox
+      Left = 8
+      Top = 24
+      Width = 305
+      Height = 17
+      Caption = '2. Workshop Daily Output GAI - Actual Index '
+      TabOrder = 1
+    end
+    object wo03: TCheckBox
+      Left = 8
+      Top = 40
+      Width = 289
+      Height = 17
+      Caption = '3. Workshop Daily Output GAI - Adjusted Default Index '
+      TabOrder = 2
+    end
+    object wo04: TCheckBox
+      Left = 8
+      Top = 56
+      Width = 297
+      Height = 17
+      Caption = '4. Workshop LB (WF/Mc) Vs LE Dashboard - on-std'
+      TabOrder = 3
+    end
+    object wo05: TCheckBox
+      Left = 8
+      Top = 72
+      Width = 305
+      Height = 17
+      Caption = '5. Workshop LB (WF/Mc) Vs LE Dashboard - opt perf'
+      TabOrder = 4
+    end
+    object wo06: TCheckBox
+      Left = 8
+      Top = 88
+      Width = 381
+      Height = 17
+      Caption = 
+        '6. Workshop Delivery Dashboard (On-time / Lock Diff) Plus PDN In' +
+        'formation'
+      TabOrder = 5
+    end
+    object wo07: TCheckBox
+      Left = 8
+      Top = 104
+      Width = 377
+      Height = 17
+      Caption = 
+        '7. Default Workshop'#39's Line work Calendar && CU% by Line(QN depen' +
+        'dent)'
+      TabOrder = 6
+    end
+    object wo08: TCheckBox
+      Left = 8
+      Top = 120
+      Width = 377
+      Height = 17
+      Caption = 
+        '8. Current Workshop'#39's Line work Calendar && CU% by Line(QN depen' +
+        'dent)'
+      TabOrder = 7
+    end
+    object wo09: TCheckBox
+      Left = 8
+      Top = 136
+      Width = 313
+      Height = 17
+      Caption = '9. Workshop Profile'
+      TabOrder = 8
+    end
+  end
+  object opt3: TCheckBox
+    Left = 24
+    Top = 232
+    Width = 89
+    Height = 17
+    Caption = 'Line: - '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    TabOrder = 8
+    OnClick = opt3Click
+  end
+  object GroupBox3: TGroupBox
+    Left = 24
+    Top = 248
+    Width = 721
+    Height = 49
+    TabOrder = 9
+    object lo01: TCheckBox
+      Left = 336
+      Top = 8
+      Width = 313
+      Height = 17
+      Caption = '2. QN GAI (Sewing Workshop) - Ledger Sheet (specific line)'
+      TabOrder = 0
+    end
+    object lo02: TCheckBox
+      Left = 8
+      Top = 24
+      Width = 201
+      Height = 17
+      Caption = '3. QN Transit Summary (specific line)'
+      TabOrder = 1
+    end
+    object lo03: TCheckBox
+      Left = 280
+      Top = 24
+      Width = 201
+      Height = 17
+      Caption = '4. QN Transit Flow 1-4 (specific line)'
+      TabOrder = 2
+    end
+    object lo04: TCheckBox
+      Left = 552
+      Top = 24
+      Width = 105
+      Height = 17
+      Caption = '5. Line Profile'
+      TabOrder = 3
+    end
+    object lo05: TCheckBox
+      Left = 8
+      Top = 8
+      Width = 233
+      Height = 17
+      Caption = '1. Line Daily Output GAI - Actual Index '
+      TabOrder = 4
+    end
+  end
+  object opt4: TCheckBox
+    Left = 24
+    Top = 304
+    Width = 169
+    Height = 17
+    Caption = 'Others (By Factory): - '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    TabOrder = 10
+    OnClick = opt4Click
+  end
+  object GroupBox4: TGroupBox
+    Left = 24
+    Top = 320
+    Width = 721
+    Height = 81
+    TabOrder = 11
+    object of01: TCheckBox
+      Left = 8
+      Top = 8
+      Width = 433
+      Height = 17
+      Caption = 
+        '1. Factory'#39's Line on-std efficiency Analysis report by workshop ' +
+        '- customer independent'
+      TabOrder = 0
+    end
+    object of02: TCheckBox
+      Left = 8
+      Top = 24
+      Width = 433
+      Height = 17
+      Caption = '2. Factory'#39's Capacity Utilization Analysis report by workshop'
+      TabOrder = 1
+    end
+    object of03: TCheckBox
+      Left = 8
+      Top = 40
+      Width = 305
+      Height = 17
+      Caption = 'QN Reschedule && Transfer Dashboard'
+      TabOrder = 2
+    end
+    object of04: TCheckBox
+      Left = 336
+      Top = 40
+      Width = 241
+      Height = 17
+      Caption = 'QN Split Conduct Dashboard'
+      TabOrder = 3
+    end
+    object of05: TCheckBox
+      Left = 8
+      Top = 56
+      Width = 265
+      Height = 17
+      Caption = 'QN/DSQN SKU exchange Dashboard'
+      TabOrder = 4
+    end
+    object of06: TCheckBox
+      Left = 336
+      Top = 56
+      Width = 369
+      Height = 17
+      Caption = '6. PDN Summary Dashboard by WO (Appoint Clr) [Weekly Dashboard]'
+      TabOrder = 5
+    end
+  end
+  object opt5: TCheckBox
+    Left = 24
+    Top = 408
+    Width = 177
+    Height = 17
+    Caption = 'Others (By Workshop): - '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    TabOrder = 12
+    OnClick = opt5Click
+  end
+  object GroupBox5: TGroupBox
+    Left = 24
+    Top = 424
+    Width = 721
+    Height = 49
+    TabOrder = 13
+    object ow01: TCheckBox
+      Left = 8
+      Top = 8
+      Width = 553
+      Height = 17
+      Caption = 
+        '1. Workshop'#39's Line opt efficiency Analysis report by line (incl.' +
+        ' Def NoT, On-std NoT, CsT and Overall)'
+      TabOrder = 0
+    end
+    object ow02: TCheckBox
+      Left = 8
+      Top = 24
+      Width = 553
+      Height = 17
+      Caption = '2. Workshop'#39's Capacity Utilization Analysis report by line'
+      TabOrder = 1
+    end
+  end
+  object opt6: TCheckBox
+    Left = 24
+    Top = 480
+    Width = 145
+    Height = 17
+    Caption = 'Misc: - '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    TabOrder = 14
+    OnClick = opt6Click
+  end
+  object GroupBox6: TGroupBox
+    Left = 24
+    Top = 496
+    Width = 721
+    Height = 33
+    TabOrder = 15
+    object mo01: TCheckBox
+      Left = 8
+      Top = 8
+      Width = 241
+      Height = 17
+      Caption = '1. Flags Explanation of Daily Output GAI'
+      TabOrder = 0
+    end
+    object mo02: TCheckBox
+      Left = 304
+      Top = 8
+      Width = 129
+      Height = 17
+      Caption = '2. Glossary'
+      TabOrder = 1
+    end
+    object mo03: TCheckBox
+      Left = 456
+      Top = 8
+      Width = 129
+      Height = 17
+      Caption = '3. AQL Flow Setup'
+      TabOrder = 2
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 24
+    Top = 536
+    Width = 81
+    Height = 25
+    Caption = 'Preview'
+    TabOrder = 16
+    OnClick = BitBtn1Click
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+      00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+      8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+      8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+      8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+      03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+      03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+      33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+      33333337FFFF7733333333300000033333333337777773333333}
+    NumGlyphs = 2
+  end
+  object BitBtn2: TBitBtn
+    Left = 104
+    Top = 536
+    Width = 81
+    Height = 25
+    Caption = 'Exit'
+    TabOrder = 17
+    Kind = bkClose
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 24
+    Top = 65529
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 56
+    Top = 65529
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 88
+    Top = 65529
+  end
+  object ClientDataSet2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 120
+    Top = 65529
+  end
+  object DataSet2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    Parameters = <>
+    Left = 152
+    Top = 65528
+  end
+end

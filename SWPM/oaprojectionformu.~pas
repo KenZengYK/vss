@@ -1,0 +1,1037 @@
+unit oaprojectionformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, GridsEh, DBGridEh, ExtCtrls, ComCtrls, Spin, DB,
+  DBClient, Buttons, ImgList, ppProd, ppClass, ppReport, ppComm, ppRelatv,
+  ppDB, ppDBPipe, ppViewr, Txcomp, ppPrnabl, ppCtrls, ppBands, ppCache,
+  ppVar, ppStrtch, ppSubRpt;
+
+type
+  Tfrmoaprojection = class(TForm)
+    Panel1: TPanel;
+    TreeView1: TTreeView;
+    Panel2: TPanel;
+    Splitter1: TSplitter;
+    DBGridEh1: TDBGridEh;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    SpinEdit1: TSpinEdit;
+    ClientDataSet2: TClientDataSet;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DataSource1: TDataSource;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    ImageList1: TImageList;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppShape1: TppShape;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    x0002: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppSummaryBand1: TppSummaryBand;
+    ppLabel12: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    ppDBCalc3: TppDBCalc;
+    ppDBCalc4: TppDBCalc;
+    fty001: TppLabel;
+    ppLabel13: TppLabel;
+    cust001: TppLabel;
+    ppLabel14: TppLabel;
+    yr001: TppLabel;
+    ppLabel15: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel16: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    BitBtn4: TBitBtn;
+    SpinEdit2: TSpinEdit;
+    Label4: TLabel;
+    SpinEdit3: TSpinEdit;
+    x0001: TppLabel;
+    wk001: TppLabel;
+    ppLabel36: TppLabel;
+    wk002: TppLabel;
+    p001: TppLabel;
+    p002: TppLabel;
+    p003: TppLabel;
+    ppLabel17: TppLabel;
+    BitBtn5: TBitBtn;
+    Query4: TClientDataSet;
+    DataSource2: TDataSource;
+    ppDBPipeline2: TppDBPipeline;
+    ppReport2: TppReport;
+    ppHeaderBand2: TppHeaderBand;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppShape2: TppShape;
+    x0006: TppLabel;
+    ppLine3: TppLine;
+    fty002: TppLabel;
+    ppLabel30: TppLabel;
+    cust002: TppLabel;
+    ppLabel32: TppLabel;
+    yr002: TppLabel;
+    ppLabel34: TppLabel;
+    ppSystemVariable3: TppSystemVariable;
+    ppLabel37: TppLabel;
+    ppSystemVariable4: TppSystemVariable;
+    x0005: TppLabel;
+    wk0001: TppLabel;
+    ppLabel40: TppLabel;
+    wk0002: TppLabel;
+    ppDetailBand2: TppDetailBand;
+    ppDBText12: TppDBText;
+    ppFooterBand2: TppFooterBand;
+    ppSummaryBand2: TppSummaryBand;
+    ppLabel42: TppLabel;
+    ppLabel46: TppLabel;
+    ppLine5: TppLine;
+    c001: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel47: TppLabel;
+    ppLabel48: TppLabel;
+    ppLine4: TppLine;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppDBText23: TppDBText;
+    ppDBText24: TppDBText;
+    ppDBText25: TppDBText;
+    ppLabel55: TppLabel;
+    ppLabel56: TppLabel;
+    ppLabel57: TppLabel;
+    ppLabel58: TppLabel;
+    ppDBText26: TppDBText;
+    ppDBText27: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    c002: TppLabel;
+    c003: TppLabel;
+    c004: TppLabel;
+    c005: TppLabel;
+    ppDBCalc5: TppDBCalc;
+    ppDBCalc6: TppDBCalc;
+    ppDBCalc7: TppDBCalc;
+    ppDBCalc8: TppDBCalc;
+    ppDBCalc9: TppDBCalc;
+    ppDBCalc10: TppDBCalc;
+    ppDBCalc11: TppDBCalc;
+    ppDBCalc12: TppDBCalc;
+    ppDBCalc13: TppDBCalc;
+    ppDBCalc14: TppDBCalc;
+    ppDBCalc15: TppDBCalc;
+    ppDBCalc16: TppDBCalc;
+    ppDBCalc17: TppDBCalc;
+    ppDBCalc18: TppDBCalc;
+    ppDBCalc19: TppDBCalc;
+    ppDBCalc20: TppDBCalc;
+    ppDBCalc21: TppDBCalc;
+    ppDBCalc22: TppDBCalc;
+    ppDBCalc23: TppDBCalc;
+    ppDBCalc24: TppDBCalc;
+    ppLine13: TppLine;
+    x001: TppLabel;
+    x002: TppLabel;
+    x003: TppLabel;
+    x004: TppLabel;
+    x005: TppLabel;
+    x006: TppLabel;
+    x007: TppLabel;
+    x008: TppLabel;
+    x009: TppLabel;
+    x010: TppLabel;
+    x011: TppLabel;
+    x012: TppLabel;
+    x013: TppLabel;
+    x014: TppLabel;
+    x015: TppLabel;
+    x016: TppLabel;
+    x017: TppLabel;
+    x018: TppLabel;
+    x019: TppLabel;
+    x020: TppLabel;
+    ppLabel29: TppLabel;
+    ppLine15: TppLine;
+    ppLabel31: TppLabel;
+    ppLabel33: TppLabel;
+    ppLabel39: TppLabel;
+    x0003: TppDBText;
+    x0004: TppDBText;
+    SpinEdit4: TSpinEdit;
+    Label6: TLabel;
+    SpinEdit5: TSpinEdit;
+    xh1: TRadioButton;
+    xh2: TRadioButton;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    Query5: TClientDataSet;
+    DataSource3: TDataSource;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand3: TppDetailBand;
+    ppSummaryBand3: TppSummaryBand;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppHeaderBand3: TppHeaderBand;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText32: TppDBText;
+    ppDBText33: TppDBText;
+    ppDBText34: TppDBText;
+    ppDBText35: TppDBText;
+    ppDBText36: TppDBText;
+    ppDBText37: TppDBText;
+    ppDBText38: TppDBText;
+    ppDBText39: TppDBText;
+    ppDBText40: TppDBText;
+    ppDBText41: TppDBText;
+    ppDBText42: TppDBText;
+    ppDBText43: TppDBText;
+    ppDBText44: TppDBText;
+    ppDBText45: TppDBText;
+    ppDBText46: TppDBText;
+    ppDBCalc25: TppDBCalc;
+    ppDBCalc26: TppDBCalc;
+    ppDBCalc27: TppDBCalc;
+    ppDBCalc28: TppDBCalc;
+    ppDBCalc29: TppDBCalc;
+    ppDBCalc30: TppDBCalc;
+    ppDBCalc31: TppDBCalc;
+    ppDBCalc32: TppDBCalc;
+    ppDBCalc33: TppDBCalc;
+    ppDBCalc34: TppDBCalc;
+    ppDBCalc35: TppDBCalc;
+    ppDBCalc36: TppDBCalc;
+    ppDBCalc37: TppDBCalc;
+    ppDBCalc38: TppDBCalc;
+    ppDBCalc39: TppDBCalc;
+    ppDBCalc40: TppDBCalc;
+    ppDBCalc41: TppDBCalc;
+    x021: TppLabel;
+    x022: TppLabel;
+    x023: TppLabel;
+    x024: TppLabel;
+    x025: TppLabel;
+    x026: TppLabel;
+    x027: TppLabel;
+    x028: TppLabel;
+    x029: TppLabel;
+    x030: TppLabel;
+    x031: TppLabel;
+    x032: TppLabel;
+    x033: TppLabel;
+    x034: TppLabel;
+    x035: TppLabel;
+    x036: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppLabel35: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel41: TppLabel;
+    ppLabel43: TppLabel;
+    ppLabel44: TppLabel;
+    ppLabel45: TppLabel;
+    ppShape3: TppShape;
+    x0008: TppLabel;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    c006: TppLabel;
+    ppLabel50: TppLabel;
+    ppLabel51: TppLabel;
+    ppLabel52: TppLabel;
+    ppLabel53: TppLabel;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine14: TppLine;
+    ppLine16: TppLine;
+    ppLabel54: TppLabel;
+    ppLabel59: TppLabel;
+    ppLabel60: TppLabel;
+    c007: TppLabel;
+    c008: TppLabel;
+    c009: TppLabel;
+    x0007: TppLabel;
+    ppLabel65: TppLabel;
+    ppLabel66: TppLabel;
+    ppLabel67: TppLabel;
+    ppLabel68: TppLabel;
+    ppLabel69: TppLabel;
+    ppLabel70: TppLabel;
+    ppLabel71: TppLabel;
+    ppLabel72: TppLabel;
+    ppLabel73: TppLabel;
+    ppLabel74: TppLabel;
+    ppLabel75: TppLabel;
+    ppLabel76: TppLabel;
+    ppLabel77: TppLabel;
+    ppDBText47: TppDBText;
+    ppLine17: TppLine;
+    ppLabel49: TppLabel;
+    ppLabel61: TppLabel;
+    d037: TppLabel;
+    d038: TppLabel;
+    d039: TppLabel;
+    s037: TppLabel;
+    s038: TppLabel;
+    s039: TppLabel;
+    x037: TppLabel;
+    x038: TppLabel;
+    x039: TppLabel;
+    ppLine18: TppLine;
+    c010: TppLabel;
+    ppLabel62: TppLabel;
+    ppLabel63: TppLabel;
+    ppLabel64: TppLabel;
+    ppLabel78: TppLabel;
+    ppDBText48: TppDBText;
+    ppDBText49: TppDBText;
+    ppDBText50: TppDBText;
+    ppDBText51: TppDBText;
+    ppDBCalc42: TppDBCalc;
+    ppDBCalc43: TppDBCalc;
+    ppDBCalc44: TppDBCalc;
+    ppDBCalc45: TppDBCalc;
+    x040: TppLabel;
+    x041: TppLabel;
+    x042: TppLabel;
+    x043: TppLabel;
+    ROQuery1: TClientDataSet;
+    procedure TreeView1Change(Sender: TObject; Node: TTreeNode);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure Query1QtyChange(Sender: TField);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure SpinEdit2Change(Sender: TObject);
+    procedure ppSummaryBand1BeforePrint(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure ppReport2PreviewFormCreate(Sender: TObject);
+    procedure ppGroupFooterBand1BeforePrint(Sender: TObject);
+    procedure ppGroupFooterBand2BeforePrint(Sender: TObject);
+    procedure ppDetailBand3BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure show_data;
+    procedure show_data1(const tm: tdatetime);
+  end;
+
+var
+  frmoaprojection: Tfrmoaprojection;
+
+implementation
+
+uses mainformu, newcapformu;
+
+{$R *.dfm}
+
+procedure Tfrmoaprojection.TreeView1Change(Sender: TObject;
+  Node: TTreeNode);
+begin
+  if treeview1.Selected<>nil then begin
+    if treeview1.Selected.Level=1 then begin
+      with ROQuery1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        commandtext:='execute procedure sp_gen_oacap(:x1,:x2,:x3)';
+        params[0].asstring:=combobox1.text;
+        params[1].asstring:=treeview1.Selected.text;
+        params[2].asinteger:=spinedit1.value;
+        execute;
+      end;
+    end;
+  end;
+
+  show_data;
+end;
+
+procedure Tfrmoaprojection.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmoaprojection:=nil;
+end;
+
+procedure Tfrmoaprojection.ComboBox1Change(Sender: TObject);
+var
+  tn1,tn2:TTreeNode;
+begin
+  if combobox1.text>'' then begin
+    treeview1.Items.Clear;
+    tn1:=treeview1.Items.add(nil,'ALL');
+    tn1.ImageIndex:=0;
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='select distinct pgrp as cust from cust_exfty where tplant='''+combobox1.text+''' and act=1';
+      //commandtext:=commandtext+' union select cust from tbl_sall where tplant='''+combobox1.text+'''';
+      open;
+      first;
+      while not eof do begin
+        tn2:=treeview1.Items.AddChild(tn1,fieldbyname('cust').value);
+        tn2.ImageIndex:=1;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+    //tn2:=treeview1.Items.AddChild(tn1,'SALL');
+    //tn2.ImageIndex:=1;
+    treeview1.SetFocus;
+    treeview1.FullExpand;
+    treeview1.Selected:=treeview1.Items.GetFirstNode;
+  end;
+end;
+
+procedure Tfrmoaprojection.FormShow(Sender: TObject);
+begin
+  combobox1.OnChange(self);
+end;
+
+procedure Tfrmoaprojection.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('bqty').OnChange:=query1qtychange;
+  query1.fieldbyname('kqty').OnChange:=query1qtychange;
+  query1.fieldbyname('uqty').OnChange:=query1qtychange;
+  query1.fieldbyname('buprc').OnChange:=query1qtychange;
+  query1.fieldbyname('kuprc').OnChange:=query1qtychange;
+  query1.fieldbyname('uuprc').OnChange:=query1qtychange;
+end;
+
+procedure Tfrmoaprojection.Query1QtyChange(Sender: TField);
+var
+  q1,q2,q3:integer;
+  u1,u2,u3:double;
+begin
+  if not query1.fieldbyname('bqty').isnull then
+  q1:=query1.fieldbyname('bqty').value else q1:=0;
+  if not query1.fieldbyname('kqty').isnull then
+  q2:=query1.fieldbyname('kqty').value else q2:=0;
+  if not query1.fieldbyname('uqty').isnull then
+  q3:=query1.fieldbyname('uqty').value else q3:=0;
+  query1.fieldbyname('tqty').value:=q1+q2+q3;
+  if not query1.fieldbyname('buprc').isnull then
+  u1:=query1.fieldbyname('buprc').value else u1:=0;
+  if not query1.fieldbyname('kuprc').isnull then
+  u2:=query1.fieldbyname('kuprc').value else u2:=0;
+  if not query1.fieldbyname('uuprc').isnull then
+  u3:=query1.fieldbyname('uuprc').value else u3:=0;
+  query1.fieldbyname('tprc').value:=q1*u1+q2*u2+q3*u3;
+end;
+
+procedure Tfrmoaprojection.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftfloat,'x6',ptinput);
+      params.createparam(ftfloat,'x7',ptinput);
+      params.createparam(ftinteger,'x8',ptinput);
+      params.createparam(ftinteger,'x9',ptinput);
+      params.createparam(ftinteger,'x10',ptinput);
+      params.createparam(ftfloat,'x11',ptinput);
+      params.createparam(ftfloat,'x12',ptinput);
+      params.createparam(ftfloat,'x13',ptinput);
+      params.createparam(ftinteger,'x14',ptinput);
+      params.createparam(ftinteger,'x15',ptinput);
+      params.createparam(ftinteger,'x16',ptinput);
+      params.createparam(ftinteger,'x17',ptinput);
+      params.createparam(ftinteger,'x18',ptinput);
+      params.createparam(ftinteger,'x19',ptinput);
+      params.createparam(ftfloat,'x20',ptinput);
+      params.createparam(ftfloat,'x21',ptinput);
+      params.createparam(ftfloat,'x22',ptinput);
+      params.createparam(ftfloat,'x23',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      commandtext:='update tbl_cap_oa set bqty=:x1,kqty=:x2,uqty=:x3,tqty=:x4,mr1=:x6,mr2=:x7,'
+                  +'bline=:x8,kline=:x9,uline=:x10,bsmv=:x11,ksmv=:x12,usmv=:x13,styles=:x14,'
+                  +'wos=:x15,styles1=:x16,wos1=:x17,styles2=:x18,wos2=:x19,buprc=:x20,kuprc=:x21,'
+                  +'uuprc=:x22,tprc=:x23 where seq=:x5';
+      if not query1.fieldbyname('bqty').isnull then
+      params[0].asinteger:=query1.fieldbyname('bqty').value
+      else params[0].asinteger:=0;
+      if not query1.fieldbyname('kqty').isnull then
+      params[1].asinteger:=query1.fieldbyname('kqty').value
+      else params[1].asinteger:=0;
+      if not query1.fieldbyname('uqty').isnull then
+      params[2].asinteger:=query1.fieldbyname('uqty').value
+      else params[2].asinteger:=0;
+      if not query1.fieldbyname('tqty').isnull then
+      params[3].asinteger:=query1.fieldbyname('tqty').value
+      else params[3].asinteger:=0;
+      if not query1.fieldbyname('mr1').isnull then
+      params[4].asfloat:=query1.fieldbyname('mr1').value
+      else params[4].asfloat:=0;
+      if not query1.fieldbyname('mr2').isnull then
+      params[5].asfloat:=query1.fieldbyname('mr2').value
+      else params[5].asfloat:=0;
+      if not query1.fieldbyname('bline').isnull then
+      params[6].asinteger:=query1.fieldbyname('bline').value
+      else params[6].asinteger:=0;
+      if not query1.fieldbyname('kline').isnull then
+      params[7].asinteger:=query1.fieldbyname('kline').value
+      else params[7].asinteger:=0;
+      if not query1.fieldbyname('uline').isnull then
+      params[8].asinteger:=query1.fieldbyname('uline').value
+      else params[8].asinteger:=0;
+      if not query1.fieldbyname('bsmv').isnull then
+      params[9].asfloat:=query1.fieldbyname('bsmv').value
+      else params[9].asfloat:=0;
+      if not query1.fieldbyname('ksmv').isnull then
+      params[10].asfloat:=query1.fieldbyname('ksmv').value
+      else params[10].asfloat:=0;
+      if not query1.fieldbyname('usmv').isnull then
+      params[11].asfloat:=query1.fieldbyname('usmv').value
+      else params[11].asfloat:=0;
+      if not query1.fieldbyname('styles').isnull then
+      params[12].asinteger:=query1.fieldbyname('styles').value
+      else params[12].asinteger:=0;
+      if not query1.fieldbyname('wos').isnull then
+      params[13].asinteger:=query1.fieldbyname('wos').value
+      else params[13].asinteger:=0;
+      if not query1.fieldbyname('styles1').isnull then
+      params[14].asinteger:=query1.fieldbyname('styles1').value
+      else params[14].asinteger:=0;
+      if not query1.fieldbyname('wos1').isnull then
+      params[15].asinteger:=query1.fieldbyname('wos1').value
+      else params[15].asinteger:=0;
+      if not query1.fieldbyname('styles2').isnull then
+      params[16].asinteger:=query1.fieldbyname('styles2').value
+      else params[16].asinteger:=0;
+      if not query1.fieldbyname('wos2').isnull then
+      params[17].asinteger:=query1.fieldbyname('wos2').value
+      else params[17].asinteger:=0;
+      if not query1.fieldbyname('buprc').isnull then
+      params[18].asfloat:=query1.fieldbyname('buprc').value
+      else params[18].asfloat:=0;
+      if not query1.fieldbyname('kuprc').isnull then
+      params[19].asfloat:=query1.fieldbyname('kuprc').value
+      else params[19].asfloat:=0;
+      if not query1.fieldbyname('uuprc').isnull then
+      params[20].asfloat:=query1.fieldbyname('uuprc').value
+      else params[20].asfloat:=0;
+      if not query1.fieldbyname('tprc').isnull then
+      params[21].asfloat:=query1.fieldbyname('tprc').value
+      else params[21].asfloat:=0;
+      params[22].asinteger:=query1.fieldbyname('seq').value;
+      execute;
+    end;
+  end;
+end;
+
+procedure Tfrmoaprojection.BitBtn1Click(Sender: TObject);
+begin
+  if query1.State=dsedit then query1.post;
+end;
+
+procedure Tfrmoaprojection.BitBtn2Click(Sender: TObject);
+begin
+  with ROQuery1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='execute procedure sp_oa_cap_ver(:x1)';
+    params[0].asdatetime:=now;
+    execute;
+  end;
+  showmessage('OK!');
+end;
+
+procedure Tfrmoaprojection.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmoaprojection.BitBtn3Click(Sender: TObject);
+var
+  tm:tdatetime;
+begin
+  bitbtn1click(self);
+  if not query1.fieldbyname('tplant').isnull then begin
+    if xh1.Checked then begin
+      ppDBPipeLine1.DataSource:=DataSource1;
+      fty001.Caption:=query1.fieldbyname('tplant').value;
+      cust001.Caption:=query1.fieldbyname('cust').value;
+      yr001.Caption:=inttostr(query1.fieldbyname('yr').value);
+      wk001.Caption:=inttostr(spinedit2.Value);
+      wk002.Caption:=inttostr(spinedit3.Value);
+      x0001.Caption:='Week from ';
+      x0002.Caption:='Week ';
+      x0003.Visible:=true;
+      x0004.Visible:=true;
+      ppReport1.Print;
+    end else if xh2.Checked then begin
+      show_data1(tm);
+      ppDBPipeLine1.DataSource:=DataSource3;
+      fty001.Caption:=query1.fieldbyname('tplant').value;
+      cust001.Caption:=query1.fieldbyname('cust').value;
+      yr001.Caption:=inttostr(query1.fieldbyname('yr').value);
+      wk001.Caption:=inttostr(spinedit4.Value);
+      wk002.Caption:=inttostr(spinedit5.Value);
+      x0001.Caption:='Month from ';
+      x0002.Caption:='Month ';
+      x0003.Visible:=false;
+      x0004.Visible:=false;
+      ppReport1.Print;
+    end;
+  end;
+end;
+
+procedure Tfrmoaprojection.show_data;
+begin
+  if treeview1.Selected<>nil then begin
+    if treeview1.Selected.Level=1 then begin
+      with query1 do begin
+        close;
+        params.clear;
+        commandtext:='select * from tbl_cap_oa where tplant='''+combobox1.text+''' and cust='''+treeview1.Selected.Text+''' and yr='+inttostr(spinedit1.Value);
+        if xh1.Checked then
+        commandtext:=commandtext+' and wk>='+inttostr(spinedit2.value)+' and wk<='+inttostr(spinedit3.value)
+        else if xh2.Checked then
+        commandtext:=commandtext+' and ((m1>='+inttostr(spinedit4.value)+' and m1<='+inttostr(spinedit5.value)+') or (m2>='+inttostr(spinedit4.Value)+' and m2<='+inttostr(spinedit5.Value)+'))';
+        open;
+      end;
+      dbgrideh1.ReadOnly:=false;
+    end else if treeview1.Selected.Level=0 then begin
+      with query1 do begin
+        close;
+        params.clear;
+        commandtext:='select distinct tplant,''ALL'' as cust,yr,wk,sum(bqty) as bqty,sum(kqty) as kqty,sum(uqty) as uqty,sum(tqty) as tqty,'
+                    +'0.00 as buprc,0.00 as kuprc,0.00 as uuprc,0.00 as tprc from tbl_cap_oa where tplant='''+combobox1.text+''' and yr='+inttostr(spinedit1.value);
+        if xh1.Checked then
+        commandtext:=commandtext+' and wk>='+inttostr(spinedit2.value)+' and wk<='+inttostr(spinedit3.value)
+        else if xh2.Checked then
+        //commandtext:=commandtext+' and m1>='+inttostr(spinedit3.value)+' and m1<='+inttostr(spinedit4.value)
+        commandtext:=commandtext+' and ((m1>='+inttostr(spinedit4.value)+' and m1<='+inttostr(spinedit5.value)+') or (m2>='+inttostr(spinedit4.Value)+' and m2<='+inttostr(spinedit5.Value)+'))';
+        commandtext:=commandtext+' group by tplant,yr,wk';
+        open;
+      end;
+      dbgrideh1.ReadOnly:=true;
+    end;
+  end;
+end;
+
+procedure Tfrmoaprojection.SpinEdit2Change(Sender: TObject);
+begin
+  show_data;
+end;
+
+procedure Tfrmoaprojection.ppSummaryBand1BeforePrint(Sender: TObject);
+begin
+  if ppdbcalc4.Value>0 then begin
+    p001.Caption:=formatfloat('0.00 %',ppdbcalc1.Value*100.0/ppdbcalc4.Value);
+    p002.Caption:=formatfloat('0.00 %',ppdbcalc2.Value*100.0/ppdbcalc4.Value);
+    p003.Caption:=formatfloat('0.00 %',ppdbcalc3.Value*100.0/ppdbcalc4.Value);
+  end else begin
+    p001.Caption:='0.00 %';
+    p002.Caption:='0.00 %';
+    p003.Caption:='0.00 %';
+  end;
+end;
+
+procedure Tfrmoaprojection.BitBtn4Click(Sender: TObject);
+var
+  tm:tdatetime;
+begin
+  screen.Cursor:=crSQLWait;
+  tm:=now;
+  try
+  if treeview1.Selected<>nil then begin
+    if treeview1.Selected.Level=0 then begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        params.createparam(ftinteger,'x4',ptinput);
+        params.createparam(ftinteger,'x5',ptinput);
+        if xh1.Checked then begin
+          commandtext:='execute procedure sp_gen_cap_oatmp(:x1,:x2,:x3,:x4,:x5)';
+          params[0].asdatetime:=tm;
+          params[1].asstring:=combobox1.text;
+          params[2].asinteger:=spinedit1.Value;
+          params[3].asinteger:=spinedit2.Value;
+          params[4].asinteger:=spinedit3.Value;
+        end else if xh2.Checked then begin
+          commandtext:='execute procedure sp_gen_cap_oatmp_m(:x1,:x2,:x3,:x4,:x5)';
+          params[0].asdatetime:=tm;
+          params[1].asstring:=combobox1.text;
+          params[2].asinteger:=spinedit1.Value;
+          params[3].asinteger:=spinedit4.Value;
+          params[4].asinteger:=spinedit5.Value;
+        end;
+        execute;
+      end;
+      with query4 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        commandtext:='select * from tbl_cap_oa_tmp02 where tm=:x1';
+        params[0].asdatetime:=tm;
+        open;
+        if not fieldbyname('tm').isnull then begin
+          fty002.Caption:=combobox1.text;
+          cust002.Caption:='ALL';
+          yr002.Caption:=inttostr(spinedit1.Value);
+          if xh1.Checked then begin
+            wk0001.Caption:=inttostr(spinedit2.Value);
+            wk0002.Caption:=inttostr(spinedit3.Value);
+            x0005.Caption:='Week from ';
+            x0006.Caption:='Week ';
+            x0007.Caption:='Weekly ';
+            x0008.Caption:='Week ';
+          end else if xh2.Checked then begin
+            wk0001.Caption:=inttostr(spinedit4.Value);
+            wk0002.Caption:=inttostr(spinedit5.Value);
+            x0005.Caption:='Month from ';
+            x0006.Caption:='Month ';
+            x0007.Caption:='Monthly ';
+            x0008.Caption:='Month ';
+          end;
+          with query3 do begin
+            close;
+            params.clear;
+            params.createparam(ftdatetime,'x1',ptinput);
+            commandtext:='select * from tbl_cap_oa_tmp01 where tm=:x1';
+            params[0].asdatetime:=tm;
+            open;
+            if not fieldbyname('c1').isnull then c001.Caption:=fieldbyname('c1').value else c001.Caption:='';
+            if not fieldbyname('c2').isnull then c002.Caption:=fieldbyname('c2').value else c002.Caption:='';
+            if not fieldbyname('c3').isnull then c003.Caption:=fieldbyname('c3').value else c003.Caption:='';
+            if not fieldbyname('c4').isnull then c004.Caption:=fieldbyname('c4').value else c004.Caption:='';
+            if not fieldbyname('c5').isnull then c005.Caption:=fieldbyname('c5').value else c005.Caption:='';
+            if not fieldbyname('c7').isnull then c006.Caption:=fieldbyname('c7').value else c006.Caption:='';
+            if not fieldbyname('c8').isnull then c007.Caption:=fieldbyname('c8').value else c007.Caption:='';
+            if not fieldbyname('c9').isnull then c008.Caption:=fieldbyname('c9').value else c008.Caption:='';
+            if not fieldbyname('c10').isnull then c009.Caption:=fieldbyname('c10').value else c009.Caption:='';
+            if not fieldbyname('c6').isnull then c010.Caption:=fieldbyname('c6').value else c010.Caption:='';
+          end;
+          ppReport2.Print;
+        end;
+      end;
+    end;
+  end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmoaprojection.ppReport2PreviewFormCreate(Sender: TObject);
+begin
+  ppReport2.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport2.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmoaprojection.show_data1(const tm: tdatetime);
+begin
+  if treeview1.Selected<>nil then begin
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      params.createparam(ftinteger,'x6',ptinput);
+      commandtext:='execute procedure sp_cap_genoa_m(:x1,:x2,:x3,:x4,:x5,:x6)';
+      params[0].asdatetime:=tm;
+      params[1].asstring:=combobox1.text;
+      if treeview1.Selected.Level=0 then params[2].asstring:=''
+      else params[2].asstring:=treeview1.Selected.Text;
+      params[3].asinteger:=spinedit1.Value;
+      params[4].asinteger:=spinedit4.Value;
+      params[5].asinteger:=spinedit5.Value;
+      execute;
+    end;
+    if treeview1.Selected.Level=1 then begin
+      with query5 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        commandtext:='select * from tbl_cap_oa_m where tplant='''+combobox1.text+''' and cust='''+treeview1.Selected.Text+''' and yr='+inttostr(spinedit1.Value)+' and tm=:x1';
+        if xh2.Checked then
+        commandtext:=commandtext+' and wk>='+inttostr(spinedit4.value)+' and wk<='+inttostr(spinedit5.value);
+        params[0].asdatetime:=tm;
+        open;
+      end;
+    end else if treeview1.Selected.Level=0 then begin
+      with query5 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        commandtext:='select distinct tplant,''ALL'' as cust,yr,wk,sum(bqty) as bqty,sum(kqty) as kqty,sum(uqty) as uqty,sum(tqty) as tqty '
+                    +'from tbl_cap_oa_m where tplant='''+combobox1.text+''' and yr='+inttostr(spinedit1.value)+' and tm=:x1';
+        if xh2.Checked then
+        commandtext:=commandtext+' and wk>='+inttostr(spinedit4.value)+' and wk<='+inttostr(spinedit5.value);
+        commandtext:=commandtext+' group by tplant,yr,wk';
+        params[0].asdatetime:=tm;
+        open;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmoaprojection.ppGroupFooterBand1BeforePrint(Sender: TObject);
+var
+  xvalue:double;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select sum(ttl) as xvalue from tbl_cap_oa_tmp02 where tm=:x1';
+    params[0].asdatetime:=query4.fieldbyname('tm').value;
+    open;
+    if not fieldbyname('xvalue').IsNull then xvalue:=fieldbyname('xvalue').value
+    else xvalue:=0;
+  end;
+  if xValue>0 then begin
+    x001.Caption:=formatfloat('0.00',ppdbcalc5.Value*100.0/xvalue);
+    x002.Caption:=formatfloat('0.00',ppdbcalc6.Value*100.0/xvalue);
+    x003.Caption:=formatfloat('0.00',ppdbcalc7.Value*100.0/xvalue);
+    x004.Caption:=formatfloat('0.00',ppdbcalc8.Value*100.0/xvalue);
+    x005.Caption:=formatfloat('0.00',ppdbcalc9.Value*100.0/xvalue);
+    x006.Caption:=formatfloat('0.00',ppdbcalc10.Value*100.0/xvalue);
+    x007.Caption:=formatfloat('0.00',ppdbcalc11.Value*100.0/xvalue);
+    x008.Caption:=formatfloat('0.00',ppdbcalc12.Value*100.0/xvalue);
+    x009.Caption:=formatfloat('0.00',ppdbcalc13.Value*100.0/xvalue);
+    x010.Caption:=formatfloat('0.00',ppdbcalc14.Value*100.0/xvalue);
+    x011.Caption:=formatfloat('0.00',ppdbcalc15.Value*100.0/xvalue);
+    x012.Caption:=formatfloat('0.00',ppdbcalc16.Value*100.0/xvalue);
+    x013.Caption:=formatfloat('0.00',ppdbcalc17.Value*100.0/xvalue);
+    x014.Caption:=formatfloat('0.00',ppdbcalc18.Value*100.0/xvalue);
+    x015.Caption:=formatfloat('0.00',ppdbcalc19.Value*100.0/xvalue);
+    x016.Caption:=formatfloat('0.00',ppdbcalc20.Value*100.0/xvalue);
+    x017.Caption:=formatfloat('0.00',ppdbcalc21.Value*100.0/xvalue);
+    x018.Caption:=formatfloat('0.00',ppdbcalc22.Value*100.0/xvalue);
+    x019.Caption:=formatfloat('0.00',ppdbcalc23.Value*100.0/xvalue);
+    x020.Caption:=formatfloat('0.00',ppdbcalc24.Value*100.0/xvalue);
+    x040.Caption:=formatfloat('0.00',ppdbcalc42.Value*100.0/xvalue);
+    x041.Caption:=formatfloat('0.00',ppdbcalc43.Value*100.0/xvalue);
+    x042.Caption:=formatfloat('0.00',ppdbcalc44.Value*100.0/xvalue);
+    x043.Caption:=formatfloat('0.00',ppdbcalc45.Value*100.0/xvalue);
+    {
+    x021.Caption:=formatfloat('0.00',ppdbcalc25.Value*100.0/xvalue);
+    x022.Caption:=formatfloat('0.00',ppdbcalc26.Value*100.0/xvalue);
+    x023.Caption:=formatfloat('0.00',ppdbcalc27.Value*100.0/xvalue);
+    x024.Caption:=formatfloat('0.00',ppdbcalc28.Value*100.0/xvalue);
+    x025.Caption:=formatfloat('0.00',ppdbcalc29.Value*100.0/xvalue);
+    x026.Caption:=formatfloat('0.00',ppdbcalc30.Value*100.0/xvalue);
+    x027.Caption:=formatfloat('0.00',ppdbcalc31.Value*100.0/xvalue);
+    x028.Caption:=formatfloat('0.00',ppdbcalc32.Value*100.0/xvalue);
+    x029.Caption:=formatfloat('0.00',ppdbcalc33.Value*100.0/xvalue);
+    x030.Caption:=formatfloat('0.00',ppdbcalc34.Value*100.0/xvalue);
+    x031.Caption:=formatfloat('0.00',ppdbcalc35.Value*100.0/xvalue);
+    x032.Caption:=formatfloat('0.00',ppdbcalc36.Value*100.0/xvalue);
+    x033.Caption:=formatfloat('0.00',ppdbcalc37.Value*100.0/xvalue);
+    x034.Caption:=formatfloat('0.00',ppdbcalc38.Value*100.0/xvalue);
+    x035.Caption:=formatfloat('0.00',ppdbcalc39.Value*100.0/xvalue);
+    x036.Caption:=formatfloat('0.00',ppdbcalc40.Value*100.0/xvalue);
+    }
+  end else begin
+    x001.Caption:='0.00';
+    x002.Caption:='0.00';
+    x003.Caption:='0.00';
+    x004.Caption:='0.00';
+    x005.Caption:='0.00';
+    x006.Caption:='0.00';
+    x007.Caption:='0.00';
+    x008.Caption:='0.00';
+    x009.Caption:='0.00';
+    x010.Caption:='0.00';
+    x011.Caption:='0.00';
+    x012.Caption:='0.00';
+    x013.Caption:='0.00';
+    x014.Caption:='0.00';
+    x015.Caption:='0.00';
+    x016.Caption:='0.00';
+    x017.Caption:='0.00';
+    x018.Caption:='0.00';
+    x019.Caption:='0.00';
+    x020.Caption:='0.00';
+    x040.Caption:='0.00';
+    x041.Caption:='0.00';
+    x042.Caption:='0.00';
+    x043.Caption:='0.00';
+    {
+    x021.Caption:='0.00';
+    x022.Caption:='0.00';
+    x023.Caption:='0.00';
+    x024.Caption:='0.00';
+    x025.Caption:='0.00';
+    x026.Caption:='0.00';
+    x027.Caption:='0.00';
+    x028.Caption:='0.00';
+    x029.Caption:='0.00';
+    x030.Caption:='0.00';
+    x031.Caption:='0.00';
+    x032.Caption:='0.00';
+    x033.Caption:='0.00';
+    x034.Caption:='0.00';
+    x035.Caption:='0.00';
+    x036.Caption:='0.00';
+    }
+  end;
+end;
+
+procedure Tfrmoaprojection.ppGroupFooterBand2BeforePrint(Sender: TObject);
+var
+  xvalue:double;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select sum(ttl) as xvalue,sum(b01+b02+b03+b04+b05+b06+b07+b08+b09+b10) as x1,sum(k01+k02+k03+k04+k05+k06+k07+k08+k09+k10) as x2,'
+                +'sum(u01+u02+u03+u04+u05+u06+u07+u08+u09+u10) as x3 from tbl_cap_oa_tmp02 where tm=:x1';
+    params[0].asdatetime:=query4.fieldbyname('tm').value;
+    open;
+    if not fieldbyname('xvalue').IsNull then xvalue:=fieldbyname('xvalue').value
+    else xvalue:=0;
+    if not fieldbyname('x1').isnull then begin
+      s037.Caption:=fieldbyname('x1').asstring;
+      x037.Caption:=formatfloat('0.00',fieldbyname('x1').value*100.0/xvalue);
+    end else begin
+      s037.Caption:='0';
+      x037.Caption:='0.00';
+    end;
+    if not fieldbyname('x2').isnull then begin
+      s038.Caption:=fieldbyname('x2').asstring;
+      x038.Caption:=formatfloat('0.00',fieldbyname('x2').value*100.0/xvalue);
+    end else begin
+      s038.Caption:='0';
+      x038.Caption:='0.00';
+    end;
+    if not fieldbyname('x3').isnull then begin
+      s039.Caption:=fieldbyname('x3').asstring;
+      x039.Caption:=formatfloat('0.00',fieldbyname('x3').value*100.0/xvalue);
+    end else begin
+      s039.Caption:='0';
+      x039.Caption:='0.00';
+    end;
+  end;
+  if xValue>0 then begin
+    x021.Caption:=formatfloat('0.00',ppdbcalc25.Value*100.0/xvalue);
+    x022.Caption:=formatfloat('0.00',ppdbcalc26.Value*100.0/xvalue);
+    x023.Caption:=formatfloat('0.00',ppdbcalc27.Value*100.0/xvalue);
+    x024.Caption:=formatfloat('0.00',ppdbcalc28.Value*100.0/xvalue);
+    x025.Caption:=formatfloat('0.00',ppdbcalc29.Value*100.0/xvalue);
+    x026.Caption:=formatfloat('0.00',ppdbcalc30.Value*100.0/xvalue);
+    x027.Caption:=formatfloat('0.00',ppdbcalc31.Value*100.0/xvalue);
+    x028.Caption:=formatfloat('0.00',ppdbcalc32.Value*100.0/xvalue);
+    x029.Caption:=formatfloat('0.00',ppdbcalc33.Value*100.0/xvalue);
+    x030.Caption:=formatfloat('0.00',ppdbcalc34.Value*100.0/xvalue);
+    x031.Caption:=formatfloat('0.00',ppdbcalc35.Value*100.0/xvalue);
+    x032.Caption:=formatfloat('0.00',ppdbcalc36.Value*100.0/xvalue);
+    x033.Caption:=formatfloat('0.00',ppdbcalc37.Value*100.0/xvalue);
+    x034.Caption:=formatfloat('0.00',ppdbcalc38.Value*100.0/xvalue);
+    x035.Caption:=formatfloat('0.00',ppdbcalc39.Value*100.0/xvalue);
+    x036.Caption:=formatfloat('0.00',ppdbcalc40.Value*100.0/xvalue);
+  end else begin
+    x021.Caption:='0.00';
+    x022.Caption:='0.00';
+    x023.Caption:='0.00';
+    x024.Caption:='0.00';
+    x025.Caption:='0.00';
+    x026.Caption:='0.00';
+    x027.Caption:='0.00';
+    x028.Caption:='0.00';
+    x029.Caption:='0.00';
+    x030.Caption:='0.00';
+    x031.Caption:='0.00';
+    x032.Caption:='0.00';
+    x033.Caption:='0.00';
+    x034.Caption:='0.00';
+    x035.Caption:='0.00';
+    x036.Caption:='0.00';
+  end;
+end;
+
+procedure Tfrmoaprojection.ppDetailBand3BeforePrint(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='select b01+b02+b03+b04+b05+b06+b07+b08+b09+b10 as x1,k01+k02+k03+k04+k05+k06+k07+k08+k09+k10 as x2,'
+                +'u01+u02+u03+u04+u05+u06+u07+u08+u09+u10 as x3 from tbl_cap_oa_tmp02 where tm=:x1 and wk=:x2';
+    params[0].asdatetime:=query4.fieldbyname('tm').value;
+    params[1].asinteger:=query4.fieldbyname('wk').value;
+    open;
+    if not fieldbyname('x1').IsNull then d037.Caption:=fieldbyname('x1').asstring
+    else d037.Caption:='0';
+    if not fieldbyname('x2').IsNull then d038.Caption:=fieldbyname('x2').asstring
+    else d038.Caption:='0';
+    if not fieldbyname('x3').IsNull then d039.Caption:=fieldbyname('x3').asstring
+    else d039.Caption:='0';
+  end;
+end;
+
+end.

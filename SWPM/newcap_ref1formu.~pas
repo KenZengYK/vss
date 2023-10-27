@@ -1,0 +1,930 @@
+unit newcap_ref1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, ToolEdit, DB, DBClient, ppComm,
+  ppRelatv, ppProd, ppClass, ppReport, myChkBox, ppCtrls, ppPrnabl,
+  ppBands, ppCache, ppViewr, Txcomp;
+
+type
+  Tfrmnewcap_ref1 = class(TForm)
+    xh1: TRadioButton;
+    xh2: TRadioButton;
+    xh3: TRadioButton;
+    xh4: TRadioButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    BitBtn1: TBitBtn;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    DateEdit1: TDateEdit;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    ComboBox1: TComboBox;
+    BitBtn2: TBitBtn;
+    Label14: TLabel;
+    Label15: TLabel;
+    xh5: TRadioButton;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLine1: TppLine;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    fty001: TppLabel;
+    ppLabel3: TppLabel;
+    backdt001: TppLabel;
+    chk001: TmyCheckBox;
+    ppLabel4: TppLabel;
+    lbl1001: TppLabel;
+    lbl1002: TppLabel;
+    chk002: TmyCheckBox;
+    ppLabel5: TppLabel;
+    lbl2001: TppLabel;
+    lbl2002: TppLabel;
+    chk003: TmyCheckBox;
+    ppLabel6: TppLabel;
+    lbl3001: TppLabel;
+    lbl3002: TppLabel;
+    chk004: TmyCheckBox;
+    ppLabel9: TppLabel;
+    lbl4001: TppLabel;
+    lbl4002: TppLabel;
+    chk005: TmyCheckBox;
+    ppLabel7: TppLabel;
+    lbl5001: TppLabel;
+    lbl5002: TppLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure DateEdit1Change(Sender: TObject);
+    procedure DateEdit1AcceptDate(Sender: TObject; var ADate: TDateTime;
+      var Action: Boolean);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_ref1: Tfrmnewcap_ref1;
+
+implementation
+
+uses mainformu, newcapformu, newcap_simftyformu, newcap_pastperfformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_ref1.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_ref1:=nil;
+end;
+
+procedure Tfrmnewcap_ref1.BitBtn1Click(Sender: TObject);
+var
+  s,tplant:string;
+  dt0,dt1:tdatetime;
+  y,m,d:word;
+  ext:string;
+begin
+  screen.Cursor:=crSQLWait;
+  try
+  if combobox1.text<>'KBT' then tplant:=combobox1.text else tplant:='KB';
+  if (xh1.checked) or (xh2.checked) or (xh3.checked) or (xh4.checked) or (xh5.Checked) then begin
+    dt0:=dateedit1.date;
+    decodedate(dt0,y,m,d);
+    if xh1.Checked then begin
+      s:='12';
+      dt1:=encodedate(y-1,m,d);
+    end else if xh2.Checked then begin
+      s:='9';
+      if m>9 then dt1:=encodedate(y,m-9,d)
+      else dt1:=encodedate(y-1,m+3,d);
+    end else if xh3.Checked then begin
+      s:='6';
+      if m>6 then dt1:=encodedate(y,m-6,d)
+      else dt1:=encodedate(y-1,m+6,d);
+    end else if xh4.Checked then begin
+      s:='3';
+      if m>3 then dt1:=encodedate(y,m-3,d)
+      else dt1:=encodedate(y-1,m+9,d);
+    end else if xh5.Checked then begin
+      s:='1';
+      if m>1 then dt1:=encodedate(y,m-1,d)
+      else dt1:=encodedate(y-1,m+11,d);
+    end;
+    {
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftdate,'x4',ptinput);
+      commandtext:='select * from sp_cap_saheff(:x1,:x2,:x3,:x4)';
+      params[0].asstring:=label10.caption;
+      params[1].asstring:=label12.caption;
+      params[2].asdate:=dt0;
+      params[3].asdate:=dt1;
+      open;
+      sah:=fieldbyname('sah').value;
+      eff:=fieldbyname('eff').value;
+    end;
+    }
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='update tbl_cap_date set sel=0 where tplant='''+tplant+'''';
+      execute;
+      close;
+    end;
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      commandtext:='select tplant from tbl_cap_date where tplant=:x1 and stdt=:x2 and m1=:x3';
+      params[0].asstring:=tplant;
+      params[1].asdate:=dateedit1.date;
+      params[2].asinteger:=strtoint(s);
+      open;
+      if not fieldbyname('tplant').isnull then ext:='1' else ext:='0';
+    end;
+    if ext='1' then begin
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        commandtext:='update tbl_cap_date set sel=1 where tplant=:x1 and stdt=:x2 and m1=:x3';
+        params[0].asstring:=tplant;
+        params[1].asdate:=dateedit1.date;
+        params[2].asinteger:=strtoint(s);
+        execute;
+      end;
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        commandtext:='execute procedure sp_cap_updpastrecord_01(:x1)';
+        params[0].asstring:=tplant;
+        execute;
+      end;
+    end else begin
+      with query2 do begin
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.createparam(ftdate,'x3',ptinput);
+        params.createparam(ftstring,'x4',ptinput);
+        commandtext:='insert into tbl_cap_date(stdt,m1,dt1,sel,tplant) values(:x1,:x2,:x3,1,:x4)';
+        params[0].asdate:=dt0;
+        params[1].asinteger:=strtoint(s);
+        params[2].asdate:=dt1;
+        params[3].asstring:=tplant;
+        execute;
+      end;
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        commandtext:='execute procedure sp_cap_updpastrecord(:x1)';
+        params[0].asstring:=tplant;
+        execute;
+      end;
+    end;
+    //frmnewcap_simfty.DateEdit1.Date:=dateedit1.date;
+    //frmnewcap_simfty.Edit1.text:=s;
+  end;
+  frmnewcap_ref1.close;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmnewcap_ref1.DateEdit1Change(Sender: TObject);
+var
+  y,m,d:word;
+  dt0,dt1,dt2,dt3,dt4,dt5:tdatetime;
+  tplant:string;
+begin
+  screen.Cursor:=crSQLWait;
+  try
+  if combobox1.text<>'KBT' then tplant:=combobox1.text else tplant:='KB';
+  if dayofweek(dateedit1.date)>1 then exit;
+  dt0:=dateedit1.date;
+  decodedate(dt0,y,m,d);
+  dt1:=encodedate(y-1,m,d);
+  if m>9 then dt2:=encodedate(y,m-9,d)
+  else dt2:=encodedate(y-1,m+3,d);
+  if m>6 then dt3:=encodedate(y,m-6,d)
+  else dt3:=encodedate(y-1,m+6,d);
+  if m>3 then dt4:=encodedate(y,m-3,d)
+  else dt4:=encodedate(y-1,m+9,d);
+  if m>1 then dt5:=encodedate(y,m-1,d)
+  else dt5:=encodedate(y-1,m+11,d);
+  Label1.Caption:='('+formatdatetime('yy/MM/dd',dt1)+' to '+formatdatetime('yy/MM/dd',dt0)+')';
+  Label2.Caption:='('+formatdatetime('yy/MM/dd',dt2)+' to '+formatdatetime('yy/MM/dd',dt0)+')';
+  Label3.Caption:='('+formatdatetime('yy/MM/dd',dt3)+' to '+formatdatetime('yy/MM/dd',dt0)+')';
+  Label4.Caption:='('+formatdatetime('yy/MM/dd',dt4)+' to '+formatdatetime('yy/MM/dd',dt0)+')';
+  Label14.Caption:='('+formatdatetime('yy/MM/dd',dt5)+' to '+formatdatetime('yy/MM/dd',dt0)+')';
+
+  label5.caption:='';
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt1;
+    open;
+    first;
+    while not eof do begin
+      //label5.caption:='SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value);
+      if label5.Caption>'' then label5.caption:=label5.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else label5.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  label6.caption:='';
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      //label6.caption:='SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value);
+      if label6.Caption>'' then label6.caption:=label6.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else label6.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  label7.caption:='';
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt3;
+    open;
+    first;
+    while not eof do begin
+      //label7.caption:='SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value);
+      if label7.Caption>'' then label7.caption:=label7.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else label7.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  label8.caption:='';
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt4;
+    open;
+    first;
+    while not eof do begin
+      //label8.caption:='SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value);
+      if label8.Caption>'' then label8.caption:=label8.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else label8.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  label15.caption:='';
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt5;
+    open;
+    first;
+    while not eof do begin
+      //label8.caption:='SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value);
+      if label15.Caption>'' then label15.caption:=label15.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else label15.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  {
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff(:x1,:x2,:x3,:x4)';
+    params[0].asstring:=label10.caption;
+    params[1].asstring:=label12.caption;
+    params[2].asdate:=dt0;
+    params[3].asdate:=dt2;
+    open;
+    label6.caption:='SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value);
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff(:x1,:x2,:x3,:x4)';
+    params[0].asstring:=label10.caption;
+    params[1].asstring:=label12.caption;
+    params[2].asdate:=dt0;
+    params[3].asdate:=dt3;
+    open;
+    label7.caption:='SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value);
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff(:x1,:x2,:x3,:x4)';
+    params[0].asstring:=label10.caption;
+    params[1].asstring:=label12.caption;
+    params[2].asdate:=dt0;
+    params[3].asdate:=dt4;
+    open;
+    label8.caption:='SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value);
+  end;
+  }
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmnewcap_ref1.DateEdit1AcceptDate(Sender: TObject;
+  var ADate: TDateTime; var Action: Boolean);
+begin
+  if dayofweek(ADate)>1 then Action:=false;
+end;
+
+procedure Tfrmnewcap_ref1.ComboBox1Change(Sender: TObject);
+var
+  tplant:string;
+begin
+  if combobox1.text<>'' then begin
+    if combobox1.text<>'KBT' then tplant:=combobox1.text else tplant:='KB';
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='select stdt,m1 from tbl_cap_date where tplant='''+tplant+''' and sel=1';
+      open;
+      if not fieldbyname('m1').isnull then begin
+        if fieldbyname('m1').value=12 then xh1.Checked:=true
+        else if fieldbyname('m1').value=9 then xh2.Checked:=true
+        else if fieldbyname('m1').value=6 then xh3.Checked:=true
+        else if fieldbyname('m1').value=3 then xh4.Checked:=true
+        else if fieldbyname('m1').value=1 then xh5.Checked:=true;
+      end;
+      if not fieldbyname('stdt').isnull then dateedit1.date:=fieldbyname('stdt').value;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_ref1.BitBtn2Click(Sender: TObject);
+var
+  y,m,d:word;
+  dt0,dt1,dt2,dt3,dt4,dt5:tdatetime;
+  tplant:string;
+begin
+  screen.Cursor:=crSQLWait;
+  try
+  if combobox1.text<>'KBT' then tplant:=combobox1.text else tplant:='KB';
+  if dayofweek(dateedit1.date)>1 then exit;
+  dt0:=dateedit1.date;
+  decodedate(dt0,y,m,d);
+  dt1:=encodedate(y-1,m,d);
+  if m>9 then dt2:=encodedate(y,m-9,d)
+  else dt2:=encodedate(y-1,m+3,d);
+  if m>6 then dt3:=encodedate(y,m-6,d)
+  else dt3:=encodedate(y-1,m+6,d);
+  if m>3 then dt4:=encodedate(y,m-3,d)
+  else dt4:=encodedate(y-1,m+9,d);
+  if m>1 then dt5:=encodedate(y,m-1,d)
+  else dt5:=encodedate(y-1,m+11,d);
+  if frmnewcap_pastperf=nil then frmnewcap_pastperf:=tfrmnewcap_pastperf.Create(nil);
+  frmnewcap_pastperf.Edit1.Text:=tplant;
+  frmnewcap_pastperf.DateEdit1.Date:=dateedit1.Date;
+
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new_not(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt1;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lbln12.Caption>'' then frmnewcap_pastperf.lbln12.caption:=frmnewcap_pastperf.lbln12.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lbln12.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lbln12.caption:=frmnewcap_pastperf.lbln12.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new_not(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lbln09.Caption>'' then frmnewcap_pastperf.lbln09.caption:=frmnewcap_pastperf.lbln09.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lbln09.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lbln09.caption:=frmnewcap_pastperf.lbln09.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new_not(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt3;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lbln06.Caption>'' then frmnewcap_pastperf.lbln06.caption:=frmnewcap_pastperf.lbln06.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lbln06.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lbln06.caption:=frmnewcap_pastperf.lbln06.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new_not(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt4;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lbln03.Caption>'' then frmnewcap_pastperf.lbln03.caption:=frmnewcap_pastperf.lbln03.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lbln03.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lbln03.caption:=frmnewcap_pastperf.lbln03.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new_not(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt5;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lbln01.Caption>'' then frmnewcap_pastperf.lbln01.caption:=frmnewcap_pastperf.lbln01.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lbln01.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lbln01.caption:=frmnewcap_pastperf.lbln01.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new_cst(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt1;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lblc12.Caption>'' then frmnewcap_pastperf.lblc12.caption:=frmnewcap_pastperf.lblc12.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lblc12.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lblc12.caption:=frmnewcap_pastperf.lblc12.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new_cst(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lblc09.Caption>'' then frmnewcap_pastperf.lblc09.caption:=frmnewcap_pastperf.lblc09.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lblc09.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lblc09.caption:=frmnewcap_pastperf.lblc09.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new_cst(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt3;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lblc06.Caption>'' then frmnewcap_pastperf.lblc06.caption:=frmnewcap_pastperf.lblc06.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lblc06.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lblc06.caption:=frmnewcap_pastperf.lblc06.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new_cst(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt4;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lblc03.Caption>'' then frmnewcap_pastperf.lblc03.caption:=frmnewcap_pastperf.lblc03.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lblc03.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lblc03.caption:=frmnewcap_pastperf.lblc03.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new_cst(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt5;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lblc01.Caption>'' then frmnewcap_pastperf.lblc01.caption:=frmnewcap_pastperf.lblc01.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lblc01.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lblc01.caption:=frmnewcap_pastperf.lblc01.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select sum(cst) as x1,sum(sah) as x2 from view_cust_flag6_sah_02 where tplant=:x1 and dt1>=:x2 and dt1<=:x3';
+    params[0].asstring:=tplant;
+    params[1].asdate:=dt1;
+    params[2].asdate:=dt0;
+    open;
+    frmnewcap_pastperf.lblc12.Caption:=frmnewcap_pastperf.lblc12.Caption+'   CsT Time: '+formatfloat('#,0.00',fieldbyname('x1').value/12.00)+' ('+formatfloat('0.00%',fieldbyname('x1').value*100.00/fieldbyname('x2').value)+')';
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select sum(cst) as x1,sum(sah) as x2 from view_cust_flag6_sah_02 where tplant=:x1 and dt1>=:x2 and dt1<=:x3';
+    params[0].asstring:=tplant;
+    params[1].asdate:=dt2;
+    params[2].asdate:=dt0;
+    open;
+    frmnewcap_pastperf.lblc09.Caption:=frmnewcap_pastperf.lblc09.Caption+'   CsT Time: '+formatfloat('#,0.00',fieldbyname('x1').value/9.00)+' ('+formatfloat('0.00%',fieldbyname('x1').value*100.00/fieldbyname('x2').value)+')';
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select sum(cst) as x1,sum(sah) as x2 from view_cust_flag6_sah_02 where tplant=:x1 and dt1>=:x2 and dt1<=:x3';
+    params[0].asstring:=tplant;
+    params[1].asdate:=dt3;
+    params[2].asdate:=dt0;
+    open;
+    frmnewcap_pastperf.lblc06.Caption:=frmnewcap_pastperf.lblc06.Caption+'   CsT Time: '+formatfloat('#,0.00',fieldbyname('x1').value/6.00)+' ('+formatfloat('0.00%',fieldbyname('x1').value*100.00/fieldbyname('x2').value)+')';
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select sum(cst) as x1,sum(sah) as x2 from view_cust_flag6_sah_02 where tplant=:x1 and dt1>=:x2 and dt1<=:x3';
+    params[0].asstring:=tplant;
+    params[1].asdate:=dt4;
+    params[2].asdate:=dt0;
+    open;
+    frmnewcap_pastperf.lblc03.Caption:=frmnewcap_pastperf.lblc03.Caption+'   CsT Time: '+formatfloat('#,0.00',fieldbyname('x1').value/3.00)+' ('+formatfloat('0.00%',fieldbyname('x1').value*100.00/fieldbyname('x2').value)+')';
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select sum(cst) as x1,sum(sah) as x2 from view_cust_flag6_sah_02 where tplant=:x1 and dt1>=:x2 and dt1<=:x3';
+    params[0].asstring:=tplant;
+    params[1].asdate:=dt5;
+    params[2].asdate:=dt0;
+    open;
+    frmnewcap_pastperf.lblc01.Caption:=frmnewcap_pastperf.lblc01.Caption+'   CsT Time: '+formatfloat('#,0.00',fieldbyname('x1').value)+' ('+formatfloat('0.00%',fieldbyname('x1').value*100.00/fieldbyname('x2').value)+')';
+  end;
+
+
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt1;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lblcn12.Caption>'' then frmnewcap_pastperf.lblcn12.caption:=frmnewcap_pastperf.lblcn12.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lblcn12.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lblcn12.caption:=frmnewcap_pastperf.lblcn12.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lblcn09.Caption>'' then frmnewcap_pastperf.lblcn09.caption:=frmnewcap_pastperf.lblcn09.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lblcn09.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lblcn09.caption:=frmnewcap_pastperf.lblcn09.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt3;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lblcn06.Caption>'' then frmnewcap_pastperf.lblcn06.caption:=frmnewcap_pastperf.lblcn06.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lblcn06.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lblcn06.caption:=frmnewcap_pastperf.lblcn06.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt4;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lblcn03.Caption>'' then frmnewcap_pastperf.lblcn03.caption:=frmnewcap_pastperf.lblcn03.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lblcn03.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lblcn03.caption:=frmnewcap_pastperf.lblcn03.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    //params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='select * from sp_cap_saheff_new(:x1,:x3,:x4) order by flag6';
+    params[0].asstring:=tplant;//label10.caption;
+    //params[1].asstring:=label12.caption;
+    params[1].asdate:=dt0;
+    params[2].asdate:=dt5;
+    open;
+    first;
+    while not eof do begin
+      if frmnewcap_pastperf.lblcn01.Caption>'' then frmnewcap_pastperf.lblcn01.caption:=frmnewcap_pastperf.lblcn01.caption+' / '+fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')'
+      else frmnewcap_pastperf.lblcn01.caption:=fieldbyname('flag6').value+' (SAH: '+formatfloat('0.0000',fieldbyname('sah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('eff').value)+')';
+      application.ProcessMessages;
+      next;
+    end;
+    frmnewcap_pastperf.lblcn01.caption:=frmnewcap_pastperf.lblcn01.caption+' / W/A (SAH: '+formatfloat('0.0000',fieldbyname('tsah').value)+'  Eff%: '+formatfloat('0.00',fieldbyname('teff').value)+')';
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select sum(sah*lstr)/sum(sah) as x1,sum(sjrs*sah)/sum(sah) as x2 from view_cust_flag6_sah_01 where tplant=:x1 and dt1<=:x2 and dt1>=:x3';
+    params[0].asstring:=tplant;//label10.caption;
+    params[1].asdate:=dt0;
+    if xh1.Checked then params[2].AsDate:=dt1
+    else if xh2.Checked then params[2].asdate:=dt2
+    else if xh3.Checked then params[2].asdate:=dt3
+    else if xh4.Checked then params[2].asdate:=dt4
+    else if xh5.Checked then params[2].asdate:=dt5;
+    open;
+    if not fieldbyname('x1').isnull then frmnewcap_pastperf.lblwf3.Caption:=formatfloat('0.00',fieldbyname('x1').value);
+    if not fieldbyname('x2').isnull then frmnewcap_pastperf.lblwf6.Caption:=formatfloat('0.00',fieldbyname('x2').value);
+    if fieldbyname('x1').value>0 then frmnewcap_pastperf.label24.caption:=formatfloat('0.00%',(fieldbyname('x2').value-fieldbyname('x1').value)*100.00/fieldbyname('x1').value)
+    else frmnewcap_pastperf.label24.caption:='0.00%'; 
+  end;
+  if xh1.checked then frmnewcap_pastperf.Label25.Caption:='12 months: '
+  else if xh2.Checked then frmnewcap_pastperf.label25.Caption:='9 months: '
+  else if xh3.Checked then frmnewcap_pastperf.Label25.Caption:='6 months: '
+  else if xh4.Checked then frmnewcap_pastperf.Label25.Caption:='3 months: '
+  else if xh5.Checked then frmnewcap_pastperf.Label25.Caption:='1 month: ';
+
+  frmnewcap_pastperf.Show;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmnewcap_ref1.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).zoomsetting:=zs100percent;
+end;
+
+procedure Tfrmnewcap_ref1.BitBtn3Click(Sender: TObject);
+begin
+  if label1.Caption>'' then begin
+    fty001.Caption:=combobox1.text;
+    backdt001.Caption:=formatdatetime('yyyy-MM-dd',dateedit1.Date);
+    chk001.Checked:=xh1.Checked;
+    chk002.Checked:=xh2.Checked;
+    chk003.Checked:=xh3.Checked;
+    chk004.Checked:=xh4.Checked;
+    chk005.Checked:=xh5.Checked;
+    lbl1001.Caption:=label1.Caption;
+    lbl1002.Caption:=label5.Caption;
+    lbl1002.Font.Color:=label5.Font.Color;
+    lbl2001.Caption:=label2.Caption;
+    lbl2002.Caption:=label6.Caption;
+    lbl2002.Font.Color:=label6.Font.Color;
+    lbl3001.Caption:=label3.Caption;
+    lbl3002.Caption:=label7.Caption;
+    lbl3002.Font.Color:=label7.Font.Color;
+    lbl4001.Caption:=label4.Caption;
+    lbl4002.Caption:=label8.Caption;
+    lbl4002.Font.Color:=label8.Font.Color;
+    lbl5001.Caption:=label14.Caption;
+    lbl5002.Caption:=label15.Caption;
+    lbl5002.Font.Color:=label15.Font.Color;
+    ppReport1.Print;
+  end;
+end;
+
+end.

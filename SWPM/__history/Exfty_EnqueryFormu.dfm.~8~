@@ -1,0 +1,197 @@
+object frmexfty_enquery: Tfrmexfty_enquery
+  Left = 0
+  Top = 0
+  Caption = #36008#29289#20986#38272#26781#35352#37636#26597#35426
+  ClientHeight = 386
+  ClientWidth = 817
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cxGrid1: TcxGrid
+    Left = 8
+    Top = 8
+    Width = 801
+    Height = 329
+    TabOrder = 0
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      OptionsView.GroupByBox = False
+      object cxGrid1DBTableView1EX_NO: TcxGridDBColumn
+        Caption = #32232#34399
+        DataBinding.FieldName = 'EX_NO'
+        HeaderAlignmentHorz = taCenter
+        Width = 65
+      end
+      object cxGrid1DBTableView1EX_DT: TcxGridDBColumn
+        Caption = #20986#36008#26085#26399
+        DataBinding.FieldName = 'EX_DT'
+        HeaderAlignmentHorz = taCenter
+      end
+      object cxGrid1DBTableView1EX_TRUCK: TcxGridDBColumn
+        Caption = #36008#36554#34399
+        DataBinding.FieldName = 'EX_TRUCK'
+        HeaderAlignmentHorz = taCenter
+        Width = 107
+      end
+      object cxGrid1DBTableView1EX_BOX: TcxGridDBColumn
+        Caption = #36008#21697#31665#25976
+        DataBinding.FieldName = 'EX_BOX'
+        HeaderAlignmentHorz = taCenter
+        Width = 53
+      end
+      object cxGrid1DBTableView1EX_BOX1: TcxGridDBColumn
+        Caption = #23614#31665#25976
+        DataBinding.FieldName = 'EX_BOX1'
+        HeaderAlignmentHorz = taCenter
+        Width = 50
+      end
+      object cxGrid1DBTableView1EX_COUNT: TcxGridDBColumn
+        Caption = #40670#25976#20154
+        DataBinding.FieldName = 'EX_COUNT'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1EX_SIGN: TcxGridDBColumn
+        Caption = #24288#37096#31805#21517
+        DataBinding.FieldName = 'EX_SIGN'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1EX_SECU: TcxGridDBColumn
+        Caption = #20445#23433#31805#21517
+        DataBinding.FieldName = 'EX_SECU'
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1EX_SHPNO: TcxGridDBColumn
+        Caption = 'Shipping Advice#'
+        DataBinding.FieldName = 'EX_SHPNO'
+        HeaderAlignmentHorz = taCenter
+        Width = 250
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object Query1: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 'select * from tbl_pdn_exit'
+    FieldDefs = <
+      item
+        Name = 'EX_NO'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'EX_DT'
+        DataType = ftDate
+      end
+      item
+        Name = 'EX_TRUCK'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'EX_BOX'
+        DataType = ftWideString
+        Size = 5
+      end
+      item
+        Name = 'EX_BOX1'
+        DataType = ftWideString
+        Size = 5
+      end
+      item
+        Name = 'EX_COUNT'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'EX_SIGN'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'EX_SECU'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'EX_SHPNO'
+        DataType = ftWideString
+        Size = 200
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 32
+    Top = 65528
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 64
+    Top = 65528
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'J_NO'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'J2_JOB'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'RWO'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL'
+        DataType = ftString
+        Size = 3
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'j_no;j2_job;rwo;acol'
+      end>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 96
+    Top = 65528
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 128
+    Top = 65528
+  end
+end

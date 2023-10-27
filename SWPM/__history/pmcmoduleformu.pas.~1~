@@ -1,0 +1,24 @@
+unit pmcmoduleformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  Tfrmpmcmodule = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpmcmodule: Tfrmpmcmodule;
+
+implementation
+
+{$R *.dfm}
+
+end.

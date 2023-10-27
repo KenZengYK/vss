@@ -1,0 +1,249 @@
+object frmmachcapacity: Tfrmmachcapacity
+  Left = 78
+  Top = 150
+  Caption = #34915#36554#29986#33021#26597#35426
+  ClientHeight = 345
+  ClientWidth = 668
+  Color = clBtnFace
+  Font.Charset = CHINESEBIG5_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = #26032#32048#26126#39636
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poDefault
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 668
+    Height = 81
+    Align = alTop
+    TabOrder = 0
+    ExplicitWidth = 676
+    object Label1: TLabel
+      Left = 24
+      Top = 32
+      Width = 52
+      Height = 13
+      Caption = #34915#36554#31181#39006
+    end
+    object ComboBox1: TComboBox
+      Left = 80
+      Top = 32
+      Width = 97
+      Height = 21
+      TabOrder = 0
+      OnDropDown = ComboBox1DropDown
+    end
+    object GroupBox1: TGroupBox
+      Left = 192
+      Top = 16
+      Width = 329
+      Height = 49
+      Caption = #36554#32299#26085#26399
+      TabOrder = 1
+      object Label2: TLabel
+        Left = 16
+        Top = 24
+        Width = 16
+        Height = 13
+        Caption = #24478':'
+      end
+      object Label3: TLabel
+        Left = 176
+        Top = 24
+        Width = 16
+        Height = 13
+        Caption = #21040':'
+      end
+      object DateEdit1: TDateEdit
+        Left = 40
+        Top = 19
+        Width = 113
+        Height = 21
+        NumGlyphs = 2
+        TabOrder = 0
+      end
+      object DateEdit2: TDateEdit
+        Left = 200
+        Top = 19
+        Width = 113
+        Height = 21
+        NumGlyphs = 2
+        TabOrder = 1
+      end
+    end
+    object BitBtn1: TBitBtn
+      Left = 528
+      Top = 40
+      Width = 75
+      Height = 25
+      Caption = #30906#23450
+      DoubleBuffered = True
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333333333333333330000333333333333333333333333F33333333333
+        00003333344333333333333333388F3333333333000033334224333333333333
+        338338F3333333330000333422224333333333333833338F3333333300003342
+        222224333333333383333338F3333333000034222A22224333333338F338F333
+        8F33333300003222A3A2224333333338F3838F338F33333300003A2A333A2224
+        33333338F83338F338F33333000033A33333A222433333338333338F338F3333
+        0000333333333A222433333333333338F338F33300003333333333A222433333
+        333333338F338F33000033333333333A222433333333333338F338F300003333
+        33333333A222433333333333338F338F00003333333333333A22433333333333
+        3338F38F000033333333333333A223333333333333338F830000333333333333
+        333A333333333333333338330000333333333333333333333333333333333333
+        0000}
+      ModalResult = 1
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 2
+      OnClick = BitBtn1Click
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 81
+    Width = 668
+    Height = 220
+    Align = alClient
+    TabOrder = 1
+    ExplicitWidth = 676
+    ExplicitHeight = 229
+    object DBGridEh1: TDBGridEh
+      Left = 1
+      Top = 1
+      Width = 674
+      Height = 227
+      Align = alClient
+      DataSource = DataSource1
+      Flat = False
+      FooterColor = clWindow
+      FooterFont.Charset = CHINESEBIG5_CHARSET
+      FooterFont.Color = clWindowText
+      FooterFont.Height = -13
+      FooterFont.Name = #26032#32048#26126#39636
+      FooterFont.Style = []
+      ReadOnly = True
+      RowDetailPanel.Color = clBtnFace
+      TabOrder = 0
+      TitleFont.Charset = CHINESEBIG5_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -13
+      TitleFont.Name = #26032#32048#26126#39636
+      TitleFont.Style = []
+      Columns = <
+        item
+          AutoFitColWidth = False
+          EditButtons = <>
+          FieldName = 'cz'
+          Footers = <>
+          Title.Alignment = taCenter
+          Title.Caption = #36554#31278
+        end
+        item
+          AutoFitColWidth = False
+          EditButtons = <>
+          FieldName = 'scsj'
+          Footers = <>
+          Title.Alignment = taCenter
+          Title.Caption = #35201#27714#29986#33021'('#23567#26178')'
+          Width = 106
+        end>
+      object RowDetailData: TRowDetailPanelControlEh
+      end
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 301
+    Width = 668
+    Height = 44
+    Align = alBottom
+    TabOrder = 2
+    ExplicitTop = 310
+    ExplicitWidth = 676
+    object BitBtn2: TBitBtn
+      Left = 24
+      Top = 11
+      Width = 75
+      Height = 25
+      Caption = #39173#22294
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333FFFFF3333333333700073333333FFF3777773F3FFF00030990BB03
+        000077737337F373777733309990BBB0333333373337F3373F3333099990BBBB
+        033333733337F33373F337999990BBBBB73337F33337F33337F330999990BBBB
+        B03337F33337FFFFF7F3309999900000003337F33337777777F33099990A0CCC
+        C03337F3337373F337F3379990AAA0CCC733373F3733373F373333090AAAAA0C
+        033333737333337373333330AAAAAAA033333FF73F33333733FF00330AAAAA03
+        3000773373FFFF73377733333700073333333333377777333333333333333333
+        3333333333333333333333333333333333333333333333333333}
+      ModalResult = 1
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn2Click
+    end
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmmain.SocketConnection2
+    Left = 8
+    Top = 48
+  end
+  object Query3: TQuery
+    DatabaseName = 'c:\temp'
+    RequestLive = True
+    SQL.Strings = (
+      'select * from machcapacity')
+    Left = 136
+    Top = 48
+    object Query3cz: TStringField
+      FieldName = 'cz'
+      Size = 10
+    end
+    object Query3scsj: TFloatField
+      FieldName = 'scsj'
+      DisplayFormat = '#0.00'
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = Query3
+    Left = 168
+    Top = 49
+  end
+  object ClientDataSet2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 37
+    Top = 48
+  end
+  object ClientDataSet3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspphg'
+    RemoteServer = frmmain.SocketConnection2
+    Left = 66
+    Top = 48
+  end
+end

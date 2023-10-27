@@ -1,0 +1,636 @@
+unit analysis_wmformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Spin, DateUtils, DB, DBClient, ppCtrls,
+  ppBands, ppDB, ppDBPipe, ppReport, ppStrtch, ppSubRpt, ppClass, ppPrnabl,
+  ppCache, ppComm, ppRelatv, ppProd, ppViewr, Txcomp, ppParameter;
+
+type
+  Tfrmanalysis_wm = class(TForm)
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    xh2: TRadioButton;
+    Edit1: TSpinEdit;
+    Edit2: TSpinEdit;
+    Edit3: TSpinEdit;
+    Edit4: TSpinEdit;
+    xh3: TRadioButton;
+    Edit5: TSpinEdit;
+    Edit6: TSpinEdit;
+    Edit7: TSpinEdit;
+    Edit8: TSpinEdit;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppGroup3: TppGroup;
+    ppGroupHeaderBand3: TppGroupHeaderBand;
+    ppGroupFooterBand3: TppGroupFooterBand;
+    ppGroup4: TppGroup;
+    ppGroupHeaderBand4: TppGroupHeaderBand;
+    ppGroupFooterBand4: TppGroupFooterBand;
+    ppGroup5: TppGroup;
+    ppGroupHeaderBand5: TppGroupHeaderBand;
+    ppGroupFooterBand5: TppGroupFooterBand;
+    ppGroup6: TppGroup;
+    ppGroupHeaderBand6: TppGroupHeaderBand;
+    ppGroupFooterBand6: TppGroupFooterBand;
+    ppGroup7: TppGroup;
+    ppGroupHeaderBand7: TppGroupHeaderBand;
+    ppGroupFooterBand7: TppGroupFooterBand;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppDBPipeline1: TppDBPipeline;
+    DataSource1: TDataSource;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand2: TppDetailBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    ppDBText1: TppDBText;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppShape2: TppShape;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppShape3: TppShape;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    lbl001: TppLabel;
+    lbl002: TppLabel;
+    lbl003: TppLabel;
+    lbl004: TppLabel;
+    lbl005: TppLabel;
+    lbl006: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel23: TppLabel;
+    a001: TppLabel;
+    a002: TppLabel;
+    a003: TppLabel;
+    a004: TppLabel;
+    e001: TppLabel;
+    e002: TppLabel;
+    e003: TppLabel;
+    e004: TppLabel;
+    h001: TppLabel;
+    h002: TppLabel;
+    h003: TppLabel;
+    h004: TppLabel;
+    l004: TppLabel;
+    l003: TppLabel;
+    l002: TppLabel;
+    l001: TppLabel;
+    m001: TppLabel;
+    m002: TppLabel;
+    m003: TppLabel;
+    m004: TppLabel;
+    w004: TppLabel;
+    w003: TppLabel;
+    w002: TppLabel;
+    w001: TppLabel;
+    o001: TppLabel;
+    o002: TppLabel;
+    o003: TppLabel;
+    o004: TppLabel;
+    t004: TppLabel;
+    t003: TppLabel;
+    t002: TppLabel;
+    t001: TppLabel;
+    ppLine1: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLine19: TppLine;
+    ppLine20: TppLine;
+    ppLine21: TppLine;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppLine24: TppLine;
+    ppLine25: TppLine;
+    ppLine26: TppLine;
+    ppLine27: TppLine;
+    ppLine28: TppLine;
+    ppLine29: TppLine;
+    ppLine30: TppLine;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppSubReport2: TppSubReport;
+    ppChildReport2: TppChildReport;
+    Query3: TClientDataSet;
+    DataSource2: TDataSource;
+    ppDBPipeline2: TppDBPipeline;
+    ppTitleBand2: TppTitleBand;
+    ppDetailBand3: TppDetailBand;
+    ppSummaryBand2: TppSummaryBand;
+    ppGroup8: TppGroup;
+    ppGroupHeaderBand8: TppGroupHeaderBand;
+    ppGroupFooterBand8: TppGroupFooterBand;
+    ppShape4: TppShape;
+    ppLabel26: TppLabel;
+    ppDBText11: TppDBText;
+    ppLine31: TppLine;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppLine34: TppLine;
+    ppLine35: TppLine;
+    ppLine36: TppLine;
+    ppLine37: TppLine;
+    ppShape5: TppShape;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLine40: TppLine;
+    ppLine41: TppLine;
+    ppLine42: TppLine;
+    ppLine43: TppLine;
+    ppShape6: TppShape;
+    ppDBText12: TppDBText;
+    ppLine44: TppLine;
+    ppLine45: TppLine;
+    ppLine46: TppLine;
+    ppLine47: TppLine;
+    ppLine48: TppLine;
+    ppLine49: TppLine;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppLabel29: TppLabel;
+    ppLabel30: TppLabel;
+    ppLabel31: TppLabel;
+    ppLabel32: TppLabel;
+    dt001: TppLabel;
+    dt002: TppLabel;
+    dt003: TppLabel;
+    dt004: TppLabel;
+    dt005: TppLabel;
+    dt006: TppLabel;
+    ws001: TppLabel;
+    ws002: TppLabel;
+    ws003: TppLabel;
+    ws004: TppLabel;
+    ws005: TppLabel;
+    ws006: TppLabel;
+    ft001: TppLabel;
+    ft002: TppLabel;
+    ft003: TppLabel;
+    ft004: TppLabel;
+    ft005: TppLabel;
+    ft006: TppLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure xh2Click(Sender: TObject);
+    procedure xh3Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppGroupHeaderBand2BeforePrint(Sender: TObject);
+    procedure ppDetailBand3BeforePrint(Sender: TObject);
+    procedure ppGroupFooterBand8BeforePrint(Sender: TObject);
+    procedure ppGroupHeaderBand3BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmanalysis_wm: Tfrmanalysis_wm;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+procedure Tfrmanalysis_wm.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmanalysis_wm:=nil;
+end;
+
+procedure Tfrmanalysis_wm.FormShow(Sender: TObject);
+begin
+  edit1.Value:=yearof(date);
+  edit2.Value:=weekof(date);
+  edit3.Value:=yearof(date);
+  edit4.Value:=weekof(date);
+  edit5.value:=yearof(date);
+  edit6.Value:=monthof(date);
+  edit7.Value:=yearof(date);
+  edit8.Value:=monthof(date);
+  xh3.Checked:=true;
+  xh3click(self);
+  {
+  edit1.Enabled:=true;
+  edit2.Enabled:=true;
+  edit3.Enabled:=true;
+  edit4.Enabled:=true;
+  edit5.Enabled:=false;
+  edit6.Enabled:=false;
+  edit7.Enabled:=false;
+  edit8.Enabled:=false;
+  }
+end;
+
+procedure Tfrmanalysis_wm.xh2Click(Sender: TObject);
+begin
+  if xh2.Checked then begin
+    edit1.Enabled:=true;
+    edit2.Enabled:=true;
+    edit3.Enabled:=true;
+    edit4.Enabled:=true;
+    edit5.Enabled:=false;
+    edit6.Enabled:=false;
+    edit7.Enabled:=false;
+    edit8.Enabled:=false;
+  end;
+end;
+
+procedure Tfrmanalysis_wm.xh3Click(Sender: TObject);
+begin
+  if xh3.Checked then begin
+    edit1.Enabled:=false;
+    edit2.Enabled:=false;
+    edit3.Enabled:=false;
+    edit4.Enabled:=false;
+    edit5.Enabled:=true;
+    edit6.Enabled:=true;
+    edit7.Enabled:=true;
+    edit8.Enabled:=true;
+  end;
+end;
+
+procedure Tfrmanalysis_wm.BitBtn2Click(Sender: TObject);
+var
+  dt1,dt2,dt3,dt4:tdate;
+begin
+  screen.Cursor:=crSQLWait;
+  try
+  if xh2.checked then begin
+  end else if xh3.Checked then begin
+    dt1:=encodedate(edit5.Value,edit6.value,1);
+    if edit6.value=12 then dt2:=encodedate(edit5.value,edit6.value,31)
+    else dt2:=encodedate(edit5.value,edit6.value+1,1)-1;
+    dt3:=encodedate(edit7.Value,edit8.value,1);
+    if edit8.value=12 then dt4:=encodedate(edit7.value,edit8.value,31)
+    else dt4:=encodedate(edit7.value,edit8.value+1,1)-1;
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      commandtext:='select distinct tplant,sum(a2) as a2,sum(b2) as b2,sum(c2) as c2,sum(d2) as d2,sum(e2) as e2,sum(f2) as f2,sum(g2) as g2,sum(h2) as h2,'
+                  +'sum(a2+b2+c2+d2+e2+f2+g2+h2) as ttl from week52 where tplant is not null and date1>=:x1 and date1<=:x2 group by tplant';
+      params[0].AsDate:=dt3;
+      params[1].asdate:=dt4;
+      open;
+    end;
+    ppreport1.Print;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmanalysis_wm.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  Tppviewer(ppReport1.PreviewForm.Viewer).zoompercentage:=100;
+end;
+
+procedure Tfrmanalysis_wm.ppGroupHeaderBand2BeforePrint(Sender: TObject);
+var
+  dt1,dt2:tdate;
+  t1,sect1,t01,sect01:double;
+  i:integer;
+begin
+  dt1:=encodedate(edit7.Value,edit8.value,1);
+  if edit8.value=12 then dt2:=encodedate(edit7.value,edit8.value,31)
+  else dt2:=encodedate(edit7.value,edit8.value+1,1)-1;
+  t002.Caption:='100.00';
+  t004.Caption:='100.00';
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(diff) as t1,sum(sect) as sect1 from view_output where dt1>=:x1 and dt1<=:x2';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    if not fieldbyname('t1').isnull then t1:=fieldbyname('t1').value else t1:=0;
+    if not fieldbyname('sect1').isnull then sect1:=fieldbyname('sect1').value else sect1:=0;
+  end;
+  t01:=0; sect01:=0; i:=0;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    //commandtext:='select distinct j_no,sum(diff) as t1,sum(sect) as sect1 from view_output where dt1>=:x1 and dt1<=:x2 and j_no in (''AFGH'',''ETAA'',''HBIU'',''LARD'',''MNSU'',''WARN'') group by j_no';
+    commandtext:='select distinct j_no,sum(diff) as t1,sum(sect) as sect1 from view_output where dt1>=:x1 and dt1<=:x2 group by j_no order by t1 desc';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      i:=i+1;
+      if (i<=6) then begin
+        t01:=t01+fieldbyname('t1').value;
+        sect01:=sect01+fieldbyname('sect1').value;
+      end;
+      //if fieldbyname('j_no').value='AFGH' then begin
+      if i=1 then begin
+        lbl001.Caption:=fieldbyname('j_no').value;
+        a001.Caption:=formatfloat('#0',fieldbyname('t1').value);
+        a002.Caption:=formatfloat('#0.00',fieldbyname('t1').value*100.00/t1);
+        a003.Caption:=formatfloat('#0',fieldbyname('sect1').value);
+        a004.Caption:=formatfloat('#0.00',fieldbyname('sect1').value*100.00/sect1);
+      //end else if fieldbyname('j_no').value='ETAA' then begin
+      end else if i=2 then begin
+        lbl002.Caption:=fieldbyname('j_no').value;
+        e001.Caption:=formatfloat('#0',fieldbyname('t1').value);
+        e002.Caption:=formatfloat('#0.00',fieldbyname('t1').value*100.00/t1);
+        e003.Caption:=formatfloat('#0',fieldbyname('sect1').value);
+        e004.Caption:=formatfloat('#0.00',fieldbyname('sect1').value*100.00/sect1);
+      //end else if fieldbyname('j_no').value='HBIU' then begin
+      end else if i=3 then begin
+        lbl003.Caption:=fieldbyname('j_no').value;
+        h001.Caption:=formatfloat('#0',fieldbyname('t1').value);
+        h002.Caption:=formatfloat('#0.00',fieldbyname('t1').value*100.00/t1);
+        h003.Caption:=formatfloat('#0',fieldbyname('sect1').value);
+        h004.Caption:=formatfloat('#0.00',fieldbyname('sect1').value*100.00/sect1);
+      //end else if fieldbyname('j_no').value='LARD' then begin
+      end else if i=4 then begin
+        lbl004.Caption:=fieldbyname('j_no').value;
+        l001.Caption:=formatfloat('#0',fieldbyname('t1').value);
+        l002.Caption:=formatfloat('#0.00',fieldbyname('t1').value*100.00/t1);
+        l003.Caption:=formatfloat('#0',fieldbyname('sect1').value);
+        l004.Caption:=formatfloat('#0.00',fieldbyname('sect1').value*100.00/sect1);
+      //end else if fieldbyname('j_no').value='MNSU' then begin
+      end else if i=5 then begin
+        lbl005.Caption:=fieldbyname('j_no').value;
+        m001.Caption:=formatfloat('#0',fieldbyname('t1').value);
+        m002.Caption:=formatfloat('#0.00',fieldbyname('t1').value*100.00/t1);
+        m003.Caption:=formatfloat('#0',fieldbyname('sect1').value);
+        m004.Caption:=formatfloat('#0.00',fieldbyname('sect1').value*100.00/sect1);
+      //end else if fieldbyname('j_no').value='WARN' then begin
+      end else if i=6 then begin
+        lbl006.Caption:=fieldbyname('j_no').value;
+        w001.Caption:=formatfloat('#0',fieldbyname('t1').value);
+        w002.Caption:=formatfloat('#0.00',fieldbyname('t1').value*100.00/t1);
+        w003.Caption:=formatfloat('#0',fieldbyname('sect1').value);
+        w004.Caption:=formatfloat('#0.00',fieldbyname('sect1').value*100.00/sect1);
+      end;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  t001.Caption:=formatfloat('#0',t1);
+  t003.Caption:=formatfloat('#0',sect1);
+  o001.Caption:=formatfloat('#0',t1-t01);
+  o002.Caption:=formatfloat('#0.00',(t1-t01)*100.00/t1);
+  o003.Caption:=formatfloat('#0',sect1-sect01);
+  o004.Caption:=formatfloat('#.00',(sect1-sect01)*100.00/sect1);
+end;
+
+procedure Tfrmanalysis_wm.ppDetailBand3BeforePrint(Sender: TObject);
+var
+  dt1,dt2:tdate;
+  i:integer;
+  q:double;
+begin
+  if edit8.value>=6 then begin
+    dt1:=encodedate(edit7.value,edit8.value-5,1);
+    if edit8.value=12 then dt2:=encodedate(edit7.value,edit8.value,31)
+    else dt2:=encodedate(edit7.value,edit8.value+1,1)-1;
+  end else begin
+    dt1:=encodedate(edit7.value-1,edit8.value-5+12,1);
+    dt2:=encodedate(edit7.value,edit8.value+1,1)-1;
+  end;
+  i:=0;
+  ws001.caption:='0';ws002.caption:='0';ws003.caption:='0';ws004.caption:='0';ws005.caption:='0';ws006.caption:='0';
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct yr,mn,sum(diff) as q from view_output where tplant='''+query3.fieldbyname('tplant').value+''' and tshop='''+query3.fieldbyname('tshop').value+''' and dt1>=:x1 and dt1<=:x2 group by yr,mn order by yr,mn';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      i:=i+1;
+      q:=fieldbyname('q').value;
+      if query3.fieldbyname('tplant').value='GG' then begin
+        if (edit7.value=2012) and (edit8.value<=6) then begin
+          if edit8.value=6 then begin
+            if i=1 then ws002.Caption:=formatfloat('#0',q)
+            else if i=2 then ws003.Caption:=formatfloat('#0',q)
+            else if i=3 then ws004.Caption:=formatfloat('#0',q)
+            else if i=4 then ws005.Caption:=formatfloat('#0',q)
+            else if i=5 then ws006.Caption:=formatfloat('#0',q);
+          end else if edit8.value=5 then begin
+            if i=1 then ws003.Caption:=formatfloat('#0',q)
+            else if i=2 then ws004.Caption:=formatfloat('#0',q)
+            else if i=3 then ws005.Caption:=formatfloat('#0',q)
+            else if i=4 then ws006.Caption:=formatfloat('#0',q);
+          end else if edit8.value=4 then begin
+            if i=1 then ws004.Caption:=formatfloat('#0',q)
+            else if i=2 then ws005.Caption:=formatfloat('#0',q)
+            else if i=3 then ws006.Caption:=formatfloat('#0',q);
+          end else if edit8.value=3 then begin
+            if i=1 then ws005.Caption:=formatfloat('#0',q)
+            else if i=2 then ws006.Caption:=formatfloat('#0',q);
+          end else if edit8.value=2 then begin
+            if i=1 then ws006.Caption:=formatfloat('#0',q);
+          end;
+        end else begin
+          if i=1 then ws001.Caption:=formatfloat('#0',q)
+          else if i=2 then ws002.Caption:=formatfloat('#0',q)
+          else if i=3 then ws003.Caption:=formatfloat('#0',q)
+          else if i=4 then ws004.Caption:=formatfloat('#0',q)
+          else if i=5 then ws005.Caption:=formatfloat('#0',q)
+          else if i=6 then ws006.Caption:=formatfloat('#0',q);
+        end;
+      end else begin
+        if i=1 then ws001.Caption:=formatfloat('#0',q)
+        else if i=2 then ws002.Caption:=formatfloat('#0',q)
+        else if i=3 then ws003.Caption:=formatfloat('#0',q)
+        else if i=4 then ws004.Caption:=formatfloat('#0',q)
+        else if i=5 then ws005.Caption:=formatfloat('#0',q)
+        else if i=6 then ws006.Caption:=formatfloat('#0',q);
+      end;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+end;
+
+procedure Tfrmanalysis_wm.ppGroupFooterBand8BeforePrint(Sender: TObject);
+var
+  dt1,dt2:tdate;
+  i:integer;
+  q:double;
+begin
+  if edit8.value>=6 then begin
+    dt1:=encodedate(edit7.value,edit8.value-5,1);
+    if edit8.value=12 then dt2:=encodedate(edit7.value,edit8.value,31)
+    else dt2:=encodedate(edit7.value,edit8.value+1,1)-1;
+  end else begin
+    dt1:=encodedate(edit7.value-1,edit8.value-5+12,1);
+    dt2:=encodedate(edit7.value,edit8.value+1,1)-1;
+  end;
+  ft001.caption:='0';
+  ft002.caption:='0';
+  ft003.caption:='0';
+  ft004.caption:='0';
+  ft005.caption:='0';
+  ft006.caption:='0';
+  i:=0;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct yr,mn,sum(diff) as q from view_output where tplant='''+query3.fieldbyname('tplant').value+''' and tshop<=''KB2Z'' and dt1>=:x1 and dt1<=:x2 group by yr,mn order by yr,mn';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+    first;
+    while not eof do begin
+      i:=i+1;
+      q:=fieldbyname('q').value;
+      if query3.fieldbyname('tplant').value='GG' then begin
+        if (edit7.value=2012) and (edit8.value<=6) then begin
+          if edit8.value=6 then begin
+            if i=1 then ft002.Caption:=formatfloat('#0',q)
+            else if i=2 then ft003.Caption:=formatfloat('#0',q)
+            else if i=3 then ft004.Caption:=formatfloat('#0',q)
+            else if i=4 then ft005.Caption:=formatfloat('#0',q)
+            else if i=5 then ft006.Caption:=formatfloat('#0',q);
+          end else if edit8.value=5 then begin
+            if i=1 then ft003.Caption:=formatfloat('#0',q)
+            else if i=2 then ft004.Caption:=formatfloat('#0',q)
+            else if i=3 then ft005.Caption:=formatfloat('#0',q)
+            else if i=4 then ft006.Caption:=formatfloat('#0',q);
+          end else if edit8.value=4 then begin
+            if i=1 then ft004.Caption:=formatfloat('#0',q)
+            else if i=2 then ft005.Caption:=formatfloat('#0',q)
+            else if i=3 then ft006.Caption:=formatfloat('#0',q);
+          end else if edit8.value=3 then begin
+            if i=1 then ft005.Caption:=formatfloat('#0',q)
+            else if i=2 then ft006.Caption:=formatfloat('#0',q);
+          end else if edit8.value=2 then begin
+            if i=1 then ft006.Caption:=formatfloat('#0',q);
+          end;
+        end else begin
+          if i=1 then ft001.Caption:=formatfloat('#0',q)
+          else if i=2 then ft002.Caption:=formatfloat('#0',q)
+          else if i=3 then ft003.Caption:=formatfloat('#0',q)
+          else if i=4 then ft004.Caption:=formatfloat('#0',q)
+          else if i=5 then ft005.Caption:=formatfloat('#0',q)
+          else if i=6 then ft006.Caption:=formatfloat('#0',q);
+        end;
+      end else begin
+        if i=1 then ft001.Caption:=formatfloat('#0',q)
+        else if i=2 then ft002.Caption:=formatfloat('#0',q)
+        else if i=3 then ft003.Caption:=formatfloat('#0',q)
+        else if i=4 then ft004.Caption:=formatfloat('#0',q)
+        else if i=5 then ft005.Caption:=formatfloat('#0',q)
+        else if i=6 then ft006.Caption:=formatfloat('#0',q);
+      end;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+end;
+
+procedure Tfrmanalysis_wm.ppGroupHeaderBand3BeforePrint(Sender: TObject);
+var
+  dt1,dt2:tdate;
+begin
+  if edit8.value>=6 then begin
+    dt1:=encodedate(edit7.value,edit8.value-5,1);
+    if edit8.value=12 then dt2:=encodedate(edit7.value,edit8.value,31)
+    else dt2:=encodedate(edit7.value,edit8.value+1,1)-1;
+    dt001.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value-5);
+    dt002.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value-4);
+    dt003.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value-3);
+    dt004.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value-2);
+    dt005.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value-1);
+    dt006.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value);
+  end else begin
+    dt1:=encodedate(edit7.value-1,edit8.value-5+12,1);
+    dt2:=encodedate(edit7.value,edit8.value+1,1)-1;
+    dt001.Caption:=inttostr(edit7.value-1)+' - '+inttostr(edit8.value-5+12);
+    if edit8.value-4+12>12 then dt002.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value-4)
+    else dt002.Caption:=inttostr(edit7.value-1)+' - '+inttostr(edit8.value-4+12);
+    if edit8.value-3+12>12 then dt003.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value-3)
+    else dt003.Caption:=inttostr(edit7.value-1)+' - '+inttostr(edit8.value-3+12);
+    if edit8.value-2+12>12 then dt004.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value-2)
+    else dt004.Caption:=inttostr(edit7.value-1)+' - '+inttostr(edit8.value-2+12);
+    if edit8.value-1+12>12 then dt005.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value-1)
+    else dt005.Caption:=inttostr(edit7.value-1)+' - '+inttostr(edit8.value-1+12);
+    dt006.Caption:=inttostr(edit7.value)+' - '+inttostr(edit8.value);
+  end;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select distinct tplant,tshop from view_output where tshop<=''KB2Z'' and dt1>=:x1 and dt1<=:x2 order by tplant,tshop';
+    params[0].asdate:=dt1;
+    params[1].asdate:=dt2;
+    open;
+  end;
+end;
+
+end.

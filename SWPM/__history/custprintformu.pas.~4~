@@ -1,0 +1,250 @@
+unit custprintformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DB, DBClient;
+
+type
+  Tfrmcustprint = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    chk1: TCheckBox;
+    chk2: TCheckBox;
+    chk3: TCheckBox;
+    chk4: TCheckBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Label2: TLabel;
+    Edit1: TEdit;
+    opt1: TCheckBox;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcustprint: Tfrmcustprint;
+
+implementation
+
+uses custformu, mainformu;
+
+{$R *.dfm}
+
+procedure Tfrmcustprint.BitBtn1Click(Sender: TObject);
+var
+  dt1,dt2:tdate;
+  ctry:string;
+begin
+  screen.cursor:=crHourglass;
+  if chk1.checked then begin
+    if frmcustomer.DateEdit1.date>0 then dt1:=frmcustomer.DateEdit1.date
+    else dt1:=encodedate(2005,1,1);
+    if frmcustomer.DateEdit2.Date>0 then dt2:=frmcustomer.DateEdit2.date
+    else dt2:=encodedate(2020,12,31);
+    with frmcustomer.ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      //commandtext:='execute procedure sp_gencustsku(:x1,:x2,:x3)';
+      commandtext:='execute procedure sp_gencustsku_style(:x1,:x2,:x3,:x4)';
+      params[0].asdate:=dt1;
+      params[1].asdate:=dt2;
+      params[2].asstring:=combobox1.text;
+      params[3].asstring:=edit1.text;
+      execute;
+    end;
+    with frmcustomer.ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='execute procedure sp_printcust(:x1,1)';
+      params[0].asstring:=combobox1.text;
+      execute;
+    end;
+    with frmcustomer.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from cust_sku1 a,cust_sku2 b where a.cust=b.cust and a.ptyp=b.ptyp and a.lst2=b.lst2 order by a.cust,a.ptyp,a.lst2,b.pcol,b.fits';
+      open;
+      frmcustomer.ppdbpipeline1.DataSource:=frmcustomer.datasource3;
+      frmcustomer.cust01.Caption:=combobox1.text;
+      if edit1.text>'' then frmcustomer.cust01.Caption:=frmcustomer.cust01.Caption+'        PH Style #: '+edit1.text;
+      frmcustomer.ppReport1.Print;
+    end;
+  end;
+  if chk2.Checked then begin
+    if frmcustomer.DateEdit1.date>0 then dt1:=frmcustomer.DateEdit1.date
+    else dt1:=encodedate(2005,1,1);
+    if frmcustomer.DateEdit2.Date>0 then dt2:=frmcustomer.DateEdit2.date
+    else dt2:=encodedate(2020,12,31);
+    with frmcustomer.ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      //commandtext:='execute procedure sp_gencustsku(:x1,:x2,:x3)';
+      commandtext:='execute procedure sp_gencustsku_style(:x1,:x2,:x3,:x4)';
+      params[0].asdate:=dt1;
+      params[1].asdate:=dt2;
+      params[2].asstring:=combobox1.text;
+      params[3].asstring:=edit1.text;
+      execute;
+    end;
+    with frmcustomer.ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='execute procedure sp_printcust(:x1,1)';
+      params[0].asstring:=combobox1.text;
+      execute;
+    end;
+    with frmcustomer.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from cust_sku1 a,cust_sku02 b where a.cust=b.cust and a.ptyp=b.ptyp and a.lst2=b.lst2 order by a.cust,a.ptyp,a.lst2,b.fits';
+      open;
+      frmcustomer.ppdbpipeline1.DataSource:=frmcustomer.datasource3;
+      frmcustomer.cust02.Caption:=combobox1.text;
+      if edit1.text>'' then frmcustomer.cust02.Caption:=frmcustomer.cust02.Caption+'        PH Style #: '+edit1.text;
+      frmcustomer.ppReport3.Print;
+    end;
+  end;
+  if chk3.Checked then begin
+    if frmcustomer.DateEdit1.date>0 then dt1:=frmcustomer.DateEdit1.date
+    else dt1:=encodedate(2005,1,1);
+    if frmcustomer.DateEdit2.Date>0 then dt2:=frmcustomer.DateEdit2.date
+    else dt2:=encodedate(2020,12,31);
+    with frmcustomer.ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      //commandtext:='execute procedure sp_gencustsku(:x1,:x2,:x3)';
+      commandtext:='execute procedure sp_gencustsku_style(:x1,:x2,:x3,:x4)';
+      params[0].asdate:=dt1;
+      params[1].asdate:=dt2;
+      params[2].asstring:=combobox1.text;
+      params[3].asstring:=edit1.text;
+      execute;
+    end;
+    with frmcustomer.ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='execute procedure sp_printcust(:x1,2)';
+      params[0].asstring:=combobox1.text;
+      execute;
+    end;
+    with frmcustomer.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from cust_sku1 a,cust_sku2 b where a.cust=b.cust and a.ptyp=b.ptyp and a.lst2=b.lst2 and a.flag6=b.flag6 order by a.cust,a.ptyp,a.lst2,a.flag6,b.pcol,b.fits';
+      open;
+      frmcustomer.ppdbpipeline1.DataSource:=frmcustomer.datasource3;
+      frmcustomer.cust04.Caption:=combobox1.text;
+      if edit1.text>'' then frmcustomer.cust04.Caption:=frmcustomer.cust04.Caption+'        PH Style #: '+edit1.text;
+      frmcustomer.dtrange4.Caption:='Delivery date from: '+frmcustomer.DateEdit1.text+' to: '+frmcustomer.DateEdit2.text;
+      frmcustomer.ppReport4.Print;
+    end;
+  end;
+  if chk4.checked then begin
+    if frmcustomer.DateEdit1.date>0 then dt1:=frmcustomer.DateEdit1.date
+    else dt1:=encodedate(2005,1,1);
+    if frmcustomer.DateEdit2.Date>0 then dt2:=frmcustomer.DateEdit2.date
+    else dt2:=encodedate(2020,12,31);
+    with frmcustomer.ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      params.createparam(ftstring,'x5',ptinput);
+      //commandtext:='execute procedure sp_gencustsku(:x1,:x2,:x3)';
+      commandtext:='execute procedure sp_gencustsku_style_fty(:x1,:x2,:x3,:x4,:x5)';
+      params[0].asdate:=dt1;
+      params[1].asdate:=dt2;
+      params[2].asstring:=frmcustomer.ComboBox6.text;
+      params[3].asstring:=combobox1.text;
+      params[4].asstring:=edit1.text;
+      execute;
+    end;
+    with frmcustomer.ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='execute procedure sp_printcust01(:x1,2)';
+      params[0].asstring:=combobox1.text;
+      execute;
+    end;
+    with frmcustomer.ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      commandtext:='execute procedure sp_tempprjbd(:x1,:x2,:x3,:x4)';
+      params[0].asdate:=dt1;
+      params[1].asdate:=dt2;
+      params[2].asstring:=combobox1.text;
+      params[3].asstring:=frmcustomer.ComboBox6.text;
+      execute;
+    end;
+    with frmcustomer.query10 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_tempprjbd_clr order by flag,seq';
+      open;
+    end;
+    with frmcustomer.Query3 do begin
+      close;
+      params.clear;
+      commandtext:='select distinct addr from cust_exfty where cust='''+combobox1.text+'''';
+      open;
+      if not fieldbyname('addr').isnull then ctry:=fieldbyname('addr').value else ctry:='';
+    end;
+    with frmcustomer.query4 do begin
+      close;
+      params.clear;
+      commandtext:='select * from cust_sku001 a,cust_sku02 b where a.cust=b.cust and a.ptyp=b.ptyp and a.lst2=b.lst2 and a.flag6=b.flag6 and a.lst2d=b.lst2d and a.seq=b.seq order by a.cust,a.ptyp,a.lst2,a.lst2d,a.flag6,a.seq,b.fits';
+      open;
+      frmcustomer.ppdbpipeline1.DataSource:=frmcustomer.datasource3;
+      frmcustomer.cust05.Caption:=combobox1.text;
+      if edit1.text>'' then frmcustomer.cust05.Caption:=frmcustomer.cust05.Caption+'        PH Style #: '+edit1.text;
+      frmcustomer.dtrange1.Caption:='Delivery date from: '+frmcustomer.DateEdit1.text+' to: '+frmcustomer.DateEdit2.text;
+      frmcustomer.country001.Caption:=ctry;
+      frmcustomer.fty002.Caption:=frmcustomer.ComboBox6.text;
+      if opt1.checked then begin
+        frmcustomer.ppgroupfooterband16.visible:=false;
+        frmcustomer.ppgroupfooterband17.visible:=false;
+        frmcustomer.ppsummaryband3.visible:=false;
+      end else begin
+      end;
+      frmcustomer.ppReport5.Print;
+    end;
+  end;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmcustprint.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmcustprint:=nil;
+end;
+
+end.

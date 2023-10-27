@@ -1,0 +1,343 @@
+object frmprejhl: Tfrmprejhl
+  Left = 94
+  Top = 107
+  Width = 173
+  Height = 72
+  Caption = '預先設定浮餘率及均衡率之數學模型'
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'Arial'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 18
+  object ppBDEPipeline1: TppBDEPipeline
+    DataSource = DataSource2
+    UserName = 'BDEPipeline1'
+    Left = 24
+    Top = 8
+  end
+  object ppReport1: TppReport
+    AutoStop = False
+    Columns = 2
+    ColumnPositions.Strings = (
+      '6350'
+      '105000')
+    DataPipeline = ppBDEPipeline1
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.PaperName = 'A4 210 x 297 mm'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 297000
+    PrinterSetup.mmPaperWidth = 210000
+    PrinterSetup.PaperSize = 9
+    Units = utMillimeters
+    AllowPrintToFile = True
+    DeviceType = 'Screen'
+    Left = 56
+    Top = 8
+    Version = '5.5'
+    mmColumnWidth = 98650
+    object ppHeaderBand1: TppHeaderBand
+      mmBottomOffset = 0
+      mmHeight = 12435
+      mmPrintPosition = 0
+      object ppLabel1: TppLabel
+        UserName = 'Label1'
+        Caption = '預先設定浮餘率及均衡率之數學模型'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 16
+        Font.Style = [fsBold, fsUnderline]
+        Transparent = True
+        mmHeight = 6350
+        mmLeft = 52917
+        mmTop = 3440
+        mmWidth = 91546
+        BandType = 0
+      end
+    end
+    object ppColumnHeaderBand1: TppColumnHeaderBand
+      mmBottomOffset = 0
+      mmHeight = 11906
+      mmPrintPosition = 0
+      object ppShape1: TppShape
+        UserName = 'Shape1'
+        mmHeight = 11642
+        mmLeft = 2910
+        mmTop = 264
+        mmWidth = 91811
+        BandType = 2
+      end
+      object ppLabel2: TppLabel
+        UserName = 'Label2'
+        Caption = '拉名'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 5292
+        mmTop = 5292
+        mmWidth = 6615
+        BandType = 2
+      end
+      object ppLabel3: TppLabel
+        UserName = 'Label3'
+        Caption = '員工'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 16933
+        mmTop = 2117
+        mmWidth = 6615
+        BandType = 2
+      end
+      object ppLabel4: TppLabel
+        UserName = 'Label4'
+        Caption = '浮餘率'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 43392
+        mmTop = 5292
+        mmWidth = 9790
+        BandType = 2
+      end
+      object ppLabel5: TppLabel
+        UserName = 'Label5'
+        Caption = '預先設定'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 59267
+        mmTop = 2117
+        mmWidth = 12965
+        BandType = 2
+      end
+      object ppLabel6: TppLabel
+        UserName = 'Label6'
+        Caption = '寬容率'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 28575
+        mmTop = 5292
+        mmWidth = 9790
+        BandType = 2
+      end
+      object ppLabel7: TppLabel
+        UserName = 'Label7'
+        Caption = '技能'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 16933
+        mmTop = 7408
+        mmWidth = 6615
+        BandType = 2
+      end
+      object ppLabel8: TppLabel
+        UserName = 'Label8'
+        Caption = '均衡率(%)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 59002
+        mmTop = 7408
+        mmWidth = 14817
+        BandType = 2
+      end
+      object ppLabel9: TppLabel
+        UserName = 'Label9'
+        Caption = '總比率(%)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 77788
+        mmTop = 5292
+        mmWidth = 14817
+        BandType = 2
+      end
+    end
+    object ppDetailBand1: TppDetailBand
+      mmBottomOffset = 0
+      mmHeight = 6615
+      mmPrintPosition = 0
+      object ppDBText1: TppDBText
+        UserName = 'DBText1'
+        AutoSize = True
+        DataField = 'Pline'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 5292
+        mmTop = 1588
+        mmWidth = 5556
+        BandType = 4
+      end
+      object ppDBText2: TppDBText
+        UserName = 'DBText2'
+        AutoSize = True
+        DataField = 'Gy'
+        DataPipeline = ppBDEPipeline1
+        DisplayFormat = '#,0.00;-#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 17198
+        mmTop = 1588
+        mmWidth = 6350
+        BandType = 4
+      end
+      object ppDBText3: TppDBText
+        UserName = 'DBText3'
+        AutoSize = True
+        DataField = 'Fyl'
+        DataPipeline = ppBDEPipeline1
+        DisplayFormat = '#,0.00;-#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 30163
+        mmTop = 1588
+        mmWidth = 6350
+        BandType = 4
+      end
+      object ppDBText4: TppDBText
+        UserName = 'DBText4'
+        AutoSize = True
+        DataField = 'Ysjhl'
+        DataPipeline = ppBDEPipeline1
+        DisplayFormat = '#,0.0;-#,0.0'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 62706
+        mmTop = 1588
+        mmWidth = 6350
+        BandType = 4
+      end
+      object ppDBText5: TppDBText
+        UserName = 'DBText5'
+        AutoSize = True
+        DataField = 'fyl1'
+        DataPipeline = ppBDEPipeline1
+        DisplayFormat = '#,0.00;-#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 44979
+        mmTop = 1588
+        mmWidth = 6350
+        BandType = 4
+      end
+      object ppDBText6: TppDBText
+        UserName = 'DBText6'
+        AutoSize = True
+        DataField = 'zbl'
+        DataPipeline = ppBDEPipeline1
+        DisplayFormat = '#,0.00;-#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 81492
+        mmTop = 1588
+        mmWidth = 7938
+        BandType = 4
+      end
+    end
+    object ppColumnFooterBand1: TppColumnFooterBand
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+    object ppFooterBand1: TppFooterBand
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+  end
+  object Query3: TQuery
+    DatabaseName = 'proschedule'
+    SQL.Strings = (
+      
+        'select pline,gy,fyl,fyl/gy as fyl1,ysjhl,ysjhl*gy/fyl as zbl fro' +
+        'm tblysjhl')
+    Left = 88
+    Top = 8
+  end
+  object DataSource2: TDataSource
+    DataSet = Query3
+    Left = 120
+    Top = 8
+  end
+end

@@ -1,0 +1,648 @@
+object frmnewcap_simfty: Tfrmnewcap_simfty
+  Left = 247
+  Top = 113
+  Caption = 'Factory Capacity - Setup on 4 Key Elements'
+  ClientHeight = 0
+  ClientWidth = 108
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 108
+    Height = 81
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitWidth = 688
+    object Label1: TLabel
+      Left = 32
+      Top = 16
+      Width = 38
+      Height = 13
+      Caption = 'Factory '
+    end
+    object Label2: TLabel
+      Left = 208
+      Top = 16
+      Width = 25
+      Height = 13
+      Caption = 'Year '
+    end
+    object Label3: TLabel
+      Left = 376
+      Top = 16
+      Width = 89
+      Height = 13
+      Caption = 'Simulation Version '
+      Visible = False
+    end
+    object Label4: TLabel
+      Left = 32
+      Top = 48
+      Width = 142
+      Height = 13
+      Caption = 'Calculation backward Start on'
+    end
+    object Label5: TLabel
+      Left = 296
+      Top = 48
+      Width = 15
+      Height = 13
+      Caption = 'for '
+    end
+    object Label6: TLabel
+      Left = 360
+      Top = 48
+      Width = 34
+      Height = 13
+      Caption = 'months'
+    end
+    object ComboBox1: TComboBox
+      Left = 72
+      Top = 16
+      Width = 113
+      Height = 21
+      CharCase = ecUpperCase
+      TabOrder = 0
+      Text = 'SL'
+      OnChange = ComboBox1Change
+      Items.Strings = (
+        'SL'
+        'FJ'
+        'GG'
+        'KB')
+    end
+    object SpinEdit1: TSpinEdit
+      Left = 240
+      Top = 16
+      Width = 81
+      Height = 22
+      MaxValue = 2020
+      MinValue = 2011
+      TabOrder = 1
+      Value = 2011
+      OnChange = ComboBox1Change
+    end
+    object ComboBox2: TComboBox
+      Left = 472
+      Top = 16
+      Width = 145
+      Height = 21
+      TabOrder = 2
+      Visible = False
+      OnEnter = ComboBox2Enter
+    end
+    object DateEdit1: TDateEdit
+      Left = 184
+      Top = 48
+      Width = 105
+      Height = 21
+      Enabled = False
+      NumGlyphs = 2
+      ReadOnly = True
+      TabOrder = 3
+    end
+    object Edit1: TEdit
+      Left = 312
+      Top = 48
+      Width = 41
+      Height = 21
+      Enabled = False
+      ReadOnly = True
+      TabOrder = 4
+    end
+    object GroupBox1: TGroupBox
+      Left = 416
+      Top = 40
+      Width = 201
+      Height = 41
+      Caption = 'Month Period'
+      TabOrder = 5
+      object Label7: TLabel
+        Left = 16
+        Top = 16
+        Width = 26
+        Height = 13
+        Caption = 'From '
+      end
+      object Label8: TLabel
+        Left = 120
+        Top = 16
+        Width = 16
+        Height = 13
+        Caption = 'To '
+      end
+      object SpinEdit2: TSpinEdit
+        Left = 48
+        Top = 16
+        Width = 57
+        Height = 22
+        MaxValue = 12
+        MinValue = 1
+        TabOrder = 0
+        Value = 1
+        OnChange = SpinEdit2Change
+      end
+      object SpinEdit3: TSpinEdit
+        Left = 136
+        Top = 16
+        Width = 57
+        Height = 22
+        MaxValue = 12
+        MinValue = 1
+        TabOrder = 1
+        Value = 1
+        OnChange = SpinEdit2Change
+      end
+    end
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 81
+    Width = 108
+    Height = 326
+    Align = alClient
+    AllowedOperations = [alopUpdateEh]
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    FrozenCols = 5
+    Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
+    OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghEnterAsTab, dghDialogFind, dghColumnResize, dghColumnMove]
+    ReadOnly = True
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    OnDrawColumnCell = DBGridEh1DrawColumnCell
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'SDESC'
+        Footers = <>
+        Title.Caption = ' '
+        Width = 96
+      end
+      item
+        EditButtons = <>
+        FieldName = 'SDESC1'
+        Footers = <>
+        Title.Caption = 'Item(s)'
+        Width = 161
+      end
+      item
+        Color = 13499643
+        DisplayFormat = '#,0.00'
+        EditButtons = <>
+        FieldName = 'ref2'
+        Footers = <>
+        Title.Caption = 'Past Record (Sanction)'
+        Width = 72
+      end
+      item
+        Color = 13499643
+        DisplayFormat = '#,0.00'
+        EditButtons = <>
+        FieldName = 'REF1'
+        Footers = <>
+        Title.Caption = 'Past Record (Perf)'
+        Width = 72
+      end
+      item
+        Color = 13499643
+        DisplayFormat = '#,0.00'
+        EditButtons = <>
+        FieldName = 'TTL1'
+        Footers = <>
+        Title.Caption = 'Periodic Total (Sanction)'
+        Width = 72
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M1'
+        Footers = <>
+        Title.Caption = 'Jan'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns2EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M2'
+        Footers = <>
+        Title.Caption = 'Feb'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns3EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M3'
+        Footers = <>
+        Title.Caption = 'Mar'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns4EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M4'
+        Footers = <>
+        Title.Caption = 'Apr'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns5EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M5'
+        Footers = <>
+        Title.Caption = 'May'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns6EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M6'
+        Footers = <>
+        Title.Caption = 'Jun'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns7EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M7'
+        Footers = <>
+        Title.Caption = 'Jul'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns8EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M8'
+        Footers = <>
+        Title.Caption = 'Aug'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns9EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M9'
+        Footers = <>
+        Title.Caption = 'Sep'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns10EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M10'
+        Footers = <>
+        Title.Caption = 'Oct'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns11EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M11'
+        Footers = <>
+        Title.Caption = 'Nov'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns12EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        EditButtons = <>
+        FieldName = 'M12'
+        Footers = <>
+        Title.Caption = 'Dec'
+        Width = 72
+        OnEditButtonClick = DBGridEh1Columns13EditButtonClick
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = -41
+    Width = 108
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    ExplicitTop = 407
+    ExplicitWidth = 688
+    object BitBtn1: TBitBtn
+      Left = 504
+      Top = 8
+      Width = 153
+      Height = 25
+      Caption = 'Create Simulation Version'
+      DoubleBuffered = True
+      Glyph.Data = {
+        E6000000424DE60000000000000076000000280000000E0000000E0000000100
+        0400000000007000000000000000000000001000000000000000000000000000
+        BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3300333333333333330033333333333333003333300033333300333330F03333
+        3300333330F033333300330000F000033300330FFFFFFF033300330000F00003
+        3300333330F033333300333330F0333333003333300033333300333333333333
+        33003333333333333300}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      Visible = False
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 656
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 1
+      Visible = False
+      OnClick = BitBtn2Click
+    end
+    object BitBtn3: TBitBtn
+      Left = 728
+      Top = 8
+      Width = 185
+      Height = 25
+      Caption = 'Capacity Planning - new format'
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 2
+      Visible = False
+      OnClick = BitBtn3Click
+    end
+    object BitBtn4: TBitBtn
+      Left = 32
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Create'
+      DoubleBuffered = True
+      Glyph.Data = {
+        E6000000424DE60000000000000076000000280000000E0000000E0000000100
+        0400000000007000000000000000000000001000000000000000000000000000
+        BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3300333333333333330033333333333333003333300033333300333330F03333
+        3300333330F033333300330000F000033300330FFFFFFF033300330000F00003
+        3300333330F033333300333330F0333333003333300033333300333333333333
+        33003333333333333300}
+      ParentDoubleBuffered = False
+      TabOrder = 3
+      OnClick = BitBtn4Click
+    end
+    object BitBtn5: TBitBtn
+      Left = 104
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Review'
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        0400000000008000000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+        00FFFFFFFFFFFFF4EC0FFFFFFFFFFF4ECC0FF000000004ECC0FF733333334ECC
+        330F7FB870078CC3B30F7F878E80733B830F7F7FE8E803B8B30F7F7EFE8E038B
+        830F7F7FEFE807B8B30F7F87FEF07B8B830F7FB87707B8B8B30F7FFFFFFFFFFF
+        F30F78B8B8B8777777FFF78B8B87FFFFFFFFFF77777FFFFFFFFF}
+      ParentDoubleBuffered = False
+      TabOrder = 4
+      OnClick = BitBtn5Click
+    end
+    object BitBtn6: TBitBtn
+      Left = 176
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Edit'
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+        55555555FFFFFFFF5555555000000005555555577777777FF555550999999900
+        55555575555555775F55509999999901055557F55555557F75F5001111111101
+        105577FFFFFFFF7FF75F00000000000011057777777777775F755070FFFFFF0F
+        01105777F555557F7FF75500FFFFFF0F00105577F555FF7F77575550FF70000F
+        0F0055575FF777757F775555000FFFFF0F005555777555FF7F77555550FF7000
+        0F055555575FF777757F555555000FFFFF05555555777555FF7F55555550FF70
+        0005555555575FF7777555555555000555555555555577755555555555555555
+        5555555555555555555555555555555555555555555555555555}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 5
+      OnClick = BitBtn6Click
+    end
+    object BitBtn7: TBitBtn
+      Left = 248
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Notepad'
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333000000
+        000033333377777777773333330FFFFFFFF03FF3FF7FF33F3FF700300000FF0F
+        00F077F777773F737737E00BFBFB0FFFFFF07773333F7F3333F7E0BFBF000FFF
+        F0F077F3337773F3F737E0FBFBFBF0F00FF077F3333FF7F77F37E0BFBF00000B
+        0FF077F3337777737337E0FBFBFBFBF0FFF077F33FFFFFF73337E0BF0000000F
+        FFF077FF777777733FF7000BFB00B0FF00F07773FF77373377373330000B0FFF
+        FFF03337777373333FF7333330B0FFFF00003333373733FF777733330B0FF00F
+        0FF03333737F37737F373330B00FFFFF0F033337F77F33337F733309030FFFFF
+        00333377737FFFFF773333303300000003333337337777777333}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 6
+      OnClick = BitBtn7Click
+    end
+    object BitBtn8: TBitBtn
+      Left = 320
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 7
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_cap_ftyelements'
+    FieldDefs = <
+      item
+        Name = 'TPLANT'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'YR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'SEQ'
+        DataType = ftInteger
+      end
+      item
+        Name = 'SDESC'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'SEQ1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'SDESC1'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'M1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M2'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M3'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M4'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M5'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M6'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M7'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M8'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M9'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M10'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M11'
+        DataType = ftFloat
+      end
+      item
+        Name = 'M12'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'seq;seq2;seq1'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterOpen = Query1AfterOpen
+    BeforePost = Query1BeforePost
+    AfterPost = Query1AfterPost
+    AfterScroll = Query1AfterScroll
+    Left = 160
+    Top = 104
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 192
+    Top = 104
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 224
+    Top = 104
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 256
+    Top = 104
+  end
+end

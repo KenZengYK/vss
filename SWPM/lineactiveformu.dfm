@@ -1,0 +1,219 @@
+object frmlineactive: Tfrmlineactive
+  Left = 419
+  Top = 253
+  Caption = 'Change Line Status'
+  ClientHeight = 287
+  ClientWidth = 393
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 32
+    Top = 24
+    Width = 23
+    Height = 13
+    Caption = 'Line '
+  end
+  object DBText1: TDBText
+    Left = 64
+    Top = 24
+    Width = 97
+    Height = 17
+    DataField = 'PLINE'
+    DataSource = frmlineinfo.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 344
+    Top = 24
+    Width = 3
+    Height = 13
+    Visible = False
+  end
+  object CheckBox1: TCheckBox
+    Left = 216
+    Top = 24
+    Width = 81
+    Height = 17
+    Caption = 'Line Status'
+    TabOrder = 0
+  end
+  object GroupBox1: TGroupBox
+    Left = 32
+    Top = 48
+    Width = 337
+    Height = 89
+    Caption = 'Projected'
+    TabOrder = 1
+    object Label2: TLabel
+      Left = 16
+      Top = 24
+      Width = 98
+      Height = 13
+      Caption = 'Start Date / Sect Hr '
+    end
+    object Label3: TLabel
+      Left = 16
+      Top = 56
+      Width = 98
+      Height = 13
+      Caption = 'End Date / Sect Hr  '
+    end
+    object DateEdit1: TDateEdit
+      Left = 120
+      Top = 24
+      Width = 113
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 0
+    end
+    object DateEdit2: TDateEdit
+      Left = 120
+      Top = 56
+      Width = 113
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 2
+    end
+    object Edit1: TCurrencyEdit
+      Left = 240
+      Top = 24
+      Width = 73
+      Height = 21
+      AutoSize = False
+      DisplayFormat = '0.0'
+      TabOrder = 1
+    end
+    object Edit2: TCurrencyEdit
+      Left = 240
+      Top = 56
+      Width = 73
+      Height = 21
+      AutoSize = False
+      DisplayFormat = '0.0'
+      TabOrder = 3
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 32
+    Top = 144
+    Width = 337
+    Height = 89
+    Caption = 'Actual'
+    TabOrder = 2
+    object Label4: TLabel
+      Left = 16
+      Top = 24
+      Width = 98
+      Height = 13
+      Caption = 'Start Date / Sect Hr '
+    end
+    object Label5: TLabel
+      Left = 16
+      Top = 56
+      Width = 98
+      Height = 13
+      Caption = 'End Date / Sect Hr  '
+    end
+    object DateEdit3: TDateEdit
+      Left = 120
+      Top = 24
+      Width = 113
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 0
+    end
+    object DateEdit4: TDateEdit
+      Left = 120
+      Top = 56
+      Width = 113
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 2
+    end
+    object Edit3: TCurrencyEdit
+      Left = 240
+      Top = 24
+      Width = 73
+      Height = 21
+      AutoSize = False
+      DisplayFormat = '0.0'
+      TabOrder = 1
+    end
+    object Edit4: TCurrencyEdit
+      Left = 240
+      Top = 56
+      Width = 73
+      Height = 21
+      AutoSize = False
+      DisplayFormat = '0.0'
+      TabOrder = 3
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 240
+    Width = 73
+    Height = 25
+    Caption = 'Save'
+    DoubleBuffered = True
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      04000000000080000000CE0E0000C40E00001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+      2222200000000002222203300007030222220330000703000222033000000303
+      0222033333333303000203300000330303020307777703030302030777770303
+      0302030777770003030203077777070303020000000000000302220307777707
+      0302220000000000000222220307777707022222000000000002}
+    ParentDoubleBuffered = False
+    TabOrder = 3
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 104
+    Top = 240
+    Width = 73
+    Height = 25
+    DoubleBuffered = True
+    Kind = bkClose
+    ParentDoubleBuffered = False
+    TabOrder = 4
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 16
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 48
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tblline where pline='#39'T002'#39
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 80
+  end
+end

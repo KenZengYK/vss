@@ -1,0 +1,44 @@
+unit xknydformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, DB, DBClient;
+
+type
+  Tfrmxknyd = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    DataSource1: TDataSource;
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmxknyd: Tfrmxknyd;
+
+implementation
+
+uses mainformu, ftylearnformu;
+
+{$R *.dfm}
+
+procedure Tfrmxknyd.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmxknyd:=nil;
+end;
+
+procedure Tfrmxknyd.Query1AfterPost(DataSet: TDataSet);
+begin
+  //
+end;
+
+end.

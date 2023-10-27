@@ -1,0 +1,37 @@
+unit Specmatformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons;
+
+type
+  Tfrmspecmat = class(TForm)
+    chk1: TCheckBox;
+    chk2: TCheckBox;
+    chk3: TCheckBox;
+    chk4: TCheckBox;
+    chk5: TCheckBox;
+    BitBtn1: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmspecmat: Tfrmspecmat;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tfrmspecmat.BitBtn1Click(Sender: TObject);
+begin
+  //
+  close;
+end;
+
+end.

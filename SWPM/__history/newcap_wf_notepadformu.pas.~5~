@@ -1,0 +1,86 @@
+unit newcap_wf_notepadformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DBCtrls, StdCtrls, GridsEh, DBGridEh, Buttons, DB, DBClient;
+
+type
+  Tfrmnewcap_wf_notepad = class(TForm)
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_wf_notepad: Tfrmnewcap_wf_notepad;
+
+implementation
+
+uses mainformu, newcap_wfformu, newcap_wf_detailformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_wf_notepad.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_wf_notepad:=nil;
+end;
+
+procedure Tfrmnewcap_wf_notepad.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmnewcap_wf_notepad.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  {
+  if query1.applyupdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      commandtext:='update tbl_cap_wf_notepad set remarks=:x1 where tplant=:x2 and dt=:x3 and ws=:x4';
+      if not query1.fieldbyname('remarks').isnull then
+      params[0].asstring:=query1.fieldbyname('remarks').value
+      else params[0].asstring:='';
+      params[1].asstring:=query1.fieldbyname('tplant').value;
+      params[2].asdate:=query1.fieldbyname('dt').value;
+      params[3].asstring:=query1.fieldbyname('ws').value;
+      execute;
+    end;
+  end;
+  }
+  str1:='update tbl_cap_wf_notepad set remarks=';
+  if not query1.fieldbyname('remarks').isnull then
+  str1:=str1+'remarks='''+query1.fieldbyname('remarks').value+''' '
+  else str1:=str1+'remarks='''' ';
+  str1:=str1+'where tplant=:x2 and dt=:x3 and ws=:x4';
+  if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+  
+end;
+
+end.
+ 

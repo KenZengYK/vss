@@ -1,0 +1,46 @@
+unit shpexftyformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Mask, rxToolEdit, Buttons;
+
+type
+  Tfrmshpexfty = class(TForm)
+    Label1: TLabel;
+    DateEdit1: TDateEdit;
+    BitBtn1: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmshpexfty: Tfrmshpexfty;
+
+implementation
+
+uses shpadviceformu;
+
+{$R *.dfm}
+
+procedure Tfrmshpexfty.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmshpexfty:=nil;
+end;
+
+procedure Tfrmshpexfty.BitBtn1Click(Sender: TObject);
+begin
+  if dateedit1.date>0 then begin
+    frmshpadvice.newshipadvice(dateedit1.date);
+    frmshpexfty.Close;
+  end;
+end;
+
+end.

@@ -1,0 +1,43 @@
+unit cap_wowithoutsahformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  ExtCtrls, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, StdCtrls, Buttons;
+
+type
+  Tfrmcap_wowithoutsah = class(TForm)
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel1: TPanel;
+    BitBtn13: TBitBtn;
+    BitBtn11: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcap_wowithoutsah: Tfrmcap_wowithoutsah;
+
+implementation
+
+uses mainformu, newcapformu;
+
+{$R *.dfm}
+
+procedure Tfrmcap_wowithoutsah.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmcap_wowithoutsah:=nil;
+end;
+
+end.

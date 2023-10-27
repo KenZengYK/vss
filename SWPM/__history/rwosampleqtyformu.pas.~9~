@@ -1,0 +1,48 @@
+unit rwosampleqtyformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, GridsEh, DBGridEh, DB, ADODB, DBClient;
+
+type
+  Tfrmrwosampleqty = class(TForm)
+    DataSource1: TDataSource;
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Label3: TLabel;
+    Edit3: TEdit;
+    ADOQuery1: TADOQuery;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource2: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmrwosampleqty: Tfrmrwosampleqty;
+
+implementation
+
+uses mainformu, qn_sampleformu;
+
+{$R *.dfm}
+
+procedure Tfrmrwosampleqty.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmrwosampleqty:=nil;
+end;
+
+end.

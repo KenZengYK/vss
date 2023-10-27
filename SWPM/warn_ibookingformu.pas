@@ -1,0 +1,526 @@
+unit warn_ibookingformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, StdCtrls, Buttons, GridsEh, DBGridEh, DBCtrls,
+  ExtCtrls, cxControls, cxSSheet, ppProd, ppClass, ppReport, ppComm,
+  ppRelatv, ppDB, ppDBPipe, ppCtrls, ppPrnabl, ppBands, ppCache, ppViewr,
+  Mask, rxToolEdit, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters,
+  dxSkinsCore, dxSkinsDefaultPainters, ppParameter;
+
+type
+  Tfrmwarn_ibooking = class(TForm)
+    sSheet1: TcxSpreadSheet;
+    Panel1: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    Label4: TLabel;
+    DBText4: TDBText;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    SaveDialog1: TSaveDialog;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppImage1: TppImage;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppShape1: TppShape;
+    ppSummaryBand1: TppSummaryBand;
+    ppLabel23: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppLabel29: TppLabel;
+    ppLabel30: TppLabel;
+    ppLabel31: TppLabel;
+    ppLabel32: TppLabel;
+    ppLabel33: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel35: TppLabel;
+    ppLabel36: TppLabel;
+    ppLabel37: TppLabel;
+    ppLabel38: TppLabel;
+    ppShape2: TppShape;
+    ppDBCalc1: TppDBCalc;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppLabel39: TppLabel;
+    ppLabel40: TppLabel;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppLabel41: TppLabel;
+    ppLabel42: TppLabel;
+    ppLabel43: TppLabel;
+    ppLabel44: TppLabel;
+    ppLabel45: TppLabel;
+    ppLabel46: TppLabel;
+    ppLabel47: TppLabel;
+    ppLabel48: TppLabel;
+    ppLabel49: TppLabel;
+    ppLabel50: TppLabel;
+    ppLabel51: TppLabel;
+    ppLabel52: TppLabel;
+    ppLabel53: TppLabel;
+    ppLabel54: TppLabel;
+    ppLabel55: TppLabel;
+    ppLabel56: TppLabel;
+    ppLabel57: TppLabel;
+    ppLabel58: TppLabel;
+    ppLabel59: TppLabel;
+    ppLabel60: TppLabel;
+    ppLabel61: TppLabel;
+    ppLabel62: TppLabel;
+    ppLabel63: TppLabel;
+    ppLabel64: TppLabel;
+    ppLabel65: TppLabel;
+    ppLabel66: TppLabel;
+    ppLabel67: TppLabel;
+    ppLabel69: TppLabel;
+    ppLabel70: TppLabel;
+    ppLabel71: TppLabel;
+    ppLabel73: TppLabel;
+    ppLabel74: TppLabel;
+    ppLabel75: TppLabel;
+    ppLabel76: TppLabel;
+    ppLabel77: TppLabel;
+    ppLabel68: TppLabel;
+    ppLabel72: TppLabel;
+    ppLabel78: TppLabel;
+    ppLabel79: TppLabel;
+    ppLabel80: TppLabel;
+    ppLabel81: TppLabel;
+    ppLabel82: TppLabel;
+    ppLabel83: TppLabel;
+    ppLabel84: TppLabel;
+    ppLabel85: TppLabel;
+    ppLabel86: TppLabel;
+    ppLabel87: TppLabel;
+    ppLabel88: TppLabel;
+    ppLabel89: TppLabel;
+    ppLabel90: TppLabel;
+    ppLabel91: TppLabel;
+    ppLabel92: TppLabel;
+    ppLabel93: TppLabel;
+    ppLabel94: TppLabel;
+    ppLabel95: TppLabel;
+    ppLabel96: TppLabel;
+    ppLabel97: TppLabel;
+    ppLabel98: TppLabel;
+    ppLabel99: TppLabel;
+    ppLabel100: TppLabel;
+    ppLabel101: TppLabel;
+    ppLabel102: TppLabel;
+    ppLabel103: TppLabel;
+    ppLabel104: TppLabel;
+    ppLabel105: TppLabel;
+    ppLabel106: TppLabel;
+    ppLabel107: TppLabel;
+    ppLabel108: TppLabel;
+    ppLabel109: TppLabel;
+    ppLabel110: TppLabel;
+    ppLabel111: TppLabel;
+    ppLabel112: TppLabel;
+    ppLabel113: TppLabel;
+    ppLabel114: TppLabel;
+    ppLabel115: TppLabel;
+    ppLabel116: TppLabel;
+    ppLabel117: TppLabel;
+    ppLabel118: TppLabel;
+    ppLabel119: TppLabel;
+    ppLabel120: TppLabel;
+    ppLabel121: TppLabel;
+    ppLabel122: TppLabel;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppDBText23: TppDBText;
+    ppDBText24: TppDBText;
+    ppDBText25: TppDBText;
+    ppDBText26: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText27: TppDBText;
+    ppDBText29: TppDBText;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLine19: TppLine;
+    ppLine20: TppLine;
+    ppLine21: TppLine;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppLine24: TppLine;
+    ppLine25: TppLine;
+    ppLine26: TppLine;
+    ppLine27: TppLine;
+    ppLine28: TppLine;
+    ppLine29: TppLine;
+    ppLine30: TppLine;
+    ppLine31: TppLine;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppLine34: TppLine;
+    ppLine35: TppLine;
+    ppLine36: TppLine;
+    ppLine37: TppLine;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLine40: TppLine;
+    ppLine41: TppLine;
+    ppLine42: TppLine;
+    ppLine43: TppLine;
+    ppLine44: TppLine;
+    ppLine45: TppLine;
+    ppLine46: TppLine;
+    ppLine47: TppLine;
+    ppLine48: TppLine;
+    ppLine49: TppLine;
+    ppLine50: TppLine;
+    ppLine51: TppLine;
+    ppLine52: TppLine;
+    ppLine53: TppLine;
+    ppLine54: TppLine;
+    ppLine55: TppLine;
+    ppLine56: TppLine;
+    ppLine57: TppLine;
+    ppLine58: TppLine;
+    ppLine59: TppLine;
+    ppLine60: TppLine;
+    ppLabel123: TppLabel;
+    ppLabel124: TppLabel;
+    ppLabel125: TppLabel;
+    ppLabel126: TppLabel;
+    ppLabel127: TppLabel;
+    ppLabel128: TppLabel;
+    dt001: TppLabel;
+    Label5: TLabel;
+    DateEdit1: TDateEdit;
+    Query1SEQ: TIntegerField;
+    Query1DSEQ: TIntegerField;
+    Query1J_NO: TWideStringField;
+    Query1SEASON: TWideStringField;
+    Query1CUSTPO: TWideStringField;
+    Query1CSTYLE: TWideStringField;
+    Query1ACOL: TWideStringField;
+    Query1QTY: TIntegerField;
+    Query1SQTY: TIntegerField;
+    Query1ACDT: TDateField;
+    Query1SHPM: TWideStringField;
+    Query1SHPTO: TWideStringField;
+    Query1BARDT: TDateField;
+    Query1FARDT: TDateField;
+    Query1CSTDT: TDateField;
+    Query1CENDT: TDateField;
+    Query1RPTDT: TDateField;
+    Query1SSTDT: TDateField;
+    Query1SENDT: TDateField;
+    Query1RPT1DT: TDateField;
+    Query1WSTDT: TDateField;
+    Query1WENDT: TDateField;
+    Query1RPT2DT: TDateField;
+    Query1PSTDT: TDateField;
+    Query1PENDT: TDateField;
+    Query1RPT3DT: TDateField;
+    Query1INNO: TWideStringField;
+    Query1INDT: TDateField;
+    Query1IN1DT: TDateField;
+    Query1INRST: TWideStringField;
+    Query1IN1NO: TWideStringField;
+    Query1FINDT: TDateField;
+    Query1IN1RST: TWideStringField;
+    Query1TOPDT: TDateField;
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmwarn_ibooking: Tfrmwarn_ibooking;
+
+implementation
+
+uses mainformu, pdnformu, pdnprintformu;
+
+{$R *.dfm}
+
+procedure Tfrmwarn_ibooking.Query1AfterPost(DataSet: TDataSet);
+begin
+  DataSetAfterPost(DataSet,0,1);
+end;
+
+procedure Tfrmwarn_ibooking.DBGridEh1KeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if key=#13 then sendmessage(dbgrideh1.Handle,wm_keydown,vk_tab,0);
+end;
+
+procedure Tfrmwarn_ibooking.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmwarn_ibooking.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmwarn_ibooking:=nil;
+end;
+
+procedure Tfrmwarn_ibooking.BitBtn3Click(Sender: TObject);
+var
+  cobject: TcxSSCellObject;
+  i:integer;
+begin
+  screen.cursor:=crHourglass;
+  try
+  //savedialog1.InitialDir:=extractfiledir(application.ExeName);
+  sSheet1.LoadFromFile(extractfilepath(application.ExeName)+'LWPM_IBWARN.xls');
+  if query1.state=dsedit then query1.post;
+  i:=0;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    commandtext:='select * from tbl_pdn_ibwarn where seq=:x1 order by seq,dseq';
+    params[0].asinteger:=query1.fieldbyname('seq').value;
+    open;
+    first;
+    while not eof do begin
+      cobject:=sSheet1.Sheet.GetCellObject(0,13+i);
+      if not fieldbyname('season').IsNull then
+      cobject.text:=fieldbyname('season').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(1,13+i);
+      if not fieldbyname('custpo').IsNull then
+      cobject.text:=fieldbyname('custpo').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(2,13+i);
+      if not fieldbyname('cstyle').IsNull then
+      cobject.text:=fieldbyname('cstyle').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(3,13+i);
+      if not fieldbyname('acol').IsNull then
+      cobject.text:=fieldbyname('acol').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(4,13+i);
+      if not fieldbyname('qty').IsNull then
+      cobject.text:=fieldbyname('qty').asstring
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(5,13+i);
+      if not fieldbyname('sqty').IsNull then
+      cobject.text:=fieldbyname('sqty').asstring
+      else cobject.Text:='0';
+      cobject:=sSheet1.Sheet.GetCellObject(6,13+i);
+      if not fieldbyname('acdt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('acdt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(7,13+i);
+      if not fieldbyname('shpm').IsNull then
+      cobject.text:=fieldbyname('shpm').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(8,13+i);
+      if not fieldbyname('shpto').IsNull then
+      cobject.text:=fieldbyname('shpto').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(9,13+i);
+      if not fieldbyname('bardt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('bardt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(10,13+i);
+      if not fieldbyname('fardt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('fardt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(11,13+i);
+      if not fieldbyname('cstdt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('cstdt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(12,13+i);
+      if not fieldbyname('cendt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('cendt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(13,13+i);
+      if not fieldbyname('rptdt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('rptdt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(14,13+i);
+      if not fieldbyname('sstdt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('sstdt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(15,13+i);
+      if not fieldbyname('sendt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('sendt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(16,13+i);
+      if not fieldbyname('rpt1dt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('rpt1dt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(17,13+i);
+      if not fieldbyname('wstdt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('wstdt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(18,13+i);
+      if not fieldbyname('wendt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('wendt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(19,13+i);
+      if not fieldbyname('rpt2dt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('rpt2dt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(20,13+i);
+      if not fieldbyname('pstdt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('pstdt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(21,13+i);
+      if not fieldbyname('pendt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('pendt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(22,13+i);
+      if not fieldbyname('rpt3dt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('rpt3dt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(23,13+i);
+      if not fieldbyname('inno').IsNull then
+      cobject.text:=fieldbyname('inno').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(24,13+i);
+      if not fieldbyname('indt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('indt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(25,13+i);
+      if not fieldbyname('in1dt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('in1dt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(26,13+i);
+      if not fieldbyname('inrst').IsNull then
+      cobject.text:=fieldbyname('inrst').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(27,13+i);
+      if not fieldbyname('in1no').IsNull then
+      cobject.text:=fieldbyname('in1no').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(28,13+i);
+      if not fieldbyname('findt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('findt').value)
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(29,13+i);
+      if not fieldbyname('in1rst').IsNull then
+      cobject.text:=fieldbyname('in1rst').value
+      else cobject.Text:='';
+      cobject:=sSheet1.Sheet.GetCellObject(30,13+i);
+      if not fieldbyname('topdt').IsNull then
+      cobject.text:=formatdatetime('yy-MM-dd',fieldbyname('topdt').value)
+      else cobject.Text:='';
+
+      i:=i+1;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  savedialog1.Execute;
+  if pos('XLS',uppercase(savedialog1.FileName))>0 then
+  sSheet1.savetofile(savedialog1.FileName)
+  else sSheet1.SaveToFile(savedialog1.FileName+'.xls');
+  showmessage('Completed!');
+  finally
+    cobject.Free;
+    screen.cursor:=crDefault
+  end;
+end;
+
+procedure Tfrmwarn_ibooking.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  Tppviewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmwarn_ibooking.BitBtn2Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+  if not query1.fieldbyname('dseq').isnull then begin
+    if dateedit1.date>0 then dt001.Caption:=dateedit1.Text
+    else dt001.Caption:='';
+    ppReport1.print;
+  end;
+end;
+
+end.
+ 

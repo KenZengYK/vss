@@ -1,0 +1,374 @@
+unit newcap_reportsformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DateUtils, DB, DBClient, Menus, ppParameter,
+  ppBands, ppClass, ppStrtch, ppMemo, ppCtrls, ppVar, ppPrnabl, ppCache, ppProd,
+  ppReport, ppDB, ppComm, ppRelatv, ppDBPipe, ADODB, ppViewr;
+
+type
+  Tfrmnewcap_reports = class(TForm)
+    BitBtn11: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn1: TBitBtn;
+    BitBtn12: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query2: TClientDataSet;
+    BitBtn3: TBitBtn;
+    BitBtn16: TBitBtn;
+    ClientDataSet2: TClientDataSet;
+    BitBtn4: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn7: TBitBtn;
+    PopupMenu1: TPopupMenu;
+    CPanalysisreportforSCmeeting1: TMenuItem;
+    BitBtn8: TBitBtn;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppShape9: TppShape;
+    ppShape2: TppShape;
+    ppShape28: TppShape;
+    ppShape35: TppShape;
+    ppLabel2: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel3: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLabel637: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel28: TppLabel;
+    ppLabel491: TppLabel;
+    ppLabel495: TppLabel;
+    ppLabel496: TppLabel;
+    ppLabel502: TppLabel;
+    ppLabel506: TppLabel;
+    ppLabel516: TppLabel;
+    ppLine1: TppLine;
+    ppLine5: TppLine;
+    ppLine14: TppLine;
+    ppLine16: TppLine;
+    ppLine40: TppLine;
+    ppLine46: TppLine;
+    ppLine50: TppLine;
+    ppLine517: TppLine;
+    ppDetailBand1: TppDetailBand;
+    ppShape113: TppShape;
+    ppLine47: TppLine;
+    oskey002: TppDBText;
+    ppLine9: TppLine;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    ppLine11: TppLine;
+    ppDBText21: TppDBText;
+    ppDBMemo2: TppDBMemo;
+    ppLine41: TppLine;
+    ppLine45: TppLine;
+    ppLine54: TppLine;
+    ppLine13: TppLine;
+    ppDBText23: TppDBText;
+    ppLine22: TppLine;
+    ppLine28: TppLine;
+    ppLine177: TppLine;
+    actitem002: TppDBText;
+    ppLine15: TppLine;
+    ppFooterBand1: TppFooterBand;
+    ppLabel642: TppLabel;
+    ppSummaryBand2: TppSummaryBand;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppLine8: TppLine;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppShape106: TppShape;
+    ppLine620: TppLine;
+    category002: TppLabel;
+    ppLabel528: TppLabel;
+    ppLine586: TppLine;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppParameterList1: TppParameterList;
+    qry1: TADOQuery;
+    qry2: TADOQuery;
+    DataSource1: TDataSource;
+    ppDBText1: TppDBText;
+    ppLabel1: TppLabel;
+    ppLabel6: TppLabel;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppShape1: TppShape;
+    ppDBText2: TppDBText;
+    procedure BitBtn11Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn12Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn16Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure CPanalysisreportforSCmeeting1Click(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure ppGroupFooterBand1BeforePrint(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_reports: Tfrmnewcap_reports;
+
+implementation
+
+uses mainformu, newcapformu, newcap_ftyelementsformu, newcap_comformu,
+  newcap_simpleversionformu, newcap_newformatsformu, newcap_custupdatedformu,
+  newcap_ref1formu, newcap_ftysimulationformu, newcap_rwodetail1formu,
+  newcap_printbalancingformu, newcap_notepadformu, newcap_screportformu,
+  newcap_salesvalueformu, CP_ActionlogFormu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_reports.BitBtn11Click(Sender: TObject);
+begin
+  if frmnewcap_ftyelements=nil then frmnewcap_ftyelements:=tfrmnewcap_ftyelements.create(nil);
+  frmnewcap_ftyelements.show;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn5Click(Sender: TObject);
+begin
+  if frmnewcap_com=nil then frmnewcap_com:=tfrmnewcap_com.Create(nil);
+  frmnewcap_com.Show;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn6Click(Sender: TObject);
+begin
+  if frmnewcap_salesvalue=nil then frmnewcap_salesvalue:=tfrmnewcap_salesvalue.create(nil);
+  frmnewcap_salesvalue.spinedit1.value:=yearof(date);
+  frmnewcap_salesvalue.xh5.checked:=true;
+  frmnewcap_salesvalue.show;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn7Click(Sender: TObject);
+begin
+  {
+  if frmnewcap_notepad=nil then frmnewcap_notepad:=tfrmnewcap_notepad.create(nil);
+  frmnewcap_notepad.bitbtn2.enabled:=false;
+  frmnewcap_notepad.bitbtn8.enabled:=false;
+  frmnewcap_notepad.bitbtn9.enabled:=false;
+  frmnewcap_notepad.show;
+  }
+  with qry1 do begin
+    close;
+    sql.text:='update phdb..tbl_cp_mailhead set ug=case when act_external=1 then ''Yes'' else ''No'' end where act_cmp=0';
+    execsql;
+  end;
+  with qry1 do begin
+    close;
+    sql.text:='select * from phdb..tbl_cp_mailhead a,phdb..tbl_cp_mailcont b where a.seq=b.seq and a.act_cmp=0 order by a.seq,b.seq1';
+    open;
+    if not fieldbyname('seq').isnull then ppReport1.print;
+  end;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn8Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmnewcap_reports.CPanalysisreportforSCmeeting1Click(
+  Sender: TObject);
+begin
+  if frmnewcap_screport=nil then frmnewcap_screport:=tfrmnewcap_screport.create(nil);
+  frmnewcap_screport.show;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn1Click(Sender: TObject);
+begin
+  if frmnewcap_simpleversion=nil then frmnewcap_simpleversion:=tfrmnewcap_simpleversion.Create(nil);
+  frmnewcap_simpleversion.sEdit1.Value:=yearof(now);
+  frmnewcap_simpleversion.sEdit2.Value:=monthof(now);
+  frmnewcap_simpleversion.sEdit3.Value:=yearof(now);
+  frmnewcap_simpleversion.sEdit4.Value:=monthof(now);
+  frmnewcap_simpleversion.Show;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn12Click(Sender: TObject);
+var
+  seq:string;
+begin
+  if frmnewcap_newformats=nil then frmnewcap_newformats:=tfrmnewcap_newformats.create(nil);
+  frmnewcap_newformats.spinedit1.value:=yearof(now);
+  frmnewcap_newformats.spinedit2.Value:=1;
+  frmnewcap_newformats.spinedit3.Value:=12;
+  frmnewcap_newformats.spinedit4.value:=1;
+  frmnewcap_newformats.spinedit5.value:=53;
+  frmnewcap_newformats.spinedit2.Enabled:=false;
+  frmnewcap_newformats.spinedit3.Enabled:=false;
+  frmnewcap_newformats.spinedit4.Enabled:=false;
+  frmnewcap_newformats.spinedit5.Enabled:=false;
+  frmnewcap_newformats.spinedit6.value:=yearof(now);
+  frmnewcap_newformats.spinedit8.value:=yearof(now);
+  frmnewcap_newformats.spinedit7.Value:=1;
+  frmnewcap_newformats.spinedit9.Value:=12;
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select min(seq) as q from tbl_cap_ftyelements where sdesc=''Execution''';
+    open;
+    if not fieldbyname('q').isnull then seq:=fieldbyname('q').asstring
+    else seq:='1';
+  end;
+  frmnewcap_newformats.label8.caption:=seq;//'1';
+  frmnewcap_newformats.show;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn16Click(Sender: TObject);
+var
+  rcap:boolean;
+begin
+  with clientdataset2 do begin
+    close;
+    params.clear;
+    commandtext:='select rcap from tbluser where usr='''+frmmain.combobox1.text+'''';
+    open;
+    if not fieldbyname('rcap').isnull then rcap:=fieldbyname('rcap').value else rcap:=false;
+  end;
+  if frmnewcap_ref1=nil then frmnewcap_ref1:=tfrmnewcap_ref1.create(nil);
+  frmnewcap_ref1.ComboBox1.text:='SL';
+  with clientdataset2 do begin
+    close;
+    params.clear;
+    commandtext:='select stdt,m1 from tbl_cap_date where sel=1 and tplant=''SL''';
+    open;
+    if not fieldbyname('stdt').isnull then begin
+      frmnewcap_ref1.DateEdit1.date:=fieldbyname('stdt').value;
+      if fieldbyname('m1').value=12 then frmnewcap_ref1.xh1.Checked:=true
+      else if fieldbyname('m1').value=9 then frmnewcap_ref1.xh2.Checked:=true
+      else if fieldbyname('m1').value=6 then frmnewcap_ref1.xh3.Checked:=true
+      else if fieldbyname('m1').value=3 then frmnewcap_ref1.xh4.Checked:=true
+      else if fieldbyname('m1').value=1 then frmnewcap_ref1.xh5.Checked:=true;
+    end;
+  end;
+  frmnewcap_ref1.show;
+  if rcap then frmnewcap_ref1.bitbtn1.Enabled:=true
+  else frmnewcap_ref1.BitBtn1.enabled:=false;
+end;
+
+procedure Tfrmnewcap_reports.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_reports:=nil;
+end;
+
+procedure Tfrmnewcap_reports.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  if not qry1.fieldbyname('act_cmpdt').isnull then begin
+    if qry1.fieldbyname('act_cmpdt').value<=date-1 then begin
+      actitem002.font.Color:=clRed;
+      actitem002.font.Style:=[fsBold];
+    end else if (qry1.fieldbyname('act_cmpdt').value>date-1) and (qry1.fieldbyname('act_cmpdt').value<=date+2) then begin
+      actitem002.font.Color:=clRed;
+      actitem002.font.Style:=[];
+    end else begin
+      actitem002.font.Color:=clBlack;
+      actitem002.font.Style:=[];
+    end;
+  end else begin
+    actitem002.font.Color:=clBlack;
+    actitem002.font.Style:=[];
+  end;
+  if (qry1.fieldbyname('act_cnt').value mod 2 = 1) then begin
+    ppshape113.visible:=true;
+  end else begin
+    ppshape113.visible:=false;
+  end;
+end;
+
+procedure Tfrmnewcap_reports.ppGroupFooterBand1BeforePrint(Sender: TObject);
+begin
+  category002.Caption:='';
+  with qry2 do begin
+    close;
+    sql.Text:='select a.act_item,b.desc_en,isnull(b.desc_cn,'''') as desc_c from phdb..tbl_cp_mailhead a,phdb..tbl_cp_mailreason b where a.act_item=b.cde and a.seq='+qry1.FieldByName('seq').asstring;
+    open;
+    first;
+    while not eof do begin
+      if category002.caption>'' then
+        category002.Caption:=category002.Caption+'   '+fieldbyname('desc_en').value+'  '+fieldbyname('desc_c').Value
+      else category002.Caption:='  '+fieldbyname('desc_en').value+'  '+fieldbyname('desc_c').Value;
+      next;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_reports.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn2Click(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select tm from tbl_cap_syn';
+    open;
+    if not fieldbyname('tm').isnull then begin
+      showmessage('RWO data synchronization is not finished, pls wait!');
+    end else begin
+     if frmnewcap_rwodetail1=nil then frmnewcap_rwodetail1:=tfrmnewcap_rwodetail1.Create(nil);
+     frmnewcap_rwodetail1.Show;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn3Click(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select tm from tbl_cap_syn';
+    open;
+    if not fieldbyname('tm').isnull then begin
+      showmessage('RWO data synchronization is not finished, pls wait!');
+    end else begin
+      if frmnewcap_custupdated=nil then frmnewcap_custupdated:=tfrmnewcap_custupdated.Create(nil);
+      frmnewcap_custupdated.Show;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn4Click(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select tm from tbl_cap_syn';
+    open;
+    if not fieldbyname('tm').isnull then begin
+      showmessage('CWO data synchronization is not finished, pls wait!');
+    end else begin
+      if frmnewcap_printbalancing=nil then frmnewcap_printbalancing:=tfrmnewcap_printbalancing.Create(nil);
+      frmnewcap_printbalancing.ysp01.value:=yearof(date);
+      frmnewcap_printbalancing.ysp02.value:=yearof(date);
+      frmnewcap_printbalancing.show;
+    end;
+  end;
+end;
+
+end.

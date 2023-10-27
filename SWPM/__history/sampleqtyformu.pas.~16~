@@ -1,0 +1,92 @@
+unit sampleqtyformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, StdCtrls, Buttons, DB, DBClient, DBCtrls;
+
+type
+  Tfrmsampleqty = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Label7: TLabel;
+    DBText7: TDBText;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label9: TLabel;
+    DBText8: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    DBText4: TDBText;
+    Label5: TLabel;
+    DBText5: TDBText;
+    Label4: TLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsampleqty: Tfrmsampleqty;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure Tfrmsampleqty.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmsampleqty.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmsampleqty:=nil;
+end;
+
+procedure Tfrmsampleqty.Query1AfterPost(DataSet: TDataSet);
+var
+  pstr:string;
+  upd:string;
+  str1,str2:string;
+begin
+  str1:='update tblshedule_sample set ';
+  if not query1.fieldbyname('s_fty').isnull then
+  str1:=str1+'s_fty='''+query1.fieldbyname('s_fty').value+''','
+  else str1:=str1+'s_fty='''',';
+  if not query1.fieldbyname('s_spc').isnull then
+  str1:=str1+'s_spc='''+query1.fieldbyname('s_spc').value+''','
+  else str1:=str1+'s_spc=''N'',';
+  if not query1.fieldbyname('s_addt').isnull then
+  str1:=str1+'s_addt='''+formatdatetime('yyyy-MM-dd',query1.fieldbyname('s_addt').value)+''','
+  else str1:=str1+'s_addt=null,';
+  if not query1.fieldbyname('s_adt').isnull then
+  str1:=str1+'s_adt='''+formatdatetime('yyyy-MM-dd',query1.fieldbyname('s_adt').value)+''' '
+  else str1:=str1+'s_adt=null ';
+  str1:=str1+'where pline='''+query1.fieldbyname('pline').value+''' ';
+  str1:=str1+'and seq='+query1.fieldbyname('seq').asstring+' ';
+  str1:=str1+'and s_type='''+query1.fieldbyname('s_type').value+''' ';
+  str1:=str1+'and s_ws='''+query1.fieldbyname('s_ws').value+''' ';
+  str1:=str1+'and psiz='''+query1.fieldbyname('psiz').value+''' ';
+  str1:=str1+'and c_order='+query1.fieldbyname('c_order').asstring+' ';
+  str1:=str1+'and s_order='+query1.fieldbyname('s_order').asstring;
+  if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+end;
+
+end.

@@ -1,0 +1,32 @@
+unit printkdjsu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  TeEngine, Series, Db, DBTables, TeeProcs, Chart, DBChart,
+  QuickRpt, ExtCtrls, Qrctrls, DBClient;
+
+type
+  Tfrmprintkdjs = class(TForm)
+    QuickRep1: TQuickRep;
+    TitleBand1: TQRBand;
+    PageHeaderBand1: TQRBand;
+    QRLabel1: TQRLabel;
+    ClientDataSet1: TClientDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmprintkdjs: Tfrmprintkdjs;
+
+implementation
+
+uses mainformu;
+
+{$R *.DFM}
+
+end.

@@ -1,0 +1,468 @@
+unit newcap_nostyle_detailformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, StdCtrls, Buttons, DBCtrls, DB,
+  DBClient;
+
+type
+  Tfrmnewcap_nostyle_detail = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure querydtchange(Sender: TField);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure Query1BeforePost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    function monthtransfer(const m1: integer):string;
+  end;
+
+var
+  frmnewcap_nostyle_detail: Tfrmnewcap_nostyle_detail;
+
+implementation
+
+uses mainformu, newcap_nostyle_wkformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_nostyle_detail.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_nostyle_detail:=nil;
+end;
+
+procedure Tfrmnewcap_nostyle_detail.FormShow(Sender: TObject);
+var
+  i:integer;
+begin
+  i:=0;
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select wkno,flag,dt1 as x1,dt2 as x2,m1 from tbl_cap_wkno_new where yr='+inttostr(frmnewcap_nostyle_wk.spinedit1.value)+' and m1='+frmnewcap_nostyle_wk.query1.fieldbyname('m1').asstring+' and wkno>0 order by wkno';
+    open;
+    first;
+    while not eof do begin
+      i:=i+1;
+      if i=1 then begin
+        dbgrideh1.Columns[3].Title.caption:='Sales Projection on Volume - '+monthtransfer(fieldbyname('m1').value)+'|Week '+fieldbyname('wkno').asstring+' '+fieldbyname('flag').value+' ('+formatdatetime('MM/dd',fieldbyname('x1').Value)+'-'+formatdatetime('MM/dd',fieldbyname('x2').value)+')';
+      end else if i=2 then begin
+        dbgrideh1.columns[4].Title.Caption:='Sales Projection on Volume - '+monthtransfer(fieldbyname('m1').value)+'|Week '+fieldbyname('wkno').asstring+' '+fieldbyname('flag').value+' ('+formatdatetime('MM/dd',fieldbyname('x1').Value)+'-'+formatdatetime('MM/dd',fieldbyname('x2').value)+')';
+      end else if i=3 then begin
+        dbgrideh1.columns[5].Title.Caption:='Sales Projection on Volume - '+monthtransfer(fieldbyname('m1').value)+'|Week '+fieldbyname('wkno').asstring+' '+fieldbyname('flag').value+' ('+formatdatetime('MM/dd',fieldbyname('x1').Value)+'-'+formatdatetime('MM/dd',fieldbyname('x2').value)+')';
+      end else if i=4 then begin
+        dbgrideh1.columns[6].Title.Caption:='Sales Projection on Volume - '+monthtransfer(fieldbyname('m1').value)+'|Week '+fieldbyname('wkno').asstring+' '+fieldbyname('flag').value+' ('+formatdatetime('MM/dd',fieldbyname('x1').Value)+'-'+formatdatetime('MM/dd',fieldbyname('x2').value)+')';
+      end else if i=5 then begin
+        dbgrideh1.columns[7].Title.Caption:='Sales Projection on Volume - '+monthtransfer(fieldbyname('m1').value)+'|Week '+fieldbyname('wkno').asstring+' '+fieldbyname('flag').value+' ('+formatdatetime('MM/dd',fieldbyname('x1').Value)+'-'+formatdatetime('MM/dd',fieldbyname('x2').value)+')';
+      end else if i=6 then begin
+        dbgrideh1.columns[8].title.caption:='Sales Projection on Volume - '+monthtransfer(fieldbyname('m1').value)+'|Week '+fieldbyname('wkno').asstring+' '+fieldbyname('flag').value+' ('+formatdatetime('MM/dd',fieldbyname('x1').Value)+'-'+formatdatetime('MM/dd',fieldbyname('x2').value)+')';
+      end;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  if i=6 then begin
+    dbgrideh1.columns[8].visible:=true;
+  end else if i=5 then begin
+    dbgrideh1.columns[8].visible:=false;
+    dbgrideh1.Columns[7].Visible:=true;
+  end else begin
+    dbgrideh1.Columns[8].Visible:=false;
+    dbgrideh1.Columns[7].Visible:=false;
+  end;
+
+end;
+
+function Tfrmnewcap_nostyle_detail.monthtransfer(
+  const m1: integer): string;
+begin
+  if m1=1 then result:='Jan'
+  else if m1=2 then result:='Feb'
+  else if m1=3 then result:='Mar'
+  else if m1=4 then result:='Apr'
+  else if m1=5 then result:='May'
+  else if m1=6 then result:='Jun'
+  else if m1=7 then result:='Jul'
+  else if m1=8 then result:='Aug'
+  else if m1=9 then result:='Sep'
+  else if m1=10 then result:='Oct'
+  else if m1=11 then result:='Nov'
+  else if m1=12 then result:='Dec';
+end;
+
+procedure Tfrmnewcap_nostyle_detail.BitBtn3Click(Sender: TObject);
+var
+  seq:integer;
+  tplant,cust,flag6:string;
+  yr,m1:integer;
+begin
+  tplant:=query1.fieldbyname('tplant').value;
+  cust:=query1.fieldbyname('cust').value;
+  flag6:=query1.fieldbyname('flag6').value;
+  yr:=query1.fieldbyname('yr').value;
+  m1:=query1.fieldbyname('m1').value;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    commandtext:='select max(seq) as q from tbl_cap_oa_proj_detail where tplant=:x1 and yr=:x2 and m1=:x3 and cust=:x4 and flag6=:x5';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=yr;
+    params[2].asinteger:=m1;
+    params[3].asstring:=cust;
+    params[4].asstring:=flag6;
+    open;
+    if not fieldbyname('q').isnull then seq:=fieldbyname('q').value+1 else seq:=2;
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    params.createparam(ftinteger,'x6',ptinput);
+    params.createparam(ftdate,'x7',ptinput);
+    params.createparam(ftstring,'x8',ptinput);
+    commandtext:='insert into tbl_cap_oa_proj_detail(tplant,yr,m1,cust,flag6,seq,dt,act) values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8)';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=yr;
+    params[2].asinteger:=m1;
+    params[3].asstring:=cust;
+    params[4].asstring:=flag6;
+    params[5].asinteger:=seq;
+    params[6].asdate:=date;
+    params[7].asstring:='Add Qty';
+    execute;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    commandtext:='select * from tbl_cap_oa_proj_detail where tplant=:x1 and yr=:x2 and m1=:x3 and cust=:x4 and flag6=:x5';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=yr;
+    params[2].asinteger:=m1;
+    params[3].asstring:=cust;
+    params[4].asstring:=flag6;
+    open;
+  end;
+end;
+
+procedure Tfrmnewcap_nostyle_detail.BitBtn4Click(Sender: TObject);
+var
+  seq:integer;
+  tplant,cust,flag6:string;
+  yr,m1:integer;
+begin
+  tplant:=query1.fieldbyname('tplant').value;
+  cust:=query1.fieldbyname('cust').value;
+  flag6:=query1.fieldbyname('flag6').value;
+  yr:=query1.fieldbyname('yr').value;
+  m1:=query1.fieldbyname('m1').value;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    commandtext:='select max(seq) as q from tbl_cap_oa_proj_detail where tplant=:x1 and yr=:x2 and m1=:x3 and cust=:x4 and flag6=:x5';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=yr;
+    params[2].asinteger:=m1;
+    params[3].asstring:=cust;
+    params[4].asstring:=flag6;
+    open;
+    if not fieldbyname('q').isnull then seq:=fieldbyname('q').value+1 else seq:=2;
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    params.createparam(ftinteger,'x6',ptinput);
+    params.createparam(ftdate,'x7',ptinput);
+    params.createparam(ftstring,'x8',ptinput);
+    commandtext:='insert into tbl_cap_oa_proj_detail(tplant,yr,m1,cust,flag6,seq,dt,act) values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8)';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=yr;
+    params[2].asinteger:=m1;
+    params[3].asstring:=cust;
+    params[4].asstring:=flag6;
+    params[5].asinteger:=seq;
+    params[6].asdate:=date;
+    params[7].asstring:='Reduce Qty';
+    execute;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    commandtext:='select * from tbl_cap_oa_proj_detail where tplant=:x1 and yr=:x2 and m1=:x3 and cust=:x4 and flag6=:x5';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=yr;
+    params[2].asinteger:=m1;
+    params[3].asstring:=cust;
+    params[4].asstring:=flag6;
+    open;
+  end;
+end;
+
+procedure Tfrmnewcap_nostyle_detail.BitBtn5Click(Sender: TObject);
+var
+  seq:integer;
+  tplant,cust,flag6:string;
+  yr,m1:integer;
+begin
+  tplant:=query1.fieldbyname('tplant').value;
+  cust:=query1.fieldbyname('cust').value;
+  flag6:=query1.fieldbyname('flag6').value;
+  yr:=query1.fieldbyname('yr').value;
+  m1:=query1.fieldbyname('m1').value;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    commandtext:='select max(seq) as q from tbl_cap_oa_proj_detail where tplant=:x1 and yr=:x2 and m1=:x3 and cust=:x4 and flag6=:x5';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=yr;
+    params[2].asinteger:=m1;
+    params[3].asstring:=cust;
+    params[4].asstring:=flag6;
+    open;
+    if not fieldbyname('q').isnull then seq:=fieldbyname('q').value+1 else seq:=2;
+  end;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    params.createparam(ftinteger,'x6',ptinput);
+    params.createparam(ftdate,'x7',ptinput);
+    params.createparam(ftstring,'x8',ptinput);
+    commandtext:='insert into tbl_cap_oa_proj_detail(tplant,yr,m1,cust,flag6,seq,dt,act) values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8)';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=yr;
+    params[2].asinteger:=m1;
+    params[3].asstring:=cust;
+    params[4].asstring:=flag6;
+    params[5].asinteger:=seq;
+    params[6].asdate:=date;
+    params[7].asstring:='Reallocate Qty';
+    execute;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    commandtext:='select * from tbl_cap_oa_proj_detail where tplant=:x1 and yr=:x2 and m1=:x3 and cust=:x4 and flag6=:x5';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=yr;
+    params[2].asinteger:=m1;
+    params[3].asstring:=cust;
+    params[4].asstring:=flag6;
+    open;
+  end;
+end;
+
+procedure Tfrmnewcap_nostyle_detail.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.Post;
+end;
+
+procedure Tfrmnewcap_nostyle_detail.Query1AfterPost(DataSet: TDataSet);
+var
+  mttl,w1,w2,w3,w4,w5,w6:integer;
+  str1:string;
+begin
+  {
+  if query1.applyupdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      params.createparam(ftinteger,'x6',ptinput);
+      params.createparam(ftinteger,'x7',ptinput);
+      params.createparam(ftinteger,'x8',ptinput);
+      params.createparam(ftstring,'x9',ptinput);
+      params.createparam(ftinteger,'x10',ptinput);
+      params.createparam(ftinteger,'x11',ptinput);
+      params.createparam(ftstring,'x12',ptinput);
+      params.createparam(ftstring,'x13',ptinput);
+      params.createparam(ftinteger,'x14',ptinput);
+      commandtext:='update tbl_cap_oa_proj_detail set mttl=:x1,w1=:x2,w2=:x3,w3=:x4,w4=:x5,w5=:x6,w6=:x7,bal=:x8 where tplant=:x9 and yr=:x10 and m1=:x11 and cust=:x12 and flag6=:x13 and seq=:x14';
+      str1:='update tbl_cap_oa_proj_detail set ';
+
+      if not query1.fieldbyname('mttl').isnull then
+      params[0].asinteger:=query1.fieldbyname('mttl').value
+      else params[0].asinteger:=0;
+      if not query1.fieldbyname('w1').isnull then
+      params[1].asinteger:=query1.fieldbyname('w1').value
+      else params[1].asinteger:=0;
+      if not query1.fieldbyname('w2').isnull then
+      params[2].asinteger:=query1.fieldbyname('w2').value
+      else params[2].asinteger:=0;
+      if not query1.fieldbyname('w3').isnull then
+      params[3].asinteger:=query1.fieldbyname('w3').value
+      else params[3].asinteger:=0;
+      if not query1.fieldbyname('w4').isnull then
+      params[4].asinteger:=query1.fieldbyname('w4').value
+      else params[4].asinteger:=0;
+      if not query1.fieldbyname('w5').isnull then
+      params[5].asinteger:=query1.fieldbyname('w5').value
+      else params[5].asinteger:=0;
+      if not query1.fieldbyname('w6').isnull then
+      params[6].asinteger:=query1.fieldbyname('w6').value
+      else params[6].asinteger:=0;
+      if not query1.fieldbyname('bal').isnull then
+      params[7].asinteger:=query1.fieldbyname('bal').value
+      else params[7].asinteger:=0;
+      params[8].asstring:=query1.fieldbyname('tplant').value;
+      params[9].asinteger:=query1.fieldbyname('yr').value;
+      params[10].asinteger:=query1.fieldbyname('m1').value;
+      params[11].asstring:=query1.fieldbyname('cust').value;
+      params[12].asstring:=query1.fieldbyname('flag6').value;
+      params[13].asinteger:=query1.fieldbyname('seq').value;
+      execute;
+    end;
+  end;
+  }
+
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x9',ptinput);
+    params.createparam(ftinteger,'x10',ptinput);
+    params.createparam(ftinteger,'x11',ptinput);
+    params.createparam(ftstring,'x12',ptinput);
+    params.createparam(ftstring,'x13',ptinput);
+    commandtext:='select sum(mttl) as x1,sum(w1) as x2,sum(w2) as x3,sum(w3) as x4,sum(w4) as x5,sum(w5) as x6,sum(w6) as x7 from tbl_cap_oa_proj_detail where tplant=:x9 and yr=:x10 and m1=:x11 and cust=:x12 and flag6=:x13';
+    params[0].asstring:=query1.fieldbyname('tplant').value;
+    params[1].asinteger:=query1.fieldbyname('yr').value;
+    params[2].asinteger:=query1.fieldbyname('m1').value;
+    params[3].asstring:=query1.fieldbyname('cust').value;
+    params[4].asstring:=query1.fieldbyname('flag6').value;
+    open;
+    if not fieldbyname('x1').isnull then mttl:=fieldbyname('x1').value else mttl:=0;
+    if not fieldbyname('x2').isnull then w1:=fieldbyname('x2').value else w1:=0;
+    if not fieldbyname('x3').isnull then w2:=fieldbyname('x3').value else w2:=0;
+    if not fieldbyname('x4').isnull then w3:=fieldbyname('x4').value else w3:=0;
+    if not fieldbyname('x5').isnull then w4:=fieldbyname('x5').value else w4:=0;
+    if not fieldbyname('x6').isnull then w5:=fieldbyname('x6').value else w5:=0;
+    if not fieldbyname('x7').isnull then w6:=fieldbyname('x7').value else w6:=0;
+  end;
+  with frmnewcap_nostyle_wk.Query1 do begin
+    edit;
+    fieldbyname('mttl').value:=mttl;
+    fieldbyname('w1').value:=w1;
+    fieldbyname('w2').value:=w2;
+    fieldbyname('w3').value:=w3;
+    fieldbyname('w4').value:=w4;
+    fieldbyname('w5').value:=w5;
+    fieldbyname('w6').value:=w6;
+    post;
+  end;
+end;
+
+procedure Tfrmnewcap_nostyle_detail.querydtchange(Sender: TField);
+var
+  mttl,w1,w2,w3,w4,w5,w6:integer;
+begin
+  if not query1.fieldbyname('mttl').isnull then mttl:=query1.fieldbyname('mttl').value
+  else mttl:=0;
+  if not query1.fieldbyname('w1').isnull then w1:=query1.fieldbyname('w1').value
+  else w1:=0;
+  if not query1.fieldbyname('w2').isnull then w2:=query1.fieldbyname('w2').value
+  else w2:=0;
+  if not query1.fieldbyname('w3').isnull then w3:=query1.fieldbyname('w3').value
+  else w3:=0;
+  if not query1.fieldbyname('w4').isnull then w4:=query1.fieldbyname('w4').value
+  else w4:=0;
+  if not query1.fieldbyname('w5').isnull then w5:=query1.fieldbyname('w5').value
+  else w5:=0;
+  if not query1.fieldbyname('w6').isnull then w6:=query1.fieldbyname('w6').value
+  else w6:=0;
+  query1.fieldbyname('bal').value:=mttl-w1-w2-w3-w4-w5-w6;
+end;
+
+procedure Tfrmnewcap_nostyle_detail.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('mttl').onchange:=querydtchange;
+  query1.fieldbyname('w1').onchange:=querydtchange;
+  query1.fieldbyname('w2').onchange:=querydtchange;
+  query1.fieldbyname('w3').onchange:=querydtchange;
+  query1.fieldbyname('w4').onchange:=querydtchange;
+  query1.fieldbyname('w5').onchange:=querydtchange;
+  query1.fieldbyname('w6').onchange:=querydtchange;
+end;
+
+procedure Tfrmnewcap_nostyle_detail.Query1BeforePost(DataSet: TDataSet);
+begin
+  if query1.fieldbyname('bal').value<>0 then begin
+    showmessage('Balance is not zero, data can not be saved!');
+    abort;
+  end;
+end;
+
+end.

@@ -1,0 +1,122 @@
+unit prod_ftyformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Spin, Buttons, DB, DBClient, TeEngine, TeeDBEdit,
+  TeeDBCrossTab, Series, ExtCtrls, TeeProcs, Chart, DBChart, ppBands,
+  ppCtrls, ppPrnabl, ppClass, ppCache, ppComm, ppRelatv, ppProd, ppReport,
+  ppViewr, Txcomp, ppParameter;
+
+type
+  Tfrmprod_fty = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    SpinEdit1: TSpinEdit;
+    SpinEdit2: TSpinEdit;
+    Label3: TLabel;
+    SpinEdit3: TSpinEdit;
+    SpinEdit4: TSpinEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query2: TClientDataSet;
+    Query1: TClientDataSet;
+    Query4: TClientDataSet;
+    Query3: TClientDataSet;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppLabel1: TppLabel;
+    sub1: TppLabel;
+    sub2: TppLabel;
+    ppImage1: TppImage;
+    ppDetailBand1: TppDetailBand;
+    ppLine1: TppLine;
+    ppFooterBand1: TppFooterBand;
+    DBChart1: TDBChart;
+    Series1: TLineSeries;
+    DBCrossTabSource1: TDBCrossTabSource;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmprod_fty: Tfrmprod_fty;
+
+implementation
+
+uses mainformu, addreportsformu;
+
+{$R *.dfm}
+
+procedure Tfrmprod_fty.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmprod_fty:=nil;
+end;
+
+procedure Tfrmprod_fty.BitBtn1Click(Sender: TObject);
+var
+  tm:tdatetime;
+  s1:string;
+  i:integer;
+begin
+  screen.Cursor:=crSQLWait;
+  tm:=now;
+  try
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      params.createparam(ftstring,'x6',ptinput);
+      commandtext:='execute procedure sp_analysis_temp3_fty(:x1,:x2,:x3,:x4,:x5,:x6)';
+      params[0].asdatetime:=tm;
+      params[1].asinteger:=spinedit1.value;
+      params[2].asinteger:=spinedit2.value;
+      params[3].asinteger:=spinedit3.value;
+      params[4].asinteger:=spinedit4.value;
+      params[5].AsString:=combobox1.text;
+      execute;
+    end;
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='select * from analysis_tmp3_fty where tm=:x1 order by seq';
+      params[0].asdatetime:=tm;
+      open;
+    end;
+    for i:=0 to DBChart1.SeriesCount-1 do begin
+      DBChart1.Series[i].Pen.Width:=2;
+    end;
+    s1:='c:\temp\'+formatdatetime('hhnnss',tm)+'addrpt4.bmp';
+    dbchart1.SaveToBitmapFile(s1);
+    ppimage1.Picture.LoadFromFile(s1);
+    if combobox1.text>'' then sub1.Caption:='<  '+combobox1.text+'  >'
+    else sub1.Caption:='< SL & KB & FJ >';
+    sub2.Caption:='[ '+inttostr(spinedit1.value)+'/'+inttostr(spinedit2.value)+' - '+inttostr(spinedit3.value)+'/'+inttostr(spinedit4.value)+' ]';
+    ppReport1.Print;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmprod_fty.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+end.

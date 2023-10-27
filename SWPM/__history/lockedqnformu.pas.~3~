@@ -1,0 +1,37 @@
+unit lockedqnformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridBandedTableView, cxGridDBBandedTableView, StdCtrls, Buttons, ExtCtrls,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid;
+
+type
+  Tfrmlockedqn = class(TForm)
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    cxView1: TcxGridDBBandedTableView;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmlockedqn: Tfrmlockedqn;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+end.

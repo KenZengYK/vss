@@ -1,0 +1,798 @@
+object frmeffsetup: Tfrmeffsetup
+  Left = 0
+  Top = 0
+  Caption = #35336#21123#24615#38928#35373#29986#33021
+  ClientHeight = 415
+  ClientWidth = 1268
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poDefault
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Splitter1: TSplitter
+    Left = 0
+    Top = 189
+    Width = 1268
+    Height = 3
+    Cursor = crVSplit
+    Align = alBottom
+    ExplicitTop = 190
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 0
+    Width = 1268
+    Height = 189
+    Align = alClient
+    TabOrder = 0
+    ExplicitHeight = 169
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+    end
+    object cxGrid1DBBandedTableView1: TcxGridDBBandedTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.Deleting = False
+      OptionsSelection.InvertSelect = False
+      OptionsView.GroupByBox = False
+      OptionsView.HeaderAutoHeight = True
+      OptionsView.BandHeaderHeight = 18
+      Bands = <
+        item
+          Caption = #29983#29986#22320#40670
+        end
+        item
+          Caption = ' '
+        end
+        item
+          Caption = #20027#23458
+        end
+        item
+          Caption = #35336#21123#24615#38928#35373#29986#37327
+        end
+        item
+          Caption = ' '
+          Position.BandIndex = 3
+          Position.ColIndex = 0
+        end
+        item
+          Caption = #27599#36913#38928#35373#24037#26178'('#19968#24037#26178#31561#26044#20841#31680#26178')'
+          Position.BandIndex = 3
+          Position.ColIndex = 1
+        end
+        item
+          Caption = ' '
+          Position.BandIndex = 5
+          Position.ColIndex = 0
+        end
+        item
+          Caption = #29983#29986#24615#31680#26178'(1+2)'
+          Position.BandIndex = 5
+          Position.ColIndex = 1
+        end
+        item
+          Caption = #38928#35373#25928#29575'%'
+          Position.BandIndex = 3
+          Position.ColIndex = 3
+        end
+        item
+          Caption = #29986#37327' ('#20214')'
+          Position.BandIndex = 3
+          Position.ColIndex = 4
+        end
+        item
+          Caption = #29986#33021#32233#27798' (AL'#24037#22580#29986#33021#28858#26412')'
+          Position.BandIndex = 3
+          Position.ColIndex = 5
+        end
+        item
+          Caption = ' '
+          Position.BandIndex = 5
+          Position.ColIndex = 2
+        end
+        item
+          Caption = ' '
+          Position.BandIndex = 3
+          Position.ColIndex = 2
+        end>
+      object cxGrid1DBBandedTableView1FTY: TcxGridDBBandedColumn
+        Caption = #24288#21517
+        DataBinding.FieldName = 'FTY'
+        HeaderAlignmentHorz = taCenter
+        Options.CellMerging = True
+        Width = 38
+        OnCompareRowValuesForCellMerging = cxGrid1DBBandedTableView1FTYCompareRowValuesForCellMerging
+        Position.BandIndex = 0
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1WS_TYPE: TcxGridDBBandedColumn
+        Caption = #24037#22580#39006
+        DataBinding.FieldName = 'WS_TYPE'
+        HeaderAlignmentHorz = taCenter
+        Options.CellMerging = True
+        Width = 38
+        OnCompareRowValuesForCellMerging = cxGrid1DBBandedTableView1WS_TYPECompareRowValuesForCellMerging
+        Position.BandIndex = 0
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1WS: TcxGridDBBandedColumn
+        Caption = #24037#22580#21312#34399
+        DataBinding.FieldName = 'WS'
+        HeaderAlignmentHorz = taCenter
+        Options.CellMerging = True
+        Width = 40
+        OnCompareRowValuesForCellMerging = cxGrid1DBBandedTableView1WSCompareRowValuesForCellMerging
+        Position.BandIndex = 0
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1TEAM: TcxGridDBBandedColumn
+        Caption = #25289'/'#32068#34399
+        DataBinding.FieldName = 'TEAM'
+        HeaderAlignmentHorz = taCenter
+        Width = 40
+        Position.BandIndex = 0
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_WF_Q: TcxGridDBBandedColumn
+        Caption = #29983#29986#20154#25976
+        DataBinding.FieldName = 'D_WF_Q'
+        HeaderAlignmentHorz = taCenter
+        Width = 48
+        Position.BandIndex = 4
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_SAH: TcxGridDBBandedColumn
+        Caption = 'SAH ('#21152#27402#24179#22343')'
+        DataBinding.FieldName = 'D_SAH'
+        HeaderAlignmentHorz = taCenter
+        Width = 48
+        Position.BandIndex = 4
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_WTIME: TcxGridDBBandedColumn
+        Caption = #19978#29677#24037#26178' (1+2+3)'
+        DataBinding.FieldName = 'D_WTIME'
+        HeaderAlignmentHorz = taCenter
+        Width = 48
+        Position.BandIndex = 6
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_WTIME1: TcxGridDBBandedColumn
+        Caption = #19978#32218#24037#26178' (1)'
+        DataBinding.FieldName = 'D_WTIME1'
+        HeaderAlignmentHorz = taCenter
+        Width = 48
+        Position.BandIndex = 7
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_CULOST: TcxGridDBBandedColumn
+        Caption = #38750#29983#29986#24615#24037#26178' (3)'
+        DataBinding.FieldName = 'D_CULOST'
+        HeaderAlignmentHorz = taCenter
+        Width = 48
+        Position.BandIndex = 11
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_WTIME2: TcxGridDBBandedColumn
+        Caption = #19979#32218#20572#38931#24037#26178' (2)'
+        DataBinding.FieldName = 'D_WTIME2'
+        HeaderAlignmentHorz = taCenter
+        Width = 48
+        Position.BandIndex = 7
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_LGEFF: TcxGridDBBandedColumn
+        Caption = #25289#25928#29575' ('#38598#39636')'
+        DataBinding.FieldName = 'D_LGEFF'
+        HeaderAlignmentHorz = taCenter
+        Width = 45
+        Position.BandIndex = 8
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_WFEFF: TcxGridDBBandedColumn
+        Caption = #24037#22580#25928#29575' ('#20154#22343')'
+        DataBinding.FieldName = 'D_WFEFF'
+        HeaderAlignmentHorz = taCenter
+        Width = 45
+        Position.BandIndex = 8
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_NETCAP: TcxGridDBBandedColumn
+        Caption = #25289'/'#32068
+        DataBinding.FieldName = 'D_NETCAP'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 53
+        Position.BandIndex = 9
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_CAPBUFF: TcxGridDBBandedColumn
+        Caption = #30456#24046#25976
+        DataBinding.FieldName = 'D_CAPBUFF'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 48
+        Position.BandIndex = 10
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_CAPBUFFP: TcxGridDBBandedColumn
+        Caption = #30456#24046#29575'%'
+        DataBinding.FieldName = 'D_CAPBUFFP'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 10
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_NETCAP_WS: TcxGridDBBandedColumn
+        Caption = #24037#22580#21312
+        DataBinding.FieldName = 'D_NETCAP_WS'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 53
+        Position.BandIndex = 9
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1D_NETCAP_WSTYPE: TcxGridDBBandedColumn
+        Caption = #24037#22580#39006
+        DataBinding.FieldName = 'D_NETCAP_WSTYPE'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 53
+        Position.BandIndex = 9
+        Position.ColIndex = 2
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1TIMEU: TcxGridDBBandedColumn
+        Caption = #19978#32218#24037#26178#29575'%'
+        DataBinding.FieldName = 'timeu'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 12
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1BKU: TcxGridDBBandedColumn
+        Caption = #29983#29986#29986#21697#39006
+        DataBinding.FieldName = 'bku'
+        HeaderAlignmentHorz = taCenter
+        Width = 31
+        Position.BandIndex = 1
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1PCUST: TcxGridDBBandedColumn
+        Caption = #24037#31243#32232#34399
+        DataBinding.FieldName = 'pcust'
+        HeaderAlignmentHorz = taCenter
+        Width = 42
+        Position.BandIndex = 2
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1C1R: TcxGridDBBandedColumn
+        Caption = #27604#20363'%'
+        DataBinding.FieldName = 'C1R'
+        HeaderAlignmentHorz = taCenter
+        Width = 45
+        Position.BandIndex = 2
+        Position.ColIndex = 1
+        Position.RowIndex = 0
+      end
+      object cxGrid1DBBandedTableView1CAP_K: TcxGridDBBandedColumn
+        Caption = #35122'(K)'#37327#27604#20363'%'
+        DataBinding.FieldName = 'CAP_K'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 9
+        Position.ColIndex = 3
+        Position.RowIndex = 0
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBBandedTableView1
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 374
+    Width = 1268
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitTop = 252
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = #26032#22686
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = #21034#38500
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 1
+      OnClick = BitBtn2Click
+    end
+    object BitBtn3: TBitBtn
+      Left = 168
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = #20445#23384
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 2
+      OnClick = BitBtn3Click
+    end
+    object BitBtn4: TBitBtn
+      Left = 240
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = #38928#35261
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 3
+    end
+    object BitBtn5: TBitBtn
+      Left = 312
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = #23566#20986
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 4
+      OnClick = BitBtn5Click
+    end
+    object BitBtn6: TBitBtn
+      Left = 384
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = #36864#20986
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 5
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 192
+    Width = 1268
+    Height = 182
+    Align = alBottom
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 1
+      Top = 1
+      Width = 1266
+      Height = 13
+      Align = alTop
+      Alignment = taCenter
+      Caption = 'Notepad (AL'#24037#22580'): -'
+      ExplicitWidth = 99
+    end
+    object cxGrid2: TcxGrid
+      Left = 1
+      Top = 14
+      Width = 1266
+      Height = 167
+      Align = alClient
+      TabOrder = 0
+      ExplicitLeft = 24
+      ExplicitTop = 16
+      ExplicitWidth = 250
+      ExplicitHeight = 200
+      object cxGrid2DBTableView1: TcxGridDBTableView
+        NavigatorButtons.ConfirmDelete = False
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+      end
+      object cxGrid2DBBandedTableView1: TcxGridDBBandedTableView
+        NavigatorButtons.ConfirmDelete = False
+        DataController.DataSource = DataSource2
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsData.Deleting = False
+        OptionsSelection.InvertSelect = False
+        OptionsView.CellAutoHeight = True
+        OptionsView.GroupByBox = False
+        OptionsView.HeaderAutoHeight = True
+        Bands = <
+          item
+            Caption = #29983#29986#22320#40670
+          end
+          item
+            Caption = 'Notepad'
+          end>
+        object cxGrid2DBBandedTableView1Column1: TcxGridDBBandedColumn
+          Caption = #24288#21517
+          DataBinding.FieldName = 'FTY'
+          HeaderAlignmentHorz = taCenter
+          Options.CellMerging = True
+          Width = 38
+          OnCompareRowValuesForCellMerging = cxGrid2DBBandedTableView1Column1CompareRowValuesForCellMerging
+          Position.BandIndex = 0
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+        object cxGrid2DBBandedTableView1Column2: TcxGridDBBandedColumn
+          Caption = #24037#22580#39006
+          DataBinding.FieldName = 'WS_TYPE'
+          HeaderAlignmentHorz = taCenter
+          Options.CellMerging = True
+          Width = 38
+          OnCompareRowValuesForCellMerging = cxGrid2DBBandedTableView1Column1CompareRowValuesForCellMerging
+          Position.BandIndex = 0
+          Position.ColIndex = 1
+          Position.RowIndex = 0
+        end
+        object cxGrid2DBBandedTableView1Column3: TcxGridDBBandedColumn
+          Caption = #24037#22580#21312#34399
+          DataBinding.FieldName = 'WS'
+          HeaderAlignmentHorz = taCenter
+          Width = 40
+          Position.BandIndex = 0
+          Position.ColIndex = 2
+          Position.RowIndex = 0
+        end
+        object cxGrid2DBBandedTableView1Column4: TcxGridDBBandedColumn
+          Caption = '-'
+          DataBinding.FieldName = 'MARKS'
+          PropertiesClassName = 'TcxMemoProperties'
+          Properties.ScrollBars = ssVertical
+          HeaderAlignmentHorz = taCenter
+          Width = 875
+          Position.BandIndex = 1
+          Position.ColIndex = 0
+          Position.RowIndex = 0
+        end
+      end
+      object cxGrid2Level1: TcxGridLevel
+        GridView = cxGrid2DBBandedTableView1
+      end
+    end
+  end
+  object tbleffmaster: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_eff_master'
+    FieldDefs = <
+      item
+        Name = 'SEQ'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'FTY'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'FTY_SEQ'
+        DataType = ftInteger
+      end
+      item
+        Name = 'WS_TYPE_Q'
+        DataType = ftInteger
+      end
+      item
+        Name = 'WS_TYPE'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'WS_TYPE_SEQ'
+        DataType = ftInteger
+      end
+      item
+        Name = 'WS_Q'
+        DataType = ftInteger
+      end
+      item
+        Name = 'WS'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'TEAM_Q'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TEAM'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'D_LGEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_LEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_WFEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_WF_Q'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_SAH'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_WTIME'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_FEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'A_LGEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'A_LEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'A_WFEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'A_WF_Q'
+        DataType = ftFloat
+      end
+      item
+        Name = 'A_SAH'
+        DataType = ftFloat
+      end
+      item
+        Name = 'A_WTIME'
+        DataType = ftFloat
+      end
+      item
+        Name = 'A_FEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'C_LGEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'C_LEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'C_WFEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'C_WF_Q'
+        DataType = ftFloat
+      end
+      item
+        Name = 'C_SAH'
+        DataType = ftFloat
+      end
+      item
+        Name = 'C_WTIME'
+        DataType = ftFloat
+      end
+      item
+        Name = 'C_FEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'P_LGEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'P_LEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'P_WFEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'P_WF_Q'
+        DataType = ftFloat
+      end
+      item
+        Name = 'P_SAH'
+        DataType = ftFloat
+      end
+      item
+        Name = 'P_WTIME'
+        DataType = ftFloat
+      end
+      item
+        Name = 'P_FEFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_WTIME1'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_CULOST'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_WTIME2'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_GRCAP'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_NETCAP'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_CAPBUFF'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_CAPBUFFP'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_NETCAP_WS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'D_NETCAP_WSTYPE'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'fty_seq;ws_type_seq;ws;team'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterOpen = tbleffmasterAfterOpen
+    AfterPost = tbleffmasterAfterPost
+    OnNewRecord = tbleffmasterNewRecord
+    Left = 200
+    Top = 184
+  end
+  object DataSource1: TDataSource
+    DataSet = tbleffmaster
+    Left = 232
+    Top = 184
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tblshedule_plc'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 264
+    Top = 184
+  end
+  object ClientDataSet2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 296
+    Top = 184
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '*.xls'
+    Filter = '*.xls|*.xls'
+    Left = 384
+    Top = 192
+  end
+  object query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_eff_master_marks'
+    FieldDefs = <
+      item
+        Name = 'VER'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'SEQ'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'FTY'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'WS_TYPE'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'WS'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'MARKS'
+        DataType = ftWideString
+        Size = 3000
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'fty_seq;ws_type_seq;ws'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterPost = query1AfterPost
+    OnNewRecord = tbleffmasterNewRecord
+    Left = 472
+    Top = 184
+  end
+  object DataSource2: TDataSource
+    DataSet = query1
+    Left = 504
+    Top = 184
+  end
+end

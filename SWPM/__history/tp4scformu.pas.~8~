@@ -1,0 +1,68 @@
+unit tp4scformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, rxToolEdit, QExport4, QExport4XLS, DB,
+  DBClient;
+
+type
+  Tfrmtp4sc = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    DateEdit1: TDateEdit;
+    DateEdit2: TDateEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    SaveDialog1: TSaveDialog;
+    xls1: TQExport4XLS;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmtp4sc: Tfrmtp4sc;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure Tfrmtp4sc.BitBtn1Click(Sender: TObject);
+var
+  tm:tdatetime;
+begin
+  screen.cursor:=crSQLWait;
+  tm:=now;
+  try
+    //with query1 do begin
+      //close;
+      //params.clear;
+      //params.createparam(ftdatetime,'x1',ptinput);
+      //params.createparam(ftstring,'x2',ptinput);
+      //params.createparam(ftdate,'x3',ptinput);
+      //params.createparam(ftdate,'x4',ptinput);
+      //commandtext:='execute procedure sp_sc_lwotp(:x1,:x2,:x3,:x4)';
+    //end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmtp4sc.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmtp4sc:=nil;
+end;
+
+end.

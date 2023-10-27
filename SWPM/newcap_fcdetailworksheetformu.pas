@@ -1,0 +1,344 @@
+unit newcap_fcdetailworksheetformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, StdCtrls, DBCGrids, ExtCtrls, DBCtrls, Mask, Buttons;
+
+type
+  Tfrmnewcap_fcdetailworksheet = class(TForm)
+    Panel1: TPanel;
+    DBCtrlGrid1: TDBCtrlGrid;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DBText1: TDBText;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    Label4: TLabel;
+    DBEdit3: TDBEdit;
+    GroupBox2: TGroupBox;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    GroupBox3: TGroupBox;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit9: TDBEdit;
+    Label11: TLabel;
+    DBText2: TDBText;
+    Label12: TLabel;
+    DBText3: TDBText;
+    Label13: TLabel;
+    DBText4: TDBText;
+    Label14: TLabel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Label15: TLabel;
+    DBEdit10: TDBEdit;
+    Label16: TLabel;
+    DBEdit11: TDBEdit;
+    Label17: TLabel;
+    DBEdit12: TDBEdit;
+    Label18: TLabel;
+    DBEdit13: TDBEdit;
+    Label19: TLabel;
+    DBEdit14: TDBEdit;
+    Label20: TLabel;
+    DBEdit15: TDBEdit;
+    Label21: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    Edit1: TEdit;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_fcdetailworksheet: Tfrmnewcap_fcdetailworksheet;
+
+implementation
+
+uses mainformu, newcap_1stchoiceformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_fcdetailworksheet.BitBtn1Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  if query1.state=dsedit then query1.post;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftinteger,'x4',ptinput);
+    commandtext:='execute procedure sp_cap_updftyelements_wk_fae(:x1,:x2,:x3,:x4)';
+    params[0].asstring:=query1.fieldbyname('tplant').value;
+    params[1].asinteger:=query1.fieldbyname('yr').value;
+    params[2].asinteger:=query1.fieldbyname('m1').value;
+    params[3].asinteger:=query1.fieldbyname('seq').value;
+    execute;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmnewcap_fcdetailworksheet.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_fcdetailworksheet:=nil;
+end;
+
+procedure Tfrmnewcap_fcdetailworksheet.Query1AfterOpen(DataSet: TDataSet);
+begin
+  edit1.text:=query1.fieldbyname('wkdesc').value;
+  (query1.fieldbyname('feff') as tfloatfield).displayformat:='0.00';
+  (query1.fieldbyname('fsah') as tfloatfield).displayformat:='0.0000';
+  (query1.fieldbyname('fhrs') as tfloatfield).displayformat:='0.00';
+  (query1.fieldbyname('fcu') as tfloatfield).displayformat:='0.00';
+  (query1.fieldbyname('aeff') as tfloatfield).displayformat:='0.00';
+  (query1.fieldbyname('asah') as tfloatfield).displayformat:='0.0000';
+  (query1.fieldbyname('ahrs') as tfloatfield).displayformat:='0.00';
+  (query1.fieldbyname('acu') as tfloatfield).displayformat:='0.00';
+  (query1.fieldbyname('eeff') as tfloatfield).displayformat:='0.00';
+  (query1.fieldbyname('esah') as tfloatfield).displayformat:='0.0000';
+  (query1.fieldbyname('ehrs') as tfloatfield).displayformat:='0.00';
+  (query1.fieldbyname('ecu') as tfloatfield).displayformat:='0.00';
+end;
+
+procedure Tfrmnewcap_fcdetailworksheet.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+      str1:='update tbl_cap_ftyelements_worksheet_new set ';
+      if not query1.fieldbyname('fwf').isnull then
+      str1:=str1+'fwf='+query1.fieldbyname('fwf').asstring+','
+      else str1:=strupd+'fwf=0,';
+      if not query1.fieldbyname('fhrs').isnull then
+      str1:=str1+'fhrs='+query1.fieldbyname('fhrs').asstring+','
+      else str1:=strupd+'fhrs=0,';
+      if not query1.fieldbyname('fsah').isnull then
+      str1:=str1+'fsah='+query1.fieldbyname('fsah').asstring+','
+      else str1:=strupd+'fsah=0,';
+      if not query1.fieldbyname('feff').isnull then
+      str1:=str1+'feff='+query1.fieldbyname('feff').asstring+','
+      else str1:=strupd+'feff=0,';
+      if not query1.fieldbyname('fcu').isnull then
+      str1:=str1+'fcu='+query1.fieldbyname('fcu').asstring+','
+      else str1:=strupd+'fcu=0,';
+      if not query1.fieldbyname('awf').isnull then
+      str1:=str1+'awf='+query1.fieldbyname('awf').asstring+','
+      else str1:=strupd+'awf=0,';
+      if not query1.fieldbyname('ahrs').isnull then
+      str1:=str1+'ahrs='+query1.fieldbyname('ahrs').asstring+','
+      else str1:=strupd+'ahrs=0,';
+      if not query1.fieldbyname('asah').isnull then
+      str1:=str1+'asah='+query1.fieldbyname('asah').asstring+','
+      else str1:=strupd+'asah=0,';
+      if not query1.fieldbyname('aeff').isnull then
+      str1:=str1+'aeff='+query1.fieldbyname('aeff').asstring+','
+      else str1:=strupd+'aeff=0,';
+      if not query1.fieldbyname('acu').isnull then
+      str1:=str1+'acu='+query1.fieldbyname('acu').asstring+','
+      else str1:=strupd+'acu=0,';
+      if not query1.fieldbyname('ewf').isnull then
+      str1:=str1+'ewf='+query1.fieldbyname('ewf').asstring+','
+      else str1:=strupd+'ewf=0,';
+      if not query1.fieldbyname('ehrs').isnull then
+      str1:=str1+'ehrs='+query1.fieldbyname('ehrs').asstring+','
+      else str1:=strupd+'ehrs=0,';
+      if not query1.fieldbyname('esah').isnull then
+      str1:=str1+'esah='+query1.fieldbyname('esah').asstring+','
+      else str1:=strupd+'esah=0,';
+      if not query1.fieldbyname('eeff').isnull then
+      str1:=str1+'eeff='+query1.fieldbyname('eeff').asstring+','
+      else str1:=strupd+'eeff=0,';
+      if not query1.fieldbyname('ecu').isnull then
+      str1:=str1+'ecu='+query1.fieldbyname('ecu').asstring+' '
+      else str1:=strupd+'ecu=0 ';
+      str1:=str1+'where tplant='''+query1.fieldbyname('tplant').value+''' ';
+      str1:=str1+'and seq='+query1.fieldbyname('seq').asstring+' ';
+      str1:=str1+'and yr='+query1.fieldbyname('yr').asstring+' ';
+      str1:=str1+'and m1='+query1.fieldbyname('m1').asstring+' ';
+      str1:=str1+'and wkno='+query1.fieldbyname('wkno').asstring+' ';
+      str1:=str1+'and rseq='+query1.fieldbyname('rseq').asstring;
+      if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+end;
+
+procedure Tfrmnewcap_fcdetailworksheet.SpeedButton1Click(Sender: TObject);
+var
+  tplant:string;
+  seq,yr,m1:integer;
+begin
+  bitbtn1click(self);
+  tplant:=query1.fieldbyname('tplant').value;
+  seq:=query1.fieldbyname('seq').value;
+  yr:=query1.fieldbyname('yr').value;
+  m1:=query1.fieldbyname('m1').value;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftinteger,'x4',ptinput);
+    commandtext:='select * from tbl_cap_ftyelements_worksheet_new where tplant=:x1 and seq=:x2 and yr=:x3 and m1=:x4 and wkno=1';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=seq;
+    params[2].asinteger:=yr;
+    params[3].asinteger:=m1;
+    open;
+  end;
+end;
+
+procedure Tfrmnewcap_fcdetailworksheet.SpeedButton2Click(Sender: TObject);
+var
+  tplant:string;
+  seq,yr,m1,wkno:integer;
+begin
+  bitbtn1click(self);
+  tplant:=query1.fieldbyname('tplant').value;
+  seq:=query1.fieldbyname('seq').value;
+  yr:=query1.fieldbyname('yr').value;
+  m1:=query1.fieldbyname('m1').value;
+  wkno:=query1.fieldbyname('wkno').value;
+  if wkno>1 then begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      commandtext:='select * from tbl_cap_ftyelements_worksheet_new where tplant=:x1 and seq=:x2 and yr=:x3 and m1=:x4 and wkno=:x5';
+      params[0].asstring:=tplant;
+      params[1].asinteger:=seq;
+      params[2].asinteger:=yr;
+      params[3].asinteger:=m1;
+      params[4].asinteger:=wkno-1;
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_fcdetailworksheet.SpeedButton3Click(Sender: TObject);
+var
+  tplant:string;
+  seq,yr,m1,wkno,wkno1:integer;
+begin
+  bitbtn1click(self);
+  tplant:=query1.fieldbyname('tplant').value;
+  seq:=query1.fieldbyname('seq').value;
+  yr:=query1.fieldbyname('yr').value;
+  m1:=query1.fieldbyname('m1').value;
+  wkno:=query1.fieldbyname('wkno').value;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftinteger,'x4',ptinput);
+    commandtext:='select max(wkno) as x1 from tbl_cap_ftyelements_worksheet_new where tplant=:x1 and seq=:x2 and yr=:x3 and m1=:x4';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=seq;
+    params[2].asinteger:=yr;
+    params[3].asinteger:=m1;
+    open;
+    wkno1:=fieldbyname('x1').value;
+  end;
+  if wkno<wkno1 then begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      commandtext:='select * from tbl_cap_ftyelements_worksheet_new where tplant=:x1 and seq=:x2 and yr=:x3 and m1=:x4 and wkno=:x5';
+      params[0].asstring:=tplant;
+      params[1].asinteger:=seq;
+      params[2].asinteger:=yr;
+      params[3].asinteger:=m1;
+      params[4].asinteger:=wkno+1;
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_fcdetailworksheet.SpeedButton4Click(Sender: TObject);
+var
+  tplant:string;
+  seq,yr,m1,wkno:integer;
+begin
+  bitbtn1click(self);
+  tplant:=query1.fieldbyname('tplant').value;
+  seq:=query1.fieldbyname('seq').value;
+  yr:=query1.fieldbyname('yr').value;
+  m1:=query1.fieldbyname('m1').value;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftinteger,'x4',ptinput);
+    commandtext:='select max(wkno) as x1 from tbl_cap_ftyelements_worksheet_new where tplant=:x1 and seq=:x2 and yr=:x3 and m1=:x4';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=seq;
+    params[2].asinteger:=yr;
+    params[3].asinteger:=m1;
+    open;
+    wkno:=fieldbyname('x1').value;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftinteger,'x4',ptinput);
+    params.createparam(ftinteger,'x5',ptinput);
+    commandtext:='select * from tbl_cap_ftyelements_worksheet_new where tplant=:x1 and seq=:x2 and yr=:x3 and m1=:x4 and wkno=:x5';
+    params[0].asstring:=tplant;
+    params[1].asinteger:=seq;
+    params[2].asinteger:=yr;
+    params[3].asinteger:=m1;
+    params[4].asinteger:=wkno;
+    open;
+  end;
+end;
+
+end.

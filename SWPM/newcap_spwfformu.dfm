@@ -1,0 +1,834 @@
+object frmnewcap_spwf: Tfrmnewcap_spwf
+  Left = 0
+  Top = 0
+  Caption = 'Eff% for Ending Opt Ws'
+  ClientHeight = 293
+  ClientWidth = 841
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 841
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object Label55: TLabel
+      Left = 24
+      Top = 16
+      Width = 44
+      Height = 13
+      Caption = 'Factory: '
+    end
+    object Label56: TLabel
+      Left = 184
+      Top = 16
+      Width = 30
+      Height = 13
+      Caption = 'Date: '
+    end
+    object DBEdit55: TDBEdit
+      Left = 72
+      Top = 16
+      Width = 65
+      Height = 21
+      DataField = 'TPLANT'
+      DataSource = frmnewcap_wf.DataSource1
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object DBEdit56: TDBEdit
+      Left = 216
+      Top = 16
+      Width = 97
+      Height = 21
+      DataField = 'DT'
+      DataSource = frmnewcap_wf.DataSource1
+      ReadOnly = True
+      TabOrder = 1
+    end
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 41
+    Width = 841
+    Height = 211
+    Align = alClient
+    AllowedOperations = [alopUpdateEh]
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'Tahoma'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'GRP'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Team'
+        Width = 41
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'WFID'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'WF|ID'
+        Width = 66
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'WFNAME'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'WF|Name'
+        Width = 86
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'DT'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Date'
+        Width = 67
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'J_NO'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Project #'
+        Width = 82
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'J2_JOB'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'WO #'
+        Width = 73
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'STYLE'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Cust Style'
+        Width = 102
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'ACOL'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Clr Code'
+        Width = 36
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'RWO'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'RWO # Suffix'
+        Width = 43
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'FCCS'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'QN # Suffix'
+        Width = 41
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'QTY'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Qty'
+        Width = 56
+        OnEditButtonClick = DBGridEh1Columns10EditButtonClick
+      end
+      item
+        ButtonStyle = cbsEllipsis
+        Color = 10680818
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'TSAH'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Total SAH'
+        Width = 46
+        OnEditButtonClick = DBGridEh1Columns10EditButtonClick
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'SECT'
+        Footers = <>
+        Title.Caption = 'Actual Sect Hrs'
+        Width = 45
+      end
+      item
+        Color = 12771773
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'EFF'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Opt Perf %'
+        Width = 54
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 252
+    Width = 841
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    object BitBtn1: TBitBtn
+      Left = 32
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn5: TBitBtn
+      Left = 104
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Preview'
+      DoubleBuffered = True
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+        00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+        8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+        8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+        8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+        03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+        03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+        33333337FFFF7733333333300000033333333337777773333333}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      TabOrder = 1
+    end
+    object BitBtn2: TBitBtn
+      Left = 176
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 2
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_cap_spwf1 where dt='#39'2012-09-05'#39
+    FieldDefs = <
+      item
+        Name = 'TPLANT'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'GRP'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'WFID'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'WFNAME'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'DT'
+        Attributes = [faRequired]
+        DataType = ftDate
+      end
+      item
+        Name = 'J_NO'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'J2_JOB'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'STYLE'
+        DataType = ftWideString
+        Size = 35
+      end
+      item
+        Name = 'RWO'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'ACOL'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'FCCS'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'QTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TSAH'
+        DataType = ftFloat
+      end
+      item
+        Name = 'SECT'
+        DataType = ftFloat
+      end
+      item
+        Name = 'EFF'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'grp;wfid;dt;j2_job;acol;rwo;fccs'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterPost = Query1AfterPost
+    Left = 208
+    Top = 88
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 248
+    Top = 88
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 280
+    Top = 88
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 312
+    Top = 88
+  end
+  object frxReport1: TfrxReport
+    Version = '4.9.31'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 41163.428368287000000000
+    ReportOptions.LastChange = 41163.428368287000000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'procedure GroupFooter1OnBeforePrint(Sender: TfrxComponent);'
+      'var'
+      '  d1,d2:double;                                   '
+      'begin'
+      '  d1:=SUM(<frxDBDataset1."TSAH">,MasterData1);'
+      '  d2:=SUM(<frxDBDataset1."SECT">,MasterData1)/2.0;'
+      
+        '  //if d2>0 then begin                                          ' +
+        ' '
+      '  sysmemo3.memo.clear;'
+      '  if d2>0 then                              '
+      '  sysmemo3.memo.add(formatfloat('#39'#,0.00'#39',d1*100.00/d2))'
+      
+        '  else sysmemo3.memo.add('#39'0.00'#39');                               ' +
+        '                                        '
+      '  //end;                           '
+      'end;'
+      ''
+      'begin'
+      ''
+      'end.')
+    Left = 216
+    Top = 144
+    Datasets = <
+      item
+        DataSet = frxDBDataset1
+        DataSetName = 'frxDBDataset1'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      object PageHeader1: TfrxPageHeader
+        Height = 52.913420000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        object Memo5: TfrxMemoView
+          Left = 215.433210000000000000
+          Top = 3.779530000000000000
+          Width = 306.141930000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Memo.UTF8W = (
+            'This is a testing report on Fast Report Tools')
+        end
+        object Shape1: TfrxShapeView
+          Top = 26.456710000000000000
+          Width = 718.110700000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+        end
+        object Memo6: TfrxMemoView
+          Left = 11.338590000000000000
+          Top = 26.456710000000000000
+          Width = 45.354360000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8W = (
+            'Team')
+          ParentFont = False
+        end
+        object Memo7: TfrxMemoView
+          Left = 71.811070000000000000
+          Top = 26.456710000000000000
+          Width = 56.692950000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8W = (
+            'WF ID')
+          ParentFont = False
+        end
+        object Memo8: TfrxMemoView
+          Left = 154.960730000000000000
+          Top = 26.456710000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8W = (
+            'WF Name')
+          ParentFont = False
+        end
+        object Memo9: TfrxMemoView
+          Left = 434.645950000000000000
+          Top = 26.456710000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8W = (
+            'Total SAH')
+          ParentFont = False
+        end
+        object Line1: TfrxLineView
+          Left = 68.031540000000000000
+          Top = 26.456710000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+        object Line2: TfrxLineView
+          Left = 151.181200000000000000
+          Top = 26.456710000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+        object Line5: TfrxLineView
+          Left = 264.567100000000000000
+          Top = 26.456710000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+        object Line7: TfrxLineView
+          Left = 419.527830000000000000
+          Top = 26.456710000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+        object Line10: TfrxLineView
+          Left = 514.016080000000000000
+          Top = 26.456710000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+        object Memo10: TfrxMemoView
+          Left = 525.354670000000000000
+          Top = 26.456710000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8W = (
+            'Actual Sect Hrs')
+          ParentFont = False
+        end
+        object Memo11: TfrxMemoView
+          Left = 638.740570000000000000
+          Top = 26.456710000000000000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8W = (
+            'Eff %')
+          ParentFont = False
+        end
+        object Line9: TfrxLineView
+          Left = 631.181510000000000000
+          Top = 26.456710000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+      end
+      object GroupHeader1: TfrxGroupHeader
+        Top = 132.283550000000000000
+        Width = 718.110700000000000000
+        Condition = 'frxDBDataset1."WFID"'
+        KeepTogether = True
+      end
+      object GroupFooter1: TfrxGroupFooter
+        Height = 22.677180000000000000
+        Top = 200.315090000000000000
+        Width = 718.110700000000000000
+        OnBeforePrint = 'GroupFooter1OnBeforePrint'
+        object SysMemo1: TfrxSysMemoView
+          Left = 411.968770000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[SUM(<frxDBDataset1."TSAH">,MasterData1)]')
+          ParentFont = False
+        end
+        object SysMemo2: TfrxSysMemoView
+          Left = 529.134200000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[SUM(<frxDBDataset1."SECT">,MasterData1)]')
+          ParentFont = False
+        end
+        object SysMemo3: TfrxSysMemoView
+          Left = 619.842920000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          ParentFont = False
+        end
+      end
+      object MasterData1: TfrxMasterData
+        Height = 22.677180000000000000
+        Top = 154.960730000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDBDataset1
+        DataSetName = 'frxDBDataset1'
+        RowCount = 0
+        object Shape2: TfrxShapeView
+          Width = 718.110700000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+        end
+        object Memo1: TfrxMemoView
+          Left = 11.338590000000000000
+          Top = 3.779530000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Memo.UTF8W = (
+            '[frxDBDataset1."GRP"]')
+        end
+        object Memo2: TfrxMemoView
+          Left = 71.811070000000000000
+          Top = 3.779530000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DataField = 'WFID'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Memo.UTF8W = (
+            '[frxDBDataset1."WFID"]')
+        end
+        object Memo3: TfrxMemoView
+          Left = 154.960730000000000000
+          Top = 3.779530000000000000
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DataField = 'WFNAME'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Memo.UTF8W = (
+            '[frxDBDataset1."WFNAME"]')
+        end
+        object Memo4: TfrxMemoView
+          Left = 408.189240000000000000
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DataField = 'TSAH'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frxDBDataset1."TSAH"]')
+          ParentFont = False
+        end
+        object Line3: TfrxLineView
+          Left = 68.031540000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+        object Line4: TfrxLineView
+          Left = 151.181200000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+        object Line6: TfrxLineView
+          Left = 264.567100000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+        object Line8: TfrxLineView
+          Left = 419.527830000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+        object Line11: TfrxLineView
+          Left = 514.016080000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+        object Memo12: TfrxMemoView
+          Left = 525.354670000000000000
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DataField = 'SECT'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frxDBDataset1."SECT"]')
+          ParentFont = False
+        end
+        object Memo13: TfrxMemoView
+          Left = 616.063390000000000000
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DataField = 'EFF'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frxDBDataset1."EFF"]')
+          ParentFont = False
+        end
+        object Line12: TfrxLineView
+          Left = 631.181510000000000000
+          Height = 22.677180000000000000
+          ShowHint = False
+          Frame.Typ = [ftLeft]
+        end
+      end
+    end
+  end
+  object frxDBDataset1: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    FieldAliases.Strings = (
+      'TPLANT=TPLANT'
+      'GRP=GRP'
+      'WFID=WFID'
+      'WFNAME=WFNAME'
+      'DT=DT'
+      'J_NO=J_NO'
+      'J2_JOB=J2_JOB'
+      'STYLE=STYLE'
+      'RWO=RWO'
+      'ACOL=ACOL'
+      'FCCS=FCCS'
+      'QTY=QTY'
+      'TSAH=TSAH'
+      'SECT=SECT'
+      'EFF=EFF')
+    DataSource = DataSource1
+    BCDToCurrency = False
+    Left = 144
+    Top = 144
+  end
+end

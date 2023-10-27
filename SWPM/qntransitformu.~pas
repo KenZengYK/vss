@@ -1,0 +1,53 @@
+unit qntransitformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGridEh, StdCtrls, Buttons, ToolEdit, Mask, DBCtrlsEh,
+  DBCtrls, ExtCtrls;
+
+type
+  Tfrmqntransit = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    DBText4: TDBText;
+    DBText5: TDBText;
+    DBText6: TDBText;
+    Label7: TLabel;
+    DBText7: TDBText;
+    lblcs: TLabel;
+    Label9: TLabel;
+    DBDateTime1: TDBDateTimeEditEh;
+    DateEdit1: TDateEdit;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    DBGridEh1: TDBGridEh;
+    BitBtn4: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmqntransit: Tfrmqntransit;
+
+implementation
+
+uses mainformu, lwoformu;
+
+{$R *.dfm}
+
+end.
+ 

@@ -1,0 +1,37 @@
+unit Smpl_Export_EnqueryFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, GridsEh, DBGridEh;
+
+type
+  Tfrmsmpl_export_enquery = class(TForm)
+    qry1: TADOQuery;
+    DataSource4: TDataSource;
+    DBGridEh1: TDBGridEh;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsmpl_export_enquery: Tfrmsmpl_export_enquery;
+
+implementation
+
+uses mainformu, Smpl_ExportFormu;
+
+{$R *.dfm}
+
+procedure Tfrmsmpl_export_enquery.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=caFree;
+  frmsmpl_export_enquery:=nil;
+end;
+
+end.

@@ -1,0 +1,107 @@
+object frmews_notepad: Tfrmews_notepad
+  Left = 0
+  Top = 0
+  Caption = 'Reasons for 915 End Phase Ws GAI lower than target'
+  ClientHeight = 265
+  ClientWidth = 529
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label52: TLabel
+    Left = 16
+    Top = 8
+    Width = 53
+    Height = 13
+    Caption = 'QN# '#25976#38913' '
+  end
+  object DBText2: TDBText
+    Left = 71
+    Top = 8
+    Width = 178
+    Height = 14
+    DataField = 'CWONO1'
+    DataSource = frmEWSGAI_Detail.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label51: TLabel
+    Left = 263
+    Top = 8
+    Width = 64
+    Height = 13
+    Caption = 'Line '#29983#29987#32218'  '
+  end
+  object DBText1: TDBText
+    Left = 330
+    Top = 7
+    Width = 48
+    Height = 17
+    DataField = 'PLINE'
+    DataSource = frmEWSGAI_Detail.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object memo1: TMemo
+    Left = 24
+    Top = 32
+    Width = 481
+    Height = 177
+    Lines.Strings = (
+      'memo1')
+    ReadOnly = True
+    TabOrder = 0
+  end
+  object BitBtn1: TBitBtn
+    Left = 24
+    Top = 224
+    Width = 73
+    Height = 25
+    Caption = 'Exit'
+    DoubleBuffered = True
+    Kind = bkClose
+    ParentDoubleBuffered = False
+    TabOrder = 1
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 384
+    Top = 216
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 416
+    Top = 216
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 448
+    Top = 216
+  end
+end

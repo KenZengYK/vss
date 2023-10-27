@@ -1,0 +1,112 @@
+object frmnewcap_fcbal: Tfrmnewcap_fcbal
+  Left = 192
+  Top = 114
+  Caption = 'CP - Capcity Setup (based on T3 dd)'
+  ClientHeight = 217
+  ClientWidth = 329
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 20
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 24
+    Width = 265
+    Height = 25
+    Caption = 'Resources Setup (@month)'
+    TabOrder = 0
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 32
+    Top = 216
+    Width = 265
+    Height = 25
+    Caption = 'Review Balancing'
+    TabOrder = 1
+    Visible = False
+    OnClick = BitBtn2Click
+  end
+  object BitBtn3: TBitBtn
+    Left = 32
+    Top = 64
+    Width = 265
+    Height = 25
+    Caption = 'Setup adjustment, if necessary'
+    TabOrder = 2
+    OnClick = BitBtn3Click
+  end
+  object BitBtn4: TBitBtn
+    Left = 32
+    Top = 234
+    Width = 265
+    Height = 25
+    Caption = 'Choose Balancing'
+    TabOrder = 3
+    Visible = False
+    OnClick = BitBtn4Click
+  end
+  object BitBtn5: TBitBtn
+    Left = 32
+    Top = 104
+    Width = 265
+    Height = 25
+    Caption = 'Setup confirmation'
+    TabOrder = 4
+    OnClick = BitBtn5Click
+  end
+  object BitBtn6: TBitBtn
+    Left = 32
+    Top = 152
+    Width = 265
+    Height = 25
+    Caption = 'Master Lock Balancing'
+    TabOrder = 5
+    Visible = False
+    OnClick = BitBtn6Click
+  end
+  object BitBtn7: TBitBtn
+    Left = 32
+    Top = 185
+    Width = 265
+    Height = 25
+    Caption = 'Exit'
+    TabOrder = 6
+    Visible = False
+    OnClick = BitBtn7Click
+  end
+  object BitBtn8: TBitBtn
+    Left = 32
+    Top = 185
+    Width = 265
+    Height = 25
+    Caption = 'Balancing Comparison (inactive)'
+    Enabled = False
+    TabOrder = 7
+    Visible = False
+  end
+  object BitBtn9: TBitBtn
+    Left = 32
+    Top = 144
+    Width = 265
+    Height = 25
+    Caption = 'Exit'
+    TabOrder = 8
+    OnClick = BitBtn9Click
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 48
+    Top = 65520
+  end
+end

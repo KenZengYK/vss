@@ -1,0 +1,37 @@
+unit ItemstgFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DB, DBClient, ExtCtrls, GridsEh, DBGridEh;
+
+type
+  TfrmItems_Stdby = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn5: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmItems_Stdby: TfrmItems_Stdby;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+end.

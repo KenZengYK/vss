@@ -1,0 +1,152 @@
+unit newcap_custt3dayformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, GridsEh, DBGridEh, ExtCtrls, StdCtrls, Buttons;
+
+type
+  Tfrmnewcap_custt3day = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Panel2: TPanel;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    Query3: TClientDataSet;
+    Label2: TLabel;
+    Memo1: TMemo;
+    Label3: TLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_custt3day: Tfrmnewcap_custt3day;
+  strupd:string;
+
+implementation
+
+uses mainformu, newcapformu, newcap_cpsettingsformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_custt3day.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_custt3day:=nil;
+end;
+
+procedure Tfrmnewcap_custt3day.ComboBox1Change(Sender: TObject);
+var
+  fty:string;
+begin
+  if combobox1.text>'' then begin
+    if combobox1.text='CHINA' then fty:='SL' else fty:='KB';
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_cap_custt3day where tplant='''+fty+'''';
+      open;
+      if not fieldbyname('lck').isnull then begin
+        if fieldbyname('lck').value=true then label2.caption:='Locked'
+        else label2.Caption:='';
+      end else label2.Caption:='';
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_custt3day.Query1AfterPost(DataSet: TDataSet);
+begin
+  {
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      commandtext:='update tbl_cap_custt3day set days=:x1 where tplant=:x2 and cust=:x3';
+      if not query1.fieldbyname('days').isnull then
+      params[0].asinteger:=query1.fieldbyname('days').value
+      else params[0].asinteger:=0;
+      params[1].asstring:=query1.fieldbyname('tplant').value;
+      params[2].asstring:=query1.fieldbyname('cust').value;
+      execute;
+    end;
+  end;
+  }
+  strupd:='update tbl_cap_custt3day set ';
+  if not query1.fieldbyname('days').isnull then
+  strupd:=strupd+'days='+query1.fieldbyname('days').asstring+' '
+  else strupd:=strupd+'days=0 ';
+  strupd:=strupd+'where tplant=:x2 and cust=:x3';
+  if frmmain.PHService.UpdateLWPM(strupd)=0 then showmessage('Can not save!');
+
+end;
+
+procedure Tfrmnewcap_custt3day.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmnewcap_custt3day.FormShow(Sender: TObject);
+begin
+  combobox1change(self);
+end;
+
+procedure Tfrmnewcap_custt3day.BitBtn2Click(Sender: TObject);
+var
+  fty:string;
+begin
+  if combobox1.text='CHINA' then fty:='SL' else fty:='KB';
+  if application.MessageBox('Lock all the information?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+    {
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='update tbl_cap_custt3day set lck=1 where tplant='''+fty+'''';
+      execute;
+    end;
+    }
+    strupd:='update tbl_cap_custt3day set lck=1 where tplant='''+fty+'''';
+    if frmmain.PHService.UpdateLWPM(strupd)=0 then showmessage('Can not save!');
+    
+    label2.caption:='Locked';
+  end;
+end;
+
+procedure Tfrmnewcap_custt3day.BitBtn3Click(Sender: TObject);
+var
+  fty:string;
+begin
+  if combobox1.text='CHINA' then fty:='SL' else fty:='KB';
+  if application.MessageBox('Un-lock all the information?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='update tbl_cap_custt3day set lck=0 where tplant='''+fty+'''';
+      execute;
+    end;
+    label2.caption:='';
+  end;
+end;
+
+end.

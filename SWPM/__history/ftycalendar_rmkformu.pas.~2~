@@ -1,0 +1,35 @@
+unit ftycalendar_rmkformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons;
+
+type
+  Tfrmftycalendar_rmk = class(TForm)
+    Memo1: TMemo;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmftycalendar_rmk: Tfrmftycalendar_rmk;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tfrmftycalendar_rmk.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmftycalendar_rmk:=nil;
+end;
+
+end.

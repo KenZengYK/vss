@@ -1,0 +1,1617 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{473D6ACC-81FB-49E9-9048-9B70B5B515EC}</ProjectGuid>
+			<MainSource>LWPM_ENG.dpr</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>12.0</ProjectVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_DependencyCheckOutputName>LWPM_ENG.exe</DCC_DependencyCheckOutputName>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_Platform>x86</DCC_Platform>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="LWPM_ENG.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="mainformu.pas">
+				<Form>frmmain</Form>
+			</DCCReference>
+			<DCCReference Include="artnoformu.pas">
+				<Form>frmartno</Form>
+			</DCCReference>
+			<DCCReference Include="absentformu.pas">
+				<Form>frmabsent</Form>
+			</DCCReference>
+			<DCCReference Include="achievingformu.pas">
+				<Form>frmachieving</Form>
+			</DCCReference>
+			<DCCReference Include="airnoticeformu.pas">
+				<Form>frmairnotice</Form>
+			</DCCReference>
+			<DCCReference Include="airprjdtlformu.pas">
+				<Form>frmairprjdtl</Form>
+			</DCCReference>
+			<DCCReference Include="airreasonformu.pas">
+				<Form>frmairreason</Form>
+			</DCCReference>
+			<DCCReference Include="airreportformu.pas">
+				<Form>frmairreport</Form>
+			</DCCReference>
+			<DCCReference Include="airrequestformu.pas">
+				<Form>frmairrequestform</Form>
+			</DCCReference>
+			<DCCReference Include="airrpt1formu.pas">
+				<Form>frmairrpt1</Form>
+			</DCCReference>
+			<DCCReference Include="allmcformu.pas">
+				<Form>frmallmc</Form>
+			</DCCReference>
+			<DCCReference Include="analysisformu.pas">
+				<Form>frmanalysis</Form>
+			</DCCReference>
+			<DCCReference Include="aqlflowformu.pas">
+				<Form>frmaqlflow</Form>
+			</DCCReference>
+			<DCCReference Include="aqlformu.pas">
+				<Form>frmaql</Form>
+			</DCCReference>
+			<DCCReference Include="aqltransitformu.pas">
+				<Form>frmaqltransit</Form>
+			</DCCReference>
+			<DCCReference Include="chcxformu.pas">
+				<Form>frmchcx</Form>
+			</DCCReference>
+			<DCCReference Include="bcnformu.pas">
+				<Form>frmbcn</Form>
+			</DCCReference>
+			<DCCReference Include="bundleformu.pas">
+				<Form>frmbundle</Form>
+			</DCCReference>
+			<DCCReference Include="calcformu.pas">
+				<Form>frmcalc</Form>
+			</DCCReference>
+			<DCCReference Include="calcscheduleu.pas">
+				<Form>frmcalcschedule</Form>
+			</DCCReference>
+			<DCCReference Include="calendar_sumformu.pas">
+				<Form>frmcalendar_sum</Form>
+			</DCCReference>
+			<DCCReference Include="calendarchartformu.pas">
+				<Form>frmcalendarchart</Form>
+			</DCCReference>
+			<DCCReference Include="calendarformu.pas">
+				<Form>frmcalendar</Form>
+			</DCCReference>
+			<DCCReference Include="calnotepadformu.pas">
+				<Form>frmcalnotepad</Form>
+			</DCCReference>
+			<DCCReference Include="capformu.pas">
+				<Form>frmcap</Form>
+			</DCCReference>
+			<DCCReference Include="cclformu.pas">
+				<Form>frmccl</Form>
+			</DCCReference>
+			<DCCReference Include="cfmpwd.pas">
+				<Form>frmcfmpwd</Form>
+			</DCCReference>
+			<DCCReference Include="changelineformu.pas">
+				<Form>frmchangeline</Form>
+			</DCCReference>
+			<DCCReference Include="chartu.pas">
+				<Form>frmchart</Form>
+			</DCCReference>
+			<DCCReference Include="cmfp1formu.pas">
+				<Form>frmcmfp1</Form>
+			</DCCReference>
+			<DCCReference Include="cmfpformu.pas">
+				<Form>frmcmfp</Form>
+			</DCCReference>
+			<DCCReference Include="currcalformu.pas">
+				<Form>frmcurrcal</Form>
+			</DCCReference>
+			<DCCReference Include="cmppdnmnfformu.pas">
+				<Form>frmcmppdnmnf</Form>
+			</DCCReference>
+			<DCCReference Include="cmyr_ibookingformu.pas">
+				<Form>frmcmyr_ibooking</Form>
+			</DCCReference>
+			<DCCReference Include="colimgformu.pas">
+				<Form>frmcolimg</Form>
+			</DCCReference>
+			<DCCReference Include="cp1rep1formu.pas">
+				<Form>frmcp1rep1</Form>
+			</DCCReference>
+			<DCCReference Include="cprep1formu.pas">
+				<Form>frmcprep1</Form>
+			</DCCReference>
+			<DCCReference Include="cpreport1formu.pas">
+				<Form>frmcpreport1</Form>
+			</DCCReference>
+			<DCCReference Include="cpreportformu.pas">
+				<Form>frmcpreport</Form>
+			</DCCReference>
+			<DCCReference Include="cpreqformu.pas">
+				<Form>frmcpreq</Form>
+			</DCCReference>
+			<DCCReference Include="cstylegrpformu.pas">
+				<Form>frmcstylegrp</Form>
+			</DCCReference>
+			<DCCReference Include="currcal_sumformu.pas">
+				<Form>frmcurrcal_sum</Form>
+			</DCCReference>
+			<DCCReference Include="currchartformu.pas">
+				<Form>frmcurrchart</Form>
+			</DCCReference>
+			<DCCReference Include="currstartformu.pas">
+				<Form>frmcurrstart</Form>
+			</DCCReference>
+			<DCCReference Include="custenqformu.pas">
+				<Form>frmcustenq</Form>
+			</DCCReference>
+			<DCCReference Include="custformu.pas">
+				<Form>frmcustomer</Form>
+			</DCCReference>
+			<DCCReference Include="custprintformu.pas">
+				<Form>frmcustprint</Form>
+			</DCCReference>
+			<DCCReference Include="custtransformu.pas">
+				<Form>frmcusttrans</Form>
+			</DCCReference>
+			<DCCReference Include="dailyqnformu.pas">
+				<Form>frmdailyqn</Form>
+			</DCCReference>
+			<DCCReference Include="dailyreport1formu.pas">
+				<Form>frmdailyreport1</Form>
+			</DCCReference>
+			<DCCReference Include="dailyreportformu.pas">
+				<Form>frmdailyreport</Form>
+			</DCCReference>
+			<DCCReference Include="dailyt4_1formu.pas">
+				<Form>frmdailyt4_1</Form>
+			</DCCReference>
+			<DCCReference Include="dailyt2_1formu.pas">
+				<Form>frmdailyT2_1</Form>
+			</DCCReference>
+			<DCCReference Include="dailyT3formu.pas">
+				<Form>frmdailyT3</Form>
+			</DCCReference>
+			<DCCReference Include="zktdformu.pas">
+				<Form>frmzktd</Form>
+			</DCCReference>
+			<DCCReference Include="dailyT4formu.pas">
+				<Form>frmdailyT4</Form>
+			</DCCReference>
+			<DCCReference Include="db_repformu.pas">
+				<Form>frmdb_rep</Form>
+			</DCCReference>
+			<DCCReference Include="debitnoteformu.pas">
+				<Form>frmdebitnote</Form>
+			</DCCReference>
+			<DCCReference Include="dmcssformu.pas">
+				<Form>frmdmcss</Form>
+			</DCCReference>
+			<DCCReference Include="dWFsformu.pas">
+				<Form>frmdWFs</Form>
+			</DCCReference>
+			<DCCReference Include="editpasswordu.pas">
+				<Form>frmeditpassword</Form>
+			</DCCReference>
+			<DCCReference Include="effchartformu.pas">
+				<Form>frmeffchart</Form>
+			</DCCReference>
+			<DCCReference Include="enqnotepadformu.pas">
+				<Form>frmenqnotepad</Form>
+			</DCCReference>
+			<DCCReference Include="enquirystyle.pas">
+				<Form>frmstyleenquiry</Form>
+			</DCCReference>
+			<DCCReference Include="esewnformu.pas">
+				<Form>frmesewn</Form>
+			</DCCReference>
+			<DCCReference Include="etam_ibookingformu.pas">
+				<Form>frmetam_ibooking</Form>
+			</DCCReference>
+			<DCCReference Include="exchangeformu.pas">
+				<Form>frmexchange</Form>
+			</DCCReference>
+			<DCCReference Include="fgaiformu.pas">
+				<Form>frmfgai</Form>
+			</DCCReference>
+			<DCCReference Include="finished.pas">
+				<Form>frmfinished</Form>
+			</DCCReference>
+			<DCCReference Include="flagformu.pas">
+				<Form>frmflag</Form>
+			</DCCReference>
+			<DCCReference Include="flow2report1formu.pas">
+				<Form>frmflow2report1</Form>
+			</DCCReference>
+			<DCCReference Include="fmcssformu.pas">
+				<Form>frmfmcss</Form>
+			</DCCReference>
+			<DCCReference Include="fprofileformu.pas">
+				<Form>frmfprofile</Form>
+			</DCCReference>
+			<DCCReference Include="fstyleimgformu.pas">
+				<Form>frmfstyleimg</Form>
+			</DCCReference>
+			<DCCReference Include="ftyanalysisformu.pas">
+				<Form>frmftyanalysis</Form>
+			</DCCReference>
+			<DCCReference Include="ftycalendarformu.pas">
+				<Form>frmftycalendar</Form>
+			</DCCReference>
+			<DCCReference Include="ftylearnformu.pas">
+				<Form>frmftylearn</Form>
+			</DCCReference>
+			<DCCReference Include="fwf1formu.pas">
+				<Form>frmfwf1</Form>
+			</DCCReference>
+			<DCCReference Include="fwf2formu.pas">
+				<Form>frmfwf2</Form>
+			</DCCReference>
+			<DCCReference Include="fwfformu.pas">
+				<Form>frmfwf</Form>
+			</DCCReference>
+			<DCCReference Include="ganoteformu.pas">
+				<Form>frmganote</Form>
+			</DCCReference>
+			<DCCReference Include="glossaryformu.pas">
+				<Form>frmglossary</Form>
+			</DCCReference>
+			<DCCReference Include="gsdtmuformu.pas">
+				<Form>frmgsdtmu</Form>
+			</DCCReference>
+			<DCCReference Include="helpu.pas">
+				<Form>frmhelp</Form>
+			</DCCReference>
+			<DCCReference Include="ibookingformu.pas">
+				<Form>frmibooking</Form>
+			</DCCReference>
+			<DCCReference Include="ibprintformu.pas">
+				<Form>frmibprint</Form>
+			</DCCReference>
+			<DCCReference Include="igapackformu.pas">
+				<Form>frmigapack</Form>
+			</DCCReference>
+			<DCCReference Include="itemlistu.pas">
+				<Form>frmitemlist</Form>
+			</DCCReference>
+			<DCCReference Include="kdfxu.pas">
+				<Form>frmkdfx</Form>
+			</DCCReference>
+			<DCCReference Include="lard_ibookingformu.pas">
+				<Form>frmlard_ibooking</Form>
+			</DCCReference>
+			<DCCReference Include="lastorderformu.pas">
+				<Form>frmlastorders</Form>
+			</DCCReference>
+			<DCCReference Include="learnformu.pas">
+				<Form>frmlearn</Form>
+			</DCCReference>
+			<DCCReference Include="lineactiveformu.pas">
+				<Form>frmlineactive</Form>
+			</DCCReference>
+			<DCCReference Include="linecap_printformu.pas">
+				<Form>frmlinecap_print</Form>
+			</DCCReference>
+			<DCCReference Include="linecapformu.pas">
+				<Form>frmlinecap</Form>
+			</DCCReference>
+			<DCCReference Include="lineeffformu.pas">
+				<Form>frmlineeff</Form>
+			</DCCReference>
+			<DCCReference Include="lineinfou.pas">
+				<Form>frmlineinfo</Form>
+			</DCCReference>
+			<DCCReference Include="lineshiftformu.pas">
+				<Form>frmshift</Form>
+			</DCCReference>
+			<DCCReference Include="lmcssformu.pas">
+				<Form>frmlmcss</Form>
+			</DCCReference>
+			<DCCReference Include="loanformu.pas">
+				<Form>frmloan</Form>
+			</DCCReference>
+			<DCCReference Include="loginfoformu.pas">
+				<Form>frmloginfo</Form>
+			</DCCReference>
+			<DCCReference Include="loginu.pas">
+				<Form>frmlogin</Form>
+			</DCCReference>
+			<DCCReference Include="ltformu.pas">
+				<Form>frmlt</Form>
+			</DCCReference>
+			<DCCReference Include="lwoformu.pas">
+				<Form>frmlwo</Form>
+			</DCCReference>
+			<DCCReference Include="lworksheetformu.pas">
+				<Form>frmlwsheet</Form>
+			</DCCReference>
+			<DCCReference Include="lwosum1formu.pas">
+				<Form>frmlwosum1</Form>
+			</DCCReference>
+			<DCCReference Include="lwstartformu.pas">
+				<Form>frmlwstart</Form>
+			</DCCReference>
+			<DCCReference Include="machcapacityformchartu.pas">
+				<Form>FrmmachCapacity_chart</Form>
+			</DCCReference>
+			<DCCReference Include="machcapacityformu.pas">
+				<Form>frmmachcapacity</Form>
+			</DCCReference>
+			<DCCReference Include="maintenanceformu.pas">
+				<Form>frmmaintenance</Form>
+			</DCCReference>
+			<DCCReference Include="matchform.pas">
+				<Form>frmmatch</Form>
+			</DCCReference>
+			<DCCReference Include="matmatchu.pas">
+				<Form>frmmatmatch</Form>
+			</DCCReference>
+			<DCCReference Include="mbrandformu.pas">
+				<Form>frmmbrand</Form>
+			</DCCReference>
+			<DCCReference Include="mcalformu.pas">
+				<Form>frmmcal</Form>
+			</DCCReference>
+			<DCCReference Include="mcimgformu.pas">
+				<Form>frmmcimg</Form>
+			</DCCReference>
+			<DCCReference Include="mcinfoformu.pas">
+				<Form>frmmcinfo</Form>
+			</DCCReference>
+			<DCCReference Include="mclocformu.pas">
+				<Form>frmmcloc</Form>
+			</DCCReference>
+			<DCCReference Include="mcpoolformu.pas">
+				<Form>frmmcpool</Form>
+			</DCCReference>
+			<DCCReference Include="mematchformu.pas">
+				<Form>frmmematch</Form>
+			</DCCReference>
+			<DCCReference Include="memform1u.pas">
+				<Form>frmmem1</Form>
+			</DCCReference>
+			<DCCReference Include="memformu.pas">
+				<Form>frmmem</Form>
+			</DCCReference>
+			<DCCReference Include="missingrwoformu.pas">
+				<Form>frmmissingrwo</Form>
+			</DCCReference>
+			<DCCReference Include="mmachineformu.pas">
+				<Form>frmmmachine</Form>
+			</DCCReference>
+			<DCCReference Include="mmwhu.pas">
+				<Form>frmmm</Form>
+			</DCCReference>
+			<DCCReference Include="mtypeformu.pas">
+				<Form>frmmtype</Form>
+			</DCCReference>
+			<DCCReference Include="mwfenqformu.pas">
+				<Form>frmmwfenq</Form>
+			</DCCReference>
+			<DCCReference Include="mwfformu.pas">
+				<Form>frmmwf</Form>
+			</DCCReference>
+			<DCCReference Include="mwfskillformu.pas">
+				<Form>frmmwfskill</Form>
+			</DCCReference>
+			<DCCReference Include="nextdayformu.pas">
+				<Form>frmnextday</Form>
+			</DCCReference>
+			<DCCReference Include="note_lwoformu.pas">
+				<Form>frmnote_lwo</Form>
+			</DCCReference>
+			<DCCReference Include="noteformu.pas">
+				<Form>frmnote</Form>
+			</DCCReference>
+			<DCCReference Include="ocprepformu.pas">
+				<Form>frmocprep</Form>
+			</DCCReference>
+			<DCCReference Include="ocpreqformu.pas">
+				<Form>frmocpreq</Form>
+			</DCCReference>
+			<DCCReference Include="onholdformu.pas">
+				<Form>frmonhold</Form>
+			</DCCReference>
+			<DCCReference Include="ordersummary1formu.pas">
+				<Form>frmordersummary1</Form>
+			</DCCReference>
+			<DCCReference Include="ordersummaryformu.pas">
+				<Form>frmordersummary</Form>
+			</DCCReference>
+			<DCCReference Include="packingplanformu.pas">
+				<Form>frmpackingplan</Form>
+			</DCCReference>
+			<DCCReference Include="packoptformu.pas">
+				<Form>frmpackopt</Form>
+			</DCCReference>
+			<DCCReference Include="packplan_selpdnformu.pas">
+				<Form>frmpackplan_selpdn</Form>
+			</DCCReference>
+			<DCCReference Include="pbitemformu.pas">
+				<Form>frmpbitem</Form>
+			</DCCReference>
+			<DCCReference Include="pbmatformu.pas">
+				<Form>frmpbmat</Form>
+			</DCCReference>
+			<DCCReference Include="pdnactd1formu.pas">
+				<Form>frmpdnactd1</Form>
+			</DCCReference>
+			<DCCReference Include="pdnactd2formu.pas">
+				<Form>frmpdnactd2</Form>
+			</DCCReference>
+			<DCCReference Include="pdnformu.pas">
+				<Form>frmpdn</Form>
+			</DCCReference>
+			<DCCReference Include="pdnmarksformu.pas">
+				<Form>frmpdnmarks</Form>
+			</DCCReference>
+			<DCCReference Include="pdnpast1formu.pas">
+				<Form>frmpdnpast1</Form>
+			</DCCReference>
+			<DCCReference Include="pdnpastformu.pas">
+				<Form>frmpdnpast</Form>
+			</DCCReference>
+			<DCCReference Include="pdnprintformu.pas">
+				<Form>frmpdnprint</Form>
+			</DCCReference>
+			<DCCReference Include="pdnqty_enqformu.pas">
+				<Form>frmpdnqty_enq</Form>
+			</DCCReference>
+			<DCCReference Include="pdnreport1formu.pas">
+				<Form>frmpdnreport1</Form>
+			</DCCReference>
+			<DCCReference Include="pdnreportformu.pas">
+				<Form>frmpdnreport</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt1formu.pas">
+				<Form>frmpdnrpt1</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt2formu.pas">
+				<Form>frmpdnrpt2</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt3formu.pas">
+				<Form>frmpdnrpt3</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt4formu.pas">
+				<Form>frmpdnrpt4</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt5formu.pas">
+				<Form>frmpdnrpt5</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt6formu.pas">
+				<Form>frmpdnrpt6</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt7formu.pas">
+				<Form>frmpdnrpt7</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt8formu.pas">
+				<Form>frmpdnrpt8</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt9formu.pas">
+				<Form>frmpdnrpt9</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt10formu.pas">
+				<Form>frmpdnrpt10</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt11formu.pas">
+				<Form>frmpdnrpt11</Form>
+			</DCCReference>
+			<DCCReference Include="pdnsampleformu.pas">
+				<Form>frmpdnsample</Form>
+			</DCCReference>
+			<DCCReference Include="pdnsplitformu.pas">
+				<Form>frmpdnsplit</Form>
+			</DCCReference>
+			<DCCReference Include="pdnsupplement1formu.pas">
+				<Form>frmpdnsupplement1</Form>
+			</DCCReference>
+			<DCCReference Include="pdnsupplementformu.pas">
+				<Form>frmpdnsupplement</Form>
+			</DCCReference>
+			<DCCReference Include="pdnversionformu.pas">
+				<Form>frmpdnversion</Form>
+			</DCCReference>
+			<DCCReference Include="pdnwriteformu.pas">
+				<Form>frmpdnwrite</Form>
+			</DCCReference>
+			<DCCReference Include="pechart1formu.pas">
+				<Form>frmpechart1</Form>
+			</DCCReference>
+			<DCCReference Include="pechartformu.pas">
+				<Form>frmpechart</Form>
+			</DCCReference>
+			<DCCReference Include="phselformu.pas">
+				<Form>frmphsel</Form>
+			</DCCReference>
+			<DCCReference Include="pjc1_1formu.pas">
+				<Form>frmpjc1_1</Form>
+			</DCCReference>
+			<DCCReference Include="pjc1formu.pas">
+				<Form>frmpjc1</Form>
+			</DCCReference>
+			<DCCReference Include="planprintu.pas">
+				<Form>frmplanprint</Form>
+			</DCCReference>
+			<DCCReference Include="plc_combformu.pas">
+				<Form>frmplc_comb</Form>
+			</DCCReference>
+			<DCCReference Include="popcformu.pas">
+				<Form>frmpopc</Form>
+			</DCCReference>
+			<DCCReference Include="poptionformu.pas">
+				<Form>frmpoption</Form>
+			</DCCReference>
+			<DCCReference Include="prejhlu.pas">
+				<Form>frmprejhl</Form>
+			</DCCReference>
+			<DCCReference Include="pringjhlu.pas">
+				<Form>frmpringjhl</Form>
+			</DCCReference>
+			<DCCReference Include="printchartu.pas">
+				<Form>frmprintchart</Form>
+			</DCCReference>
+			<DCCReference Include="printform1u.pas">
+				<Form>frmprint1</Form>
+			</DCCReference>
+			<DCCReference Include="printform2u.pas">
+				<Form>frmprint2</Form>
+			</DCCReference>
+			<DCCReference Include="printform3u.pas">
+				<Form>frmprint3</Form>
+			</DCCReference>
+			<DCCReference Include="printform4u.pas">
+				<Form>frmprint4</Form>
+			</DCCReference>
+			<DCCReference Include="printform5u.pas">
+				<Form>frmprint5</Form>
+			</DCCReference>
+			<DCCReference Include="printformu.pas">
+				<Form>frmprint</Form>
+			</DCCReference>
+			<DCCReference Include="printkdjsu.pas">
+				<Form>frmprintkdjs</Form>
+			</DCCReference>
+			<DCCReference Include="printmatchu.pas">
+				<Form>frmprintmatch</Form>
+			</DCCReference>
+			<DCCReference Include="printschedule1u.pas">
+				<Form>frmprintschedule1</Form>
+			</DCCReference>
+			<DCCReference Include="printscheduleu.pas">
+				<Form>frmprintschedule</Form>
+			</DCCReference>
+			<DCCReference Include="prjcalformu.pas">
+				<Form>frmprjcal</Form>
+			</DCCReference>
+			<DCCReference Include="projsahformu.pas">
+				<Form>frmprojsah</Form>
+			</DCCReference>
+			<DCCReference Include="psitemformu.pas">
+				<Form>frmpsitem</Form>
+			</DCCReference>
+			<DCCReference Include="psmatform1u.pas">
+				<Form>frmpsmat1</Form>
+			</DCCReference>
+			<DCCReference Include="psmatformu.pas">
+				<Form>frmpsmat</Form>
+			</DCCReference>
+			<DCCReference Include="ptrans2_1formu.pas">
+				<Form>frmptrans2_1</Form>
+			</DCCReference>
+			<DCCReference Include="ptrans2formu.pas">
+				<Form>frmptrans2</Form>
+			</DCCReference>
+			<DCCReference Include="ptrans3formu.pas">
+				<Form>frmptrans3</Form>
+			</DCCReference>
+			<DCCReference Include="ptrans4formu.pas">
+				<Form>frmptrans4</Form>
+			</DCCReference>
+			<DCCReference Include="qnhaltformu.pas">
+				<Form>frmqnhalt</Form>
+			</DCCReference>
+			<DCCReference Include="qnsumformu.pas">
+				<Form>frmqnsum</Form>
+			</DCCReference>
+			<DCCReference Include="qntransitformu.pas">
+				<Form>frmqntransit</Form>
+			</DCCReference>
+			<DCCReference Include="qnwkfformu.pas">
+				<Form>frmqnwkf</Form>
+			</DCCReference>
+			<DCCReference Include="qxglu.pas">
+				<Form>frmqxgl</Form>
+			</DCCReference>
+			<DCCReference Include="remarksformu.pas">
+				<Form>frmremarks</Form>
+			</DCCReference>
+			<DCCReference Include="resignformu.pas">
+				<Form>frmresign</Form>
+			</DCCReference>
+			<DCCReference Include="rsycformu.pas">
+				<Form>frmrsyc</Form>
+			</DCCReference>
+			<DCCReference Include="rwoformu.pas">
+				<Form>frmRWO</Form>
+			</DCCReference>
+			<DCCReference Include="rwotransformu.pas">
+				<Form>frmrwotrans</Form>
+			</DCCReference>
+			<DCCReference Include="scbbformu.pas">
+				<Form>frmscbb</Form>
+			</DCCReference>
+			<DCCReference Include="scgxdyu.pas">
+				<Form>frmscgxdy</Form>
+			</DCCReference>
+			<DCCReference Include="scgxly1.pas">
+				<Form>frmscgxly1</Form>
+			</DCCReference>
+			<DCCReference Include="scxdyformu.pas">
+				<Form>frmscxdy</Form>
+			</DCCReference>
+			<DCCReference Include="scxzdformu.pas">
+				<Form>frmscxzd</Form>
+			</DCCReference>
+			<DCCReference Include="selectioninfou.pas">
+				<Form>frmselection</Form>
+			</DCCReference>
+			<DCCReference Include="selenqformu.pas">
+				<Form>frmselenq</Form>
+			</DCCReference>
+			<DCCReference Include="sellwsformu.pas">
+				<Form>frmsellws</Form>
+			</DCCReference>
+			<DCCReference Include="seloptformu.pas">
+				<Form>frmselopt</Form>
+			</DCCReference>
+			<DCCReference Include="selpdnformu.pas">
+				<Form>frmselpdn</Form>
+			</DCCReference>
+			<DCCReference Include="selsales.pas">
+				<Form>frmselsales</Form>
+			</DCCReference>
+			<DCCReference Include="selstyleformu.pas">
+				<Form>frmselstyle</Form>
+			</DCCReference>
+			<DCCReference Include="servedqtyformu.pas">
+				<Form>frmservedqty</Form>
+			</DCCReference>
+			<DCCReference Include="sewnformu.pas">
+				<Form>frmsewn</Form>
+			</DCCReference>
+			<DCCReference Include="shopformu.pas">
+				<Form>frmtshop</Form>
+			</DCCReference>
+			<DCCReference Include="shv_custformu.pas">
+				<Form>frmshv_cust</Form>
+			</DCCReference>
+			<DCCReference Include="simfactoryformu.pas">
+				<Form>frmsimfactory</Form>
+			</DCCReference>
+			<DCCReference Include="simphaseformu.pas">
+				<Form>frmsimphase</Form>
+			</DCCReference>
+			<DCCReference Include="simratioformu.pas">
+				<Form>frmsimratio</Form>
+			</DCCReference>
+			<DCCReference Include="simversionformu.pas">
+				<Form>frmsimversion</Form>
+			</DCCReference>
+			<DCCReference Include="skunoteformu.pas">
+				<Form>frmskunote</Form>
+			</DCCReference>
+			<DCCReference Include="skureportformu.pas">
+				<Form>frmskureport</Form>
+			</DCCReference>
+			<DCCReference Include="sloaformu.pas">
+				<Form>frm_sloa</Form>
+			</DCCReference>
+			<DCCReference Include="sopinfou.pas">
+				<Form>frmsopinfo</Form>
+			</DCCReference>
+			<DCCReference Include="soppcformu.pas">
+				<Form>frmsoppc</Form>
+			</DCCReference>
+			<DCCReference Include="sortseqformu.pas">
+				<Form>frmsortseq</Form>
+			</DCCReference>
+			<DCCReference Include="splitzjsu.pas">
+				<Form>frmsplitjob</Form>
+			</DCCReference>
+			<DCCReference Include="spsectformu.pas">
+				<Form>frmspsect</Form>
+			</DCCReference>
+			<DCCReference Include="stirling_qcbookingformu.pas">
+				<Form>frmstirling_qcbooking</Form>
+			</DCCReference>
+			<DCCReference Include="styleimageformu.pas">
+				<Form>frmstyleimage</Form>
+			</DCCReference>
+			<DCCReference Include="sublineformu.pas">
+				<Form>frmchildline</Form>
+			</DCCReference>
+			<DCCReference Include="supselformu.pas">
+				<Form>frmsupsel</Form>
+			</DCCReference>
+			<DCCReference Include="swf_profileformu.pas">
+				<Form>frmswf_profile</Form>
+			</DCCReference>
+			<DCCReference Include="swfleaveformu.pas">
+				<Form>frmswfleave</Form>
+			</DCCReference>
+			<DCCReference Include="swfmcformu.pas">
+				<Form>frmswfmc</Form>
+			</DCCReference>
+			<DCCReference Include="swfpoolformu.pas">
+				<Form>frmswfpool</Form>
+			</DCCReference>
+			<DCCReference Include="swfskillformu.pas">
+				<Form>frmswfskill</Form>
+			</DCCReference>
+			<DCCReference Include="tbfx1formu.pas">
+				<Form>frmtbfx1</Form>
+			</DCCReference>
+			<DCCReference Include="tblmem1u.pas">
+				<Form>frmtblmem1</Form>
+			</DCCReference>
+			<DCCReference Include="tblmemu.pas">
+				<Form>frmtblmem</Form>
+			</DCCReference>
+			<DCCReference Include="trans_rwoformu.pas">
+				<Form>frmtrans_rwo</Form>
+			</DCCReference>
+			<DCCReference Include="transitflow1formu.pas">
+				<Form>frmtransitflow1</Form>
+			</DCCReference>
+			<DCCReference Include="transitflow2formu.pas">
+				<Form>frmtransitflow2</Form>
+			</DCCReference>
+			<DCCReference Include="transitflowformu.pas">
+				<Form>frmtransitflow</Form>
+			</DCCReference>
+			<DCCReference Include="transitformu2.pas">
+				<Form>frmtransit2</Form>
+			</DCCReference>
+			<DCCReference Include="transitformu3.pas">
+				<Form>frmtransit3</Form>
+			</DCCReference>
+			<DCCReference Include="transitformu4.pas">
+				<Form>frmtransit4</Form>
+			</DCCReference>
+			<DCCReference Include="transitformu4_1.pas">
+				<Form>frmtransit4_1</Form>
+			</DCCReference>
+			<DCCReference Include="transitformu.pas">
+				<Form>frmtransit</Form>
+			</DCCReference>
+			<DCCReference Include="trs_woformu.pas">
+				<Form>frmtrs_wo</Form>
+			</DCCReference>
+			<DCCReference Include="trsummary1formu.pas">
+				<Form>frmtrsummary1</Form>
+			</DCCReference>
+			<DCCReference Include="trsummary2formu.pas">
+				<Form>frmtrsummary2</Form>
+			</DCCReference>
+			<DCCReference Include="trsummaryformu.pas">
+				<Form>frmtrsummary</Form>
+			</DCCReference>
+			<DCCReference Include="ttlcshformu.pas">
+				<Form>frmttlcsh</Form>
+			</DCCReference>
+			<DCCReference Include="useru.pas">
+				<Form>frmuser</Form>
+			</DCCReference>
+			<DCCReference Include="utilityformu.pas">
+				<Form>frmutility</Form>
+			</DCCReference>
+			<DCCReference Include="ver_engchnformu.pas">
+				<Form>frmver_engchn</Form>
+			</DCCReference>
+			<DCCReference Include="voyageformu.pas">
+				<Form>frmvoyage</Form>
+			</DCCReference>
+			<DCCReference Include="warn_ibookingformu.pas">
+				<Form>frmwarn_ibooking</Form>
+			</DCCReference>
+			<DCCReference Include="wf_offformu.pas">
+				<Form>frmwf_off</Form>
+			</DCCReference>
+			<DCCReference Include="wf_on1formu.pas">
+				<Form>frmwf_on1</Form>
+			</DCCReference>
+			<DCCReference Include="wf_on2formu.pas">
+				<Form>frmwf_on2</Form>
+			</DCCReference>
+			<DCCReference Include="wfpoolformu.pas">
+				<Form>frmwfpool</Form>
+			</DCCReference>
+			<DCCReference Include="wfprocessformu.pas">
+				<Form>frmwfprocess</Form>
+			</DCCReference>
+			<DCCReference Include="wfsumformu.pas">
+				<Form>frmwfsum</Form>
+			</DCCReference>
+			<DCCReference Include="wipimageformu.pas">
+				<Form>frmwipImage</Form>
+			</DCCReference>
+			<DCCReference Include="wipimgformu.pas">
+				<Form>frmwipimg</Form>
+			</DCCReference>
+			<DCCReference Include="wipprintformu.pas">
+				<Form>frmprintwip</Form>
+			</DCCReference>
+			<DCCReference Include="wkf01formu.pas">
+				<Form>frmwkf01</Form>
+			</DCCReference>
+			<DCCReference Include="wkf1formu.pas">
+				<Form>frmwkf1</Form>
+			</DCCReference>
+			<DCCReference Include="wkf02formu.pas">
+				<Form>frmwkf02</Form>
+			</DCCReference>
+			<DCCReference Include="wkf2formu.pas">
+				<Form>frmwkf2</Form>
+			</DCCReference>
+			<DCCReference Include="wkfformu.pas">
+				<Form>frmwkf</Form>
+			</DCCReference>
+			<DCCReference Include="wkfsum01formu.pas">
+				<Form>frmwkfsum01</Form>
+			</DCCReference>
+			<DCCReference Include="wkfsum1formu.pas">
+				<Form>frmwkfsum1</Form>
+			</DCCReference>
+			<DCCReference Include="wkfsum2formu.pas">
+				<Form>frmwkfsum2</Form>
+			</DCCReference>
+			<DCCReference Include="wl1itemformu.pas">
+				<Form>frmwl1item</Form>
+			</DCCReference>
+			<DCCReference Include="wl1matformu.pas">
+				<Form>frmwl1mat</Form>
+			</DCCReference>
+			<DCCReference Include="wmcssformu.pas">
+				<Form>frmwmcss</Form>
+			</DCCReference>
+			<DCCReference Include="wnoteformu.pas">
+				<Form>frmwnote</Form>
+			</DCCReference>
+			<DCCReference Include="worderformu.pas">
+				<Form>frmworder</Form>
+			</DCCReference>
+			<DCCReference Include="worksheet.pas">
+				<Form>worksheet1</Form>
+			</DCCReference>
+			<DCCReference Include="worksheetu.pas">
+				<Form>frmworksheet</Form>
+			</DCCReference>
+			<DCCReference Include="xgsl1formu.pas">
+				<Form>frmxgsl1</Form>
+			</DCCReference>
+			<DCCReference Include="xgslu.pas">
+				<Form>frmxgsl</Form>
+			</DCCReference>
+			<DCCReference Include="xzgchu.pas">
+				<Form>frmxzgch</Form>
+			</DCCReference>
+			<DCCReference Include="zjhlu.pas">
+				<Form>frmzjhl</Form>
+			</DCCReference>
+			<DCCReference Include="dailyT2formu.pas">
+				<Form>frmdailyT2</Form>
+			</DCCReference>
+			<DCCReference Include="pdfgaiformu.pas">
+				<Form>frmpdfgai</Form>
+			</DCCReference>
+			<DCCReference Include="airsummaryformu.pas">
+				<Form>frmairsummary</Form>
+			</DCCReference>
+			<DCCReference Include="ordersummary2formu.pas">
+				<Form>frmordersummary2</Form>
+			</DCCReference>
+			<DCCReference Include="gainotepadformu.pas">
+				<Form>frmgainotepad</Form>
+			</DCCReference>
+			<DCCReference Include="loggingformu.pas">
+				<Form>frmlogging</Form>
+			</DCCReference>
+			<DCCReference Include="newcapformu.pas">
+				<Form>frmnewcap</Form>
+			</DCCReference>
+			<DCCReference Include="oaprojectionformu.pas">
+				<Form>frmoaprojection</Form>
+			</DCCReference>
+			<DCCReference Include="ftydefaultformu.pas">
+				<Form>frmftydefault</Form>
+			</DCCReference>
+			<DCCReference Include="salleffformu.pas">
+				<Form>frmsalleff</Form>
+			</DCCReference>
+			<DCCReference Include="salleff1formu.pas">
+				<Form>frmsalleff1</Form>
+			</DCCReference>
+			<DCCReference Include="ordersummary_0formu.pas">
+				<Form>frmordersummary_0</Form>
+			</DCCReference>
+			<DCCReference Include="ordersummary_01formu.pas">
+				<Form>frmordersummary_01</Form>
+			</DCCReference>
+			<DCCReference Include="ftydefault_refformu.pas">
+				<Form>frmftydefault_ref</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_comformu.pas">
+				<Form>frmnewcap_com</Form>
+			</DCCReference>
+			<DCCReference Include="qn_sampleformu.pas">
+				<Form>frmqn_sample</Form>
+			</DCCReference>
+			<DCCReference Include="setbeginendformu.pas">
+				<Form>frmsetbeginend</Form>
+			</DCCReference>
+			<DCCReference Include="ganotepadformu.pas">
+				<Form>frmganotepad</Form>
+			</DCCReference>
+			<DCCReference Include="sample_pdnformu.pas">
+				<Form>frmsample_pdn</Form>
+			</DCCReference>
+			<DCCReference Include="addreportsformu.pas">
+				<Form>frmaddreports</Form>
+			</DCCReference>
+			<DCCReference Include="leff_wsformu.pas">
+				<Form>frmleff_ws</Form>
+			</DCCReference>
+			<DCCReference Include="leff_custformu.pas">
+				<Form>frmleff_cust</Form>
+			</DCCReference>
+			<DCCReference Include="onhold_wsformu.pas">
+				<Form>frmonhold_ws</Form>
+			</DCCReference>
+			<DCCReference Include="prod_wsformu.pas">
+				<Form>frmprod_ws</Form>
+			</DCCReference>
+			<DCCReference Include="prod_ftyformu.pas">
+				<Form>frmprod_fty</Form>
+			</DCCReference>
+			<DCCReference Include="prodc_wsformu.pas">
+				<Form>frmprodc_ws</Form>
+			</DCCReference>
+			<DCCReference Include="output_sectformu.pas">
+				<Form>frmoutput_sect</Form>
+			</DCCReference>
+			<DCCReference Include="output_smvformu.pas">
+				<Form>frmoutput_smv</Form>
+			</DCCReference>
+			<DCCReference Include="output_ttlformu.pas">
+				<Form>frmoutput_ttl</Form>
+			</DCCReference>
+			<DCCReference Include="ganotepad_engformu.pas">
+				<Form>frmganotepad_eng</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_custformu.pas">
+				<Form>frmnewcap_cust</Form>
+			</DCCReference>
+			<DCCReference Include="clrlegendformu.pas">
+				<Form>frmclrlegend</Form>
+			</DCCReference>
+			<DCCReference Include="packplanformu.pas">
+				<Form>frmpackplan</Form>
+			</DCCReference>
+			<DCCReference Include="ordersummary_03formu.pas">
+				<Form>frmordersummary_03</Form>
+			</DCCReference>
+			<DCCReference Include="selpkoptformu.pas">
+				<Form>frmselpkopt</Form>
+			</DCCReference>
+			<DCCReference Include="pack_projectionformu.pas">
+				<Form>frmpack_projection</Form>
+			</DCCReference>
+			<DCCReference Include="pack_actualformu.pas">
+				<Form>frmpack_actual</Form>
+			</DCCReference>
+			<DCCReference Include="rwoftystartdateformu.pas">
+				<Form>frmrwoftystartdate</Form>
+			</DCCReference>
+			<DCCReference Include="qneffformu.pas">
+				<Form>frmqneff</Form>
+			</DCCReference>
+			<DCCReference Include="custctformu.pas">
+				<Form>frmcustct</Form>
+			</DCCReference>
+			<DCCReference Include="oamoduleformu.pas">
+				<Form>frmoamodule</Form>
+			</DCCReference>
+			<DCCReference Include="oareport1formu.pas">
+				<Form>frmoareport1</Form>
+			</DCCReference>
+			<DCCReference Include="wip1formu.pas">
+				<Form>frmWIP1</Form>
+			</DCCReference>
+			<DCCReference Include="sot3formu.pas">
+				<Form>frmsot3</Form>
+			</DCCReference>
+			<DCCReference Include="ftygsdformu.pas">
+				<Form>frmftygsd</Form>
+			</DCCReference>
+			<DCCReference Include="oareport2formu.pas">
+				<Form>frmoareport2</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_sumformu.pas">
+				<Form>frmnewcap_sum</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_ftyformu.pas">
+				<Form>frmnewcap_fty</Form>
+			</DCCReference>
+			<DCCReference Include="ordersummary_02formu.pas">
+				<Form>frmordersummary_02</Form>
+			</DCCReference>
+			<DCCReference Include="custprint002formu.pas">
+				<Form>frmcustprint002</Form>
+			</DCCReference>
+			<DCCReference Include="pdnpast2formu.pas">
+				<Form>frmpdnpast2</Form>
+			</DCCReference>
+			<DCCReference Include="exportgaiformu.pas">
+				<Form>frmexportgai</Form>
+			</DCCReference>
+			<DCCReference Include="sosplitformu.pas">
+				<Form>frmsosplit</Form>
+			</DCCReference>
+			<DCCReference Include="soselectionformu.pas">
+				<Form>frmsoselection</Form>
+			</DCCReference>
+			<DCCReference Include="transit_tempformu.pas">
+				<Form>frmtransit_temp</Form>
+			</DCCReference>
+			<DCCReference Include="cartonmeasurementformu.pas">
+				<Form>frmcartonmeasurement</Form>
+			</DCCReference>
+			<DCCReference Include="shpadviceformu.pas">
+				<Form>frmshpadvice</Form>
+			</DCCReference>
+			<DCCReference Include="cartonmeasurement1formu.pas">
+				<Form>frmcartonmeasurement1</Form>
+			</DCCReference>
+			<DCCReference Include="shpadvice1formu.pas">
+				<Form>frmshpadvice1</Form>
+			</DCCReference>
+			<DCCReference Include="shpadvice2formu.pas">
+				<Form>frmshpadvice2</Form>
+			</DCCReference>
+			<DCCReference Include="effchart1formu.pas">
+				<Form>frmeffchart1</Form>
+			</DCCReference>
+			<DCCReference Include="lineeffchartformu.pas">
+				<Form>frmlineeffchart</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_salesformu.pas">
+				<Form>frmnewcap_sales</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_cbookingformu.pas">
+				<Form>frmnewcap_cbooking</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_ibookingformu.pas">
+				<Form>frmnewcap_ibooking</Form>
+			</DCCReference>
+			<DCCReference Include="chkSOvsWORWOformu.pas">
+				<Form>frmchkSOvsWORWO</Form>
+			</DCCReference>
+			<DCCReference Include="gai_notepad_chnformu.pas">
+				<Form>frmgai_notepad_chn</Form>
+			</DCCReference>
+			<DCCReference Include="gai_notepad_engformu.pas">
+				<Form>frmgai_notepad_eng</Form>
+			</DCCReference>
+			<DCCReference Include="shpexftyformu.pas">
+				<Form>frmshpexfty</Form>
+			</DCCReference>
+			<DCCReference Include="splitpoformu.pas">
+				<Form>frmsplitpo</Form>
+			</DCCReference>
+			<DCCReference Include="gapercentageformu.pas">
+				<Form>frmgapercentage</Form>
+			</DCCReference>
+			<DCCReference Include="gainotepadanalysisformu.pas">
+				<Form>frmgainotepadanalysis</Form>
+			</DCCReference>
+			<DCCReference Include="shvplusgaiformu.pas">
+				<Form>frmshvplusgai</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_simpleversionformu.pas">
+				<Form>frmnewcap_simpleversion</Form>
+			</DCCReference>
+			<DCCReference Include="selcuststyleformu.pas">
+				<Form>frmselcuststyle</Form>
+			</DCCReference>
+			<DCCReference Include="printfjticketformu.pas">
+				<Form>frmprintfjticket</Form>
+			</DCCReference>
+			<DCCReference Include="pdnlogcstformu.pas">
+				<Form>frmpdnlogcst</Form>
+			</DCCReference>
+			<DCCReference Include="custstyleshvformu.pas">
+				<Form>frmcuststyleshv</Form>
+			</DCCReference>
+			<DCCReference Include="custstyleshv1formu.pas">
+				<Form>frmcuststyleshv1</Form>
+			</DCCReference>
+			<DCCReference Include="plctrackingformu.pas">
+				<Form>frmplctracking</Form>
+			</DCCReference>
+			<DCCReference Include="ieclassformu.pas">
+				<Form>frmieclass</Form>
+			</DCCReference>
+			<DCCReference Include="plcnewplanformu.pas">
+				<Form>frmplcnewplan</Form>
+			</DCCReference>
+			<DCCReference Include="coretechformu.pas">
+				<Form>frmcoretech</Form>
+			</DCCReference>
+			<DCCReference Include="print00formu.pas">
+				<Form>frmprint00</Form>
+			</DCCReference>
+			<DCCReference Include="pdninvoiceformu.pas">
+				<Form>frmpdninvoice</Form>
+			</DCCReference>
+			<DCCReference Include="cust_invformu.pas">
+				<Form>frmcust_inv</Form>
+			</DCCReference>
+			<DCCReference Include="pdninv_descriptionformu.pas">
+				<Form>frmpdninv_description</Form>
+			</DCCReference>
+			<DCCReference Include="projeff_custformu.pas">
+				<Form>frmprojeff_cust</Form>
+			</DCCReference>
+			<DCCReference Include="line_opt_cmpformu.pas">
+				<Form>frmline_opt_cmp</Form>
+			</DCCReference>
+			<DCCReference Include="t3at3_qtyamtformu.pas">
+				<Form>frmt3at3_qtyamt</Form>
+			</DCCReference>
+			<DCCReference Include="QNPIIformu.pas">
+				<Form>frmQNPII</Form>
+			</DCCReference>
+			<DCCReference Include="pdninvoice_lardformu.pas">
+				<Form>frmpdninvoice_LARD</Form>
+			</DCCReference>
+			<DCCReference Include="approvalprocessingformu.pas">
+				<Form>frmapprovalprocessing</Form>
+			</DCCReference>
+			<DCCReference Include="cpyinvformu.pas">
+				<Form>frmcpyinv</Form>
+			</DCCReference>
+			<DCCReference Include="coretechscheduleformu.pas">
+				<Form>frmcoretechschedule</Form>
+			</DCCReference>
+			<DCCReference Include="coretech_reportsformu.pas">
+				<Form>frmcoretech_reports</Form>
+			</DCCReference>
+			<DCCReference Include="pdninvoice_monoformu.pas">
+				<Form>frmpdninvoice_mono</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_styleformu.pas">
+				<Form>frmnewcap_style</Form>
+			</DCCReference>
+			<DCCReference Include="worksheetsortingformu.pas">
+				<Form>frmworksheetsorting</Form>
+			</DCCReference>
+			<DCCReference Include="lineleaderformu.pas">
+				<Form>frmlineleader</Form>
+			</DCCReference>
+			<DCCReference Include="capacity_rulesformu.pas">
+				<Form>frmcapacity_rules</Form>
+			</DCCReference>
+			<DCCReference Include="pdninvoice_canaformu.pas">
+				<Form>frmpdninvoice_cana</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_fty1formu.pas">
+				<Form>frmnewcap_fty1</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_wstyleformu.pas">
+				<Form>frmnewcap_wstyle</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_newformatsformu.pas">
+				<Form>frmnewcap_newformats</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_wcustformu.pas">
+				<Form>frmnewcap_wcust</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_ftyelementsformu.pas">
+				<Form>frmnewcap_ftyelements</Form>
+			</DCCReference>
+			<DCCReference Include="pdninvoice_etamformu.pas">
+				<Form>frmpdninvoice_etam</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_refformu.pas">
+				<Form>frmnewcap_ref</Form>
+			</DCCReference>
+			<DCCReference Include="exportshpadvformu.pas">
+				<Form>frmexportshpadv</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_simftyformu.pas">
+				<Form>frmnewcap_simfty</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_simfty1formu.pas">
+				<Form>frmnewcap_simfty1</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_nostyleformu.pas">
+				<Form>frmnewcap_nostyle</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_simfty_wkformu.pas">
+				<Form>frmnewcap_simfty_wk</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_nostyle_wkformu.pas">
+				<Form>frmnewcap_nostyle_wk</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_newformats_wkformu.pas">
+				<Form>frmnewcap_newformat_wk</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_style_wkformu.pas">
+				<Form>frmnewcap_style_wk</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_ref1formu.pas">
+				<Form>frmnewcap_ref1</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_reportsformu.pas">
+				<Form>frmnewcap_reports</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_ftysimulationformu.pas">
+				<Form>frmnewcap_ftysimulation</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_custstatusformu.pas">
+				<Form>frmnewcap_custstatus</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_style_adjformu.pas">
+				<Form>frmnewcap_style_adj</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_pastperfformu.pas">
+				<Form>frmnewcap_pastperf</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_wfformu.pas">
+				<Form>frmnewcap_wf</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_calendarformu.pas">
+				<Form>frmnewcap_calendar</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_sfbalformu.pas">
+				<Form>frmnewcap_sfbal</Form>
+			</DCCReference>
+			<DCCReference Include="airrequest1formu.pas">
+				<Form>frmairrequest1</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_leveloffformu.pas">
+				<Form>frmnewcap_leveloff</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_leveloff_adjformu.pas">
+				<Form>frmnewcap_leveloff_adj</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_wfdetailformu.pas">
+				<Form>frmnewcap_wfdetail</Form>
+			</DCCReference>
+			<DCCReference Include="dailyoutputformu.pas">
+				<Form>frmdailyoutput</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_1stchoiceformu.pas">
+				<Form>frmnewcap_1stchoice</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_notepadformu.pas">
+				<Form>frmnewcap_notepad</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_salesbalformu.pas">
+				<Form>frmnewcap_salesbal</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_fcsetupformu.pas">
+				<Form>frmnewcap_fcsetup</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_fcbalformu.pas">
+				<Form>frmnewcap_fcbal</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_cpsettingsformu.pas">
+				<Form>frmnewcap_cpsettings</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_custt3dayformu.pas">
+				<Form>frmnewcap_custt3day</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_nostyle_detailformu.pas">
+				<Form>frmnewcap_nostyle_detail</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_rwodetailformu.pas">
+				<Form>frmnewcap_rwodetail</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_leveloff_detailformu.pas">
+				<Form>frmnewcap_leveloff_detail</Form>
+			</DCCReference>
+			<DCCReference Include="analysis_wmformu.pas">
+				<Form>frmanalysis_wm</Form>
+			</DCCReference>
+			<DCCReference Include="zktd_wfformu.pas">
+				<Form>frmzktd_wf</Form>
+			</DCCReference>
+			<DCCReference Include="sewerwkhrsformu.pas">
+				<Form>frmsewerwkhrs</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_extractwfformu.pas">
+				<Form>frmnewcap_extractwf</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_dhlnotepadformu.pas">
+				<Form>frmnewcap_dhlnotepad</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_recruitformu.pas">
+				<Form>frmnewcap_recruit</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_wf_detailformu.pas">
+				<Form>frmnewcap_wf_detail</Form>
+			</DCCReference>
+			<DCCReference Include="transitbalancingformu.pas">
+				<Form>frmtransitbalancing</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_cprpt_optionformu.pas">
+				<Form>frmnewcap_cprpt_option</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_custupdatedformu.pas">
+				<Form>frmnewcap_custupdated</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_hdlformu.pas">
+				<Form>frmnewcap_HDL</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_hdlrulesformu.pas">
+				<Form>frmnewcap_hdlrules</Form>
+			</DCCReference>
+			<DCCReference Include="lineeff_summaryformu.pas">
+				<Form>frmlineeff_summary</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_custupdated_rwoformu.pas">
+				<Form>frmnewcap_custupdated_rwo</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_custupdated_spformu.pas">
+				<Form>frmnewcap_custupdated_sp</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_custupdated_allformu.pas">
+				<Form>frmnewcap_custupdated_all</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_wf_specificformu.pas">
+				<Form>frmnewcap_wf_specific</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_wf_notepadformu.pas">
+				<Form>frmnewcap_wf_notepad</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_custupdated1formu.pas">
+				<Form>frmnewcap_custupdated1</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_custupdated2formu.pas">
+				<Form>frmnewcap_custupdated2</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_custupdated3formu.pas">
+				<Form>frmnewcap_custupdated3</Form>
+			</DCCReference>
+			<DCCReference Include="wprofileformu.pas">
+				<Form>frmwprofile</Form>
+			</DCCReference>
+			<DCCReference Include="PH_Library_Intf.pas"/>
+			<DCCReference Include="newcap_spwfformu.pas">
+				<Form>frmnewcap_spwf</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_spwf_detailformu.pas">
+				<Form>frmnewcap_spwf_detail</Form>
+			</DCCReference>
+			<DCCReference Include="timeeffformu.pas">
+				<Form>frmtimeeff</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_rwodetail1formu.pas">
+				<Form>frmnewcap_rwodetail1</Form>
+			</DCCReference>
+			<DCCReference Include="lineeff_1formu.pas">
+				<Form>frmlineeff_1</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_leveloffprintformu.pas">
+				<Form>frmnewcap_leveloffprint</Form>
+			</DCCReference>
+			<DCCReference Include="cust_budgeformu.pas">
+				<Form>frmcust_budge</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_printbalancingformu.pas">
+				<Form>frmnewcap_printbalancing</Form>
+			</DCCReference>
+			<DCCReference Include="trsummary_1formu.pas">
+				<Form>frmtrsummary_1</Form>
+			</DCCReference>
+			<DCCReference Include="trsummary_2formu.pas">
+				<Form>frmtrsummary_2</Form>
+			</DCCReference>
+			<DCCReference Include="line_mappingformu.pas">
+				<Form>frmline_mapping</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_budgetformu.pas">
+				<Form>frmnewcap_budget</Form>
+			</DCCReference>
+			<DCCReference Include="timeeff_newformu.pas">
+				<Form>frmtimeeff_new</Form>
+			</DCCReference>
+			<DCCReference Include="output_faesahformu.pas">
+				<Form>frmoutput_faesah</Form>
+			</DCCReference>
+			<DCCReference Include="pdn_defectnotepadformu.pas">
+				<Form>frmpdn_defectnotepad</Form>
+			</DCCReference>
+			<DCCReference Include="pdn_deadstockformu.pas">
+				<Form>frmpdn_deadstock</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_subcontractorformu.pas">
+				<Form>frmnewcap_subcontractor</Form>
+			</DCCReference>
+			<DCCReference Include="cust_matindexformu.pas">
+				<Form>frmcust_matindex</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_screportformu.pas">
+				<Form>frmnewcap_screport</Form>
+			</DCCReference>
+			<DCCReference Include="rwosampleqtyformu.pas">
+				<Form>frmrwosampleqty</Form>
+			</DCCReference>
+			<DCCReference Include="cust_qtyratioformu.pas">
+				<Form>frmcust_qtyratio</Form>
+			</DCCReference>
+			<DCCReference Include="timeeff_notepadformu.pas">
+				<Form>frmtimeeff_notepad</Form>
+			</DCCReference>
+			<DCCReference Include="completedprojectlistformu.pas">
+				<Form>frmcompletedprojectlist</Form>
+			</DCCReference>
+			<DCCReference Include="otherqnformu.pas">
+				<Form>frmotherqn</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_leveloffwfformu.pas">
+				<Form>frmnewcap_leveloffwf</Form>
+			</DCCReference>
+			<DCCReference Include="otherqn_detailformu.pas">
+				<Form>frmotherqn_detail</Form>
+			</DCCReference>
+			<DCCReference Include="qn_sample_reasonformu.pas">
+				<Form>frmqn_sample_reason</Form>
+			</DCCReference>
+			<DCCReference Include="wl_pbformu.pas">
+				<Form>frmwl_pb</Form>
+			</DCCReference>
+			<DCCReference Include="weeklysewindataformu.pas">
+				<Form>frmweeklysewingdata</Form>
+			</DCCReference>
+			<DCCReference Include="pmcmoduleformu.pas">
+				<Form>frmpmcmodule</Form>
+			</DCCReference>
+			<DCCReference Include="tp4scformu.pas">
+				<Form>frmtp4sc</Form>
+			</DCCReference>
+			<DCCReference Include="outstandingsampleformu.pas">
+				<Form>frmoutstandingsample</Form>
+			</DCCReference>
+			<DCCReference Include="pdn_notepadformu.pas">
+				<Form>frmpdn_notepad</Form>
+			</DCCReference>
+			<DCCReference Include="pdn_mailformu.pas">
+				<Form>frmpdn_mail</Form>
+			</DCCReference>
+			<DCCReference Include="pdnrpt4_newformu.pas">
+				<Form>frmpdnrpt4_new</Form>
+			</DCCReference>
+			<DCCReference Include="pdn_osrwosformu.pas">
+				<Form>frmpdn_osrwos</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_fcdetailworksheetformu.pas">
+				<Form>frmnewcap_fcdetailworksheet</Form>
+			</DCCReference>
+			<DCCReference Include="ftycal_descformu.pas">
+				<Form>frm_ftycal_desc</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_1stchoice_detailformu.pas">
+				<Form>frmnewcap_1stchoice_dtl</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_1stchoice_dtlpastformu.pas">
+				<Form>frmnewcap_1stchoice_dtlpast</Form>
+			</DCCReference>
+			<DCCReference Include="waitingforpackingformu.pas">
+				<Form>frmwaitingforpacking</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_salesbudgetformu.pas">
+				<Form>frmnewcap_salesbudget</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_salesinterimformu.pas">
+				<Form>frmnewcap_salesinterim</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_interimnotepadformu.pas">
+				<Form>frmnewcap_interimnotepad</Form>
+			</DCCReference>
+			<DCCReference Include="newcap_salesvalueformu.pas">
+				<Form>frmnewcap_salesvalue</Form>
+			</DCCReference>
+			<DCCReference Include="ShelleyDataFormu.pas">
+				<Form>frmShelleyData</Form>
+			</DCCReference>
+			<DCCReference Include="effsetupformu.pas">
+				<Form>frmeffsetup</Form>
+			</DCCReference>
+			<DCCReference Include="DBGridEh2Excel_Joe.pas"/>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">LWPM_ENG.dpr</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1028</VersionInfo>
+						<VersionInfo Name="CodePage">950</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+				</Delphi.Personality>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

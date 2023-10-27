@@ -1,0 +1,786 @@
+﻿unit timeeff_newformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Mask, rxToolEdit, DB, DBClient, GridsEh, DBGridEh, Buttons,
+  ExtCtrls, ppDB, ppParameter, ppBands, ppCtrls, ppVar, ppPrnabl, ppClass,
+  ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDBPipe, DBGridEHImpExp,
+  ppStrtch, ppSubRpt, ppViewr, Txcomp;
+
+type
+  Tfrmtimeeff_new = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    BitBtn3: TBitBtn;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn4: TBitBtn;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    DataSource1: TDataSource;
+    DateEdit1: TDateEdit;
+    DateEdit2: TDateEdit;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppShape1: TppShape;
+    ppLabel1: TppLabel;
+    ppDBText1: TppDBText;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel28: TppLabel;
+    ppLabel29: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine19: TppLine;
+    ppLabel30: TppLabel;
+    ppLine21: TppLine;
+    ppLabel31: TppLabel;
+    ppLabel32: TppLabel;
+    ppLine23: TppLine;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLine7: TppLine;
+    ppSystemVariable1: TppSystemVariable;
+    ppDetailBand1: TppDetailBand;
+    ppShape2: TppShape;
+    ppDBText2: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLine20: TppLine;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppLine22: TppLine;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppParameterList1: TppParameterList;
+    ppLabel2: TppLabel;
+    ppLine1: TppLine;
+    ppLine10: TppLine;
+    ppLabel5: TppLabel;
+    BitBtn5: TBitBtn;
+    Label4: TLabel;
+    ComboBox2: TComboBox;
+    Label5: TLabel;
+    ComboBox3: TComboBox;
+    ppReport2: TppReport;
+    ppParameterList2: TppParameterList;
+    ppHeaderBand2: TppHeaderBand;
+    ppDetailBand2: TppDetailBand;
+    ppFooterBand2: TppFooterBand;
+    ppShape3: TppShape;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel33: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel35: TppLabel;
+    ppLabel36: TppLabel;
+    ppLabel37: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel39: TppLabel;
+    ppLabel40: TppLabel;
+    ppLabel41: TppLabel;
+    ppLine24: TppLine;
+    ppLine25: TppLine;
+    ppLine26: TppLine;
+    ppLine27: TppLine;
+    ppLine28: TppLine;
+    ppLabel42: TppLabel;
+    ppLabel43: TppLabel;
+    ppLabel44: TppLabel;
+    ppLabel45: TppLabel;
+    ppLabel46: TppLabel;
+    ppLabel47: TppLabel;
+    ppLabel48: TppLabel;
+    ppLabel49: TppLabel;
+    ppSystemVariable3: TppSystemVariable;
+    ppSummaryBand2: TppSummaryBand;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand3: TppDetailBand;
+    ppSummaryBand3: TppSummaryBand;
+    ppLabel51: TppLabel;
+    ppLabel52: TppLabel;
+    ppLabel53: TppLabel;
+    ppLabel54: TppLabel;
+    ppLabel55: TppLabel;
+    ppLabel56: TppLabel;
+    ppLabel57: TppLabel;
+    ppLabel58: TppLabel;
+    ppLabel59: TppLabel;
+    ppLabel61: TppLabel;
+    ppLabel62: TppLabel;
+    ppLabel63: TppLabel;
+    ppLabel64: TppLabel;
+    ppLabel65: TppLabel;
+    ppLabel68: TppLabel;
+    ppLabel69: TppLabel;
+    ppLabel70: TppLabel;
+    ppLabel71: TppLabel;
+    ppLabel72: TppLabel;
+    ppLabel74: TppLabel;
+    ppLabel75: TppLabel;
+    ppLabel77: TppLabel;
+    ppLabel78: TppLabel;
+    ppLabel79: TppLabel;
+    ppLine29: TppLine;
+    ppLine30: TppLine;
+    ppLine31: TppLine;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppShape4: TppShape;
+    ppSystemVariable5: TppSystemVariable;
+    ppLabel60: TppLabel;
+    ppLabel66: TppLabel;
+    ppLabel67: TppLabel;
+    ppLabel73: TppLabel;
+    ppLabel80: TppLabel;
+    ppLabel81: TppLabel;
+    ppLabel82: TppLabel;
+    ppLabel83: TppLabel;
+    Query3: TClientDataSet;
+    DataSource2: TDataSource;
+    ppDBPipeline2: TppDBPipeline;
+    ppDBText3: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppDBText23: TppDBText;
+    ppDBText24: TppDBText;
+    ppDBText25: TppDBText;
+    ppDBText26: TppDBText;
+    ppDBText27: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText32: TppDBText;
+    ppDBText33: TppDBText;
+    ppDBText34: TppDBText;
+    ppDBText35: TppDBText;
+    ppDBText36: TppDBText;
+    ppDBText37: TppDBText;
+    ppDBText38: TppDBText;
+    ppDBText39: TppDBText;
+    ppDBText40: TppDBText;
+    ppDBText41: TppDBText;
+    ppDBText42: TppDBText;
+    ppDBText43: TppDBText;
+    ppDBText44: TppDBText;
+    ppDBText45: TppDBText;
+    ppDBText46: TppDBText;
+    ppDBText47: TppDBText;
+    ppDBText48: TppDBText;
+    ppDBText49: TppDBText;
+    ppDBText50: TppDBText;
+    ppDBText51: TppDBText;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppLine34: TppLine;
+    ppLine35: TppLine;
+    ppShape5: TppShape;
+    ppShape6: TppShape;
+    ppLine36: TppLine;
+    ppLine37: TppLine;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLine40: TppLine;
+    ppLine41: TppLine;
+    ppLine42: TppLine;
+    ppLine43: TppLine;
+    ppLine44: TppLine;
+    ppLine45: TppLine;
+    ppLine46: TppLine;
+    ppLine47: TppLine;
+    ppLine48: TppLine;
+    ppLine49: TppLine;
+    ppLine50: TppLine;
+    ppLine51: TppLine;
+    ppLine52: TppLine;
+    ppLine53: TppLine;
+    ppLine54: TppLine;
+    ppLine55: TppLine;
+    ppLine56: TppLine;
+    ppLine57: TppLine;
+    ppLine58: TppLine;
+    ppLine59: TppLine;
+    ppLine60: TppLine;
+    ppLine61: TppLine;
+    ppLine62: TppLine;
+    ppLine63: TppLine;
+    ppLine64: TppLine;
+    ppLine65: TppLine;
+    ppLine66: TppLine;
+    ppLine67: TppLine;
+    ppLine68: TppLine;
+    ppLine69: TppLine;
+    ppLine70: TppLine;
+    ppLine71: TppLine;
+    ppLine72: TppLine;
+    ppLine73: TppLine;
+    ppLine74: TppLine;
+    ppLine75: TppLine;
+    ppLine76: TppLine;
+    ppLine77: TppLine;
+    ppLine78: TppLine;
+    ppLine79: TppLine;
+    ppLine80: TppLine;
+    ppLine81: TppLine;
+    ppLine82: TppLine;
+    ppLine83: TppLine;
+    ppLine84: TppLine;
+    ppLine85: TppLine;
+    ppLine86: TppLine;
+    ppLine87: TppLine;
+    ppLine88: TppLine;
+    ppLine89: TppLine;
+    ppLine90: TppLine;
+    ppLine91: TppLine;
+    ppLine92: TppLine;
+    ppLine93: TppLine;
+    ppLine94: TppLine;
+    ppLine95: TppLine;
+    ppLine96: TppLine;
+    ppLine97: TppLine;
+    ppLine98: TppLine;
+    ppLine99: TppLine;
+    ppLine100: TppLine;
+    ppLine101: TppLine;
+    ppLine102: TppLine;
+    ppLine103: TppLine;
+    sl001: TppLabel;
+    fj001: TppLabel;
+    gg001: TppLabel;
+    rx001: TppLabel;
+    ppLine104: TppLine;
+    ppLine105: TppLine;
+    ppLine106: TppLine;
+    ppLine107: TppLine;
+    ppLine109: TppLine;
+    ppLine110: TppLine;
+    ppLine111: TppLine;
+    ppLine112: TppLine;
+    ppLine113: TppLine;
+    ppLine114: TppLine;
+    ppLine115: TppLine;
+    ppLine116: TppLine;
+    ppLine117: TppLine;
+    ppLine118: TppLine;
+    ppLine119: TppLine;
+    ppLine120: TppLine;
+    ppLine121: TppLine;
+    ppLine122: TppLine;
+    ppLine123: TppLine;
+    ppShape7: TppShape;
+    ppLine108: TppLine;
+    ppLine124: TppLine;
+    calcsah1: TppDBCalc;
+    calcsah2: TppDBCalc;
+    calcsah3: TppDBCalc;
+    calcsah4: TppDBCalc;
+    ppDBCalc5: TppDBCalc;
+    ppDBCalc6: TppDBCalc;
+    ppDBCalc7: TppDBCalc;
+    ppDBCalc8: TppDBCalc;
+    ppDBCalc9: TppDBCalc;
+    ppDBCalc10: TppDBCalc;
+    ppDBCalc11: TppDBCalc;
+    ppDBCalc12: TppDBCalc;
+    ppDBCalc13: TppDBCalc;
+    ppDBCalc14: TppDBCalc;
+    ppDBCalc15: TppDBCalc;
+    ppDBCalc16: TppDBCalc;
+    ppDBCalc17: TppDBCalc;
+    ppDBCalc18: TppDBCalc;
+    ppDBCalc19: TppDBCalc;
+    ppDBCalc20: TppDBCalc;
+    ppDBCalc21: TppDBCalc;
+    ppDBCalc22: TppDBCalc;
+    ppDBCalc23: TppDBCalc;
+    ppDBCalc24: TppDBCalc;
+    ppDBCalc25: TppDBCalc;
+    calctmeff1: TppDBCalc;
+    calccu1: TppDBCalc;
+    calccu2: TppDBCalc;
+    calccu3: TppDBCalc;
+    calccu4: TppDBCalc;
+    calcdiff1: TppDBCalc;
+    calctmeff2: TppDBCalc;
+    calcdiff2: TppDBCalc;
+    calcdiff3: TppDBCalc;
+    calcdiff4: TppDBCalc;
+    calctmeff3: TppDBCalc;
+    calctmeff4: TppDBCalc;
+    calceff1: TppDBCalc;
+    calceff2: TppDBCalc;
+    calceff3: TppDBCalc;
+    calceff4: TppDBCalc;
+    ppLine125: TppLine;
+    ppLine126: TppLine;
+    ppLine127: TppLine;
+    ppLine128: TppLine;
+    ppLine129: TppLine;
+    ppLine130: TppLine;
+    ppLine131: TppLine;
+    ppLine132: TppLine;
+    ppLine133: TppLine;
+    ppLine134: TppLine;
+    ppLine135: TppLine;
+    ppLine136: TppLine;
+    ppLine138: TppLine;
+    ppLine139: TppLine;
+    ppLine140: TppLine;
+    ppLine143: TppLine;
+    ppLine144: TppLine;
+    ppLine145: TppLine;
+    ppShape8: TppShape;
+    ppLine137: TppLine;
+    ppLine141: TppLine;
+    ppLine142: TppLine;
+    ppLine146: TppLine;
+    avg001: TppLabel;
+    avg002: TppLabel;
+    avg003: TppLabel;
+    avg004: TppLabel;
+    avg005: TppLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure QuerySHRSChange(Sender: TField);
+    procedure QuerySHRS1Change(Sender: TField);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure DataSource1StateChange(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure ppReport2PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand3BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmtimeeff_new: Tfrmtimeeff_new;
+
+implementation
+
+{$R *.dfm}
+
+uses mainformu;
+
+procedure Tfrmtimeeff_new.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmtimeeff_new.BitBtn2Click(Sender: TObject);
+begin
+  //try
+    with query3 do begin
+      close;
+      params.Clear;
+      params.CreateParam(ftdate,'x1',ptinput);
+      params.CreateParam(ftdate,'x2',ptinput);
+      params.CreateParam(ftdatetime,'x3',ptinput);
+      commandtext:='select distinct tm,yr,mn,sum(sah_sl) as sah_sl,sum(sah_fj) as sah_fj,sum(sah_gg) as sah_gg,sum(sah_rx) as sah_rx,'
+                  +'sum(qty_sl) as qty_sl,sum(qty_fj) as qty_fj,sum(qty_gg) as qty_gg,sum(qty_rx) as qty_rx,sum(tqty) as tqty,'
+                  +'sum(shrs_sl) as shrs_sl,sum(shrs_fj) as shrs_fj,sum(shrs_gg) as shrs_gg,sum(shrs_rx) as shrs_rx,sum(tshrs) as tshrs,'
+                  +'sum(tsah_sl) as tsah_sl,sum(tsah_fj) as tsah_fj,sum(tsah_gg) as tsah_gg,sum(tsah_rx) as tsah_rx,sum(tsah) as tsah,'
+                  +'sum(tmeff_sl) as tmeff_sl,sum(tmeff_fj) as tmeff_fj,sum(tmeff_gg) as tmeff_gg,sum(tmeff_rx) as tmeff_rx,'
+                  +'sum(eff_sl) as eff_sl,sum(eff_fj) as eff_fj,sum(eff_gg) as eff_gg,sum(eff_rx) as eff_rx,'
+                  +'sum(cu_sl) as cu_sl,sum(cu_fj) as cu_fj,sum(cu_gg) as cu_gg,sum(cu_rx) as cu_rx,'
+                  +'sum(diff_sl) as diff_sl,sum(diff_fj) as diff_fj,sum(diff_gg) as diff_gg,sum(diff_rx) as diff_rx '
+                  +'from sp_tmeffprint(:x1,:x2,:x3) group by tm,yr,mn';
+      params[0].AsDate:=dateedit1.Date;
+      params[1].AsDate:=dateedit2.Date;
+      params[2].AsDatetime:=now;
+      open;
+      if not fieldbyname('tm').isnull then begin
+        with query2 do begin
+          close;
+          params.clear;
+          params.CreateParam(ftdate,'x1',ptinput);
+          params.CreateParam(ftdate,'x2',ptinput);
+          commandtext:='select avg(sah) as x1,avg(tmeff) as x2,avg(eff) as x3,avg(cu) as x4,avg(diff) as x5 from tbl_tmeff where dt1>=:x1 and dt2<=:x2';
+          params[0].AsDate:=dateedit1.Date;
+          params[1].AsDate:=dateedit2.Date;
+          open;
+          if not fieldbyname('x1').isnull then begin
+            avg001.Caption:=formatfloat('0.0000',fieldbyname('x1').Value);
+            avg002.Caption:=formatfloat('0.00',fieldbyname('x2').Value);
+            avg003.Caption:=formatfloat('0.00',fieldbyname('x3').Value);
+            avg004.Caption:=formatfloat('0.00',fieldbyname('x4').Value);
+            avg005.Caption:=formatfloat('0.00',fieldbyname('x5').Value);
+          end else begin
+            avg001.Caption:='0.0000';
+            avg002.Caption:='0.00';
+            avg003.Caption:='0.00';
+            avg004.Caption:='0.00';
+            avg005.Caption:='0.00';
+          end;
+        end;
+        ppReport2.Print;
+      end;
+    end;
+  //finally
+
+  //end;
+end;
+
+procedure Tfrmtimeeff_new.BitBtn3Click(Sender: TObject);
+begin
+  screen.Cursor:=crSQLWait;
+  try
+    with query2 do begin
+      close;
+      params.Clear;
+      params.CreateParam(ftstring,'x1',ptinput);
+      params.CreateParam(ftdate,'x2',ptinput);
+      params.CreateParam(ftdate,'x3',ptinput);
+      commandtext:='execute procedure sp_gentmeff_new(:x1,:x2,:x3)';
+      params[0].AsString:=combobox1.Text;
+      params[1].AsDate:=dateedit1.Date;
+      params[2].AsDate:=dateedit2.Date;
+      execute;
+    end;
+    with query1 do begin
+      close;
+      params.Clear;
+      params.CreateParam(ftstring,'x1',ptinput);
+      params.CreateParam(ftdate,'x2',ptinput);
+      params.CreateParam(ftdate,'x3',ptinput);
+      commandtext:='select * from tbl_tmeff_new a where tplant=:x1 and dt1>=:x2 and dt1<=:x3';
+      params[0].AsString:=combobox1.Text;
+      params[1].AsDate:=dateedit1.Date;
+      params[2].AsDate:=dateedit2.Date;
+      open;
+    end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmtimeeff_new.BitBtn4Click(Sender: TObject);
+var
+  ExpClass:TDBGridEhExportClass;
+  Ext:String;
+  lssavedialog: tsavedialog;
+begin
+  //Export data from dbgrideh into selected file type
+  try
+     lssavedialog := tsavedialog.Create(nil);
+     lssavedialog.Filter := '*.xls|*.xls|*.csv|*.csv|*.htm|*.htm|*.rtf|*.rtf|*.txt|*.txt';
+     lssavedialog.FileName := ' ';
+     if lssavedialog.Execute then
+     begin
+       case lssavedialog.FilterIndex of
+         1: begin ExpClass := TDBGridEhExportAsXLS; Ext := 'xls'; end;
+         2: begin ExpClass := TDBGridEhExportAsCSV; Ext := 'csv'; end;
+         3: begin ExpClass := TDBGridEhExportAsHTML; Ext := 'htm'; end;
+         4: begin ExpClass := TDBGridEhExportAsRTF; Ext := 'rtf'; end;
+         5: begin ExpClass := TDBGridEhExportAsText; Ext := 'txt'; end;
+       else
+         ExpClass := nil; Ext := '';
+       end;
+       if ExpClass <> nil then
+       begin
+         if UpperCase(Copy(lssavedialog.FileName, Length(lssavedialog.FileName) - 2, 3)) <> UpperCase(Ext) then
+           lssavedialog.FileName := lssavedialog.FileName + '.' + Ext;
+         if FileExists(lssavedialog.FileName) then
+         begin
+           if application.MessageBox('File existed, overwrite it?', 'Confirmation', MB_ICONASTERISK or MB_OKCANCEL) <> idok then
+           begin
+             exit;
+           end;
+         end;
+         Screen.Cursor := crHourGlass;
+         try
+         SaveDBGridEhToExportFile(ExpClass, DBGridEh1, lssavedialog.FileName, true);
+         except
+           ShowMessage('NO');
+         end;
+         Screen.Cursor := crDefault;
+       end;
+     end;
+   finally
+     lssavedialog.Free;
+   end;
+end;
+
+procedure Tfrmtimeeff_new.DataSource1StateChange(Sender: TObject);
+begin
+  if query1.active=true then begin
+    if query1.State=dsbrowse then begin
+      with query2 do begin
+        close;
+        params.Clear;
+        params.Createparam(ftstring,'x1',ptinput);
+        params.Createparam(ftdate,'x2',ptinput);
+        params.Createparam(ftdate,'x3',ptinput);
+        //commandtext:='select sum(tsah)/sum(tqty) as sah,sum(eff*tsah)/sum(tsah) as eff,sum(cu*tsah)/sum(tsah) as cu,sum(diff*tsah)/sum(tsah) as diff,'
+        //            +'sum(pe1*tsah)/sum(tsah) as pe1,sum(pe2*tsah)/sum(tsah) as pe2,sum(pediff*tsah)/sum(tsah) as pediff,sum(lb3wf*tsah)/sum(tsah) as lb3wf,sum(lb6wf*tsah)/sum(tsah) as lb6wf '
+        commandtext:='select sum(tsah)/sum(tqty) as sah,avg(eff) as eff,avg(cu) as cu,avg(diff) as diff,'
+                    +'avg(pe1) as pe1,avg(pe2) as pe2,avg(pediff) as pediff,avg(lb3wf) as lb3wf,avg(lb6wf) as lb6wf '
+                    +'from tbl_tmeff_new where tplant=:x1 and dt1>=:x2 and dt1<=:x3';
+        params[0].AsString:=combobox1.Text;
+        params[1].AsDate:=dateedit1.Date;
+        params[2].AsDate:=dateedit2.Date;
+        open;
+        if not fieldbyname('sah').IsNull then begin
+          dbgrideh1.Columns[1].Footer.value:=formatfloat('0.0000',fieldbyname('sah').Value);
+          dbgrideh1.Columns[4].Footer.value:=formatfloat('0.00',fieldbyname('eff').Value);
+          dbgrideh1.Columns[5].Footer.value:=formatfloat('0.00',fieldbyname('cu').Value);
+          //dbgrideh1.Columns[8].Footer.value:=formatfloat('0.00',fieldbyname('tmeff').Value);
+          //dbgrideh1.Columns[9].Footer.value:=formatfloat('0.00',fieldbyname('tmeff1').Value);
+          dbgrideh1.Columns[10].Footer.value:=formatfloat('0.00',fieldbyname('diff').Value);
+          dbgrideh1.Columns[11].Footer.value:=formatfloat('0.00',fieldbyname('pe1').Value);
+          dbgrideh1.Columns[12].Footer.value:=formatfloat('0.00',fieldbyname('pe2').Value);
+          dbgrideh1.Columns[13].Footer.value:=formatfloat('0.00',fieldbyname('pediff').Value);
+          dbgrideh1.Columns[14].Footer.value:=formatfloat('0.0',fieldbyname('lb3wf').Value);
+          dbgrideh1.Columns[15].Footer.value:=formatfloat('0.0',fieldbyname('lb6wf').Value);
+        end else begin
+          dbgrideh1.Columns[1].Footer.value:='0.0000';
+          dbgrideh1.Columns[4].Footer.value:='0.00';
+          dbgrideh1.Columns[5].Footer.value:='0.00';
+          //dbgrideh1.Columns[8].Footer.value:='0.00';
+          //dbgrideh1.Columns[9].Footer.value:='0.00';
+          dbgrideh1.Columns[10].Footer.value:='0.00';
+          dbgrideh1.Columns[11].Footer.value:='0.00';
+          dbgrideh1.Columns[12].Footer.value:='0.00';
+          dbgrideh1.Columns[13].Footer.value:='0.00';
+          dbgrideh1.Columns[14].Footer.value:='0.0';
+          dbgrideh1.Columns[15].Footer.value:='0.0';
+        end;
+      end;
+      with query2 do begin
+        close;
+        params.Clear;
+        params.Createparam(ftstring,'x1',ptinput);
+        params.Createparam(ftdate,'x2',ptinput);
+        params.Createparam(ftdate,'x3',ptinput);
+        commandtext:='select sum(tsah)/sum(shrs) as tmeff '
+                    +'from tbl_tmeff_new where tplant=:x1 and dt1>=:x2 and dt1<=:x3 and shrs>0';
+        params[0].AsString:=combobox1.Text;
+        params[1].AsDate:=dateedit1.Date;
+        params[2].AsDate:=dateedit2.Date;
+        open;
+        if not fieldbyname('tmeff').IsNull then
+          dbgrideh1.Columns[8].Footer.value:=formatfloat('0.00',fieldbyname('tmeff').Value*100.00)
+        else dbgrideh1.Columns[8].Footer.value:='0.00';
+      end;
+      with query2 do begin
+        close;
+        params.Clear;
+        params.Createparam(ftstring,'x1',ptinput);
+        params.Createparam(ftdate,'x2',ptinput);
+        params.Createparam(ftdate,'x3',ptinput);
+        commandtext:='select sum(tsah)/sum(shrs1) as tmeff1 '
+                    +'from tbl_tmeff_new where tplant=:x1 and dt1>=:x2 and dt1<=:x3 and shrs1>0';
+        params[0].AsString:=combobox1.Text;
+        params[1].AsDate:=dateedit1.Date;
+        params[2].AsDate:=dateedit2.Date;
+        open;
+        if not fieldbyname('tmeff1').IsNull then
+          dbgrideh1.Columns[9].Footer.value:=formatfloat('0.00',fieldbyname('tmeff1').Value*100.00)
+        else dbgrideh1.Columns[9].Footer.value:='0.00';
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmtimeeff_new.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmtimeeff_new:=nil;
+end;
+
+procedure Tfrmtimeeff_new.FormShow(Sender: TObject);
+var
+  y,m,n:word;
+begin
+  decodedate(date,y,m,n);
+  dateedit1.Date:=encodedate(y,m,1);
+  dateedit2.Date:=date-2;
+  if dateedit2.Date<dateedit1.Date then dateedit1.Date:=dateedit2.Date;
+end;
+
+procedure Tfrmtimeeff_new.ppDetailBand3BeforePrint(Sender: TObject);
+begin
+  sl001.Caption:='0.00'; fj001.Caption:='0.00'; gg001.Caption:='0.00'; rx001.Caption:='0.00';
+  if query3.FieldByName('mn').Value<>1 then begin
+    with query2 do begin
+      close;
+      params.Clear;
+      params.CreateParam(ftinteger,'x1',ptinput);
+      params.CreateParam(ftinteger,'x2',ptinput);
+      commandtext:='select tplant,tmeff from tbl_tmeff where yr=:x1 and mn=:x2';
+      params[0].AsInteger:=query3.FieldByName('yr').Value;
+      params[1].AsInteger:=query3.FieldByName('mn').Value-1;
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('tplant').Value='SL' then
+        sl001.Caption:=formatfloat('0.00',query3.FieldByName('tmeff_sl').Value-fieldbyname('tmeff').Value)
+        else if fieldbyname('tplant').Value='FJ' then
+        fj001.Caption:=formatfloat('0.00',query3.FieldByName('tmeff_fj').Value-fieldbyname('tmeff').Value)
+        else if fieldbyname('tplant').Value='GG' then
+        gg001.Caption:=formatfloat('0.00',query3.FieldByName('tmeff_gg').Value-fieldbyname('tmeff').Value)
+        else if fieldbyname('tplant').Value='RX' then
+        rx001.Caption:=formatfloat('0.00',query3.FieldByName('tmeff_rx').Value-fieldbyname('tmeff').Value);
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end else begin
+    with query2 do begin
+      close;
+      params.Clear;
+      params.CreateParam(ftinteger,'x1',ptinput);
+      params.CreateParam(ftinteger,'x2',ptinput);
+      commandtext:='select tplant,tmeff from tbl_tmeff where yr=:x1 and mn=:x2';
+      params[0].AsInteger:=query3.FieldByName('yr').Value-1;
+      params[1].AsInteger:=12;
+      open;
+      first;
+      while not eof do begin
+        if fieldbyname('tplant').Value='SL' then
+        sl001.Caption:=formatfloat('0.00',query3.FieldByName('tmeff_sl').Value-fieldbyname('tmeff').Value)
+        else if fieldbyname('tplant').Value='FJ' then
+        fj001.Caption:=formatfloat('0.00',query3.FieldByName('tmeff_fj').Value-fieldbyname('tmeff').Value)
+        else if fieldbyname('tplant').Value='GG' then
+        gg001.Caption:=formatfloat('0.00',query3.FieldByName('tmeff_gg').Value-fieldbyname('tmeff').Value)
+        else if fieldbyname('tplant').Value='RX' then
+        rx001.Caption:=formatfloat('0.00',query3.FieldByName('tmeff_rx').Value-fieldbyname('tmeff').Value);
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmtimeeff_new.ppReport2PreviewFormCreate(Sender: TObject);
+begin
+  ppReport2.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport2.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmtimeeff_new.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('shrs').onchange:=queryshrschange;
+  query1.fieldbyname('shrs1').onchange:=queryshrs1change;
+end;
+
+procedure Tfrmtimeeff_new.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  str1:='update tbl_tmeff_new set ';
+  if not query1.fieldbyname('shrs').isnull then
+  str1:=str1+'shrs='+query1.FieldByName('shrs').AsString+','
+  else str1:=str1+'shrs=0,';
+  if not query1.fieldbyname('shrs1').isnull then
+  str1:=str1+'shrs1='+query1.FieldByName('shrs1').AsString+','
+  else str1:=str1+'shrs1=0,';
+  str1:=str1+'tmeff='+query1.FieldByName('tmeff').AsString+',';
+  str1:=str1+'tmeff1='+query1.FieldByName('tmeff1').AsString+',';
+  str1:=str1+'pe2='+query1.FieldByName('pe2').AsString+',';
+  str1:=str1+'pediff='+query1.FieldByName('pediff').AsString+',';
+  str1:=str1+'diff='+query1.FieldByName('diff').AsString+' ';
+  str1:=str1+'where tplant='''+query1.FieldByName('tplant').value+''' ';
+  str1:=str1+'and dt1='''+formatdatetime('yyyy-mm-dd',query1.FieldByName('dt1').value)+'''';
+  if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+end;
+
+procedure Tfrmtimeeff_new.QuerySHRS1Change(Sender: TField);
+var
+  shrs:double;
+begin
+  if not query1.fieldbyname('shrs1').isnull then
+  shrs:=query1.fieldbyname('shrs1').value else shrs:=0;
+  if shrs>0 then begin
+    query1.fieldbyname('tmeff1').value:=query1.fieldbyname('tsah').value*100.00/shrs;
+  end else begin
+    query1.fieldbyname('tmeff1').value:=0;
+  end;
+end;
+
+procedure Tfrmtimeeff_new.QuerySHRSChange(Sender: TField);
+var
+  shrs:double;
+begin
+  if not query1.fieldbyname('shrs').isnull then
+  shrs:=query1.fieldbyname('shrs').value else shrs:=0;
+  if shrs>0 then begin
+    query1.fieldbyname('tmeff').value:=query1.fieldbyname('tsah').value*100.00/shrs;
+    query1.fieldbyname('diff').value:=query1.fieldbyname('tsah').value*100.00/shrs-query1.fieldbyname('eff').value;
+    query1.fieldbyname('pe2').value:=query1.fieldbyname('tsah').value/shrs*query1.fieldbyname('cu').value;
+    query1.fieldbyname('pediff').value:=query1.fieldbyname('tsah').value/shrs*query1.fieldbyname('cu').value-query1.fieldbyname('pe1').value;
+  end else begin
+    query1.fieldbyname('tmeff').value:=0;
+    query1.fieldbyname('diff').value:=0;
+    query1.fieldbyname('pe2').value:=0;
+    query1.fieldbyname('pediff').value:=0-query1.fieldbyname('pe1').value;
+  end;
+end;
+
+end.

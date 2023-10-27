@@ -1,0 +1,337 @@
+unit chkSOvsWORWOformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxStyles, cxCustomData, cxGraphics, cxFilter, cxData,
+  cxDataStorage, cxEdit, DB, cxDBData, cxGridLevel, cxClasses, cxControls,
+  cxGridCustomView, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxGrid, ExtCtrls, StdCtrls, cxContainer, cxTextEdit,
+  cxMaskEdit, cxSpinEdit, Buttons, DBClient, GridsEh, DBGridEh;
+
+type
+  TfrmchkSOvsWORWO = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    ComboBox2: TComboBox;
+    Label3: TLabel;
+    SpinEdit1: TcxSpinEdit;
+    Label4: TLabel;
+    SpinEdit2: TcxSpinEdit;
+    BitBtn1: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Label5: TLabel;
+    DBGridEh1: TDBGridEh;
+    Query3: TClientDataSet;
+    DataSource2: TDataSource;
+    Query4: TClientDataSet;
+    DataSource3: TDataSource;
+    Panel3: TPanel;
+    DBGridEh2: TDBGridEh;
+    Sp1: TSplitter;
+    DBGridEh3: TDBGridEh;
+    Sp2: TSplitter;
+    DBGridEh4: TDBGridEh;
+    BitBtn2: TBitBtn;
+    Panel4: TPanel;
+    DBGridEh5: TDBGridEh;
+    Splitter1: TSplitter;
+    DBGridEh6: TDBGridEh;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure ComboBox2Enter(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmchkSOvsWORWO: TfrmchkSOvsWORWO;
+
+implementation
+
+uses mainformu, newcap_comformu;
+
+{$R *.dfm}
+
+procedure TfrmchkSOvsWORWO.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmchkSOvsWORWO:=nil;
+end;
+
+procedure TfrmchkSOvsWORWO.ComboBox1Change(Sender: TObject);
+var
+  dt1,dt2:tdate;
+  d:word;
+  s1,s2:set of 1..12;
+  i1:integer;
+begin
+  i1:=spinedit2.value;
+  dt1:=encodedate(spinedit1.Value,i1,1);
+  s1:=[1,3,5,7,8,10,12];
+  s2:=[4,6,9,11];
+  if i1=2 then begin
+    if isleapyear(spinedit1.Value) then d:=29
+    else d:=28;
+  end;
+  if i1 in s1 then d:=31
+  else if i1 in s2 then d:=30;
+  dt2:=encodedate(spinedit1.value,i1,d);
+  if combobox2.Text>'' then begin
+    if label5.Caption='WO' then begin
+      dbgrideh1.Visible:=true;
+      panel3.Visible:=false;
+      panel4.Visible:=false;
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftdate,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        params.createparam(ftdate,'x3',ptinput);
+        params.createparam(ftdate,'x4',ptinput);
+        params.createparam(ftdate,'x5',ptinput);
+        params.createparam(ftdate,'x6',ptinput);
+        params.createparam(ftdate,'x7',ptinput);
+        params.createparam(ftdate,'x8',ptinput);
+        commandtext:='select distinct b.customer as "Cust",a.sopno as "SOP #",b.j_no as "Project #",a.ordline as "SO Line",a.j2_job as "WO #",'
+                    +'a.qty as "WO Qty",a.ddt as "WO Ex-fty",b.ddt as "SO Del" from tbl_erpwo a,tbl_erpsop b where a.sopno=b.sopno '
+                    +'and a.ordline=b.ordline and a.acol=b.acol and a.ddt>=:x1 and a.ddt<=:x2 and ((b.exfty<:x3) or (b.exfty>:x4)) '
+                    +'and substr(b.j_no,1,4)='''+combobox2.text+''' and b.tplant='''+combobox1.text+''' union '
+                    +'select distinct b.customer as "Cust",a.sopno as "SOP #",b.j_no as "Project #",a.ordline as "SO Line",a.j2_job as "WO #",'
+                    +'a.qty as "WO Qty",a.ddt as "WO Ex-fty",b.ddt as "SO Del" from tbl_erpwo a,tbl_erpsop b where a.sopno=b.sopno '
+                    +'and a.ordline=b.ordline and a.acol=b.acol and b.exfty>=:x5 and b.exfty<=:x6 and ((a.ddt<:x7) or (a.ddt>:x8)) '
+                    +'and substr(b.j_no,1,4)='''+combobox2.text+''' and b.tplant='''+combobox1.text+'''';
+        params[0].asdate:=dt1;
+        params[1].asdate:=dt2;
+        params[2].asdate:=dt1;
+        params[3].asdate:=dt2;
+        params[4].asdate:=dt1;
+        params[5].asdate:=dt2;
+        params[6].asdate:=dt1;
+        params[7].asdate:=dt2;
+        open;
+      end;
+    end else if label5.caption='RWO' then begin
+      if (combobox2.text<>'SARA') and (combobox2.text<>'TAMA') and (combobox2.text<>'NEXT') then begin
+        dbgrideh1.Visible:=true;
+        panel3.Visible:=false;
+        panel4.Visible:=false;
+        with query1 do begin
+          close;
+          params.clear;
+          params.createparam(ftdate,'x1',ptinput);
+          params.createparam(ftdate,'x2',ptinput);
+          params.createparam(ftdate,'x3',ptinput);
+          params.createparam(ftdate,'x4',ptinput);
+          params.createparam(ftdate,'x5',ptinput);
+          params.createparam(ftdate,'x6',ptinput);
+          params.createparam(ftdate,'x7',ptinput);
+          params.createparam(ftdate,'x8',ptinput);
+          commandtext:='select distinct b.customer as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.ordline as "SO Line",a.j2_job as "WO #",'
+                      +'a.acol as "Clr Code",a.rwo as "RWO #",b.qty as "SO Qty",a.qty as "RWO Qty",a.exfty as "RWO Ex-fty",b.ddt as "SO Del" '
+                      +'from tbl_erprwo a,tbl_erpsop b where a.sopno=b.sopno and a.ordline=b.ordline and a.acol=b.acol '
+                      +'and a.exfty>=:x1 and a.exfty<=:x2 and ((b.exfty<:x3) or (b.exfty>:x4)) '
+                      +'and substr(b.j_no,1,4)='''+combobox2.text+''' and b.tplant='''+combobox1.text+''' union '
+                      +'select distinct b.customer as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.ordline as "SO Line",a.j2_job as "WO #",'
+                      +'a.acol as "Clr Code",a.rwo as "RWO #",b.qty as "SO Qty",a.qty as "RWO Qty",a.exfty as "RWO Ex-fty",b.ddt as "SO Del" '
+                      +'from tbl_erprwo a,tbl_erpsop b where a.sopno=b.sopno and a.ordline=b.ordline and a.acol=b.acol '
+                      +'and b.exfty>=:x5 and b.exfty<=:x6 and ((a.exfty<:x7) or (a.exfty>:x8)) '
+                      +'and substr(b.j_no,1,4)='''+combobox2.text+''' and b.tplant='''+combobox1.text+'''';
+          params[0].asdate:=dt1;
+          params[1].asdate:=dt2;
+          params[2].asdate:=dt1;
+          params[3].asdate:=dt2;
+          params[4].asdate:=dt1;
+          params[5].asdate:=dt2;
+          params[6].asdate:=dt1;
+          params[7].asdate:=dt2;
+          open;
+        end;
+      end else begin
+        dbgrideh1.Visible:=false;
+        panel3.Visible:=true;
+        panel4.Visible:=false;
+        with query1 do begin
+          close;
+          params.clear;
+          params.createparam(ftdate,'x1',ptinput);
+          params.createparam(ftdate,'x2',ptinput);
+          commandtext:='select distinct a.customer as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.ordline as "SO Line",'
+                      +'a.acol as "Clr Code",a.ddt as "SO Del",a.qty as "SO Qty" '
+                      +'from tbl_erpsop a,tbl_erpstylecat b,tbl_cap_custgrp c where a.artno=b.artno and substr(a.j_no,1,4)=c.j_no '
+                      +'and not exists (select acol from tbl_erpsop_rwo d where a.sopno=d.sopno and a.ordline=d.ordline and a.acol=d.acol) '
+                      +'and c.cust='''+combobox2.text+''' and a.exfty>=:x1 and a.exfty<=:x2 and a.tplant='''+combobox1.text+'''';
+          params[0].asdate:=dt1;
+          params[1].asdate:=dt2;
+          open;
+        end;
+        dbgrideh2.Columns[6].Footer.ValueType:=fvtSum;
+        dbgrideh2.Columns[6].Footer.DisplayFormat:='#0';
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftdate,'x1',ptinput);
+          params.createparam(ftdate,'x2',ptinput);
+          commandtext:='select distinct a.customer as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.ordline as "SO Line",'
+                      +'a.acol as "Clr Code",d.ddt as "RWO Ex-fty",d.qty as "Split Qty" '
+                      +'from tbl_erpsop a,tbl_erpstylecat b,tbl_cap_custgrp c,tbl_erpsop_rwo d '
+                      +'where a.artno=b.artno and substr(a.j_no,1,4)=c.j_no and a.sopno=d.sopno and a.ordline=d.ordline and a.acol=d.acol '
+                      +'and c.cust='''+combobox2.text+''' and d.ddt>=:x1 and d.ddt<=:x2 and a.tplant='''+combobox1.text+'''';
+          params[0].asdate:=dt1;
+          params[1].asdate:=dt2;
+          open;
+        end;
+        dbgrideh3.Columns[6].Footer.ValueType:=fvtSum;
+        dbgrideh3.Columns[6].Footer.DisplayFormat:='#0';
+        with query4 do begin
+          close;
+          params.clear;
+          params.createparam(ftdate,'x1',ptinput);
+          params.createparam(ftdate,'x2',ptinput);
+          commandtext:='select distinct d.customer as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.ordline as "SO Line",'
+                      +'a.acol as "Clr Code",a.exfty as "RWO Ex-fty",a.qty as "RWO Qty" '
+                      +'from tbl_erprwo a,tbl_erpstylecat b,tbl_cap_custgrp c,tbl_erpsop d '
+                      +'where d.artno=b.artno and substr(a.j_no,1,4)=c.j_no and a.sopno=d.sopno and a.ordline=d.ordline and a.acol=d.acol '
+                      +'and c.cust='''+combobox2.text+''' and a.exfty>=:x1 and a.exfty<=:x2 and d.tplant='''+combobox1.text+'''';
+          params[0].asdate:=dt1;
+          params[1].asdate:=dt2;
+          open;
+        end;
+        dbgrideh4.Columns[6].Footer.ValueType:=fvtSum;
+        dbgrideh4.Columns[6].Footer.DisplayFormat:='#0';
+      end;
+    end else if label5.caption='aT3' then begin
+        dbgrideh1.Visible:=false;
+        panel3.Visible:=false;
+        panel4.Visible:=true;
+        with query1 do begin
+          close;
+          params.clear;
+          params.createparam(ftdate,'x1',ptinput);
+          params.createparam(ftdate,'x2',ptinput);
+          commandtext:='select distinct c.cust as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.j2_job as "WO #",a.t3 as "T3 date",a.at3 as "aT3 date",'
+                      +'sum(a.qty*(-1)) as "Quantity" from tbl_erprwo a,tbl_erpstylecat b,tbl_cap_custgrp c,tbl_erpsop d '
+                      +'where d.artno=b.artno and substr(d.j_no,1,4)=c.j_no and a.sopno=d.sopno and a.ordline=d.ordline '
+                      +'and a.acol=d.acol and f_month(a.at3)<>f_month(a.t3) and a.t3>=:x1 and a.t3<=:x2 '
+                      +'and c.cust='''+combobox2.text+''' and d.tplant='''+combobox1.text+''' '
+                      +'group by c.cust,a.sopno,a.j_no,a.j2_job,a.t3,a.at3 order by c.cust,a.j_no,a.j2_job,a.t3';
+          params[0].asdate:=dt1;
+          params[1].asdate:=dt2;
+          open;
+        end;
+        dbgrideh5.Columns[6].Footer.ValueType:=fvtSum;
+        dbgrideh5.Columns[6].Footer.DisplayFormat:='#0';
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftdate,'x1',ptinput);
+          params.createparam(ftdate,'x2',ptinput);
+          commandtext:='select distinct c.cust as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.j2_job as "WO #",a.t3 as "T3 date",a.at3 as "aT3 date",'
+                      +'sum(a.qty) as "Quantity" from tbl_erprwo a,tbl_erpstylecat b,tbl_cap_custgrp c,tbl_erpsop d '
+                      +'where d.artno=b.artno and substr(d.j_no,1,4)=c.j_no and a.sopno=d.sopno and a.ordline=d.ordline '
+                      +'and a.acol=d.acol and f_month(a.at3)<>f_month(a.t3) and a.at3>=:x1 and a.at3<=:x2 '
+                      +'and c.cust='''+combobox2.text+''' and d.tplant='''+combobox1.text+''' '
+                      +'group by c.cust,a.sopno,a.j_no,a.j2_job,a.t3,a.at3 order by c.cust,a.j_no,a.j2_job,a.t3';
+          params[0].asdate:=dt1;
+          params[1].asdate:=dt2;
+          open;
+        end;
+        dbgrideh6.Columns[6].Footer.ValueType:=fvtSum;
+        dbgrideh6.Columns[6].Footer.DisplayFormat:='#0';
+    end;
+  end else begin
+    if label5.Caption='aT3' then begin
+        dbgrideh1.Visible:=false;
+        panel3.Visible:=false;
+        panel4.Visible:=true;
+        with query1 do begin
+          close;
+          params.clear;
+          params.createparam(ftdate,'x1',ptinput);
+          params.createparam(ftdate,'x2',ptinput);
+          commandtext:='select distinct c.cust as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.j2_job as "WO #",a.t3 as "T3 date",a.at3 as "aT3 date",'
+                      +'sum(a.qty*(-1)) as "Quantity" from tbl_erprwo a,tbl_erpstylecat b,tbl_cap_custgrp c,tbl_erpsop d '
+                      +'where d.artno=b.artno and substr(d.j_no,1,4)=c.j_no and a.sopno=d.sopno and a.ordline=d.ordline '
+                      +'and a.acol=d.acol and f_month(a.at3)<>f_month(a.t3) and a.t3>=:x1 and a.t3<=:x2 and d.tplant='''+combobox1.text+''' '
+                      +'group by c.cust,a.sopno,a.j_no,a.j2_job,a.t3,a.at3 order by c.cust,a.j_no,a.j2_job,a.t3';
+          {
+          commandtext:='select distinct a.customer as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.ordline as "SO Line",'
+                      +'a.acol as "Clr Code",a.ddt as "SO Del",a.qty as "SO Qty" '
+                      +'from tbl_erpsop a,tbl_erpstylecat b,tbl_cap_custgrp c where a.artno=b.artno and substr(a.j_no,1,4)=c.j_no '
+                      +'and not exists (select acol from tbl_erpsop_rwo d where a.sopno=d.sopno and a.ordline=d.ordline and a.acol=d.acol) '
+                      +'and c.cust='''+combobox2.text+''' and a.exfty>=:x1 and a.exfty<=:x2 and a.tplant='''+combobox1.text+'''';
+          }
+          params[0].asdate:=dt1;
+          params[1].asdate:=dt2;
+          open;
+        end;
+        dbgrideh5.Columns[6].Footer.ValueType:=fvtSum;
+        dbgrideh5.Columns[6].Footer.DisplayFormat:='#0';
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftdate,'x1',ptinput);
+          params.createparam(ftdate,'x2',ptinput);
+          commandtext:='select distinct c.cust as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.j2_job as "WO #",a.t3 as "T3 date",a.at3 as "aT3 date",'
+                      +'sum(a.qty) as "Quantity" from tbl_erprwo a,tbl_erpstylecat b,tbl_cap_custgrp c,tbl_erpsop d '
+                      +'where d.artno=b.artno and substr(d.j_no,1,4)=c.j_no and a.sopno=d.sopno and a.ordline=d.ordline '
+                      +'and a.acol=d.acol and f_month(a.at3)<>f_month(a.t3) and a.at3>=:x1 and a.at3<=:x2 and d.tplant='''+combobox1.text+''' '
+                      +'group by c.cust,a.sopno,a.j_no,a.j2_job,a.t3,a.at3 order by c.cust,a.j_no,a.j2_job,a.t3';
+          {
+          commandtext:='select distinct a.customer as "Cust",a.sopno as "SOP #",a.j_no as "Project #",a.ordline as "SO Line",'
+                      +'a.acol as "Clr Code",d.ddt as "RWO Ex-fty",d.qty as "Split Qty" '
+                      +'from tbl_erpsop a,tbl_erpstylecat b,tbl_cap_custgrp c,tbl_erpsop_rwo d '
+                      +'where a.artno=b.artno and substr(a.j_no,1,4)=c.j_no and a.sopno=d.sopno and a.ordline=d.ordline and a.acol=d.acol '
+                      +'and c.cust='''+combobox2.text+''' and d.ddt>=:x1 and d.ddt<=:x2 and a.tplant='''+combobox1.text+'''';
+          }
+          params[0].asdate:=dt1;
+          params[1].asdate:=dt2;
+          open;
+        end;
+        dbgrideh6.Columns[6].Footer.ValueType:=fvtSum;
+        dbgrideh6.Columns[6].Footer.DisplayFormat:='#0';
+    end;
+  end;
+end;
+
+procedure TfrmchkSOvsWORWO.ComboBox2Enter(Sender: TObject);
+begin
+  combobox2.items.clear;
+  with query2 do begin
+      close;
+      params.clear;
+      commandtext:='select distinct pgrp from cust_exfty where tplant='''+combobox1.text+''' and act=1';
+      open;
+      first;
+      while not eof do begin
+        combobox2.items.add(fieldbyname('pgrp').value);
+        application.ProcessMessages;
+        next;
+      end;
+  end;
+end;
+
+procedure TfrmchkSOvsWORWO.FormShow(Sender: TObject);
+begin
+  if (label5.Caption='aT3') then begin
+    dbgrideh1.Visible:=false;
+    panel3.Visible:=false;
+    panel4.Visible:=true;
+  end else begin
+    dbgrideh1.Visible:=true;
+    panel3.Visible:=false;
+    panel4.Visible:=false;
+  end;
+end;
+
+end.

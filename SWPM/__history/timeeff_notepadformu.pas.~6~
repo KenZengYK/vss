@@ -1,0 +1,53 @@
+unit timeeff_notepadformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DBCtrls, DB, DBClient;
+
+type
+  Tfrmtimeeff_notepad = class(TForm)
+    Label1: TLabel;
+    DBMemo1: TDBMemo;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmtimeeff_notepad: Tfrmtimeeff_notepad;
+
+implementation
+
+uses mainformu, timeeff_newformu;
+
+{$R *.dfm}
+
+procedure Tfrmtimeeff_notepad.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmtimeeff_notepad.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmtimeeff_notepad:=nil;
+end;
+
+procedure Tfrmtimeeff_notepad.Query1AfterPost(DataSet: TDataSet);
+begin
+  //
+end;
+
+end.

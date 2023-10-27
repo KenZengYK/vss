@@ -1,0 +1,102 @@
+unit airprjdtlformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, StdCtrls, Buttons, GridsEh, DBGridEh, DBCtrls,
+  cxControls, cxContainer, cxEdit, cxTextEdit, cxMaskEdit, cxSpinEdit,
+  cxTimeEdit, cxDBEdit, Mask, DBCtrlsEh, ExtCtrls;
+
+type
+  Tfrmairprjdtl = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query4: TClientDataSet;
+    Query5: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query1SEQ: TIntegerField;
+    Query1SEQ1: TIntegerField;
+    Query1CUSTPO: TWideStringField;
+    Query1CSTYLE: TWideStringField;
+    Query1CNAME: TWideStringField;
+    Query1BOX: TIntegerField;
+    Query1WGHT: TFloatField;
+    Query1CBM: TFloatField;
+    Query1EXFTY: TDateField;
+    Query1EXTM: TTimeField;
+    Query1J_NO: TWideStringField;
+    Query1J2_JOB: TWideStringField;
+    Query1ACOL: TWideStringField;
+    Query1T4QTY: TIntegerField;
+    Query1AIRRATE: TFloatField;
+    Query1OCHARGE: TFloatField;
+    Query1BCHARGE: TFloatField;
+    Query1RCHARGE: TFloatField;
+    Query1VWGHT: TFloatField;
+    Query1VWGHT1: TFloatField;
+    Query1VNDR: TWideStringField;
+    Query1SHPM: TWideStringField;
+    Query1VESS: TWideStringField;
+    Query1LPORT: TWideStringField;
+    Query1DEST: TWideStringField;
+    Query1ONDT: TDateField;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure Query1OCHARGEChange(Sender: TField);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmairprjdtl: Tfrmairprjdtl;
+
+implementation
+
+uses mainformu, pdnformu, voyageformu, airrequestformu;
+
+{$R *.dfm}
+
+procedure Tfrmairprjdtl.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmairprjdtl.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  //DataSetAfterPost(DataSet,0,1,2,3);//,4,5);
+      str1:='update tbl_lwo_sample set ';
+      if not query1.fieldbyname('s_sp').isnull then
+      str1:=str1+'s_sp='+query1.fieldbyname('s_sp').asstring+','
+      else str1:=str1+'s_sp=0,';
+
+end;
+
+procedure Tfrmairprjdtl.Query1OCHARGEChange(Sender: TField);
+var
+  r0,r1,r2,r3:double;
+begin
+  if not query1.fieldbyname('vwght1').isnull then r0:=query1.fieldbyname('vwght1').value else r0:=0;
+  r1:=r0*query1.fieldbyname('airrate').value;
+  if not query1.fieldbyname('ocharge').isnull then r2:=query1.fieldbyname('ocharge').value
+  else r2:=0;
+  if not query1.fieldbyname('bcharge').IsNull then r3:=query1.fieldbyname('bcharge').value
+  else r3:=0;
+  query1.fieldbyname('rcharge').value:=r1+r2-r3;
+end;
+
+end.

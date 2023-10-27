@@ -1,0 +1,46 @@
+unit currcal_tdformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, DBCtrlsEh, ExtCtrls;
+
+type
+  Tfrmcurrcal_td = class(TForm)
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Bevel1: TBevel;
+    Label27: TLabel;
+    Label28: TLabel;
+    xedit1: TDBNumberEditEh;
+    xedit2: TDBNumberEditEh;
+    BitBtn1: TBitBtn;
+    BitBtn3: TBitBtn;
+    xedit3: TDBNumberEditEh;
+    xedit4: TDBNumberEditEh;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcurrcal_td: Tfrmcurrcal_td;
+
+implementation
+
+uses mainformu, currcalformu;
+
+{$R *.dfm}
+
+procedure Tfrmcurrcal_td.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmcurrcal_td:=nil;
+end;
+
+end.

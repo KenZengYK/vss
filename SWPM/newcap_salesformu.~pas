@@ -1,0 +1,138 @@
+unit newcap_salesformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DateUtils;
+
+type
+  Tfrmnewcap_sales = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn7: TBitBtn;
+    BitBtn8: TBitBtn;
+    BitBtn9: TBitBtn;
+    BitBtn10: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_sales: Tfrmnewcap_sales;
+
+implementation
+
+uses mainformu, newcapformu, oaprojectionformu, newcap_cbookingformu,
+  newcap_ibookingformu, newcap_styleformu, newcap_nostyleformu,
+  newcap_salesbalformu, newcap_custstatusformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_sales.BitBtn1Click(Sender: TObject);
+begin
+  {
+  if frmoaprojection=nil then frmoaprojection:=tfrmoaprojection.Create(nil);
+  frmoaprojection.ComboBox1.Text:='SL';
+  frmoaprojection.SpinEdit1.Value:=yearof(date);
+  frmoaprojection.Show;
+  }
+  if frmnewcap_nostyle=nil then frmnewcap_nostyle:=tfrmnewcap_nostyle.create(nil);
+  frmnewcap_nostyle.show;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn4Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmnewcap_sales.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_sales:=nil;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn2Click(Sender: TObject);
+begin
+  if frmnewcap_cbooking=nil then frmnewcap_cbooking:=tfrmnewcap_cbooking.Create(nil);
+  frmnewcap_cbooking.ComboBox1.Text:='SL';
+  frmnewcap_cbooking.SpinEdit1.Value:=yearof(date);
+  frmnewcap_cbooking.Show;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn3Click(Sender: TObject);
+begin
+  if frmnewcap_ibooking=nil then frmnewcap_ibooking:=tfrmnewcap_ibooking.Create(nil);
+  frmnewcap_ibooking.ComboBox1.Text:='SL';
+  frmnewcap_ibooking.SpinEdit1.Value:=yearof(date);
+  frmnewcap_ibooking.Show;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn6Click(Sender: TObject);
+begin
+  if frmnewcap_style=nil then frmnewcap_style:=tfrmnewcap_style.Create(nil);
+  frmnewcap_style.ComboBox1.Text:='SL';
+  frmnewcap_style.SpinEdit1.Value:=yearof(date);
+  frmnewcap_style.Show;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn7Click(Sender: TObject);
+begin
+  if frmoaprojection=nil then frmoaprojection:=tfrmoaprojection.Create(nil);
+  frmoaprojection.ComboBox1.Text:='SL';
+  frmoaprojection.SpinEdit1.Value:=yearof(date);
+  frmoaprojection.Show;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn8Click(Sender: TObject);
+begin
+  if frmnewcap_salesbal=nil then frmnewcap_salesbal:=tfrmnewcap_salesbal.Create(nil);
+  frmnewcap_salesbal.ComboBox1.Text:='SL';
+  frmnewcap_salesbal.SpinEdit1.Value:=yearof(date);
+  frmnewcap_salesbal.Show;
+end;
+
+procedure Tfrmnewcap_sales.BitBtn9Click(Sender: TObject);
+begin
+  if frmnewcap_custstatus=nil then frmnewcap_custstatus:=tfrmnewcap_custstatus.create(nil);
+  frmnewcap_custstatus.ComboBox1.Visible:=true;
+  frmnewcap_custstatus.ComboBox2.Visible:=true;
+  frmnewcap_custstatus.DBText1.Visible:=false;
+  frmnewcap_custstatus.DBText2.Visible:=false;
+  frmnewcap_custstatus.show;
+  {
+  if treeview1.Selected.Level=2 then begin
+  //if combobox3.text>'' then begin
+    if frmnewcap_custstatus=nil then frmnewcap_custstatus:=tfrmnewcap_custstatus.create(nil);
+    with frmnewcap_custstatus.query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from tbl_cap_custstatus where tplant=:x1 and cust=:x2';
+      params[0].asstring:=query1.fieldbyname('tplant').value;
+      params[1].asstring:=query1.fieldbyname('cust').value;
+      open;
+    end;
+    frmnewcap_custstatus.show;
+  end;
+  }
+end;
+
+end.

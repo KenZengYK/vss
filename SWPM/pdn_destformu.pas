@@ -1,0 +1,62 @@
+unit pdn_destformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, DB, ADODB, StdCtrls, Buttons;
+
+type
+  Tfrmpdn_dest = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpdn_dest: Tfrmpdn_dest;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+procedure Tfrmpdn_dest.BitBtn1Click(Sender: TObject);
+begin
+  dbgrideh1.setfocus;
+  adodataset1.append;
+end;
+
+procedure Tfrmpdn_dest.BitBtn2Click(Sender: TObject);
+begin
+  if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+    adodataset1.delete;
+  end;
+end;
+
+procedure Tfrmpdn_dest.BitBtn3Click(Sender: TObject);
+begin
+  if (adodataset1.state=dsedit) or (adodataset1.state=dsinsert) then adodataset1.post;
+end;
+
+procedure Tfrmpdn_dest.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmpdn_dest:=nil;
+end;
+
+end.

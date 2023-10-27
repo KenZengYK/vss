@@ -1,0 +1,128 @@
+unit ganoteformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DBCtrls, Buttons, Db, RxRichEd, rxDBRichEd, cxControls,
+  cxContainer, cxEdit, cxTextEdit, cxMemo, cxDBEdit, DBClient, cxGraphics,
+  cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
+  siComp;
+
+type
+  Tfrmganote = class(TForm)
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    Label4: TLabel;
+    DBText4: TDBText;
+    Label5: TLabel;
+    DBText5: TDBText;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    DBMemo1: TcxDBMemo;
+    Query10: TClientDataSet;
+    BitBtn3: TBitBtn;
+    Label6: TLabel;
+    Query2: TClientDataSet;
+    lbl850: TLabel;
+    siLang1: TsiLang;
+    memo2: TMemo;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmganote: Tfrmganote;
+
+implementation
+
+uses mainformu, zktdformu, achievingformu, ganotepadformu, ganotepad_engformu,
+  gai_notepad_chnformu, gai_notepad_engformu;
+
+{$R *.dfm}
+
+procedure Tfrmganote.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmganote:=nil;
+end;
+
+procedure Tfrmganote.FormCreate(Sender: TObject);
+begin
+  siLang1.Language:=frmmain.ComboBox2.text;
+end;
+
+procedure Tfrmganote.BitBtn1Click(Sender: TObject);
+begin
+  if (dbtext1.DataSource.DataSet.State=dsedit) then dbtext1.DataSource.DataSet.Post;
+end;
+
+procedure Tfrmganote.FormShow(Sender: TObject);
+var
+  sm1,sm2:string;
+begin
+  {
+  if (frmmain.eng_chn01.ItemIndex=1) then begin
+    with query10 do begin
+      close;
+      params.Clear;
+      commandtext:='select * from tbl_ver_engchn where f_mod=''GAI'' and f_frm=''QNNOTE'' order by f_lbl_grd,f_xh';
+      open;
+      first;
+      while not eof do begin
+        if (fieldbyname('f_lbl_grd').value='LABEL') then begin
+          if fieldbyname('f_xh').value=0 then frmganote.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=1 then frmganote.label1.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=2 then frmganote.label2.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=3 then frmganote.label3.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=4 then frmganote.bitbtn1.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=5 then frmganote.bitbtn2.caption:=fieldbyname('f_chn').value;
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+  }
+  memo2.lines.clear;
+  if dbmemo1.text>'' then sm1:=dbmemo1.text else sm1:='';
+  if pos('~',sm1)>0 then begin
+    memo2.lines.add(trim(copy(sm1,1,pos('~',sm1)-1)));
+    memo2.lines.add(trim(copy(sm1,pos('~',sm1),600)));
+  end;
+end;
+
+procedure Tfrmganote.BitBtn2Click(Sender: TObject);
+begin
+  if frmgai_notepad_chn=nil then frmgai_notepad_chn:=tfrmgai_notepad_chn.Create(nil);
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    if lbl850.caption='SPE' then
+    commandtext:='execute procedure sp_line_shjs_remarks_new_sp(:x1,:x2,:x3)'
+    else commandtext:='execute procedure sp_line_shjs_remarks_new(:x1,:x2,:x3)';
+    params[0].asstring:=dbtext1.DataSource.DataSet.fieldbyname('pline').value;
+    params[1].asinteger:=dbtext1.DataSource.DataSet.fieldbyname('seq').value;
+    params[2].asdate:=dbtext1.DataSource.DataSet.fieldbyname('dt1').value;
+    execute;
+  end;
+  frmgai_notepad_chn.Label41.Caption:=label6.caption;
+  frmgai_notepad_chn.lbl850.caption:=lbl850.caption;
+  frmgai_notepad_chn.Show;
+end;
+
+end.

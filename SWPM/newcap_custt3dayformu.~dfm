@@ -1,0 +1,260 @@
+object frmnewcap_custt3day: Tfrmnewcap_custt3day
+  Left = 193
+  Top = 114
+  Width = 504
+  Height = 551
+  Caption = 'CP Standard Ahead Days - Customer dependent'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 496
+    Height = 33
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 16
+      Top = 8
+      Width = 38
+      Height = 13
+      Caption = 'Factory '
+    end
+    object Label2: TLabel
+      Left = 184
+      Top = 8
+      Width = 3
+      Height = 13
+    end
+    object ComboBox1: TComboBox
+      Left = 64
+      Top = 8
+      Width = 97
+      Height = 21
+      CharCase = ecUpperCase
+      ItemHeight = 13
+      TabOrder = 0
+      Text = 'CHINA'
+      OnChange = ComboBox1Change
+      Items.Strings = (
+        'CHINA'
+        'THAI')
+    end
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 33
+    Width = 496
+    Height = 318
+    Align = alClient
+    AllowedOperations = [alopUpdateEh]
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        Alignment = taCenter
+        Color = 14941178
+        EditButtons = <>
+        FieldName = 'GRP'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Division'
+        Width = 57
+      end
+      item
+        Color = 14941178
+        EditButtons = <>
+        FieldName = 'CUST'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Cust'#39's Proj Code'
+        Width = 80
+      end
+      item
+        EditButtons = <>
+        FieldName = 'DAYS'
+        Footers = <>
+        Title.Caption = 'Standard Ahead Days (based on LCL)'
+        Width = 111
+      end>
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 351
+    Width = 496
+    Height = 166
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    object Label3: TLabel
+      Left = 24
+      Top = 0
+      Width = 52
+      Height = 13
+      Caption = 'Principle: - '
+    end
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 128
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      TabOrder = 0
+      OnClick = BitBtn1Click
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+    end
+    object BitBtn2: TBitBtn
+      Left = 96
+      Top = 128
+      Width = 73
+      Height = 25
+      Caption = 'Lock'
+      TabOrder = 1
+      OnClick = BitBtn2Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333000003
+        333333333F777773FF333333008888800333333377333F3773F3333077870787
+        7033333733337F33373F3308888707888803337F33337F33337F330777880887
+        7703337F33337FF3337F3308888000888803337F333777F3337F330777700077
+        7703337F33377733337F33088888888888033373FFFFFFFFFF73333000000000
+        00333337777777777733333308033308033333337F7F337F7F33333308033308
+        033333337F7F337F7F33333308033308033333337F73FF737F33333377800087
+        7333333373F77733733333333088888033333333373FFFF73333333333000003
+        3333333333777773333333333333333333333333333333333333}
+      NumGlyphs = 2
+    end
+    object BitBtn3: TBitBtn
+      Left = 168
+      Top = 128
+      Width = 73
+      Height = 25
+      Caption = 'Un-lock'
+      TabOrder = 2
+      OnClick = BitBtn3Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333FFFFF3333333333999993333333333F77777FFF333333999999999
+        3333333777333777FF3333993333339993333377FF3333377FF3399993333339
+        993337777FF3333377F3393999333333993337F777FF333337FF993399933333
+        399377F3777FF333377F993339993333399377F33777FF33377F993333999333
+        399377F333777FF3377F993333399933399377F3333777FF377F993333339993
+        399377FF3333777FF7733993333339993933373FF3333777F7F3399933333399
+        99333773FF3333777733339993333339933333773FFFFFF77333333999999999
+        3333333777333777333333333999993333333333377777333333}
+      NumGlyphs = 2
+    end
+    object BitBtn4: TBitBtn
+      Left = 240
+      Top = 128
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      TabOrder = 3
+      Kind = bkClose
+    end
+    object Memo1: TMemo
+      Left = 24
+      Top = 16
+      Width = 449
+      Height = 105
+      ScrollBars = ssBoth
+      TabOrder = 4
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_cap_custt3day where tplant='#39'SL'#39
+    FieldDefs = <
+      item
+        Name = 'TPLANT'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'GRP'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'CUST'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'DAYS'
+        DataType = ftInteger
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'tplant;grp;cust'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterPost = Query1AfterPost
+    Left = 224
+    Top = 32
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 256
+    Top = 32
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 288
+    Top = 32
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 320
+    Top = 32
+  end
+end

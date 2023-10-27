@@ -1,0 +1,109 @@
+unit lineactiveformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DBCtrls, StdCtrls, Mask, ToolEdit, Buttons, DB, DBClient,
+  CurrEdit;
+
+type
+  Tfrmlineactive = class(TForm)
+    Label1: TLabel;
+    DBText1: TDBText;
+    CheckBox1: TCheckBox;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    DateEdit1: TDateEdit;
+    DateEdit2: TDateEdit;
+    GroupBox2: TGroupBox;
+    DateEdit3: TDateEdit;
+    DateEdit4: TDateEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Label6: TLabel;
+    Edit1: TCurrencyEdit;
+    Edit2: TCurrencyEdit;
+    Label4: TLabel;
+    Label5: TLabel;
+    Edit3: TCurrencyEdit;
+    Edit4: TCurrencyEdit;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmlineactive: Tfrmlineactive;
+
+implementation
+
+uses mainformu, lineinfou;
+
+{$R *.dfm}
+
+procedure Tfrmlineactive.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmlineactive:=nil;
+end;
+
+procedure Tfrmlineactive.FormShow(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tblline_log where pline='''+dbtext1.Field.Value+'''';
+    open;
+    if not fieldbyname('lactive').isnull then checkbox1.Checked:=fieldbyname('lactive').value;
+    if not fieldbyname('pst').isnull then dateedit1.Date:=fieldbyname('pst').value else dateedit1.Date:=0;
+    if not fieldbyname('pst1').isnull then edit1.Value:=fieldbyname('pst1').value else edit1.Value:=0.0;
+    if not fieldbyname('pen').isnull then dateedit2.Date:=fieldbyname('pen').value else dateedit2.Date:=0;
+    if not fieldbyname('pen1').isnull then edit2.Value:=fieldbyname('pen1').value else edit2.Value:=0.0;
+    if not fieldbyname('ast').isnull then dateedit3.Date:=fieldbyname('ast').value else dateedit3.Date:=0;
+    if not fieldbyname('ast1').isnull then edit3.Value:=fieldbyname('ast1').value else edit3.Value:=0.0;
+    if not fieldbyname('aen').isnull then dateedit4.Date:=fieldbyname('aen').value else dateedit4.Date:=0;
+    if not fieldbyname('aen1').isnull then edit4.Value:=fieldbyname('aen1').value else edit4.Value:=0.0;
+  end;
+end;
+
+procedure Tfrmlineactive.BitBtn1Click(Sender: TObject);
+begin
+  if (dateedit1.date>0 and dateedit2.date>0) then begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftfloat,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftfloat,'x4',ptinput);
+      params.createparam(ftdate,'x5',ptinput);
+      params.createparam(ftfloat,'x6',ptinput);
+      params.createparam(ftdate,'x7',ptinput);
+      params.createparam(ftfloat,'x8',ptinput);
+      params.createparam(ftstring,'x9',ptinput);
+      commandtext:='update tblline_log set pst=:x1,pst1=:x2,pen=:x3,pen1=:x4,ast=:x5,ast1=:x6,aen1=:x7,aen1=:x8 where pline=:x9';
+      params[0].AsDate:=dateedit1.Date;
+      params[1].asfloat:=edit1.Value;
+      params[2].asdate:=dateedit2.date;
+      params[3].asfloat:=edit2.Value;
+      if dateedit3.Date>0 then params[4].AsDate:=dateedit3.Date;
+      params[5].asfloat:=edit3.Value;
+      if dateedit4.date>0 then params[6].asdate:=dateedit4.date;
+      params[7].AsFloat:=edit4.Value;
+      params[8].asstring:=dbtext1.Field.Value;
+      execute;
+    end;
+  end;
+end;
+
+end.

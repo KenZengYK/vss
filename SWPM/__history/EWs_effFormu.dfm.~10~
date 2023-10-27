@@ -1,0 +1,154 @@
+object frmEWs_eff: TfrmEWs_eff
+  Left = 0
+  Top = 0
+  Caption = 'EWs eff%'
+  ClientHeight = 311
+  ClientWidth = 643
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 0
+    Width = 643
+    Height = 270
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = 16
+    ExplicitTop = 8
+    ExplicitWidth = 593
+    ExplicitHeight = 193
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.GroupByBox = False
+      object cxGrid1DBTableView1FTY: TcxGridDBColumn
+        Caption = 'Factory'
+        DataBinding.FieldName = 'FTY'
+        HeaderAlignmentHorz = taCenter
+        Width = 55
+      end
+      object cxGrid1DBTableView1EFF: TcxGridDBColumn
+        Caption = 'Eff'
+        DataBinding.FieldName = 'EFF'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Width = 55
+      end
+      object cxGrid1DBTableView1SDT: TcxGridDBColumn
+        Caption = 'Effective Start'
+        DataBinding.FieldName = 'SDT'
+        PropertiesClassName = 'TcxDateEditProperties'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
+      end
+      object cxGrid1DBTableView1EDT: TcxGridDBColumn
+        Caption = 'Effective End'
+        DataBinding.FieldName = 'EDT'
+        PropertiesClassName = 'TcxDateEditProperties'
+        HeaderAlignmentHorz = taCenter
+        Width = 80
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 270
+    Width = 643
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitLeft = 32
+    ExplicitTop = 256
+    ExplicitWidth = 185
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'AddNew'
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Delete'
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 1
+    end
+    object BitBtn3: TBitBtn
+      Left = 168
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 2
+    end
+    object BitBtn4: TBitBtn
+      Left = 240
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 3
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_e915_eff'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 112
+    Top = 40
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 144
+    Top = 40
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 168
+    Top = 40
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 272
+    Top = 40
+  end
+end

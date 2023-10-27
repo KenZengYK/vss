@@ -1,0 +1,26 @@
+unit cmppdnmnf;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh;
+
+type
+  Tfrmcmppdnmnf = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcmppdnmnf: Tfrmcmppdnmnf;
+
+implementation
+
+{$R *.dfm}
+
+end.

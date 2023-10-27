@@ -1,0 +1,212 @@
+unit newcap_recruitformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DBCtrls, StdCtrls, ExtCtrls, ComCtrls, Buttons, GridsEh,
+  DBGridEh, DB, DBClient;
+
+type
+  Tfrmnewcap_recruit = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    PageControl1: TPageControl;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    DBGridEh1: TDBGridEh;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DBGridEh2: TDBGridEh;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure PageControl1Change(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_recruit: Tfrmnewcap_recruit;
+
+implementation
+
+uses mainformu, newcap_wfformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_recruit.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_recruit:=nil;
+end;
+
+procedure Tfrmnewcap_recruit.PageControl1Change(Sender: TObject);
+begin
+  if pagecontrol1.ActivePageIndex=0 then begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from tbl_cap_wf_recruit where tplant=:x1 and typ=:x2';
+      params[0].asstring:=frmnewcap_wf.query1.fieldbyname('tplant').value;
+      params[1].asstring:='RECRUIT';
+      open;
+    end;
+  end else if pagecontrol1.ActivePageIndex=1 then begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select * from tbl_cap_wf_recruit where tplant=:x1 and typ=:x2';
+      params[0].asstring:=frmnewcap_wf.query1.fieldbyname('tplant').value;
+      params[1].asstring:='RESIGN';
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_recruit.FormShow(Sender: TObject);
+begin
+  pagecontrol1change(self);
+end;
+
+procedure Tfrmnewcap_recruit.Query1NewRecord(DataSet: TDataSet);
+var
+  seq:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq) as q from tbl_cap_wf_recruit';
+    open;
+    if not fieldbyname('q').isnull then seq:=fieldbyname('q').value+1
+    else seq:=1;
+  end;
+  query1.fieldbyname('tplant').value:=frmnewcap_wf.query1.fieldbyname('tplant').value;
+  query1.fieldbyname('seq').value:=seq;
+  if pagecontrol1.ActivePageIndex=0 then
+  query1.fieldbyname('typ').value:='RECRUIT'
+  else query1.fieldbyname('typ').value:='RESIGN';
+end;
+
+procedure Tfrmnewcap_recruit.BitBtn1Click(Sender: TObject);
+begin
+  if pagecontrol1.ActivePageIndex=0 then begin
+    dbgrideh1.SetFocus;
+    dbgrideh1.SelectedIndex:=0;
+  end else begin
+    dbgrideh2.SetFocus;
+    dbgrideh2.SelectedIndex:=0;
+  end;
+  query1.append;
+end;
+
+procedure Tfrmnewcap_recruit.BitBtn3Click(Sender: TObject);
+begin
+  if (query1.state=dsedit) or (query1.state=dsinsert) then query1.post;
+end;
+
+procedure Tfrmnewcap_recruit.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  //if query1.applyupdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='select seq from tbl_cap_wf_recruit where tplant=:x1 and seq=:x2';
+      params[0].asstring:=query1.fieldbyname('tplant').value;
+      params[1].asinteger:=query1.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('seq').isnull then begin
+        {
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftdate,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftinteger,'x6',ptinput);
+          commandtext:='update tbl_cap_wf_recruit set empno=:x1,empname=:x2,typ=:x3,effdt=:x4 where tplant=:x5 and seq=:x6';
+          str1:='update tbl_cap_wf_recruit set ';
+          if not query1.fieldbyname('empno').isnull then
+          str1:=str1+'empno='''+query1.fieldbyname('empno').value+''','
+          else str1:=str1+'empno='''',';
+          if not query1.fieldbyname('empname').isnull then
+          str1:=str1+'empname='''+query1.fieldbyname('empname').value+''','
+          else str1:=str1+'empname='''',';
+          str1:=str1+'typ='''+query1.fieldbyname('typ').value+''',';
+          if not query1.fieldbyname('effdt').isnull then
+          str1:=str1+'effdt='''+formatdatetime('yyyy-MM-dd',query1.fieldbyname('effdt').value)+''' '
+          else str1:=str1+'effdt='''+formatdatetime('yyyy-MM-dd',date)+''' ';
+          str1:=str1+'where tplant='''+query1.fieldbyname('tplant').value+''' ';
+          str1:=str1+'and seq='+query1.fieldbyname('seq').asstring;
+
+          if not query1.fieldbyname('empno').isnull then
+          params[0].asstring:=query1.fieldbyname('empno').value
+          else params[0].asstring:='';
+          if not query1.fieldbyname('empname').isnull then
+          params[2].asstring:=query1.fieldbyname('empname').value
+          else params[2].asstring:='';
+          params[3].asstring:=query1.fieldbyname('typ').value;
+          if not query1.fieldbyname('effdt').isnull then
+          params[4].asdate:=query1.fieldbyname('effdt').value
+          else params[4].asdate:=date;
+          params[4].asstring:=query1.fieldbyname('tplant').value;
+          params[5].asinteger:=query1.fieldbyname('seq').value;
+          execute;
+        end;
+        }
+
+      end else begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftstring,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftdate,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftinteger,'x6',ptinput);
+          commandtext:='insert into tbl_cap_wf_recruit(empno,empname,typ,effdt,tplant,seq) values(:x1,:x2,:x3,:x4,:x5,:x6)';// set empno=:x1,empname=:x2,typ=:x3,effdt=:x4 where tplant=:x5 and seq=:x6';
+          if not query1.fieldbyname('empno').isnull then
+          params[0].asstring:=query1.fieldbyname('empno').value
+          else params[0].asstring:='';
+          if not query1.fieldbyname('empname').isnull then
+          params[2].asstring:=query1.fieldbyname('empname').value
+          else params[2].asstring:='';
+          params[3].asstring:=query1.fieldbyname('typ').value;
+          if not query1.fieldbyname('effdt').isnull then
+          params[4].asdate:=query1.fieldbyname('effdt').value
+          else params[4].asdate:=date;
+          params[4].asstring:=query1.fieldbyname('tplant').value;
+          params[5].asinteger:=query1.fieldbyname('seq').value;
+          execute;
+        end;
+      end;
+    end;
+  //end;
+end;
+
+end.

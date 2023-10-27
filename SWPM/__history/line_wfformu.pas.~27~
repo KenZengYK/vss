@@ -1,0 +1,228 @@
+unit line_wfformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridBandedTableView, cxGridDBBandedTableView, ExtCtrls, cxGridLevel,
+  cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxGrid, DBClient, Buttons;
+
+type
+  Tfrmline_wf = class(TForm)
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel1: TPanel;
+    cxGrid1DBBandedTableView1: TcxGridDBBandedTableView;
+    ClientDataSet3: TClientDataSet;
+    tblline_wf: TClientDataSet;
+    DataSource1: TDataSource;
+    ClientDataSet1: TClientDataSet;
+    ClientDataSet2: TClientDataSet;
+    cxGrid1DBBandedTableView1FTY: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1PROD: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1P01: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1P02: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1P03: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1P04: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1PTTL: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1F01: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1F02: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1F03: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1F04: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1FTTL: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1A01: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1A02: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1A03: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1A04: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1ATTL: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1E01: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1E02: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1E03: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1E04: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1ETTL: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1T01: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1T02: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1T03: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1T04: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1TTL: TcxGridDBBandedColumn;
+    SpeedButton1: TSpeedButton;
+    SpeedButton15: TSpeedButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure tblline_wfAfterOpen(DataSet: TDataSet);
+    procedure tblline_wfAfterPost(DataSet: TDataSet);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure tblline_wfq01change(Sender: TField);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmline_wf: Tfrmline_wf;
+
+implementation
+
+uses mainformu, lineinfou;
+
+{$R *.dfm}
+
+procedure Tfrmline_wf.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmline_wf:=nil;
+end;
+
+procedure Tfrmline_wf.FormShow(Sender: TObject);
+begin
+  with tblline_wf do begin
+    close;
+    open;
+  end;
+end;
+
+procedure Tfrmline_wf.SpeedButton1Click(Sender: TObject);
+begin
+  if tblline_wf.state=dsedit then tblline_wf.post;
+end;
+
+procedure Tfrmline_wf.tblline_wfAfterOpen(DataSet: TDataSet);
+begin
+  (tblline_wf.fieldbyname('p01') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('p02') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('p03') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('p04') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('pttl') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('f01') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('f02') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('f03') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('f04') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('fttl') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('a01') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('a02') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('a03') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('a04') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('attl') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('e01') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('e02') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('e03') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('e04') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('ettl') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('t01') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('t02') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('t03') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('t04') as tfloatfield).displayformat:='0.0';
+  (tblline_wf.fieldbyname('ttl') as tfloatfield).displayformat:='0.0';
+  tblline_wf.fieldbyname('p01').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('p02').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('p03').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('p04').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('f01').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('f02').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('f03').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('f04').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('a01').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('a02').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('a03').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('a04').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('e01').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('e02').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('e03').onchange:=tblline_wfq01change;
+  tblline_wf.fieldbyname('e04').onchange:=tblline_wfq01change;
+end;
+
+procedure Tfrmline_wf.tblline_wfAfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  str1:='update tbl_line_wf set ';
+  if not tblline_wf.fieldbyname('p01').isnull then
+  str1:=str1+'p01='+floattostr(tblline_wf.fieldbyname('p01').value)+','
+  else str1:=str1+'p01=0,';
+  if not tblline_wf.fieldbyname('p02').isnull then
+  str1:=str1+'p02='+floattostr(tblline_wf.fieldbyname('p02').value)+','
+  else str1:=str1+'p02=0,';
+  if not tblline_wf.fieldbyname('p03').isnull then
+  str1:=str1+'p03='+floattostr(tblline_wf.fieldbyname('p03').value)+','
+  else str1:=str1+'p03=0,';
+  if not tblline_wf.fieldbyname('p04').isnull then
+  str1:=str1+'p04='+floattostr(tblline_wf.fieldbyname('p04').value)+','
+  else str1:=str1+'p04=0,';
+  if not tblline_wf.fieldbyname('pttl').isnull then
+  str1:=str1+'pttl='+floattostr(tblline_wf.fieldbyname('pttl').value)+','
+  else str1:=str1+'pttl=0,';
+  if not tblline_wf.fieldbyname('f01').isnull then
+  str1:=str1+'f01='+floattostr(tblline_wf.fieldbyname('f01').value)+','
+  else str1:=str1+'f01=0,';
+  if not tblline_wf.fieldbyname('f02').isnull then
+  str1:=str1+'f02='+floattostr(tblline_wf.fieldbyname('f02').value)+','
+  else str1:=str1+'f02=0,';
+  if not tblline_wf.fieldbyname('f03').isnull then
+  str1:=str1+'f03='+floattostr(tblline_wf.fieldbyname('f03').value)+','
+  else str1:=str1+'f03=0,';
+  if not tblline_wf.fieldbyname('f04').isnull then
+  str1:=str1+'f04='+floattostr(tblline_wf.fieldbyname('f04').value)+','
+  else str1:=str1+'f04=0,';
+  if not tblline_wf.fieldbyname('fttl').isnull then
+  str1:=str1+'fttl='+floattostr(tblline_wf.fieldbyname('fttl').value)+','
+  else str1:=str1+'fttl=0,';
+  if not tblline_wf.fieldbyname('a01').isnull then
+  str1:=str1+'a01='+floattostr(tblline_wf.fieldbyname('a01').value)+','
+  else str1:=str1+'a01=0,';
+  if not tblline_wf.fieldbyname('a02').isnull then
+  str1:=str1+'a02='+floattostr(tblline_wf.fieldbyname('a02').value)+','
+  else str1:=str1+'a02=0,';
+  if not tblline_wf.fieldbyname('a03').isnull then
+  str1:=str1+'a03='+floattostr(tblline_wf.fieldbyname('a03').value)+','
+  else str1:=str1+'a03=0,';
+  if not tblline_wf.fieldbyname('a04').isnull then
+  str1:=str1+'a04='+floattostr(tblline_wf.fieldbyname('a04').value)+','
+  else str1:=str1+'a04=0,';
+  if not tblline_wf.fieldbyname('attl').isnull then
+  str1:=str1+'attl='+floattostr(tblline_wf.fieldbyname('attl').value)+','
+  else str1:=str1+'attl=0,';
+  str1:=str1+'where seq='+tblline_wf.fieldbyname('seq').asstring;
+  if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+end;
+
+procedure Tfrmline_wf.tblline_wfq01change(Sender: TField);
+var
+  p01,p02,p03,p04,f01,f02,f03,f04,a01,a02,a03,a04,e01,e02,e03,e04:double;
+begin
+  p01:=0; p02:=0; p03:=0; p04:=0;
+  f01:=0; f02:=0; f03:=0; f04:=0;
+  a01:=0; a02:=0; a03:=0; a04:=0;
+  e01:=0; e02:=0; e03:=0; e04:=0;
+  if not tblline_wf.fieldbyname('p01').isnull then p01:=tblline_wf.fieldbyname('p01').value;
+  if not tblline_wf.fieldbyname('p02').isnull then p02:=tblline_wf.fieldbyname('p02').value;
+  if not tblline_wf.fieldbyname('p03').isnull then p03:=tblline_wf.fieldbyname('p03').value;
+  if not tblline_wf.fieldbyname('p04').isnull then p04:=tblline_wf.fieldbyname('p04').value;
+  if not tblline_wf.fieldbyname('f01').isnull then p01:=tblline_wf.fieldbyname('f01').value;
+  if not tblline_wf.fieldbyname('f02').isnull then p02:=tblline_wf.fieldbyname('f02').value;
+  if not tblline_wf.fieldbyname('f03').isnull then p03:=tblline_wf.fieldbyname('f03').value;
+  if not tblline_wf.fieldbyname('f04').isnull then p04:=tblline_wf.fieldbyname('f04').value;
+  if not tblline_wf.fieldbyname('a01').isnull then p01:=tblline_wf.fieldbyname('a01').value;
+  if not tblline_wf.fieldbyname('a02').isnull then p02:=tblline_wf.fieldbyname('a02').value;
+  if not tblline_wf.fieldbyname('a03').isnull then p03:=tblline_wf.fieldbyname('a03').value;
+  if not tblline_wf.fieldbyname('a04').isnull then p04:=tblline_wf.fieldbyname('a04').value;
+  if not tblline_wf.fieldbyname('e01').isnull then p01:=tblline_wf.fieldbyname('e01').value;
+  if not tblline_wf.fieldbyname('e02').isnull then p02:=tblline_wf.fieldbyname('e02').value;
+  if not tblline_wf.fieldbyname('e03').isnull then p03:=tblline_wf.fieldbyname('e03').value;
+  if not tblline_wf.fieldbyname('e04').isnull then p04:=tblline_wf.fieldbyname('e04').value;
+  tblline_wf.fieldbyname('pttl').value:=p01+p02+p03+p04;
+  tblline_wf.fieldbyname('fttl').value:=f01+f02+f03+f04;
+  tblline_wf.fieldbyname('attl').value:=a01+a02+a03+a04;
+  tblline_wf.fieldbyname('ettl').value:=e01+e02+e03+e04;
+  tblline_wf.fieldbyname('t01').value:=p01+f01+a01+e01;
+  tblline_wf.fieldbyname('t02').value:=p02+f02+a02+e02;
+  tblline_wf.fieldbyname('t03').value:=p03+f03+a03+e03;
+  tblline_wf.fieldbyname('t04').value:=p04+f04+a04+e04;
+  tblline_wf.fieldbyname('ttl').value:=p01+f01+a01+e01+p02+f02+a02+e02+p03+f03+a03+e03+p04+f04+a04+e04;
+end;
+
+end.

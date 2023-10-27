@@ -1,0 +1,530 @@
+object frmrsyc: Tfrmrsyc
+  Left = 261
+  Top = 107
+  Caption = #23526#27841#30452#25509#24615#24037#20154#25976'/'#27231#26800
+  ClientHeight = 368
+  ClientWidth = 772
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 327
+    Width = 772
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    object BitBtn1: TBitBtn
+      Left = 32
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = #20445#23384
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 104
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = #36864#20986
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 1
+      OnClick = BitBtn2Click
+    end
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 33
+    Width = 772
+    Height = 294
+    Align = alClient
+    AllowedOperations = [alopUpdateEh]
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    SumList.Active = True
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        Color = clAqua
+        EditButtons = <>
+        FieldName = 'PLINE'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #25289
+        Width = 41
+      end
+      item
+        Color = clAqua
+        EditButtons = <>
+        FieldName = 'DATE1'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #32299#21512#26085#26399
+        Visible = False
+        Width = 81
+      end
+      item
+        Color = clAqua
+        EditButtons = <>
+        FieldName = 'DT1'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #32299#21512#26085#26399
+        Width = 84
+      end
+      item
+        Color = clAqua
+        EditButtons = <>
+        FieldName = 'LSTR'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|GSD'
+        Visible = False
+        Width = 50
+      end
+      item
+        DisplayFormat = '#0'
+        EditButtons = <>
+        FieldName = 'DSZJ_RS'
+        Footers = <>
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|F'#24037#22580
+        Visible = False
+        Width = 50
+      end
+      item
+        Color = clAqua
+        DisplayFormat = '0.0'
+        EditButtons = <>
+        FieldName = 'AWF'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|AL'#24037#22580'|'#38928#35373' (SMB -3 '#27493')'
+        Width = 50
+      end
+      item
+        Color = clAqua
+        DisplayFormat = '0.0'
+        EditButtons = <>
+        FieldName = 'MWFSC'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|AL'#24037#22580'|'#23433#25490' (RAD -4 '#27493')'
+        Width = 50
+      end
+      item
+        Color = clWhite
+        DisplayFormat = '0.0'
+        EditButtons = <>
+        FieldName = 'ALRS'
+        Footers = <>
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|AL'#24037#22580'|'#23526#27841
+        Width = 50
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'SJRS1'
+        Footer.DisplayFormat = '0.0'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|AL'#24037#22580'|'#23526#27841' ('#39376#21729')'
+        Visible = False
+        Width = 50
+      end
+      item
+        Color = 11463662
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'SJRS2'
+        Footer.DisplayFormat = '0.0'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|'#35519#21205#25110#30701#32570'(AL'#24037#22580')|'#23526#27841'('#19981#21547#25171#25955#27197#38968')'
+        Visible = False
+        Width = 50
+      end
+      item
+        DisplayFormat = '0.0'
+        EditButtons = <>
+        FieldName = 'MWFAC'
+        Footers = <>
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|'#35519#21205#25110#30701#32570'(AL'#24037#22580')|'#35519#21205' ('#21443#32771')'
+        Width = 50
+      end
+      item
+        DisplayFormat = '0.0'
+        EditButtons = <>
+        FieldName = 'RSXC'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|'#35519#21205#25110#30701#32570'(AL'#24037#22580')|'#30701#32570'|vs 3'#27493
+        Width = 50
+      end
+      item
+        DisplayFormat = '0.0'
+        EditButtons = <>
+        FieldName = 'MWFLBC'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|'#35519#21205#25110#30701#32570'(AL'#24037#22580')|'#30701#32570'|vs 4'#27493
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'MWFAC'
+        Footers = <>
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|'#27231#21205#21729#24037'|Fill Abs (CsT)'
+        Visible = False
+        Width = 50
+      end
+      item
+        DisplayFormat = '#0'
+        EditButtons = <>
+        FieldName = 'MWFBN'
+        Footers = <>
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|'#25171#25955#27197#38968'(AL'#24037#22580')|'#20154#25976
+        Width = 50
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'DSZJ_SJ'
+        Footers = <>
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|'#25171#25955#27197#38968'(AL'#24037#22580')|'#31680#26178
+        Width = 50
+      end
+      item
+        DisplayFormat = '#0'
+        EditButtons = <>
+        FieldName = 'SJRS3'
+        Footers = <>
+        Title.Caption = #30452#25509#24615#24037#20154#25976'|E'#24037#22580
+        Width = 50
+      end
+      item
+        Color = 11463662
+        EditButtons = <>
+        FieldName = 'SJRS'
+        Footer.DisplayFormat = '0.0'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Curr WF|Curr (opt perf) (excl BN)'
+        Visible = False
+        Width = 58
+      end
+      item
+        Color = clAqua
+        EditButtons = <>
+        FieldName = 'TRS'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #27231#26800'|'#38928#35373
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'SJYC'
+        Footer.DisplayFormat = '0.0'
+        Footer.ValueType = fvtSum
+        Footers = <>
+        Title.Caption = #27231#26800'|'#23526#27841
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'GSDMBN'
+        Footers = <>
+        Title.Caption = #27231#26800'|'#25171#25955#27197#38968
+        Width = 50
+      end
+      item
+        EditButtons = <>
+        FieldName = 'MANTBL'
+        Footers = <>
+        Title.Caption = #25163#24037#33274
+        Visible = False
+        Width = 39
+      end
+      item
+        Color = clAqua
+        EditButtons = <>
+        FieldName = 'GZW'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = #37109#31665#25976'|'#38928#35373
+        Width = 39
+      end
+      item
+        EditButtons = <>
+        FieldName = 'ACT_POSTBOX'
+        Footers = <>
+        Title.Caption = #37109#31665#25976'|'#23526#27841
+        Width = 39
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 772
+    Height = 33
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    Visible = False
+    object Label1: TLabel
+      Left = 276
+      Top = 8
+      Width = 45
+      Height = 13
+      Caption = #23458#27454#34399':  '
+    end
+    object DBText1: TDBText
+      Left = 332
+      Top = 8
+      Width = 42
+      Height = 13
+      AutoSize = True
+      Color = clBtnFace
+      DataField = 'FLAG6'
+      DataSource = worksheet1.DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 468
+      Top = 8
+      Width = 45
+      Height = 13
+      Caption = #25976#38913#34399':  '
+    end
+    object DBText2: TDBText
+      Left = 516
+      Top = 8
+      Width = 42
+      Height = 13
+      AutoSize = True
+      Color = clBtnFace
+      DataField = 'J2_JOB'
+      DataSource = worksheet1.DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 572
+      Top = 8
+      Width = 9
+      Height = 13
+      Caption = ' - '
+    end
+    object DBText3: TDBText
+      Left = 588
+      Top = 8
+      Width = 42
+      Height = 13
+      AutoSize = True
+      Color = clBtnFace
+      DataField = 'RWO'
+      DataSource = worksheet1.DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 32
+      Top = 8
+      Width = 18
+      Height = 13
+      Caption = #25289': '
+    end
+    object DBText4: TDBText
+      Left = 56
+      Top = 8
+      Width = 42
+      Height = 13
+      AutoSize = True
+      Color = clBtnFace
+      DataField = 'Pline'
+      DataSource = worksheet1.DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object DBText5: TDBText
+      Left = 384
+      Top = 8
+      Width = 42
+      Height = 13
+      AutoSize = True
+      Color = clBtnFace
+      DataField = 'CSTYLE'
+      DataSource = worksheet1.DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 128
+      Top = 8
+      Width = 42
+      Height = 13
+      Caption = #24037#31243#34399': '
+    end
+    object DBText6: TDBText
+      Left = 176
+      Top = 8
+      Width = 42
+      Height = 13
+      AutoSize = True
+      Color = clBtnFace
+      DataField = 'J_no'
+      DataSource = worksheet1.DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 700
+      Top = 8
+      Width = 57
+      Height = 13
+      Caption = #25976#38913#20214#25976':  '
+    end
+    object DBText7: TDBText
+      Left = 760
+      Top = 8
+      Width = 42
+      Height = 13
+      AutoSize = True
+      Color = clBtnFace
+      DataField = 'Scqty'
+      DataSource = worksheet1.DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 625
+      Top = 8
+      Width = 9
+      Height = 13
+      Caption = ' - '
+    end
+    object DBText8: TDBText
+      Left = 641
+      Top = 8
+      Width = 42
+      Height = 13
+      AutoSize = True
+      Color = clBtnFace
+      DataField = 'FCCS'
+      DataSource = worksheet1.DataSource1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 344
+    Top = 128
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 376
+    Top = 128
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 408
+    Top = 128
+  end
+  object DataSource1: TDataSource
+    DataSet = frmzktd.Query1
+    Left = 440
+    Top = 128
+  end
+end

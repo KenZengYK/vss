@@ -1,0 +1,614 @@
+unit EWsGAI_DetailFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridBandedTableView, cxGridDBBandedTableView, ExtCtrls, cxGridLevel,
+  cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxGrid, DBClient, StdCtrls, Buttons, cxGridExportLink,
+  cxCurrencyEdit;
+
+type
+  TfrmEWSGAI_Detail = class(TForm)
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel1: TPanel;
+    cxView1: TcxGridDBBandedTableView;
+    cxColumn1: TcxGridDBBandedColumn;
+    cxColumn2: TcxGridDBBandedColumn;
+    cxColumn3: TcxGridDBBandedColumn;
+    cxColumn4: TcxGridDBBandedColumn;
+    cxColumn5: TcxGridDBBandedColumn;
+    cxColumn6: TcxGridDBBandedColumn;
+    SPQTY: TcxGridDBBandedColumn;
+    SPSAH: TcxGridDBBandedColumn;
+    ACT_QTY: TcxGridDBBandedColumn;
+    ACT_QDIFF: TcxGridDBBandedColumn;
+    ACT_SAH: TcxGridDBBandedColumn;
+    ACT_SDIFF: TcxGridDBBandedColumn;
+    cxColumn13: TcxGridDBBandedColumn;
+    cxColumn14: TcxGridDBBandedColumn;
+    WS1: TcxGridDBBandedColumn;
+    cxColumn16: TcxGridDBBandedColumn;
+    D1_DEF: TcxGridDBBandedColumn;
+    D1_ADJ: TcxGridDBBandedColumn;
+    D1_ACT: TcxGridDBBandedColumn;
+    D2_ADJ: TcxGridDBBandedColumn;
+    D2_ACT: TcxGridDBBandedColumn;
+    D3_ADJ: TcxGridDBBandedColumn;
+    D3_ACT: TcxGridDBBandedColumn;
+    D4_ADJ: TcxGridDBBandedColumn;
+    D4_ACT: TcxGridDBBandedColumn;
+    D5_ADJ: TcxGridDBBandedColumn;
+    D5_ACT: TcxGridDBBandedColumn;
+    D6_ADJ: TcxGridDBBandedColumn;
+    D6_ACT: TcxGridDBBandedColumn;
+    D7_ADJ: TcxGridDBBandedColumn;
+    D7_ACT: TcxGridDBBandedColumn;
+    cxStyleRepository1: TcxStyleRepository;
+    cxStyle1: TcxStyle;
+    cxStyleRepository2: TcxStyleRepository;
+    cxStyle2: TcxStyle;
+    cxStyleRepository3: TcxStyleRepository;
+    cxStyle3: TcxStyle;
+    cxStyleRepository4: TcxStyleRepository;
+    cxStyle4: TcxStyle;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    DataSource1: TDataSource;
+    SaveDialog1: TSaveDialog;
+    BitBtn2: TBitBtn;
+    BitBtn4: TBitBtn;
+    e915_seq: TcxGridDBBandedColumn;
+    D1_DT: TcxGridDBBandedColumn;
+    D2_DT: TcxGridDBBandedColumn;
+    D3_DT: TcxGridDBBandedColumn;
+    D4_DT: TcxGridDBBandedColumn;
+    D5_DT: TcxGridDBBandedColumn;
+    D6_DT: TcxGridDBBandedColumn;
+    D7_DT: TcxGridDBBandedColumn;
+    EX_DT: TcxGridDBBandedColumn;
+    cxACOL: TcxGridDBBandedColumn;
+    BitBtn1: TBitBtn;
+    cxView1RK_F: TcxGridDBBandedColumn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure cxView1CustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure cxView1CellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure createNotepad;
+  end;
+
+var
+  frmEWSGAI_Detail: TfrmEWSGAI_Detail;
+  dt:string;
+
+implementation
+
+uses mainformu, worksheet, EWsGAIFormu, E915GAINotepadformu, ews_notepadformu,
+  GAI_ActionlogFormu;
+
+{$R *.dfm}
+
+procedure TfrmEWSGAI_Detail.BitBtn2Click(Sender: TObject);
+begin
+  if savedialog1.Execute then begin
+    ExportGridToExcel(savedialog1.FileName,cxGrid1,false,true,false,'xls');
+  end;
+end;
+
+procedure TfrmEWSGAI_Detail.BitBtn4Click(Sender: TObject);
+var
+  pline:string;
+  seq:integer;
+  sdt1,sdt2:tdatetime;
+begin
+  if copy(query1.fieldbyname('pline').value,1,1)='T' then begin
+    pline:=query1.fieldbyname('pline').value;
+    seq:=query1.fieldbyname('seq').value;
+    sdt1:=frmewsgai.dtedit1.date;
+    sdt2:=frmewsgai.dtedit2.date;
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftdate,'x4',ptinput);
+      commandtext:='execute procedure sp_swpm_e915gai_notepad(:x1,:x2,:x3,:x4)';
+      params[0].asstring:=pline;
+      params[1].asinteger:=seq;
+      params[2].asdate:=sdt1;
+      params[3].asdate:=sdt2;
+      execute;
+    end;
+    if frm_915GAI_notepad=nil then frm_915GAI_notepad:=Tfrm_915GAI_notepad.create(nil);
+    with frm_915GAI_notepad.query4 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftdate,'x4',ptinput);
+      commandtext:='select * from tbl_e915_remarks1 where pline=:x1 and seq=:x2 and sdt1=:x3 and sdt2=:x4';
+      params[0].asstring:=pline;
+      params[1].asinteger:=seq;
+      params[2].asdate:=sdt1;
+      params[3].asdate:=sdt2;
+      open;
+    end;
+    frm_915GAI_notepad.show;
+  end;
+end;
+
+procedure TfrmEWSGAI_Detail.createNotepad;
+var
+  pline:string;
+  seq:integer;
+  sdt1,sdt2:tdatetime;
+begin
+  if copy(query1.fieldbyname('pline').value,1,1)='T' then begin
+    pline:=query1.fieldbyname('pline').value;
+    seq:=query1.fieldbyname('seq').value;
+    sdt1:=frmewsgai.dtedit1.date;
+    sdt2:=frmewsgai.dtedit2.date;
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftdate,'x4',ptinput);
+      commandtext:='execute procedure sp_swpm_e915gai_notepad(:x1,:x2,:x3,:x4)';
+      params[0].asstring:=pline;
+      params[1].asinteger:=seq;
+      params[2].asdate:=sdt1;
+      params[3].asdate:=sdt2;
+      execute;
+    end;
+    if frmGAI_Actionlog=nil then frmGAI_Actionlog:=TfrmGAI_Actionlog.create(nil);
+    with frmGAI_Actionlog.query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftdate,'x4',ptinput);
+      commandtext:='select * from tbl_e915_remarks1 where pline=:x1 and seq=:x2 and sdt1=:x3 and sdt2=:x4 and chk=1';
+      params[0].asstring:=pline;
+      params[1].asinteger:=seq;
+      params[2].asdate:=sdt1;
+      params[3].asdate:=sdt2;
+      open;
+    end;
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='select cstyle,acol,scqty,case when at3 is not null then at3 else dt3 end as t3dd from tblshedule where pline=:x1 and seq=:x2';
+      params[0].asstring:=pline;
+      params[1].asinteger:=seq;
+      open;
+      if not fieldbyname('cstyle').isnull then frmGAI_Actionlog.lblcstyle.caption:=fieldbyname('cstyle').value;
+      if not fieldbyname('acol').isnull then frmGAI_Actionlog.lblclr.caption:=fieldbyname('acol').value;
+      if not fieldbyname('scqty').isnull then frmGAI_Actionlog.lblqty.caption:=fieldbyname('scqty').asstring;
+      if not fieldbyname('t3dd').isnull then frmGAI_Actionlog.lblt3dt.caption:=formatdatetime('MM/DD',fieldbyname('t3dd').value);
+    end;
+    frmGAI_Actionlog.Label9.Caption:='915GAI';
+    frmGAI_Actionlog.Label10.Caption:=query1.fieldbyname('seq').asstring;
+    frmGAI_Actionlog.lblfty.caption:=query1.fieldbyname('fty').value;
+    frmGAI_Actionlog.lblws.caption:=query1.fieldbyname('ws').value;
+    frmGAI_Actionlog.lblline.caption:=query1.fieldbyname('pline').value;
+    frmGAI_Actionlog.lblqn.caption:=query1.fieldbyname('cwono1').value;
+    frmGAI_Actionlog.pgc1.activepage:=frmGAI_Actionlog.ts2;
+    frmGAI_Actionlog.sdt01.date:=sdt1;
+    frmGAI_Actionlog.sdt02.date:=sdt2;
+    frmGAI_Actionlog.show;
+  end;
+end;
+
+procedure TfrmEWSGAI_Detail.cxView1CellDblClick(Sender: TcxCustomGridTableView;
+  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+  AShift: TShiftState; var AHandled: Boolean);
+var
+  str,str1,str2:string;
+  flg_al:string;
+begin
+  //'0': old - notepad; '1': new - action log
+  flg_al:='0';
+  {
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select flg_al from tbl_gaiactionlog_flag';
+    open;
+    if not fieldbyname('flg_al').isnull then flg_al:=fieldbyname('flg_al').value
+    else flg_al:='0';
+  end;
+  }
+  //flg_al:='1'; // test only
+
+  str:=trim(VarAsType(ACellViewInfo.GridRecord.DisplayTexts[cxView1RK_F.Index],   varString));
+  if (ACellViewInfo.Item = cxView1RK_F) then begin
+    if str='*' then begin
+      if flg_al='0' then begin
+        if frmews_notepad=nil then frmews_notepad:=tfrmews_notepad.create(nil);
+        frmews_notepad.show;
+      end else if flg_al='1' then begin
+        createNotepad;
+        frmGAI_Actionlog.dateedit1.date:=frmewsgai.dtedit1.date;
+      end;
+    end;
+  end;
+  if (ACellViewInfo.Item = D1_Act) then begin
+    if flg_al='0' then begin
+      bitbtn4click(self);
+      frm_915GAI_notepad.dateedit1.date:=frmewsgai.dtedit1.date;
+    end else if flg_al='1' then begin
+      createNotepad;
+      frmGAI_Actionlog.dateedit1.date:=frmewsgai.dtedit1.date;
+    end;
+  end;
+  if (ACellViewInfo.Item = D2_Act) then begin
+    if flg_al='0' then begin
+      bitbtn4click(self);
+      frm_915GAI_notepad.dateedit1.date:=frmewsgai.dtedit1.date+1;
+    end else if flg_al='1' then begin
+      createNotepad;
+      frmGAI_Actionlog.dateedit1.date:=frmewsgai.dtedit1.date+1;
+    end;
+  end;
+  if (ACellViewInfo.Item = D3_Act) then begin
+    if flg_al='0' then begin
+      bitbtn4click(self);
+      frm_915GAI_notepad.dateedit1.date:=frmewsgai.dtedit1.date+2;
+    end else if flg_al='1' then begin
+      createNotepad;
+      frmGAI_Actionlog.dateedit1.date:=frmewsgai.dtedit1.date+2;
+    end;
+  end;
+  if (ACellViewInfo.Item = D4_Act) then begin
+    if flg_al='0' then begin
+      bitbtn4click(self);
+      frm_915GAI_notepad.dateedit1.date:=frmewsgai.dtedit1.date+3;
+    end else if flg_al='1' then begin
+      createNotepad;
+      frmGAI_Actionlog.dateedit1.date:=frmewsgai.dtedit1.date+3;
+    end;
+  end;
+  if (ACellViewInfo.Item = D5_Act) then begin
+    if flg_al='0' then begin
+      bitbtn4click(self);
+      frm_915GAI_notepad.dateedit1.date:=frmewsgai.dtedit1.date+4;
+    end else if flg_al='1' then begin
+      createNotepad;
+      frmGAI_Actionlog.dateedit1.date:=frmewsgai.dtedit1.date+4;
+    end;
+  end;
+  if (ACellViewInfo.Item = D6_Act) then begin
+    if flg_al='0' then begin
+      bitbtn4click(self);
+      frm_915GAI_notepad.dateedit1.date:=frmewsgai.dtedit1.date+5;
+    end else if flg_al='1' then begin
+      createNotepad;
+      frmGAI_Actionlog.dateedit1.date:=frmewsgai.dtedit1.date+5;
+    end;
+  end;
+  if (ACellViewInfo.Item = D7_Act) then begin
+    if flg_al='0' then begin
+      bitbtn4click(self);
+      frm_915GAI_notepad.dateedit1.date:=frmewsgai.dtedit1.date+6;
+    end else if flg_al='1' then begin
+      createNotepad;
+      frmGAI_Actionlog.dateedit1.date:=frmewsgai.dtedit1.date+6;
+    end;
+  end;
+end;
+
+procedure TfrmEWSGAI_Detail.cxView1CustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+var
+  str,str1,str2:string;
+  a1,a2,a3,a4,a5,a6,a7,sp:string;
+  set1,set2:set of 1..50;
+  seqi:integer;
+begin
+  set1:=[1];
+  seqi:=AViewInfo.GridRecord.Values[TcxGridDBTableView(Sender).GetColumnByFieldName('e915_seq').index];
+  if (seqi in set1) then begin
+    acanvas.Canvas.Brush.Color:=$00CDFCFB;//clMoneyGreen;
+    acanvas.Canvas.Font.Color:=clBlack;
+  end;
+  {
+  str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[act_qty.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[act_qdiff.Index],   varString));
+  if (AViewInfo.Item = act_qty) then begin
+    if str='' then str:='0';
+  //  if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed;
+    if strtoint(str)<0 then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtoint(str)>0 then ACanvas.canvas.Font.Color   :=   clGreen;
+  //  ACanvas.FillRect(ARec);
+  end;
+  }
+  //str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[act_sdiff.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[act_qdiff.Index],   varString));
+  if (AViewInfo.Item = act_qdiff) then begin
+    if str='' then str:='0';
+  //  if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed;
+    if strtoint(str)<0 then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtoint(str)>0 then ACanvas.canvas.Font.Color   :=   clTeal;
+  //  ACanvas.FillRect(ARec);
+  end;
+  {
+  str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[act_sah.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[act_sdiff.Index],   varString));
+  if (AViewInfo.Item = act_sah) then begin
+    if str='' then str:='0';
+  //  if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed;
+    if strtofloat(str)<0 then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtofloat(str)>0 then ACanvas.canvas.Font.Color   :=   clGreen;
+  //  ACanvas.FillRect(ARec);
+  end;
+  }
+  //str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[act_sdiff.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[act_sdiff.Index],   varString));
+  if (AViewInfo.Item = act_sdiff) then begin
+    if str='' then str:='0';
+  //  if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed;
+    if strtofloat(str)<0 then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtofloat(str)>0 then ACanvas.canvas.Font.Color   :=   clTeal;
+  //  ACanvas.FillRect(ARec);
+  end;
+
+  a1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d1_act.Index],   varString));
+  if a1='' then a1:='0';
+  a2:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d2_act.Index],   varString));
+  if a2='' then a2:='0';
+  a3:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d3_act.Index],   varString));
+  if a3='' then a3:='0';
+  a4:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d4_act.Index],   varString));
+  if a4='' then a4:='0';
+  a5:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d5_act.Index],   varString));
+  if a5='' then a5:='0';
+  a6:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d6_act.Index],   varString));
+  if a6='' then a6:='0';
+  a7:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d7_act.Index],   varString));
+  if a7='' then a7:='0';
+  sp:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[spqty.Index],   varString));
+
+  str2:=cxview1.bands[11].caption;//trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d1_dt.Index],   varString));
+  if str2<=dt then begin
+  str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d1_adj.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d1_act.Index],   varString));
+  if (AViewInfo.Item = d1_act) then begin
+    if str1='' then str1:='0';
+    if str='' then str:='0';
+    if strtoint(a1)<strtoint(sp) then begin
+    if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clTeal;
+    end else begin
+      if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clTeal;
+    end;
+  //  ACanvas.FillRect(ARec);
+  end;
+  end;
+
+  str2:=cxview1.bands[12].caption;//trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d2_dt.Index],   varString));
+  if str2<=dt then begin
+  str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d2_adj.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d2_act.Index],   varString));
+  if (AViewInfo.Item = d2_act) then begin
+    if str1='' then str1:='0';
+    if str='' then str:='0';
+    if strtoint(a1)+strtoint(a2)<strtoint(sp) then begin
+    if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clTeal;
+    end else begin
+      if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clTeal;
+    end;
+  //  ACanvas.FillRect(ARec);
+  end;
+  end;
+
+  str2:=cxview1.bands[13].caption;//trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d3_dt.Index],   varString));
+  if str2<=dt then begin
+  str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d3_adj.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d3_act.Index],   varString));
+  if (AViewInfo.Item = d3_act) then begin
+    if str1='' then str1:='0';
+    if str='' then str:='0';
+    if strtoint(a1)+strtoint(a2)+strtoint(a3)<strtoint(sp) then begin
+    if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clTeal;
+    end else begin
+      if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clTeal;
+    end;
+  //  ACanvas.FillRect(ARec);
+  end;
+  end;
+
+  str2:=cxview1.bands[14].caption;//trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d4_dt.Index],   varString));
+  if str2<=dt then begin
+  str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d4_adj.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d4_act.Index],   varString));
+  if (AViewInfo.Item = d4_act) then begin
+    if str1='' then str1:='0';
+    if str='' then str:='0';
+    if strtoint(a1)+strtoint(a2)+strtoint(a3)+strtoint(a4)<strtoint(sp) then begin
+    if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clTeal;
+    end else begin
+      if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clTeal;
+    end;
+  //  ACanvas.FillRect(ARec);
+  end;
+  end;
+
+  str2:=cxview1.bands[15].caption;//trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d5_dt.Index],   varString));
+  if str2<=dt then begin
+  str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d5_adj.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d5_act.Index],   varString));
+  if (AViewInfo.Item = d5_act) then begin
+    if str1='' then str1:='0';
+    if str='' then str:='0';
+    if strtoint(a1)+strtoint(a2)+strtoint(a3)+strtoint(a4)+strtoint(a5)<strtoint(sp) then begin
+    if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clLime;
+    end else begin
+      if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clLime;
+    end;
+  //  ACanvas.FillRect(ARec);
+  end;
+  end;
+
+  str2:=cxview1.bands[16].caption;//trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d6_dt.Index],   varString));
+  if str2<=dt then begin
+  str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d6_adj.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d6_act.Index],   varString));
+  if (AViewInfo.Item = d6_act) then begin
+    if str1='' then str1:='0';
+    if str='' then str:='0';
+    if strtoint(a1)+strtoint(a2)+strtoint(a3)+strtoint(a4)+strtoint(a5)+strtoint(a6)<strtoint(sp) then begin
+    if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clLime;
+    end else begin
+      if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clLime;
+    end;
+  //  ACanvas.FillRect(ARec);
+  end;
+  end;
+
+  str2:=cxview1.bands[17].caption;//trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d7_dt.Index],   varString));
+  if str2<=dt then begin
+  str1:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d7_adj.Index],   varString));
+  str:=trim(VarAsType(AViewInfo.GridRecord.DisplayTexts[d7_act.Index],   varString));
+  if (AViewInfo.Item = d7_act) then begin
+    if str1='' then str1:='0';
+    if str='' then str:='0';
+    if strtoint(a1)+strtoint(a2)+strtoint(a3)+strtoint(a4)+strtoint(a5)+strtoint(a6)+strtoint(a7)<strtoint(sp) then begin
+    if strtoint(str)<strtoint(str1) then ACanvas.canvas.Font.Color   :=   clRed
+    else if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clLime;
+    end else begin
+      if strtoint(str)>strtoint(str1) then ACanvas.canvas.Font.Color   :=   clLime;
+    end;
+  //  ACanvas.FillRect(ARec);
+  end;
+  end;
+end;
+
+procedure TfrmEWSGAI_Detail.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmEWSGAI_Detail:=nil;
+end;
+
+procedure TfrmEWSGAI_Detail.FormShow(Sender: TObject);
+begin
+  dt:=formatdatetime('MM/DD',now-1);
+
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    commandtext:='select max(d1_dt) as d1,max(d2_dt) as d2,max(d3_dt) as d3,max(d4_dt) as d4,'
+                 +'max(d5_dt) as d5,max(d6_dt) as d6,max(d7_dt) as d7,max(d1_ds) as d1_d,'
+                 +'max(d1_as) as d1_a,max(d2_as) as d2_a,max(d3_as) as d3_a,max(d4_as) as d4_a,max(d5_as) as d5_a,'
+                 +'max(d6_as) as d6_a,max(d7_as) as d7_a from tbl_e915_wkprj2 where tm=:x1 and ws=:x2';
+    params[0].asdatetime:=query1.fieldbyname('tm').value;
+    params[1].asstring:=query1.fieldbyname('ws').value;
+    open;
+    if not fieldbyname('d1').isnull then cxview1.bands[11].caption:=formatdatetime('MM/DD',fieldbyname('d1').value);
+    if not fieldbyname('d2').isnull then cxview1.bands[12].caption:=formatdatetime('MM/DD',fieldbyname('d2').value);
+    if not fieldbyname('d3').isnull then cxview1.bands[13].caption:=formatdatetime('MM/DD',fieldbyname('d3').value);
+    if not fieldbyname('d4').isnull then cxview1.bands[14].caption:=formatdatetime('MM/DD',fieldbyname('d4').value);
+    if not fieldbyname('d5').isnull then cxview1.bands[15].caption:=formatdatetime('MM/DD',fieldbyname('d5').value);
+    if not fieldbyname('d6').isnull then cxview1.bands[16].caption:=formatdatetime('MM/DD',fieldbyname('d6').value);
+    if not fieldbyname('d7').isnull then cxview1.bands[17].caption:=formatdatetime('MM/DD',fieldbyname('d7').value);
+    if not fieldbyname('d1_d').isnull then d1_def.caption:=formatfloat('#0',fieldbyname('d1_d').value) else d1_def.caption:='0';
+    if not fieldbyname('d1_a').isnull then begin
+      d1_adj.caption:=formatfloat('#0',fieldbyname('d1_a').value);
+      d1_act.caption:=formatfloat('#0',fieldbyname('d1_a').value);
+    end else begin
+      d1_adj.caption:='0';
+      d1_act.caption:='0';
+    end;
+    if not fieldbyname('d2_a').isnull then begin
+      d2_adj.caption:=formatfloat('#0',fieldbyname('d2_a').value);
+      d2_act.caption:=formatfloat('#0',fieldbyname('d2_a').value);
+    end else begin
+      d2_adj.caption:='0';
+      d2_act.caption:='0';
+    end;
+    if not fieldbyname('d3_a').isnull then begin
+      d3_adj.caption:=formatfloat('#0',fieldbyname('d3_a').value);
+      d3_act.caption:=formatfloat('#0',fieldbyname('d3_a').value);
+    end else begin
+      d3_adj.caption:='0';
+      d3_act.caption:='0';
+    end;
+    if not fieldbyname('d4_a').isnull then begin
+      d4_adj.caption:=formatfloat('#0',fieldbyname('d4_a').value);
+      d4_act.caption:=formatfloat('#0',fieldbyname('d4_a').value);
+    end else begin
+      d4_adj.caption:='0';
+      d4_act.caption:='0';
+    end;
+    if not fieldbyname('d5_a').isnull then begin
+      d5_adj.caption:=formatfloat('#0',fieldbyname('d5_a').value);
+      d5_act.caption:=formatfloat('#0',fieldbyname('d5_a').value);
+    end else begin
+      d5_adj.caption:='0';
+      d5_act.caption:='0';
+    end;
+    if not fieldbyname('d6_a').isnull then begin
+      d6_adj.caption:=formatfloat('#0',fieldbyname('d6_a').value);
+      d6_act.caption:=formatfloat('#0',fieldbyname('d6_a').value);
+    end else begin
+      d6_adj.caption:='0';
+      d6_act.caption:='0';
+    end;
+    if not fieldbyname('d7_a').isnull then begin
+      d7_adj.caption:=formatfloat('#0',fieldbyname('d7_a').value);
+      d7_act.caption:=formatfloat('#0',fieldbyname('d7_a').value);
+    end else begin
+      d7_adj.caption:='0';
+      d7_act.caption:='0';
+    end;
+  end;
+  cxview1.bands[1].caption:='Data download dd: '+formatdatetime('MM/dd hh:nn',query1.fieldbyname('tm').value);
+end;
+
+procedure TfrmEWSGAI_Detail.Query1AfterOpen(DataSet: TDataSet);
+begin
+  (query1.fieldbyname('t3dt') as tdatetimefield).displayformat:='MM/DD';
+  (query1.fieldbyname('ex_dt') as tdatetimefield).displayformat:='MM/DD';
+  (query1.fieldbyname('d1_dt') as tdatetimefield).displayformat:='YYYY/MM/DD';
+  (query1.fieldbyname('d2_dt') as tdatetimefield).displayformat:='YYYY/MM/DD';
+  (query1.fieldbyname('d3_dt') as tdatetimefield).displayformat:='YYYY/MM/DD';
+  (query1.fieldbyname('d4_dt') as tdatetimefield).displayformat:='YYYY/MM/DD';
+  (query1.fieldbyname('d5_dt') as tdatetimefield).displayformat:='YYYY/MM/DD';
+  (query1.fieldbyname('d6_dt') as tdatetimefield).displayformat:='YYYY/MM/DD';
+  (query1.fieldbyname('d7_dt') as tdatetimefield).displayformat:='YYYY/MM/DD';
+end;
+
+end.

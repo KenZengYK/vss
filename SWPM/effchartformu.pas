@@ -1,0 +1,789 @@
+unit effchartformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, TeEngine, TeeDBEdit, TeeDBCrossTab, Series, ExtCtrls, TeeProcs,
+  Chart, DBChart, ppCtrls, ppBands, ppClass, myChkBox, ppVar, ppPrnabl,
+  ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, DB, DBClient,
+  Grids, DBGridEh, ppViewr, StdCtrls, Mask, rxToolEdit, ppStrtch,
+  ppSubRpt, ppMemo, GridsEh, ppParameter;
+
+type
+  Tfrmeffchart = class(TForm)
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    DataSource1: TDataSource;
+    ppDBPipeline1: TppDBPipeline;
+    Query3: TClientDataSet;
+    DBChart1: TDBChart;
+    DBChart2: TDBChart;
+    DBCrossTabSource1: TDBCrossTabSource;
+    DBCrossTabSource2: TDBCrossTabSource;
+    DBGridEh1: TDBGridEh;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    title001: TppLabel;
+    ppImage1: TppImage;
+    ppLabel2: TppLabel;
+    fty001: TppLabel;
+    ppLabel3: TppLabel;
+    shop001: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    from001: TppLabel;
+    ppLabel7: TppLabel;
+    to001: TppLabel;
+    ppLabel10: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel11: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppShape2: TppShape;
+    ppLine31: TppLine;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppLine34: TppLine;
+    ppLine35: TppLine;
+    ppLine36: TppLine;
+    ppLine37: TppLine;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLine40: TppLine;
+    ppLine41: TppLine;
+    o001: TppLabel;
+    b001: TppLabel;
+    ppLine42: TppLine;
+    ppLine44: TppLine;
+    ppLine47: TppLine;
+    ppLine49: TppLine;
+    ppLine51: TppLine;
+    ppLine54: TppLine;
+    ppLine55: TppLine;
+    ppLine56: TppLine;
+    ppLine58: TppLine;
+    ppLine61: TppLine;
+    o002: TppLabel;
+    b002: TppLabel;
+    o003: TppLabel;
+    b003: TppLabel;
+    o004: TppLabel;
+    b004: TppLabel;
+    wkno01: TppLabel;
+    wkno02: TppLabel;
+    wkno03: TppLabel;
+    wkno04: TppLabel;
+    wkno05: TppLabel;
+    wkno06: TppLabel;
+    wkno07: TppLabel;
+    wkno08: TppLabel;
+    wkno09: TppLabel;
+    wkno10: TppLabel;
+    o005: TppLabel;
+    b005: TppLabel;
+    o006: TppLabel;
+    b006: TppLabel;
+    o007: TppLabel;
+    b007: TppLabel;
+    o008: TppLabel;
+    b008: TppLabel;
+    o009: TppLabel;
+    b009: TppLabel;
+    o010: TppLabel;
+    b010: TppLabel;
+    ppDetailBand1: TppDetailBand;
+    ppShape1: TppShape;
+    ppDBText1: TppDBText;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLine19: TppLine;
+    ppLine20: TppLine;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppLine25: TppLine;
+    ppLine26: TppLine;
+    ppLine28: TppLine;
+    ppLine29: TppLine;
+    dv01: TppDBText;
+    ev01: TppDBText;
+    dv02: TppDBText;
+    ev02: TppDBText;
+    dv03: TppDBText;
+    ev03: TppDBText;
+    dv04: TppDBText;
+    ev04: TppDBText;
+    dv05: TppDBText;
+    ev05: TppDBText;
+    dv06: TppDBText;
+    ev06: TppDBText;
+    dv07: TppDBText;
+    ev07: TppDBText;
+    dv08: TppDBText;
+    ev08: TppDBText;
+    dv09: TppDBText;
+    ev09: TppDBText;
+    dv10: TppDBText;
+    ev10: TppDBText;
+    ppFooterBand1: TppFooterBand;
+    ppImage2: TppImage;
+    DBCrossTabSource3: TDBCrossTabSource;
+    DBCrossTabSource4: TDBCrossTabSource;
+    title002: TppLabel;
+    DBCrossTabSource5: TDBCrossTabSource;
+    DBCrossTabSource7: TDBCrossTabSource;
+    DBCrossTabSource8: TDBCrossTabSource;
+    DBChart3: TDBChart;
+    DBChart4: TDBChart;
+    DBCrossTabSource6: TDBCrossTabSource;
+    DBCrossTabSource9: TDBCrossTabSource;
+    DBCrossTabSource10: TDBCrossTabSource;
+    Series11: TBarSeries;
+    DBCrossTabSource11: TDBCrossTabSource;
+    Series2: TLineSeries;
+    DBCrossTabSource12: TDBCrossTabSource;
+    DBCrossTabSource13: TDBCrossTabSource;
+    Query4: TClientDataSet;
+    DataSource2: TDataSource;
+    DBCrossTabSource14: TDBCrossTabSource;
+    Series5: TLineSeries;
+    DBCrossTabSource15: TDBCrossTabSource;
+    Series6: TLineSeries;
+    DBCrossTabSource16: TDBCrossTabSource;
+    DBCrossTabSource17: TDBCrossTabSource;
+    ppLabel1: TppLabel;
+    cust001: TppLabel;
+    ppLabel8: TppLabel;
+    cstyle001: TppLabel;
+    mychk01: TmyCheckBox;
+    ppLabel4: TppLabel;
+    ppLabel9: TppLabel;
+    from002: TppLabel;
+    ppLabel13: TppLabel;
+    to002: TppLabel;
+    mychk02: TmyCheckBox;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    from003: TppLabel;
+    ppLabel18: TppLabel;
+    to003: TppLabel;
+    mychk03: TmyCheckBox;
+    DBCrossTabSource18: TDBCrossTabSource;
+    ppSummaryBand1: TppSummaryBand;
+    ttl001: TppLabel;
+    Query5: TClientDataSet;
+    DateEdit1: TDateEdit;
+    DateEdit2: TDateEdit;
+    ppLabel12: TppLabel;
+    ptype01: TppLabel;
+    Series1: TBarSeries;
+    DBCrossTabSource19: TDBCrossTabSource;
+    Series3: TBarSeries;
+    DBCrossTabSource20: TDBCrossTabSource;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand2: TppDetailBand;
+    ppSummaryBand2: TppSummaryBand;
+    ppImage3: TppImage;
+    ppImage4: TppImage;
+    c001: TppLabel;
+    t001: TppLabel;
+    c002: TppLabel;
+    t002: TppLabel;
+    c003: TppLabel;
+    t003: TppLabel;
+    c004: TppLabel;
+    t004: TppLabel;
+    wk01: TppLabel;
+    wk02: TppLabel;
+    wk03: TppLabel;
+    wk04: TppLabel;
+    wk05: TppLabel;
+    wk06: TppLabel;
+    wk07: TppLabel;
+    wk08: TppLabel;
+    wk09: TppLabel;
+    wk10: TppLabel;
+    c005: TppLabel;
+    t005: TppLabel;
+    c006: TppLabel;
+    t006: TppLabel;
+    c007: TppLabel;
+    t007: TppLabel;
+    c008: TppLabel;
+    t008: TppLabel;
+    c009: TppLabel;
+    t009: TppLabel;
+    c010: TppLabel;
+    t010: TppLabel;
+    ppDBText2: TppDBText;
+    cv01: TppDBText;
+    tv01: TppDBText;
+    cv02: TppDBText;
+    tv02: TppDBText;
+    cv03: TppDBText;
+    tv03: TppDBText;
+    cv04: TppDBText;
+    tv04: TppDBText;
+    cv05: TppDBText;
+    tv05: TppDBText;
+    cv06: TppDBText;
+    tv06: TppDBText;
+    cv07: TppDBText;
+    tv07: TppDBText;
+    cv08: TppDBText;
+    tv08: TppDBText;
+    cv09: TppDBText;
+    tv09: TppDBText;
+    cv10: TppDBText;
+    tv10: TppDBText;
+    ttl002: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel17: TppLabel;
+    ppShape5: TppShape;
+    ppMemo2: TppMemo;
+    Series4: TLineSeries;
+    DBCrossTabSource21: TDBCrossTabSource;
+    Series7: TLineSeries;
+    DBCrossTabSource22: TDBCrossTabSource;
+    wkno11: TppLabel;
+    wkno12: TppLabel;
+    wkno13: TppLabel;
+    ppLine83: TppLine;
+    ppLine84: TppLine;
+    ppLine85: TppLine;
+    ppLine86: TppLine;
+    ppLine87: TppLine;
+    ppLine88: TppLine;
+    ppLine89: TppLine;
+    ppLine90: TppLine;
+    ppLine91: TppLine;
+    ppLine92: TppLine;
+    ppLine93: TppLine;
+    ppLine94: TppLine;
+    o011: TppLabel;
+    b011: TppLabel;
+    o012: TppLabel;
+    b012: TppLabel;
+    o013: TppLabel;
+    b013: TppLabel;
+    dv11: TppDBText;
+    ev11: TppDBText;
+    dv12: TppDBText;
+    ev12: TppDBText;
+    dv13: TppDBText;
+    ev13: TppDBText;
+    ppShape6: TppShape;
+    ppLine95: TppLine;
+    ppLine96: TppLine;
+    ppLine97: TppLine;
+    ppLine98: TppLine;
+    ppLine99: TppLine;
+    ppLine100: TppLine;
+    ppLine101: TppLine;
+    ppLine102: TppLine;
+    ppLine103: TppLine;
+    ppLine104: TppLine;
+    ppLine105: TppLine;
+    ppLine106: TppLine;
+    ppLine107: TppLine;
+    ppLine108: TppLine;
+    ppLine109: TppLine;
+    ppLine110: TppLine;
+    ppLine111: TppLine;
+    ppLine112: TppLine;
+    ppLine113: TppLine;
+    ppLine114: TppLine;
+    ppLine115: TppLine;
+    ppLine116: TppLine;
+    ppLine117: TppLine;
+    ppLine118: TppLine;
+    ppLine119: TppLine;
+    ppLine120: TppLine;
+    ppLine121: TppLine;
+    ppShape3: TppShape;
+    ppLine3: TppLine;
+    ppLine6: TppLine;
+    ppLine9: TppLine;
+    ppLine12: TppLine;
+    ppLine15: TppLine;
+    ppLine18: TppLine;
+    ppLine21: TppLine;
+    ppLine24: TppLine;
+    ppLine27: TppLine;
+    ppLine30: TppLine;
+    ppLine43: TppLine;
+    ppLine45: TppLine;
+    ppLine46: TppLine;
+    ppLine48: TppLine;
+    ppLine50: TppLine;
+    ppLine52: TppLine;
+    ppLine53: TppLine;
+    ppLine57: TppLine;
+    ppLine59: TppLine;
+    ppLine60: TppLine;
+    ppLine62: TppLine;
+    ppLine63: TppLine;
+    ppLine64: TppLine;
+    ppLine65: TppLine;
+    ppLine66: TppLine;
+    ppLine67: TppLine;
+    wk11: TppLabel;
+    wk12: TppLabel;
+    wk13: TppLabel;
+    c011: TppLabel;
+    t011: TppLabel;
+    c012: TppLabel;
+    t012: TppLabel;
+    c013: TppLabel;
+    t013: TppLabel;
+    cv11: TppDBText;
+    tv11: TppDBText;
+    cv12: TppDBText;
+    tv12: TppDBText;
+    cv13: TppDBText;
+    tv13: TppDBText;
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure ppGroupFooterBand1BeforePrint(Sender: TObject);
+    procedure ppGroupHeaderBand1BeforePrint(Sender: TObject);
+    procedure ppTitleBand1BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmeffchart: Tfrmeffchart;
+
+implementation
+
+uses mainformu, lineeffformu;
+
+{$R *.dfm}
+
+procedure Tfrmeffchart.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmeffchart.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  if wkno01.Caption>'' then begin
+   if not (query1.fieldbyname('e01').isnull or query1.fieldbyname('d01').isnull)then begin
+    if ev01.FieldValue<dv01.FieldValue then begin
+      ev01.Font.Style:=[fsBold];
+      ev01.Font.Color:=clRed;
+    end else begin
+      ev01.Font.Style:=[];
+      ev01.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno02.Caption>'' then begin
+   if not (query1.fieldbyname('e02').isnull or query1.fieldbyname('d02').isnull)then begin
+    if ev02.FieldValue<dv02.FieldValue then begin
+      ev02.Font.Style:=[fsBold];
+      ev02.Font.Color:=clRed;
+    end else begin
+      ev02.Font.Style:=[];
+      ev02.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno03.Caption>'' then begin
+   if not (query1.fieldbyname('e03').isnull or query1.fieldbyname('d03').isnull)then begin
+    if ev03.FieldValue<dv03.FieldValue then begin
+      ev03.Font.Style:=[fsBold];
+      ev03.Font.Color:=clRed;
+    end else begin
+      ev03.Font.Style:=[];
+      ev03.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno04.Caption>'' then begin
+   if not (query1.fieldbyname('e04').isnull or query1.fieldbyname('d04').isnull)then begin
+    if ev04.FieldValue<dv04.FieldValue then begin
+      ev04.Font.Style:=[fsBold];
+      ev04.Font.Color:=clRed;
+    end else begin
+      ev04.Font.Style:=[];
+      ev04.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno05.Caption>'' then begin
+   if not (query1.fieldbyname('e05').isnull or query1.fieldbyname('d05').isnull)then begin
+    if ev05.FieldValue<dv05.FieldValue then begin
+      ev05.Font.Style:=[fsBold];
+      ev05.Font.Color:=clRed;
+    end else begin
+      ev05.Font.Style:=[];
+      ev05.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno06.Caption>'' then begin
+   if not (query1.fieldbyname('e06').isnull or query1.fieldbyname('d06').isnull)then begin
+    if ev06.FieldValue<dv06.FieldValue then begin
+      ev06.Font.Style:=[fsBold];
+      ev06.Font.Color:=clRed;
+    end else begin
+      ev06.Font.Style:=[];
+      ev06.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno07.Caption>'' then begin
+   if not (query1.fieldbyname('e07').isnull or query1.fieldbyname('d07').isnull)then begin
+    if ev07.FieldValue<dv07.FieldValue then begin
+      ev07.Font.Style:=[fsBold];
+      ev07.Font.Color:=clRed;
+    end else begin
+      ev07.Font.Style:=[];
+      ev07.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno08.Caption>'' then begin
+   if not (query1.fieldbyname('e08').isnull or query1.fieldbyname('d08').isnull)then begin
+    if ev08.FieldValue<dv08.FieldValue then begin
+      ev08.Font.Style:=[fsBold];
+      ev08.Font.Color:=clRed;
+    end else begin
+      ev08.Font.Style:=[];
+      ev08.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno09.Caption>'' then begin
+   if not (query1.fieldbyname('e09').isnull or query1.fieldbyname('d09').isnull)then begin
+    if ev09.FieldValue<dv09.FieldValue then begin
+      ev09.Font.Style:=[fsBold];
+      ev09.Font.Color:=clRed;
+    end else begin
+      ev09.Font.Style:=[];
+      ev09.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno10.Caption>'' then begin
+   if not (query1.fieldbyname('e10').isnull or query1.fieldbyname('d10').isnull)then begin
+    if ev10.FieldValue<dv10.FieldValue then begin
+      ev10.Font.Style:=[fsBold];
+      ev10.Font.Color:=clRed;
+    end else begin
+      ev10.Font.Style:=[];
+      ev10.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno11.Caption>'' then begin
+   if not (query1.fieldbyname('e11').isnull or query1.fieldbyname('d11').isnull)then begin
+    if ev11.FieldValue<dv11.FieldValue then begin
+      ev11.Font.Style:=[fsBold];
+      ev11.Font.Color:=clRed;
+    end else begin
+      ev11.Font.Style:=[];
+      ev11.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno12.Caption>'' then begin
+   if not (query1.fieldbyname('e12').isnull or query1.fieldbyname('d12').isnull)then begin
+    if ev12.FieldValue<dv12.FieldValue then begin
+      ev12.Font.Style:=[fsBold];
+      ev12.Font.Color:=clRed;
+    end else begin
+      ev12.Font.Style:=[];
+      ev12.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+  if wkno13.Caption>'' then begin
+   if not (query1.fieldbyname('e13').isnull or query1.fieldbyname('d13').isnull)then begin
+    if ev13.FieldValue<dv13.FieldValue then begin
+      ev13.Font.Style:=[fsBold];
+      ev13.Font.Color:=clRed;
+    end else begin
+      ev13.Font.Style:=[];
+      ev13.Font.Color:=clGreen;
+    end;
+   end;
+  end;
+end;
+
+procedure Tfrmeffchart.ppGroupFooterBand1BeforePrint(Sender: TObject);
+var
+  s1,s2,s3,s4,s5,s6,s7,s8,s9,s10:string;
+  s11:integer;
+begin
+  s1:='';s2:='';s3:='';s4:='';s5:='';s6:='';s7:='';s8:='';s9:='';s10:='';
+  with query5 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x0',ptinput);
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='execute procedure sp_get_newstyle(:x0,:x1,:x2)';
+    params[0].asdatetime:=query1.fieldbyname('tm').value;
+    params[1].asdate:=dateedit1.date;
+    params[2].asdate:=dateedit2.date;
+    execute;
+  end;
+  with query5 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x0',ptinput);
+    commandtext:='select count(distinct cstyle) as c1 from temp_newcstyle where tm=:x0 and rep=0';
+    if frmlineeff.combobox1.text>'' then commandtext:=commandtext+' and tplant='''+frmlineeff.combobox1.text+'''';
+    if frmlineeff.combobox2.text>'' then commandtext:=commandtext+' and tshop='''+frmlineeff.combobox2.text+'''';
+    if frmlineeff.ComboBox3.text>'' then commandtext:=commandtext+' and substr(j_no,1,4)='''+frmlineeff.ComboBox3.Text+'''';
+    if frmlineeff.Edit9.text>'' then commandtext:=commandtext+' and cstyle like '''+frmlineeff.Edit9.Text+'%''';
+    if frmlineeff.combobox4.text>'' then commandtext:=commandtext+' and substr(flag6,1,1)='''+frmlineeff.combobox4.Text+'''';
+    params[0].asdatetime:=query1.fieldbyname('tm').value;
+    open;
+    if not fieldbyname('c1').isnull then s11:=fieldbyname('c1').value else s11:=0;
+  end;
+  with query5 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select count(distinct cstyle) as c1,count(distinct pline) as p1,count(distinct j_no) as p2,count(*) as s4,'
+                +'count(distinct acol) as s5,sum(diff) as s6,sum(lstr*(csect+ceot))/sum(csect+ceot) as s7,sum(sjrs*(csect+ceot))/sum(csect+ceot) as s8,count(distinct tshop) as s9 '
+                +'from line_shjs where flag=''0'' and dt1>=:x1 and dt1<=:x2 and (flag6 is not null) and tshop>''''';
+    if frmlineeff.combobox1.text>'' then commandtext:=commandtext+' and tplant='''+frmlineeff.combobox1.text+'''';
+    if frmlineeff.combobox2.text>'' then commandtext:=commandtext+' and tshop='''+frmlineeff.combobox2.text+'''';
+    if frmlineeff.ComboBox3.text>'' then commandtext:=commandtext+' and substr(j_no,1,4)='''+frmlineeff.ComboBox3.Text+'''';
+    if frmlineeff.Edit9.text>'' then commandtext:=commandtext+' and cstyle like '''+frmlineeff.Edit9.Text+'%''';
+    if frmlineeff.combobox4.text>'' then commandtext:=commandtext+' and substr(flag6,1,1)='''+frmlineeff.combobox4.Text+'''';
+    params[0].asdate:=dateedit1.date;
+    params[1].asdate:=dateedit2.date;
+    open;
+    if not fieldbyname('p2').isnull then s1:='project :  '+fieldbyname('p2').asstring+'    ';
+    if not fieldbyname('c1').IsNull then begin
+      if s11>fieldbyname('c1').value then s11:=fieldbyname('c1').value;
+      s2:='cust style :  '+fieldbyname('c1').asstring+'(N:'+inttostr(s11)+' R:'+inttostr(fieldbyname('c1').value-s11)+')    ';
+    end;
+    if not fieldbyname('s9').isnull then s9:='Workshop :  '+fieldbyname('s9').asstring+'    ';
+    if not fieldbyname('p1').isnull then s3:='line :  '+fieldbyname('p1').asstring+'    ';
+    if not fieldbyname('s4').isnull then s4:='QN :  '+fieldbyname('s4').asstring+'    ';
+    if not fieldbyname('s5').isnull then s5:='Clr :  '+fieldbyname('s5').asstring+'    ';
+    if not fieldbyname('s6').isnull then s6:='O/P :  '+formatfloat('#,0',fieldbyname('s6').value)+'    ';
+    if not fieldbyname('s7').isnull then s7:='GSD WF :  '+formatfloat('#0.0',fieldbyname('s7').value)+'    ';
+    if not fieldbyname('s8').isnull then s8:='Curr WF :  '+formatfloat('#0.0',fieldbyname('s8').value)+'    ';
+  end;
+  with query5 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select sum(cfwcrq-cfksrq+1)/count(*) as s10 from tblshedule where cfksrq>=:x1 and cfksrq<=:x2';
+    if frmlineeff.combobox1.text>'' then commandtext:=commandtext+' and tplant='''+frmlineeff.combobox1.text+'''';
+    if frmlineeff.combobox2.text>'' then commandtext:=commandtext+' and tshop='''+frmlineeff.combobox2.text+'''';
+    if frmlineeff.ComboBox3.text>'' then commandtext:=commandtext+' and substr(j_no,1,4)='''+frmlineeff.ComboBox3.Text+'''';
+    if frmlineeff.Edit9.text>'' then commandtext:=commandtext+' and cstyle like '''+frmlineeff.Edit9.Text+'%''';
+    if frmlineeff.combobox4.text>'' then commandtext:=commandtext+' and substr(flag6,1,1)='''+frmlineeff.combobox4.Text+'''';
+    params[0].asdate:=dateedit1.date;
+    params[1].asdate:=dateedit2.date;
+    open;
+    if not fieldbyname('s10').isnull then s10:='Cycle Time per QN(day) :  '+formatfloat('#0.0',fieldbyname('s10').value)+'    ';
+  end;
+  ttl001.Caption:=s1+s2+s9+s3+s4+s5+s6;//+s7+s8+s10;
+  ttl002.Caption:=s7+s8+s10;
+end;
+
+procedure Tfrmeffchart.ppGroupHeaderBand1BeforePrint(Sender: TObject);
+begin
+  if wkno02.Caption>'' then begin
+    o002.Visible:=true;
+    b002.Visible:=true;
+  end else begin
+    o002.Visible:=false;
+    b002.Visible:=false;
+  end;
+  if wkno03.Caption>'' then begin
+    o003.Visible:=true;
+    b003.Visible:=true;
+  end else begin
+    o003.Visible:=false;
+    b003.Visible:=false;
+  end;
+  if wkno04.Caption>'' then begin
+    o004.Visible:=true;
+    b004.Visible:=true;
+  end else begin
+    o004.Visible:=false;
+    b004.Visible:=false;
+  end;
+  if wkno05.Caption>'' then begin
+    o005.Visible:=true;
+    b005.Visible:=true;
+  end else begin
+    o005.Visible:=false;
+    b005.Visible:=false;
+  end;
+  if wkno06.Caption>'' then begin
+    o006.Visible:=true;
+    b006.Visible:=true;
+  end else begin
+    o006.Visible:=false;
+    b006.Visible:=false;
+  end;
+  if wkno07.Caption>'' then begin
+    o007.Visible:=true;
+    b007.Visible:=true;
+  end else begin
+    o007.Visible:=false;
+    b007.Visible:=false;
+  end;
+  if wkno08.Caption>'' then begin
+    o008.Visible:=true;
+    b008.Visible:=true;
+  end else begin
+    o008.Visible:=false;
+    b008.Visible:=false;
+  end;
+  if wkno09.Caption>'' then begin
+    o009.Visible:=true;
+    b009.Visible:=true;
+  end else begin
+    o009.Visible:=false;
+    b009.Visible:=false;
+  end;
+  if wkno10.Caption>'' then begin
+    o010.Visible:=true;
+    b010.Visible:=true;
+  end else begin
+    o010.Visible:=false;
+    b010.Visible:=false;
+  end;
+  if wkno11.Caption>'' then begin
+    o011.Visible:=true;
+    b011.Visible:=true;
+  end else begin
+    o011.Visible:=false;
+    b011.Visible:=false;
+  end;
+  if wkno12.Caption>'' then begin
+    o012.Visible:=true;
+    b012.Visible:=true;
+  end else begin
+    o012.Visible:=false;
+    b012.Visible:=false;
+  end;
+  if wkno13.Caption>'' then begin
+    o013.Visible:=true;
+    b013.Visible:=true;
+  end else begin
+    o013.Visible:=false;
+    b013.Visible:=false;
+  end;
+end;
+
+procedure Tfrmeffchart.ppTitleBand1BeforePrint(Sender: TObject);
+begin
+  if wk02.Caption>'' then begin
+    c002.Visible:=true;
+    t002.Visible:=true;
+  end else begin
+    c002.Visible:=false;
+    t002.Visible:=false;
+  end;
+  if wk03.Caption>'' then begin
+    c003.Visible:=true;
+    t003.Visible:=true;
+  end else begin
+    c003.Visible:=false;
+    t003.Visible:=false;
+  end;
+  if wk04.Caption>'' then begin
+    c004.Visible:=true;
+    t004.Visible:=true;
+  end else begin
+    c004.Visible:=false;
+    t004.Visible:=false;
+  end;
+  if wk05.Caption>'' then begin
+    c005.Visible:=true;
+    t005.Visible:=true;
+  end else begin
+    c005.Visible:=false;
+    t005.Visible:=false;
+  end;
+  if wk06.Caption>'' then begin
+    c006.Visible:=true;
+    t006.Visible:=true;
+  end else begin
+    c006.Visible:=false;
+    t006.Visible:=false;
+  end;
+  if wk07.Caption>'' then begin
+    c007.Visible:=true;
+    t007.Visible:=true;
+  end else begin
+    c007.Visible:=false;
+    t007.Visible:=false;
+  end;
+  if wk08.Caption>'' then begin
+    c008.Visible:=true;
+    t008.Visible:=true;
+  end else begin
+    c008.Visible:=false;
+    t008.Visible:=false;
+  end;
+  if wk09.Caption>'' then begin
+    c009.Visible:=true;
+    t009.Visible:=true;
+  end else begin
+    c009.Visible:=false;
+    t009.Visible:=false;
+  end;
+  if wk10.Caption>'' then begin
+    c010.Visible:=true;
+    t010.Visible:=true;
+  end else begin
+    c010.Visible:=false;
+    t010.Visible:=false;
+  end;
+  if wk11.Caption>'' then begin
+    c011.Visible:=true;
+    t011.Visible:=true;
+  end else begin
+    c011.Visible:=false;
+    t011.Visible:=false;
+  end;
+  if wk12.Caption>'' then begin
+    c012.Visible:=true;
+    t012.Visible:=true;
+  end else begin
+    c012.Visible:=false;
+    t012.Visible:=false;
+  end;
+  if wk13.Caption>'' then begin
+    c013.Visible:=true;
+    t013.Visible:=true;
+  end else begin
+    c013.Visible:=false;
+    t013.Visible:=false;
+  end;
+end;
+
+end.

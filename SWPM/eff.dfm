@@ -1,0 +1,20 @@
+object frmeffsetup: Tfrmeffsetup
+  Left = 0
+  Top = 0
+  Caption = #25928#29575#20043#35336#21123#33287#22519#34892#20043#35373#23450
+  ClientHeight = 310
+  ClientWidth = 720
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poDefault
+  Visible = True
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+end

@@ -1,0 +1,29 @@
+unit qn_sample_reasonformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DBCtrls;
+
+type
+  Tfrmqn_sample_reason = class(TForm)
+    DBMemo1: TDBMemo;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmqn_sample_reason: Tfrmqn_sample_reason;
+
+implementation
+
+uses mainformu, qn_sampleformu;
+
+{$R *.dfm}
+
+end.

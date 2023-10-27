@@ -1,0 +1,474 @@
+unit packplanformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, Buttons, StdCtrls, Spin, GridsEh, DBGridEh, Mask,
+  rxToolEdit, DB, DBClient, DateUtils, ppProd, ppClass, ppReport, ppComm,
+  ppRelatv, ppDB, ppDBPipe, ppCtrls, ppPrnabl, ppBands, ppCache, ppVar,
+  ppViewr, ppParameter;
+
+type
+  Tfrmpackplan = class(TForm)
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Splitter1: TSplitter;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    Label1: TLabel;
+    SpinEdit1: TSpinEdit;
+    DBGridEh1: TDBGridEh;
+    DBGridEh2: TDBGridEh;
+    Label2: TLabel;
+    ComboBox1: TComboBox;
+    Label3: TLabel;
+    DateEdit1: TDateEdit;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    DataSource1: TDataSource;
+    DataSource2: TDataSource;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    Query2SEQ: TIntegerField;
+    Query2TPLANT: TStringField;
+    Query2PDN: TStringField;
+    Query2EXFTY: TDateField;
+    Query2J_NO: TStringField;
+    Query2J2_JOB: TStringField;
+    Query2CSTYLE: TStringField;
+    Query2ACOL: TStringField;
+    Query2RWO: TStringField;
+    Query2QTY: TIntegerField;
+    Query2SQTY: TIntegerField;
+    Query2ZB: TStringField;
+    Query2DT: TDateField;
+    Query2IP1_P: TIntegerField;
+    Query2IP1_SMV: TFloatField;
+    Query2IP1_A: TIntegerField;
+    Query2IP2_P: TIntegerField;
+    Query2IP2_SMV: TFloatField;
+    Query2IP2_A: TIntegerField;
+    Query2CP1_P: TIntegerField;
+    Query2CP1_SMV: TFloatField;
+    Query2CP1_A: TIntegerField;
+    Query2CP2_P: TIntegerField;
+    Query2CP2_SMV: TFloatField;
+    Query2CP2_A: TIntegerField;
+    Query2T3_P: TIntegerField;
+    Query2T3_SMV: TFloatField;
+    Query2T3_A: TIntegerField;
+    Query2T2_P: TIntegerField;
+    Query2T2_SMV: TFloatField;
+    Query2T2_A: TIntegerField;
+    Label4: TLabel;
+    SpinEdit2: TSpinEdit;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    ppDBText1: TppDBText;
+    ppLabel3: TppLabel;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppDBText9: TppDBText;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLine1: TppLine;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppLabel29: TppLabel;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    dt001: TppLabel;
+    ppLabel30: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel31: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppSummaryBand1: TppSummaryBand;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLabel32: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    ppDBCalc3: TppDBCalc;
+    ppDBCalc4: TppDBCalc;
+    ppDBCalc5: TppDBCalc;
+    ppDBCalc6: TppDBCalc;
+    ppDBCalc7: TppDBCalc;
+    ppDBCalc8: TppDBCalc;
+    ppDBCalc9: TppDBCalc;
+    ppDBCalc10: TppDBCalc;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure SpinEdit1Change(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure Query2AfterPost(DataSet: TDataSet);
+    procedure DBGridEh2Columns11EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure DBGridEh2Columns13EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpackplan: Tfrmpackplan;
+
+implementation
+
+uses mainformu, pack_projectionformu;
+
+{$R *.dfm}
+
+procedure Tfrmpackplan.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmpackplan:=nil;
+end;
+
+procedure Tfrmpackplan.FormShow(Sender: TObject);
+begin
+  spinedit1.Value:=yearof(date);
+  spinedit2.Value:=weekof(date);
+  dateedit1.Date:=date;
+  combobox1.Text:='PACKING';
+end;
+
+procedure Tfrmpackplan.SpinEdit1Change(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='select * from tbl_pdn_m a,tbl_pdn_rwo b where a.seq=b.seq and a.tplant=''SL'' and f_year(a.exfty)=:x1 and a.wk=:x2 '
+                +'order by a.pdn,b.j_no,b.j2_job,b.acol,b.rwo';
+    params[0].asinteger:=spinedit1.value;
+    params[1].asinteger:=spinedit2.value;
+    open;
+  end;
+end;
+
+procedure Tfrmpackplan.SpeedButton1Click(Sender: TObject);
+var
+  seq:integer;
+  t2,ip1,ip2,cp1,cp2,t3:double;
+  t2a,ipa,cpa,t3a:integer;
+begin
+  if combobox1.text>'' then begin
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq) as q1 from tbl_packing_plan';
+    open;
+    if not fieldbyname('q1').isnull then seq:=fieldbyname('q1').value+1 else seq:=1;
+  end;
+  t2:=0; ip1:=0; ip2:=0; cp1:=0; cp2:=0; t3:=0;
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct a.pk,sum(a.sah) as q1 from tbl_pdn_pack_opt02 a,tbl_pdn_pack_opt01 b '
+                +'where a.seq=b.seq and b.cstyle='''+query1.fieldbyname('cstyle').value+''' group by a.pk';
+    open;
+    first;
+    while not eof do begin
+      if fieldbyname('pk').value='T2' then t2:=fieldbyname('q1').value
+      else if fieldbyname('pk').value='IPACK«e' then ip1:=fieldbyname('q1').value
+      else if fieldbyname('pk').value='IPACK' then ip2:=fieldbyname('q1').value
+      else if fieldbyname('pk').value='CPACK«e' then cp1:=fieldbyname('q1').value
+      else if fieldbyname('pk').value='CPACK' then cp2:=fieldbyname('q1').value
+      else if fieldbyname('pk').value='T3' then t3:=fieldbyname('q1').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  t2a:=0; ipa:=0; cpa:=0; t3a:=0;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    commandtext:='select distinct typ,sum(qty) as q1 from transit_pack where dt=:x1 and j2_job=:x2 and rwo=:x3 group by typ';
+    params[0].asdate:=dateedit1.date;
+    params[1].asstring:=query1.fieldbyname('j2_job').value;
+    params[2].asstring:=query1.fieldbyname('rwo').value;
+    open;
+    first;
+    while not eof do begin
+      if fieldbyname('typ').value='T2' then t2a:=fieldbyname('q1').value
+      else if fieldbyname('typ').value='iPack' then ipa:=fieldbyname('q1').value
+      else if fieldbyname('typ').value='cPack' then cpa:=fieldbyname('q1').value;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  t3a:=cpa;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    params.createparam(ftstring,'x4',ptinput);
+    params.createparam(ftstring,'x5',ptinput);
+    params.createparam(ftstring,'x6',ptinput);
+    params.createparam(ftstring,'x7',ptinput);
+    params.createparam(ftstring,'x8',ptinput);
+    params.createparam(ftinteger,'x9',ptinput);
+    params.createparam(ftinteger,'x10',ptinput);
+    params.createparam(ftstring,'x11',ptinput);
+    params.createparam(ftdate,'x12',ptinput);
+    params.createparam(ftfloat,'x13',ptinput);
+    params.createparam(ftfloat,'x14',ptinput);
+    params.createparam(ftfloat,'x15',ptinput);
+    params.createparam(ftfloat,'x16',ptinput);
+    params.createparam(ftfloat,'x17',ptinput);
+    params.createparam(ftfloat,'x18',ptinput);
+    params.createparam(ftinteger,'x19',ptinput);
+    params.createparam(ftinteger,'x20',ptinput);
+    params.createparam(ftinteger,'x21',ptinput);
+    params.createparam(ftinteger,'x22',ptinput);
+    commandtext:='insert into tbl_packing_plan(seq,pdn,exfty,j_no,j2_job,cstyle,acol,rwo,qty,sqty,zb,dt,ip1_smv,ip2_smv,cp1_smv,cp2_smv,t3_smv,t2_smv,tplant,t2_a,ip2_a,cp2_a,t3_a) '
+                +'values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8,:x9,:x10,:x11,:x12,:x13,:x14,:x15,:x16,:x17,:x18,''SL'',:x19,:x20,:x21,:x22)';
+    params[0].asinteger:=seq;
+    params[1].asstring:=query1.fieldbyname('pdn').value;
+    params[2].asdate:=query1.fieldbyname('exfty').value;
+    params[3].asstring:=query1.fieldbyname('j_no').value;
+    params[4].asstring:=query1.fieldbyname('j2_job').value;
+    params[5].asstring:=query1.fieldbyname('cstyle').value;
+    params[6].asstring:=query1.fieldbyname('acol').value;
+    params[7].asstring:=query1.fieldbyname('rwo').value;
+    params[8].asinteger:=query1.fieldbyname('qty').value;
+    params[9].asinteger:=query1.fieldbyname('sqty').value;
+    params[10].asstring:=combobox1.text;
+    params[11].asdate:=dateedit1.date;
+    params[12].asfloat:=ip1;
+    params[13].asfloat:=ip2;
+    params[14].asfloat:=cp1;
+    params[15].asfloat:=cp2;
+    params[16].asfloat:=t3;
+    params[17].asfloat:=t2;
+    params[18].asinteger:=t2a;
+    params[19].asinteger:=ipa;
+    params[20].asinteger:=cpa;
+    params[21].asinteger:=t3a;
+    execute;
+  end;
+  query1.Next;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='select * from tbl_packing_plan where zb=:x1 and dt=:x2';
+    params[0].asstring:=combobox1.text;
+    params[1].asdate:=dateedit1.date;
+    open;
+    locate('seq',seq,[]);
+  end;
+  end else showmessage('Please select group first!');
+end;
+
+procedure Tfrmpackplan.ComboBox1Change(Sender: TObject);
+begin
+  if combobox1.text>'' then begin
+    if dateedit1.date>0 then begin
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        commandtext:='select * from tbl_packing_plan where zb=:x1 and dt=:x2';
+        params[0].asstring:=combobox1.text;
+        params[1].asdate:=dateedit1.date;
+        open;
+      end;
+    end;
+  end else begin
+    if dateedit1.date>0 then begin
+      with query2 do begin
+        close;
+        params.clear;
+        //params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        commandtext:='select * from tbl_packing_plan where dt=:x2';
+        //params[0].asstring:=combobox1.text;
+        params[0].asdate:=dateedit1.date;
+        open;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmpackplan.SpeedButton3Click(Sender: TObject);
+begin
+  if not query2.fieldbyname('seq').isnull then begin
+    if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'x1',ptinput);
+        commandtext:='delete from tbl_packing_plan where seq=:x1';
+        params[0].asinteger:=query2.fieldbyname('seq').value;
+        execute;
+      end;
+      query2.Delete;
+    end;
+  end;
+end;
+
+procedure Tfrmpackplan.SpeedButton4Click(Sender: TObject);
+begin
+  if not query2.fieldbyname('seq').isnull then begin
+    if application.MessageBox('Delete these records?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      {
+      with query2 do begin
+        first;
+        while not eof do begin
+          with query3 do begin
+            close;
+            params.clear;
+            params.createparam(ftinteger,'x1',ptinput);
+            commandtext:='delete from tbl_packing_plan where seq=:x1';
+            params[0].asinteger:=query2.fieldbyname('seq').value;
+            execute;
+          end;
+          application.ProcessMessages;
+          next;
+        end;
+      end;
+      }
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        commandtext:='delete from tbl_packing_plan where zb=:x1 and dt=:x2';
+        params[0].asstring:=combobox1.text;
+        params[1].asdate:=dateedit1.date;
+        execute;
+      end;
+      combobox1change(self);
+    end;
+  end;
+end;
+
+procedure Tfrmpackplan.SpeedButton2Click(Sender: TObject);
+begin
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    params.createparam(ftdate,'x4',ptinput);
+    commandtext:='execute procedure sp_packplan_massadd(:x1,:x2,:x3,:x4)';
+    params[0].asinteger:=spinedit1.value;
+    params[1].asinteger:=spinedit2.value;
+    params[2].asstring:=combobox1.text;
+    params[3].asdate:=dateedit1.date;
+    execute;
+  end;
+  combobox1change(self);
+end;
+
+procedure Tfrmpackplan.Query2AfterPost(DataSet: TDataSet);
+begin
+  DataSetAfterPost(DataSet,0);
+end;
+
+procedure Tfrmpackplan.DBGridEh2Columns11EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+begin
+  //planning
+  if frmpack_projection=nil then frmpack_projection:=tfrmpack_projection.Create(nil);
+  frmpack_projection.SpinEdit1.Value:=query2.fieldbyname('sqty').value;
+  frmpack_projection.Show;
+end;
+
+procedure Tfrmpackplan.DBGridEh2Columns13EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+begin
+  //actual
+end;
+
+procedure Tfrmpackplan.BitBtn2Click(Sender: TObject);
+begin
+  if query2.Active then begin
+    if not query2.fieldbyname('dt').isnull then begin
+      dt001.Caption:=formatdatetime('yyyy-MM-dd',dateedit1.date);
+      ppReport1.Print;
+    end;
+  end;
+end;
+
+procedure Tfrmpackplan.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+end.

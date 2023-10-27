@@ -1,0 +1,393 @@
+unit ttlcshformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DBCtrls, CurrEdit, Mask, ToolEdit, Buttons, Db, DBClient,
+  ExtCtrls;
+
+type
+  Tfrmttlcsh = class(TForm)
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Label4: TLabel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Label8: TLabel;
+    DBText2: TDBText;
+    Label9: TLabel;
+    DBText3: TDBText;
+    Label10: TLabel;
+    DBText4: TDBText;
+    Label11: TLabel;
+    DBText5: TDBText;
+    DBText6: TDBText;
+    GroupBox1: TGroupBox;
+    Label3: TLabel;
+    DataSource1: TDataSource;
+    DBEdit1: TDBEdit;
+    Label5: TLabel;
+    DBEdit2: TDBEdit;
+    Label6: TLabel;
+    DBEdit3: TDBEdit;
+    Label7: TLabel;
+    DBEdit4: TDBEdit;
+    Label12: TLabel;
+    DBEdit5: TDBEdit;
+    Label13: TLabel;
+    DBEdit6: TDBEdit;
+    Label14: TLabel;
+    DBEdit7: TDBEdit;
+    Label15: TLabel;
+    DBEdit8: TDBEdit;
+    Label16: TLabel;
+    DBEdit9: TDBEdit;
+    Label17: TLabel;
+    DBEdit10: TDBEdit;
+    Label18: TLabel;
+    DBEdit11: TDBEdit;
+    Label19: TLabel;
+    DBEdit12: TDBEdit;
+    Label20: TLabel;
+    Label21: TLabel;
+    DBEdit13: TDBEdit;
+    Label22: TLabel;
+    DBEdit14: TDBEdit;
+    Bevel1: TBevel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label30: TLabel;
+    DBMemo1: TDBMemo;
+    Edit1: TCurrencyEdit;
+    Label31: TLabel;
+    DateEdit1: TDateEdit;
+    Query10: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure FormShow(Sender: TObject);
+    procedure FieldChange(Sender: TField);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmttlcsh: Tfrmttlcsh;
+
+implementation
+
+uses mainformu, zktdformu, achievingformu;
+
+{$R *.dfm}
+
+procedure Tfrmttlcsh.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmttlcsh:=nil;
+end;
+
+procedure Tfrmttlcsh.BitBtn1Click(Sender: TObject);
+var
+  seq:integer;
+begin
+  screen.cursor:=crSQLWait;
+  if label31.Visible=false then begin
+    if query1.state=dsedit then query1.post;
+  end else if label31.Visible=true then begin
+  if label4.Caption='ZKTD' then seq:=frmzktd.Query1.fieldbyname('seq').value
+  else if label4.Caption='ACHIEVE' then seq:=frmachieving.Query1.fieldbyname('seq').value;
+  
+  //Update record
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='delete from tbl_linezjs where pline=:x1 and date1=:x2';
+    params[0].asstring:=dbtext1.Caption;
+    params[1].asdate:=dateedit1.date;
+    execute;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    params.createparam(ftfloat,'x3',ptinput);
+    commandtext:='insert into tbl_linezjs(pline,date1,zjs) values(:x1,:x2,:x3)';
+    params[0].asstring:=dbtext1.Caption;
+    params[1].asdate:=dateedit1.Date;
+    params[2].asfloat:=edit1.Value;
+    execute;
+  end;
+  //Modify Line_SHJS
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='execute procedure sp_updline_csect(:x1,:x2)';
+    params[0].asstring:=dbtext1.Caption;
+    params[1].asdate:=dateedit1.Date;
+    execute;
+  end;
+  if label4.Caption='ZKTD' then begin
+    with frmzktd.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='select * from line_shjs where pline=:x1 and seq=:x2';
+      params[0].asstring:=dbtext1.Caption;
+      params[1].asinteger:=seq;
+      open;
+      locate('dt1',dateedit1.Date,[]);
+    end;
+  end else if label4.Caption='ACHIEVE' then begin
+    frmachieving.ComboBox1Change(self);
+    frmachieving.Query1.Locate('pline;seq;dt1',vararrayof([dbtext1.caption,seq,dateedit1.date]),[])
+  end;
+  end;
+  screen.Cursor:=crDefault;
+end;
+
+procedure Tfrmttlcsh.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('a2').onchange:=FieldChange;
+  query1.fieldbyname('b2').onchange:=FieldChange;
+  query1.fieldbyname('c2').onchange:=FieldChange;
+  query1.fieldbyname('d2').onchange:=FieldChange;
+  query1.fieldbyname('e2').onchange:=FieldChange;
+  query1.fieldbyname('f2').onchange:=FieldChange;
+  query1.fieldbyname('g2').onchange:=FieldChange;
+  query1.fieldbyname('h2').onchange:=FieldChange;
+  query1.fieldbyname('zsect').onchange:=FieldChange;
+  query1.fieldbyname('asect').onchange:=FieldChange;
+  query1.fieldbyname('rsect').onchange:=FieldChange;
+  query1.fieldbyname('esect').onchange:=FieldChange;
+  (query1.fieldbyname('a2') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('b2') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('c2') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('d2') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('e2') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('f2') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('g2') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('h2') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('zsect') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('asect') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('rsect') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('esect') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('csect') as tfloatfield).displayformat:='0.0';
+  (query1.fieldbyname('ttl') as tfloatfield).displayformat:='0.0';
+end;
+
+procedure Tfrmttlcsh.FormShow(Sender: TObject);
+begin
+  if (frmmain.eng_chn01.ItemIndex=1) then begin
+    with query10 do begin
+      close;
+      params.Clear;
+      commandtext:='select * from tbl_ver_engchn where f_mod=''GAI'' and f_frm=''QNCAL'' order by f_lbl_grd,f_xh';
+      open;
+      first;
+      while not eof do begin
+        if (fieldbyname('f_lbl_grd').value='LABEL') then begin
+          if fieldbyname('f_xh').value=1 then frmttlcsh.label1.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=2 then frmttlcsh.label8.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=3 then frmttlcsh.label9.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=4 then frmttlcsh.label2.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=5 then frmttlcsh..caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=6 then frmttlcsh.label16.caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=7 then frmttlcsh.label17.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=8 then frmttlcsh.label18.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=9 then frmttlcsh.label19.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=10 then frmttlcsh.label21.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=11 then frmttlcsh.label22.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=12 then frmttlcsh.bitbtn1.Caption:=fieldbyname('f_chn').value
+          else if fieldbyname('f_xh').value=13 then frmttlcsh.bitbtn2.Caption:=fieldbyname('f_chn').value;
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftdate,'x3',ptinput);
+    commandtext:='select * from qn_calendar where pline=:x1 and seq=:x2 and dt1=:x3';
+    if label4.Caption='ZKTD' then begin
+      params[0].asstring:=frmzktd.Query1.fieldbyname('pline').value;
+      params[1].asinteger:=frmzktd.Query1.fieldbyname('seq').value;
+      params[2].asdate:=frmzktd.Query1.fieldbyname('dt1').value;
+    end else begin
+      params[0].asstring:=frmachieving.Query1.fieldbyname('pline').value;
+      params[1].asinteger:=frmachieving.Query1.fieldbyname('seq').value;
+      params[2].asdate:=frmachieving.Query1.fieldbyname('dt1').value;
+    end;
+    open;
+  end;
+end;
+
+procedure Tfrmttlcsh.FieldChange(Sender: TField);
+var
+  a,b,c,d,e,f,g,h:double;
+  z1,a1,r1,e1:double;
+  str1:string;
+begin
+  if not query1.fieldbyname('a2').isnull then a:=query1.fieldbyname('a2').value else a:=0;
+  if not query1.fieldbyname('b2').isnull then b:=query1.fieldbyname('b2').value else b:=0;
+  if not query1.fieldbyname('c2').isnull then c:=query1.fieldbyname('c2').value else c:=0;
+  if not query1.fieldbyname('d2').isnull then d:=query1.fieldbyname('d2').value else d:=0;
+  if not query1.fieldbyname('e2').isnull then e:=query1.fieldbyname('e2').value else e:=0;
+  if not query1.fieldbyname('f2').isnull then f:=query1.fieldbyname('f2').value else f:=0;
+  if not query1.fieldbyname('g2').isnull then g:=query1.fieldbyname('g2').value else g:=0;
+  if not query1.fieldbyname('h2').isnull then h:=query1.fieldbyname('h2').value else h:=0;
+  if not query1.fieldbyname('zsect').isnull then z1:=query1.fieldbyname('zsect').value else z1:=0;
+  if not query1.fieldbyname('asect').isnull then a1:=query1.fieldbyname('asect').value else a1:=0;
+  if not query1.fieldbyname('rsect').isnull then r1:=query1.fieldbyname('rsect').value else r1:=0;
+  if not query1.fieldbyname('esect').isnull then e1:=query1.fieldbyname('esect').value else e1:=0;
+  query1.fieldbyname('lsect').value:=a+b+c+d+e+f+g+h;
+  query1.fieldbyname('ttl').value:=query1.fieldbyname('csect').value-z1-a1-r1-e1-(a+b+c+d+e+f+g+h);
+  str1:='';
+  if a>0 then begin
+    if str1>'' then str1:=str1+',2A('+formatfloat('0.0',a)+')' else str1:='2A('+formatfloat('0.0',a)+')';
+  end;
+  if b>0 then begin
+    if str1>'' then str1:=str1+',2B('+formatfloat('0.0',b)+')' else str1:='2B('+formatfloat('0.0',b)+')';
+  end;
+  if c>0 then begin
+    if str1>'' then str1:=str1+',2C('+formatfloat('0.0',c)+')' else str1:='2C('+formatfloat('0.0',c)+')';
+  end;
+  if d>0 then begin
+    if str1>'' then str1:=str1+',2D('+formatfloat('0.0',d)+')' else str1:='2D('+formatfloat('0.0',d)+')';
+  end;
+  if e>0 then begin
+    if str1>'' then str1:=str1+',2E('+formatfloat('0.0',e)+')' else str1:='2E('+formatfloat('0.0',e)+')';
+  end;
+  if f>0 then begin
+    if str1>'' then str1:=str1+',2F('+formatfloat('0.0',f)+')' else str1:='2F('+formatfloat('0.0',f)+')';
+  end;
+  if g>0 then begin
+    if str1>'' then str1:=str1+',2G('+formatfloat('0.0',g)+')' else str1:='2G('+formatfloat('0.0',g)+')';
+  end;
+  if h>0 then begin
+    if str1>'' then str1:=str1+',2H('+formatfloat('0.0',h)+')' else str1:='2H('+formatfloat('0.0',h)+')';
+  end;
+  query1.fieldbyname('flag').value:=str1;
+end;
+
+procedure Tfrmttlcsh.Query1AfterPost(DataSet: TDataSet);
+begin
+  screen.Cursor:=crSQLWait;
+  try
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftfloat,'x1',ptinput);
+      params.createparam(ftfloat,'x2',ptinput);
+      params.createparam(ftfloat,'x3',ptinput);
+      params.createparam(ftfloat,'x4',ptinput);
+      params.createparam(ftfloat,'x5',ptinput);
+      params.createparam(ftfloat,'x6',ptinput);
+      params.createparam(ftfloat,'x7',ptinput);
+      params.createparam(ftfloat,'x8',ptinput);
+      params.createparam(ftstring,'x9',ptinput);
+      params.createparam(ftfloat,'x10',ptinput);
+      params.createparam(ftfloat,'x11',ptinput);
+      params.createparam(ftfloat,'x12',ptinput);
+      params.createparam(ftfloat,'x13',ptinput);
+      params.createparam(ftfloat,'x14',ptinput);
+      params.createparam(ftstring,'x15',ptinput);
+      params.createparam(ftfloat,'x16',ptinput);
+      params.createparam(ftstring,'x17',ptinput);
+      params.createparam(ftinteger,'x18',ptinput);
+      params.createparam(ftdate,'x19',ptinput);
+      commandtext:='update qn_calendar set a2=:x1,b2=:x2,c2=:x3,d2=:x4,e2=:x5,f2=:x6,g2=:x7,h2=:x8,'
+                  +'flag=:x9,lsect=:x10,zsect=:x11,asect=:x12,rsect=:x13,esect=:x14,emarks=:x15,ttl=:x16 '
+                  +'where pline=:x17 and seq=:x18 and dt1=:x19';
+      if not query1.fieldbyname('a2').isnull then
+      params[0].asfloat:=query1.fieldbyname('a2').value
+      else params[0].asfloat:=0;
+      if not query1.fieldbyname('b2').isnull then
+      params[1].asfloat:=query1.fieldbyname('b2').value
+      else params[1].asfloat:=0;
+      if not query1.fieldbyname('c2').isnull then
+      params[2].asfloat:=query1.fieldbyname('c2').value
+      else params[2].asfloat:=0;
+      if not query1.fieldbyname('d2').isnull then
+      params[3].asfloat:=query1.fieldbyname('d2').value
+      else params[3].asfloat:=0;
+      if not query1.fieldbyname('e2').isnull then
+      params[4].asfloat:=query1.fieldbyname('e2').value
+      else params[4].asfloat:=0;
+      if not query1.fieldbyname('f2').isnull then
+      params[5].asfloat:=query1.fieldbyname('f2').value
+      else params[5].asfloat:=0;
+      if not query1.fieldbyname('g2').isnull then
+      params[6].asfloat:=query1.fieldbyname('g2').value
+      else params[6].asfloat:=0;
+      if not query1.fieldbyname('h2').isnull then
+      params[7].asfloat:=query1.fieldbyname('h2').value
+      else params[7].asfloat:=0;
+      if not query1.fieldbyname('flag').isnull then
+      params[8].asstring:=query1.fieldbyname('flag').value
+      else params[8].asstring:='';
+      if not query1.fieldbyname('lsect').isnull then
+      params[9].asfloat:=query1.fieldbyname('lsect').value
+      else params[9].asfloat:=0;
+      if not query1.fieldbyname('zsect').isnull then
+      params[10].asfloat:=query1.fieldbyname('zsect').value
+      else params[10].asfloat:=0;
+      if not query1.fieldbyname('asect').isnull then
+      params[11].asfloat:=query1.fieldbyname('asect').value
+      else params[11].asfloat:=0;
+      if not query1.fieldbyname('rsect').isnull then
+      params[12].asfloat:=query1.fieldbyname('rsect').value
+      else params[12].asfloat:=0;
+      if not query1.fieldbyname('esect').isnull then
+      params[13].asfloat:=query1.fieldbyname('esect').value
+      else params[13].asfloat:=0;
+      if not query1.fieldbyname('emarks').isnull then
+      params[14].asstring:=query1.fieldbyname('emarks').value
+      else params[14].asstring:='';
+      params[15].asfloat:=query1.fieldbyname('ttl').value;
+      params[16].asstring:=query1.fieldbyname('pline').value;
+      params[17].asinteger:=query1.fieldbyname('seq').value;
+      params[18].asdate:=query1.fieldbyname('dt1').value;
+      execute;
+    end;
+  end;
+  //update week52
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftdate,'x2',ptinput);
+    commandtext:='execute procedure sp_qnupdateweek52(:x1,:x2)';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asdate:=query1.fieldbyname('dt1').value;
+    execute;
+  end;
+  finally
+  screen.Cursor:=crdefault;
+  end;
+end;
+
+end.

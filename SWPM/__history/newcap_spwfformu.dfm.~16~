@@ -1,0 +1,377 @@
+object frmnewcap_spwf: Tfrmnewcap_spwf
+  Left = 0
+  Top = 0
+  Caption = 'Eff% for Ending Opt Ws'
+  ClientHeight = 293
+  ClientWidth = 841
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 841
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 40
+    ExplicitTop = 8
+    ExplicitWidth = 185
+    object Label55: TLabel
+      Left = 24
+      Top = 16
+      Width = 44
+      Height = 13
+      Caption = 'Factory: '
+    end
+    object Label56: TLabel
+      Left = 184
+      Top = 16
+      Width = 30
+      Height = 13
+      Caption = 'Date: '
+    end
+    object DBEdit55: TDBEdit
+      Left = 72
+      Top = 16
+      Width = 65
+      Height = 21
+      DataField = 'TPLANT'
+      DataSource = frmnewcap_wf.DataSource1
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object DBEdit56: TDBEdit
+      Left = 216
+      Top = 16
+      Width = 97
+      Height = 21
+      DataField = 'DT'
+      DataSource = frmnewcap_wf.DataSource1
+      ReadOnly = True
+      TabOrder = 1
+    end
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 0
+    Top = 41
+    Width = 841
+    Height = 211
+    Align = alClient
+    AllowedOperations = [alopUpdateEh]
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'Tahoma'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'GRP'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Team'
+        Width = 41
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'WFID'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'WF|ID'
+        Width = 66
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'WFNAME'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'WF|Name'
+        Width = 86
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'DT'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Date'
+        Width = 67
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'J_NO'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Project #'
+        Width = 82
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'J2_JOB'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'WO #'
+        Width = 73
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'STYLE'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Cust Style'
+        Width = 102
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'ACOL'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Clr Code'
+        Width = 36
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'RWO'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'RWO # Suffix'
+        Width = 43
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'FCCS'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'QN # Suffix'
+        Width = 41
+      end
+      item
+        Color = 10680818
+        EditButtons = <>
+        FieldName = 'QTY'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Qty'
+        Width = 56
+      end
+      item
+        Color = 10680818
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'TSAH'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'SAH'
+        Width = 46
+      end
+      item
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'SECT'
+        Footers = <>
+        Title.Caption = 'Actual Sect Hrs'
+        Width = 45
+      end
+      item
+        Color = 12771773
+        DisplayFormat = '0.00'
+        EditButtons = <>
+        FieldName = 'EFF'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Opt Perf %'
+        Width = 54
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 252
+    Width = 841
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    ExplicitLeft = -8
+    ExplicitTop = 258
+    ExplicitWidth = 590
+    object BitBtn1: TBitBtn
+      Left = 32
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Save'
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn5: TBitBtn
+      Left = 104
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 1
+    end
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_cap_spwf1'
+    FieldDefs = <
+      item
+        Name = 'TPLANT'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'GRP'
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'WFID'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'WFNAME'
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'DT'
+        Attributes = [faRequired]
+        DataType = ftDate
+      end
+      item
+        Name = 'J_NO'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'J2_JOB'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'STYLE'
+        DataType = ftWideString
+        Size = 35
+      end
+      item
+        Name = 'RWO'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'ACOL'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'FCCS'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'QTY'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TSAH'
+        DataType = ftFloat
+      end
+      item
+        Name = 'SECT'
+        DataType = ftFloat
+      end
+      item
+        Name = 'EFF'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'grp;wfid;dt;j2_job;acol;rwo;fccs'
+      end>
+    IndexName = 'idx1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterOpen = Query1AfterOpen
+    AfterPost = Query1AfterPost
+    Left = 208
+    Top = 88
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 248
+    Top = 88
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 280
+    Top = 88
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 312
+    Top = 88
+  end
+end

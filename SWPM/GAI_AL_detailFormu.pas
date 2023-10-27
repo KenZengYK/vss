@@ -1,0 +1,44 @@
+unit GAI_AL_detailFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DBCtrls;
+
+type
+  TfrmGAI_AL_detail = class(TForm)
+    dbmmo1: TDBMemo;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn5Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmGAI_AL_detail: TfrmGAI_AL_detail;
+
+implementation
+
+uses mainformu, GAI_ActionlogFormu;
+
+{$R *.dfm}
+
+procedure TfrmGAI_AL_detail.BitBtn5Click(Sender: TObject);
+begin
+  frmGAI_Actionlog.bitbtn5click(self);
+  close;
+end;
+
+procedure TfrmGAI_AL_detail.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=caFree;
+  frmGAI_AL_detail:=nil;
+end;
+
+end.

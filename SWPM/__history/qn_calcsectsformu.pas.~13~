@@ -1,0 +1,63 @@
+unit qn_calcsectsformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, StdCtrls, DBCtrls, Mask, rxToolEdit,
+  rxCurrEdit, DB, DBClient, Buttons;
+
+type
+  Tfrmqn_calcsects = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    CurrencyEdit1: TCurrencyEdit;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DataSource1: TDataSource;
+    Query10: TClientDataSet;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmqn_calcsects: Tfrmqn_calcsects;
+
+implementation
+
+uses mainformu, achievingformu;
+
+{$R *.dfm}
+
+procedure Tfrmqn_calcsects.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+  //
+end;
+
+procedure Tfrmqn_calcsects.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmqn_calcsects:=nil;
+end;
+
+procedure Tfrmqn_calcsects.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+
+end;
+
+end.

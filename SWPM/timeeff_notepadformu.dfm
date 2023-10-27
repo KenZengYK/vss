@@ -1,0 +1,86 @@
+object frmtimeeff_notepad: Tfrmtimeeff_notepad
+  Left = 0
+  Top = 0
+  Caption = 'Notepad for Labor'#39's Time Efficiency '
+  ClientHeight = 273
+  ClientWidth = 569
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 24
+    Width = 55
+    Height = 13
+    Caption = 'Notepad:-  '
+  end
+  object DBMemo1: TDBMemo
+    Left = 48
+    Top = 43
+    Width = 473
+    Height = 150
+    DataField = 'REMARKS'
+    DataSource = DataSource1
+    ScrollBars = ssBoth
+    TabOrder = 0
+  end
+  object BitBtn1: TBitBtn
+    Left = 48
+    Top = 216
+    Width = 73
+    Height = 25
+    Caption = 'Save'
+    DoubleBuffered = True
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      04000000000080000000CE0E0000C40E00001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+      2222200000000002222203300007030222220330000703000222033000000303
+      0222033333333303000203300000330303020307777703030302030777770303
+      0302030777770003030203077777070303020000000000000302220307777707
+      0302220000000000000222220307777707022222000000000002}
+    ParentDoubleBuffered = False
+    TabOrder = 1
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 120
+    Top = 216
+    Width = 73
+    Height = 25
+    Caption = 'Exit'
+    DoubleBuffered = True
+    Kind = bkClose
+    ParentDoubleBuffered = False
+    TabOrder = 2
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from  tbl_tmeff_notepad'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    AfterPost = Query1AfterPost
+    Left = 128
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 168
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 216
+  end
+end

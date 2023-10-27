@@ -1,0 +1,585 @@
+unit GAISummaryFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  ADODB, StdCtrls, Buttons, Mask, rxToolEdit, cxGridLevel, cxClasses,
+  cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxGrid, ExtCtrls, cxGridBandedTableView, cxGridDBBandedTableView,
+  cxCurrencyEdit, cxGridExportLink, ppProd, ppClass, ppReport, ppComm, ppRelatv,
+  ppDB, ppDBPipe, ppPrnabl, ppCtrls, ppBands, ppCache, ppParameter, ppVar, ppViewr,
+  ppStrtch, ppSubRpt;
+
+type
+  Tfrmgaisummary = class(TForm)
+    Panel1: TPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel2: TPanel;
+    Label4: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    DateEdit1: TDateEdit;
+    Label1: TLabel;
+    DateEdit2: TDateEdit;
+    BitBtn1: TBitBtn;
+    ADOQuery1: TADOQuery;
+    ADOQuery2: TADOQuery;
+    DataSource1: TDataSource;
+    cxGrid1DBBandedTableView1: TcxGridDBBandedTableView;
+    cxGrid1DBBandedTableView1dt: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1fty: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sxsj: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sxgsl: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1apcl: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sjcl: TcxGridDBBandedColumn;
+    cxdbl: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1aprs: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sjrs: TcxGridDBBandedColumn;
+    cxaplxl: TcxGridDBBandedColumn;
+    cxsjlxl: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sjlxl_rj: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sjcl_z: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sxgsl_p: TcxGridDBBandedColumn;
+    cxdbl_p: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1aprs_p: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sjrs_p: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1aplxl_p: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sjlxl_p: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sjlxl_rj_p: TcxGridDBBandedColumn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    SaveDialog1: TSaveDialog;
+    cxGrid1DBBandedTableView1sjrs1: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1sjrs1_p: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1aprs1: TcxGridDBBandedColumn;
+    cxGrid1DBBandedTableView1aprs1_p: TcxGridDBBandedColumn;
+    ppReport1: TppReport;
+    ppParameterList1: TppParameterList;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    fty001: TppLabel;
+    dt001: TppLabel;
+    ppLabel4: TppLabel;
+    dt002: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel3: TppLabel;
+    ppDBText1: TppDBText;
+    ppDBPipeline1: TppDBPipeline;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppDBText2: TppDBText;
+    ppLabel6: TppLabel;
+    ppDBText3: TppDBText;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppDBText4: TppDBText;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLine14: TppLine;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLabel15: TppLabel;
+    dbl001: TppDBText;
+    ppLine18: TppLine;
+    ppLine19: TppLine;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppDBText8: TppDBText;
+    ppLine20: TppLine;
+    ppLine21: TppLine;
+    ppDBText9: TppDBText;
+    ppLabel19: TppLabel;
+    ppLabel20: TppLabel;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppDBText7: TppDBText;
+    ppDBText10: TppDBText;
+    ppLabel21: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    ppLine24: TppLine;
+    ppLine25: TppLine;
+    ppLine26: TppLine;
+    ppLine27: TppLine;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    ppLabel29: TppLabel;
+    ppLabel30: TppLabel;
+    ppLine28: TppLine;
+    ppLine29: TppLine;
+    ppLine30: TppLine;
+    ppDBText11: TppDBText;
+    sjlxl001: TppDBText;
+    ppDBText13: TppDBText;
+    ppLine31: TppLine;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppLine34: TppLine;
+    ppLabel31: TppLabel;
+    ppLabel32: TppLabel;
+    ppLabel33: TppLabel;
+    ppLine35: TppLine;
+    ppDBText12: TppDBText;
+    ppLine36: TppLine;
+    ppLabel34: TppLabel;
+    ppDBText14: TppDBText;
+    ppLabel35: TppLabel;
+    ppLabel36: TppLabel;
+    ppLabel37: TppLabel;
+    ppLine37: TppLine;
+    ppDBText15: TppDBText;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLine40: TppLine;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppLabel39: TppLabel;
+    ppLabel40: TppLabel;
+    ppLabel41: TppLabel;
+    ppLabel42: TppLabel;
+    ppLabel43: TppLabel;
+    ppLabel44: TppLabel;
+    ppLabel45: TppLabel;
+    ppLabel46: TppLabel;
+    ppLabel47: TppLabel;
+    ppLine41: TppLine;
+    ppLine42: TppLine;
+    ppLine43: TppLine;
+    ppLine44: TppLine;
+    ppLine45: TppLine;
+    ppLine46: TppLine;
+    ppLine47: TppLine;
+    ppLine48: TppLine;
+    ppLabel48: TppLabel;
+    ppLabel49: TppLabel;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppLabel50: TppLabel;
+    ppLabel51: TppLabel;
+    ppLabel52: TppLabel;
+    ppLabel53: TppLabel;
+    ppLine49: TppLine;
+    ppLine50: TppLine;
+    ppLabel54: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel55: TppLabel;
+    ppLine51: TppLine;
+    ppLine52: TppLine;
+    ppLine53: TppLine;
+    ppLine54: TppLine;
+    ppLine55: TppLine;
+    ppLine56: TppLine;
+    ppLine57: TppLine;
+    ppLine58: TppLine;
+    ppLine59: TppLine;
+    ppLine60: TppLine;
+    ppLabel56: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppShape1: TppShape;
+    rg01: TRadioGroup;
+    cxapbz: TcxGridDBBandedColumn;
+    ppLine61: TppLine;
+    ppLine62: TppLine;
+    ppLabel57: TppLabel;
+    ppLabel58: TppLabel;
+    apbz001: TppDBText;
+    ADOQuery3: TADOQuery;
+    DataSource2: TDataSource;
+    ppDBPipeline2: TppDBPipeline;
+    ppSummaryBand1: TppSummaryBand;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand2: TppDetailBand;
+    ppSummaryBand2: TppSummaryBand;
+    ppHeaderBand2: TppHeaderBand;
+    ppShape2: TppShape;
+    ppShape3: TppShape;
+    ppLabel59: TppLabel;
+    ppDBText23: TppDBText;
+    ppDBText24: TppDBText;
+    ppDBText25: TppDBText;
+    ppDBText26: TppDBText;
+    ppDBText27: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText32: TppDBText;
+    ppDBText33: TppDBText;
+    ppDBText34: TppDBText;
+    ppDBText35: TppDBText;
+    box101: TppShape;
+    box001: TppShape;
+    box102: TppShape;
+    box002: TppShape;
+    box103: TppShape;
+    box104: TppShape;
+    box003: TppShape;
+    box004: TppShape;
+    box105: TppShape;
+    box106: TppShape;
+    box107: TppShape;
+    box108: TppShape;
+    box007: TppShape;
+    box008: TppShape;
+    box005: TppShape;
+    box006: TppShape;
+    box109: TppShape;
+    box110: TppShape;
+    box111: TppShape;
+    box112: TppShape;
+    box011: TppShape;
+    box012: TppShape;
+    box009: TppShape;
+    box010: TppShape;
+    r001: TppLabel;
+    r002: TppLabel;
+    r003: TppLabel;
+    r004: TppLabel;
+    r005: TppLabel;
+    r006: TppLabel;
+    r007: TppLabel;
+    r008: TppLabel;
+    r009: TppLabel;
+    r010: TppLabel;
+    r011: TppLabel;
+    r012: TppLabel;
+    Label3: TLabel;
+    Edit1: TEdit;
+    opt1: TCheckBox;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure cxGrid1DBBandedTableView1dtCompareRowValuesForCellMerging(
+      Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+      AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+      ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+      const AValue2: Variant; var AAreEqual: Boolean);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure cxGrid1DBBandedTableView1CustomDrawCell(
+      Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure cxGrid1DBBandedTableView1StylesGetContentStyle(
+      Sender: TcxCustomGridTableView; ARecord: TcxCustomGridRecord;
+      AItem: TcxCustomGridTableItem; out AStyle: TcxStyle);
+    procedure FormCreate(Sender: TObject);
+    procedure ppSummaryBand1BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmgaisummary: Tfrmgaisummary;
+  ARedStyle,AGreenStyle: TcxStyle;
+  tm:tdatetime;
+
+implementation
+
+uses mainformu, achievingformu;
+
+{$R *.dfm}
+
+procedure Tfrmgaisummary.BitBtn1Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  tm:=now;
+  with adoquery1 do begin
+    close;
+    if (edit1.text>'') then begin
+    end else begin
+      if rg01.ItemIndex=0 then
+      sql.text:='exec phdb..sp_swpm_gai_summary :x1,:x2,:x3'
+      else if rg01.ItemIndex=1 then
+      sql.text:='exec phdb..sp_swpm_gai_summary_m :x1,:x2,:x3,:x4';
+      parameters[0].value:=combobox1.text;
+      parameters[1].value:=dateedit1.date;
+      parameters[2].value:=dateedit2.date;
+      if rg01.itemindex=1 then
+      parameters[3].value:=tm;
+    end;
+    open;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmgaisummary.BitBtn2Click(Sender: TObject);
+begin
+  if savedialog1.Execute then begin
+    ExportGridToExcel(savedialog1.FileName,cxGrid1,false,true,false,'xls');
+  end;
+end;
+
+procedure Tfrmgaisummary.BitBtn3Click(Sender: TObject);
+begin
+  if not adoquery1.fieldbyname('dt').isnull then begin
+    fty001.caption:=combobox1.text;
+    dt001.caption:=formatdatetime('yyyy-MM-dd',dateedit1.date);
+    dt002.caption:=formatdatetime('yyyy-MM-dd',dateedit2.date);
+    if rg01.itemindex=0 then
+    pplabel1.caption:='GAI Daily Periodic Summary Analysis'
+    else if rg01.itemindex=1 then
+    pplabel1.caption:='GAI Monthly Periodic Summary Analysis';
+    if ((rg01.itemindex=1) and ((combobox1.text='CN') or (combobox1.text='GX'))) then
+    ppSummaryband1.visible:=true else ppsummaryband1.visible:=false;
+    ppReport1.Print;
+  end;
+end;
+
+procedure Tfrmgaisummary.cxGrid1DBBandedTableView1CustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  if aviewinfo.Item.ID in [6] then begin
+    if AViewInfo.GridRecord.Values[cxdbl.index]<90.00 then begin
+      ACanvas.Canvas.Font.Color:= clRed;
+    end else if AViewInfo.GridRecord.Values[cxdbl.index]>=100.00 then begin
+      ACanvas.Canvas.Font.Color:= clGreen;
+    end;
+  end;
+  if aviewinfo.Item.ID in [10] then begin
+    if AViewInfo.GridRecord.Values[cxapbz.index]<0.95 then begin
+      ACanvas.Canvas.Font.Color:= clRed;
+    end else if AViewInfo.GridRecord.Values[cxapbz.index]>=1.00 then begin
+      ACanvas.Canvas.Font.Color:= clGreen;
+    end;
+  end;
+  if aviewinfo.Item.ID in [13] then begin
+    if AViewInfo.GridRecord.Values[cxaplxl.index]-3.0>AViewInfo.GridRecord.Values[cxsjlxl.index] then begin
+      ACanvas.Canvas.Font.Color:= clRed;
+    end else if AViewInfo.GridRecord.Values[cxaplxl.index]+3.0<=AViewInfo.GridRecord.Values[cxsjlxl.index] then begin
+      ACanvas.Canvas.Font.Color:= clGreen;
+    end;
+  end;
+end;
+
+procedure Tfrmgaisummary.cxGrid1DBBandedTableView1dtCompareRowValuesForCellMerging(
+  Sender: TcxGridColumn; ARow1: TcxGridDataRow;
+  AProperties1: TcxCustomEditProperties; const AValue1: Variant;
+  ARow2: TcxGridDataRow; AProperties2: TcxCustomEditProperties;
+  const AValue2: Variant; var AAreEqual: Boolean);
+begin
+  if ARow1.Values[cxGrid1DBBandedTableView1dt.Index] = ARow2.Values[cxGrid1DBBandedTableView1dt.Index] then
+     AAreEqual := True
+   else
+     AAreEqual := False;
+end;
+
+procedure Tfrmgaisummary.cxGrid1DBBandedTableView1StylesGetContentStyle(
+  Sender: TcxCustomGridTableView; ARecord: TcxCustomGridRecord;
+  AItem: TcxCustomGridTableItem; out AStyle: TcxStyle);
+begin
+  if AItem.ID=6 then begin
+    if ARecord.Values[cxdbl.index]<90.00 then begin
+      AStyle:= ARedStyle;
+    end else if ARecord.Values[cxdbl.index]>=100.00 then begin
+      AStyle:= AGreenStyle;
+    end;
+  end;
+  if AItem.ID=10 then begin
+    if ARecord.Values[cxapbz.index]<0.95 then begin
+      AStyle:= ARedStyle;
+    end else if ARecord.Values[cxapbz.index]>=1.00 then begin
+      AStyle:= AGreenStyle;
+    end;
+  end;
+  if AItem.ID=13 then begin
+    if ARecord.Values[cxaplxl.index]-3.0>ARecord.Values[cxsjlxl.index] then begin
+      AStyle:= ARedStyle;
+    end else if ARecord.Values[cxaplxl.index]+3.0<=ARecord.Values[cxsjlxl.index] then begin
+      AStyle:= AGreenStyle;
+    end;
+  end;
+end;
+
+procedure Tfrmgaisummary.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmgaisummary:=nil;
+end;
+
+procedure Tfrmgaisummary.FormCreate(Sender: TObject);
+begin
+  ARedStyle:=TcxStyle.Create(self);
+  ARedStyle.TextColor:=clRed;
+  AGreenStyle:=TcxStyle.Create(self);
+  AGreenStyle.TextColor:=clGreen;
+end;
+
+procedure Tfrmgaisummary.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  if adoquery1.fieldbyname('dbl').value<90.00 then dbl001.font.color:=clRed
+  else if adoquery1.fieldbyname('dbl').value>=100.00 then dbl001.font.color:=clGreen
+  else dbl001.font.color:=clBlack;
+
+  if adoquery1.fieldbyname('apbz').value<0.950 then apbz001.font.color:=clRed
+  else if adoquery1.fieldbyname('apbz').value>=1.00 then apbz001.font.color:=clGreen
+  else apbz001.font.color:=clBlack;
+
+  if adoquery1.fieldbyname('aplxl').value+3.00<=adoquery1.fieldbyname('sjlxl').value then
+  sjlxl001.font.color:=clGreen
+  else if adoquery1.fieldbyname('aplxl').value-3.00>adoquery1.fieldbyname('sjlxl').value then
+  sjlxl001.font.color:=clRed
+  else sjlxl001.font.color:=clBlack;
+end;
+
+procedure Tfrmgaisummary.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmgaisummary.ppSummaryBand1BeforePrint(Sender: TObject);
+begin
+  with adoquery3 do begin
+    close;
+    sql.text:='select * from phdb..tbl_swpm_gaisummary_tmp where tm=:x1 order by seq';
+    parameters[0].value:=tm;
+    open;
+    if fieldbyname('r2').isnull then begin
+      r002.visible:=false;
+      box002.visible:=false;
+      box102.visible:=false;
+    end else begin
+      r002.visible:=true;
+      box002.visible:=true;
+      box102.visible:=true;
+    end;
+    if fieldbyname('r3').isnull then begin
+      r003.visible:=false;
+      box003.visible:=false;
+      box103.visible:=false;
+    end else begin
+      r003.visible:=true;
+      box003.visible:=true;
+      box103.visible:=true;
+    end;
+    if fieldbyname('r4').isnull then begin
+      r004.visible:=false;
+      box004.visible:=false;
+      box104.visible:=false;
+    end else begin
+      r004.visible:=true;
+      box004.visible:=true;
+      box104.visible:=true;
+    end;
+    if fieldbyname('r5').isnull then begin
+      r005.visible:=false;
+      box005.visible:=false;
+      box105.visible:=false;
+    end else begin
+      r005.visible:=true;
+      box005.visible:=true;
+      box105.visible:=true;
+    end;
+    if fieldbyname('r6').isnull then begin
+      r006.visible:=false;
+      box006.visible:=false;
+      box106.visible:=false;
+    end else begin
+      r006.visible:=true;
+      box006.visible:=true;
+      box106.visible:=true;
+    end;
+    if fieldbyname('r7').isnull then begin
+      r007.visible:=false;
+      box007.visible:=false;
+      box107.visible:=false;
+    end else begin
+      r007.visible:=true;
+      box007.visible:=true;
+      box107.visible:=true;
+    end;
+    if fieldbyname('r8').isnull then begin
+      r008.visible:=false;
+      box008.visible:=false;
+      box108.visible:=false;
+    end else begin
+      r008.visible:=true;
+      box008.visible:=true;
+      box108.visible:=true;
+    end;
+    if fieldbyname('r9').isnull then begin
+      r009.visible:=false;
+      box009.visible:=false;
+      box109.visible:=false;
+    end else begin
+      r009.visible:=true;
+      box009.visible:=true;
+      box109.visible:=true;
+    end;
+    if fieldbyname('r10').isnull then begin
+      r010.visible:=false;
+      box010.visible:=false;
+      box110.visible:=false;
+    end else begin
+      r010.visible:=true;
+      box010.visible:=true;
+      box110.visible:=true;
+    end;
+    if fieldbyname('r11').isnull then begin
+      r011.visible:=false;
+      box011.visible:=false;
+      box111.visible:=false;
+    end else begin
+      r011.visible:=true;
+      box011.visible:=true;
+      box111.visible:=true;
+    end;
+    if fieldbyname('r12').isnull then begin
+      r012.visible:=false;
+      box012.visible:=false;
+      box112.visible:=false;
+    end else begin
+      r012.visible:=true;
+      box012.visible:=true;
+      box112.visible:=true;
+    end;
+  end;
+end;
+
+end.

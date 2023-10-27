@@ -1,0 +1,867 @@
+unit rwoformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Menus, DB, DBClient, StdCtrls, Buttons, ExtCtrls, Grids,
+  DBGridEh, ppBands, ppClass, ppCtrls, ppVar, ppPrnabl, ppCache, ppProd,
+  ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppViewr, Txcomp, GridsEh,
+  shellapi, ADODB;
+
+type
+  TfrmRWO = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    Label3: TLabel;
+    SpeedButton5: TSpeedButton;
+    Edit3: TEdit;
+    Panel2: TPanel;
+    SpeedButton1: TSpeedButton;
+    tblsop: TClientDataSet;
+    DataSource1: TDataSource;
+    ClientDataSet1: TClientDataSet;
+    ClientDataSet2: TClientDataSet;
+    ClientDataSet3: TClientDataSet;
+    ClientDataSet4: TClientDataSet;
+    Query1: TClientDataSet;
+    PopupMenu1: TPopupMenu;
+    GetTMU1: TMenuItem;
+    ModifyQty1: TMenuItem;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    ComboBox2: TComboBox;
+    SpeedButton2: TSpeedButton;
+    BitBtn1: TBitBtn;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppLabel1: TppLabel;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel20: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLabel21: TppLabel;
+    ppDetailBand1: TppDetailBand;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText13: TppDBText;
+    x002: TppDBText;
+    ppDBText12: TppDBText;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    ttl001: TppLabel;
+    ppLabel22: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    x202: TppDBCalc;
+    ttl002: TppLabel;
+    ttl003: TppLabel;
+    ttl004: TppLabel;
+    ttl005: TppLabel;
+    ttl006: TppLabel;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    sub001: TppLabel;
+    ppLabel24: TppLabel;
+    ppDBCalc3: TppDBCalc;
+    x201: TppDBCalc;
+    sub002: TppLabel;
+    sub003: TppLabel;
+    sub004: TppLabel;
+    sub005: TppLabel;
+    sub006: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    ppLabel28: TppLabel;
+    x001: TppDBText;
+    x101: TppDBCalc;
+    x102: TppDBCalc;
+    ppLabel29: TppLabel;
+    x003: TppLabel;
+    ppShape2: TppShape;
+    ppLabel30: TppLabel;
+    ppLabel31: TppLabel;
+    ppLabel32: TppLabel;
+    sl001: TppLabel;
+    sl002: TppLabel;
+    sl003: TppLabel;
+    sl004: TppLabel;
+    sl006: TppLabel;
+    sl005: TppLabel;
+    sl007: TppLabel;
+    sl008: TppLabel;
+    sl009: TppLabel;
+    kb001: TppLabel;
+    kb002: TppLabel;
+    kb003: TppLabel;
+    kb004: TppLabel;
+    kb006: TppLabel;
+    kb005: TppLabel;
+    kb007: TppLabel;
+    kb008: TppLabel;
+    kb009: TppLabel;
+    ppLabel33: TppLabel;
+    ppDBText14: TppDBText;
+    sub010: TppLabel;
+    ttl010: TppLabel;
+    sl010: TppLabel;
+    kb010: TppLabel;
+    DataSet2: TADOQuery;
+    CompleteProject1: TMenuItem;
+    Label4: TLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure tblsopAfterPost(DataSet: TDataSet);
+    procedure Edit3KeyPress(Sender: TObject; var Key: Char);
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppSummaryBand1BeforePrint(Sender: TObject);
+    procedure ppGroupFooterBand1BeforePrint(Sender: TObject);
+    procedure DBGridEh1Columns8EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure CompleteProject1Click(Sender: TObject);
+    procedure DBGridEh1TitleClick(Column: TColumnEh);
+    procedure DBGridEh1GetCellParams(Sender: TObject; Column: TColumnEh;
+      AFont: TFont; var Background: TColor; State: TGridDrawState);
+    procedure Label4MouseEnter(Sender: TObject);
+    procedure Label4MouseLeave(Sender: TObject);
+  private
+    { Private declarations }
+    procedure confirmselect;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmrwo: Tfrmrwo;
+  logseq:integer;
+
+implementation
+
+uses mainformu, worksheet, flagformu, clrlegendformu;
+
+{$R *.DFM}
+
+procedure Tfrmrwo.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmrwo:=nil;
+end;
+
+procedure Tfrmrwo.FormShow(Sender: TObject);
+begin
+  combobox1.items.clear;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct pline from tblline where pline is not null';
+    open;
+    first;
+    while not eof do begin
+      combobox1.items.add(fieldbyname('pline').value);
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  edit3.Text:='';
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='update tbl_sop set iqty=qty-rqty';
+    execute;
+  end;
+  with tblsop do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'flag1',ptinput);
+    commandtext:='select * from tbl_sop where flag1=:flag1 and rqty>0';
+    params[0].asstring:='0';
+    open;
+  end;
+end;
+
+procedure Tfrmrwo.SpeedButton1Click(Sender: TObject);
+var
+  seq1,trs,ksjs,wcjs,week1,xjs,scqty,sctd,var1:integer;
+  jxjs,phiszjs,zktd,sclhjs,shjs:double;
+  tmu,fyl,ysjhl,float1,float2,var2,var3,var4,float3,lstrs:double;
+  ksrq,wcrq,tzwcrq,plan_date:tdatetime;
+  calcks,calcwc,tplant,tshop:string;
+  artno,customer,sopno,acol,cstyle,rwo:string;
+  ordline:integer;
+begin
+  screen.cursor:=crhourglass;
+  if tblsop.state=dsedit then tblsop.post;
+  //confirmselect;
+  //speedbutton5click(self);
+  screen.cursor:=crdefault;
+end;
+
+procedure Tfrmrwo.tblsopAfterPost(DataSet: TDataSet);
+begin
+  if tblsop.ApplyUpdates(-1)>0 then begin
+    with clientdataset1 do begin
+      close;
+      params.clear;
+      params.createparam(ftboolean,'sel',ptinput);
+      params.createparam(ftstring,'pline',ptinput);
+      params.createparam(ftdate,'x0',ptinput);
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftstring,'j_no',ptinput);
+      params.createparam(ftinteger,'ordline',ptinput);
+      PARAMS.CREATEPARAM(FTSTRING,'J2_JOB',PTINPUT);
+      params.createparam(ftstring,'acol',ptinput);
+      params.createparam(ftstring,'rwo',ptinput);
+      commandtext:='update tbl_sop set sel=:sel,pline=:pline,fdt=:x0,exfty=:x1 where j_no=:j_no and ordline=:ordline AND J2_JOB=:J2_JOB and acol=:acol and rwo=:rwo';
+      if not tblsop.fieldbyname('sel').isnull then
+      params[0].asboolean:=tblsop.fieldbyname('sel').value
+      else params[0].asboolean:=false;
+      if not tblsop.fieldbyname('pline').isnull then
+      params[1].asstring:=tblsop.fieldbyname('pline').value
+      else begin
+        if tblsop.fieldbyname('sel').value=true then
+        params[1].asstring:=combobox1.text
+        else params[1].asstring:='';
+      end;
+      if not tblsop.fieldbyname('fdt').isnull then
+      params[2].asdate:=tblsop.fieldbyname('fdt').value;
+      if not tblsop.fieldbyname('exfty').IsNull then
+      params[3].asdate:=tblsop.fieldbyname('exfty').value;
+      params[4].asstring:=tblsop.fieldbyname('j_no').value;
+      params[5].asinteger:=tblsop.fieldbyname('ordline').value;
+      PARAMS[6].ASSTRING:=TBLSOP.FIELDBYNAME('J2_JOB').VALUE;
+      params[7].asstring:=tblsop.fieldbyname('acol').value;
+      params[8].asstring:=tblsop.fieldbyname('rwo').value;
+      execute;
+    end;
+  end;
+end;
+
+procedure Tfrmrwo.Edit3KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then speedbutton5click(self);
+end;
+
+procedure Tfrmrwo.SpeedButton5Click(Sender: TObject);
+begin
+  if edit3.text>'' then begin
+    with tblsop do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'flag1',ptinput);
+      params.createparam(ftstring,'sopno',ptinput);
+      commandtext:='select * from tbl_sop where flag1=:flag1 and j_no like :sopno and rqty>0';
+      if combobox2.text>'' then commandtext:=commandtext+' and tplant='''+combobox2.text+'''';
+      params[0].asstring:='0';
+      params[1].asstring:=edit3.text+'%';
+      open;
+    end;
+  end else begin
+    with tblsop do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'flag1',ptinput);
+      commandtext:='select * from tbl_sop where flag1=:flag1 and rqty>0';
+      if combobox2.text>'' then commandtext:=commandtext+' and tplant='''+combobox2.text+'''';
+      params[0].asstring:='0';
+      open;
+    end;
+  END;
+end;
+
+procedure TfrmRWO.confirmselect;
+var
+  seq1,trs,ksjs,wcjs,week1,xjs,scqty,sctd,var1:integer;
+  jxjs,phiszjs,zktd,sclhjs,shjs:double;
+  tmu,fyl,ysjhl,float1,float2,var2,var3,var4,float3,lstrs:double;
+  ksrq,wcrq,tzwcrq,plan_date:tdatetime;
+  calcks,calcwc,tplant,tshop:string;
+  artno,customer,sopno,acol,cstyle,rwo:string;
+  ordline:integer;
+begin
+  screen.cursor:=crhourglass;
+  if combobox1.text>'' then begin
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='update tbl_sop set pline=:x1 where sel=1 and ((pline is null) or (pline=:x2))';
+      params[0].asstring:=combobox1.text;
+      params[1].asstring:='';
+      execute;
+    end;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_sop where sel=1 order by j_no,ordline,j2_job,acol';
+    open;
+    first;
+    while not eof do begin
+      if pos('-',query1.fieldbyname('artno').value)>0 then begin
+        artno:=copy(query1.fieldbyname('artno').value,1,5);
+        artno:=artno+copy(query1.fieldbyname('artno').value,7,1);
+        artno:=artno+copy(query1.fieldbyname('artno').value,11,1);
+        artno:=artno+copy(query1.fieldbyname('artno').value,17,2);
+      end else begin
+        artno:=query1.fieldbyname('artno').value;
+      end;
+      with clientdataset1 do begin
+        close;
+        params.clear;
+        commandtext:='select lstrs from ppc_gxrs where kh='''+artno+'''';
+        open;
+        if not fieldbyname('lstrs').isnull then lstrs:=fieldbyname('lstrs').value
+        else lstrs:=0;
+      end;
+      with clientdataset1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        commandtext:='select cstyle from tblcstyle where sopno=:x1 and ordline=:x2';
+        params[0].asstring:=query1.fieldbyname('sopno').value;
+        params[1].asinteger:=query1.fieldbyname('ordline').value;
+        open;
+        if not fieldbyname('cstyle').IsNull then cstyle:=fieldbyname('cstyle').value
+        else cstyle:=artno;
+      end;
+      with clientdataset1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'pline',ptinput);
+        commandtext:='select max(seq) as seq1 from tblshedule where pline=:pline';
+        params[0].asstring:=query1.fieldbyname('pline').value;
+        open;
+        if fieldbyname('seq1').isnull then seq1:=1
+        else seq1:=fieldbyname('seq1').value+1;
+      end;
+      with clientdataset1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'pline',ptinput);
+        commandtext:='select workert,ysjhl,tplant,tshop from tblline where upper(pline)=:pline';
+        params[0].asstring:=query1.fieldbyname('pline').value;
+        open;
+        fyl:=1.00;
+        if not fieldbyname('ysjhl').isnull then ysjhl:=fieldbyname('ysjhl').value else ysjhl:=100;
+        if not fieldbyname('tplant').isnull then tplant:=fieldbyname('tplant').value else tplant:='SL';
+        if not fieldbyname('tshop').isnull then tshop:=fieldbyname('tshop').value else tshop:='';
+      end;
+      if lstrs=0 then lstrs:=25;
+      customer:=query1.fieldbyname('customer').value;
+      if not query1.fieldbyname('fdt').isnull then plan_date:=query1.fieldbyname('fdt').value
+      else plan_date:=encodedate(1899,12,30);
+      sopno:=query1.fieldbyname('sopno').value;
+      ordline:=query1.fieldbyname('ordline').value;
+      acol:=query1.fieldbyname('acol').value;
+      if query1.fieldbyname('tmu').value>0 then tmu:=query1.fieldbyname('tmu').value
+      else begin
+        with clientdataset4 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'kh',ptinput);
+          commandtext:='select min(zsj) as zsj1 from ie_zygx where substr(kh,1,5)=:kh and zsj>0';
+          params[0].asstring:=copy(artno,1,5);//copy(query1.fieldbyname('artno').value,1,5);
+          open;
+        end;
+        if not clientdataset4.fieldbyname('zsj1').isnull then tmu:=clientdataset4.fieldbyname('zsj1').value
+        else tmu:=0;
+      end;
+      scqty:=query1.fieldbyname('rqty').value;
+      if tmu*fyl>0.00 then begin
+        float1:=0.5*lstrs/(tmu*fyl);
+        xjs:=ceiling(float1);
+        jxjs:=float1;
+        float2:=scqty*1.00/jxjs;
+        float3:=scqty*100.00/jxjs/ysjhl;
+        phiszjs:=float2;
+        shjs:=float3-float2;
+      end else begin
+        xjs:=0;
+        phiszjs:=0;
+        shjs:=0;
+      end;
+      zktd:=0;
+      sctd:=0;
+      sclhjs:=0;
+      with clientdataset3 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'pline',ptinput);
+        params.createparam(ftstring,'sopno',ptinput);
+        params.createparam(ftinteger,'ordline',ptinput);
+        params.createparam(ftstring,'j_no',ptinput);
+        params.createparam(ftstring,'j2_job',ptinput);
+        params.createparam(ftstring,'artno',ptinput);
+        params.createparam(ftstring,'acol',ptinput);
+        params.createparam(ftinteger,'seq',ptinput);
+        params.createparam(ftinteger,'scqty',ptinput);
+        params.createparam(ftfloat,'tmu',ptinput);
+        params.createparam(ftinteger,'xjs',ptinput);
+        params.createparam(ftfloat,'phiszjs',ptinput);
+        params.createparam(ftinteger,'trs',ptinput);
+        params.createparam(ftfloat,'ysjhl',ptinput);
+        params.createparam(ftfloat,'fyl',ptinput);
+        params.createparam(ftfloat,'zktd',ptinput);
+        params.createparam(ftinteger,'sctd',ptinput);
+        params.createparam(ftfloat,'sclhjs',ptinput);
+        params.createparam(ftinteger,'kdjs',ptinput);
+        params.createparam(ftfloat,'jhl',ptinput);
+        params.createparam(ftdatetime,'yqlcrq',ptinput);
+        params.createparam(ftinteger,'bzjs',ptinput);
+        params.createparam(ftfloat,'zhjs',ptinput);
+        params.createparam(ftinteger,'bcjs',ptinput);
+        params.createparam(ftfloat,'dbxl',ptinput);
+        params.createparam(ftstring,'flag1',ptinput);
+        params.createparam(ftstring,'flag2',ptinput);
+        params.createparam(ftboolean,'yzh',ptinput);
+        params.createparam(ftstring,'cstyle',ptinput);
+        params.createparam(ftfloat,'shjs',ptinput);
+        params.createparam(ftdate,'pd4',ptinput);
+        params.createparam(ftstring,'rwo',ptinput);
+        params.createparam(ftinteger,'rid',ptinput);
+        params.createparam(ftdate,'plan_date',ptinput);
+        params.createparam(ftfloat,'jxjs',ptinput);
+        params.createparam(ftfloat,'lstrs',ptinput);
+        params.createparam(ftstring,'jhrs',ptinput);
+        params.createparam(ftstring,'fccs',ptinput);
+        params.createparam(ftstring,'tplant',ptinput);
+        params.createparam(ftstring,'tshop',ptinput);
+        commandtext:='insert into tblshedule(pline,sopno,ordline,j_no,j2_job,artno,acol,'
+                    +'seq,scqty,tmu,xjs,phiszjs,trs,ysjhl,fyl,zktd,sctd,sclhjs,kdjs,jhl,'
+                    +'yqlcrq,bzjs,zhjs,bcjs,dbxl,flag1,flag2,yzh,xs,cstyle,shjs,pd4,rwo,'
+                    +'rid,plan_date,jxjs,lstrs,jhrs,fccs,tplant,tshop) '
+                    +'values(:pline,:sopno,:ordline,:j_no,:j2_job,:artno,:acol,'
+                    +':seq,:scqty,:tmu,:xjs,:phiszjs,:trs,:ysjhl,:fyl,:zktd,:sctd,:sclhjs,:kdjs,:jhl,'
+                    +':yqlcrq,:bzjs,:zhjs,:bcjs,:dbxl,:flag1,:flag2,:yzh,1,:cstyle,:shjs,:pd4,:rwo,'
+                    +':rid,:plan_date,:jxjs,:lstrs,:jhrs,:fccs,:tplant,:tshop)';
+        params[0].asstring:=query1.fieldbyname('pline').value;
+        params[1].asstring:=query1.fieldbyname('sopno').value;
+        params[2].asinteger:=query1.fieldbyname('ordline').value;
+        params[3].asstring:=query1.fieldbyname('j_no').value;
+        if not query1.fieldbyname('j2_job').isnull then
+        params[4].asstring:=query1.fieldbyname('j2_job').value;
+        params[5].asstring:=artno;
+        params[6].asstring:=query1.fieldbyname('acol').value;
+        params[7].asinteger:=seq1;
+        params[8].asinteger:=scqty;
+        params[9].asfloat:=tmu;
+        params[10].asinteger:=xjs;
+        params[11].asfloat:=phiszjs;
+        params[12].asinteger:=round(lstrs);
+        params[13].asfloat:=ysjhl;
+        params[14].asfloat:=fyl;
+        params[15].asfloat:=zktd;
+        params[16].asinteger:=sctd;
+        params[17].asfloat:=sclhjs;
+        params[18].asinteger:=0;
+        params[19].asfloat:=ysjhl;
+        params[20].asdatetime:=query1.fieldbyname('dtso1').value;
+        params[21].asinteger:=12;
+        params[22].asfloat:=0;
+        params[23].asinteger:=0;
+        params[24].asfloat:=0;
+        params[25].asstring:='0';
+        params[26].asstring:='2';
+        params[27].asboolean:=false;
+        params[28].asstring:=cstyle;
+        params[29].asfloat:=shjs;
+        params[30].asdate:=query1.fieldbyname('ddt').value;
+        if not query1.fieldbyname('rwo').isnull then
+        params[31].asstring:=query1.fieldbyname('rwo').value
+        else params[31].asstring:='1/1';
+        params[32].asinteger:=query1.fieldbyname('rid').value;
+        if plan_date>0 then params[33].asdate:=plan_date;
+        params[34].asfloat:=jxjs;
+        params[35].asfloat:=lstrs;
+        params[36].asstring:='';
+        params[37].asstring:='';
+        params[38].asstring:=tplant;
+        params[39].asstring:=tshop;
+        execute;
+      end;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    commandtext:='update tbl_sop set sel=0,rqty=0,pline=:x1 where sel=1';
+    params[0].asstring:='';
+    execute;
+  end;
+end;
+
+procedure TfrmRWO.SpeedButton2Click(Sender: TObject);
+begin
+  if tblsop.Active then ppReport1.Print;
+end;
+
+procedure TfrmRWO.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).zoomsetting:=zs100percent;
+end;
+
+procedure TfrmRWO.ppSummaryBand1BeforePrint(Sender: TObject);
+var
+  f0,f1:integer;
+begin
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    commandtext:='select count(distinct customer) as c1,count(distinct j_no) as c2,count(distinct j2_job) as c3,count(distinct cstyle) as c4,count(*) as c5 from tbl_sop where rqty>0';
+    if edit3.text>'' then commandtext:=commandtext+' and j_no like '''+edit3.text+'%''';
+    if combobox2.text>'' then commandtext:=commandtext+' and tplant='''+combobox2.text+'''';
+    open;
+    if not fieldbyname('c1').isnull then ttl001.Caption:=fieldbyname('c1').asstring else ttl001.Caption:='0';
+    if not fieldbyname('c2').isnull then begin
+      ttl002.Caption:=fieldbyname('c2').asstring;
+      ttl003.Caption:=fieldbyname('c2').asstring;
+    end else begin
+      ttl002.Caption:='0';
+      ttl003.Caption:='0';
+    end;
+    if not fieldbyname('c3').isnull then ttl004.Caption:=fieldbyname('c3').asstring else ttl004.Caption:='0';
+    if not fieldbyname('c4').isnull then ttl005.Caption:=fieldbyname('c4').asstring else ttl005.Caption:='0';
+    if not fieldbyname('c5').isnull then ttl006.Caption:=fieldbyname('c5').asstring else ttl006.Caption:='0';
+  end;
+  f0:=0;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct j_no,j2_job,count(distinct cwo) as c5 from tbl_sop where rqty>0';
+    if edit3.text>'' then commandtext:=commandtext+' and j_no like '''+edit3.text+'%''';
+    if combobox2.text>'' then commandtext:=commandtext+' and tplant='''+combobox2.text+'''';
+    commandtext:=commandtext+' group by j_no,j2_job';
+    open;
+    first;
+    while not eof do begin
+     if not fieldbyname('c5').isnull then f0:=f0+fieldbyname('c5').value;
+     application.ProcessMessages;
+     next;
+    end;
+  end;
+  ttl010.Caption:=inttostr(f0);
+  if x102.Value>0 then x102.Font.Color:=clGreen else x102.Font.Color:=clBlack;
+  if x202.Value>0 then x202.Font.Color:=clRed else x202.Font.Color:=clBlack;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct tplant,count(distinct customer) as c1,count(distinct j_no) as c2,count(distinct j2_job) as c3,'
+                +'count(distinct cstyle) as c4,count(*) as c5,sum(qty) as c7,sum(iqty) as c8,sum(rqty) as c9 '
+                +'from tbl_sop where rqty>0 and tplant>'''' group by tplant order by tplant';
+    //if edit3.text>'' then commandtext:=commandtext+' and j_no like '''+edit3.text+'%''';
+    //if combobox2.text>'' then commandtext:=commandtext+' and tplant='''+combobox2.text+'''';
+    open;
+    first;
+    while not eof do begin
+      if fieldbyname('tplant').value='SL' then begin
+        if not fieldbyname('c1').isnull then sl001.Caption:=fieldbyname('c1').asstring else sl001.Caption:='0';
+        if not fieldbyname('c2').isnull then begin
+          sl002.Caption:=fieldbyname('c2').asstring;
+          sl003.Caption:=fieldbyname('c2').asstring;
+        end else begin
+          sl002.Caption:='0';
+          sl003.Caption:='0';
+        end;
+        if not fieldbyname('c3').isnull then sl004.Caption:=fieldbyname('c3').asstring else sl004.Caption:='0';
+        if not fieldbyname('c4').IsNull then sl005.Caption:=fieldbyname('c4').asstring else sl005.Caption:='0';
+        if not fieldbyname('c5').IsNull then sl006.Caption:=fieldbyname('c5').asstring else sl006.Caption:='0';
+        if not fieldbyname('c7').isnull then sl007.Caption:=fieldbyname('c7').asstring else sl007.Caption:='0';
+        if not fieldbyname('c8').IsNull then sl008.Caption:=fieldbyname('c8').asstring else sl008.Caption:='0';
+        if not fieldbyname('c9').IsNull then sl009.Caption:=fieldbyname('c9').asstring else sl009.Caption:='0';
+      end else begin
+        if not fieldbyname('c1').isnull then kb001.Caption:=fieldbyname('c1').asstring else kb001.Caption:='0';
+        if not fieldbyname('c2').isnull then begin
+          kb002.Caption:=fieldbyname('c2').asstring;
+          kb003.Caption:=fieldbyname('c2').asstring;
+        end else begin
+          kb002.Caption:='0';
+          kb003.Caption:='0';
+        end;
+        if not fieldbyname('c3').isnull then kb004.Caption:=fieldbyname('c3').asstring else kb004.Caption:='0';
+        if not fieldbyname('c4').IsNull then kb005.Caption:=fieldbyname('c4').asstring else kb005.Caption:='0';
+        if not fieldbyname('c5').IsNull then kb006.Caption:=fieldbyname('c5').asstring else kb006.Caption:='0';
+        if not fieldbyname('c7').isnull then kb007.Caption:=fieldbyname('c7').asstring else kb007.Caption:='0';
+        if not fieldbyname('c8').IsNull then kb008.Caption:=fieldbyname('c8').asstring else kb008.Caption:='0';
+        if not fieldbyname('c9').IsNull then kb009.Caption:=fieldbyname('c9').asstring else kb009.Caption:='0';
+      end;
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  f0:=0;f1:=0;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct tplant,j_no,j2_job,count(distinct cwo) as c5 from tbl_sop where rqty>0 and tplant>'''' group by tplant,j_no,j2_job';
+    //if edit3.text>'' then commandtext:=commandtext+' and j_no like '''+edit3.text+'%''';
+    //if combobox2.text>'' then commandtext:=commandtext+' and tplant='''+combobox2.text+'''';
+    open;
+    first;
+    while not eof do begin
+     if fieldbyname('tplant').value='SL' then begin
+       if not fieldbyname('c5').isnull then f0:=f0+fieldbyname('c5').value;
+     end else if fieldbyname('tplant').value='KB' then begin
+       if not fieldbyname('c5').isnull then f1:=f1+fieldbyname('c5').value;
+     end;
+     application.ProcessMessages;
+     next;
+    end;
+  end;
+  sl010.Caption:=inttostr(f0);
+  kb010.Caption:=inttostr(f1);
+end;
+
+procedure TfrmRWO.ppGroupFooterBand1BeforePrint(Sender: TObject);
+var
+  f0:integer;
+begin
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    commandtext:='select count(distinct customer) as c1,count(distinct j_no) as c2,count(distinct j2_job) as c3,count(distinct cstyle) as c4,count(*) as c5 from tbl_sop where rqty>0 and tplant='''+tblsop.fieldbyname('tplant').value+'''';
+    if edit3.text>'' then commandtext:=commandtext+' and j_no like '''+edit3.text+'%''';
+    if combobox2.text>'' then commandtext:=commandtext+' and tplant='''+combobox2.text+'''';
+    open;
+    if not fieldbyname('c1').isnull then sub001.Caption:=fieldbyname('c1').asstring else sub001.Caption:='0';
+    if not fieldbyname('c2').isnull then begin
+      sub002.Caption:=fieldbyname('c2').asstring;
+      sub003.Caption:=fieldbyname('c2').asstring;
+    end else begin
+      sub002.Caption:='0';
+      sub003.Caption:='0';
+    end;
+    if not fieldbyname('c3').isnull then sub004.Caption:=fieldbyname('c3').asstring else sub004.Caption:='0';
+    if not fieldbyname('c4').isnull then sub005.Caption:=fieldbyname('c4').asstring else sub005.Caption:='0';
+    if not fieldbyname('c5').isnull then sub006.Caption:=fieldbyname('c5').asstring else sub006.Caption:='0';
+  end;
+  f0:=0;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct j_no,j2_job,count(distinct cwo) as c5 from tbl_sop where rqty>0 and tplant='''+tblsop.fieldbyname('tplant').value+'''';// group by j_no,j2_job';
+    if edit3.text>'' then commandtext:=commandtext+' and j_no like '''+edit3.text+'%''';
+    if combobox2.text>'' then commandtext:=commandtext+' and tplant='''+combobox2.text+'''';
+    commandtext:=commandtext+' group by j_no,j2_job';
+    open;
+    first;
+    while not eof do begin
+     if not fieldbyname('c5').isnull then f0:=f0+fieldbyname('c5').value;
+     application.ProcessMessages;
+     next;
+    end;
+  end;
+  sub010.Caption:=inttostr(f0);
+  if x101.Value>0 then x101.Font.Color:=clGreen else x101.Font.Color:=clBlack;
+  if x201.Value>0 then x201.Font.Color:=clRed else x201.Font.Color:=clBlack;
+end;
+
+procedure TfrmRWO.DBGridEh1Columns8EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+var
+  str1:string;
+begin
+  str1:='P1 '+tblsop.fieldbyname('j_no').value+' '+tblsop.fieldbyname('ordline').asstring+' '+tblsop.fieldbyname('rwo').value;
+  str1:=str1+' '+frmmain.SocketConnection1.Address;
+  //str1:=str1+' 10.2.1.7';
+  shellexecute(0,'open','c:\temp\rwoprint.exe',pchar(str1),'c:\temp',sw_show);
+  //winexec(pchar(str1),sw_show);
+end;
+
+procedure TfrmRWO.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  if tblsop.fieldbyname('iqty').value>0 then x001.Font.Color:=clGreen
+  else x001.Font.color:=clBlack;
+  if tblsop.fieldbyname('rqty').value>0 then x002.Font.Color:=clRed
+  else x002.Font.color:=clBlack;
+  x003.Caption:=inttostr(trunc(tblsop.fieldbyname('exfty').value)-trunc(tblsop.fieldbyname('ddt').value));
+  if tblsop.fieldbyname('exfty').value<tblsop.fieldbyname('ddt').value then x003.Font.Color:=clGreen
+  else if tblsop.fieldbyname('exfty').value>tblsop.fieldbyname('ddt').value then x003.Font.Color:=clRed
+  else x003.Font.Color:=clBlack;
+end;
+
+procedure TfrmRWO.FormCreate(Sender: TObject);
+begin
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          commandtext:='select max(dseq) as q1 from tbl_logging where seq=:x1';
+          params[0].asinteger:=frmmain.SpinEdit1.Value;
+          open;
+          if not fieldbyname('q1').isnull then logseq:=fieldbyname('q1').value+1
+          else logseq:=2;
+        end;
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          params.CreateParam(ftstring,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftdatetime,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftinteger,'x6',ptinput);
+          commandtext:='insert into tbl_logging(seq,usr,frmid,strdt,ip,dseq) values(:x1,:x2,:x3,:x4,:x5,:x6)';
+          params[0].asinteger:=frmmain.spinedit1.Value;
+          params[1].AsString:=frmmain.combobox1.text;
+          params[2].AsString:='RWO - Waiting for Scheduling';
+          params[3].AsDateTime:=now;
+          params[4].asstring:=frmmain.tcp1.LocalIP;
+          params[5].AsInteger:=logseq;
+          execute;
+        end;
+        with dataset2 do begin
+          close;
+          sql.text:='insert into [Sys.Authority].dbo.sysuseinfo(menuid,userid,starttime) values(:x1,:x2,:x3)';
+          parameters[0].Value:='LWPM - Waiting for Scheduling';
+          parameters[1].value:=frmmain.combobox1.text;
+          parameters[2].Value:=now;
+          execsql;
+        end;
+end;
+
+procedure TfrmRWO.FormDestroy(Sender: TObject);
+begin
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftdatetime,'x1',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          params.createparam(ftinteger,'x3',ptinput);
+          commandtext:='update tbl_logging set enddt=:x1 where seq=:x2 and dseq=:x3';
+          params[0].AsDateTime:=now;
+          params[1].asinteger:=frmmain.spinedit1.Value;
+          params[2].asinteger:=logseq;
+          execute;
+        end;
+end;
+
+procedure TfrmRWO.CompleteProject1Click(Sender: TObject);
+begin
+  if application.MessageBox('Remove this project?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='insert into tbl_erpcmpsop(j_no) values(:x1)';
+      params[0].asstring:=tblsop.fieldbyname('j_no').value;
+      execute;
+    end;
+    with clientdataset2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='update tbl_sop set rqty=0 where j_no=:x1 and rqty>0';
+      params[0].asstring:=tblsop.fieldbyname('j_no').value;
+      execute;
+    end;
+  end;
+end;
+
+procedure TfrmRWO.DBGridEh1TitleClick(Column: TColumnEh);
+begin
+  if column=dbgrideh1.Columns[5] then begin
+    if frmflag=nil then frmflag:=tfrmflag.create(nil);
+    frmflag.Label1.caption:='1';
+    frmflag.Caption:='Flag Explanation - Project Process/工程流程';
+    if pos('test',application.ExeName)>0 then frmflag.caption:=frmflag.caption+' - Test';
+    with frmflag.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from flag_marks where fseq=:x1';
+      params[0].asinteger:=1;
+      open;
+    end;
+    frmflag.DBGridEh1.ReadOnly:=true;
+    frmflag.DBMemo1.ReadOnly:=true;
+    frmflag.BitBtn1.Enabled:=false;
+    frmflag.BitBtn2.Enabled:=false;
+    frmflag.Panel2.Visible:=false;
+    frmflag.Show;
+    frmflag.DBGridEh1.SetFocus;
+  end else if column=dbgrideh1.columns[16] then begin
+    tblsop.EditKey;
+    tblsop.IndexName:='idx2';
+    tblsop.SetKey;
+    tblsop.First;
+  end else begin
+    tblsop.EditKey;
+    tblsop.IndexName:='idx1';
+    tblsop.SetKey;
+    tblsop.First;
+  end;
+end;
+
+procedure TfrmRWO.DBGridEh1GetCellParams(Sender: TObject;
+  Column: TColumnEh; AFont: TFont; var Background: TColor;
+  State: TGridDrawState);
+var
+  diff:double;  
+begin
+    if tblsop.state=dsbrowse then begin
+      diff:=trunc(tblsop.fieldbyname('ddt').value)-trunc(date);
+      if (tblsop.FieldByName('cwo').value>'') or (diff<30) then AFont.Color:=clRed
+      else if (diff>=30) and (diff<60) then AFont.Color:=clPurple
+      else if (diff>=60) and (diff<90) then AFont.Color:=clGreen
+      else AFont.Color:=clBlack;
+    end;
+end;
+
+procedure TfrmRWO.Label4MouseEnter(Sender: TObject);
+begin
+  if frmclrlegend=nil then frmclrlegend:=tfrmclrlegend.create(nil);
+  frmclrlegend.Left:=self.Label4.Left-100;
+  frmclrlegend.Top:=self.DBGridEh1.Height-100;
+  frmclrlegend.show;
+end;
+
+procedure TfrmRWO.Label4MouseLeave(Sender: TObject);
+begin
+  //if frmclrlegend<>nil then frmclrlegend:=nil;
+  frmclrlegend.Close;
+end;
+
+end.

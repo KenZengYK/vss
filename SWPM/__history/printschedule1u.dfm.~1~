@@ -1,0 +1,494 @@
+object frmprintschedule1: Tfrmprintschedule1
+  Left = 200
+  Top = 117
+  Width = 465
+  Height = 508
+  Caption = 'Print : Line Work'
+  Color = clBtnFace
+  Font.Charset = CHINESEBIG5_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = #26032#32048#26126#39636
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 11
+  object Label1: TLabel
+    Left = 192
+    Top = 16
+    Width = 21
+    Height = 11
+    Caption = '<=  -'
+  end
+  object Label2: TLabel
+    Left = 24
+    Top = 408
+    Width = 54
+    Height = 11
+    Caption = 'Impact Code'
+  end
+  object Label3: TLabel
+    Left = 192
+    Top = 36
+    Width = 12
+    Height = 11
+    Caption = '>='
+  end
+  object chk1: TCheckBox
+    Left = 24
+    Top = 16
+    Width = 161
+    Height = 17
+    Caption = 'Ex-fty Date Present Diff - Negative Bal only'
+    TabOrder = 0
+    OnClick = chk1Click
+  end
+  object GroupBox3: TGroupBox
+    Left = 24
+    Top = 78
+    Width = 409
+    Height = 83
+    Caption = 'Sort by'
+    TabOrder = 5
+    object opt1: TRadioButton
+      Left = 8
+      Top = 16
+      Width = 153
+      Height = 17
+      Caption = 'Line Work Start Date(by line)'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+    end
+    object opt2: TRadioButton
+      Left = 180
+      Top = 32
+      Width = 225
+      Height = 17
+      Caption = 'Customer/Style/Line/LW Organized Ex-fty Date'
+      Enabled = False
+      TabOrder = 1
+    end
+    object opt3: TRadioButton
+      Left = 8
+      Top = 48
+      Width = 113
+      Height = 17
+      Caption = 'RWO Ex-fty Date'
+      TabOrder = 2
+    end
+    object opt4: TRadioButton
+      Left = 144
+      Top = 48
+      Width = 249
+      Height = 17
+      Caption = 'Customer/Style/Project/LW Organized Ex-fty Date'
+      TabOrder = 3
+    end
+    object opt5: TRadioButton
+      Left = 8
+      Top = 64
+      Width = 137
+      Height = 17
+      Caption = '(-) Bal of Present Diff (day)'
+      TabOrder = 4
+    end
+    object opt6: TRadioButton
+      Left = 144
+      Top = 64
+      Width = 137
+      Height = 17
+      Caption = '(+) Bal of Present Diff (day)'
+      TabOrder = 5
+    end
+    object opt7: TRadioButton
+      Left = 288
+      Top = 64
+      Width = 113
+      Height = 17
+      Caption = 'Customer/Style/RWO'
+      TabOrder = 6
+    end
+    object opt8: TRadioButton
+      Left = 180
+      Top = 16
+      Width = 177
+      Height = 17
+      Caption = 'Line Work Start Date(by cust style)'
+      TabOrder = 7
+    end
+    object opt9: TRadioButton
+      Left = 8
+      Top = 32
+      Width = 171
+      Height = 17
+      Caption = 'Line Work Start Date(by start date)'
+      TabOrder = 8
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 24
+    Top = 432
+    Width = 73
+    Height = 33
+    Caption = 'Preview'
+    TabOrder = 13
+    OnClick = BitBtn1Click
+    Glyph.Data = {
+      42040000424D4204000000000000420000002800000020000000100000000100
+      1000030000000004000000000000000000000000000000000000007C0000E003
+      00001F000000E03D000000000000000000000000000000000000000000000000
+      00000000E03DE03DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3D
+      EF3DEF3DE03D0000F75EF75EF75EF75EF75EF75EF75EF75EF75EF75EF75EF75E
+      F75EF75E0000EF3DFF7FE03DE03DE03DE03DE03DE03DE03DE03DE03DE03DE03D
+      E03DE03DEF3D0000F75EF75EF75EF75EF75EF75EF75EF75EF75EF75EF75EF75E
+      F75EF75E0000EF3DFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F
+      FF7FFF7FEF3D0000000000000000000000000000000000000000000000000000
+      000000000000EF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3D
+      EF3DEF3DEF3D0000FF7FF75EFF7FF75EFF7FF75EFF7FF75EFF7FF75EFF7FF75E
+      FF7FF75E0000EF3DFF7FE03DE03DE03DE03DE03DE03DE03DE03DE03DE03DE03D
+      E03DFF7FEF3D0000F75EFF7FF75EFF7FF75EFF7FF75EFF7FF75EFF7FF75EFF7F
+      007CFF7F0000EF3DFF7FE03DE03DE03DE03DE03DE03DE03DE03DE03DE03DE03D
+      EF3DE03DEF3D0000FF7FF75EFF7FF75EFF7FF75EFF7FF75EFF7FF75EFF7FF75E
+      FF7FF75E0000EF3DFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F
+      FF7FFF7FEF3D0000000000000000000000000000000000000000000000000000
+      000000000000EF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3DEF3D
+      EF3DEF3DEF3DE03DE03DE03D0000FF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F0000
+      E03DE03DE03DE03DE03DE03DEF3DFF7FE03DFF7FFF7FFF7FFF7FE03DFF7FEF3D
+      FF7FE03DE03DE03DE03DE03D0000FF7F0000000000000000FF7F0000FF7F0000
+      E03DE03DE03DE03DE03DE03DEF3DFF7FEF3DEF3DEF3DEF3DE03DEF3DE03DEF3D
+      FF7FE03DE03DE03DE03DE03D0000FF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F0000
+      E03DE03DE03DE03DE03DE03DEF3DFF7FE03DFF7FFF7FE03DFF7FFF7FFF7FEF3D
+      FF7FE03DE03DE03DE03DE03D0000FF7F00000000FF7F00000000000000000000
+      E03DE03DE03DE03DE03DE03DEF3DFF7FEF3DEF3DE03DEF3DEF3DEF3DEF3DEF3D
+      E03DE03DE03DE03DE03DE03D0000FF7FFF7FFF7FFF7F0000FF7FFF7F0000E03D
+      E03DE03DE03DE03DE03DE03DEF3DFF7FE03DFF7FE03DEF3DFF7FE03DEF3DE03D
+      E03DE03DE03DE03DE03DE03D0000FF7F0000F75EFF7F0000FF7F0000E03DE03D
+      E03DE03DE03DE03DE03DE03DEF3DFF7FEF3DE03DE03DEF3DFF7FEF3DE03DE03D
+      E03DE03DE03DE03DE03DE03D0000FF7FFF7FFF7FFF7F00000000E03DE03DE03D
+      E03DE03DE03DE03DE03DE03DEF3DFF7FFF7FFF7FFF7FEF3DEF3DE03DE03DE03D
+      E03DE03DE03DE03DE03DE03D000000000000000000000000E03DE03DE03DE03D
+      E03DE03DE03DE03DE03DE03DEF3DEF3DEF3DEF3DEF3DEF3DE03DE03DE03DE03D
+      E03DE03DE03D}
+    NumGlyphs = 2
+  end
+  object BitBtn2: TBitBtn
+    Left = 97
+    Top = 432
+    Width = 73
+    Height = 33
+    Caption = 'Exit'
+    TabOrder = 14
+    OnClick = BitBtn2Click
+    Glyph.Data = {
+      DE010000424DDE01000000000000760000002800000024000000120000000100
+      0400000000006801000000000000000000001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00388888888877
+      F7F787F8888888888333333F00004444400888FFF444448888888888F333FF8F
+      000033334D5007FFF4333388888888883338888F0000333345D50FFFF4333333
+      338F888F3338F33F000033334D5D0FFFF43333333388788F3338F33F00003333
+      45D50FEFE4333333338F878F3338F33F000033334D5D0FFFF43333333388788F
+      3338F33F0000333345D50FEFE4333333338F878F3338F33F000033334D5D0FFF
+      F43333333388788F3338F33F0000333345D50FEFE4333333338F878F3338F33F
+      000033334D5D0EFEF43333333388788F3338F33F0000333345D50FEFE4333333
+      338F878F3338F33F000033334D5D0EFEF43333333388788F3338F33F00003333
+      4444444444333333338F8F8FFFF8F33F00003333333333333333333333888888
+      8888333F00003333330000003333333333333FFFFFF3333F00003333330AAAA0
+      333333333333888888F3333F00003333330000003333333333338FFFF8F3333F
+      0000}
+    NumGlyphs = 2
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 224
+    Top = 15
+    Width = 57
+    Height = 19
+    MaxLength = 3
+    MaxValue = 200
+    MinValue = 1
+    TabOrder = 1
+    Value = 1
+  end
+  object GroupBox1: TGroupBox
+    Left = 24
+    Top = 168
+    Width = 409
+    Height = 51
+    Caption = 'Print Range'
+    TabOrder = 6
+    object rbt1: TRadioButton
+      Left = 8
+      Top = 16
+      Width = 137
+      Height = 17
+      Caption = 'ALL (exclude Ex-fty)'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+    end
+    object rbt4: TRadioButton
+      Left = 168
+      Top = 16
+      Width = 73
+      Height = 17
+      Caption = 'LW WIP'
+      TabOrder = 1
+    end
+    object xh3: TRadioButton
+      Left = 168
+      Top = 32
+      Width = 89
+      Height = 17
+      Caption = 'Actual Ex-fty'
+      TabOrder = 2
+    end
+    object rbt5: TRadioButton
+      Left = 8
+      Top = 32
+      Width = 121
+      Height = 17
+      Caption = 'Waiting for Ex-fty'
+      TabOrder = 3
+    end
+    object rbt6: TRadioButton
+      Left = 288
+      Top = 16
+      Width = 105
+      Height = 17
+      Caption = 'Queue for LW'
+      TabOrder = 4
+      Visible = False
+    end
+  end
+  object chk2: TCheckBox
+    Left = 296
+    Top = 408
+    Width = 97
+    Height = 17
+    Caption = #31777#21934#22577#34920
+    TabOrder = 12
+    Visible = False
+  end
+  object GroupBox2: TGroupBox
+    Left = 24
+    Top = 224
+    Width = 409
+    Height = 35
+    Caption = 'Style Code Type Select'
+    TabOrder = 7
+    object xh1: TRadioButton
+      Left = 8
+      Top = 16
+      Width = 105
+      Height = 17
+      Caption = 'PH Style Code'
+      TabOrder = 0
+    end
+    object xh2: TRadioButton
+      Left = 168
+      Top = 16
+      Width = 153
+      Height = 17
+      Caption = 'Customer Style Code'
+      Checked = True
+      TabOrder = 1
+      TabStop = True
+    end
+  end
+  object ComboBox1: TComboBox
+    Left = 80
+    Top = 408
+    Width = 81
+    Height = 19
+    CharCase = ecUpperCase
+    ItemHeight = 11
+    TabOrder = 11
+    Items.Strings = (
+      ''
+      'ALL'
+      '*ALL')
+  end
+  object chk3: TCheckBox
+    Left = 24
+    Top = 36
+    Width = 161
+    Height = 17
+    Caption = 'Ex-fty Date Present Diff - Positive Bal only'
+    TabOrder = 2
+    OnClick = chk1Click
+  end
+  object SpinEdit2: TSpinEdit
+    Left = 224
+    Top = 37
+    Width = 57
+    Height = 19
+    MaxLength = 3
+    MaxValue = 200
+    MinValue = 1
+    TabOrder = 3
+    Value = 1
+  end
+  object chk4: TCheckBox
+    Left = 24
+    Top = 56
+    Width = 257
+    Height = 17
+    Caption = 'Present Diff vs Locked Diff - Negative Bal only'
+    TabOrder = 4
+    OnClick = chk1Click
+  end
+  object GroupBox4: TGroupBox
+    Left = 24
+    Top = 264
+    Width = 409
+    Height = 41
+    Caption = 'Line Work Start Date'
+    TabOrder = 8
+    object Label4: TLabel
+      Left = 16
+      Top = 16
+      Width = 22
+      Height = 11
+      Caption = 'From'
+    end
+    object Label5: TLabel
+      Left = 184
+      Top = 16
+      Width = 11
+      Height = 11
+      Caption = 'To'
+    end
+    object DateEdit1: TDateEdit
+      Left = 48
+      Top = 16
+      Width = 121
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 0
+    end
+    object DateEdit2: TDateEdit
+      Left = 200
+      Top = 16
+      Width = 121
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 1
+    end
+  end
+  object GroupBox5: TGroupBox
+    Left = 24
+    Top = 312
+    Width = 409
+    Height = 41
+    Caption = 'Actual Ex-fty Date'
+    TabOrder = 9
+    object Label6: TLabel
+      Left = 16
+      Top = 16
+      Width = 22
+      Height = 11
+      Caption = 'From'
+    end
+    object Label7: TLabel
+      Left = 184
+      Top = 16
+      Width = 11
+      Height = 11
+      Caption = 'To'
+    end
+    object DateEdit3: TDateEdit
+      Left = 48
+      Top = 16
+      Width = 121
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 0
+    end
+    object DateEdit4: TDateEdit
+      Left = 200
+      Top = 16
+      Width = 121
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 1
+    end
+  end
+  object GroupBox6: TGroupBox
+    Left = 24
+    Top = 360
+    Width = 409
+    Height = 41
+    Caption = 'RWO Ex-fty Date'
+    TabOrder = 10
+    object Label8: TLabel
+      Left = 16
+      Top = 16
+      Width = 22
+      Height = 11
+      Caption = 'From'
+    end
+    object Label9: TLabel
+      Left = 184
+      Top = 16
+      Width = 11
+      Height = 11
+      Caption = 'To'
+    end
+    object DateEdit5: TDateEdit
+      Left = 48
+      Top = 16
+      Width = 121
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 0
+    end
+    object DateEdit6: TDateEdit
+      Left = 200
+      Top = 16
+      Width = 121
+      Height = 21
+      NumGlyphs = 2
+      TabOrder = 1
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = ClientDataSet1
+    Left = 312
+    Top = 432
+  end
+  object DataSource2: TDataSource
+    DataSet = ClientDataSet3
+    Left = 280
+    Top = 432
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tempshedule1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 184
+    Top = 432
+  end
+  object ClientDataSet2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 216
+    Top = 432
+  end
+  object ClientDataSet3: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tblshedule'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 248
+    Top = 432
+  end
+end

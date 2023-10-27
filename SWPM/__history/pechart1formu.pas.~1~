@@ -1,0 +1,206 @@
+unit pechart1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, TeEngine, TeeDBEdit, TeeDBCrossTab, ppBands, ppCtrls, ppVar,
+  myChkBox, ppPrnabl, ppClass, ppCache, ppProd, ppReport, ppComm, ppRelatv,
+  ppDB, ppDBPipe, DB, DBClient, Series, ExtCtrls, TeeProcs, Chart, DBChart,
+  ppViewr, Txcomp;
+
+type
+  Tfrmpechart1 = class(TForm)
+    DBChart1: TDBChart;
+    Series1: TLineSeries;
+    Series16: TBarSeries;
+    DBChart2: TDBChart;
+    Series2: TLineSeries;
+    Series48: TLineSeries;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DataSource1: TDataSource;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    title001: TppLabel;
+    ppImage1: TppImage;
+    ppLabel2: TppLabel;
+    fty001: TppLabel;
+    chk02: TmyCheckBox;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    year001: TppLabel;
+    wk001: TppLabel;
+    ppLabel7: TppLabel;
+    year002: TppLabel;
+    wk002: TppLabel;
+    chk03: TmyCheckBox;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    year003: TppLabel;
+    month003: TppLabel;
+    ppLabel12: TppLabel;
+    year004: TppLabel;
+    month004: TppLabel;
+    ppLabel10: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel11: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppShape2: TppShape;
+    ppLine31: TppLine;
+    ppLine32: TppLine;
+    ppLine34: TppLine;
+    ppLine35: TppLine;
+    ppLine36: TppLine;
+    ppLine37: TppLine;
+    ppLine38: TppLine;
+    ppLine39: TppLine;
+    ppLine40: TppLine;
+    ppLabel4: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel27: TppLabel;
+    wkno01: TppLabel;
+    wkno02: TppLabel;
+    wkno03: TppLabel;
+    wkno04: TppLabel;
+    wkno05: TppLabel;
+    wkno06: TppLabel;
+    wkno07: TppLabel;
+    wkno08: TppLabel;
+    ppImage2: TppImage;
+    title002: TppLabel;
+    ppLine20: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppDetailBand1: TppDetailBand;
+    ppShape1: TppShape;
+    ppDBText1: TppDBText;
+    ppLine1: TppLine;
+    ppLine4: TppLine;
+    ppLine7: TppLine;
+    ppLine10: TppLine;
+    ppLine13: TppLine;
+    ppLine16: TppLine;
+    ppLine19: TppLine;
+    ppLine22: TppLine;
+    ppLine25: TppLine;
+    dv01: TppDBText;
+    dv02: TppDBText;
+    dv03: TppDBText;
+    dv04: TppDBText;
+    dv05: TppDBText;
+    dv06: TppDBText;
+    dv07: TppDBText;
+    dv08: TppDBText;
+    ppLine44: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    Query4: TClientDataSet;
+    Query5: TClientDataSet;
+    DBCrossTabSource1: TDBCrossTabSource;
+    DBCrossTabSource2: TDBCrossTabSource;
+    DBCrossTabSource3: TDBCrossTabSource;
+    DBCrossTabSource4: TDBCrossTabSource;
+    wkno09: TppLabel;
+    wkno10: TppLabel;
+    wkno11: TppLabel;
+    wkno12: TppLabel;
+    wkno13: TppLabel;
+    wkno14: TppLabel;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    dv09: TppDBText;
+    dv10: TppDBText;
+    dv11: TppDBText;
+    dv12: TppDBText;
+    dv13: TppDBText;
+    dv14: TppDBText;
+    chk01: TmyCheckBox;
+    ppLabel1: TppLabel;
+    ppLabel3: TppLabel;
+    from001: TppLabel;
+    ppLabel15: TppLabel;
+    to001: TppLabel;
+    ppLabel13: TppLabel;
+    cust001: TppLabel;
+    ppLabel16: TppLabel;
+    cstyle001: TppLabel;
+    ppLabel14: TppLabel;
+    workshop001: TppLabel;
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpechart1: Tfrmpechart1;
+
+implementation
+
+uses mainformu, pechartformu;
+
+{$R *.dfm}
+
+procedure Tfrmpechart1.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmpechart1.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  if not query1.fieldbyname('pe01').isnull then
+  if query1.fieldbyname('pe01').value>=82.45 then dv01.Font.Color:=clGreen
+  else dv01.Font.Color:=clRed;
+  if not query1.fieldbyname('pe02').isnull then
+  if query1.fieldbyname('pe02').value>=82.45 then dv02.Font.Color:=clGreen
+  else dv02.Font.Color:=clRed;
+  if not query1.fieldbyname('pe03').isnull then
+  if query1.fieldbyname('pe03').value>=82.45 then dv03.Font.Color:=clGreen
+  else dv03.Font.Color:=clRed;
+  if not query1.fieldbyname('pe04').isnull then
+  if query1.fieldbyname('pe04').value>=82.45 then dv04.Font.Color:=clGreen
+  else dv04.Font.Color:=clRed;
+  if not query1.fieldbyname('pe05').isnull then
+  if query1.fieldbyname('pe05').value>=82.45 then dv05.Font.Color:=clGreen
+  else dv05.Font.Color:=clRed;
+  if not query1.fieldbyname('pe06').isnull then
+  if query1.fieldbyname('pe06').value>=82.45 then dv06.Font.Color:=clGreen
+  else dv06.Font.Color:=clRed;
+  if not query1.fieldbyname('pe07').isnull then
+  if query1.fieldbyname('pe07').value>=82.45 then dv07.Font.Color:=clGreen
+  else dv07.Font.Color:=clRed;
+  if not query1.fieldbyname('pe08').isnull then
+  if query1.fieldbyname('pe08').value>=82.45 then dv08.Font.Color:=clGreen
+  else dv08.Font.Color:=clRed;
+  if not query1.fieldbyname('pe09').isnull then
+  if query1.fieldbyname('pe09').value>=82.45 then dv09.Font.Color:=clGreen
+  else dv09.Font.Color:=clRed;
+  if not query1.fieldbyname('pe10').isnull then
+  if query1.fieldbyname('pe10').value>=82.45 then dv10.Font.Color:=clGreen
+  else dv10.Font.Color:=clRed;
+  if not query1.fieldbyname('pe11').isnull then
+  if query1.fieldbyname('pe11').value>=82.45 then dv11.Font.Color:=clGreen
+  else dv11.Font.Color:=clRed;
+  if not query1.fieldbyname('pe12').isnull then
+  if query1.fieldbyname('pe12').value>=82.45 then dv12.Font.Color:=clGreen
+  else dv12.Font.Color:=clRed;
+  if not query1.fieldbyname('pe13').isnull then
+  if query1.fieldbyname('pe13').value>=82.45 then dv13.Font.Color:=clGreen
+  else dv13.Font.Color:=clRed;
+  if not query1.fieldbyname('pe14').isnull then
+  if query1.fieldbyname('pe14').value>=82.45 then dv14.Font.Color:=clGreen
+  else dv14.Font.Color:=clRed;
+end;
+
+end.

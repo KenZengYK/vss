@@ -1,0 +1,504 @@
+object frmspecmat_conduct: Tfrmspecmat_conduct
+  Left = 0
+  Top = 0
+  Caption = 'Specific Items can be used at End phase Ws later'
+  ClientHeight = 388
+  ClientWidth = 1086
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 0
+    Width = 1086
+    Height = 347
+    Align = alClient
+    TabOrder = 0
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+    end
+    object cxView1: TcxGridDBBandedTableView
+      NavigatorButtons.ConfirmDelete = False
+      OnCustomDrawCell = cxView1CustomDrawCell
+      DataController.DataSource = worksheet1.DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.GroupByBox = False
+      OptionsView.BandHeaderHeight = 32
+      Bands = <
+        item
+          Caption = 'Items'#13#10'std-by'#39's'#13#10'stages'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 3
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Order Information'
+          HeaderAlignmentVert = vaTop
+        end
+        item
+          Caption = 'AL#'
+          HeaderAlignmentVert = vaTop
+        end
+        item
+          Caption = 'Specific Items can be used at End phase Ws later'
+          HeaderAlignmentVert = vaTop
+        end
+        item
+          Caption = 'Items'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 3
+          Position.ColIndex = 1
+        end
+        item
+          Caption = 'Items std-by dd'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 3
+          Position.ColIndex = 2
+        end
+        item
+          Caption = 'F(-)/J(0)/G(+)?'#13#10'(based on locked dd)'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 3
+          Position.ColIndex = 3
+        end
+        item
+          Caption = 'SW AL Ws'#13#10'finish dd'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 3
+          Position.ColIndex = 4
+        end
+        item
+          Caption = 'SW E Ws'#13#10'start dd'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 3
+          Position.ColIndex = 5
+        end
+        item
+          Caption = 'Last'#13#10'4 sect.'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 3
+          Position.ColIndex = 6
+        end
+        item
+          Caption = 'Ex-fty'#13#10'dd'#13#10'buffer'#13#10'(+/-)'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 3
+          Position.ColIndex = 7
+        end
+        item
+          Caption = '#'#13#10'of'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 4
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Type'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 4
+          Position.ColIndex = 1
+        end
+        item
+          Caption = 'Locked'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 5
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Adj.'#13#10'(if any)'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 5
+          Position.ColIndex = 1
+        end
+        item
+          Caption = 'Act.'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 5
+          Position.ColIndex = 2
+        end
+        item
+          Caption = 'Locked'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 6
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Variance vs'#13#10'Sch. dd'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 6
+          Position.ColIndex = 1
+        end
+        item
+          Caption = 'Agree'#13#10'fixed dd'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 7
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Sch.'#13#10'/Act.'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 7
+          Position.ColIndex = 1
+        end
+        item
+          Caption = 'Co'#13#10'de'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 7
+          Position.ColIndex = 2
+        end
+        item
+          Caption = 'Sch.'#13#10'/Act.'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 8
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Co'#13#10'de'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 8
+          Position.ColIndex = 1
+        end
+        item
+          Caption = 'Days vs mat'#39'l'#13#10'standby dd'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 8
+          Position.ColIndex = 2
+        end
+        item
+          Caption = 'Agree'#13#10'days'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 9
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'Proj#'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 1
+          Position.ColIndex = 0
+        end
+        item
+          Caption = 'QN#'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 1
+          Position.ColIndex = 1
+        end
+        item
+          Caption = 'Cust Style'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 1
+          Position.ColIndex = 2
+        end
+        item
+          Caption = 'WO'#13#10'suffix'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 1
+          Position.ColIndex = 3
+          Visible = False
+        end
+        item
+          Caption = 'RWO'#13#10'suffix'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 1
+          Position.ColIndex = 4
+          Visible = False
+        end
+        item
+          Caption = 'QN'#13#10'suffix'
+          HeaderAlignmentVert = vaTop
+          Position.BandIndex = 1
+          Position.ColIndex = 5
+          Visible = False
+        end>
+      object cxView1Column1: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'I_NO'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 23
+        Position.BandIndex = 11
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column2: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'Item_no'
+        PropertiesClassName = 'TcxButtonEditProperties'
+        Properties.Buttons = <
+          item
+            Default = True
+            Kind = bkEllipsis
+          end>
+        Properties.ReadOnly = True
+        Properties.OnButtonClick = cxView1Column2PropertiesButtonClick
+        HeaderAlignmentHorz = taCenter
+        Width = 50
+        Position.BandIndex = 12
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column3: TcxGridDBBandedColumn
+        Caption = '(a1)'
+        DataBinding.FieldName = 'Item_ldt'
+        HeaderAlignmentHorz = taCenter
+        Width = 43
+        Position.BandIndex = 13
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column4: TcxGridDBBandedColumn
+        Caption = '(a2)'
+        DataBinding.FieldName = 'Item_rdt'
+        HeaderAlignmentHorz = taCenter
+        Width = 43
+        Position.BandIndex = 14
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column5: TcxGridDBBandedColumn
+        Caption = '(a3)'
+        DataBinding.FieldName = 'Item_adt'
+        HeaderAlignmentHorz = taCenter
+        Width = 43
+        Position.BandIndex = 15
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column6: TcxGridDBBandedColumn
+        Caption = '(b=a1-d1)'
+        DataBinding.FieldName = 'Item_ldiff'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 55
+        Position.BandIndex = 16
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column7: TcxGridDBBandedColumn
+        Caption = '(c=a-d2-b)'
+        DataBinding.FieldName = 'ITEM_VDIFF'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 62
+        Position.BandIndex = 17
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column8: TcxGridDBBandedColumn
+        Caption = '(d1)'
+        DataBinding.FieldName = 'A_LDT'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 18
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column9: TcxGridDBBandedColumn
+        Caption = '(d2)'
+        DataBinding.FieldName = 'Cfwcrq'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 19
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column10: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'Flag32a'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 23
+        Position.BandIndex = 20
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column11: TcxGridDBBandedColumn
+        Caption = '(e)'
+        DataBinding.FieldName = 'E_ksrq'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 43
+        Position.BandIndex = 21
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column12: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'E_flag31'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 23
+        Position.BandIndex = 22
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column13: TcxGridDBBandedColumn
+        Caption = '(f=a-e)'
+        DataBinding.FieldName = 'Item_ediff'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 70
+        Position.BandIndex = 23
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column14: TcxGridDBBandedColumn
+        Caption = '(g)'
+        DataBinding.FieldName = 'Last_ttl'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 43
+        Position.BandIndex = 24
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column15: TcxGridDBBandedColumn
+        Caption = '(h=e+g-i)'
+        DataBinding.FieldName = 'rqxc'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 53
+        Position.BandIndex = 10
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column16: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'ITEM_FM'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 55
+        Position.BandIndex = 0
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column17: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'J_no'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 68
+        Position.BandIndex = 25
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column18: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'CWONO1'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 112
+        Position.BandIndex = 26
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column19: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'Cstyle'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 100
+        Position.BandIndex = 27
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column20: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'Cwo'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 33
+        Position.BandIndex = 28
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column21: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'Rwo'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 33
+        Position.BandIndex = 29
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column22: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'Fccs'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 33
+        Position.BandIndex = 30
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+      object cxView1Column23: TcxGridDBBandedColumn
+        Caption = '-'
+        DataBinding.FieldName = 'Pline'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 45
+        Position.BandIndex = 2
+        Position.ColIndex = 0
+        Position.RowIndex = 0
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxView1
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 347
+    Width = 1086
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    object BitBtn1: TBitBtn
+      Left = 24
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Save'
+      DoubleBuffered = True
+      Glyph.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000CE0E0000C40E00001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+        2222200000000002222203300007030222220330000703000222033000000303
+        0222033333333303000203300000330303020307777703030302030777770303
+        0302030777770003030203077777070303020000000000000302220307777707
+        0302220000000000000222220307777707022222000000000002}
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 96
+      Top = 8
+      Width = 73
+      Height = 25
+      Caption = 'Exit'
+      DoubleBuffered = True
+      Kind = bkClose
+      ParentDoubleBuffered = False
+      TabOrder = 1
+    end
+  end
+end

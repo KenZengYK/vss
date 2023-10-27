@@ -1,0 +1,744 @@
+object frmshpadvice2: Tfrmshpadvice2
+  Left = 192
+  Top = 114
+  Caption = 'Shipping Advice  - Enquiry'
+  ClientHeight = 453
+  ClientWidth = 553
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label2: TLabel
+    Left = 32
+    Top = 32
+    Width = 38
+    Height = 13
+    Caption = 'Factory '
+  end
+  object Label3: TLabel
+    Left = 176
+    Top = 32
+    Width = 25
+    Height = 13
+    Caption = 'Year '
+  end
+  object Label4: TLabel
+    Left = 288
+    Top = 32
+    Width = 29
+    Height = 13
+    Caption = 'Week'
+  end
+  object DBGridEh1: TDBGridEh
+    Left = 32
+    Top = 64
+    Width = 489
+    Height = 225
+    AllowedOperations = [alopUpdateEh]
+    DataSource = DataSource1
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'MS Sans Serif'
+    FooterFont.Style = []
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    UseMultiTitle = True
+    Columns = <
+      item
+        EditButtons = <>
+        FieldName = 'TPLANT'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Factory'
+        Width = 44
+      end
+      item
+        EditButtons = <>
+        FieldName = 'SHPNO'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Shipping Advice #'
+        Width = 151
+      end
+      item
+        EditButtons = <>
+        FieldName = 'EXFTY'
+        Footers = <>
+        Title.Caption = 'Actual Ex-fty Date'
+        Width = 112
+      end
+      item
+        EditButtons = <>
+        FieldName = 'TRDT'
+        Footers = <>
+        Title.Caption = 'Actual Transit Date| '
+        Visible = False
+        Width = 92
+      end
+      item
+        EditButtons = <>
+        FieldName = 'TRCAT'
+        Footers = <>
+        PickList.Strings = (
+          'On board date'
+          'Cargo receiving date'
+          'Departure date')
+        Title.Caption = 'Actual Transit Date|Category'
+        Visible = False
+        Width = 127
+      end
+      item
+        EditButtons = <>
+        FieldName = 'DT'
+        Footers = <>
+        ReadOnly = True
+        Title.Caption = 'Creation Date'
+        Width = 113
+      end>
+    object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 304
+    Width = 57
+    Height = 25
+    Caption = 'OK'
+    DoubleBuffered = True
+    Glyph.Data = {
+      DE010000424DDE01000000000000760000002800000024000000120000000100
+      0400000000006801000000000000000000001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      3333333333333333333333330000333333333333333333333333F33333333333
+      00003333344333333333333333388F3333333333000033334224333333333333
+      338338F3333333330000333422224333333333333833338F3333333300003342
+      222224333333333383333338F3333333000034222A22224333333338F338F333
+      8F33333300003222A3A2224333333338F3838F338F33333300003A2A333A2224
+      33333338F83338F338F33333000033A33333A222433333338333338F338F3333
+      0000333333333A222433333333333338F338F33300003333333333A222433333
+      333333338F338F33000033333333333A222433333333333338F338F300003333
+      33333333A222433333333333338F338F00003333333333333A22433333333333
+      3338F38F000033333333333333A223333333333333338F830000333333333333
+      333A333333333333333338330000333333333333333333333333333333333333
+      0000}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 1
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 88
+    Top = 304
+    Width = 161
+    Height = 25
+    Caption = 'Change Shipping Advice #'
+    DoubleBuffered = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000120B0000120B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333000000
+      000033333377777777773333330FFFFFFFF03FF3FF7FF33F3FF700300000FF0F
+      00F077F777773F737737E00BFBFB0FFFFFF07773333F7F3333F7E0BFBF000FFF
+      F0F077F3337773F3F737E0FBFBFBF0F00FF077F3333FF7F77F37E0BFBF00000B
+      0FF077F3337777737337E0FBFBFBFBF0FFF077F33FFFFFF73337E0BF0000000F
+      FFF077FF777777733FF7000BFB00B0FF00F07773FF77373377373330000B0FFF
+      FFF03337777373333FF7333330B0FFFF00003333373733FF777733330B0FF00F
+      0FF03333737F37737F373330B00FFFFF0F033337F77F33337F733309030FFFFF
+      00333377737FFFFF773333303300000003333337337777777333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 2
+    OnClick = BitBtn2Click
+  end
+  object BitBtn3: TBitBtn
+    Left = 248
+    Top = 304
+    Width = 73
+    Height = 25
+    Caption = 'Delete'
+    DoubleBuffered = True
+    Glyph.Data = {
+      E6000000424DE60000000000000076000000280000000E0000000E0000000100
+      0400000000007000000000000000000000001000000000000000000000000000
+      BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      3300333333333333330033333333333333003333333333333300333333333333
+      330033333333333333003300000000003300330FFFFFFFF03300330000000000
+      3300333333333333330033333333333333003333333333333300333333333333
+      33003333333333333300}
+    ParentDoubleBuffered = False
+    TabOrder = 3
+    OnClick = BitBtn3Click
+  end
+  object ComboBox1: TComboBox
+    Left = 72
+    Top = 32
+    Width = 73
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 4
+    Text = 'SL'
+    OnChange = ComboBox1Change
+    Items.Strings = (
+      ''
+      'SL'
+      'GG'
+      'RX'
+      'CL')
+  end
+  object yEdit1: TSpinEdit
+    Left = 200
+    Top = 32
+    Width = 57
+    Height = 22
+    MaxValue = 2050
+    MinValue = 2007
+    TabOrder = 5
+    Value = 2007
+    OnChange = ComboBox1Change
+  end
+  object wEdit1: TSpinEdit
+    Left = 320
+    Top = 32
+    Width = 49
+    Height = 22
+    MaxValue = 53
+    MinValue = 1
+    TabOrder = 6
+    Value = 32
+    OnChange = ComboBox1Change
+  end
+  object BitBtn4: TBitBtn
+    Left = 320
+    Top = 304
+    Width = 65
+    Height = 25
+    Caption = 'Save'
+    DoubleBuffered = True
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      04000000000080000000CE0E0000C40E00001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+      2222200000000002222203300007030222220330000703000222033000000303
+      0222033333333303000203300000330303020307777703030302030777770303
+      0302030777770003030203077777070303020000000000000302220307777707
+      0302220000000000000222220307777707022222000000000002}
+    ParentDoubleBuffered = False
+    TabOrder = 7
+    OnClick = BitBtn4Click
+  end
+  object BitBtn5: TBitBtn
+    Left = 384
+    Top = 304
+    Width = 65
+    Height = 25
+    DoubleBuffered = True
+    Kind = bkClose
+    ParentDoubleBuffered = False
+    TabOrder = 8
+  end
+  object cxGrid1: TcxGrid
+    Left = 239
+    Top = 88
+    Width = 337
+    Height = 217
+    TabOrder = 9
+    Visible = False
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      NavigatorButtons.ConfirmDelete = False
+      DataController.DataSource = DataSource4
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsView.HeaderAutoHeight = True
+      object cxGrid1DBTableView1shpno: TcxGridDBColumn
+        Caption = #21333#25454#21495
+        DataBinding.FieldName = 'shpno'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 101
+      end
+      object cxGrid1DBTableView1exfty: TcxGridDBColumn
+        Caption = #26085#26399
+        DataBinding.FieldName = 'exfty'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 67
+      end
+      object cxGrid1DBTableView1shr: TcxGridDBColumn
+        Caption = #22659#22806#25910#36135#20154#13#10#20195#21495
+        DataBinding.FieldName = 'shr'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 70
+      end
+      object cxGrid1DBTableView1xh: TcxGridDBColumn
+        Caption = #39033#21495
+        DataBinding.FieldName = 'xh'
+        HeaderAlignmentHorz = taCenter
+        Width = 36
+      end
+      object cxGrid1DBTableView1contractno: TcxGridDBColumn
+        Caption = #21512#21516#21495
+        DataBinding.FieldName = 'contractno'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 81
+      end
+      object cxGrid1DBTableView1con_seq: TcxGridDBColumn
+        Caption = #24207#21495
+        DataBinding.FieldName = 'con_seq'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 38
+      end
+      object cxGrid1DBTableView1customseqno: TcxGridDBColumn
+        Caption = #26009#21495' ('#24402#13#10#24182#21495')'
+        DataBinding.FieldName = 'customseqno'
+        HeaderAlignmentHorz = taCenter
+        Width = 57
+      end
+      object cxGrid1DBTableView1hsname: TcxGridDBColumn
+        Caption = #21830#21697#21517#31216
+        DataBinding.FieldName = 'hsname'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 149
+      end
+      object cxGrid1DBTableView1remarks: TcxGridDBColumn
+        Caption = #30003#25253#35201#32032
+        DataBinding.FieldName = 'remarks'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 468
+      end
+      object cxGrid1DBTableView1c_name: TcxGridDBColumn
+        Caption = #30446#30340#22320#22269#23478
+        DataBinding.FieldName = 'c_name'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 61
+      end
+      object cxGrid1DBTableView1sqty: TcxGridDBColumn
+        Caption = #25968#37327#13#10'('#21407#21333#20301')'
+        DataBinding.FieldName = 'sqty'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DecimalPlaces = 2
+        Properties.DisplayFormat = '#0'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 55
+      end
+      object cxGrid1DBTableView1unit: TcxGridDBColumn
+        Caption = #21407#21333#20301#13#10'= '#27861#23450#13#10#35745#37327#21333#20301
+        DataBinding.FieldName = 'unit'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 58
+      end
+      object cxGrid1DBTableView1wght: TcxGridDBColumn
+        Caption = #21315#20811' = '#13#10'('#35745#31639#37325#37327')'#13#10#27861#20108#21333#20301#25968#37327
+        DataBinding.FieldName = 'wght'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 78
+      end
+      object cxGrid1DBTableView1hsunit: TcxGridDBColumn
+        Caption = #30003#25253#35745#13#10#37327#21333#20301
+        DataBinding.FieldName = 'hsunit'
+        HeaderAlignmentHorz = taCenter
+        Width = 45
+      end
+      object cxGrid1DBTableView1curr: TcxGridDBColumn
+        Caption = #24065#21046
+        DataBinding.FieldName = 'curr'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 36
+      end
+      object cxGrid1DBTableView1sbqty: TcxGridDBColumn
+        Caption = #30003#25253#25968#37327#13#10'('#35745#37327#21333#20301')'
+        DataBinding.FieldName = 'sbqty'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+      end
+      object cxGrid1DBTableView1unitpx: TcxGridDBColumn
+        Caption = #30003#25253#21333#20215#13#10'('#35745#37327#21333#20301')'
+        DataBinding.FieldName = 'unitpx'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 69
+      end
+      object cxGrid1DBTableView1ttlpx: TcxGridDBColumn
+        Caption = #30003#25253#24635#20215
+        DataBinding.FieldName = 'ttlpx'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 82
+      end
+      object cxGrid1DBTableView1box: TcxGridDBColumn
+        Caption = #31665#25968
+        DataBinding.FieldName = 'box'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 41
+      end
+      object cxGrid1DBTableView1wght1: TcxGridDBColumn
+        Caption = #20928#37325
+        DataBinding.FieldName = 'wght'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 55
+      end
+      object cxGrid1DBTableView1mz: TcxGridDBColumn
+        Caption = #27611#37325
+        DataBinding.FieldName = 'mz'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
+        Properties.DisplayFormat = '0.00'
+        HeaderAlignmentHorz = taCenter
+        Options.Editing = False
+        Width = 55
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object BitBtn6: TBitBtn
+    Left = 32
+    Top = 336
+    Width = 129
+    Height = 25
+    Caption = #20986#21475#22577#38364#21934
+    DoubleBuffered = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
+      333333333333337FF3333333333333903333333333333377FF33333333333399
+      03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
+      99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
+      99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
+      03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
+      33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
+      33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
+      3333777777333333333333333333333333333333333333333333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 10
+    OnClick = BitBtn6Click
+  end
+  object chk01: TCheckBox
+    Left = 184
+    Top = 340
+    Width = 73
+    Height = 17
+    Caption = #21512#20341#27454#34399
+    TabOrder = 11
+  end
+  object Edit1: TEdit
+    Left = 384
+    Top = 340
+    Width = 65
+    Height = 21
+    ReadOnly = True
+    TabOrder = 12
+    Text = '100.00'
+  end
+  object chk02: TCheckBox
+    Left = 281
+    Top = 340
+    Width = 97
+    Height = 17
+    Caption = #20351#29992'FOB'#21934#20729'%'
+    TabOrder = 13
+  end
+  object BitBtn7: TBitBtn
+    Left = 191
+    Top = 398
+    Width = 129
+    Height = 25
+    Caption = #36008#29289#20986#38272#26781
+    DoubleBuffered = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+      00033FFFFFFFFFFFFFFF0888888888888880777777777777777F088888888888
+      8880777777777777777F0000000000000000FFFFFFFFFFFFFFFF0F8F8F8F8F8F
+      8F80777777777777777F08F8F8F8F8F8F9F0777777777777777F0F8F8F8F8F8F
+      8F807777777777777F7F0000000000000000777777777777777F3330FFFFFFFF
+      03333337F3FFFF3F7F333330F0000F0F03333337F77773737F333330FFFFFFFF
+      03333337F3FF3FFF7F333330F00F000003333337F773777773333330FFFF0FF0
+      33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
+      33333337FFFF7733333333300000033333333337777773333333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 14
+    OnClick = BitBtn7Click
+  end
+  object BitBtn8: TBitBtn
+    Left = 32
+    Top = 398
+    Width = 153
+    Height = 25
+    Caption = #24314#31435#27171#26495#20986#21475#22577#38364#21934
+    DoubleBuffered = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
+      333333333333337FF3333333333333903333333333333377FF33333333333399
+      03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
+      99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
+      99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
+      03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
+      33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
+      33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
+      3333777777333333333333333333333333333333333333333333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 15
+    OnClick = BitBtn8Click
+  end
+  object chk03: TCheckBox
+    Left = 184
+    Top = 365
+    Width = 105
+    Height = 17
+    Caption = #38468#24118#27171#26495#22577#38364#21934
+    TabOrder = 16
+    OnClick = chk03Click
+  end
+  object ComboBox2: TComboBox
+    Left = 288
+    Top = 363
+    Width = 161
+    Height = 21
+    Enabled = False
+    TabOrder = 17
+    OnEnter = ComboBox2Enter
+  end
+  object BitBtn9: TBitBtn
+    Left = 263
+    Top = 335
+    Width = 186
+    Height = 25
+    Caption = #35373#23450#27599#20491#23458#25142'FOB'#21934#20729'%'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 18
+    OnClick = BitBtn9Click
+  end
+  object BitBtn10: TBitBtn
+    Left = 326
+    Top = 398
+    Width = 123
+    Height = 25
+    Caption = #23566#20986#36008#26399#36039#26009
+    DoubleBuffered = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000130B0000130B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333303
+      333333333333337FF3333333333333903333333333333377FF33333333333399
+      03333FFFFFFFFF777FF3000000999999903377777777777777FF0FFFF0999999
+      99037F3337777777777F0FFFF099999999907F3FF777777777770F00F0999999
+      99037F773777777777730FFFF099999990337F3FF777777777330F00FFFFF099
+      03337F773333377773330FFFFFFFF09033337F3FF3FFF77733330F00F0000003
+      33337F773777777333330FFFF0FF033333337F3FF7F3733333330F08F0F03333
+      33337F7737F7333333330FFFF003333333337FFFF77333333333000000333333
+      3333777777333333333333333333333333333333333333333333}
+    NumGlyphs = 2
+    ParentDoubleBuffered = False
+    TabOrder = 19
+    OnClick = BitBtn10Click
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_pdn_shpadvice1'
+    FieldDefs = <
+      item
+        Name = 'TPLANT'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'SHPNO'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'SEQ'
+        DataType = ftInteger
+      end
+      item
+        Name = 'DT'
+        DataType = ftDate
+      end
+      item
+        Name = 'YR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'WK'
+        DataType = ftInteger
+      end
+      item
+        Name = 'EXFTY'
+        DataType = ftDate
+      end
+      item
+        Name = 'NOTEPAD'
+        DataType = ftWideString
+        Size = 1000
+      end
+      item
+        Name = 'SIGNED'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'TRDT'
+        DataType = ftDate
+      end
+      item
+        Name = 'TRCAT'
+        DataType = ftWideString
+        Size = 20
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    AfterPost = Query1AfterPost
+    Left = 32
+    Top = 65528
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 64
+    Top = 65528
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'J_NO'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'J2_JOB'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'RWO'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'ACOL'
+        DataType = ftString
+        Size = 3
+      end>
+    IndexDefs = <
+      item
+        Name = 'idx1'
+        Fields = 'j_no;j2_job;rwo;acol'
+      end>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    StoreDefs = True
+    Left = 96
+    Top = 65528
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 128
+    Top = 65528
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '*.xls'
+    Filter = 'Excel File (*.xls)|*.xls|Any file (*.*)|*.*'
+    FilterIndex = 0
+    Left = 152
+    Top = 136
+  end
+  object ADOQuery1: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CursorType = ctStatic
+    LockType = ltBatchOptimistic
+    CommandTimeout = 300
+    Parameters = <>
+    SQL.Strings = (
+      'exec phdb..sp_preshpadvice_export '#39'SHP-5978A'#39','#39'SHP-5978A 40HQ'#39)
+    Left = 192
+    Top = 136
+  end
+  object DataSource4: TDataSource
+    DataSet = ADOQuery1
+    Left = 232
+    Top = 136
+  end
+  object ADOQuery2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    CursorType = ctStatic
+    LockType = ltBatchOptimistic
+    CommandTimeout = 300
+    Parameters = <>
+    SQL.Strings = (
+      'exec phdb..sp_preshpadvice_export '#39'SHP-5978A'#39','#39'SHP-5978A 40HQ'#39)
+    Left = 192
+    Top = 192
+  end
+  object Query4: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 8
+    Top = 48
+  end
+end

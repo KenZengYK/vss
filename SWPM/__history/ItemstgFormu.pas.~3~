@@ -1,0 +1,85 @@
+unit ItemstgFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DB, DBClient, ExtCtrls, GridsEh, DBGridEh;
+
+type
+  TfrmItems_Stdby = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn5: TBitBtn;
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmItems_Stdby: TfrmItems_Stdby;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure TfrmItems_Stdby.BitBtn1Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure TfrmItems_Stdby.BitBtn2Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure TfrmItems_Stdby.BitBtn3Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure TfrmItems_Stdby.BitBtn5Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure TfrmItems_Stdby.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmItems_Stdby:=nil;
+end;
+
+procedure TfrmItems_Stdby.FormShow(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_items_stg';
+    open;
+  end;
+end;
+
+procedure TfrmItems_Stdby.Query1AfterPost(DataSet: TDataSet);
+begin
+  //
+end;
+
+end.

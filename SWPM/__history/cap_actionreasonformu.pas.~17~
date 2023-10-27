@@ -1,0 +1,122 @@
+unit cap_actionreasonformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ExtCtrls, GridsEh, DBGridEh, ADODB, DB, DBClient;
+
+type
+  Tfrmcap_actionreason = class(TForm)
+    DBGridEh1: TDBGridEh;
+    Panel1: TPanel;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn7: TBitBtn;
+    BitBtn6: TBitBtn;
+    AdoDataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    qry1: TADOQuery;
+    Query1: TClientDataSet;
+    procedure DBGridEh1DblClick(Sender: TObject);
+    procedure AdoDataSet1NewRecord(DataSet: TDataSet);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcap_actionreason: Tfrmcap_actionreason;
+
+implementation
+
+uses mainformu, CP_ActionlogFormu;
+
+{$R *.dfm}
+
+procedure Tfrmcap_actionreason.BitBtn4Click(Sender: TObject);
+begin
+  dbgrideh1.SetFocus;
+  adodataset1.append;
+end;
+
+procedure Tfrmcap_actionreason.BitBtn5Click(Sender: TObject);
+begin
+  if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idyes then adodataset1.Delete;
+end;
+
+procedure Tfrmcap_actionreason.BitBtn7Click(Sender: TObject);
+begin
+  if (adodataset1.State=dsEdit) or (adodataset1.State=dsInsert) then adodataset1.Post;
+end;
+
+procedure Tfrmcap_actionreason.DBGridEh1DblClick(Sender: TObject);
+begin
+  if not adodataset1.fieldbyname('seq').isnull then begin
+    frmCarte_Requestaction.adodataset2.edit;
+    frmCarte_Requestaction.adodataset2.fieldbyname('act_item').value:=adodataset1.fieldbyname('cde').value;
+    frmCarte_Requestaction.adodataset2.fieldbyname('act_subject').value:=adodataset1.fieldbyname('desc_en').value;
+  end;
+  close;
+end;
+
+procedure Tfrmcap_actionreason.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmcap_actionreason:=nil;
+end;
+
+procedure Tfrmcap_actionreason.FormShow(Sender: TObject);
+var
+  r_cpaction:string;
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select r_cpaction from tbluser where usr='''+frmmain.combobox1.text+'''';
+    open;
+    if not fieldbyname('r_cpaction').isnull then begin
+      if fieldbyname('r_cpaction').value=true then r_cpaction:='1'
+      else r_cpaction:='0';
+    end else r_cpaction:='0';
+  end;
+  if r_cpaction='1' then begin
+    frmcap_actionreason.bitbtn4.enabled:=true;
+    frmcap_actionreason.bitbtn5.enabled:=true;
+    frmcap_actionreason.bitbtn7.enabled:=true;
+    frmcap_actionreason.dbgrideh1.readonly:=false;
+  end else begin
+    frmcap_actionreason.bitbtn4.enabled:=false;
+    frmcap_actionreason.bitbtn5.enabled:=false;
+    frmcap_actionreason.bitbtn7.enabled:=false;
+    frmcap_actionreason.dbgrideh1.readonly:=true;
+  end;
+  with adodataset1 do begin
+    close;
+    commandtext:='select * from phdb..tbl_cp_mailreason';
+    open;
+  end;
+end;
+
+procedure Tfrmcap_actionreason.AdoDataSet1NewRecord(DataSet: TDataSet);
+var
+  seq1:integer;
+begin
+  with qry1 do begin
+    close;
+    sql.text:='select max(seq) as x1 from phdb..tbl_cp_mailreason';
+    open;
+    if not fieldbyname('x1').isnull then seq1:=fieldbyname('x1').Value+1
+    else seq1:=1;
+  end;
+  adodataset1.fieldbyname('seq').value:=seq1;
+end;
+
+end.

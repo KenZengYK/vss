@@ -1,0 +1,281 @@
+unit pdn_notepadformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DBCGrids, ExtCtrls, DBCtrls, StdCtrls, DB, DBClient, Mask, Buttons,
+  Menus;
+
+type
+  Tfrmpdn_notepad = class(TForm)
+    Panel1: TPanel;
+    DBCtrlGrid1: TDBCtrlGrid;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Label3: TLabel;
+    DBEdit1: TDBEdit;
+    Label4: TLabel;
+    DBEdit2: TDBEdit;
+    Label5: TLabel;
+    DBEdit3: TDBEdit;
+    Label6: TLabel;
+    Label7: TLabel;
+    DBComboBox1: TDBComboBox;
+    Label8: TLabel;
+    DBMemo1: TDBMemo;
+    BitBtn2: TBitBtn;
+    BitBtn8: TBitBtn;
+    BitBtn9: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn1: TBitBtn;
+    DBComboBox2: TDBComboBox;
+    DBComboBox3: TDBComboBox;
+    lblstyle001: TLabel;
+    PopupMenu1: TPopupMenu;
+    Delete1: TMenuItem;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure DBComboBox2Change(Sender: TObject);
+    procedure Delete1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpdn_notepad: Tfrmpdn_notepad;
+
+implementation
+
+uses mainformu, pdnformu, pdn_mailformu;
+
+{$R *.dfm}
+
+procedure Tfrmpdn_notepad.BitBtn2Click(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdate,'x1',ptinput);
+    commandtext:='select * from tbl_pdn_notepad where dt=:x1';
+    params[0].asdate:=encodedate(3000,1,1);
+    open;
+  end;
+  query1.append;
+  dbctrlgrid1.SetFocus;
+  dbedit2.setfocus;
+  dbedit2.readonly:=false;
+  dbcombobox2.readonly:=false;
+  dbcombobox3.readonly:=false;
+  dbcombobox1.ReadOnly:=false;
+  dbmemo1.ReadOnly:=false;
+end;
+
+procedure Tfrmpdn_notepad.BitBtn6Click(Sender: TObject);
+var
+  s1:string;
+begin
+  //send mail
+  BitBtn9Click(self);
+  if frmpdn_mail=nil then frmpdn_mail:=tfrmpdn_mail.create(nil);
+  frmpdn_mail.edit5.text:=query1.fieldbyname('stitle').value+'   -  on PDN ['+frmpdn.query1.fieldbyname('pdn').value+']';
+  frmpdn_mail.memo1.lines.clear;
+  s1:='Sender: '+query1.fieldbyname('usr').value+'    Date: '+formatdatetime('yyyy-MM-dd',query1.fieldbyname('dt').value);//+'   on PDN: '+frmpdn.query1.fieldbyname('pdn').value;
+  frmpdn_mail.memo1.lines.add(s1);
+  //frmpdn_mail.memo1.lines.add(' ');
+  s1:='Happening period: '+query1.fieldbyname('toaddr').value+'    Category: '+query1.fieldbyname('team').value;//+'   on PDN: '+frmpdn.query1.fieldbyname('pdn').value;
+  if query1.fieldbyname('ccaddr').value>'' then s1:=s1+' ['+query1.fieldbyname('ccaddr').value+']';
+  frmpdn_mail.memo1.lines.add(s1);
+  frmpdn_mail.memo1.lines.add(' ');
+  frmpdn_mail.memo1.lines.add(query1.fieldbyname('notepad').value);
+  frmpdn_mail.show;
+end;
+
+procedure Tfrmpdn_notepad.BitBtn8Click(Sender: TObject);
+begin
+  if (query1.fieldbyname('usr').value=frmmain.combobox1.text) or (frmmain.combobox1.text='ADMIN') then begin
+    dbctrlgrid1.SetFocus;
+    dbedit2.setfocus;
+    dbedit2.readonly:=false;
+    dbcombobox2.readonly:=false;
+    dbcombobox3.readonly:=false;
+    dbcombobox1.ReadOnly:=false;
+    dbmemo1.ReadOnly:=false;
+  end;
+end;
+
+procedure Tfrmpdn_notepad.BitBtn9Click(Sender: TObject);
+begin
+  if (query1.state=dsedit) or (query1.state=dsinsert) then query1.post;
+end;
+
+procedure Tfrmpdn_notepad.DBComboBox2Change(Sender: TObject);
+begin
+  if dbcombobox2.text='Delay shpt will be happened' then dbcombobox3.enabled:=true
+  else begin
+    dbcombobox3.enabled:=false;
+    dbcombobox3.text:='';
+    query1.FieldByName('ccaddr').Value:='';
+  end;
+end;
+
+procedure Tfrmpdn_notepad.Delete1Click(Sender: TObject);
+begin
+  if (query1.fieldbyname('usr').value=frmmain.combobox1.text) or (frmmain.combobox1.text='ADMIN') then begin
+    if application.messagebox('Delete this notepad?','Confirmation',mb_iconquestion+mb_yesno)=idyes then begin
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'x1',ptinput);
+        commandtext:='delete from tbl_pdn_notepad where seq1=:x1';
+        params[0].asinteger:=query1.fieldbyname('seq1').value;
+        execute;
+      end;
+      query1.delete;
+    end;
+  end;
+end;
+
+procedure Tfrmpdn_notepad.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmpdn_notepad:=nil;
+end;
+
+procedure Tfrmpdn_notepad.FormShow(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    commandtext:='select * from tbl_pdn_notepad where seq=:x1 order by seq1 desc';
+    params[0].asinteger:=frmpdn.query1.fieldbyname('seq').value;
+    open;
+  end;
+  dbedit1.readonly:=true;
+  dbedit2.readonly:=true;
+  dbedit3.readonly:=true;
+  dbcombobox2.readonly:=true;
+  dbcombobox3.readonly:=true;
+  dbcombobox1.ReadOnly:=true;
+  dbcombobox3.enabled:=false;
+  dbmemo1.ReadOnly:=true;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    commandtext:='select count(distinct cstyle) as x1,count(distinct custpo) as x2 from tbl_pdn_rwo where seq=:x1';
+    params[0].asinteger:=frmpdn.query1.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('x1').isnull then lblstyle001.caption:='# of Cust Style: '+fieldbyname('x1').asstring+'   # of Cust PO: '+fieldbyname('x2').asstring
+    else lblstyle001.caption:='';
+  end;
+end;
+
+procedure Tfrmpdn_notepad.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+  rmks:string;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    commandtext:='select * from tbl_pdn_notepad where seq1=:x1';
+    params[0].asinteger:=query1.fieldbyname('seq1').value;
+    open;
+    if not fieldbyname('usr').isnull then begin
+      str1:='update tbl_pdn_notepad set ';
+      if not query1.fieldbyname('notepad').isnull then begin
+        rmks:=query1.fieldbyname('notepad').value;
+        if pos('''',rmks)>0 then
+        rmks:=copy(rmks,1,pos('''',rmks)-1)+'"'+copy(rmks,pos('''',rmks)+1,2000);
+        str1:=str1+'notepad='''+rmks+''','//query1.fieldbyname('notepad').value+''','
+      end else str1:=str1+'notepad='''',';
+      if not query1.fieldbyname('stitle').isnull then
+      str1:=str1+'stitle='''+query1.fieldbyname('stitle').value+''','
+      else str1:=str1+'stitle='''',';
+      if not query1.fieldbyname('team').isnull then
+      str1:=str1+'team='''+query1.fieldbyname('team').value+''','
+      else str1:=str1+'team='''',';
+      if not query1.fieldbyname('toaddr').isnull then
+      str1:=str1+'toaddr='''+query1.fieldbyname('toaddr').value+''','
+      else str1:=str1+'toaddr='''',';
+      if not query1.fieldbyname('ccaddr').isnull then
+      str1:=str1+'ccaddr='''+query1.fieldbyname('ccaddr').value+''' '
+      else str1:=str1+'ccaddr='''' ';
+      str1:=str1+'where seq1='+query1.fieldbyname('seq1').asstring;
+      if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+    end else begin
+      with query3 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x0',ptinput);
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        params.createparam(ftstring,'x3',ptinput);
+        params.createparam(ftinteger,'x4',ptinput);
+        params.createparam(ftstring,'x5',ptinput);
+        params.createparam(ftinteger,'x6',ptinput);
+        params.createparam(ftstring,'x7',ptinput);
+        params.createparam(ftstring,'x8',ptinput);
+        commandtext:='insert into tbl_pdn_notepad(notepad,usr,dt,team,seq,stitle,seq1,toaddr,ccaddr) '
+                    +'values(:x0,:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8)';
+        if not query1.fieldbyname('notepad').isnull then
+        params[0].asstring:=query1.fieldbyname('notepad').value
+        else params[0].asstring:='';
+        params[1].asstring:=query1.fieldbyname('usr').value;
+        params[2].asdate:=query1.fieldbyname('dt').value;
+        params[3].asstring:=query1.fieldbyname('team').value;
+        params[4].asinteger:=query1.fieldbyname('seq').value;
+        if not query1.fieldbyname('stitle').isnull then
+        params[5].asstring:=query1.fieldbyname('stitle').value
+        else params[5].asstring:='';
+        params[6].asinteger:=query1.fieldbyname('seq1').value;
+        if not query1.fieldbyname('toaddr').isnull then
+        params[7].asstring:=query1.fieldbyname('toaddr').value
+        else params[7].asstring:='';
+        if not query1.fieldbyname('ccaddr').isnull then
+        params[8].asstring:=query1.fieldbyname('ccaddr').value
+        else params[8].asstring:='';
+        execute;
+      end;
+    end;
+  end;
+end;
+
+procedure Tfrmpdn_notepad.Query1NewRecord(DataSet: TDataSet);
+var
+  seq1:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq1) as x1 from tbl_pdn_notepad';
+    open;
+    if not fieldbyname('x1').isnull then seq1:=fieldbyname('x1').value+1
+    else seq1:=1;
+  end;
+  query1.FieldByName('seq').Value:=frmpdn.Query1.FieldByName('seq').Value;
+  query1.fieldbyname('dt').value:=date;
+  query1.fieldbyname('usr').value:=frmmain.combobox1.text;
+  query1.fieldbyname('seq1').value:=seq1;
+  //query1.fieldbyname('team').value:='Boardcast';
+end;
+
+end.

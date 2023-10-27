@@ -1,0 +1,44 @@
+unit tbfx1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, TeEngine, Series, TeeProcs, Chart, DbChart, QRTEE, QuickRpt, DB,
+  DBClient, ExtCtrls, QRCtrls;
+
+type
+  Tfrmtbfx1 = class(TForm)
+    QuickRep1: TQuickRep;
+    Query1: TClientDataSet;
+    TitleBand1: TQRBand;
+    SummaryBand1: TQRBand;
+    PageHeaderBand1: TQRBand;
+    PageFooterBand1: TQRBand;
+    DetailBand1: TQRBand;
+    ColumnHeaderBand1: TQRBand;
+    QRLabel1: TQRLabel;
+    QRLabel2: TQRLabel;
+    QRSysData1: TQRSysData;
+    QRLabel3: TQRLabel;
+    QRSysData2: TQRSysData;
+    hd2: TQRLabel;
+    QRChart1: TQRChart;
+    QRDBChart1: TQRDBChart;
+    Series1: TFastLineSeries;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmtbfx1: Tfrmtbfx1;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+end.

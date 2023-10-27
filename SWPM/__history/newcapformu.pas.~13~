@@ -1,0 +1,416 @@
+unit newcapformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DB, DBClient, DateUtils, ADODB, Menus;
+
+type
+  Tfrmnewcap = class(TForm)
+    BitBtn9: TBitBtn;
+    BitBtn8: TBitBtn;
+    BitBtn5: TBitBtn;
+    ClientDataSet2: TClientDataSet;
+    DataSet2: TADOQuery;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn7: TBitBtn;
+    BitBtn10: TBitBtn;
+    BitBtn11: TBitBtn;
+    BitBtn12: TBitBtn;
+    BitBtn13: TBitBtn;
+    BitBtn14: TBitBtn;
+    BitBtn15: TBitBtn;
+    BitBtn16: TBitBtn;
+    BitBtn17: TBitBtn;
+    BitBtn18: TBitBtn;
+    BitBtn19: TBitBtn;
+    BitBtn20: TBitBtn;
+    BitBtn21: TBitBtn;
+    BitBtn22: TBitBtn;
+    BitBtn23: TBitBtn;
+    pm1: TPopupMenu;
+    WOlistwithoutSAH1: TMenuItem;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn9Click(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure BitBtn10Click(Sender: TObject);
+    procedure BitBtn11Click(Sender: TObject);
+    procedure BitBtn12Click(Sender: TObject);
+    procedure BitBtn15Click(Sender: TObject);
+    procedure BitBtn13Click(Sender: TObject);
+    procedure BitBtn14Click(Sender: TObject);
+    procedure BitBtn16Click(Sender: TObject);
+    procedure BitBtn17Click(Sender: TObject);
+    procedure BitBtn18Click(Sender: TObject);
+    procedure BitBtn19Click(Sender: TObject);
+    procedure BitBtn20Click(Sender: TObject);
+    procedure BitBtn21Click(Sender: TObject);
+    procedure BitBtn22Click(Sender: TObject);
+    procedure BitBtn23Click(Sender: TObject);
+    procedure WOlistwithoutSAH1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap: Tfrmnewcap;
+  logseq:integer;
+
+implementation
+
+uses mainformu, oaprojectionformu, ftydefaultformu, newcap_comformu,
+  custenqformu, sot3formu, ftygsdformu, sosplitformu, newcap_salesformu,
+  newcap_simpleversionformu, capacity_rulesformu, newcap_newformatsformu,
+  newcap_ftyelementsformu, newcap_simftyformu, newcap_reportsformu,
+  newcap_ftysimulationformu, newcap_ref1formu, lineinfou, newcap_calendarformu,
+  custformu, newcap_wfformu, newcap_notepadformu, newcap_fcsetupformu,
+  newcap_fcbalformu, newcap_cpsettingsformu, newcap_budgetformu,
+  CP_ActionlogFormu, cap_wowithoutsahformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap:=nil;
+end;
+
+procedure Tfrmnewcap.FormCreate(Sender: TObject);
+begin
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          commandtext:='select max(dseq) as q1 from tbl_logging where seq=:x1';
+          params[0].asinteger:=frmmain.SpinEdit1.Value;
+          open;
+          if not fieldbyname('q1').isnull then logseq:=fieldbyname('q1').value+1
+          else logseq:=2;
+        end;
+        {
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          params.CreateParam(ftstring,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftdatetime,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftinteger,'x6',ptinput);
+          commandtext:='insert into tbl_logging(seq,usr,frmid,strdt,ip,dseq) values(:x1,:x2,:x3,:x4,:x5,:x6)';
+          params[0].asinteger:=frmmain.spinedit1.Value;
+          params[1].AsString:=frmmain.combobox1.text;
+          params[2].AsString:='Capacity Planning - New';
+          params[3].AsDateTime:=now;
+          params[4].asstring:=frmmain.tcp1.LocalIP;
+          params[5].AsInteger:=logseq;
+          execute;
+        end;
+        }
+        with dataset2 do begin
+          close;
+          sql.text:='insert into [Sys.Authority].dbo.sysuseinfo(menuid,userid,starttime) values(:x1,:x2,:x3)';
+          parameters[0].Value:='LWPM - Capacity Planning (New)';
+          parameters[1].value:=frmmain.combobox1.text;
+          parameters[2].Value:=now;
+          execsql;
+        end;
+end;
+
+procedure Tfrmnewcap.FormDestroy(Sender: TObject);
+begin
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftdatetime,'x1',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          params.createparam(ftinteger,'x3',ptinput);
+          commandtext:='update tbl_logging set enddt=:x1 where seq=:x2 and dseq=:x3';
+          params[0].AsDateTime:=now;
+          params[1].asinteger:=frmmain.spinedit1.Value;
+          params[2].asinteger:=logseq;
+          execute;
+        end;
+end;
+
+procedure Tfrmnewcap.WOlistwithoutSAH1Click(Sender: TObject);
+begin
+  //if frmcap_wowithoutsah=nil then frmcap_wowithsah:=tfrmcap_wowithsah.create(nil);
+  //frmcap_wowithoutsah.show;
+end;
+
+procedure Tfrmnewcap.BitBtn5Click(Sender: TObject);
+begin
+  //format1 & 2 & 3
+  if frmnewcap_com=nil then frmnewcap_com:=tfrmnewcap_com.Create(nil);
+  frmnewcap_com.Show;
+end;
+
+procedure Tfrmnewcap.BitBtn9Click(Sender: TObject);
+begin
+  //if frmoaprojection=nil then frmoaprojection:=tfrmoaprojection.Create(nil);
+  //frmoaprojection.ComboBox1.Text:='SL';
+  //frmoaprojection.SpinEdit1.Value:=yearof(date);
+  //frmoaprojection.Show;
+  if frmnewcap_sales=nil then frmnewcap_sales:=tfrmnewcap_sales.Create(nil);
+  frmnewcap_sales.Show;
+end;
+
+procedure Tfrmnewcap.BitBtn8Click(Sender: TObject);
+begin
+  if frmftydefault=nil then frmftydefault:=tfrmftydefault.Create(nil);
+  frmftydefault.ComboBox1.Text:='SL';
+  frmftydefault.SpinEdit1.Value:=yearof(date);
+  frmftydefault.Show;
+end;
+
+procedure Tfrmnewcap.BitBtn1Click(Sender: TObject);
+begin
+  //
+  if frmnewcap_simpleversion=nil then frmnewcap_simpleversion:=tfrmnewcap_simpleversion.Create(nil);
+  frmnewcap_simpleversion.sEdit1.Value:=yearof(now);
+  frmnewcap_simpleversion.sEdit2.Value:=monthof(now);
+  frmnewcap_simpleversion.sEdit3.Value:=yearof(now);
+  frmnewcap_simpleversion.sEdit4.Value:=monthof(now);
+  frmnewcap_simpleversion.Show;
+  //
+end;
+
+procedure Tfrmnewcap.BitBtn2Click(Sender: TObject);
+begin
+  if frmcustenq=nil then frmcustenq:=tfrmcustenq.create(nil);
+  frmcustenq.Show;
+end;
+
+procedure Tfrmnewcap.BitBtn3Click(Sender: TObject);
+begin
+  if frmsot3=nil then frmsot3:=tfrmsot3.create(nil);
+  frmsot3.show;
+end;
+
+procedure Tfrmnewcap.BitBtn6Click(Sender: TObject);
+begin
+  if frmftygsd=nil then frmftygsd:=tfrmftygsd.Create(nil);
+  frmftygsd.ComboBox1.Text:='SL';
+  frmftygsd.SpinEdit1.Value:=yearof(date);
+  frmftygsd.Show;
+end;
+
+procedure Tfrmnewcap.BitBtn4Click(Sender: TObject);
+begin
+  //if frmnewcap_simfty=nil then frmnewcap_simfty:=tfrmnewcap_simfty.Create(nil);
+  //frmnewcap_simfty.combobox1.text:='SL';
+  //frmnewcap_simfty.spinedit1.value:=yearof(date);
+  //frmnewcap_simfty.show;
+  if frmnewcap_fcsetup=nil then frmnewcap_fcsetup:=tfrmnewcap_fcsetup.create(nil);
+  frmnewcap_fcsetup.show;
+end;
+
+procedure Tfrmnewcap.BitBtn7Click(Sender: TObject);
+begin
+  if frmsosplit=nil then frmsosplit:=tfrmsosplit.Create(nil);
+  frmsosplit.Show;
+end;
+
+procedure Tfrmnewcap.BitBtn10Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmnewcap.BitBtn11Click(Sender: TObject);
+begin
+  {
+  if frmcapacity_rules=nil then frmcapacity_rules:=tfrmcapacity_rules.create(nil);
+  frmcapacity_rules.show;
+  }
+  if frmnewcap_ftyelements=nil then frmnewcap_ftyelements:=tfrmnewcap_ftyelements.create(nil);
+  frmnewcap_ftyelements.show;
+end;
+
+procedure Tfrmnewcap.BitBtn12Click(Sender: TObject);
+begin
+  if frmnewcap_newformats=nil then frmnewcap_newformats:=tfrmnewcap_newformats.create(nil);
+  frmnewcap_newformats.spinedit1.value:=yearof(now);
+  frmnewcap_newformats.spinedit2.Value:=1;
+  frmnewcap_newformats.spinedit3.Value:=12;
+  frmnewcap_newformats.spinedit4.value:=1;
+  frmnewcap_newformats.spinedit5.value:=53;
+  frmnewcap_newformats.spinedit2.Enabled:=false;
+  frmnewcap_newformats.spinedit3.Enabled:=false;
+  frmnewcap_newformats.spinedit4.Enabled:=false;
+  frmnewcap_newformats.spinedit5.Enabled:=false;
+  frmnewcap_newformats.spinedit6.value:=yearof(now);
+  frmnewcap_newformats.spinedit8.value:=yearof(now);
+  frmnewcap_newformats.spinedit7.Value:=1;
+  frmnewcap_newformats.spinedit9.Value:=12;
+  frmnewcap_newformats.label8.caption:='1';
+  frmnewcap_newformats.show;
+end;
+
+procedure Tfrmnewcap.BitBtn15Click(Sender: TObject);
+begin
+  if frmnewcap_reports=nil then frmnewcap_reports:=tfrmnewcap_reports.Create(nil);
+  {
+  with clientdataset2 do begin
+    close;
+    params.clear;
+    commandtext:='select oacap from tbluser where usr='''+frmmain.ComboBox1.text+'''';
+    open;
+    if fieldbyname('oacap').value=true then begin
+      frmnewcap_reports.BitBtn5.Enabled:=true;
+      frmnewcap_reports.BitBtn1.Enabled:=true;
+    end else begin
+      frmnewcap_reports.BitBtn5.Enabled:=false;
+      frmnewcap_reports.BitBtn1.Enabled:=false;
+    end;
+  end;
+  }
+  frmnewcap_reports.show;
+end;
+
+procedure Tfrmnewcap.BitBtn13Click(Sender: TObject);
+begin
+  {
+  if frmnewcap_ftysimulation=nil then frmnewcap_ftysimulation:=tfrmnewcap_ftysimulation.Create(nil);
+  frmnewcap_ftysimulation.Caption:='Factory Capacity - BAL Processing';
+  frmnewcap_ftysimulation.bitbtn1.enabled:=true;
+  frmnewcap_ftysimulation.BitBtn3.visible:=true;
+  frmnewcap_ftysimulation.BitBtn4.Visible:=false;
+  frmnewcap_ftysimulation.BitBtn5.visible:=true;
+  frmnewcap_ftysimulation.BitBtn6.Visible:=false;
+  frmnewcap_ftysimulation.combobox1.text:='SL';
+  frmnewcap_ftysimulation.spinedit1.value:=yearof(date);
+  frmnewcap_ftysimulation.show;
+  }
+  if frmnewcap_fcbal=nil then frmnewcap_fcbal:=tfrmnewcap_fcbal.create(nil);
+  frmnewcap_fcbal.show;
+end;
+
+procedure Tfrmnewcap.BitBtn14Click(Sender: TObject);
+begin
+  if frmnewcap_ftysimulation=nil then frmnewcap_ftysimulation:=tfrmnewcap_ftysimulation.Create(nil);
+  frmnewcap_ftysimulation.Caption:='Factory Capacity - BAL Confirmation';
+  frmnewcap_ftysimulation.bitbtn1.enabled:=false;
+  frmnewcap_ftysimulation.BitBtn3.visible:=false;
+  frmnewcap_ftysimulation.BitBtn4.Visible:=true;
+  frmnewcap_ftysimulation.BitBtn5.visible:=false;
+  frmnewcap_ftysimulation.BitBtn6.Visible:=true;
+  frmnewcap_ftysimulation.combobox1.text:='SL';
+  frmnewcap_ftysimulation.spinedit1.value:=yearof(date);
+  frmnewcap_ftysimulation.show;
+end;
+
+procedure Tfrmnewcap.BitBtn16Click(Sender: TObject);
+var
+  rcap:boolean;
+begin
+  with clientdataset2 do begin
+    close;
+    params.clear;
+    commandtext:='select rcap from tbluser where usr='''+frmmain.combobox1.text+'''';
+    open;
+    if not fieldbyname('rcap').isnull then rcap:=fieldbyname('rcap').value else rcap:=false;
+  end;
+  if frmnewcap_ref1=nil then frmnewcap_ref1:=tfrmnewcap_ref1.create(nil);
+  frmnewcap_ref1.ComboBox1.text:='SL';
+  with clientdataset2 do begin
+    close;
+    params.clear;
+    commandtext:='select stdt,m1 from tbl_cap_date where sel=1 and tplant=''SL''';
+    open;
+    if not fieldbyname('stdt').isnull then begin
+      frmnewcap_ref1.DateEdit1.date:=fieldbyname('stdt').value;
+      if fieldbyname('m1').value=12 then frmnewcap_ref1.xh1.Checked:=true
+      else if fieldbyname('m1').value=9 then frmnewcap_ref1.xh2.Checked:=true
+      else if fieldbyname('m1').value=6 then frmnewcap_ref1.xh3.Checked:=true
+      else if fieldbyname('m1').value=3 then frmnewcap_ref1.xh4.Checked:=true
+      else if fieldbyname('m1').value=1 then frmnewcap_ref1.xh5.Checked:=true;
+    end;
+  end;
+  frmnewcap_ref1.show;
+  if rcap then frmnewcap_ref1.bitbtn1.Enabled:=true
+  else frmnewcap_ref1.BitBtn1.enabled:=false;
+end;
+
+procedure Tfrmnewcap.BitBtn17Click(Sender: TObject);
+begin
+  if frmlineinfo=nil then frmlineinfo:=tfrmlineinfo.create(nil);
+  frmlineinfo.formstyle:=fsNormal;
+  frmlineinfo.WindowState:=wsMaximized;
+  frmlineinfo.show;
+  if pos('test',application.ExeName)>0 then frmlineinfo.Caption:=frmlineinfo.Caption+' - Test';
+end;
+
+procedure Tfrmnewcap.BitBtn18Click(Sender: TObject);
+begin
+  if frmnewcap_calendar=nil then frmnewcap_calendar:=tfrmnewcap_calendar.create(nil);
+  frmnewcap_calendar.show;
+end;
+
+procedure Tfrmnewcap.BitBtn19Click(Sender: TObject);
+begin
+  if frmcustomer=nil then frmcustomer:=tfrmcustomer.Create(nil);
+  frmcustomer.formstyle:=fsNormal;
+  with frmcustomer.query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from cust_sku order by cust,ptyp,lst2,pcol,fits,sizs';
+    open;
+  end;
+  with frmcustomer.query2 do begin
+    close;
+    params.clear;
+    commandtext:='select * from cust_exfty';
+    open;
+  end;
+  //frmcustomer.BringToFront;
+  frmcustomer.PageControl1.ActivePageIndex:=0;
+  frmcustomer.WindowState:=wsMaximized;
+  frmcustomer.show;
+  if pos('test',application.ExeName)>0 then frmcustomer.Caption:=frmcustomer.Caption+' - Test';
+end;
+
+procedure Tfrmnewcap.BitBtn20Click(Sender: TObject);
+begin
+  if frmnewcap_wf=nil then frmnewcap_wf:=tfrmnewcap_wf.create(nil);
+  //frmnewcap_wf.ComboBox1.text:=combobox1.text;
+  frmnewcap_wf.show;
+end;
+
+procedure Tfrmnewcap.BitBtn21Click(Sender: TObject);
+begin
+  //if frmnewcap_notepad=nil then frmnewcap_notepad:=tfrmnewcap_notepad.create(nil);
+  //frmnewcap_notepad.show;
+  if frmcarte_requestaction=nil then frmcarte_requestaction:=tfrmcarte_requestaction.create(nil);
+  frmcarte_requestaction.show;
+end;
+
+procedure Tfrmnewcap.BitBtn22Click(Sender: TObject);
+begin
+  if frmnewcap_cpsettings=nil then frmnewcap_cpsettings:=tfrmnewcap_cpsettings.create(nil);
+  frmnewcap_cpsettings.show;
+end;
+
+procedure Tfrmnewcap.BitBtn23Click(Sender: TObject);
+begin
+  if frmnewcap_budget=nil then frmnewcap_budget:=tfrmnewcap_budget.create(nil);
+  frmnewcap_budget.show;
+end;
+
+end.

@@ -1,0 +1,61 @@
+unit tblmemu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ppCtrls, ppPrnabl, ppClass, ppBands, ppCache, ppProd, ppReport, ppComm,
+  ppRelatv, ppDB, ppDBPipe, ppDBBDE, Db, DBClient, ppViewr, ppParameter;
+
+type
+  Tfrmtblmem = class(TForm)
+    ClientDataSet1: TClientDataSet;
+    DataSource1: TDataSource;
+    ppBDEPipeline1: TppBDEPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppDBText1: TppDBText;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppShape1: TppShape;
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmtblmem: Tfrmtblmem;
+
+implementation
+uses mainformu;
+{$R *.DFM}
+
+procedure Tfrmtblmem.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppreport1.previewform.windowstate:=wsmaximized;
+  tppviewer(ppreport1.previewform.viewer).ZoomPercentage:=100;
+end;
+
+end.

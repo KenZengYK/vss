@@ -1,0 +1,75 @@
+unit plcnewplanformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, rxToolEdit, DB;
+
+type
+  Tfrmplcnewplan = class(TForm)
+    Label1: TLabel;
+    DateEdit1: TDateEdit;
+    BitBtn1: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmplcnewplan: Tfrmplcnewplan;
+
+implementation
+
+{$R *.dfm}
+
+uses mainformu, lineinfou, ftylearnformu;
+
+procedure Tfrmplcnewplan.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmplcnewplan:=nil;
+end;
+
+procedure Tfrmplcnewplan.BitBtn1Click(Sender: TObject);
+var
+  dt1,dt2:tdate;
+  fty:string;
+begin
+  if dateedit1.date<=date then begin
+    showmessage('Effective date for new plan must be later than today!');
+  end else begin
+    fty:=frmlineinfo.tblline.fieldbyname('tplant').value;
+    dt1:=dateedit1.date;
+    dt2:=frmftylearn.Query1.fieldbyname('edt').value;
+    with frmftylearn.Query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      commandtext:='execute procedure sp_newtplant_learn(:x1,:x2,:x3)';
+      params[0].asstring:=fty;
+      params[1].asdate:=dt1;
+      params[2].asdate:=dt2;
+      execute;
+    end;
+    with frmftylearn.query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      commandtext:='select * from tblplant_learn where tplant='''+fty+''' and edt>:x1';
+      params[0].asdate:=date;
+      open;
+    end;
+    frmftylearn.SpeedButton1.Enabled:=true;
+    frmftylearn.SpeedButton2.Enabled:=false;
+    frmplcnewplan.Close;
+  end;
+end;
+
+end.

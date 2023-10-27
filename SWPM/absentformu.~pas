@@ -1,0 +1,180 @@
+unit absentformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, Grids, DBGridEh, DB, DBClient, StdCtrls, Buttons,
+  DBCtrls;
+
+type
+  Tfrmabsent = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DataSource1: TDataSource;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    Label4: TLabel;
+    DBText4: TDBText;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+    procedure Query1AfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmabsent: Tfrmabsent;
+
+implementation
+
+uses mainformu, worksheet, zktdformu;
+
+{$R *.dfm}
+
+procedure Tfrmabsent.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmabsent:=nil;
+end;
+
+procedure Tfrmabsent.Query1NewRecord(DataSet: TDataSet);
+var
+  dseq1:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(dseq1) as seq1 from line_shjs2';
+    open;
+    if not fieldbyname('seq1').isnull then dseq1:=fieldbyname('seq1').value+1
+    else dseq1:=1;
+  end;
+  query1.fieldbyname('dseq1').value:=dseq1;
+end;
+
+procedure Tfrmabsent.DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key=#13 then sendmessage(dbgrideh1.Handle,wm_keydown,vk_tab,0);
+end;
+
+procedure Tfrmabsent.Query1AfterPost(DataSet: TDataSet);
+var
+  zjs,zss,zss1:double;
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select dseq1 from line_shjs2 where dseq1=:x1';
+      params[0].asinteger:=query1.fieldbyname('dseq1').value;
+      open;
+      if not fieldbyname('dseq1').isnull then begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftfloat,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftfloat,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftinteger,'x6',ptinput);
+          params.createparam(ftinteger,'x7',ptinput);
+          params.createparam(ftinteger,'x8',ptinput);
+          commandtext:='update line_shjs2 set absr=:x1,absh=:x2,spr=:x3,sph=:x4 where pline=:x5 and seq=:x6 and dseq=:x7 and dseq1=:x8';
+          if not query1.fieldbyname('absr').isnull then
+          params[0].asstring:=query1.fieldbyname('absr').value
+          else params[0].asstring:='';
+          if not query1.fieldbyname('absh').isnull then
+          params[1].asfloat:=query1.fieldbyname('absh').value
+          else params[1].asfloat:=0;
+          if not query1.fieldbyname('spr').isnull then
+          params[2].asstring:=query1.fieldbyname('spr').value
+          else params[2].asstring:='';
+          if not query1.fieldbyname('sph').isnull then
+          params[3].asfloat:=query1.fieldbyname('sph').value
+          else params[3].asfloat:=0;
+          params[4].asstring:=query1.fieldbyname('pline').value;
+          params[5].asinteger:=query1.fieldbyname('seq').value;
+          params[6].asinteger:=query1.fieldbyname('dseq').value;
+          params[7].asinteger:=query1.fieldbyname('dseq1').value;
+          execute;
+        end;
+      end else begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftfloat,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftfloat,'x4',ptinput);
+          params.createparam(ftstring,'x5',ptinput);
+          params.createparam(ftinteger,'x6',ptinput);
+          params.createparam(ftinteger,'x7',ptinput);
+          params.createparam(ftinteger,'x8',ptinput);
+          commandtext:='insert into line_shjs2(absr,absh,spr,sph,pline,seq,dseq,dseq1) values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8)';
+          if not query1.fieldbyname('absr').isnull then
+          params[0].asstring:=query1.fieldbyname('absr').value
+          else params[0].asstring:='';
+          if not query1.fieldbyname('absh').isnull then
+          params[1].asfloat:=query1.fieldbyname('absh').value
+          else params[1].asfloat:=0;
+          if not query1.fieldbyname('spr').isnull then
+          params[2].asstring:=query1.fieldbyname('spr').value
+          else params[2].asstring:='';
+          if not query1.fieldbyname('sph').isnull then
+          params[3].asfloat:=query1.fieldbyname('sph').value
+          else params[3].asfloat:=0;
+          params[4].asstring:=query1.fieldbyname('pline').value;
+          params[5].asinteger:=query1.fieldbyname('seq').value;
+          params[6].asinteger:=query1.fieldbyname('dseq').value;
+          params[7].asinteger:=query1.fieldbyname('dseq1').value;
+          execute;
+        end;
+      end;
+    end;
+  end;
+
+  //
+  zjs:=frmzktd.Query1.fieldbyname('psect').value;
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(absh) as zss,sum(sph) as zss1 from line_shjs2 where pline=:x1 and seq=:x2 and dseq=:x3';
+    params[0].asstring:=query1.fieldbyname('pline').value;
+    params[1].asinteger:=query1.fieldbyname('seq').value;
+    params[2].asinteger:=query1.fieldbyname('dseq').value;
+    open;
+    if not fieldbyname('zss').isnull then zss:=fieldbyname('zss').value else zss:=0;
+    if not fieldbyname('zss1').isnull then zss1:=fieldbyname('zss1').value else zss1:=0;
+  end;
+  //{
+  with frmzktd.query1 do begin
+    edit;
+    fieldbyname('sjrs1').value:=fieldbyname('sjrs1').value-zss/zjs;
+    fieldbyname('sjrs2').value:=fieldbyname('sjrs2').value+zss1/zjs;
+    post;
+  end;
+  //}
+end;
+
+end.

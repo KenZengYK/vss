@@ -1,0 +1,240 @@
+unit output_smvformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Spin, DB, DBClient, ppBands, ppCtrls,
+  ppPrnabl, ppClass, ppCache, ppComm, ppRelatv, ppProd, ppReport, ppViewr,
+  Txcomp;
+
+type
+  Tfrmoutput_smv = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    SpinEdit1: TSpinEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query2: TClientDataSet;
+    Query1: TClientDataSet;
+    Query4: TClientDataSet;
+    Query3: TClientDataSet;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppLabel1: TppLabel;
+    sub1: TppLabel;
+    sub2: TppLabel;
+    ppDetailBand1: TppDetailBand;
+    ppLine1: TppLine;
+    ppFooterBand1: TppFooterBand;
+    ppShape1: TppShape;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLine10: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine17: TppLine;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    x001: TppLabel;
+    x002: TppLabel;
+    x003: TppLabel;
+    x004: TppLabel;
+    x005: TppLabel;
+    x006: TppLabel;
+    x007: TppLabel;
+    x008: TppLabel;
+    x009: TppLabel;
+    x010: TppLabel;
+    x0001: TppLabel;
+    x0002: TppLabel;
+    x0003: TppLabel;
+    x0004: TppLabel;
+    x011: TppLabel;
+    x012: TppLabel;
+    x013: TppLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmoutput_smv: Tfrmoutput_smv;
+
+implementation
+
+uses mainformu, addreportsformu;
+
+{$R *.dfm}
+
+procedure Tfrmoutput_smv.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmoutput_smv:=nil;
+end;
+
+procedure Tfrmoutput_smv.BitBtn1Click(Sender: TObject);
+var
+  x1,x2,x3,x4:double;
+begin
+  screen.Cursor:=crSQLWait;
+  try
+    x001.Caption:=''; x002.Caption:=''; x0001.Caption:='';
+    x003.Caption:=''; x004.Caption:=''; x0002.Caption:=''; x005.Caption:='';
+    x006.Caption:=''; x007.Caption:=''; x0003.Caption:='';
+    x008.Caption:=''; x009.Caption:=''; x0004.Caption:=''; x010.Caption:='';
+    if combobox1.text>'' then sub1.Caption:='<  '+combobox1.text+'  >'
+    else sub1.Caption:='< SL & KB >';
+    sub2.Caption:='[ Year '+inttostr(spinedit1.value)+' ]';
+    if combobox1.text>'' then begin
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        commandtext:='select * from sp_analysis_temp4_smv(:x1,:x2)';
+        params[0].asstring:=combobox1.text;
+        params[1].asinteger:=spinedit1.value;
+        open;
+      end;
+      if combobox1.text='SL' then begin
+        x1:=0; x2:=0;
+        if not query1.fieldbyname('o_sect1').isnull then x1:=query1.fieldbyname('o_sect1').value;
+        if not query1.fieldbyname('o_diff1').isnull then x2:=query1.fieldbyname('o_diff1').value;
+        x001.Caption:=formatfloat('#,0',x1);
+        x002.Caption:=formatfloat('#,0',x2);
+        if x2>0 then x0001.Caption:=formatfloat('0.00',x1*30.0/x2)
+        else x0001.Caption:='0.00';
+        x1:=0; x2:=0;
+        if not query1.fieldbyname('o_sect2').isnull then x1:=query1.fieldbyname('o_sect2').value;
+        if not query1.fieldbyname('o_diff2').isnull then x2:=query1.fieldbyname('o_diff2').value;
+        x003.Caption:=formatfloat('#,0',x1);
+        x004.Caption:=formatfloat('#,0',x2);
+        if x2>0 then x0002.Caption:=formatfloat('0.00',x1*30.0/x2)
+        else x0002.Caption:='0.00';
+        x3:=query1.fieldbyname('o_diff1').value+query1.fieldbyname('o_diff2').value;
+        x005.Caption:=formatfloat('#,0',x3);
+      end else if combobox1.text='KB' then begin
+        x1:=0; x2:=0;
+        if not query1.fieldbyname('o_sect1').isnull then x1:=query1.fieldbyname('o_sect1').value;
+        if not query1.fieldbyname('o_diff1').isnull then x2:=query1.fieldbyname('o_diff1').value;
+        x006.Caption:=formatfloat('#,0',x1);
+        x007.Caption:=formatfloat('#,0',x2);
+        if x2>0 then x0003.Caption:=formatfloat('0.00',x1*30.0/x2)
+        else x0003.Caption:='0.00';
+        x1:=0; x2:=0;
+        if not query1.fieldbyname('o_sect2').isnull then x1:=query1.fieldbyname('o_sect2').value;
+        if not query1.fieldbyname('o_diff2').isnull then x2:=query1.fieldbyname('o_diff2').value;
+        x008.Caption:=formatfloat('#,0',x1);
+        x009.Caption:=formatfloat('#,0',x2);
+        if x2>0 then x0004.Caption:=formatfloat('0.00',x1*30.0/x2)
+        else x0004.Caption:='0.00';
+        x4:=query1.fieldbyname('o_diff1').value+query1.fieldbyname('o_diff2').value;
+        x010.Caption:=formatfloat('#,0',x4);
+      end;
+
+      x011.Caption:='';
+      x012.Caption:='';
+      x013.Caption:='';
+    end else begin
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        commandtext:='select * from sp_analysis_temp4_smv(:x1,:x2)';
+        params[0].asstring:='SL';
+        params[1].asinteger:=spinedit1.value;
+        open;
+      end;
+        x1:=0; x2:=0;
+        if not query1.fieldbyname('o_sect1').isnull then x1:=query1.fieldbyname('o_sect1').value;
+        if not query1.fieldbyname('o_diff1').isnull then x2:=query1.fieldbyname('o_diff1').value;
+        x001.Caption:=formatfloat('#,0',x1);
+        x002.Caption:=formatfloat('#,0',x2);
+        if x2>0 then x0001.Caption:=formatfloat('0.00',x1*30.0/x2)
+        else x0001.Caption:='0.00';
+        x1:=0; x2:=0;
+        if not query1.fieldbyname('o_sect2').isnull then x1:=query1.fieldbyname('o_sect2').value;
+        if not query1.fieldbyname('o_diff2').isnull then x2:=query1.fieldbyname('o_diff2').value;
+        x003.Caption:=formatfloat('#,0',x1);
+        x004.Caption:=formatfloat('#,0',x2);
+        if x2>0 then x0002.Caption:=formatfloat('0.00',x1*30.0/x2)
+        else x0002.Caption:='0.00';
+        x3:=query1.fieldbyname('o_diff1').value+query1.fieldbyname('o_diff2').value;
+        x005.Caption:=formatfloat('#,0',x3);
+      with query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        commandtext:='select * from sp_analysis_temp4_smv(:x1,:x2)';
+        params[0].asstring:='KB';
+        params[1].asinteger:=spinedit1.value;
+        open;
+      end;
+        x1:=0; x2:=0;
+        if not query1.fieldbyname('o_sect1').isnull then x1:=query1.fieldbyname('o_sect1').value;
+        if not query1.fieldbyname('o_diff1').isnull then x2:=query1.fieldbyname('o_diff1').value;
+        x006.Caption:=formatfloat('#,0',x1);
+        x007.Caption:=formatfloat('#,0',x2);
+        if x2>0 then x0003.Caption:=formatfloat('0.00',x1*30.0/x2)
+        else x0003.Caption:='0.00';
+        x1:=0; x2:=0;
+        if not query1.fieldbyname('o_sect2').isnull then x1:=query1.fieldbyname('o_sect2').value;
+        if not query1.fieldbyname('o_diff2').isnull then x2:=query1.fieldbyname('o_diff2').value;
+        x008.Caption:=formatfloat('#,0',x1);
+        x009.Caption:=formatfloat('#,0',x2);
+        if x2>0 then x0004.Caption:=formatfloat('0.00',x1*30.0/x2)
+        else x0004.Caption:='0.00';
+        x4:=query1.fieldbyname('o_diff1').value+query1.fieldbyname('o_diff2').value;
+        x010.Caption:=formatfloat('#,0',x4);
+      x011.Caption:=formatfloat('#,0',x3+x4);
+      if x3>0 then
+      x012.Caption:='SL: '+formatfloat('#0.00%',x3*100.0/(x3+x4))
+      else x012.Caption:='SL: 0.00%';
+      if x4>0 then
+      x013.Caption:='KB: '+formatfloat('#0.00%',x4*100.0/(x3+x4))
+      else x013.Caption:='KB: 0.00%';
+    end;
+    ppReport1.print;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmoutput_smv.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+end.

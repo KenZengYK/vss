@@ -1,0 +1,299 @@
+object frmnewcap: Tfrmnewcap
+  Left = 201
+  Top = 115
+  Width = 393
+  Height = 363
+  Caption = 'Capacity Planning and Utilization'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 20
+  object BitBtn9: TBitBtn
+    Left = 24
+    Top = 112
+    Width = 337
+    Height = 25
+    Caption = 'Capacity Planning - Fill up'
+    TabOrder = 3
+    OnClick = BitBtn9Click
+  end
+  object BitBtn8: TBitBtn
+    Left = 728
+    Top = 608
+    Width = 273
+    Height = 25
+    Caption = 'Capacity Planning - Factory Planned '
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 10
+    Visible = False
+    OnClick = BitBtn8Click
+  end
+  object BitBtn5: TBitBtn
+    Left = 728
+    Top = 448
+    Width = 273
+    Height = 25
+    Caption = 'Capacity Planning - Comparison Reports'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 13
+    Visible = False
+    OnClick = BitBtn5Click
+    NumGlyphs = 2
+  end
+  object BitBtn1: TBitBtn
+    Left = 728
+    Top = 480
+    Width = 273
+    Height = 25
+    Caption = 'Capacity Planning - Simple Version'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 14
+    Visible = False
+    OnClick = BitBtn1Click
+    NumGlyphs = 2
+  end
+  object BitBtn2: TBitBtn
+    Left = 728
+    Top = 384
+    Width = 273
+    Height = 25
+    Caption = 'Capacity Planning - Order Enquiry / SO Issue'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 11
+    Visible = False
+    OnClick = BitBtn2Click
+  end
+  object BitBtn3: TBitBtn
+    Left = 32
+    Top = -16
+    Width = 225
+    Height = 25
+    Caption = 'Capacity Planning - Ex-fty date and T3 date'
+    TabOrder = 16
+    Visible = False
+    OnClick = BitBtn3Click
+  end
+  object BitBtn4: TBitBtn
+    Left = 24
+    Top = 72
+    Width = 337
+    Height = 25
+    Caption = 'Capacity Planning - Create'
+    TabOrder = 2
+    OnClick = BitBtn4Click
+  end
+  object BitBtn6: TBitBtn
+    Left = 728
+    Top = 544
+    Width = 273
+    Height = 25
+    Caption = 'Capacity Planning - GSD (100% efficiency)'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
+    Visible = False
+    OnClick = BitBtn6Click
+  end
+  object BitBtn7: TBitBtn
+    Left = 728
+    Top = 416
+    Width = 273
+    Height = 25
+    Caption = 'Capacity Planning - SO Split (based on RWO)'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 12
+    Visible = False
+    OnClick = BitBtn7Click
+  end
+  object BitBtn10: TBitBtn
+    Left = 24
+    Top = 272
+    Width = 337
+    Height = 25
+    Caption = 'Exit'
+    TabOrder = 7
+    OnClick = BitBtn10Click
+    NumGlyphs = 2
+  end
+  object BitBtn11: TBitBtn
+    Left = 728
+    Top = 576
+    Width = 273
+    Height = 25
+    Caption = 'Elements for Factory Capacity Planning'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 9
+    Visible = False
+    OnClick = BitBtn11Click
+  end
+  object BitBtn12: TBitBtn
+    Left = 728
+    Top = 512
+    Width = 273
+    Height = 25
+    Caption = 'Capacity Planning - New Format'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 15
+    Visible = False
+    OnClick = BitBtn12Click
+    NumGlyphs = 2
+  end
+  object BitBtn13: TBitBtn
+    Left = 24
+    Top = 152
+    Width = 337
+    Height = 25
+    Caption = 'Capacity Planning - Balancing'
+    TabOrder = 4
+    OnClick = BitBtn13Click
+  end
+  object BitBtn14: TBitBtn
+    Left = 32
+    Top = -16
+    Width = 425
+    Height = 25
+    Caption = 'Factory Capacity - BAL Confirmation and Locked'
+    TabOrder = 5
+    Visible = False
+    OnClick = BitBtn14Click
+  end
+  object BitBtn15: TBitBtn
+    Left = 24
+    Top = 232
+    Width = 337
+    Height = 25
+    Caption = 'Capacity Planning - Analysis Reports'
+    TabOrder = 6
+    OnClick = BitBtn15Click
+  end
+  object BitBtn16: TBitBtn
+    Left = 472
+    Top = 24
+    Width = 425
+    Height = 25
+    Caption = 'Capture Factory Past Performance Data for FC Setup'
+    TabOrder = 1
+    Visible = False
+    OnClick = BitBtn16Click
+  end
+  object BitBtn17: TBitBtn
+    Left = 472
+    Top = 120
+    Width = 425
+    Height = 25
+    Caption = 'Capture Line Profile Key Data for FC Setup'
+    TabOrder = 17
+    Visible = False
+    OnClick = BitBtn17Click
+  end
+  object BitBtn18: TBitBtn
+    Left = 472
+    Top = 56
+    Width = 425
+    Height = 25
+    Caption = 'Factory Calendar Setup on Weekly Working Time'
+    TabOrder = 18
+    Visible = False
+    OnClick = BitBtn18Click
+  end
+  object BitBtn19: TBitBtn
+    Left = 472
+    Top = 88
+    Width = 425
+    Height = 25
+    Caption = 'Capture Customer Profile Key Data for FC Setup'
+    TabOrder = 19
+    Visible = False
+    OnClick = BitBtn19Click
+  end
+  object BitBtn20: TBitBtn
+    Left = 472
+    Top = 152
+    Width = 425
+    Height = 25
+    Caption = 'DHL of Line WF - Control and Maintain'
+    TabOrder = 20
+    Visible = False
+    OnClick = BitBtn20Click
+  end
+  object BitBtn21: TBitBtn
+    Left = 24
+    Top = 192
+    Width = 337
+    Height = 25
+    Caption = 'Capacity Planning - Notepads'
+    TabOrder = 21
+    OnClick = BitBtn21Click
+    NumGlyphs = 2
+  end
+  object BitBtn22: TBitBtn
+    Left = 24
+    Top = 32
+    Width = 337
+    Height = 25
+    Caption = 'Capacity Planning - Default Setup'
+    TabOrder = 0
+    OnClick = BitBtn22Click
+    Spacing = 0
+  end
+  object ClientDataSet2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 56
+  end
+  object DataSet2: TADOQuery
+    Connection = frmmain.ADOConnection1
+    Parameters = <>
+    Left = 96
+  end
+end

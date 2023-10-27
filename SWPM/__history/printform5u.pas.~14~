@@ -1,0 +1,454 @@
+unit printform5u;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ppCtrls, ppBands, ppVar, ppPrnabl, ppClass, ppCache, ppProd,
+  ppReport, ppDB, ppComm, ppRelatv, ppDBPipe, ppDBBDE, ppViewr,
+  ppParameter;
+
+type
+  Tfrmprint5 = class(TForm)
+    ppBDEPipeline1: TppBDEPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppLabel59: TppLabel;
+    ppShape1: TppShape;
+    ppLabel1: TppLabel;
+    subtitle01: TppLabel;
+    ppLabel6: TppLabel;
+    dt01: TppLabel;
+    ppLabel8: TppLabel;
+    dt02: TppLabel;
+    ppLabel7: TppLabel;
+    project1: TppLabel;
+    ppLabel9: TppLabel;
+    pline: TppLabel;
+    ppLabel10: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel11: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    artno2: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel24: TppLabel;
+    ppLabel26: TppLabel;
+    ppLabel30: TppLabel;
+    ppLabel32: TppLabel;
+    ppLabel33: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel36: TppLabel;
+    ppLabel39: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine15: TppLine;
+    ppLine17: TppLine;
+    ppLine18: TppLine;
+    ppLabel44: TppLabel;
+    ppLine34: TppLine;
+    ppLabel48: TppLabel;
+    ppLabel49: TppLabel;
+    ppLine38: TppLine;
+    ppLabel50: TppLabel;
+    ppLabel51: TppLabel;
+    ppLabel53: TppLabel;
+    ppLabel54: TppLabel;
+    ppLine41: TppLine;
+    ppLine42: TppLine;
+    ppLine43: TppLine;
+    ppLabel62: TppLabel;
+    ppLabel64: TppLabel;
+    ppLabel70: TppLabel;
+    ppLine50: TppLine;
+    ppLine51: TppLine;
+    ppLabel74: TppLabel;
+    ppLabel78: TppLabel;
+    ppLine54: TppLine;
+    ppLine60: TppLine;
+    ppLine62: TppLine;
+    ppLabel89: TppLabel;
+    xdhq: TppLabel;
+    ppLabel25: TppLabel;
+    ppLine49: TppLine;
+    ppLabel67: TppLabel;
+    ppLabel79: TppLabel;
+    ppLine70: TppLine;
+    ppLabel80: TppLabel;
+    ppLabel87: TppLabel;
+    ppLabel96: TppLabel;
+    ppLabel97: TppLabel;
+    ppLabel98: TppLabel;
+    ppLabel99: TppLabel;
+    ppLabel100: TppLabel;
+    ppLabel101: TppLabel;
+    ppLabel103: TppLabel;
+    ppLabel104: TppLabel;
+    ppLabel105: TppLabel;
+    ppLabel106: TppLabel;
+    ppLabel107: TppLabel;
+    ppLabel92: TppLabel;
+    ppLabel94: TppLabel;
+    ppLabel95: TppLabel;
+    ppLabel109: TppLabel;
+    ppLabel110: TppLabel;
+    ppLabel112: TppLabel;
+    ppLabel113: TppLabel;
+    ppLabel115: TppLabel;
+    ppLabel116: TppLabel;
+    ppLabel117: TppLabel;
+    ppLabel118: TppLabel;
+    ppLabel119: TppLabel;
+    ppLabel121: TppLabel;
+    ppLabel122: TppLabel;
+    ppLabel123: TppLabel;
+    ppLabel126: TppLabel;
+    ppLabel90: TppLabel;
+    ppLabel66: TppLabel;
+    ppLine67: TppLine;
+    ppLabel132: TppLabel;
+    ppLabel133: TppLabel;
+    ppLabel135: TppLabel;
+    ppLabel134: TppLabel;
+    ppLabel138: TppLabel;
+    ppLabel140: TppLabel;
+    ppLabel141: TppLabel;
+    ppLabel142: TppLabel;
+    ppLabel143: TppLabel;
+    ppLabel144: TppLabel;
+    ppLabel146: TppLabel;
+    ppLabel150: TppLabel;
+    ppLine73: TppLine;
+    ppLabel151: TppLabel;
+    ppLabel152: TppLabel;
+    ppLabel153: TppLabel;
+    ppLabel136: TppLabel;
+    ppLabel156: TppLabel;
+    ppLine76: TppLine;
+    ppLine78: TppLine;
+    ppLabel29: TppLabel;
+    ppLine79: TppLine;
+    ppLine40: TppLine;
+    ppLabel19: TppLabel;
+    ppLabel35: TppLabel;
+    ppLabel40: TppLabel;
+    ppLabel42: TppLabel;
+    ppLine37: TppLine;
+    ppLabel43: TppLabel;
+    ppLabel45: TppLabel;
+    ppLabel57: TppLabel;
+    ppLabel58: TppLabel;
+    ppLabel23: TppLabel;
+    ppLabel65: TppLabel;
+    ppLabel75: TppLabel;
+    ppLine83: TppLine;
+    ppLabel77: TppLabel;
+    ppLabel81: TppLabel;
+    ppLabel82: TppLabel;
+    ppLabel85: TppLabel;
+    ppLine85: TppLine;
+    ppLine87: TppLine;
+    ppLine88: TppLine;
+    ppLabel86: TppLabel;
+    ppLabel88: TppLabel;
+    ppLabel91: TppLabel;
+    ppLabel120: TppLabel;
+    ppLabel124: TppLabel;
+    ppLabel128: TppLabel;
+    ppLabel131: TppLabel;
+    ppLabel137: TppLabel;
+    ppLabel139: TppLabel;
+    ppLabel147: TppLabel;
+    ppLabel154: TppLabel;
+    ppLabel159: TppLabel;
+    ppLabel160: TppLabel;
+    ppLabel60: TppLabel;
+    ppLabel76: TppLabel;
+    ppLabel84: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel37: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel52: TppLabel;
+    ppLabel164: TppLabel;
+    ppLabel165: TppLabel;
+    ppLabel28: TppLabel;
+    ppLine13: TppLine;
+    ppLine93: TppLine;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel21: TppLabel;
+    ppLine68: TppLine;
+    ppLine72: TppLine;
+    ppLabel55: TppLabel;
+    ppLabel69: TppLabel;
+    ppLabel22: TppLabel;
+    ppLabel41: TppLabel;
+    ppLabel27: TppLabel;
+    ppLine77: TppLine;
+    ppLabel56: TppLabel;
+    ppLabel61: TppLabel;
+    ppLabel63: TppLabel;
+    ppLine14: TppLine;
+    ppLabel71: TppLabel;
+    ppLabel83: TppLabel;
+    ppLabel93: TppLabel;
+    ppLine75: TppLine;
+    ppLabel68: TppLabel;
+    wks001: TppLabel;
+    ppDetailBand1: TppDetailBand;
+    ppShape2: TppShape;
+    ppShape16: TppShape;
+    ppShape15: TppShape;
+    ppShape14: TppShape;
+    ppShape13: TppShape;
+    ppShape12: TppShape;
+    ppShape11: TppShape;
+    ppShape10: TppShape;
+    ppShape9: TppShape;
+    ppShape8: TppShape;
+    ppShape7: TppShape;
+    ppShape6: TppShape;
+    ppShape5: TppShape;
+    ppShape4: TppShape;
+    ppShape3: TppShape;
+    ppLine4: TppLine;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    artno1: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppLine19: TppLine;
+    ppLine20: TppLine;
+    ppLine21: TppLine;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppLine24: TppLine;
+    ppLine26: TppLine;
+    ppLine27: TppLine;
+    ppLine28: TppLine;
+    ppLine30: TppLine;
+    ppLine32: TppLine;
+    ppLine33: TppLine;
+    ppDBText7: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppLine35: TppLine;
+    ppLine39: TppLine;
+    ppLine46: TppLine;
+    ppLine47: TppLine;
+    ppLine48: TppLine;
+    ppDBText23: TppDBText;
+    ppDBText24: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText11: TppDBText;
+    ppLine52: TppLine;
+    ppLine53: TppLine;
+    ppDBText25: TppDBText;
+    ppDBText26: TppDBText;
+    ppLine55: TppLine;
+    ppLine57: TppLine;
+    ppDBText28: TppDBText;
+    ppLine59: TppLine;
+    ppDBText29: TppDBText;
+    ppLine56: TppLine;
+    ppLine58: TppLine;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText32: TppDBText;
+    ppLine61: TppLine;
+    ppLine63: TppLine;
+    ppDBText9: TppDBText;
+    ppLine69: TppLine;
+    ppDBText4: TppDBText;
+    ppLine71: TppLine;
+    ppLine44: TppLine;
+    ppLine74: TppLine;
+    ppDBText36: TppDBText;
+    ppDBText39: TppDBText;
+    ppDBText33: TppDBText;
+    ppDBText18: TppDBText;
+    ppLine29: TppLine;
+    ppDBText35: TppDBText;
+    ppLine45: TppLine;
+    ppDBText34: TppDBText;
+    ppLine64: TppLine;
+    ppDBText40: TppDBText;
+    ppLine66: TppLine;
+    ppDBText41: TppDBText;
+    ppLine36: TppLine;
+    ppDBText43: TppDBText;
+    ppLine82: TppLine;
+    ppDBText3: TppDBText;
+    ppDBText8: TppDBText;
+    ppLine84: TppLine;
+    ppDBText45: TppDBText;
+    ppLine86: TppLine;
+    ppLine89: TppLine;
+    ppDBText46: TppDBText;
+    ppDBText47: TppDBText;
+    ppDBText48: TppDBText;
+    ppLine90: TppLine;
+    ppDBText49: TppDBText;
+    ppLine94: TppLine;
+    ppDBText22: TppDBText;
+    ppLine80: TppLine;
+    ppLine81: TppLine;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    ppLine95: TppLine;
+    ppDBText44: TppDBText;
+    ppLine16: TppLine;
+    ppLine31: TppLine;
+    ppDBText27: TppDBText;
+    ppDBText50: TppDBText;
+    ppLine65: TppLine;
+    ppDBText38: TppDBText;
+    ppDBText37: TppDBText;
+    ppDBText51: TppDBText;
+    ppLine96: TppLine;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppLine3: TppLine;
+    zphisjs: TppDBCalc;
+    zzkjs: TppDBCalc;
+    zzjs: TppDBCalc;
+    pjjhl: TppLabel;
+    sumzhjs: TppDBCalc;
+    ppDBCalc7: TppDBCalc;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    ppDBCalc3: TppDBCalc;
+    pttl1: TppLabel;
+    pttl2: TppLabel;
+    ppDBCalc4: TppDBCalc;
+    pttl3: TppLabel;
+    ppDBCalc5: TppDBCalc;
+    avgtmu: TppLabel;
+    ppLabel2: TppLabel;
+    ppLine91: TppLine;
+    ppLine92: TppLine;
+    pjys01: TppLabel;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    sbtitle001: TppLabel;
+    ppLine97: TppLine;
+    ppLine98: TppLine;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppDBText42: TppDBText;
+    ppLabel108: TppLabel;
+    ppLabel111: TppLabel;
+    ppLabel114: TppLabel;
+    ppLabel125: TppLabel;
+    ppLabel127: TppLabel;
+    ppLabel46: TppLabel;
+    ppLabel47: TppLabel;
+    ppLabel72: TppLabel;
+    ppLabel73: TppLabel;
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppSummaryBand1BeforePrint(Sender: TObject);
+    procedure ppGroupHeaderBand2BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmprint5: Tfrmprint5;
+
+implementation
+
+uses mainformu, worksheet, printscheduleu;
+
+{$R *.dfm}
+
+procedure Tfrmprint5.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppreport1.previewform.windowstate:=wsmaximized;
+  tppviewer(ppreport1.previewform.viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmprint5.ppSummaryBand1BeforePrint(Sender: TObject);
+begin
+  with worksheet1.ClientDataSet4 do begin
+    close;
+    params.clear;
+          commandtext:='select sum(ysjhl*zjs)/sum(zjs) as jhl0 from tblshedule where yzh=0 and ((fccs like ''%u'') or (fccs like ''%d%'') or (fccs like ''%D'')) and zjs>0';
+          if worksheet1.edit2.text>'' then commandtext:=commandtext+' and upper(pline)='''+worksheet1.edit2.text+'''';
+          if worksheet1.edit1.text>'' then commandtext:=commandtext+' and j_no='''+worksheet1.edit1.text+'''';
+          if worksheet1.edit4.text>'' then commandtext:=commandtext+' and (tshop like '''+worksheet1.edit4.text+'%'')';
+          if worksheet1.edit5.text>'' then commandtext:=commandtext+' and (cstyle like '''+worksheet1.edit5.text+'%'')';
+          if worksheet1.edit6.text>'' then commandtext:=commandtext+' and tplant='''+worksheet1.edit6.text+'''';
+          if worksheet1.combobox1.text>'' then commandtext:=commandtext+' and grp='''+worksheet1.combobox1.text+'''';
+          if worksheet1.edit7.text>'' then commandtext:=commandtext+' and j_no like '''+worksheet1.edit7.text+'%''';
+          if worksheet1.combobox2.text>'' then commandtext:=commandtext+' and flag6 like '''+worksheet1.combobox2.text+'%''';
+          if worksheet1.combobox3.text>'' then commandtext:=commandtext+' and flag6='''+worksheet1.combobox3.text+'''';
+          if worksheet1.combobox4.text>'' then commandtext:=commandtext+' and dbzs='''+worksheet1.combobox4.text+'''';
+          if worksheet1.edit3.text>'' then commandtext:=commandtext+' and acol='''+worksheet1.edit3.text+'''';
+          if worksheet1.combobox5.text>'' then commandtext:=commandtext+' and flag2='''+worksheet1.combobox5.text+'''';
+    open;
+    if not fieldbyname('jhl0').isnull then pjys01.Caption:=formatfloat('0.0',fieldbyname('jhl0').value)
+    else pjys01.Caption:='0.0';
+  end;
+  with worksheet1.ClientDataSet4 do begin
+    close;
+    params.clear;
+          commandtext:='select sum(ysjhl*zjs)/sum(zjs) as jhl1 from tblshedule where yzh=0 and ((fccs like ''%u'') or (fccs like ''%d%'') or (fccs like ''%D'')) and zjs>0 and jhl>0';
+          if worksheet1.edit2.text>'' then commandtext:=commandtext+' and upper(pline)='''+worksheet1.edit2.text+'''';
+          if worksheet1.edit1.text>'' then commandtext:=commandtext+' and j_no='''+worksheet1.edit1.text+'''';
+          if worksheet1.edit4.text>'' then commandtext:=commandtext+' and (tshop like '''+worksheet1.edit4.text+'%'')';
+          if worksheet1.edit5.text>'' then commandtext:=commandtext+' and (cstyle like '''+worksheet1.edit5.text+'%'')';
+          if worksheet1.edit6.text>'' then commandtext:=commandtext+' and tplant='''+worksheet1.edit6.text+'''';
+          if worksheet1.combobox1.text>'' then commandtext:=commandtext+' and grp='''+worksheet1.combobox1.text+'''';
+          if worksheet1.edit7.text>'' then commandtext:=commandtext+' and j_no like '''+worksheet1.edit7.text+'%''';
+          if worksheet1.combobox2.text>'' then commandtext:=commandtext+' and flag6 like '''+worksheet1.combobox2.text+'%''';
+          if worksheet1.combobox3.text>'' then commandtext:=commandtext+' and flag6='''+worksheet1.combobox3.text+'''';
+          if worksheet1.combobox4.text>'' then commandtext:=commandtext+' and dbzs='''+worksheet1.combobox4.text+'''';
+          if worksheet1.edit3.text>'' then commandtext:=commandtext+' and acol='''+worksheet1.edit3.text+'''';
+          if worksheet1.combobox5.text>'' then commandtext:=commandtext+' and flag2='''+worksheet1.combobox5.text+'''';
+    open;
+    if not fieldbyname('jhl1').isnull then pjjhl.Caption:=formatfloat('0.0',fieldbyname('jhl1').value)
+    else pjjhl.Caption:='0.0';
+  end;
+end;
+
+procedure Tfrmprint5.ppGroupHeaderBand2BeforePrint(Sender: TObject);
+begin
+  //copy(worksheet1.ClientDataSet1.fieldbyname('plc').value,1,1)
+  if (worksheet1.ClientDataSet1.fieldbyname('dta').value='1') or (worksheet1.ClientDataSet1.fieldbyname('dta').value='2') or (worksheet1.ClientDataSet1.fieldbyname('dta').value='3') then begin
+    if copy(worksheet1.ClientDataSet1.fieldbyname('lflag').value,1,1)='!' then
+      sbtitle001.Caption:='PLC to be acted and DTA to be acted'
+    else sbtitle001.Caption:='PLC acted and DTA to be acted';//'SQN''s data* waiting for conduct & not yet ex-fty'
+  end else if worksheet1.ClientDataSet1.fieldbyname('dta').value='5' then begin
+    if (copy(worksheet1.ClientDataSet1.fieldbyname('lflag').value,1,1)='!') or (copy(worksheet1.ClientDataSet1.fieldbyname('lflag').value,1,1)='^') then
+      sbtitle001.Caption:='PLC to be acted and DTA not applicable'
+    else sbtitle001.Caption:='PLC acted and DTA not applicable';
+  end else begin
+    if (copy(worksheet1.ClientDataSet1.fieldbyname('lflag').value,1,1)='!') or (copy(worksheet1.ClientDataSet1.fieldbyname('lflag').value,1,1)='^') then
+      sbtitle001.Caption:='PLC to be acted and DTA acted'
+    else sbtitle001.caption:='PLC acted and DTA acted';//'SQN''s data* conducted but waiting for ex-fty';
+  end;
+end;
+
+end.
+ 

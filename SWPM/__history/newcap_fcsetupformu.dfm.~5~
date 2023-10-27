@@ -1,0 +1,50 @@
+object frmnewcap_fcsetup: Tfrmnewcap_fcsetup
+  Left = 192
+  Top = 114
+  Caption = 'Capacity Planning - Create'
+  ClientHeight = 183
+  ClientWidth = 289
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 16
+  object BitBtn1: TBitBtn
+    Left = 40
+    Top = 80
+    Width = 217
+    Height = 25
+    Caption = 'Sub-contracting'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 0
+  end
+  object BitBtn2: TBitBtn
+    Left = 40
+    Top = 32
+    Width = 217
+    Height = 25
+    Caption = 'Monthly Setup'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 1
+    OnClick = BitBtn2Click
+  end
+  object BitBtn3: TBitBtn
+    Left = 40
+    Top = 128
+    Width = 217
+    Height = 25
+    Caption = 'Exit'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 2
+    OnClick = BitBtn3Click
+  end
+end

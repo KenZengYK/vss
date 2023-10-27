@@ -1,0 +1,29 @@
+object frmetam_shipmarks: Tfrmetam_shipmarks
+  Left = 0
+  Top = 0
+  Caption = 'ETAM Shipping Marks'
+  ClientHeight = 336
+  ClientWidth = 697
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from tbl_inv_cust1'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 288
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 344
+  end
+end

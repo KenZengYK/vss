@@ -1,0 +1,145 @@
+unit completedprojectlistformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, ExtCtrls, DBClient, StdCtrls, Spin,
+  Buttons, cxGridExportLink;
+
+type
+  Tfrmcompletedprojectlist = class(TForm)
+    Panel1: TPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel2: TPanel;
+    sqlquery1: TClientDataSet;
+    sqlquery2: TClientDataSet;
+    DataSource1: TDataSource;
+    cxGrid1DBTableView1cmpdt: TcxGridDBColumn;
+    cxGrid1DBTableView1cmpwk: TcxGridDBColumn;
+    cxGrid1DBTableView1div: TcxGridDBColumn;
+    cxGrid1DBTableView1prjno: TcxGridDBColumn;
+    cxGrid1DBTableView1fty: TcxGridDBColumn;
+    cutcmp: TcxGridDBColumn;
+    shdcmp: TcxGridDBColumn;
+    wscmp: TcxGridDBColumn;
+    supcmp: TcxGridDBColumn;
+    whcmp: TcxGridDBColumn;
+    Label1: TLabel;
+    SpinEdit1: TSpinEdit;
+    Label2: TLabel;
+    SpinEdit2: TSpinEdit;
+    Label3: TLabel;
+    SpinEdit3: TSpinEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    pmccmp: TcxGridDBColumn;
+    BitBtn5: TBitBtn;
+    SaveDialog1: TSaveDialog;
+    Query2: TClientDataSet;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure sqlquery1AfterPost(DataSet: TDataSet);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure sqlquery1AfterOpen(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcompletedprojectlist: Tfrmcompletedprojectlist;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+procedure Tfrmcompletedprojectlist.BitBtn1Click(Sender: TObject);
+begin
+  if spinedit1.value>0 then begin
+    if spinedit2.value>0 then begin
+       if spinedit3.value>0 then begin
+         with sqlquery1 do begin
+           close;
+           params.clear;
+           params.createparam(ftinteger,'x1',ptinput);
+           params.createparam(ftinteger,'x2',ptinput);
+           params.createparam(ftinteger,'x3',ptinput);
+           commandtext:='select * from phgdb..tbl_cmpproj_list where datepart(year,cmpdt)=:x1 and cmpwk>=:x2 and cmpwk<=:x3';
+           params[0].asinteger:=spinedit1.value;
+           params[1].asinteger:=spinedit2.value;
+           params[2].asinteger:=spinedit3.value;
+           open;
+         end;
+       end;
+    end;
+  end;
+end;
+
+procedure Tfrmcompletedprojectlist.BitBtn2Click(Sender: TObject);
+begin
+  if sqlquery1.state=dsedit then sqlquery1.post;
+end;
+
+procedure Tfrmcompletedprojectlist.BitBtn3Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tfrmcompletedprojectlist.BitBtn4Click(Sender: TObject);
+begin
+  if savedialog1.Execute then begin
+    ExportGridToExcel(savedialog1.FileName,cxGrid1,false,true,false,'xls');
+  end;
+end;
+
+procedure Tfrmcompletedprojectlist.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmcompletedprojectlist:=nil;
+end;
+
+procedure Tfrmcompletedprojectlist.sqlquery1AfterOpen(DataSet: TDataSet);
+var
+  rcut,rshd,rws,rpmc,rsup,rwh:boolean;
+begin
+  //with query2 do begin
+  //end;
+end;
+
+procedure Tfrmcompletedprojectlist.sqlquery1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+  cmp1,cmp2,cmp3,cmp30,cmp4,cmp5:string;
+begin
+  if sqlquery1.fieldbyname('cutcmp').value=false then cmp1:='0' else cmp1:='1';
+  if sqlquery1.fieldbyname('shdcmp').value=false then cmp2:='0' else cmp2:='1';
+  if sqlquery1.fieldbyname('wscmp').value=false then cmp3:='0' else cmp3:='1';
+  if sqlquery1.fieldbyname('pmccmp').value=false then cmp30:='0' else cmp30:='1';
+  if sqlquery1.fieldbyname('supcmp').value=false then cmp4:='0' else cmp4:='1';
+  if sqlquery1.fieldbyname('whcmp').value=false then cmp5:='0' else cmp5:='1';
+  str1:='update phgdb..tbl_cmpproj_list set ';
+  str1:=str1+'cutcmp='+cmp1+',';
+  str1:=str1+'shdcmp='+cmp2+',';
+  str1:=str1+'wscmp='+cmp3+',';
+  str1:=str1+'pmccmp='+cmp30+',';
+  str1:=str1+'supcmp='+cmp4+',';
+  str1:=str1+'whcmp='+cmp5+' ';
+  str1:=str1+'where prjno='''+sqlquery1.FieldByName('prjno').value+'''';
+  if frmmain.PHService.UpdateSQL(str1)=0 then showmessage('Can not save!');
+end;
+
+end.

@@ -1,0 +1,384 @@
+unit CP_ActionlogFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, ADODB, DB, RzBckgnd, StdCtrls, DBCtrls,
+  cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer,
+  cxEdit, dxSkinsCore, dxSkinsDefaultPainters, cxTextEdit, cxMemo, cxDBEdit,
+  cxMaskEdit, cxDropDownEdit, cxCalendar, cxCheckBox, Buttons, cxStyles,
+  dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage, cxDBData,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel,
+  cxClasses, cxGridCustomView, cxGrid, DateUtils, siComp, DBClient;
+
+type
+  TfrmCarte_Requestaction = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
+    RzBackground2: TRzBackground;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn6: TBitBtn;
+    Splitter1: TSplitter;
+    ADODataSet2: TADODataSet;
+    DataSource2: TDataSource;
+    DBGridEh2: TDBGridEh;
+    Panel4: TPanel;
+    RzBackground3: TRzBackground;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn7: TBitBtn;
+    BitBtn8: TBitBtn;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1act_date: TcxGridDBColumn;
+    cxGrid1DBTableView1act_cnt: TcxGridDBColumn;
+    cxGrid1DBTableView1act_issue: TcxGridDBColumn;
+    cxGrid1DBTableView1act_marks: TcxGridDBColumn;
+    Label9: TLabel;
+    Query1: TClientDataSet;
+    qry1: TADOQuery;
+    qry2: TADOQuery;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ADODataSet1NewRecord(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn7Click(Sender: TObject);
+    procedure ADODataSet2NewRecord(DataSet: TDataSet);
+    procedure DataSource2DataChange(Sender: TObject; Field: TField);
+    procedure DBGridEh2Columns0EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure ADODataSet1AfterOpen(DataSet: TDataSet);
+    procedure ADODataSet2AfterPost(DataSet: TDataSet);
+    procedure ADODataSet2AfterScroll(DataSet: TDataSet);
+    procedure DBGridEh2CellClick(Column: TColumnEh);
+    procedure ADODataSet2BeforePost(DataSet: TDataSet);
+    procedure DBGridEh2Exit(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarte_Requestaction: TfrmCarte_Requestaction;
+
+implementation
+
+uses mainformu, newcapformu, CAP_MailFormu, cap_actionreasonformu;
+
+{$R *.dfm}
+
+procedure TfrmCarte_Requestaction.ADODataSet1AfterOpen(DataSet: TDataSet);
+begin
+  (adodataset1.fieldbyname('act_date') as tdatetimefield).displayformat:='mm/dd hh:nn';
+end;
+
+procedure TfrmCarte_Requestaction.ADODataSet1NewRecord(DataSet: TDataSet);
+var
+  seq1,cnt:integer;
+begin
+  with adoquery1 do begin
+    close;
+    //parameters.clear;
+    sql.text:='select max(seq1) as x1 from phdb..tbl_cp_mailcont';
+    open;
+    if not fieldbyname('x1').isnull then seq1:=fieldbyname('x1').Value+1
+    else seq1:=1;
+  end;
+  with adoquery1 do begin
+    close;
+    //parameters.clear;
+    sql.text:='select max(act_cnt) as x1 from phdb..tbl_cp_mailcont where seq=:x1';
+    parameters[0].value:=adodataset2.fieldbyname('seq').value;
+    open;
+    if not fieldbyname('x1').isnull then cnt:=fieldbyname('x1').Value+1
+    else cnt:=1;
+  end;
+  adodataset1.fieldbyname('seq').value:=adodataset2.fieldbyname('seq').value;
+  adodataset1.FieldByName('seq1').Value:=seq1;
+  adodataset1.FieldByName('act_cnt').Value:=cnt;
+  adodataset1.FieldByName('act_date').Value:=now;
+  adodataset1.FieldByName('act_issue').Value:=frmmain.combobox1.text;//frmCarte_Main.lbluser.caption;
+end;
+
+procedure TfrmCarte_Requestaction.ADODataSet2AfterPost(DataSet: TDataSet);
+begin
+  if adodataset2.fieldbyname('act_cmp').value=true then begin
+    bitbtn1.enabled:=false;
+    bitbtn2.enabled:=false;
+    cxgrid1dbtableview1.optionsdata.editing:=false;
+  end else begin
+    bitbtn1.enabled:=true;
+    bitbtn2.enabled:=true;
+    cxgrid1dbtableview1.optionsdata.editing:=true;
+  end;
+end;
+
+procedure TfrmCarte_Requestaction.ADODataSet2AfterScroll(DataSet: TDataSet);
+begin
+  if adodataset2.fieldbyname('act_cmp').value=true then begin
+    bitbtn1.enabled:=false;
+    bitbtn2.enabled:=false;
+    cxgrid1dbtableview1.optionsdata.editing:=false;
+  end else begin
+    bitbtn1.enabled:=true;
+    bitbtn2.enabled:=true;
+    cxgrid1dbtableview1.optionsdata.editing:=true;
+  end;
+end;
+
+procedure TfrmCarte_Requestaction.ADODataSet2BeforePost(DataSet: TDataSet);
+begin
+  if adodataset2.fieldbyname('act_cmpdt').isnull then begin
+    showmessage('Target cmpl dd can not be blank!');
+    abort;
+  end;
+end;
+
+procedure TfrmCarte_Requestaction.ADODataSet2NewRecord(DataSet: TDataSet);
+var
+  seq1,grp1:integer;
+  yn:string;
+begin
+  yn:=copy(formatdatetime('yymmdd',date),1,4);
+  with adoquery1 do begin
+    close;
+    sql.text:='select max(seq) as x1 from phdb..tbl_cp_mailhead';
+    open;
+    if not fieldbyname('x1').isnull then seq1:=fieldbyname('x1').Value+1
+    else seq1:=1;
+  end;
+  with adoquery1 do begin
+    close;
+    sql.Text:='select cast(max(substring(act_log,6,3)) as int) as x1 from phdb..tbl_cp_mailhead where act_log like '''+yn+'%''';
+    open;
+    if not fieldbyname('x1').isnull then grp1:=fieldbyname('x1').Value+1 else grp1:=1;
+  end;
+  adodataset2.fieldbyname('seq').value:=seq1;
+  adodataset2.FieldByName('act_log').Value:=yn+'-'+copy('00'+inttostr(grp1),length('00'+inttostr(grp1))-2,3);
+  adodataset2.FieldByName('act_internal').Value:=false;
+  adodataset2.FieldByName('act_external').Value:=false;
+  adodataset2.FieldByName('act_cmp').Value:=false;
+  adodataset2.FieldByName('act_start').Value:=date;
+  adodataset2.FieldByName('act_region').Value:='CN & CL';
+  adodataset2.FieldByName('act_issue').Value:=frmmain.combobox1.text;//frmCarte_Main.lbluser.caption;
+end;
+
+procedure TfrmCarte_Requestaction.BitBtn1Click(Sender: TObject);
+begin
+  //dbgrideh1.SetFocus;
+  cxGrid1.SetFocus;
+  adodataset1.append;
+end;
+
+procedure TfrmCarte_Requestaction.BitBtn2Click(Sender: TObject);
+var
+  del:boolean;
+begin
+  del:=true;
+  if not adodataset1.fieldbyname('act_issue').isnull then begin
+    if frmmain.combobox1.text<>adodataset1.fieldbyname('act_issue').value then del:=false;
+  end;
+  if (frmmain.combobox1.text='ADMIN') then del:=true;
+  if del then begin
+    if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      adodataset1.Delete;
+    end;
+  end else exit;
+end;
+
+procedure TfrmCarte_Requestaction.BitBtn3Click(Sender: TObject);
+begin
+  if (adodataset1.State=dsEdit) or (adodataset1.State=dsInsert) then adodataset1.Post;
+  if adodataset2.fieldbyname('act_start').isnull then begin
+    with adoquery1 do begin
+      close;
+      sql.text:='select act_date as x1,act_issue as x2 from phdb..tbl_cp_mailcont where seq=:x1 and act_cnt=1';
+      parameters[0].value:=adodataset2.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('x1').isnull then begin
+         with adodataset2 do begin
+           edit;
+           fieldbyname('act_start').value:=adoquery1.fieldbyname('x1').value;
+           fieldbyname('act_issue').value:=adoquery1.fieldbyname('x2').value;
+           post;
+         end;
+      end;
+    end;
+  end;
+end;
+
+procedure TfrmCarte_Requestaction.BitBtn4Click(Sender: TObject);
+begin
+  dbgrideh2.SetFocus;
+  adodataset2.append;
+end;
+
+procedure TfrmCarte_Requestaction.BitBtn5Click(Sender: TObject);
+var
+  del:boolean;
+begin
+  del:=true;
+  if not adodataset2.fieldbyname('act_issue').isnull then begin
+    if frmmain.combobox1.text<>adodataset2.fieldbyname('act_issue').value then del:=false;
+  end;
+  if (frmmain.combobox1.text='ADMIN') then del:=true;
+  if del then begin
+    if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      with adoquery1 do begin
+        close;
+        sql.text:='delete from phdb..tbl_cp_mailcont where seq=:x1';
+        parameters[0].value:=adodataset2.fieldbyname('seq').value;
+        execsql;
+      end;
+      adodataset2.Delete;
+    end;
+  end else exit;
+end;
+
+procedure TfrmCarte_Requestaction.BitBtn7Click(Sender: TObject);
+begin
+  if (adodataset2.State=dsEdit) or (adodataset2.State=dsInsert) then adodataset2.Post;
+end;
+
+procedure TfrmCarte_Requestaction.BitBtn8Click(Sender: TObject);
+begin
+  if (adodataset2.State=dsEdit) or (adodataset2.State=dsInsert) then adodataset2.Post;
+  bitbtn3click(self);
+  if frmcap_Mail=nil then frmCap_Mail:=tfrmCap_Mail.create(nil);
+  frmCap_Mail.show;
+  //{
+  with adoquery1 do begin
+    close;
+    sql.text:='select act_tolist,act_cclist,seq1 from phdb..tbl_cp_mailcont where seq=:x1 and seq1<=:x2 and act_tolist>'''' order by seq1 desc';
+    parameters[0].value:=adodataset1.fieldbyname('seq').value;
+    parameters[1].value:=adodataset1.fieldbyname('seq1').value;
+    open;
+    if not fieldbyname('seq1').isnull then begin
+      frmcap_Mail.edit3.text:=fieldbyname('act_tolist').value;
+      frmcap_Mail.edit4.text:=fieldbyname('act_cclist').value;
+    end;
+  end;
+
+  frmcap_Mail.edit5.text:='('+adodataset2.fieldbyname('act_region').value+') '+adodataset2.fieldbyname('act_item').value+' - '+adodataset2.fieldbyname('act_subject').value+' on [Action log#: '+adodataset2.fieldbyname('act_log').value+', Sender: '+adodataset1.fieldbyname('act_issue').value+', # of follow up: '+adodataset1.fieldbyname('act_cnt').asstring+']';
+  frmcap_Mail.memo1.lines.clear;
+  //frmcap_Mail.memo1.lines.add('');
+  if (adodataset1.fieldbyname('act_cnt').value=1) then
+  frmcap_Mail.memo1.lines.add('¡iRegion¡j:           '+adodataset2.fieldbyname('act_region').value);
+  frmcap_Mail.memo1.lines.add('¡iSender¡j:           '+adodataset1.fieldbyname('act_issue').value);
+  if (adodataset1.fieldbyname('act_cnt').value=1) then
+  if not adodataset2.fieldbyname('act_external').isnull then begin
+    if adodataset2.fieldbyname('act_external').value=true then
+      frmcap_Mail.memo1.lines.add('¡iUrgent¡j:           Yes')
+    else frmcap_Mail.memo1.lines.add('¡iUrgent¡j:           No');
+  end;
+  frmcap_Mail.memo1.lines.add('¡iDate¡j:             '+formatdatetime('mm/dd hh:nn',adodataset1.fieldbyname('act_date').value));
+  frmcap_Mail.memo1.lines.add('¡iFollow up seq.¡j:   '+adodataset1.fieldbyname('act_cnt').asstring);
+  if (adodataset1.fieldbyname('act_cnt').value=1) then
+  frmcap_Mail.memo1.lines.add('¡iTarget cmpl date¡j: '+formatdatetime('mm/dd',adodataset2.fieldbyname('act_cmpdt').value));
+  frmcap_Mail.memo1.lines.add('¡iFollow up in seq.¡j: ');
+  frmcap_Mail.memo1.lines.add(adodataset1.fieldbyname('act_marks').value);
+  frmcap_Mail.memo1.lines.add('==================================================');
+
+  with qry1 do begin
+    close;
+    sql.text:='select seq1,act_issue,act_date,act_cnt,act_marks from phdb..tbl_cp_mailcont where seq=:x1 and seq1<:x2 order by seq1 desc';
+    parameters[0].value:=adodataset2.fieldbyname('seq').value;
+    parameters[1].value:=adodataset1.fieldbyname('seq1').value;
+    open;
+    first;
+    while not eof do begin
+      if (qry1.fieldbyname('act_cnt').value=1) then
+      frmcap_Mail.memo1.lines.add('¡iRegion¡j:           '+adodataset2.fieldbyname('act_region').value);
+      frmcap_Mail.memo1.lines.add('¡iSender¡j:           '+qry1.fieldbyname('act_issue').value);
+      if (qry1.fieldbyname('act_cnt').value=1) then
+      if not adodataset2.fieldbyname('act_external').isnull then begin
+        if adodataset2.fieldbyname('act_external').value=true then
+          frmcap_Mail.memo1.lines.add('¡iUrgent¡j:           Yes')
+        else frmcap_Mail.memo1.lines.add('¡iUrgent¡j:           No');
+      end;
+      frmcap_Mail.memo1.lines.add('¡iDate¡j:             '+formatdatetime('mm/dd hh:nn',qry1.fieldbyname('act_date').value));
+      frmcap_Mail.memo1.lines.add('¡iFollow up seq.¡j:   '+qry1.fieldbyname('act_cnt').asstring);
+      if (qry1.fieldbyname('act_cnt').value=1) then
+      frmcap_Mail.memo1.lines.add('¡iTarget cmpl date¡j: '+formatdatetime('mm/dd',adodataset2.fieldbyname('act_cmpdt').value));
+      frmcap_Mail.memo1.lines.add('¡iFollow up in seq.¡j: ');
+      frmcap_Mail.memo1.lines.add(qry1.fieldbyname('act_marks').value);
+      frmcap_Mail.memo1.lines.add('==================================================');
+      next;
+    end;
+  end;
+
+  frmcap_Mail.show;
+  //}
+end;
+
+procedure TfrmCarte_Requestaction.DataSource2DataChange(Sender: TObject;
+  Field: TField);
+begin
+  with adodataset1 do begin
+    close;
+    //parameters.clear;
+    commandtext:='select * from phdb..tbl_cp_mailcont where seq=:x1';
+    parameters[0].value:=adodataset2.fieldbyname('seq').value;
+    open;
+  end;
+end;
+
+procedure TfrmCarte_Requestaction.DBGridEh2CellClick(Column: TColumnEh);
+var
+  cmp:boolean;
+begin
+  cmp:=true;
+  //{
+  if not adodataset2.fieldbyname('act_issue').isnull then begin
+    if frmmain.combobox1.text<>adodataset2.fieldbyname('act_issue').value then cmp:=false;
+  end;
+  if frmmain.combobox1.text='ADMIN' then cmp:=true;
+  if (column=dbgrideh2.columns[7]) then begin
+    if not cmp then abort;
+  end;
+  //}
+end;
+
+procedure TfrmCarte_Requestaction.DBGridEh2Columns0EditButtonClick(
+  Sender: TObject; var Handled: Boolean);
+begin
+  if frmcap_actionreason=nil then frmcap_actionreason:=tfrmcap_actionreason.create(nil);
+  frmcap_actionreason.show;
+end;
+
+procedure TfrmCarte_Requestaction.DBGridEh2Exit(Sender: TObject);
+begin
+  bitbtn7click(self);
+end;
+
+procedure TfrmCarte_Requestaction.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmCarte_Requestaction:=nil;
+end;
+
+procedure TfrmCarte_Requestaction.FormShow(Sender: TObject);
+begin
+  with adodataset2 do begin
+    close;
+    commandtext:='select * from phdb..tbl_cp_mailhead where act_cmp=0';
+    open;
+  end;
+end;
+
+end.

@@ -1,0 +1,65 @@
+unit Shp_ExportFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, rxToolEdit, cxGraphics, cxControls,
+  cxLookAndFeels, cxLookAndFeelPainters, cxStyles, cxCustomData, cxFilter,
+  cxData, cxDataStorage, cxEdit, DB, cxDBData, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, DBClient, cxGridLevel, cxClasses,
+  cxGridCustomView, cxGrid;
+
+type
+  TfrmShp_Export = class(TForm)
+    grp1: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    DateEdit1: TDateEdit;
+    DateEdit2: TDateEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    SaveDialog1: TSaveDialog;
+    cxGrid1DBTableView1EXFTY: TcxGridDBColumn;
+    cxGrid1DBTableView1SHPNO: TcxGridDBColumn;
+    cxGrid1DBTableView1CAR_TEXT: TcxGridDBColumn;
+    cxGrid1DBTableView1DECLARATION_NO: TcxGridDBColumn;
+    cxGrid1DBTableView1TPLANT: TcxGridDBColumn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmShp_Export: TfrmShp_Export;
+
+implementation
+
+uses mainformu, shpadvice2formu;
+
+{$R *.dfm}
+
+procedure TfrmShp_Export.BitBtn1Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure TfrmShp_Export.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmshp_export:=nil;
+end;
+
+end.

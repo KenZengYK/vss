@@ -1,0 +1,140 @@
+unit trs_woformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGridEh, ExtCtrls, StdCtrls, DBCtrls, DB, DBClient,
+  Buttons;
+
+type
+  Tfrmtrs_wo = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    Label2: TLabel;
+    DBText2: TDBText;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmtrs_wo: Tfrmtrs_wo;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+procedure Tfrmtrs_wo.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmtrs_wo:=nil;
+end;
+
+procedure Tfrmtrs_wo.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftboolean,'x5',ptinput);
+      params.createparam(ftboolean,'x6',ptinput);
+      params.createparam(ftboolean,'x7',ptinput);
+      params.createparam(ftboolean,'x8',ptinput);
+      params.createparam(ftstring,'x9',ptinput);
+      params.createparam(ftstring,'x10',ptinput);
+      commandtext:='update trs_wo set tqty=:x1,ttqty=:x2,tpqty=:x3,tfqty=:x4,cmp=:x5,cmp1=:x6,cmp2=:x7,cmp3=:x8 where j_no=:x9 and j2_job=:x10';
+      if not query1.fieldbyname('tqty').isnull then
+      params[0].asinteger:=query1.fieldbyname('tqty').value
+      else params[0].asinteger:=0;
+      if not query1.fieldbyname('ttqty').isnull then
+      params[1].asinteger:=query1.fieldbyname('ttqty').value
+      else params[1].asinteger:=0;
+      if not query1.fieldbyname('tpqty').isnull then
+      params[2].asinteger:=query1.fieldbyname('tpqty').value
+      else params[2].asinteger:=0;
+      if not query1.fieldbyname('tfqty').isnull then
+      params[3].asinteger:=query1.fieldbyname('tfqty').value
+      else params[3].asinteger:=0;
+      if not query1.fieldbyname('cmp').isnull then
+      params[4].asboolean:=query1.fieldbyname('cmp').value
+      else params[4].asboolean:=false;
+      if not query1.fieldbyname('cmp1').isnull then
+      params[5].asboolean:=query1.fieldbyname('cmp1').value
+      else params[5].asboolean:=false;
+      if not query1.fieldbyname('cmp2').isnull then
+      params[6].asboolean:=query1.fieldbyname('cmp2').value
+      else params[6].asboolean:=false;
+      if not query1.fieldbyname('cmp3').isnull then
+      params[7].asboolean:=query1.fieldbyname('cmp3').value
+      else params[7].asboolean:=false;
+      params[8].asstring:=query1.fieldbyname('j_no').value;
+      params[9].asstring:=query1.fieldbyname('j2_job').value;
+      execute;
+    end;
+  end;
+end;
+
+procedure Tfrmtrs_wo.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmtrs_wo.FormShow(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    params.createparam(ftstring,'x1',ptinput);
+    commandtext:='select r18,r24 from tbluser where usr=:x1';
+    params[0].asstring:=frmmain.ComboBox1.Text;
+    open;
+    if fieldbyname('r18').Value=true then begin
+      dbgrideh1.Columns[3].ReadOnly:=false;
+      dbgrideh1.Columns[4].ReadOnly:=false;
+      dbgrideh1.Columns[7].ReadOnly:=false;
+      dbgrideh1.Columns[8].ReadOnly:=false;
+      dbgrideh1.Columns[5].ReadOnly:=true;
+      dbgrideh1.Columns[6].ReadOnly:=true;
+      dbgrideh1.Columns[9].ReadOnly:=true;
+      dbgrideh1.Columns[10].ReadOnly:=true;
+    end;
+    if fieldbyname('r24').value=true then begin
+      dbgrideh1.Columns[3].ReadOnly:=true;
+      dbgrideh1.Columns[4].ReadOnly:=true;
+      dbgrideh1.Columns[7].ReadOnly:=true;
+      dbgrideh1.Columns[8].ReadOnly:=true;
+      dbgrideh1.Columns[5].ReadOnly:=false;
+      dbgrideh1.Columns[6].ReadOnly:=false;
+      dbgrideh1.Columns[9].ReadOnly:=false;
+      dbgrideh1.Columns[10].ReadOnly:=false;
+    end;
+    if (fieldbyname('r18').Value=false) and (fieldbyname('r24').value=false) then begin
+      dbgrideh1.ReadOnly:=true;
+    end;
+  end;
+end;
+
+end.

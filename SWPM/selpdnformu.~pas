@@ -1,0 +1,566 @@
+unit selpdnformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, DBGridEh, Buttons, DB, DBClient, GridsEh, Spin,
+  DateUtils;
+
+type
+  Tfrmselpdn = class(TForm)
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query4: TClientDataSet;
+    Query5: TClientDataSet;
+    Label2: TLabel;
+    ComboBox1: TComboBox;
+    Label3: TLabel;
+    yEdit1: TSpinEdit;
+    Label4: TLabel;
+    wEdit1: TSpinEdit;
+    BitBtn3: TBitBtn;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    BitBtn4: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    BitBtn7: TBitBtn;
+    ROQuery1: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmselpdn: Tfrmselpdn;
+
+implementation
+
+uses mainformu, pdnformu, pdnrpt5formu, pdnrpt6formu, shpadviceformu, pdnlogcstformu;
+
+{$R *.dfm}
+
+procedure Tfrmselpdn.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if frmpdnrpt5<>nil then frmpdnrpt5:=nil;
+  if frmpdnrpt6<>nil then frmpdnrpt6:=nil;
+  action:=cafree;
+  frmselpdn:=nil;
+end;
+
+procedure Tfrmselpdn.FormShow(Sender: TObject);
+begin
+  if frmpdn=nil then combobox1.text:='SL'
+  else combobox1.text:=frmpdn.combobox1.text;
+  yEdit1.Value:=yearof(date);
+  if frmpdn=nil then wEdit1.Value:=weekof(date)
+  else wEdit1.Value:=frmpdn.wEdit1.value;
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_pdn_m where tplant='''+combobox1.text+''' and wk='+inttostr(wEdit1.value)+' and f_year(exfty)='+inttostr(yEdit1.value)+' order by wk,cust,exfty,tplant';
+    open;
+  end;
+end;
+
+procedure Tfrmselpdn.BitBtn1Click(Sender: TObject);
+begin
+  screen.cursor:=crSQLWait;
+  try
+  if not query1.fieldbyname('pdn').isnull then begin
+    frmpdn.Edit1.text:=query1.fieldbyname('pdn').value;
+    frmpdn.ComboBox1.text:=query1.fieldbyname('tplant').value;
+    with ROQuery1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='execute procedure sp_pdn_updrwosqty(:x1)';
+      params[0].asinteger:=query1.fieldbyname('seq').value;
+      execute;
+    end;
+    with frmpdn.Query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      commandtext:='select * from tbl_pdn_m where seq=:x1';
+      params[0].asinteger:=query1.fieldbyname('seq').value;
+      open;
+    end;
+    frmpdn.opentable(query1.fieldbyname('seq').value);
+  end;
+  frmselpdn.close;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmselpdn.ComboBox1Change(Sender: TObject);
+begin
+  if combobox1.text>'' then begin
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_pdn_m where tplant='''+combobox1.text+''' and wk='+inttostr(wEdit1.value);
+      if wEdit1.Value>1 then commandtext:=commandtext+' and f_year(exfty)='+inttostr(yEdit1.value)+' order by wk,cust,exfty,tplant'
+      else commandtext:=commandtext+' and ((f_month(exfty)=12 and f_year(exfty)='+inttostr(yEdit1.value-1)+') or (f_month(exfty)=1 and f_year(exfty)='+inttostr(yEdit1.Value)+')) order by wk,cust,exfty,tplant';
+      open;
+    end;
+  end else begin
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_pdn_m where wk='+inttostr(wEdit1.value);
+      if wEdit1.Value>1 then commandtext:=commandtext+' and f_year(exfty)='+inttostr(yEdit1.value)+' order by wk,cust,exfty,tplant'
+      else commandtext:=commandtext+' and ((f_month(exfty)=12 and f_year(exfty)='+inttostr(yEdit1.value-1)+') or (f_month(exfty)=1 and f_year(exfty)='+inttostr(yEdit1.Value)+')) order by wk,cust,exfty,tplant';
+      open;
+    end;
+  end;
+end;
+
+procedure Tfrmselpdn.BitBtn2Click(Sender: TObject);
+var
+  tm:tdatetime;
+  seq1:integer;
+  d1,d2,tmc:string;
+begin
+  screen.Cursor:=crSQLWait;
+  tm:=now;
+  tmc:=formatdatetime('yyyyMMdd hhnnsszzz',tm);
+  try
+    {
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      commandtext:='execute procedure sp_pdn_salesplan(:x1,:x2,:x3,:x4)';
+      params[0].asdatetime:=tm;
+      params[1].asstring:=combobox1.text;
+      params[2].asinteger:=yedit1.Value;
+      params[3].asinteger:=wedit1.Value;
+      execute;
+    end;
+    }
+    with query2 do begin
+      close;
+      params.clear;
+        params.createparam(ftinteger,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        commandtext:='select distinct seq from tbl_pdn_m where wk=:x1 and f_year(exfty)=:x2';//'+inttostr(wEdit1.value)+' and f_year(exfty)='+inttostr(yEdit1.value)+'';
+        if combobox1.text>'' then commandtext:=commandtext+' and tplant='''+combobox1.text+'''';
+        params[0].asinteger:=wedit1.Value;
+        params[1].asinteger:=yedit1.Value;
+      open;
+      first;
+      while not eof do begin
+        //with query3 do begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          commandtext:='select seq1 from tbl_pdn_voyage_m where seq=:x1';
+          params[0].asinteger:=query2.fieldbyname('seq').value;
+          open;
+          if not fieldbyname('seq1').isnull then seq1:=1 else seq1:=0;
+        end;
+        //with query3 do begin
+        with roquery1 do begin
+          close;
+          params.clear;
+          params.createparam(ftdatetime,'x1',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          if seq1=0 then
+          commandtext:='execute procedure sp_pdn_wksum_new(:x1,:x2,:x3)'
+          else commandtext:='execute procedure sp_pdn_wksum_1_new(:x1,:x2,:x3)';
+          params[0].asdatetime:=tm;
+          params[1].asinteger:=query2.fieldbyname('seq').value;
+          params[2].asstring:=tmc;
+          execute;
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+    if frmpdnrpt5=nil then frmpdnrpt5:=tfrmpdnrpt5.create(nil);
+    with frmpdnrpt5.Query2 do begin
+      close;
+      params.clear;
+      //params.createparam(ftdatetime,'x1',ptinput);
+      //commandtext:='select min(exfty) as d1,max(exfty) as d2 from tbl_pdn_wksum where tm=:x1';
+      //params[0].asdatetime:=tm;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='select min(exfty) as d1,max(exfty) as d2 from tbl_pdn_wksum where tmc=:x1';
+      params[0].asstring:=tmc;
+      open;
+          if not frmpdnrpt5.Query2.fieldbyname('d1').isnull then
+            d1:=formatdatetime('yyyy/MM/dd',frmpdnrpt5.Query2.fieldbyname('d1').value)
+          else d1:='';
+          if not frmpdnrpt5.Query2.fieldbyname('d2').isnull then
+            d2:=formatdatetime('yyyy/MM/dd',frmpdnrpt5.Query2.fieldbyname('d2').value)
+          else d2:='';
+
+    end;
+    if wedit1.Value>1 then begin
+      with frmpdnrpt5.query1 do begin
+        close;
+        params.clear;
+        //params.createparam(ftdatetime,'x1',ptinput);
+        //commandtext:='select * from tbl_pdn_wksum where tm=:x1 order by wk,cust,tplant,pdn,memo1,seq1,exfty';
+        //params[0].asdatetime:=tm;
+        params.createparam(ftstring,'x1',ptinput);
+        commandtext:='select * from tbl_pdn_wksum where tmc=:x1 order by wk,cust,tplant,pdn,memo1,seq1,exfty';
+        params[0].asstring:=tmc;
+        open;
+        if not fieldbyname('tm').isnull then begin
+          frmpdnrpt5.fty001.Caption:=combobox1.text;
+          frmpdnrpt5.week01.Caption:=inttostr(wEdit1.value);
+          {
+          if not frmpdnrpt5.Query2.fieldbyname('d1').isnull then
+            frmpdnrpt5.exfty001.Caption:=formatdatetime('yyyy/MM/dd',frmpdnrpt5.Query2.fieldbyname('d1').value)
+          else frmpdnrpt5.exfty001.Caption:='';
+          if not frmpdnrpt5.Query2.fieldbyname('d2').isnull then
+            frmpdnrpt5.exfty002.Caption:=formatdatetime('yyyy/MM/dd',frmpdnrpt5.Query2.fieldbyname('d2').value)
+          else frmpdnrpt5.exfty002.Caption:='';
+          }
+          frmpdnrpt5.exfty001.Caption:=d1;
+          frmpdnrpt5.exfty002.Caption:=d2;
+          frmpdnrpt5.title001.caption:='PDN Summary Dashboard by WO (Appoint Clr)  ';
+          if wEdit1.Value=53 then begin
+            if yEdit1.value=2008 then
+              frmpdnrpt5.title002.Caption:=' -  Sim Week 53 [which is same as Week 1 of Yr 07-08 at 2007]'
+            else if yEdit1.Value=2009 then
+              frmpdnrpt5.title002.Caption:=' -  Sim Week 53 [which is same as Week 1 of Yr 08-09 at 2008]';
+          end else frmpdnrpt5.title002.caption:='';
+          frmpdnrpt5.ppGroupFooterBand5.Visible:=true;
+          frmpdnrpt5.ppGroupFooterBand7.Visible:=true;
+          frmpdnrpt5.ppReport1.Print;
+        end;
+      end;
+    end else begin
+      {
+      with frmpdnrpt5.query1 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x1',ptinput);
+        commandtext:='select * from tbl_pdn_wksum where tm=:x1 and f_month(exfty)=12 order by wk,cust,tplant,memo1,seq1,exfty';
+        params[0].asdatetime:=tm;
+        open;
+        if not fieldbyname('tm').isnull then begin
+          frmpdnrpt5.fty001.Caption:=combobox1.text;
+          frmpdnrpt5.week01.Caption:=inttostr(wEdit1.value);
+          frmpdnrpt5.exfty001.Caption:=d1;
+          frmpdnrpt5.exfty002.Caption:=d2;
+          frmpdnrpt5.title002.Caption:=' -  Week 1 of Yr 07-08 at 2007';
+          frmpdnrpt5.ppReport1.Print;
+        end;
+      end;
+      }
+      with frmpdnrpt5.query1 do begin
+        close;
+        params.clear;
+        //params.createparam(ftdatetime,'x1',ptinput);
+        //commandtext:='select * from tbl_pdn_wksum where tm=:x1 and f_month(exfty)=1 order by wk,cust,tplant,pdn,memo1,seq1,exfty';
+        //params[0].asdatetime:=tm;
+        params.createparam(ftstring,'x1',ptinput);
+        commandtext:='select * from tbl_pdn_wksum where tmc=:x1 and f_month(exfty)=1 order by wk,cust,tplant,pdn,memo1,seq1,exfty';
+        params[0].asstring:=tmc;
+        open;
+        if not fieldbyname('tm').isnull then begin
+          frmpdnrpt5.fty001.Caption:=combobox1.text;
+          frmpdnrpt5.week01.Caption:=inttostr(wEdit1.value);
+          {
+          if not frmpdnrpt5.Query2.fieldbyname('d1').isnull then
+            frmpdnrpt5.exfty001.Caption:=formatdatetime('yyyy/MM/dd',frmpdnrpt5.Query2.fieldbyname('d1').value)
+          else frmpdnrpt5.exfty001.Caption:='';
+          if not frmpdnrpt5.Query2.fieldbyname('d2').isnull then
+            frmpdnrpt5.exfty002.Caption:=formatdatetime('yyyy/MM/dd',frmpdnrpt5.Query2.fieldbyname('d2').value)
+          else frmpdnrpt5.exfty002.Caption:='';
+          }
+          frmpdnrpt5.exfty001.Caption:=d1;
+          frmpdnrpt5.exfty002.Caption:=d2;
+          frmpdnrpt5.title001.caption:='PDN Summary Dashboard by WO (Appoint Clr)  ';
+          if yEdit1.Value=2008 then
+          frmpdnrpt5.title002.Caption:=' -  Week 1 of Yr 07-08 at 2008'
+          else if yEdit1.Value=2009 then
+          frmpdnrpt5.title002.Caption:=' -  Week 1 of Yr 08-09 at 2009'
+          else frmpdnrpt5.title002.Caption:='';
+          frmpdnrpt5.ppGroupFooterBand5.Visible:=true;
+          frmpdnrpt5.ppGroupFooterBand7.Visible:=true;
+          frmpdnrpt5.ppReport1.Print;
+        end;
+      end;
+    end;
+    {
+    with frmpdnrpt5.query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='select * from tbl_pdn_wksum where tm=:x1 order by wk,cust,tplant,memo1,seq1,exfty';
+      params[0].asdatetime:=tm;
+      open;
+      if not fieldbyname('tm').isnull then begin
+        frmpdnrpt5.fty001.Caption:=combobox1.text;
+        frmpdnrpt5.week01.Caption:=inttostr(wEdit1.value);
+        if not frmpdnrpt5.Query2.fieldbyname('d1').isnull then
+          frmpdnrpt5.exfty001.Caption:=formatdatetime('yyyy/MM/dd',frmpdnrpt5.Query2.fieldbyname('d1').value)
+        else frmpdnrpt5.exfty001.Caption:='';
+        if not frmpdnrpt5.Query2.fieldbyname('d2').isnull then
+          frmpdnrpt5.exfty002.Caption:=formatdatetime('yyyy/MM/dd',frmpdnrpt5.Query2.fieldbyname('d2').value)
+        else frmpdnrpt5.exfty002.Caption:='';
+        if wedit1.Value=1 then begin
+          if yedit1.Value=2007 then frmpdnrpt5.title002.Caption:=' -  Week 1 of Yr 07-08 at 2007'
+          else frmpdnrpt5.title002.Caption:=' -  Week 1 of Yr 07-08 at 2008';
+        end else frmpdnrpt5.title002.caption:='';
+        frmpdnrpt5.ppReport1.Print;
+      end;
+    end;
+    }
+    {
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='select distinct seq from tbl_pdn_m where wk=:x1 and f_year(exfty)=:x2';//'+inttostr(wEdit1.value)+' and f_year(exfty)='+inttostr(yEdit1.value)+'';
+      if combobox1.text>'' then commandtext:=commandtext+' and tplant='''+combobox1.text+'''';
+      params[0].asinteger:=wedit1.Value;
+      params[1].asinteger:=yedit1.Value;
+      open;
+      first;
+      while not eof do begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftdatetime,'x1',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          commandtext:='execute procedure sp_pdn_rsummary(:x1,:x2)';
+          params[0].asdatetime:=tm;
+          params[1].asinteger:=query2.fieldbyname('seq').value;
+          execute;
+        end;
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftdatetime,'x1',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          commandtext:='execute procedure sp_pdn_summary_tmp(:x1,:x2)';
+          params[0].asdatetime:=tm;
+          params[1].asinteger:=Query2.fieldbyname('seq').value;
+          execute;
+        end;
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftdatetime,'x1',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          commandtext:='execute procedure sp_pdn_wsummary(:x1,:x2)';
+          params[0].asdatetime:=tm;
+          params[1].asinteger:=query2.fieldbyname('seq').value;
+          execute;
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+      if frmpdnrpt5=nil then frmpdnrpt5:=tfrmpdnrpt5.create(nil);
+      with frmpdnrpt5.query4 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x2',ptinput);
+        commandtext:='select * from tbl_pdn_r_tmp_sum where tm=:x2 order by j_no,j2_job,acol';
+        params[0].asdatetime:=tm;
+        open;
+        if not fieldbyname('tm').isnull then begin
+          frmpdnrpt5.week01.Caption:=inttostr(wEdit1.value);
+          frmpdnrpt5.fty001.Caption:=combobox1.text;
+          frmpdnrpt5.ppReport1.print;
+        end;
+      end;
+      if frmpdnrpt6=nil then frmpdnrpt6:=tfrmpdnrpt6.create(nil);
+      with frmpdnrpt6.query4 do begin
+        close;
+        params.clear;
+        params.createparam(ftdatetime,'x2',ptinput);
+        commandtext:='select * from tbl_pdn_d_tmp where tm=:x2 order by j_no,j2_job,rwo,acol';
+        params[0].asdatetime:=tm;
+        open;
+        if not fieldbyname('tm').isnull then begin
+          frmpdnrpt6.week01.Caption:=inttostr(wEdit1.value);
+          frmpdnrpt6.fty001.Caption:=combobox1.text;
+          frmpdnrpt6.ppReport1.print;
+        end;
+      end;
+      }
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmselpdn.BitBtn3Click(Sender: TObject);
+var
+  tm:tdatetime;
+  seq1:integer;
+  d1,d2,tmc:string;
+  cust:string;
+begin
+  screen.Cursor:=crSQLWait;
+  tm:=now;
+  tmc:=formatdatetime('yyyyMMdd hhnnsszzz',tm);
+  try
+    {
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      commandtext:='execute procedure sp_pdn_salesplan(:x1,:x2,:x3,:x4)';
+      params[0].asdatetime:=tm;
+      params[1].asstring:=combobox1.text;
+      params[2].asinteger:=yedit1.Value;
+      params[3].asinteger:=wedit1.Value;
+      execute;
+    end;
+    }
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'x1',ptinput);
+          commandtext:='select seq1 from tbl_pdn_voyage_m where seq=:x1';
+          params[0].asinteger:=query1.fieldbyname('seq').value;
+          open;
+          if not fieldbyname('seq1').isnull then seq1:=1 else seq1:=0;
+        end;
+        //with query3 do begin
+        with roquery1 do begin
+          close;
+          params.clear;
+          params.createparam(ftdatetime,'x1',ptinput);
+          params.createparam(ftinteger,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          if seq1=0 then
+          commandtext:='execute procedure sp_pdn_wksum_new(:x1,:x2,:x3)'
+          else commandtext:='execute procedure sp_pdn_wksum_1_new(:x1,:x2,:x3)';
+          params[0].asdatetime:=tm;
+          params[1].asinteger:=query1.fieldbyname('seq').value;
+          params[2].asstring:=tmc;
+          execute;
+        end;
+    if frmpdnrpt5=nil then frmpdnrpt5:=tfrmpdnrpt5.create(nil);
+    with frmpdnrpt5.Query2 do begin
+      close;
+      params.clear;
+      //params.createparam(ftdatetime,'x1',ptinput);
+      //commandtext:='select min(exfty) as d1,max(exfty) as d2 from tbl_pdn_wksum where tm=:x1';
+      //params[0].asdatetime:=tm;
+      params.createparam(ftstring,'x1',ptinput);
+      commandtext:='select min(exfty) as d1,max(exfty) as d2 from tbl_pdn_wksum where tmc=:x1';
+      params[0].asstring:=tmc;
+      open;
+          if not frmpdnrpt5.Query2.fieldbyname('d1').isnull then
+            d1:=formatdatetime('yyyy/MM/dd',frmpdnrpt5.Query2.fieldbyname('d1').value)
+          else d1:='';
+          if not frmpdnrpt5.Query2.fieldbyname('d2').isnull then
+            d2:=formatdatetime('yyyy/MM/dd',frmpdnrpt5.Query2.fieldbyname('d2').value)
+          else d2:='';
+
+    end;
+
+    if not query1.fieldbyname('customer').isnull then
+    cust:=query1.fieldbyname('customer').value else cust:='';
+    {
+    if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='AF' then cust:='ANFF'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='SA' then cust:='SARA'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='TM' then cust:='TAMA'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='TL' then cust:='TAIL'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='ES' then cust:='ESSE'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='ET' then cust:='ETAM'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='WN' then cust:='WARN'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='GP' then cust:='GAPA'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='MO' then cust:='MONO'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='MX' then cust:='MEXX'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='DA' then cust:='DAXO'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='CA' then cust:='CANA'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='LA' then cust:='LARD'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='TD' then cust:='TORD'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='CM' then cust:='CMYR'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='SL' then cust:='SALL'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='PL' then cust:='PLUK'
+    else if copy(query1.fieldbyname('pdn').value,length(query1.fieldbyname('pdn').value)-1,2)='NE' then cust:='NEXT';
+    }
+      with frmpdnrpt5.query1 do begin
+        close;
+        params.clear;
+        //params.createparam(ftdatetime,'x1',ptinput);
+        //commandtext:='select * from tbl_pdn_wksum where tm=:x1 order by wk,cust,tplant,memo1,seq1,exfty';
+        //params[0].asdatetime:=tm;
+        params.createparam(ftstring,'x1',ptinput);
+        commandtext:='select * from tbl_pdn_wksum where tmc=:x1 order by wk,cust,tplant,memo1,seq1,exfty';
+        params[0].asstring:=tmc;
+        open;
+        if not fieldbyname('tm').isnull then begin
+          frmpdnrpt5.fty001.Caption:=combobox1.text;
+          frmpdnrpt5.week01.Caption:=inttostr(wEdit1.value);
+          frmpdnrpt5.exfty001.Caption:=d1;
+          frmpdnrpt5.exfty002.Caption:=d2;
+          frmpdnrpt5.title001.caption:='PDN Dashboard by WO (Appoint Clr)  ';
+          frmpdnrpt5.title002.Caption:=' -  '+cust;
+          frmpdnrpt5.ppGroupFooterBand5.Visible:=false;
+          frmpdnrpt5.ppGroupFooterBand7.Visible:=false;
+          frmpdnrpt5.ppReport1.Print;
+        end;
+      end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmselpdn.BitBtn4Click(Sender: TObject);
+begin
+  if frmshpadvice=nil then frmshpadvice:=tfrmshpadvice.Create(nil);
+  frmshpadvice.ComboBox1.Text:=combobox1.text;
+  frmshpadvice.yEdit1.Value:=yEdit1.Value;
+  frmshpadvice.wEdit1.Value:=wEdit1.Value;
+  frmshpadvice.BitBtn1.Visible:=true;
+  frmshpadvice.BitBtn2.Visible:=true;
+  frmshpadvice.BitBtn3.Visible:=true;
+  frmshpadvice.BitBtn4.Visible:=false;
+  frmshpadvice.BitBtn5.Visible:=false;
+  frmshpadvice.Show;
+end;
+
+procedure Tfrmselpdn.BitBtn6Click(Sender: TObject);
+begin
+  if not query1.fieldbyname('seq').isnull then begin
+    if frmpdnlogcst=nil then frmpdnlogcst:=tfrmpdnlogcst.create(nil);
+    with frmpdnlogcst.Query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_pdn_pack where seq=:x1';
+      params[0].asinteger:=query1.fieldbyname('seq').value;
+      open;
+    end;
+    if query1.fieldbyname('tplant').value='FJ' then frmpdnlogcst.DBGridEh1.columns[13].Visible:=true
+    else frmpdnlogcst.DBGridEh1.Columns[13].Visible:=false;
+    frmpdnlogcst.show;
+  end;
+end;
+
+end.

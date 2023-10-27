@@ -1,0 +1,572 @@
+unit pdnpast1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ppBands, ppReport, ppSubRpt, ppClass, ppCtrls, ppStrtch,
+  ppRichTx, ppVar, ppPrnabl, ppCache, ppProd, ppComm, ppRelatv, ppDB,
+  ppDBPipe, DB, DBClient, ppViewr, Txcomp, dateutils, ppMemo, ppParameter;
+
+type
+  Tfrmpdnpast1 = class(TForm)
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    DataSource1: TDataSource;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppLabel1: TppLabel;
+    ppShape1: TppShape;
+    f001: TppLabel;
+    w001: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel2: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel3: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLabel20: TppLabel;
+    title002: TppLabel;
+    ppLabel37: TppLabel;
+    ppDetailBand1: TppDetailBand;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    o001: TppLabel;
+    grade01: TppLabel;
+    ppDBText3: TppDBText;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppShape5: TppShape;
+    ppShape7: TppShape;
+    ppShape4: TppShape;
+    ppShape6: TppShape;
+    ppShape3: TppShape;
+    ppMemo6: TppRichText;
+    ppLabel22: TppLabel;
+    ppDBCalc19: TppDBCalc;
+    ppLabel23: TppLabel;
+    hr001: TppLabel;
+    ppLabel24: TppLabel;
+    hr002: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppSystemVariable3: TppSystemVariable;
+    ppLabel27: TppLabel;
+    wk01: TppLabel;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLabel28: TppLabel;
+    ppLabel29: TppLabel;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLabel30: TppLabel;
+    ppLabel31: TppLabel;
+    ppLabel32: TppLabel;
+    ppLine9: TppLine;
+    ppLabel33: TppLabel;
+    he001: TppLabel;
+    he002: TppLabel;
+    ppLabel34: TppLabel;
+    ppLabel35: TppLabel;
+    ppSystemVariable4: TppSystemVariable;
+    ppLabel36: TppLabel;
+    wk02: TppLabel;
+    ppLine10: TppLine;
+    ppLabel38: TppLabel;
+    ppLabel39: TppLabel;
+    ppLabel40: TppLabel;
+    ppLine11: TppLine;
+    ppLabel41: TppLabel;
+    ppLabel42: TppLabel;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLabel43: TppLabel;
+    hn001: TppLabel;
+    ht001: TppLabel;
+    ht002: TppLabel;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppGroup3: TppGroup;
+    ppGroupHeaderBand3: TppGroupHeaderBand;
+    ppGroupFooterBand3: TppGroupFooterBand;
+    ppShape2: TppShape;
+    ppDBCalc9: TppDBCalc;
+    ppDBCalc10: TppDBCalc;
+    ppDBCalc11: TppDBCalc;
+    ppDBCalc12: TppDBCalc;
+    ppDBCalc13: TppDBCalc;
+    ppDBCalc14: TppDBCalc;
+    ppDBCalc15: TppDBCalc;
+    ppDBCalc16: TppDBCalc;
+    ppLabel16: TppLabel;
+    grd002: TppLabel;
+    o003: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    p001: TppLabel;
+    p002: TppLabel;
+    p003: TppLabel;
+    p004: TppLabel;
+    p005: TppLabel;
+    p006: TppLabel;
+    wa004: TppLabel;
+    wa005: TppLabel;
+    wa006: TppLabel;
+    wa007: TppLabel;
+    wa008: TppLabel;
+    wa009: TppLabel;
+    wa001: TppLabel;
+    wa002: TppLabel;
+    wa003: TppLabel;
+    ppLine1: TppLine;
+    p007: TppLabel;
+    ppLabel21: TppLabel;
+    p107: TppLabel;
+    p101: TppLabel;
+    p102: TppLabel;
+    p103: TppLabel;
+    p104: TppLabel;
+    p105: TppLabel;
+    p106: TppLabel;
+    ppDBCalc18: TppDBCalc;
+    wa010: TppLabel;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    ppTitleBand1: TppTitleBand;
+    ppDetailBand2: TppDetailBand;
+    ppDBText19: TppDBText;
+    ppDBText18: TppDBText;
+    o004: TppLabel;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText20: TppDBText;
+    ppDBText21: TppDBText;
+    ppDBText23: TppDBText;
+    grd003: TppLabel;
+    ppDBText13: TppDBText;
+    ppSummaryBand2: TppSummaryBand;
+    ppLabel17: TppLabel;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppDBText12: TppDBText;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    ppDBCalc3: TppDBCalc;
+    ppDBCalc4: TppDBCalc;
+    ppDBCalc5: TppDBCalc;
+    ppDBCalc6: TppDBCalc;
+    ppDBCalc7: TppDBCalc;
+    ppDBCalc8: TppDBCalc;
+    grd001: TppLabel;
+    o002: TppLabel;
+    ppDBCalc17: TppDBCalc;
+    DataSource2: TDataSource;
+    ppDBPipeline2: TppDBPipeline;
+    Query5: TClientDataSet;
+    ppLabel96: TppLabel;
+    ppMemo1: TppMemo;
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppGroupFooterBand1BeforePrint(Sender: TObject);
+    procedure ppDetailBand2BeforePrint(Sender: TObject);
+    procedure ppGroupFooterBand2BeforePrint(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure ppGroupFooterBand3BeforePrint(Sender: TObject);
+    procedure ppGroupHeaderBand3BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpdnpast1: Tfrmpdnpast1;
+
+implementation
+
+uses mainformu, pdnformu, pdnpastformu;
+
+{$R *.dfm}
+
+procedure Tfrmpdnpast1.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmpdnpast1.ppGroupFooterBand1BeforePrint(Sender: TObject);
+begin
+  //showmessage('0 '+query1.fieldbyname('cust').value);
+  if abs(ppdbcalc3.Value*100.00/ppdbcalc1.Value)<=1 then grd001.Caption:='A'
+  else if abs(ppdbcalc3.Value*100.00/ppdbcalc1.Value)<=2 then grd001.Caption:='B'
+  else if abs(ppdbcalc3.Value*100.00/ppdbcalc1.Value)<=3 then grd001.Caption:='C'
+  else if abs(ppdbcalc3.Value*100.00/ppdbcalc1.Value)<=4 then grd001.Caption:='D'
+  else if abs(ppdbcalc3.Value*100.00/ppdbcalc1.Value)<=5 then grd001.Caption:='F'
+  else grd001.Caption:='U';
+  o002.Caption:=inttostr(ppdbcalc4.value+ppdbcalc5.value+ppdbcalc6.value);
+  if ppdbcalc3.Value>ppdbcalc17.Value then ppdbcalc17.Font.Color:=clRed
+  else if ppdbcalc3.Value<ppdbcalc17.Value then ppdbcalc17.Font.Color:=clGreen
+  else ppdbcalc17.Font.Color:=clBlack;
+  //showmessage('1');
+end;
+
+procedure Tfrmpdnpast1.ppDetailBand2BeforePrint(Sender: TObject);
+var
+  pt,pt1:double;
+begin
+  //showmessage('2 '+query1.fieldbyname('cust').value);
+  if query2.Active=false then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='select distinct tplant,cust,sum(sqty) as sqty,sum(t4qty) as t4qty,sum(diff) as diff,sum(spqty) as spqty,sum(writeoff) as writeoff,'
+                  +'sum(lstqty) as lstqty,sum(hqty) as hqty,sum(swing) as swing,sum(ttl) as ttl from tbl_pdn_past where tm=:x1 and tplant='''+query1.fieldbyname('tplant').value+''' ';
+      //if ((combobox2.text>'') and (length(combobox2.text)<=4)) then commandtext:=commandtext+'and cust='''+combobox2.text+''' ';
+      commandtext:=commandtext+'and cust='''+query1.fieldbyname('cust').value+''' ';
+      commandtext:=commandtext+'group by tplant,cust order by tplant,cust';
+      params[0].asdatetime:=query1.fieldbyname('tm').value;
+      open;
+    end;
+  end;
+
+  if abs(query2.fieldbyname('diff').Value*100.00/query2.fieldbyname('sqty').Value)<=1 then grd003.Caption:='A'
+  else if abs(query2.fieldbyname('diff').Value*100.00/query2.fieldbyname('sqty').Value)<=2 then grd003.Caption:='B'
+  else if abs(query2.fieldbyname('diff').value*100.00/query2.fieldbyname('sqty').Value)<=3 then grd003.Caption:='C'
+  else if abs(query2.fieldbyname('diff').value*100.00/query2.fieldbyname('sqty').Value)<=4 then grd003.Caption:='D'
+  else if abs(query2.fieldbyname('diff').value*100.00/query2.fieldbyname('sqty').Value)<=5 then grd003.Caption:='F'
+  else grd003.Caption:='U';
+
+  if (frmpdnpast.label10.Caption='PDN Qty') or (frmpdnpast.label10.caption='Both') then begin
+    pt:=0; pt1:=0;
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select distinct grd,count(*) as cnt from tbl_pdn_past where tm=:x1 and cust=:x2 group by grd';
+      params[0].asdatetime:=query1.fieldbyname('tm').value;
+      params[1].asstring:=query1.fieldbyname('cust').value;//query2.fieldbyname('cust').value;
+      open;
+      first;
+      while not eof do begin
+        pt:=pt+fieldbyname('cnt').value;
+        if fieldbyname('grd').value='A' then pt1:=pt1+fieldbyname('cnt').value*5.0
+        else if fieldbyname('grd').value='B' then pt1:=pt1+fieldbyname('cnt').value*4.0
+        else if fieldbyname('grd').value='C' then pt1:=pt1+fieldbyname('cnt').value*3.0
+        else if fieldbyname('grd').value='D' then pt1:=pt1+fieldbyname('cnt').value*2.0
+        else if fieldbyname('grd').value='F' then pt1:=pt1+fieldbyname('cnt').value*1.0
+        else if fieldbyname('grd').value='U' then pt1:=pt1+fieldbyname('cnt').value*0.0;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+    pt1:=pt1/pt;
+
+    if frmpdnpast.label10.Caption='Both' then begin
+      if pt1>=4.5 then grd003.Caption:=grd003.Caption+' / A'
+      else if pt1>=3.5 then grd003.Caption:=grd003.Caption+' / B'
+      else if pt1>=2.5 then grd003.Caption:=grd003.Caption+' / C'
+      else if pt1>=1.5 then grd003.Caption:=grd003.Caption+' / D'
+      else if pt1>=0.5 then grd003.Caption:=grd003.Caption+' / F'
+      else grd003.Caption:=grd003.Caption+' / U';
+    end else begin
+      if pt1>=4.5 then grd003.Caption:='A'
+      else if pt1>=3.5 then grd003.Caption:='B'
+      else if pt1>=2.5 then grd003.Caption:='C'
+      else if pt1>=1.5 then grd003.Caption:='D'
+      else if pt1>=0.5 then grd003.Caption:='F'
+      else grd003.Caption:='U';
+    end;
+  end;
+
+  o004.Caption:=inttostr(query2.fieldbyname('spqty').value+query2.fieldbyname('writeoff').value+query2.fieldbyname('lstqty').value);
+  if query2.fieldbyname('diff').value>query2.fieldbyname('ttl').value then ppdbtext13.Font.Color:=clRed
+  else if query2.fieldbyname('diff').value<query2.fieldbyname('ttl').value then ppdbtext13.Font.Color:=clGreen
+  else ppdbtext13.Font.color:=clBlack;
+  //showmessage('3');
+end;
+
+procedure Tfrmpdnpast1.ppGroupFooterBand2BeforePrint(Sender: TObject);
+begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='select distinct tplant,cust,sum(sqty) as sqty,sum(t4qty) as t4qty,sum(diff) as diff,sum(spqty) as spqty,sum(writeoff) as writeoff,'
+                  +'sum(lstqty) as lstqty,sum(hqty) as hqty,sum(swing) as swing,sum(ttl) as ttl from tbl_pdn_past where tm=:x1 and tplant='''+query1.fieldbyname('tplant').value+''' ';
+      //if ((combobox2.text>'') and (length(combobox2.text)<=4)) then commandtext:=commandtext+'and cust='''+combobox2.text+''' ';
+      commandtext:=commandtext+'and cust='''+query1.fieldbyname('cust').value+''' ';
+      commandtext:=commandtext+'group by tplant,cust order by tplant,cust';
+      params[0].asdatetime:=query1.fieldbyname('tm').value;
+      open;
+    end;
+end;
+
+procedure Tfrmpdnpast1.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  //showmessage('4 '+query1.fieldbyname('cust').value);
+  if abs(query1.fieldbyname('diff').Value*100.00/query1.fieldbyname('sqty').Value)<=1 then grade01.Caption:='A'
+  else if abs(query1.fieldbyname('diff').Value*100.00/query1.fieldbyname('sqty').Value)<=2 then grade01.Caption:='B'
+  else if abs(query1.fieldbyname('diff').value*100.00/query1.fieldbyname('sqty').Value)<=3 then grade01.Caption:='C'
+  else if abs(query1.fieldbyname('diff').value*100.00/query1.fieldbyname('sqty').Value)<=4 then grade01.Caption:='D'
+  else if abs(query1.fieldbyname('diff').value*100.00/query1.fieldbyname('sqty').Value)<=5 then grade01.Caption:='F'
+  else grade01.Caption:='U';
+  o001.Caption:=inttostr(query1.fieldbyname('spqty').value+query1.fieldbyname('writeoff').value+query1.fieldbyname('lstqty').value);
+  if query1.fieldbyname('diff').value>query1.fieldbyname('ttl').value then ppdbtext3.Font.Color:=clRed
+  else if query1.fieldbyname('diff').value<query1.fieldbyname('ttl').value then ppdbtext3.Font.Color:=clGreen
+  else ppdbtext3.Font.color:=clBlack;
+  //showmessage('5');
+end;
+
+procedure Tfrmpdnpast1.ppGroupFooterBand3BeforePrint(Sender: TObject);
+var
+  wk:integer;
+  dt1,dt2:tdate;
+  cust:string;
+  pt,pt1:double;
+begin
+  //showmessage('6 '+query1.fieldbyname('cust').value);
+  if abs(ppdbcalc11.Value*100.00/ppdbcalc9.Value)<=1 then grd002.Caption:='A'
+  else if abs(ppdbcalc11.Value*100.00/ppdbcalc9.Value)<=2 then grd002.Caption:='B'
+  else if abs(ppdbcalc11.Value*100.00/ppdbcalc9.Value)<=3 then grd002.Caption:='C'
+  else if abs(ppdbcalc11.Value*100.00/ppdbcalc9.Value)<=4 then grd002.Caption:='D'
+  else if abs(ppdbcalc11.Value*100.00/ppdbcalc9.Value)<=5 then grd002.Caption:='F'
+  else grd002.Caption:='U';
+    //showmessage('60');
+  if (frmpdnpast.label10.Caption='PDN Qty') or (frmpdnpast.label10.caption='Both') then begin
+    pt:=0; pt1:=0;
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='select distinct grd,count(*) as cnt from tbl_pdn_past where tm=:x1 and cust=:x2 group by grd';
+      params[0].asdatetime:=query1.fieldbyname('tm').value;
+      params[1].asstring:=query1.FieldByName('cust').Value;//query2.fieldbyname('cust').value;
+      open;
+      first;
+      while not eof do begin
+        pt:=pt+fieldbyname('cnt').value;
+        if fieldbyname('grd').value='A' then pt1:=pt1+fieldbyname('cnt').value*5.0
+        else if fieldbyname('grd').value='B' then pt1:=pt1+fieldbyname('cnt').value*4.0
+        else if fieldbyname('grd').value='C' then pt1:=pt1+fieldbyname('cnt').value*3.0
+        else if fieldbyname('grd').value='D' then pt1:=pt1+fieldbyname('cnt').value*2.0
+        else if fieldbyname('grd').value='F' then pt1:=pt1+fieldbyname('cnt').value*1.0
+        else if fieldbyname('grd').value='U' then pt1:=pt1+fieldbyname('cnt').value*0.0;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+    pt1:=pt1/pt;
+    if frmpdnpast.label10.Caption='Both' then begin
+      if pt1>=4.5 then grd002.Caption:=grd002.Caption+' / A'
+      else if pt1>=3.5 then grd002.Caption:=grd002.Caption+' / B'
+      else if pt1>=2.5 then grd002.Caption:=grd002.Caption+' / C'
+      else if pt1>=1.5 then grd002.Caption:=grd002.Caption+' / D'
+      else if pt1>=0.5 then grd002.Caption:=grd002.Caption+' / F'
+      else grd002.Caption:=grd002.Caption+' / U';
+    end else begin
+      if pt1>=4.5 then grd002.Caption:='A'
+      else if pt1>=3.5 then grd002.Caption:='B'
+      else if pt1>=2.5 then grd002.Caption:='C'
+      else if pt1>=1.5 then grd002.Caption:='D'
+      else if pt1>=0.5 then grd002.Caption:='F'
+      else grd002.Caption:='U';
+    end;
+  end;
+    //showmessage('61');
+
+  o003.Caption:=inttostr(ppdbcalc12.value+ppdbcalc13.value+ppdbcalc14.value);
+  //if ppdbcalc10.Value>0 then begin
+  if ppdbcalc9.Value>0 then begin
+    p007.Caption:=formatfloat('#0.00%',ppdbcalc10.Value*100.00/ppdbcalc9.Value);
+    p001.Caption:=formatfloat('#0.00%',ppdbcalc12.Value*100.00/ppdbcalc9.Value);
+    p002.Caption:=formatfloat('#0.00%',ppdbcalc13.Value*100.00/ppdbcalc9.Value);
+    p003.Caption:=formatfloat('#0.00%',ppdbcalc14.Value*100.00/ppdbcalc9.Value);
+    p004.Caption:=formatfloat('#0.00%',(ppdbcalc12.Value+ppdbcalc13.value+ppdbcalc14.value)*100.00/ppdbcalc9.Value);
+    p005.Caption:=formatfloat('#0.00%',ppdbcalc15.Value*100.00/ppdbcalc9.Value);
+    p006.Caption:=formatfloat('#0.00%',ppdbcalc16.Value*100.00/ppdbcalc9.Value);
+  end else begin
+    p007.caption:='na';p001.Caption:='na';p002.Caption:='na';p003.Caption:='na';
+    p004.Caption:='na';p005.Caption:='na';p006.Caption:='na';
+  end;
+  //if spinedit1.value=spinedit3.Value then wk:=spinedit4.Value-spinedit2.Value+1
+  //else wk:=53-spinedit2.Value+spinedit4.Value;
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='select count(distinct wk) as cnt from tbl_pdn_past where tm=:x1 and cust='''+query1.fieldbyname('cust').value+'''';
+      //if ((combobox2.text>'') and (length(combobox2.text)<=4)) then commandtext:=commandtext+' and cust='''+combobox2.text+'''';
+      params[0].asdatetime:=query1.fieldbyname('tm').value;
+      open;
+      if fieldbyname('cnt').value>0 then wk:=fieldbyname('cnt').value else wk:=1;
+    end;
+  wa001.Caption:=formatfloat('#0.00',ppdbcalc9.Value/wk);
+  wa002.Caption:=formatfloat('#0.00',ppdbcalc10.Value/wk);
+  wa003.Caption:=formatfloat('#0.00',ppdbcalc11.Value/wk);
+  wa004.Caption:=formatfloat('#0.00',ppdbcalc12.Value/wk);
+  wa005.Caption:=formatfloat('#0.00',ppdbcalc13.Value/wk);
+  wa006.Caption:=formatfloat('#0.00',ppdbcalc14.Value/wk);
+  wa007.Caption:=formatfloat('#0.00',(ppdbcalc12.Value+ppdbcalc13.value+ppdbcalc14.value)/wk);
+  wa008.Caption:=formatfloat('#0.00',ppdbcalc15.Value/wk);
+  wa009.Caption:=formatfloat('#0.00',ppdbcalc16.Value/wk);
+  wa010.Caption:=formatfloat('#0.00',ppdbcalc18.Value/wk);
+  //if ppdbcalc10.Value>0 then begin
+  if ppdbcalc9.Value>0 then begin
+    p107.Caption:=formatfloat('#0.00%',ppdbcalc10.Value*100.00/ppdbcalc9.Value/wk);
+    p101.Caption:=formatfloat('#0.00%',ppdbcalc12.Value*100.00/ppdbcalc9.Value/wk);
+    p102.Caption:=formatfloat('#0.00%',ppdbcalc13.Value*100.00/ppdbcalc9.Value/wk);
+    p103.Caption:=formatfloat('#0.00%',ppdbcalc14.Value*100.00/ppdbcalc9.Value/wk);
+    p104.Caption:=formatfloat('#0.00%',(ppdbcalc12.Value+ppdbcalc13.value+ppdbcalc14.value)*100.00/ppdbcalc9.Value/wk);
+    p105.Caption:=formatfloat('#0.00%',ppdbcalc15.Value*100.00/ppdbcalc9.Value/wk);
+    p106.Caption:=formatfloat('#0.00%',ppdbcalc16.Value*100.00/ppdbcalc9.Value/wk);
+  end else begin
+    p107.caption:='na';p101.Caption:='na';p102.Caption:='na';p103.Caption:='na';
+    p104.Caption:='na';p105.Caption:='na';p106.Caption:='na';
+  end;
+  if ppdbcalc11.Value>ppdbcalc18.Value then begin
+    ppdbcalc18.font.color:=clred;
+    wa010.Font.color:=clRed;
+  end else if ppdbcalc11.Value<ppdbcalc18.value then begin
+    ppdbcalc18.Font.color:=clGreen;
+    wa010.Font.Color:=clGreen;
+  end else begin
+    ppdbcalc18.Font.Color:=clBlack;
+    wa010.Font.Color:=clBlack;
+  end;
+    //showmessage('62');
+    cust:=query1.fieldbyname('cust').value;
+    cust:=copy(trim(cust),length(trim(cust))-1,2);
+    {
+    if cust='SALL' then cust:='SL'
+    else if cust='SARA' then cust:='SA'
+    else if cust='TAMA' then cust:='TM'
+    else if cust='TAIL' then cust:='TL'
+    else if cust='ESSE' then cust:='ES'
+    else if cust='ETAM' then cust:='ET'
+    else if cust='WARN' then cust:='WN'
+    else if cust='GAPA' then cust:='GP'
+    else if cust='MONO' then cust:='MO'
+    else if cust='MEXX' then cust:='MX'
+    else if cust='DAXO' then cust:='DA'
+    else if cust='CANA' then cust:='CA'
+    else if cust='LARD' then cust:='LA'
+    else if cust='TORD' then cust:='TD'
+    else if cust='CMYR' then cust:='CM'
+    else if cust='CALD' then cust:='CL'
+    else if cust='BALE' then cust:='BA'
+    else if cust='CANN' then cust:='CN'
+    else if cust='EBIM' then cust:='EB'
+    else if cust='MAST' then cust:='MA'
+    else if cust='NEXT' then cust:='NE'
+    else if cust='PLUK' then cust:='PL';
+    }
+
+      hr001.Caption:='0';
+      hr002.Caption:=inttostr(ppdbcalc19.Value);
+
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='select min(exfty) as d1 from tbl_pdn_m where f_year(exfty)=:x1 and wk>=:x2 and tplant='''+query1.fieldbyname('tplant').value+'''';
+    if cust>'' then begin
+      if cust='SL' then
+        commandtext:=commandtext+' and f_right(rtrim(pdn),2) in (''SL'',''AF'')'
+      else
+        commandtext:=commandtext+' and f_right(rtrim(pdn),2)='''+cust+'''';
+    end;
+    params[0].asinteger:=frmpdnpast.spinedit1.Value;
+    params[1].asinteger:=frmpdnpast.spinedit2.Value;
+    open;
+    if not fieldbyname('d1').isnull then
+    dt1:=fieldbyname('d1').value else dt1:=encodedate(1899,12,30);
+  end;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    commandtext:='select max(exfty) as d1 from tbl_pdn_m where f_year(exfty)=:x1 and wk<=:x2 and tplant='''+query1.fieldbyname('tplant').value+'''';
+    if cust>'' then begin
+      if cust='SL' then
+        commandtext:=commandtext+' and f_right(rtrim(pdn),2) in (''SL'',''AF'')'
+      else
+        commandtext:=commandtext+' and f_right(rtrim(pdn),2)='''+cust+'''';
+    end;
+    params[0].asinteger:=frmpdnpast.spinedit3.Value;
+    params[1].asinteger:=frmpdnpast.spinedit4.Value;
+    open;
+    if not fieldbyname('d1').isnull then
+    dt2:=fieldbyname('d1').value else dt2:=encodedate(1899,12,30);
+  end;
+  if (dt1>encodedate(1899,12,30)) and (dt2>encodedate(1899,12,30)) then begin
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      commandtext:='select sum(a.hqty) as r1 from tbl_pdn_writeoff a,tbl_pdn_m b where a.seq=b.seq and b.tplant='''+query1.fieldbyname('tplant').value+''' and b.exfty>=:x1 and b.exfty<=:x2 and a.h_ysw=1';
+      if cust>'' then begin
+        if cust='SL' then
+          commandtext:=commandtext+' and f_right(rtrim(pdn),2) in (''SL'',''AF'')'
+        else
+          commandtext:=commandtext+' and f_right(rtrim(pdn),2)='''+cust+'''';
+      end;
+      params[0].asdate:=dt1;
+      params[1].asdate:=dt2;
+      open;
+      if not fieldbyname('r1').isnull then begin
+        hr001.Caption:=fieldbyname('r1').asstring;
+        hr002.Caption:=inttostr(ppdbcalc19.Value-fieldbyname('r1').value);
+      end;
+    end;
+  end;
+  he001.Caption:='0';
+  he002.Caption:=hr002.Caption;
+  hn001.Caption:=he002.Caption;
+  ht001.Caption:='0';
+  ht002.Caption:=he002.Caption;
+  wk01.Caption:=inttostr(weekof(date));
+  wk02.Caption:=inttostr(weekof(date));
+  //showmessage('7');
+end;
+
+procedure Tfrmpdnpast1.ppGroupHeaderBand3BeforePrint(Sender: TObject);
+begin
+  frmpdnpast1.title002.Caption:='  -  '+query1.fieldbyname('cust').value;//+' ' else title002.Caption:='';
+end;
+
+end.

@@ -1,0 +1,52 @@
+unit newcap_wf_notepadformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DBCtrls, StdCtrls, GridsEh, DBGridEh, Buttons, DB, DBClient;
+
+type
+  Tfrmnewcap_wf_notepad = class(TForm)
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_wf_notepad: Tfrmnewcap_wf_notepad;
+
+implementation
+
+uses mainformu, newcap_wfformu, newcap_wf_detailformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_wf_notepad.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_wf_notepad:=nil;
+end;
+
+procedure Tfrmnewcap_wf_notepad.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+end.
+ 

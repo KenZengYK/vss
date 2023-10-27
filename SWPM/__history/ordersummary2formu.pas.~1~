@@ -1,0 +1,546 @@
+unit ordersummary2formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ppDB, ppComm, ppRelatv, ppDBPipe, DB,
+  DBClient, ppProd, ppClass, ppReport, ppCtrls, ppPrnabl, ppBands, ppCache,
+  ppVar, ppViewr, Txcomp, ExtCtrls, ppStrtch, ppMemo;
+
+type
+  Tfrmordersummary2 = class(TForm)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    ComboBox2: TComboBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query4: TClientDataSet;
+    DataSource1: TDataSource;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    title01: TppLabel;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    dcd001: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppDBText1: TppDBText;
+    Query1TM: TDateTimeField;
+    Query1SEASON: TStringField;
+    Query1DESCRIPTION: TStringField;
+    Query1DCDT1: TStringField;
+    Query1DCDT2: TStringField;
+    Query1RANGE: TIntegerField;
+    Query1STYLE1: TIntegerField;
+    Query1STYLE2: TIntegerField;
+    Query1TSTYLE: TIntegerField;
+    Query1COLOR1: TIntegerField;
+    Query1COLOR2: TIntegerField;
+    Query1TCOLOR: TIntegerField;
+    Query1QTY1: TIntegerField;
+    Query1QTY2: TIntegerField;
+    Query1TQTY: TIntegerField;
+    Query1DIFF1: TIntegerField;
+    Query1DIFF2: TFloatField;
+    ppDBPipeline1: TppDBPipeline;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
+    ppLine12: TppLine;
+    ppLine13: TppLine;
+    ppLine14: TppLine;
+    ppLine15: TppLine;
+    ppLine16: TppLine;
+    ppLine18: TppLine;
+    ppLine21: TppLine;
+    ppLine22: TppLine;
+    ppLine23: TppLine;
+    ppLine25: TppLine;
+    ppLine28: TppLine;
+    ppLine29: TppLine;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    x001: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    x002: TppDBText;
+    x003: TppDBText;
+    x004: TppDBText;
+    x005: TppDBText;
+    x0005: TppDBText;
+    x00005: TppDBText;
+    x006: TppDBText;
+    x007: TppDBText;
+    ppSummaryBand1: TppSummaryBand;
+    ppLabel22: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    ppLabel23: TppLabel;
+    ppLabel24: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    xh1: TRadioGroup;
+    ppLine30: TppLine;
+    ppShape2: TppShape;
+    subtittle001: TppLabel;
+    ppShape3: TppShape;
+    ppMemo1: TppMemo;
+    Label3: TLabel;
+    Label4: TLabel;
+    ComboBox3: TComboBox;
+    ComboBox4: TComboBox;
+    ppLine17: TppLine;
+    ppLabel1: TppLabel;
+    x008: TppLabel;
+    ppLine19: TppLine;
+    ppLabel3: TppLabel;
+    ppLabel25: TppLabel;
+    ppLabel26: TppLabel;
+    ppLine20: TppLine;
+    ppLine24: TppLine;
+    x009: TppLabel;
+    x010: TppLabel;
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure ComboBox4Change(Sender: TObject);
+  private
+    { Private declarations }
+    function convertseason(const s1:string):string;
+    function convertseason_new(const s,s1:string):string;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmordersummary2: Tfrmordersummary2;
+
+implementation
+
+uses mainformu, ordersummaryformu;
+
+{$R *.dfm}
+
+procedure Tfrmordersummary2.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmordersummary2.BitBtn1Click(Sender: TObject);
+var
+  tm:tdatetime;
+  s1,s2:string;
+  sea1,sea2:string;
+begin
+  //
+  screen.Cursor:=crSQLWait;
+  tm:=now;
+  try
+  if not ((combobox4.text='ALL') and (combobox3.text='SARA')) then begin
+    with query3 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      commandtext:='execute procedure sp_upd_ordsummary_base_out(:x1,:x2)';
+      params[0].asstring:=combobox4.text;
+      params[1].asstring:=combobox3.text;
+      execute;
+    end;
+  end else begin
+    with query3 do begin
+      close;
+      params.clear;
+      commandtext:='execute procedure sp_updsara_all_out';
+      execute;
+    end;
+  end;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftstring,'x3',ptinput);
+    commandtext:='execute procedure sp_gen_ordsummary_ttl(:x1,:x2,:x3)';
+    params[0].asdatetime:=tm;
+    params[1].asstring:=combobox4.text;
+    params[2].asstring:=combobox3.text;
+    execute;
+  end;
+  if copy(combobox1.text,1,1)='8' then sea1:='2008-'+combobox1.text
+  else if copy(combobox1.text,1,1)='9' then sea1:='2009-'+combobox1.text
+  else if copy(combobox1.text,1,1)='0' then sea1:='2010-'+combobox1.text
+  else if copy(combobox1.text,1,1)='1' then sea1:='2011-'+combobox1.text
+  else if copy(combobox1.text,1,1)='2' then sea1:='2012-'+combobox1.text;
+  if copy(combobox2.text,1,1)='8' then sea2:='2008-'+combobox2.text
+  else if copy(combobox2.text,1,1)='9' then sea2:='2009-'+combobox2.text
+  else if copy(combobox2.text,1,1)='0' then sea2:='2010-'+combobox2.text
+  else if copy(combobox2.text,1,1)='1' then sea2:='2011-'+combobox2.text
+  else if copy(combobox2.text,1,1)='2' then sea2:='2012-'+combobox2.text;
+  if xh1.ItemIndex=0 then begin
+    with query4 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='select min(season_new) as s1,max(season_new) as s2 from tbl_tmp_ordsummary_ttl where tm=:x1 and cust='''+combobox3.text+''' and season_new>='''+sea1+''' and season_new<='''+sea2+''' and tout=0';
+      //commandtext:=commandtext+' order by season';
+      params[0].asdatetime:=tm;
+      open;
+      s1:=convertseason_new(combobox3.text,copy(fieldbyname('s1').value,6,2));
+      s2:=convertseason_new(combobox3.text,copy(fieldbyname('s2').value,6,2));
+    end;
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='select * from tbl_tmp_ordsummary_ttl where tm=:x1 and cust='''+combobox3.text+''' and season_new>='''+sea1+''' and season_new<='''+sea2+''' and tout=0';
+      //commandtext:=commandtext+' and tm=:x1';
+      commandtext:=commandtext+' order by season_new';
+      params[0].asdatetime:=tm;
+      open;
+      if not fieldbyname('season').isnull then begin
+        //if combobox3.text='SALL' then
+        //title01.Caption:='Abercrombie & Fitch Order Summary';
+        title01.Caption:=convertseason(combobox3.text)+' Order Summary (Quantity)';
+        title01.Caption:=title01.Caption+' from '+s1+' to '+s2;
+        if combobox3.text='SARA' then
+        title01.Caption:=title01.Caption+'    ('+combobox4.text+')';
+        subtittle001.Visible:=false;
+        //tittle001.Caption:='from '+s1+' to '+s2;
+        if (combobox3.text='SALL') or (combobox3.text='AFGH') then dcd001.Caption:='DC Date'
+        else dcd001.Caption:='Del. Date';
+        ppShape3.Visible:=false;
+        ppMemo1.Visible:=false;
+        ppReport1.Print;
+      end;
+    end;
+  end else if xh1.ItemIndex=1 then begin
+    {
+    with query4 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='select min(season) as s1,max(season) as s2 from tbl_tmp_ordsummary_ttl where tm=:x1 and cust='''+combobox3.text+''' and season>='''+combobox1.text+''' and season<='''+combobox2.text+''' and tout=1';
+      commandtext:=commandtext+' order by season';
+      params[0].asdatetime:=tm;
+      open;
+      s1:=convertseason_new(combobox3.text,fieldbyname('s1').value);
+      s2:=convertseason_new(combobox3.text,fieldbyname('s2').value);
+    end;
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftdatetime,'x1',ptinput);
+      commandtext:='select * from tbl_tmp_ordsummary_ttl where tm=:x1 and cust='''+combobox3.text+''' and season>='''+combobox1.text+''' and season<='''+combobox2.text+''' and tout=1';
+      //commandtext:=commandtext+' and tm=:x1';
+      commandtext:=commandtext+' order by season';
+      params[0].asdatetime:=tm;
+      open;
+      if not fieldbyname('season').isnull then begin
+        //if combobox3.text='SALL' then
+        //title01.Caption:='Abercrombie & Fitch Order Summary';
+        title01.Caption:=convertseason(combobox3.text)+' Order Summary';
+        title01.Caption:=title01.Caption+' from '+s1+' to '+s2;
+        //title01.Caption:=title01.Caption+'    ('+combobox3.text+')';
+        subtittle001.Visible:=true;
+        //tittle001.Caption:='from '+s1+' to '+s2;
+        ppShape3.Visible:=true;
+        ppMemo1.Visible:=true;
+        ppReport1.Print;
+      end;
+    end;
+    }
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+function Tfrmordersummary2.convertseason(const s1: string): string;
+begin
+  {
+  if s1='81' then result:='Spr/Sum 08'
+  else if s1='83' then result:='BTS 08'
+  else if s1='84' then result:='X''mas 08'
+  else if s1='91' then result:='Spring 09'
+  else if s1='92' then result:='Summer 09'
+  else if s1='93' then result:='BTS 09'
+  else if s1='94' then result:='X''mas 09';
+  }
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_cap_custgrp where cust='''+s1+'''';
+    open;
+    if not fieldbyname('cdsc').isnull then result:=fieldbyname('cdsc').value else result:=s1;
+  end;
+end;
+
+procedure Tfrmordersummary2.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  x001.DisplayFormat:='#,0;-#,0';//;''n.a.''';
+  x005.DisplayFormat:='#,0;-#,0';//;''n.a.''';
+  if query1.fieldbyname('style1').value=0 then x001.Color:=clYellow
+  else x001.Color:=clWhite;
+  if query1.fieldbyname('color1').value=0 then x002.Color:=clYellow
+  else x002.Color:=clWhite;
+  if query1.fieldbyname('color2').value=0 then x003.Color:=clYellow
+  else x003.Color:=clWhite;
+  if query1.fieldbyname('tcolor').value=0 then x004.Color:=clYellow
+  else x004.Color:=clWhite;
+  if query1.fieldbyname('qty1').value=0 then x005.Color:=clYellow
+  else x005.Color:=clWhite;
+  if query1.fieldbyname('qty2').value=0 then x0005.Color:=clYellow
+  else x0005.Color:=clWhite;
+  if query1.fieldbyname('tqty').value=0 then x00005.Color:=clYellow
+  else x00005.Color:=clWhite;
+  if query1.fieldbyname('diff1').value=0 then begin
+    x006.Color:=clYellow;
+    x007.Color:=clYellow;
+    x006.Font.Color:=clBlack;
+    x007.Font.Color:=clBlack;
+  end else if query1.fieldbyname('diff1').value<0 then begin
+    x006.Color:=clWhite;
+    x007.Color:=clWhite;
+    x006.Font.Color:=clRed;
+    x007.Font.Color:=clRed;
+  end else if query1.fieldbyname('diff1').value>0 then begin
+    x006.Color:=clWhite;
+    x007.Color:=clWhite;
+    x006.Font.Color:=clGreen;
+    x007.Font.Color:=clGreen;
+  end;
+  if (query1.fieldbyname('color1').value=0) and (query1.fieldbyname('color2').value=0) then begin
+    x002.DisplayFormat:='#,0;-#,0;TBA';
+    x003.DisplayFormat:='#,0;-#,0;TBA';
+    x004.DisplayFormat:='#,0;-#,0;TBA';
+  end else begin
+    x002.DisplayFormat:='#,0;-#,0';//;''n.a.''';
+    x003.DisplayFormat:='#,0;-#,0';//;''n.a.''';
+    x004.DisplayFormat:='#,0;-#,0;''n.a.''';
+  end;
+  if (query1.fieldbyname('qty1').value=0) and (query1.fieldbyname('qty2').value=0) then begin
+    x005.DisplayFormat:='#,0;-#,0;TBA';
+    x0005.DisplayFormat:='#,0;-#,0;TBA';
+    x00005.DisplayFormat:='#,0;-#,0;TBA';
+  end else begin
+    x005.DisplayFormat:='#,0;-#,0';//;''n.a.''';
+    x0005.DisplayFormat:='#,0;-#,0';//;''n.a.''';
+    x00005.DisplayFormat:='#,0;-#,0;''n.a.''';
+  end;
+  with query3 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select qty1,qty2,tqty from tbl_tmp_ordsummary_ttl where tm=:x1 and cust='''+combobox3.text+''' and season='''+query1.fieldbyname('season').value+''' and tout=1';
+    params[0].asdatetime:=query1.fieldbyname('tm').value;
+    open;
+    if not fieldbyname('qty1').isnull then begin
+      if fieldbyname('qty1').value>0 then begin
+        x009.Caption:=formatfloat('#,0',fieldbyname('qty1').value);
+        x009.Font.Color:=clRed;
+      end else begin
+        x009.Caption:='0';
+        x009.Font.Color:=clBlack;
+      end;
+    end else begin
+      x009.Caption:='0';
+      x009.Font.Color:=clBlack;
+    end;
+    if not fieldbyname('qty2').isnull then begin
+      if fieldbyname('qty2').value>0 then begin
+        x010.Caption:=formatfloat('#,0',fieldbyname('qty2').value);
+        x010.Font.Color:=clRed;
+      end else begin
+        x010.Caption:='0';
+        x010.Font.Color:=clBlack;
+      end;
+    end else begin
+      x010.Caption:='0';
+      x010.Font.Color:=clBlack;
+    end;
+    if not fieldbyname('tqty').isnull then begin
+      x008.Caption:=formatfloat('#,0',fieldbyname('tqty').value);
+      x008.Font.Color:=clRed;
+    end else begin
+      x008.Caption:='0';
+      x008.Font.Color:=clBlack;
+    end;
+  end;
+end;
+
+function Tfrmordersummary2.convertseason_new(const s, s1: string): string;
+begin
+  with query3 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_tmp_ordsummary_03 where cust='''+s+''' and season='''+s1+'''';
+    open;
+    if not fieldbyname('dsc').isnull then result:=fieldbyname('dsc').value
+    else result:=s1;
+  end;
+end;
+
+procedure Tfrmordersummary2.ComboBox4Change(Sender: TObject);
+begin
+  if combobox3.text='SARA' then begin
+    combobox1.items.clear;
+    combobox2.items.clear;
+    if combobox4.text='ALL' then begin
+      combobox1.Items.add('81');
+      combobox1.Items.add('82');
+      combobox1.Items.add('83');
+      combobox1.Items.add('84');
+      combobox1.Items.add('91');
+      combobox1.Items.add('92');
+      combobox1.Items.add('93');
+      combobox1.Items.add('94');
+      combobox1.Items.add('01');
+      combobox1.Items.add('02');
+      combobox1.Items.add('03');
+      combobox1.Items.add('04');
+      combobox1.Items.add('11');
+      combobox1.Items.add('12');
+      combobox1.Items.add('13');
+      combobox1.Items.add('14');
+      combobox1.Items.add('21');
+      combobox1.Items.add('22');
+      combobox1.Items.add('23');
+      combobox1.Items.add('24');
+      combobox1.Items.add('31');
+      combobox1.Items.add('32');
+      combobox1.Items.add('33');
+      combobox1.Items.add('34');
+      combobox2.Items:=combobox1.Items;
+      combobox1.text:='81';
+      combobox2.text:='94';
+    end else begin
+      combobox1.Items.add('8a');
+      combobox1.Items.add('8b');
+      combobox1.Items.add('8c');
+      combobox1.Items.add('8d');
+      combobox1.Items.add('8e');
+      combobox1.Items.add('8f');
+      combobox1.Items.add('8g');
+      combobox1.Items.add('8h');
+      combobox1.Items.add('8i');
+      combobox1.Items.add('8j');
+      combobox1.Items.add('8k');
+      combobox1.Items.add('8l');
+      combobox1.Items.add('9a');
+      combobox1.Items.add('9b');
+      combobox1.Items.add('9c');
+      combobox1.Items.add('9d');
+      combobox1.Items.add('9e');
+      combobox1.Items.add('9f');
+      combobox1.Items.add('9g');
+      combobox1.Items.add('9h');
+      combobox1.Items.add('9i');
+      combobox1.Items.add('9j');
+      combobox1.Items.add('9k');
+      combobox1.Items.add('9l');
+      combobox1.Items.add('0a');
+      combobox1.Items.add('0b');
+      combobox1.Items.add('0c');
+      combobox1.Items.add('0d');
+      combobox1.Items.add('0e');
+      combobox1.Items.add('0f');
+      combobox1.Items.add('0g');
+      combobox1.Items.add('0h');
+      combobox1.Items.add('0i');
+      combobox1.Items.add('0j');
+      combobox1.Items.add('0k');
+      combobox1.Items.add('0l');
+      combobox1.Items.add('1a');
+      combobox1.Items.add('1b');
+      combobox1.Items.add('1c');
+      combobox1.Items.add('1d');
+      combobox1.Items.add('1e');
+      combobox1.Items.add('1f');
+      combobox1.Items.add('1g');
+      combobox1.Items.add('1h');
+      combobox1.Items.add('1i');
+      combobox1.Items.add('1j');
+      combobox1.Items.add('1k');
+      combobox1.Items.add('1l');
+      combobox1.Items.add('2a');
+      combobox1.Items.add('2b');
+      combobox1.Items.add('2c');
+      combobox1.Items.add('2d');
+      combobox1.Items.add('2e');
+      combobox1.Items.add('2f');
+      combobox1.Items.add('2g');
+      combobox1.Items.add('2h');
+      combobox1.Items.add('2i');
+      combobox1.Items.add('2j');
+      combobox1.Items.add('2k');
+      combobox1.Items.add('2l');
+      combobox2.Items:=combobox1.Items;
+      combobox1.text:='8a';
+      combobox2.text:='9l';
+    end;
+  end else begin
+    combobox1.items.clear;
+    combobox1.Items.add('81');
+    combobox1.Items.add('82');
+    combobox1.Items.add('83');
+    combobox1.Items.add('84');
+    combobox1.Items.add('91');
+    combobox1.Items.add('92');
+    combobox1.Items.add('93');
+    combobox1.Items.add('94');
+      combobox1.Items.add('01');
+      combobox1.Items.add('02');
+      combobox1.Items.add('03');
+      combobox1.Items.add('04');
+      combobox1.Items.add('11');
+      combobox1.Items.add('12');
+      combobox1.Items.add('13');
+      combobox1.Items.add('14');
+      combobox1.Items.add('21');
+      combobox1.Items.add('22');
+      combobox1.Items.add('23');
+      combobox1.Items.add('24');
+      combobox1.Items.add('31');
+      combobox1.Items.add('32');
+      combobox1.Items.add('33');
+      combobox1.Items.add('34');
+    combobox2.Items:=combobox1.Items;
+    combobox1.text:='81';
+    combobox2.text:='94';
+  end;
+end;
+
+end.

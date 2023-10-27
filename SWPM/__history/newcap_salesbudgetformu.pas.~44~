@@ -1,0 +1,356 @@
+unit newcap_salesbudgetformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GridsEh, DBGridEh, ExtCtrls, ComCtrls, StdCtrls, Spin, Buttons, DB,
+  DBClient, DateUtils;
+
+type
+  Tfrmnewcap_salesbudget = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    TreeView1: TTreeView;
+    Splitter1: TSplitter;
+    DBGridEh1: TDBGridEh;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    SpinEdit1: TSpinEdit;
+    BitBtn1: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure TreeView1Change(Sender: TObject; Node: TTreeNode);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure QueryQUChange(Sender: TField);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_salesbudget: Tfrmnewcap_salesbudget;
+
+implementation
+
+uses mainformu, newcap_salesformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_salesbudget.BitBtn1Click(Sender: TObject);
+var
+  tn1,tn2,tn3:TTreeNode;
+  fty:string;
+begin
+  screen.cursor:=crSQLWait;
+  try
+    if combobox1.text='CHINA' then fty:='SL' else if combobox1.text='THAI' then fty:='KB' else if combobox1.text='BD' then fty:='CL' else fty:=combobox1.text;
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      commandtext:='execute procedure sp_cap_genoabudget(:x1,:x2)';
+      params[0].asstring:=fty;
+      params[1].asinteger:=spinedit1.value;
+      execute;
+    end;
+    {
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_cap_oa_budget where bi=''B'' and tplant='''+fty+''' and yr='+inttostr(spinedit1.Value);
+      open;
+    end;
+    }
+    if combobox1.text>'' then begin
+      treeview1.Items.Clear;
+      tn1:=treeview1.Items.add(nil,'ALL');
+      tn1.ImageIndex:=0;
+      with query3 do begin
+        close;
+        params.clear;
+        commandtext:='select distinct grp as cust from cust_exfty where tplant='''+fty+''' and act=1';
+        open;
+        first;
+        while not eof do begin
+          tn3:=treeview1.Items.AddChild(tn1,fieldbyname('cust').value);
+          tn3.ImageIndex:=1;
+          with query2 do begin
+            close;
+            params.clear;
+            commandtext:='select distinct pgrp as cust from cust_exfty where tplant='''+fty+''' and act=1 and grp='''+tn3.Text+'''';
+            open;
+            first;
+            while not eof do begin
+              tn2:=treeview1.Items.AddChild(tn3,fieldbyname('cust').value);
+              tn2.ImageIndex:=1;
+              application.ProcessMessages;
+              next;
+            end;
+          end;
+          application.ProcessMessages;
+          next;
+        end;
+      end;
+      treeview1.SetFocus;
+      treeview1.FullExpand;
+      treeview1.Selected:=treeview1.Items.GetFirstNode;
+    end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmnewcap_salesbudget.BitBtn2Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmnewcap_salesbudget.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_salesbudget:=nil;
+end;
+
+procedure Tfrmnewcap_salesbudget.FormShow(Sender: TObject);
+begin
+  spinedit1.value:=yearof(date);
+end;
+
+procedure Tfrmnewcap_salesbudget.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.fieldbyname('q01').onchange:=queryquchange;
+  query1.fieldbyname('u01').onchange:=queryquchange;
+  query1.fieldbyname('q02').onchange:=queryquchange;
+  query1.fieldbyname('u02').onchange:=queryquchange;
+  query1.fieldbyname('q03').onchange:=queryquchange;
+  query1.fieldbyname('u03').onchange:=queryquchange;
+  query1.fieldbyname('q04').onchange:=queryquchange;
+  query1.fieldbyname('u04').onchange:=queryquchange;
+  query1.fieldbyname('q05').onchange:=queryquchange;
+  query1.fieldbyname('u05').onchange:=queryquchange;
+  query1.fieldbyname('q06').onchange:=queryquchange;
+  query1.fieldbyname('u06').onchange:=queryquchange;
+  query1.fieldbyname('q07').onchange:=queryquchange;
+  query1.fieldbyname('u07').onchange:=queryquchange;
+  query1.fieldbyname('q08').onchange:=queryquchange;
+  query1.fieldbyname('u08').onchange:=queryquchange;
+  query1.fieldbyname('q09').onchange:=queryquchange;
+  query1.fieldbyname('u09').onchange:=queryquchange;
+  query1.fieldbyname('q10').onchange:=queryquchange;
+  query1.fieldbyname('u10').onchange:=queryquchange;
+  query1.fieldbyname('q11').onchange:=queryquchange;
+  query1.fieldbyname('u11').onchange:=queryquchange;
+  query1.fieldbyname('q12').onchange:=queryquchange;
+  query1.fieldbyname('u12').onchange:=queryquchange;
+end;
+
+procedure Tfrmnewcap_salesbudget.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  str1:='update tbl_cap_oa_budget set ';
+  if not query1.fieldbyname('q01').isnull then
+  str1:=str1+'q01='+query1.fieldbyname('q01').asstring+','
+  else str1:=str1+'q01=0,';
+  if not query1.fieldbyname('u01').isnull then
+  str1:=str1+'u01='+query1.fieldbyname('u01').asstring+','
+  else str1:=str1+'u01=0,';
+  if not query1.fieldbyname('q02').isnull then
+  str1:=str1+'q02='+query1.fieldbyname('q02').asstring+','
+  else str1:=str1+'q02=0,';
+  if not query1.fieldbyname('u02').isnull then
+  str1:=str1+'u02='+query1.fieldbyname('u02').asstring+','
+  else str1:=str1+'u02=0,';
+  if not query1.fieldbyname('q03').isnull then
+  str1:=str1+'q03='+query1.fieldbyname('q03').asstring+','
+  else str1:=str1+'q03=0,';
+  if not query1.fieldbyname('u03').isnull then
+  str1:=str1+'u03='+query1.fieldbyname('u03').asstring+','
+  else str1:=str1+'u03=0,';
+  if not query1.fieldbyname('q04').isnull then
+  str1:=str1+'q04='+query1.fieldbyname('q04').asstring+','
+  else str1:=str1+'q04=0,';
+  if not query1.fieldbyname('u04').isnull then
+  str1:=str1+'u04='+query1.fieldbyname('u04').asstring+','
+  else str1:=str1+'u04=0,';
+  if not query1.fieldbyname('q05').isnull then
+  str1:=str1+'q05='+query1.fieldbyname('q05').asstring+','
+  else str1:=str1+'q05=0,';
+  if not query1.fieldbyname('u05').isnull then
+  str1:=str1+'u05='+query1.fieldbyname('u05').asstring+','
+  else str1:=str1+'u05=0,';
+  if not query1.fieldbyname('q06').isnull then
+  str1:=str1+'q06='+query1.fieldbyname('q06').asstring+','
+  else str1:=str1+'q06=0,';
+  if not query1.fieldbyname('u06').isnull then
+  str1:=str1+'u06='+query1.fieldbyname('u06').asstring+','
+  else str1:=str1+'u06=0,';
+  if not query1.fieldbyname('q07').isnull then
+  str1:=str1+'q07='+query1.fieldbyname('q07').asstring+','
+  else str1:=str1+'q07=0,';
+  if not query1.fieldbyname('u07').isnull then
+  str1:=str1+'u07='+query1.fieldbyname('u07').asstring+','
+  else str1:=str1+'u07=0,';
+  if not query1.fieldbyname('q08').isnull then
+  str1:=str1+'q08='+query1.fieldbyname('q08').asstring+','
+  else str1:=str1+'q08=0,';
+  if not query1.fieldbyname('u08').isnull then
+  str1:=str1+'u08='+query1.fieldbyname('u08').asstring+','
+  else str1:=str1+'u08=0,';
+  if not query1.fieldbyname('q09').isnull then
+  str1:=str1+'q09='+query1.fieldbyname('q09').asstring+','
+  else str1:=str1+'q09=0,';
+  if not query1.fieldbyname('u09').isnull then
+  str1:=str1+'u09='+query1.fieldbyname('u09').asstring+','
+  else str1:=str1+'u09=0,';
+  if not query1.fieldbyname('q10').isnull then
+  str1:=str1+'q10='+query1.fieldbyname('q10').asstring+','
+  else str1:=str1+'q10=0,';
+  if not query1.fieldbyname('u10').isnull then
+  str1:=str1+'u10='+query1.fieldbyname('u10').asstring+','
+  else str1:=str1+'u10=0,';
+  if not query1.fieldbyname('q11').isnull then
+  str1:=str1+'q11='+query1.fieldbyname('q11').asstring+','
+  else str1:=str1+'q11=0,';
+  if not query1.fieldbyname('u11').isnull then
+  str1:=str1+'u11='+query1.fieldbyname('u11').asstring+','
+  else str1:=str1+'u11=0,';
+  if not query1.fieldbyname('q12').isnull then
+  str1:=str1+'q12='+query1.fieldbyname('q12').asstring+','
+  else str1:=str1+'q12=0,';
+  if not query1.fieldbyname('u12').isnull then
+  str1:=str1+'u12='+query1.fieldbyname('u12').asstring+','
+  else str1:=str1+'u12=0,';
+  if not query1.fieldbyname('s01').isnull then
+  str1:=str1+'s01='+query1.fieldbyname('s01').asstring+','
+  else str1:=str1+'s01=0,';
+  if not query1.fieldbyname('s02').isnull then
+  str1:=str1+'s02='+query1.fieldbyname('s02').asstring+','
+  else str1:=str1+'s02=0,';
+  if not query1.fieldbyname('s03').isnull then
+  str1:=str1+'s03='+query1.fieldbyname('s03').asstring+','
+  else str1:=str1+'s03=0,';
+  if not query1.fieldbyname('s04').isnull then
+  str1:=str1+'s04='+query1.fieldbyname('s04').asstring+','
+  else str1:=str1+'s04=0,';
+  if not query1.fieldbyname('s05').isnull then
+  str1:=str1+'s05='+query1.fieldbyname('s05').asstring+','
+  else str1:=str1+'s05=0,';
+  if not query1.fieldbyname('s06').isnull then
+  str1:=str1+'s06='+query1.fieldbyname('s06').asstring+','
+  else str1:=str1+'s06=0,';
+  if not query1.fieldbyname('s07').isnull then
+  str1:=str1+'s07='+query1.fieldbyname('s07').asstring+','
+  else str1:=str1+'s07=0,';
+  if not query1.fieldbyname('s08').isnull then
+  str1:=str1+'s08='+query1.fieldbyname('s08').asstring+','
+  else str1:=str1+'s08=0,';
+  if not query1.fieldbyname('s09').isnull then
+  str1:=str1+'s09='+query1.fieldbyname('s09').asstring+','
+  else str1:=str1+'s09=0,';
+  if not query1.fieldbyname('s10').isnull then
+  str1:=str1+'s10='+query1.fieldbyname('s10').asstring+','
+  else str1:=str1+'s10=0,';
+  if not query1.fieldbyname('s11').isnull then
+  str1:=str1+'s11='+query1.fieldbyname('s11').asstring+','
+  else str1:=str1+'s11=0,';
+  if not query1.fieldbyname('s12').isnull then
+  str1:=str1+'s12='+query1.fieldbyname('s12').asstring+','
+  else str1:=str1+'s12=0,';
+  if not query1.fieldbyname('tu').isnull then
+  str1:=str1+'tu='+query1.fieldbyname('tu').asstring+' '
+  else str1:=str1+'tu=0 ';
+  str1:=str1+'where tplant='''+query1.fieldbyname('tplant').value+''' ';
+  str1:=str1+'and yr='+query1.fieldbyname('yr').asstring+' ';
+  str1:=str1+'and bi='''+query1.fieldbyname('bi').value+''' ';
+  str1:=str1+'and ver='+query1.fieldbyname('ver').asstring+' ';
+  str1:=str1+'and grp='''+query1.fieldbyname('grp').value+''' ';
+  str1:=str1+'and cust1='''+query1.fieldbyname('cust1').value+''' ';
+  str1:=str1+'and flag6='''+query1.fieldbyname('flag6').value+'''';
+  if frmmain.PHService.UpdateLWPM(str1)=0 then showmessage('Can not save!');
+end;
+
+procedure Tfrmnewcap_salesbudget.QueryQUChange(Sender: TField);
+var
+  q01,q02,q03,q04,q05,q06,q07,q08,q09,q10,q11,q12:integer;
+  u01,u02,u03,u04,u05,u06,u07,u08,u09,u10,u11,u12:double;
+begin
+  q01:=0; q02:=0; q03:=0; q04:=0; q05:=0; q06:=0;
+  q07:=0; q08:=0; q09:=0; q10:=0; q11:=0; q12:=0;
+  u01:=0; u02:=0; u03:=0; u04:=0; u05:=0; u06:=0;
+  u07:=0; u08:=0; u09:=0; u10:=0; u11:=0; u12:=0;
+  if not query1.fieldbyname('q01').isnull then q01:=query1.fieldbyname('q01').value;
+  if not query1.fieldbyname('u01').isnull then u01:=query1.fieldbyname('u01').value;
+  if not query1.fieldbyname('q02').isnull then q02:=query1.fieldbyname('q02').value;
+  if not query1.fieldbyname('u02').isnull then u02:=query1.fieldbyname('u02').value;
+  if not query1.fieldbyname('q03').isnull then q03:=query1.fieldbyname('q03').value;
+  if not query1.fieldbyname('u03').isnull then u03:=query1.fieldbyname('u03').value;
+  if not query1.fieldbyname('q04').isnull then q04:=query1.fieldbyname('q04').value;
+  if not query1.fieldbyname('u04').isnull then u04:=query1.fieldbyname('u04').value;
+  if not query1.fieldbyname('q05').isnull then q05:=query1.fieldbyname('q05').value;
+  if not query1.fieldbyname('u05').isnull then u05:=query1.fieldbyname('u05').value;
+  if not query1.fieldbyname('q06').isnull then q06:=query1.fieldbyname('q06').value;
+  if not query1.fieldbyname('u06').isnull then u06:=query1.fieldbyname('u06').value;
+  if not query1.fieldbyname('q07').isnull then q07:=query1.fieldbyname('q07').value;
+  if not query1.fieldbyname('u07').isnull then u07:=query1.fieldbyname('u07').value;
+  if not query1.fieldbyname('q08').isnull then q08:=query1.fieldbyname('q08').value;
+  if not query1.fieldbyname('u08').isnull then u08:=query1.fieldbyname('u08').value;
+  if not query1.fieldbyname('q09').isnull then q09:=query1.fieldbyname('q09').value;
+  if not query1.fieldbyname('u09').isnull then u09:=query1.fieldbyname('u09').value;
+  if not query1.fieldbyname('q10').isnull then q10:=query1.fieldbyname('q10').value;
+  if not query1.fieldbyname('u10').isnull then u10:=query1.fieldbyname('u10').value;
+  if not query1.fieldbyname('q11').isnull then q11:=query1.fieldbyname('q11').value;
+  if not query1.fieldbyname('u11').isnull then u11:=query1.fieldbyname('u11').value;
+  if not query1.fieldbyname('q12').isnull then q12:=query1.fieldbyname('q12').value;
+  if not query1.fieldbyname('u12').isnull then u12:=query1.fieldbyname('u12').value;
+  query1.fieldbyname('tu').value:=q01*u01+q02*u02+q03*u03+q04*u04+q05*u05+q06*u06
+                                 +q07*u07+q08*u08+q09*u09+q10*u10+q11*u11+q12*u12;
+end;
+
+procedure Tfrmnewcap_salesbudget.TreeView1Change(Sender: TObject;
+  Node: TTreeNode);
+var
+  fty:string;
+begin
+  if combobox1.text='CHINA' then fty:='SL' else if combobox1.text='THAI' then fty:='KB' else fty:=combobox1.text;
+  if treeview1.Selected<>nil then begin
+    if treeview1.Selected.Level=2 then begin
+      with query1 do begin
+        close;
+        params.clear;
+        commandtext:='select * from tbl_cap_oa_budget where bi=''B'' and tplant='''+fty+''' and cust='''+treeview1.Selected.Text+''' and yr='+inttostr(spinedit1.Value);
+        open;
+      end;
+    end else if treeview1.selected.Level=1 then begin
+      with query1 do begin
+        close;
+        params.clear;
+        commandtext:='select * from tbl_cap_oa_budget where bi=''B'' and tplant='''+fty+''' and grp='''+treeview1.Selected.Text+''' and yr='+inttostr(spinedit1.Value);
+        open;
+      end;
+    end else if treeview1.Selected.Level=0 then begin
+      with query1 do begin
+        close;
+        params.clear;
+        commandtext:='select * from tbl_cap_oa_budget where bi=''B'' and tplant='''+fty+''' and yr='+inttostr(spinedit1.Value);
+        open;
+      end;
+    end;
+  end;
+end;
+
+end.

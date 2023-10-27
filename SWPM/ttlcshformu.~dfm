@@ -1,0 +1,572 @@
+object frmttlcsh: Tfrmttlcsh
+  Left = 192
+  Top = 97
+  Width = 617
+  Height = 515
+  Caption = 'Daily Current Line Work Calendar by QN'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 32
+    Top = 24
+    Width = 20
+    Height = 13
+    Caption = 'Line'
+  end
+  object DBText1: TDBText
+    Left = 64
+    Top = 24
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'PLINE'
+    DataSource = frmzktd.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 472
+    Top = 24
+    Width = 23
+    Height = 13
+    Caption = 'Date'
+  end
+  object Label4: TLabel
+    Left = 184
+    Top = 440
+    Width = 3
+    Height = 13
+    Visible = False
+  end
+  object Label8: TLabel
+    Left = 136
+    Top = 24
+    Width = 33
+    Height = 13
+    Caption = 'Project'
+  end
+  object DBText2: TDBText
+    Left = 176
+    Top = 24
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'J_NO'
+    DataSource = frmzktd.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label9: TLabel
+    Left = 248
+    Top = 24
+    Width = 16
+    Height = 13
+    Caption = 'QN'
+  end
+  object DBText3: TDBText
+    Left = 272
+    Top = 24
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'J2_JOB'
+    DataSource = frmzktd.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 328
+    Top = 24
+    Width = 9
+    Height = 13
+    Caption = ' - '
+  end
+  object DBText4: TDBText
+    Left = 344
+    Top = 24
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'RWO'
+    DataSource = frmzktd.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 384
+    Top = 24
+    Width = 9
+    Height = 13
+    Caption = ' - '
+  end
+  object DBText5: TDBText
+    Left = 400
+    Top = 24
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'FCCS'
+    DataSource = frmzktd.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object DBText6: TDBText
+    Left = 504
+    Top = 24
+    Width = 42
+    Height = 13
+    AutoSize = True
+    DataField = 'DT1'
+    DataSource = frmzktd.DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label16: TLabel
+    Left = 32
+    Top = 296
+    Width = 64
+    Height = 13
+    Caption = 'Linkage Time'
+  end
+  object Label17: TLabel
+    Left = 224
+    Top = 296
+    Width = 70
+    Height = 13
+    Caption = 'QN Time GAP '
+  end
+  object Label18: TLabel
+    Left = 432
+    Top = 296
+    Width = 48
+    Height = 13
+    Caption = 'Rest Time'
+  end
+  object Label19: TLabel
+    Left = 32
+    Top = 328
+    Width = 84
+    Height = 13
+    Caption = 'Special Lost Time'
+  end
+  object Label20: TLabel
+    Left = 251
+    Top = 440
+    Width = 3
+    Height = 13
+    Visible = False
+  end
+  object Label21: TLabel
+    Left = 32
+    Top = 400
+    Width = 67
+    Height = 13
+    Caption = 'Default(Gross)'
+  end
+  object Label22: TLabel
+    Left = 224
+    Top = 400
+    Width = 44
+    Height = 13
+    Caption = 'Total Net'
+  end
+  object Label31: TLabel
+    Left = 224
+    Top = 432
+    Width = 52
+    Height = 13
+    Caption = 'Only for 3A'
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 432
+    Width = 73
+    Height = 25
+    Caption = 'Save'
+    TabOrder = 8
+    OnClick = BitBtn1Click
+    Glyph.Data = {
+      F6000000424DF600000000000000760000002800000010000000100000000100
+      04000000000080000000CE0E0000C40E00001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+      2222200000000002222203300007030222220330000703000222033000000303
+      0222033333333303000203300000330303020307777703030302030777770303
+      0302030777770003030203077777070303020000000000000302220307777707
+      0302220000000000000222220307777707022222000000000002}
+  end
+  object BitBtn2: TBitBtn
+    Left = 104
+    Top = 432
+    Width = 73
+    Height = 25
+    Caption = 'Exit'
+    TabOrder = 9
+    Kind = bkClose
+  end
+  object GroupBox1: TGroupBox
+    Left = 32
+    Top = 48
+    Width = 545
+    Height = 233
+    Caption = 'Consolidated 5 lost elements of Line on-hold time'
+    TabOrder = 0
+    object Label3: TLabel
+      Left = 16
+      Top = 24
+      Width = 13
+      Height = 13
+      Caption = '2A'
+    end
+    object Label5: TLabel
+      Left = 152
+      Top = 24
+      Width = 13
+      Height = 13
+      Caption = '2B'
+    end
+    object Label6: TLabel
+      Left = 296
+      Top = 24
+      Width = 13
+      Height = 13
+      Caption = '2C'
+    end
+    object Label7: TLabel
+      Left = 432
+      Top = 24
+      Width = 14
+      Height = 13
+      Caption = '2D'
+    end
+    object Label12: TLabel
+      Left = 16
+      Top = 48
+      Width = 13
+      Height = 13
+      Caption = '2E'
+    end
+    object Label13: TLabel
+      Left = 152
+      Top = 48
+      Width = 12
+      Height = 13
+      Caption = '2F'
+    end
+    object Label14: TLabel
+      Left = 296
+      Top = 48
+      Width = 14
+      Height = 13
+      Caption = '2G'
+    end
+    object Label15: TLabel
+      Left = 432
+      Top = 48
+      Width = 14
+      Height = 13
+      Caption = '2H'
+    end
+    object Bevel1: TBevel
+      Left = 16
+      Top = 80
+      Width = 513
+      Height = 145
+    end
+    object Label23: TLabel
+      Left = 24
+      Top = 89
+      Width = 417
+      Height = 13
+      AutoSize = False
+      Caption = '2A = Cut-panels supply broken (incl molded cups) '#35009#29255#20379#25033#20013#26039' ('#21253#27169#26479')'
+    end
+    object Label24: TLabel
+      Left = 24
+      Top = 105
+      Width = 249
+      Height = 13
+      AutoSize = False
+      Caption = '2B = Accessories supply broken '#21103#26009#20379#25033#20013#26039
+    end
+    object Label25: TLabel
+      Left = 24
+      Top = 121
+      Width = 345
+      Height = 13
+      AutoSize = False
+      Caption = '2C = Electricity supply is out of service '#38651#21147#20379#25033#26283#20572
+    end
+    object Label26: TLabel
+      Left = 24
+      Top = 137
+      Width = 409
+      Height = 13
+      AutoSize = False
+      Caption = 
+        '2D = WO (Work Order) or QN (Qty Note) wrong information '#21046#21934#25110#25976#38913#36039#26009#20986 +
+        #37679
+    end
+    object Label27: TLabel
+      Left = 24
+      Top = 153
+      Width = 337
+      Height = 13
+      AutoSize = False
+      Caption = '2E = General Meeting/Morning Meeting / '#20363#26371'/'#26089#26371
+    end
+    object Label28: TLabel
+      Left = 24
+      Top = 169
+      Width = 393
+      Height = 13
+      AutoSize = False
+      Caption = '2F = Fresh Style Operation Introduction Meeting / '#26032#27454#25351#23566#26371#35696
+    end
+    object Label29: TLabel
+      Left = 24
+      Top = 185
+      Width = 305
+      Height = 13
+      AutoSize = False
+      Caption = '2G = Special Meeting / '#29305#27530#24615#26371#35696
+    end
+    object Label30: TLabel
+      Left = 24
+      Top = 201
+      Width = 105
+      Height = 13
+      AutoSize = False
+      Caption = '2H = Others '#20854#23427
+    end
+    object DBEdit1: TDBEdit
+      Left = 40
+      Top = 24
+      Width = 73
+      Height = 21
+      DataField = 'A2'
+      DataSource = DataSource1
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 176
+      Top = 24
+      Width = 73
+      Height = 21
+      DataField = 'B2'
+      DataSource = DataSource1
+      TabOrder = 1
+    end
+    object DBEdit3: TDBEdit
+      Left = 320
+      Top = 24
+      Width = 73
+      Height = 21
+      DataField = 'C2'
+      DataSource = DataSource1
+      TabOrder = 2
+    end
+    object DBEdit4: TDBEdit
+      Left = 456
+      Top = 24
+      Width = 73
+      Height = 21
+      DataField = 'D2'
+      DataSource = DataSource1
+      TabOrder = 3
+    end
+    object DBEdit5: TDBEdit
+      Left = 40
+      Top = 48
+      Width = 73
+      Height = 21
+      DataField = 'E2'
+      DataSource = DataSource1
+      TabOrder = 4
+    end
+    object DBEdit6: TDBEdit
+      Left = 176
+      Top = 48
+      Width = 73
+      Height = 21
+      DataField = 'F2'
+      DataSource = DataSource1
+      TabOrder = 5
+    end
+    object DBEdit7: TDBEdit
+      Left = 320
+      Top = 48
+      Width = 73
+      Height = 21
+      DataField = 'G2'
+      DataSource = DataSource1
+      TabOrder = 6
+    end
+    object DBEdit8: TDBEdit
+      Left = 456
+      Top = 48
+      Width = 73
+      Height = 21
+      DataField = 'H2'
+      DataSource = DataSource1
+      TabOrder = 7
+    end
+  end
+  object DBEdit9: TDBEdit
+    Left = 104
+    Top = 296
+    Width = 81
+    Height = 21
+    DataField = 'ZSECT'
+    DataSource = DataSource1
+    TabOrder = 1
+  end
+  object DBEdit10: TDBEdit
+    Left = 296
+    Top = 296
+    Width = 81
+    Height = 21
+    DataField = 'ASECT'
+    DataSource = DataSource1
+    TabOrder = 2
+  end
+  object DBEdit11: TDBEdit
+    Left = 496
+    Top = 296
+    Width = 81
+    Height = 21
+    DataField = 'RSECT'
+    DataSource = DataSource1
+    TabOrder = 3
+  end
+  object DBEdit12: TDBEdit
+    Left = 32
+    Top = 344
+    Width = 89
+    Height = 21
+    DataField = 'ESECT'
+    DataSource = DataSource1
+    TabOrder = 4
+  end
+  object DBEdit13: TDBEdit
+    Left = 104
+    Top = 400
+    Width = 81
+    Height = 21
+    Color = 8454143
+    DataField = 'CSECT'
+    DataSource = DataSource1
+    TabOrder = 6
+  end
+  object DBEdit14: TDBEdit
+    Left = 288
+    Top = 400
+    Width = 81
+    Height = 21
+    Color = 8454143
+    DataField = 'TTL'
+    DataSource = DataSource1
+    TabOrder = 7
+  end
+  object DBMemo1: TDBMemo
+    Left = 128
+    Top = 328
+    Width = 449
+    Height = 57
+    DataField = 'EMARKS'
+    DataSource = DataSource1
+    TabOrder = 5
+  end
+  object Edit1: TCurrencyEdit
+    Left = 288
+    Top = 432
+    Width = 81
+    Height = 21
+    AutoSize = False
+    DisplayFormat = '0.00'
+    TabOrder = 10
+  end
+  object DateEdit1: TDateEdit
+    Left = 376
+    Top = 432
+    Width = 121
+    Height = 21
+    NumGlyphs = 2
+    TabOrder = 11
+    Visible = False
+  end
+  object Query1: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from QN_CALENDAR'
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    AfterOpen = Query1AfterOpen
+    AfterPost = Query1AfterPost
+    Left = 336
+    Top = 65520
+  end
+  object Query2: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 368
+    Top = 65520
+  end
+  object Query3: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 400
+    Top = 65520
+  end
+  object DataSource1: TDataSource
+    DataSet = Query1
+    Left = 432
+    Top = 65520
+  end
+  object Query10: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspschedule'
+    RemoteServer = frmmain.SocketConnection1
+    Left = 464
+    Top = 65520
+  end
+end

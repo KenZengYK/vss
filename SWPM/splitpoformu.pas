@@ -1,0 +1,95 @@
+unit splitpoformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, GridsEh, DBGridEh, DBCtrls, StdCtrls, Buttons, DB,
+  DBClient;
+
+type
+  Tfrmsplitpo = class(TForm)
+    Panel1: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBText3: TDBText;
+    Label4: TLabel;
+    DBText4: TDBText;
+    Label5: TLabel;
+    DBText5: TDBText;
+    Label6: TLabel;
+    DBText6: TDBText;
+    Label7: TLabel;
+    DBText7: TDBText;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query5: TClientDataSet;
+    Query6: TClientDataSet;
+    Query7: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsplitpo: Tfrmsplitpo;
+
+implementation
+
+uses mainformu, pdnformu, bcnformu;
+
+{$R *.dfm}
+
+procedure Tfrmsplitpo.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmsplitpo:=nil;
+end;
+
+procedure Tfrmsplitpo.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query5 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      params.createparam(ftinteger,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      params.createparam(ftinteger,'x4',ptinput);
+      params.createparam(ftstring,'x6',ptinput);
+      params.createparam(ftinteger,'x7',ptinput);
+      commandtext:='update tbl_pdn_custpoqty set qty=:x1,sqty=:x5 where seq=:x2 and dseq=:x3 and pseq=:x4 and acol=:x6 and did=:x7';
+      if not query1.fieldbyname('qty').isnull then
+      params[0].asinteger:=query1.fieldbyname('qty').value
+      else params[0].asinteger:=0;
+      if not query1.fieldbyname('sqty').isnull then
+      params[1].asinteger:=query1.fieldbyname('sqty').value
+      else params[1].asinteger:=0;
+      params[2].asinteger:=query1.fieldbyname('seq').value;
+      params[3].asinteger:=query1.fieldbyname('dseq').value;
+      params[4].asinteger:=query1.fieldbyname('pseq').value;
+      params[5].asstring:=query1.fieldbyname('acol').value;
+      params[6].asinteger:=query1.fieldbyname('did').value;
+      execute;
+    end;
+  end;
+end;
+
+procedure Tfrmsplitpo.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+end.

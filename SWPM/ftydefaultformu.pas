@@ -1,0 +1,903 @@
+unit ftydefaultformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, ExtCtrls, StdCtrls, Spin, GridsEh, DBGridEh, ppCtrls,
+  ppBands, ppVar, ppPrnabl, ppClass, ppCache, ppProd, ppReport, ppComm,
+  ppRelatv, ppDB, ppDBPipe, DB, ImgList, DBClient, Buttons, ppViewr,
+  ppStrtch, ppSubRpt, ppParameter;
+
+type
+  Tfrmftydefault = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    TreeView1: TTreeView;
+    DBGridEh1: TDBGridEh;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    SpinEdit1: TSpinEdit;
+    Query1: TClientDataSet;
+    ClientDataSet2: TClientDataSet;
+    ImageList1: TImageList;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppShape1: TppShape;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppLabel11: TppLabel;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    fty001: TppLabel;
+    ppLabel14: TppLabel;
+    yr001: TppLabel;
+    ppLabel15: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel16: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppDetailBand1: TppDetailBand;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppFooterBand1: TppFooterBand;
+    ppSummaryBand1: TppSummaryBand;
+    ppLabel12: TppLabel;
+    ppDBCalc4: TppDBCalc;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    ppLabel17: TppLabel;
+    ppDBText9: TppDBText;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppDBText10: TppDBText;
+    ppLabel20: TppLabel;
+    ppDBText11: TppDBText;
+    ppLabel21: TppLabel;
+    ppDBText12: TppDBText;
+    ppLabel22: TppLabel;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppLabel23: TppLabel;
+    ppDBText13: TppDBText;
+    ppLine3: TppLine;
+    ppLabel24: TppLabel;
+    ppLabel25: TppLabel;
+    ppDBText14: TppDBText;
+    ppLabel26: TppLabel;
+    ppDBText15: TppDBText;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLabel27: TppLabel;
+    ppLabel29: TppLabel;
+    ppLabel30: TppLabel;
+    ppLabel31: TppLabel;
+    ppDBText16: TppDBText;
+    ppDBText17: TppDBText;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    Label3: TLabel;
+    SpinEdit2: TSpinEdit;
+    Label4: TLabel;
+    SpinEdit3: TSpinEdit;
+    BitBtn4: TBitBtn;
+    ppLabel13: TppLabel;
+    ppLabel32: TppLabel;
+    ppLabel33: TppLabel;
+    ppDBText20: TppDBText;
+    ppLabel34: TppLabel;
+    ppLabel35: TppLabel;
+    wk001: TppLabel;
+    ppLabel36: TppLabel;
+    wk002: TppLabel;
+    ppLabel37: TppLabel;
+    ppLabel38: TppLabel;
+    ppLabel39: TppLabel;
+    ppDBText21: TppDBText;
+    ppLabel40: TppLabel;
+    ppSubReport1: TppSubReport;
+    ppChildReport1: TppChildReport;
+    query4: TClientDataSet;
+    DataSource2: TDataSource;
+    ppDBPipeline2: TppDBPipeline;
+    ppDetailBand2: TppDetailBand;
+    ppSummaryBand2: TppSummaryBand;
+    ppLabel28: TppLabel;
+    ppShape2: TppShape;
+    ppLabel41: TppLabel;
+    ppLabel42: TppLabel;
+    ppLabel43: TppLabel;
+    ppLabel44: TppLabel;
+    ppLabel45: TppLabel;
+    ppLabel46: TppLabel;
+    ppLabel47: TppLabel;
+    ppLabel48: TppLabel;
+    ppDBText22: TppDBText;
+    ppDBText23: TppDBText;
+    ppHeaderBand2: TppHeaderBand;
+    ppDBText24: TppDBText;
+    ppDBText25: TppDBText;
+    ppDBText26: TppDBText;
+    cust003: TppLabel;
+    ppDBText27: TppDBText;
+    ppDBText28: TppDBText;
+    ppDBText29: TppDBText;
+    ppLabel49: TppLabel;
+    ppLabel50: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    ppDBCalc3: TppDBCalc;
+    ppDBCalc5: TppDBCalc;
+    ppDBCalc6: TppDBCalc;
+    eff001: TppLabel;
+    cu001: TppLabel;
+    b001: TppLabel;
+    k001: TppLabel;
+    u001: TppLabel;
+    ppTitleBand1: TppTitleBand;
+    ppSubReport2: TppSubReport;
+    ppChildReport2: TppChildReport;
+    Query5: TClientDataSet;
+    DataSource3: TDataSource;
+    ppDBPipeline3: TppDBPipeline;
+    ppTitleBand2: TppTitleBand;
+    ppDetailBand3: TppDetailBand;
+    ppSummaryBand3: TppSummaryBand;
+    ppShape3: TppShape;
+    ppLabel51: TppLabel;
+    ppLabel52: TppLabel;
+    ppLabel53: TppLabel;
+    ppLabel54: TppLabel;
+    ppLabel55: TppLabel;
+    ppLabel56: TppLabel;
+    ppLabel57: TppLabel;
+    ppLabel58: TppLabel;
+    ppLabel59: TppLabel;
+    ppDBText30: TppDBText;
+    ppDBText31: TppDBText;
+    ppDBText32: TppDBText;
+    ppDBText33: TppDBText;
+    ppDBText34: TppDBText;
+    ppDBText35: TppDBText;
+    ppDBText36: TppDBText;
+    ppDBText37: TppDBText;
+    ppLabel61: TppLabel;
+    ppLabel62: TppLabel;
+    ppDBCalc7: TppDBCalc;
+    ppDBCalc8: TppDBCalc;
+    ppDBCalc9: TppDBCalc;
+    ppDBCalc10: TppDBCalc;
+    ppDBCalc11: TppDBCalc;
+    eff002: TppLabel;
+    cu002: TppLabel;
+    b002: TppLabel;
+    k002: TppLabel;
+    u002: TppLabel;
+    wks001: TppLabel;
+    ppDBCalc12: TppDBCalc;
+    sah0001: TppLabel;
+    cu0001: TppLabel;
+    eff0001: TppLabel;
+    sah001: TppLabel;
+    ppLabel63: TppLabel;
+    ppLabel60: TppLabel;
+    sah002: TppLabel;
+    ppLabel64: TppLabel;
+    sah003: TppLabel;
+    xsah1: TppLabel;
+    xsah2: TppLabel;
+    xsah3: TppLabel;
+    ppLabel65: TppLabel;
+    ws001: TppLabel;
+    ppLabel66: TppLabel;
+    ppDBCalc13: TppDBCalc;
+    ppDBCalc14: TppDBCalc;
+    rwf001: TppLabel;
+    rsah001: TppLabel;
+    rsah002: TppLabel;
+    rlst001: TppLabel;
+    reff001: TppLabel;
+    wf001: TppLabel;
+    ROQuery1: TClientDataSet;
+    procedure ComboBox1Change(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure DBGridEh1Columns6EditButtonClick(Sender: TObject;
+      var Handled: Boolean);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure TreeView1Change(Sender: TObject; Node: TTreeNode);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure Query1FieldChange(Sender: TField);
+    procedure Query1Field1Change(Sender: TField);
+    procedure Query1Field2Change(Sender: TField);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure SpinEdit2Change(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure DBGridEh1GetCellParams(Sender: TObject; Column: TColumnEh;
+      AFont: TFont; var Background: TColor; State: TGridDrawState);
+    procedure ppSummaryBand2BeforePrint(Sender: TObject);
+    procedure ppTitleBand1BeforePrint(Sender: TObject);
+    procedure ppSummaryBand3BeforePrint(Sender: TObject);
+    procedure ppTitleBand2BeforePrint(Sender: TObject);
+    procedure ppSummaryBand1BeforePrint(Sender: TObject);
+    procedure ppDetailBand2BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure show_data;
+  end;
+
+var
+  frmftydefault: Tfrmftydefault;
+
+implementation
+
+uses mainformu, newcapformu, ftydefault_refformu;
+
+{$R *.dfm}
+
+procedure Tfrmftydefault.ComboBox1Change(Sender: TObject);
+var
+  tn1,tn2,tn3:TTreeNode;
+begin
+  if combobox1.text>'' then begin
+    treeview1.Items.clear;
+    tn1:=treeview1.Items.Add(nil,combobox1.text);
+    tn1.ImageIndex:=0;
+    with query2 do begin
+      close;
+      params.clear;
+      commandtext:='select distinct tshop from tblline where tplant='''+combobox1.text+''' and tshop>'''' and lactive=1';
+      open;
+      first;
+      while not eof do begin
+        tn2:=treeview1.Items.AddChild(tn1,fieldbyname('tshop').value);
+        tn2.ImageIndex:=1;
+        with query3 do begin
+          close;
+          params.clear;
+          commandtext:='select distinct pline from tblline where tplant='''+combobox1.text+''' and tshop='''+query2.fieldbyname('tshop').value+''' and lactive=1';
+          open;
+          first;
+          while not eof do begin
+            tn3:=treeview1.Items.addchild(tn2,fieldbyname('pline').value);
+            tn3.ImageIndex:=2;
+            application.ProcessMessages;
+            next;
+          end;
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+    treeview1.SetFocus;
+    treeview1.FullExpand;
+    treeview1.Items.GetFirstNode;
+  end;
+end;
+
+procedure Tfrmftydefault.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmftydefault:=nil;
+end;
+
+procedure Tfrmftydefault.FormShow(Sender: TObject);
+begin
+  combobox1.OnChange(self);
+end;
+
+procedure Tfrmftydefault.DBGridEh1Columns6EditButtonClick(Sender: TObject;
+  var Handled: Boolean);
+var
+  y,m,d:word;
+begin
+  if frmftydefault_ref=nil then frmftydefault_ref:=tfrmftydefault_ref.Create(nil);
+  if not query1.fieldbyname('cust').isnull then
+  frmftydefault_ref.ComboBox1.text:=query1.fieldbyname('cust').value
+  else frmftydefault_ref.ComboBox1.Text:='';
+  if not query1.fieldbyname('flag6').isnull then
+  frmftydefault_ref.ComboBox2.Text:=query1.fieldbyname('flag6').value
+  else frmftydefault_ref.ComboBox2.Text:='B';
+  decodedate(date,y,m,d);
+  frmftydefault_ref.DateEdit1.Date:=encodedate(y,1,1);
+  frmftydefault_ref.DateEdit2.Date:=date;
+  frmftydefault_ref.Show;
+end;
+
+procedure Tfrmftydefault.Query1AfterOpen(DataSet: TDataSet);
+begin
+  dbgrideh1.Columns[3].PickList.clear;
+  with query2 do begin
+    close;
+    params.clear;
+      commandtext:='select distinct pgrp as cust from cust_exfty where tplant='''+combobox1.text+''' and act=1';
+    //commandtext:='select distinct substr(j_no,1,4) as cust from tbl_erpsop where tplant='''+combobox1.text+'''';
+    open;
+    first;
+    while not eof do begin
+      dbgrideh1.Columns[3].PickList.add(fieldbyname('cust').value);
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  query1.FieldByName('cust').OnChange:=query1field1change;
+  query1.FieldByName('flag6').OnChange:=query1field1change;
+  query1.fieldbyname('adpt').onchange:=query1field2change;
+  query1.FieldByName('sect').OnChange:=query1fieldchange;
+  query1.FieldByName('wf').OnChange:=query1fieldchange;
+  query1.FieldByName('psah').OnChange:=query1fieldchange;
+  query1.FieldByName('plst').OnChange:=query1fieldchange;
+  query1.FieldByName('peff').OnChange:=query1fieldchange;
+end;
+
+procedure Tfrmftydefault.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmftydefault.BitBtn2Click(Sender: TObject);
+begin
+  with ROQuery1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='execute procedure sp_fty_cap_ver(:x1)';
+    params[0].asdatetime:=now;
+    execute;
+  end;
+  showmessage('OK!');
+end;
+
+procedure Tfrmftydefault.TreeView1Change(Sender: TObject; Node: TTreeNode);
+begin
+  if treeview1.Selected<>nil then begin
+    if treeview1.Selected.Level=2 then begin
+      //Generate records
+      with ROQuery1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftstring,'x2',ptinput);
+        params.createparam(ftstring,'x3',ptinput);
+        params.createparam(ftinteger,'x4',ptinput);
+        commandtext:='execute procedure sp_gen_ftydef(:x1,:x2,:x3,:x4)';
+        params[0].asstring:=combobox1.text;
+        params[1].asstring:=treeview1.Selected.Parent.Text;
+        params[2].asstring:=treeview1.Selected.text;
+        params[3].asinteger:=spinedit1.Value;
+        execute;
+      end;
+    end;
+  end;
+  show_data;
+end;
+
+procedure Tfrmftydefault.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftfloat,'x3',ptinput);
+      params.createparam(ftdate,'x4',ptinput);
+      params.createparam(ftdate,'x5',ptinput);
+      params.createparam(ftfloat,'x6',ptinput);
+      params.createparam(ftfloat,'x7',ptinput);
+      params.createparam(ftfloat,'x8',ptinput);
+      params.createparam(ftfloat,'x9',ptinput);
+      params.createparam(ftfloat,'x10',ptinput);
+      params.createparam(ftfloat,'x11',ptinput);
+      params.createparam(ftfloat,'x12',ptinput);
+      params.createparam(ftfloat,'x13',ptinput);
+      params.createparam(ftfloat,'x14',ptinput);
+      params.createparam(ftfloat,'x15',ptinput);
+      params.createparam(ftfloat,'x16',ptinput);
+      params.createparam(ftfloat,'x17',ptinput);
+      params.createparam(ftfloat,'x19',ptinput);
+      params.createparam(ftboolean,'x20',ptinput);
+      params.createparam(ftfloat,'x21',ptinput);
+      params.createparam(ftfloat,'x22',ptinput);
+      params.createparam(ftfloat,'x23',ptinput);
+      params.createparam(ftinteger,'x24',ptinput);
+      params.createparam(ftinteger,'x25',ptinput);
+      params.createparam(ftinteger,'x18',ptinput);
+      commandtext:='update tbl_cap_fty set cust=:x1,flag6=:x2,adpt=:x3,refdt1=:x4,refdt2=:x5,'
+                  +'refsah=:x6,reflst=:x7,refeff=:x8,sect=:x9,wf=:x10,psah=:x11,plst=:x12,'
+                  +'peff=:x13,pcap=:x14,bqty=:x15,kqty=:x16,uqty=:x17,refwf=:x19,chgd=:x20,'
+                  +'refsah1=:x21,mr1=:x22,mr2=:x23,styles=:x24,wos=:x25 where seq=:x18';
+      if not query1.fieldbyname('cust').isnull then
+      params[0].asstring:=query1.fieldbyname('cust').value
+      else params[0].asstring:='';
+      if not query1.fieldbyname('flag6').isnull then
+      params[1].asstring:=query1.fieldbyname('flag6').value
+      else params[1].asstring:='';
+      params[2].asfloat:=query1.fieldbyname('adpt').value;
+      if not query1.fieldbyname('refdt1').isnull then
+      params[3].asdate:=query1.fieldbyname('refdt1').value;
+      if not query1.fieldbyname('refdt2').isnull then
+      params[4].asdate:=query1.fieldbyname('refdt2').value;
+      params[5].asfloat:=query1.fieldbyname('refsah').value;
+      params[6].asfloat:=query1.fieldbyname('reflst').value;
+      params[7].asfloat:=query1.fieldbyname('refeff').value;
+      if not query1.fieldbyname('sect').IsNull then
+      params[8].asfloat:=query1.fieldbyname('sect').value
+      else params[8].asfloat:=0;
+      if not query1.fieldbyname('wf').IsNull then
+      params[9].asfloat:=query1.fieldbyname('wf').value
+      else params[9].asfloat:=0;
+      if not query1.fieldbyname('psah').IsNull then
+      params[10].asfloat:=query1.fieldbyname('psah').value
+      else params[10].asfloat:=0;
+      if not query1.fieldbyname('plst').IsNull then
+      params[11].asfloat:=query1.fieldbyname('plst').value
+      else params[11].asfloat:=0;
+      if not query1.fieldbyname('peff').IsNull then
+      params[12].asfloat:=query1.fieldbyname('peff').value
+      else params[12].asfloat:=0;
+      params[13].asfloat:=query1.fieldbyname('pcap').value;
+      params[14].asfloat:=query1.fieldbyname('bqty').value;
+      params[15].asfloat:=query1.fieldbyname('kqty').value;
+      params[16].asfloat:=query1.fieldbyname('uqty').value;
+      params[17].asfloat:=query1.fieldbyname('refwf').value;
+      params[18].asboolean:=query1.fieldbyname('chgd').value;
+      params[19].asfloat:=query1.fieldbyname('refsah1').value;
+      if not query1.fieldbyname('mr1').isnull then
+      params[20].asfloat:=query1.fieldbyname('mr1').value
+      else params[20].asfloat:=0;
+      if not query1.fieldbyname('mr2').isnull then
+      params[21].asfloat:=query1.fieldbyname('mr2').value
+      else params[21].asfloat:=0;
+      if not query1.fieldbyname('styles').isnull then
+      params[22].asinteger:=query1.fieldbyname('styles').value
+      else params[22].asinteger:=0;
+      if not query1.fieldbyname('wos').isnull then
+      params[23].asinteger:=query1.fieldbyname('wos').value
+      else params[23].asinteger:=0;
+      params[24].asinteger:=query1.fieldbyname('seq').value;
+      execute;
+    end;
+  end;
+end;
+
+procedure Tfrmftydefault.Query1FieldChange(Sender: TField);
+var
+  a1,s1,w1,ps1,pl1,pe1:double;
+begin
+  a1:=0;s1:=0;w1:=0;ps1:=0;pl1:=100;pe1:=100;
+  if not query1.fieldbyname('adpt').isnull then a1:=query1.fieldbyname('adpt').value;
+  if not query1.fieldbyname('psah').isnull then ps1:=query1.fieldbyname('psah').value;
+  if not query1.fieldbyname('sect').isnull then s1:=query1.fieldbyname('sect').value;
+  if not query1.fieldbyname('wf').isnull then w1:=query1.fieldbyname('wf').value;
+  if not query1.fieldbyname('plst').isnull then pl1:=query1.fieldbyname('plst').value;
+  if not query1.fieldbyname('peff').isnull then pe1:=query1.fieldbyname('peff').value;
+  if ps1>0 then begin
+    query1.fieldbyname('pcap').value:=s1*w1*a1*pl1*pe1/2000000.0/ps1;
+    if query1.fieldbyname('flag6').value='B' then query1.fieldbyname('bqty').value:=s1*w1*a1*pl1*pe1/2000000.0/ps1
+    else if query1.fieldbyname('flag6').value='K' then query1.fieldbyname('kqty').value:=s1*w1*a1*pl1*pe1/2000000.0/ps1
+    else if query1.fieldbyname('flag6').value='U' then query1.fieldbyname('uqty').value:=s1*w1*a1*pl1*pe1/2000000.0/ps1;
+  end else begin
+    query1.fieldbyname('pcap').value:=0;
+    query1.fieldbyname('bqty').value:=0;
+    query1.fieldbyname('kqty').value:=0;
+    query1.fieldbyname('uqty').value:=0;
+  end;
+end;
+
+procedure Tfrmftydefault.Query1Field1Change(Sender: TField);
+var
+  a1:double;
+  cust,flag6:string;
+begin
+  if not query1.fieldbyname('cust').isnull then cust:=query1.fieldbyname('cust').value else cust:='';
+  if not query1.fieldbyname('flag6').isnull then flag6:=query1.fieldbyname('flag6').value else flag6:='';
+  a1:=100;
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select adpt from tbl_linelearn where pline='''+query1.fieldbyname('pline').value+''' and cust='''+cust+''' and ptyp='''+flag6+'''';
+    open;
+    if not fieldbyname('adpt').isnull then a1:=fieldbyname('adpt').value;
+  end;
+  query1.fieldbyname('adpt').value:=a1;
+end;
+
+procedure Tfrmftydefault.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+procedure Tfrmftydefault.show_data;
+begin
+  screen.Cursor:=crSQLWait;
+  try
+  with ROQuery1 do begin
+    close;
+    params.clear;
+    commandtext:='execute procedure sp_upd_ftydef_chgd';
+    execute;
+  end;
+  if treeview1.Selected<>nil then begin
+    with query1 do begin
+      close;
+      params.clear;
+      commandtext:='select * from tbl_cap_fty where tplant='''+combobox1.text+''' and yr='+inttostr(spinedit1.value);
+      if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+      if treeview1.Selected.Level=2 then commandtext:=commandtext+' and pline='''+treeview1.Selected.Text+'''';
+      commandtext:=commandtext+' and wk>='+inttostr(spinedit2.Value)+' and wk<='+inttostr(spinedit3.Value);
+      open;
+    end;
+  end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmftydefault.SpinEdit2Change(Sender: TObject);
+begin
+  show_data;
+end;
+
+procedure Tfrmftydefault.Query1Field2Change(Sender: TField);
+var
+  dt,dt0,dt1,dt2:tdate;
+  sah,lst,eff,wf,sah1:double;
+  y,m,d:word;
+begin
+  screen.Cursor:=crSQLWait;
+  sah:=0;lst:=0;eff:=0;wf:=0;sah1:=0;
+  decodedate(date,y,m,d);
+  if not query1.fieldbyname('refdt1').isnull then dt:=query1.fieldbyname('refdt1').value
+  else dt:=encodedate(y,1,1)-183;
+  if not query1.fieldbyname('refdt2').isnull then dt0:=query1.fieldbyname('refdt2').value
+  else dt0:=date;
+  try
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      params.createparam(ftstring,'x5',ptinput);
+      commandtext:='select * from sp_line_capacity_new(:x1,:x2,:x3,:x4,:x5)';
+      params[0].asstring:=query1.fieldbyname('pline').value;
+      params[1].asstring:=query1.fieldbyname('cust').value;
+      params[2].asstring:=query1.fieldbyname('flag6').value;
+      params[3].asstring:=formatdatetime('yyyy-MM-dd',dt);
+      params[4].asstring:=formatdatetime('yyyy-MM-dd',dt0);
+      open;
+      if not fieldbyname('refsah').isnull then sah:=fieldbyname('refsah').value;
+      if not fieldbyname('refsah1').isnull then sah1:=fieldbyname('refsah1').value;
+      if not fieldbyname('reflst').isnull then lst:=fieldbyname('reflst').value;
+      if not fieldbyname('refeff').isnull then eff:=fieldbyname('refeff').value;
+      if not fieldbyname('refdt1').isnull then begin
+        dt1:=fieldbyname('refdt1').value;
+        dt2:=fieldbyname('refdt2').value;
+      end;
+      if not fieldbyname('refwf').isnull then wf:=fieldbyname('refwf').value;
+    end;
+    with query1 do begin
+      //edit;
+      if dt1>0 then begin
+        fieldbyname('refdt1').value:=dt1;
+        fieldbyname('refdt2').value:=dt2;
+      end;
+      fieldbyname('refsah').value:=sah;
+      fieldbyname('refsah1').value:=sah1;
+      fieldbyname('reflst').value:=lst;
+      fieldbyname('refeff').value:=eff;
+      fieldbyname('refwf').value:=wf;
+      fieldbyname('chgd').value:=false;
+      fieldbyname('psah').value:=sah;
+      fieldbyname('plst').value:=97.0;
+      fieldbyname('peff').value:=eff;
+      //post;
+    end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmftydefault.BitBtn3Click(Sender: TObject);
+begin
+  bitbtn1click(self);
+  if not query1.fieldbyname('seq').isnull then begin
+    fty001.Caption:=combobox1.text;
+    yr001.Caption:=inttostr(spinedit1.value);
+    wk001.Caption:=inttostr(spinedit2.Value);
+    wk002.Caption:=inttostr(spinedit3.Value);
+    if treeview1.Selected.Level<2 then begin
+      with query4 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        commandtext:='select distinct cust,sum(bqty) as bqty,sum(kqty) as kqty,sum(uqty) as uqty,sum(pcap) as pcap,sum(sect) as sect,sum(peff*pcap)/sum(pcap) as peff,sum(plst*pcap)/sum(pcap) as plst,sum(psah*pcap)/sum(pcap) as psah '
+                    +'from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and pcap>0 ';
+        if treeview1.Selected.Level=1 then commandtext:=commandtext+'and tshop='''+treeview1.Selected.Text+''' ';
+        commandtext:=commandtext+'group by cust order by cust';
+        params[0].asinteger:=spinedit1.Value;
+        params[1].asinteger:=spinedit2.Value;
+        params[2].asinteger:=spinedit3.Value;
+        open;
+      end;
+      with query5 do begin
+        close;
+        params.clear;
+        params.createparam(ftinteger,'x1',ptinput);
+        params.createparam(ftinteger,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        commandtext:='select distinct tshop,sum(bqty) as bqty,sum(kqty) as kqty,sum(uqty) as uqty,sum(pcap) as pcap,sum(sect) as sect,sum(peff*pcap)/sum(pcap) as peff,sum(plst*pcap)/sum(pcap) as plst from tbl_cap_fty '
+                    +'where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and pcap>0 ';
+        if treeview1.Selected.Level=1 then commandtext:=commandtext+'and tshop='''+treeview1.Selected.Text+''' ';
+        commandtext:=commandtext+'group by tshop order by tshop';
+        params[0].asinteger:=spinedit1.Value;
+        params[1].asinteger:=spinedit2.Value;
+        params[2].asinteger:=spinedit3.Value;
+        open;
+      end;
+      ppSubReport1.Visible:=true;
+    end else ppSubReport1.Visible:=false;
+    ppReport1.Print;
+  end;
+end;
+
+procedure Tfrmftydefault.DBGridEh1GetCellParams(Sender: TObject;
+  Column: TColumnEh; AFont: TFont; var Background: TColor;
+  State: TGridDrawState);
+begin
+  State:=[gdFocused];
+  if query1.fieldbyname('psah').value>0 then begin
+    if query1.fieldbyname('chgd').value=false then AFont.Color:=clRed
+    else AFont.Color:=clBlack;
+  end else AFont.Color:=clBlack;
+end;
+
+procedure Tfrmftydefault.ppSummaryBand2BeforePrint(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(peff*pcap)/sum(pcap) as eff1,sum(plst*pcap)/sum(pcap) as cu1 from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and pcap>0';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('eff1').isnull then eff001.Caption:=formatfloat('0.00',fieldbyname('eff1').value)
+    else eff001.Caption:='0.00';
+    if not fieldbyname('cu1').isnull then cu001.Caption:=formatfloat('0.00',fieldbyname('cu1').value)
+    else cu001.Caption:='0.00';
+  end;
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(psah*pcap)/sum(pcap) as sah1 from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and flag6=''B'' and pcap>0';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('sah1').isnull then sah001.Caption:=formatfloat('0.0000',fieldbyname('sah1').value)
+    else sah001.Caption:='0.0000';
+  end;
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(psah*pcap)/sum(pcap) as sah1 from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and flag6=''K'' and pcap>0';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('sah1').isnull then sah002.Caption:=formatfloat('0.0000',fieldbyname('sah1').value)
+    else sah002.Caption:='0.0000';
+  end;
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(psah*pcap)/sum(pcap) as sah1 from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and flag6=''U'' and pcap>0';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('sah1').isnull then sah003.Caption:=formatfloat('0.0000',fieldbyname('sah1').value)
+    else sah003.Caption:='0.0000';
+  end;
+  if ppdbcalc3.Value>0 then begin
+    b001.Caption:=formatfloat('0.00',ppdbcalc1.Value*100.0/ppdbcalc3.Value);
+    k001.Caption:=formatfloat('0.00',ppdbcalc6.Value*100.0/ppdbcalc3.Value);
+    u001.Caption:=formatfloat('0.00',ppdbcalc2.Value*100.0/ppdbcalc3.Value);
+  end else begin
+    b001.Caption:='0.00';
+    k001.Caption:='0.00';
+    u001.Caption:='0.00';
+  end;
+end;
+
+procedure Tfrmftydefault.ppTitleBand1BeforePrint(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select count(distinct cust) as c1 from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and pcap>0';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('c1').isnull then cust003.Caption:=fieldbyname('c1').asstring
+    else cust003.Caption:='0';
+  end;
+end;
+
+procedure Tfrmftydefault.ppSummaryBand3BeforePrint(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(peff*pcap)/sum(pcap) as eff1,sum(plst*pcap)/sum(pcap) as cu1 from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and pcap>0';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('eff1').isnull then eff002.Caption:=formatfloat('0.00',fieldbyname('eff1').value)
+    else eff002.Caption:='0.00';
+    if not fieldbyname('cu1').isnull then cu002.Caption:=formatfloat('0.00',fieldbyname('cu1').value)
+    else cu002.Caption:='0.00';
+  end;
+  if ppdbcalc9.Value>0 then begin
+    b002.Caption:=formatfloat('0.00',ppdbcalc7.Value*100.0/ppdbcalc9.Value);
+    k002.Caption:=formatfloat('0.00',ppdbcalc11.Value*100.0/ppdbcalc9.Value);
+    u002.Caption:=formatfloat('0.00',ppdbcalc8.Value*100.0/ppdbcalc9.Value);
+  end else begin
+    b002.Caption:='0.00';
+    k002.Caption:='0.00';
+    u002.Caption:='0.00';
+  end;
+end;
+
+procedure Tfrmftydefault.ppTitleBand2BeforePrint(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select count(distinct tshop) as c1 from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and pcap>0';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('c1').isnull then wks001.Caption:=fieldbyname('c1').asstring
+    else wks001.Caption:='0';
+  end;
+end;
+
+procedure Tfrmftydefault.ppSummaryBand1BeforePrint(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(peff*pcap)/sum(pcap) as eff1,sum(plst*pcap)/sum(pcap) as cu1,sum(psah*pcap)/sum(pcap) as sah1,'
+                +'sum(refwf*pcap)/sum(pcap) as rwf,sum(refsah*pcap)/sum(pcap) as rsah,sum(refsah1*pcap)/sum(pcap) as rsah1,'
+                +'sum(reflst*pcap)/sum(pcap) as rlst,sum(refeff*pcap)/sum(pcap) as reff,sum(wf*pcap)/sum(pcap) as wf '
+                +'from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and pcap>0';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    if treeview1.Selected.Level=2 then commandtext:=commandtext+' and pline='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('eff1').isnull then eff0001.Caption:=formatfloat('0.00',fieldbyname('eff1').value)
+    else eff0001.Caption:='0.00';
+    if not fieldbyname('cu1').isnull then cu0001.Caption:=formatfloat('0.00',fieldbyname('cu1').value)
+    else cu0001.Caption:='0.00';
+    if not fieldbyname('sah1').isnull then sah0001.Caption:=formatfloat('0.0000',fieldbyname('sah1').value)
+    else sah0001.Caption:='0.0000';
+    if not fieldbyname('rwf').isnull then rwf001.Caption:=formatfloat('0.0',fieldbyname('rwf').value)
+    else rwf001.Caption:='0.0';
+    if not fieldbyname('rsah').isnull then rsah001.Caption:=formatfloat('0.0000',fieldbyname('rsah').value)
+    else rsah001.Caption:='0.0000';
+    if not fieldbyname('rsah1').isnull then rsah002.Caption:=formatfloat('0.0000',fieldbyname('rsah1').value)
+    else rsah002.Caption:='0.0000';
+    if not fieldbyname('rlst').isnull then rlst001.Caption:=formatfloat('0.00',fieldbyname('rlst').value)
+    else rlst001.Caption:='0.00';
+    if not fieldbyname('reff').isnull then reff001.Caption:=formatfloat('0.00',fieldbyname('reff').value)
+    else reff001.Caption:='0.00';
+    if not fieldbyname('wf').isnull then wf001.Caption:=formatfloat('0.0',fieldbyname('wf').value)
+    else wf001.Caption:='0.0';
+  end;
+end;
+
+procedure Tfrmftydefault.ppDetailBand2BeforePrint(Sender: TObject);
+begin
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(psah*pcap)/sum(pcap) as sah1 from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and flag6=''B'' and pcap>0 and cust='''+query4.fieldbyname('cust').value+'''';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('sah1').isnull then xsah1.Caption:=formatfloat('0.0000',fieldbyname('sah1').value)
+    else xsah1.Caption:='0.0000';
+  end;
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(psah*pcap)/sum(pcap) as sah1 from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and flag6=''K'' and pcap>0 and cust='''+query4.fieldbyname('cust').value+'''';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('sah1').isnull then xsah2.Caption:=formatfloat('0.0000',fieldbyname('sah1').value)
+    else xsah2.Caption:='0.0000';
+  end;
+  with query2 do begin
+    close;
+    params.createparam(ftinteger,'x1',ptinput);
+    params.createparam(ftinteger,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    commandtext:='select sum(psah*pcap)/sum(pcap) as sah1 from tbl_cap_fty where tplant='''+combobox1.text+''' and yr=:x1 and wk>=:x2 and wk<=:x3 and flag6=''U'' and pcap>0 and cust='''+query4.fieldbyname('cust').value+'''';
+    if treeview1.Selected.Level=1 then commandtext:=commandtext+' and tshop='''+treeview1.Selected.Text+'''';
+    params[0].asinteger:=spinedit1.value;
+    params[1].AsInteger:=spinedit2.Value;
+    params[2].AsInteger:=spinedit3.Value;
+    open;
+    if not fieldbyname('sah1').isnull then xsah3.Caption:=formatfloat('0.0000',fieldbyname('sah1').value)
+    else xsah3.Caption:='0.0000';
+  end;
+end;
+
+end.

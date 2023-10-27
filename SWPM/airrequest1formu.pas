@@ -1,0 +1,65 @@
+unit airrequest1formu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask, DBCtrls;
+
+type
+  Tfrmairrequest1 = class(TForm)
+    GroupBox1: TGroupBox;
+    Label13: TLabel;
+    DBEdit11: TDBEdit;
+    Label31: TLabel;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    Label4: TLabel;
+    GroupBox2: TGroupBox;
+    Label5: TLabel;
+    Label7: TLabel;
+    Label9: TLabel;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    BitBtn1: TBitBtn;
+    Label6: TLabel;
+    DBEdit6: TDBEdit;
+    Label8: TLabel;
+    Label10: TLabel;
+    DBEdit7: TDBEdit;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmairrequest1: Tfrmairrequest1;
+
+implementation
+
+uses mainformu, airrequestformu;
+
+{$R *.dfm}
+
+procedure Tfrmairrequest1.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmairrequest1:=nil;
+end;
+
+procedure Tfrmairrequest1.BitBtn1Click(Sender: TObject);
+begin
+  frmairrequestform.bitbtn2click(self);
+  frmairrequest1.Close;
+end;
+
+end.
+ 

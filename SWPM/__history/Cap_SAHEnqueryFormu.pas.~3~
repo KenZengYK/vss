@@ -1,0 +1,47 @@
+unit Cap_SAHEnqueryFormu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  StdCtrls, Spin, Buttons, cxGridLevel, cxClasses, cxGridCustomView,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, ExtCtrls,
+  DBClient;
+
+type
+  TfrmCAP_SAHEnquery = class(TForm)
+    Panel1: TPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    Panel2: TPanel;
+    Label1: TLabel;
+    BitBtn1: TBitBtn;
+    se1: TSpinEdit;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    SaveDialog1: TSaveDialog;
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCAP_SAHEnquery: TfrmCAP_SAHEnquery;
+
+implementation
+
+uses mainformu, newcapformu;
+
+{$R *.dfm}
+
+procedure TfrmCAP_SAHEnquery.BitBtn1Click(Sender: TObject);
+begin
+  //
+end;
+
+end.

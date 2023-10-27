@@ -1,0 +1,182 @@
+unit lastorderformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Spin, Db, QExport4, QExport4XLS;
+
+type
+  Tfrmlastorders = class(TForm)
+    Label1: TLabel;
+    SpinEdit1: TSpinEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    SaveDialog1: TSaveDialog;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmlastorders: Tfrmlastorders;
+
+implementation
+
+uses worksheet, printform3u, printform4u;
+
+{$R *.dfm}
+
+procedure Tfrmlastorders.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  if frmprint3<>nil then frmprint3:=nil;
+  if frmprint4<>nil then frmprint4:=nil;
+  action:=cafree;
+  frmlastorders:=nil;
+end;
+
+procedure Tfrmlastorders.BitBtn1Click(Sender: TObject);
+var
+  str1,str2,str3,str4,str5,str00:string;
+  dt1:tdatetime;
+begin
+  screen.cursor:=crhourglass;
+  dt1:=date;
+    str1:=' order by a.pline,a.seq,a.j_no,a.j2_job,a.artno,a.acol';
+    str1:=' order by hc';
+    with worksheet1.clientdataset2 do begin
+      close;
+      params.clear;
+      commandtext:='execute procedure sp_updweekday';
+      execute;
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      if (frmlastorders.Caption='Last Order(s) Print') then
+        commandtext:='execute procedure sp_genzzz1(:x1,:x2,:x3,:x4,:x5)'
+      else commandtext:='execute procedure sp_genzzz2(:x1,:x2,:x3,:x4,:x5)';
+      params[0].asstring:=worksheet1.edit2.text;
+      params[1].asstring:=worksheet1.edit6.text;
+      params[2].asdate:=dt1;
+      params[3].asstring:=worksheet1.edit4.text;
+      params[4].asinteger:=spinedit1.value;
+      execute;
+    end;
+      with worksheet1.clientdataset2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        commandtext:='execute procedure sp_updhc(:x1)';
+        params[0].asstring:='1';
+        execute;
+      end;
+      with worksheet1.clientdataset1 do begin
+        close;
+        params.clear;
+        commandtext:='select distinct a.*,substr(a.j_no,1,4) as cust from tempshedule1 a where yzh=0'+str1;
+        open;
+      end;
+    if worksheet1.Edit6.text>'' then str2:=' / '+worksheet1.Edit6.text else str2:='';
+
+    with worksheet1.clientdataset2 do begin
+      close;
+      params.clear;
+      commandtext:='select count(distinct cstyle) as cnt1,count(distinct pline) as cnt2,'
+                  +'count(distinct substr(j_no,1,4)) as cnt3,count(distinct j_no) as cnt4 from tempshedule1 where yzh=0';
+      open;
+      if not fieldbyname('cnt1').isnull then str3:='Ttl # of styles: '+fieldbyname('cnt1').asstring
+      else str3:='';
+      if not fieldbyname('cnt2').isnull then str4:='Ttl # of lines: '+fieldbyname('cnt2').asstring
+      else str4:='';
+      if not fieldbyname('cnt3').isnull then str5:='Ttl # of customers: '+fieldbyname('cnt3').asstring+'      Ttl # of projects: '+fieldbyname('cnt4').asstring
+      else str5:='';
+    end;
+
+    if (frmlastorders.Caption='Last Order(s) Print') then begin
+      str00:='Last '+inttostr(spinedit1.value)+' Order(s)';
+
+      if frmprint3=nil then frmprint3:=tfrmprint3.create(nil);
+      frmprint3.wks004.Caption:=worksheet1.Edit4.text;
+      frmprint3.ppBDEPipeline1.DataSource:=worksheet1.datasource2;
+      frmprint3.project1.text:=uppercase(worksheet1.edit1.text);
+      frmprint3.pline.text:=worksheet1.edit2.text;
+      frmprint3.artno2.Caption:='Cust Style';
+      frmprint3.artno1.DataField:='cstyle';
+      frmprint3.xdhq.Visible:=true;
+      frmprint3.xdhq.Caption:=str00+'(Line Work Start Date'+str2+')';
+      frmprint3.pttl1.Caption:=str4;
+      frmprint3.pttl2.Caption:=str3;
+      frmprint3.pttl3.Caption:=str5;
+      frmprint3.ppreport1.print;
+    end else begin
+      str00:='Next '+inttostr(spinedit1.value)+' Order(s)';
+      if frmprint4=nil then frmprint4:=tfrmprint4.create(nil);
+      frmprint4.wks005.Caption:=worksheet1.Edit4.text;
+      frmprint4.ppBDEPipeline1.DataSource:=worksheet1.datasource2;
+      frmprint4.project1.text:=uppercase(worksheet1.edit1.text);
+      frmprint4.pline.text:=worksheet1.edit2.text;
+      frmprint4.artno2.Caption:='Cust Style';
+      frmprint4.artno1.DataField:='cstyle';
+      frmprint4.xdhq.Visible:=true;
+      frmprint4.xdhq.Caption:=str00+'(Line Work Start Date'+str2+')';
+      frmprint4.pttl1.Caption:=str4;
+      frmprint4.pttl2.Caption:=str3;
+      frmprint4.pttl3.Caption:=str5;
+      frmprint4.ppreport1.print;
+    end;
+  screen.Cursor:=crDefault;
+end;
+
+procedure Tfrmlastorders.BitBtn2Click(Sender: TObject);
+var
+  dt1:tdatetime;
+begin
+  screen.cursor:=crhourglass;
+  try
+  dt1:=date;
+    with worksheet1.clientdataset2 do begin
+      close;
+      params.clear;
+      commandtext:='execute procedure sp_updweekday';
+      execute;
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftdate,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      params.createparam(ftinteger,'x5',ptinput);
+      commandtext:='execute procedure sp_genzzz2(:x1,:x2,:x3,:x4,:x5)';
+      params[0].asstring:=worksheet1.edit2.text;
+      params[1].asstring:=worksheet1.edit6.text;
+      params[2].asdate:=dt1;
+      params[3].asstring:=worksheet1.edit4.text;
+      params[4].asinteger:=spinedit1.value;
+      execute;
+    end;
+  with worksheet1.ClientDataSet4 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct pline as Line,j_no as Project,j2_job as WO,cstyle as Style,rwo as RWO,acol as Color,yqlcrq as Delivery_date,sum(scqty) as Quantity from tempshedule1 '
+                +'group by pline,j_no,j2_job,cstyle,rwo,acol,yqlcrq';
+    open;
+    if SaveDialog1.Execute then
+    xls1.FileName:=SaveDialog1.FileName;
+    xls1.Execute;
+  end;
+  finally
+    screen.cursor:=crDefault;
+  end;
+end;
+
+end.

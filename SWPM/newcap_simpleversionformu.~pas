@@ -1,0 +1,399 @@
+unit newcap_simpleversionformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Spin, Buttons, DB, DBClient, ppProd, ppClass,
+  ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppBands, ppPrnabl, ppCtrls,
+  ppCache, Txcomp, ppViewr, ppVar;
+
+type
+  Tfrmnewcap_simpleversion = class(TForm)
+    Label1: TLabel;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    sEdit1: TSpinEdit;
+    sEdit2: TSpinEdit;
+    Label4: TLabel;
+    sEdit3: TSpinEdit;
+    Label5: TLabel;
+    sEdit4: TSpinEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query4: TClientDataSet;
+    DataSource2: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Query5: TClientDataSet;
+    Query6: TClientDataSet;
+    Query1: TClientDataSet;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppDBText11: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText13: TppDBText;
+    ppDBText14: TppDBText;
+    ppShape1: TppShape;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    ppShape2: TppShape;
+    m001: TppLabel;
+    m012: TppLabel;
+    m002: TppLabel;
+    m003: TppLabel;
+    m004: TppLabel;
+    m005: TppLabel;
+    m006: TppLabel;
+    m007: TppLabel;
+    m008: TppLabel;
+    m009: TppLabel;
+    m010: TppLabel;
+    m011: TppLabel;
+    Combobox1: TComboBox;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel3: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLine3: TppLine;
+    ppLine4: TppLine;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppShape3: TppShape;
+    ppLabel6: TppLabel;
+    yq1: TppLabel;
+    yq2: TppLabel;
+    yq3: TppLabel;
+    yq4: TppLabel;
+    yq5: TppLabel;
+    yq6: TppLabel;
+    yq7: TppLabel;
+    yq8: TppLabel;
+    yq9: TppLabel;
+    yq10: TppLabel;
+    yq11: TppLabel;
+    yq12: TppLabel;
+    pl1: TppLine;
+    pl2: TppLine;
+    pl3: TppLine;
+    pl4: TppLine;
+    pl5: TppLine;
+    pl6: TppLine;
+    pl7: TppLine;
+    pl8: TppLine;
+    pl9: TppLine;
+    pl10: TppLine;
+    pl11: TppLine;
+    ppGroup2: TppGroup;
+    ppGroupHeaderBand2: TppGroupHeaderBand;
+    ppGroupFooterBand2: TppGroupFooterBand;
+    ppShape4: TppShape;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+    procedure ppHeaderBand1BeforePrint(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure ppGroupHeaderBand1BeforePrint(Sender: TObject);
+    procedure ppGroupHeaderBand2BeforePrint(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_simpleversion: Tfrmnewcap_simpleversion;
+
+implementation
+
+uses mainformu, newcapformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_simpleversion.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_simpleversion:=nil;
+end;
+
+procedure Tfrmnewcap_simpleversion.BitBtn1Click(Sender: TObject);
+var
+  tm:tdatetime;
+begin
+  screen.Cursor:=crSQLWait;
+  tm:=now;
+  try
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    params.createparam(ftstring,'x2',ptinput);
+    params.createparam(ftinteger,'x3',ptinput);
+    params.createparam(ftinteger,'x4',ptinput);
+    params.createparam(ftinteger,'x5',ptinput);
+    params.createparam(ftinteger,'x6',ptinput);
+    commandtext:='execute procedure sp_cap_gensversion(:x1,:x2,:x3,:x4,:x5,:x6)';
+    params[0].asdatetime:=tm;
+    params[1].asstring:=combobox1.text;
+    params[2].asinteger:=sEdit1.Value;
+    params[3].asinteger:=sEdit2.Value;
+    params[4].asinteger:=sEdit3.Value;
+    params[5].asinteger:=sEdit4.Value;
+    execute;
+  end;
+  with query4 do begin
+    close;
+    params.Clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select * from tbl_cap_sversion2 where tm=:x1 order by seq,seq1';
+    params[0].asdatetime:=tm;
+    open;
+    if not fieldbyname('tm').isnull then begin
+      ppReport1.Print;
+    end;
+  end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+procedure Tfrmnewcap_simpleversion.ppReport1PreviewFormCreate(
+  Sender: TObject);
+begin
+  ppReport1.PreviewForm.WindowState:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomSetting:=zs100percent;
+end;
+
+procedure Tfrmnewcap_simpleversion.ppHeaderBand1BeforePrint(
+  Sender: TObject);
+begin
+  m001.Caption:=''; m002.Caption:=''; m003.Caption:=''; m004.Caption:='';
+  m005.Caption:=''; m006.Caption:=''; m007.Caption:=''; m008.Caption:='';
+  m009.Caption:=''; m010.Caption:=''; m011.Caption:=''; m012.Caption:='';
+  yq1.Caption:=''; yq2.Caption:=''; yq3.Caption:=''; yq4.Caption:='';
+  yq5.Caption:=''; yq6.Caption:=''; yq7.Caption:=''; yq8.Caption:='';
+  yq9.Caption:=''; yq10.Caption:=''; yq11.Caption:=''; yq12.Caption:='';
+  pl1.Visible:=false; pl2.Visible:=false; pl3.Visible:=false; pl4.Visible:=false;
+  pl5.Visible:=false; pl6.Visible:=false; pl7.Visible:=false; pl8.Visible:=false;
+  pl9.Visible:=false; pl10.Visible:=false; pl11.Visible:=false;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select * from tbl_cap_sversion where tm=:x1 and seq=1';
+    params[0].asdatetime:=query4.fieldbyname('tm').value;
+    open;
+    if not fieldbyname('m1').isnull then m001.Caption:=fieldbyname('m1').value;
+    if not fieldbyname('m2').isnull then m002.Caption:=fieldbyname('m2').value;
+    if not fieldbyname('m3').isnull then m003.Caption:=fieldbyname('m3').value;
+    if not fieldbyname('m4').isnull then m004.Caption:=fieldbyname('m4').value;
+    if not fieldbyname('m5').isnull then m005.Caption:=fieldbyname('m5').value;
+    if not fieldbyname('m6').isnull then m006.Caption:=fieldbyname('m6').value;
+    if not fieldbyname('m7').isnull then m007.Caption:=fieldbyname('m7').value;
+    if not fieldbyname('m8').isnull then m008.Caption:=fieldbyname('m8').value;
+    if not fieldbyname('m9').isnull then m009.Caption:=fieldbyname('m9').value;
+    if not fieldbyname('m10').isnull then m010.Caption:=fieldbyname('m10').value;
+    if not fieldbyname('m11').isnull then m011.Caption:=fieldbyname('m11').value;
+    if not fieldbyname('m12').isnull then m012.Caption:=fieldbyname('m12').value;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    params.createparam(ftdatetime,'x1',ptinput);
+    commandtext:='select * from tbl_cap_sversion where tm=:x1 and seq=2';
+    params[0].asdatetime:=query4.fieldbyname('tm').value;
+    open;
+    if fieldbyname('m1').value=fieldbyname('m2').value then begin
+      if fieldbyname('m1').value=fieldbyname('m3').value then begin
+        yq2.Caption:=fieldbyname('m2').value;
+        pl3.Visible:=true;
+        if fieldbyname('m6').value>'' then begin
+          yq5.Caption:=fieldbyname('m5').value;
+          pl6.Visible:=true;
+          if fieldbyname('m9').value>'' then begin
+            yq8.Caption:=fieldbyname('m8').value;
+            pl9.Visible:=true;
+            if fieldbyname('m12').value>'' then
+              yq11.Caption:=fieldbyname('m11').value
+            else yq10.Caption:=fieldbyname('m10').value;
+          end else begin
+            yq7.Caption:=fieldbyname('m7').value;
+            if fieldbyname('m8').value>'' then pl8.Visible:=true
+            else pl7.Visible:=true;
+          end;
+        end else begin
+          yq4.Caption:=fieldbyname('m4').value;
+          if fieldbyname('m5').value>'' then pl5.Visible:=true
+          else pl4.Visible:=true;
+        end;
+      end else begin
+        yq1.Caption:=fieldbyname('m1').value;
+        pl2.Visible:=true;
+        if fieldbyname('m5').value>'' then begin
+          yq4.Caption:=fieldbyname('m4').value;
+          pl5.Visible:=true;
+          if fieldbyname('m8').value>'' then begin
+            yq7.Caption:=fieldbyname('m7').value;
+            pl8.Visible:=true;
+            if fieldbyname('m11').value>'' then begin
+              yq10.Caption:=fieldbyname('m10').value;
+              pl11.Visible:=true;
+            end else begin
+              yq9.Caption:=fieldbyname('m9').value;
+              if fieldbyname('m10').value>'' then pl10.Visible:=true
+              else pl9.Visible:=true;
+            end;
+          end else begin
+            yq6.Caption:=fieldbyname('m6').value;
+            if fieldbyname('m7').value>'' then pl7.Visible:=true
+            else pl6.Visible:=true;
+          end;
+        end else begin
+          yq3.Caption:=fieldbyname('m3').value;
+          if fieldbyname('m4').value>'' then pl4.Visible:=true
+          else pl3.Visible:=true;
+        end;
+        yq12.Caption:=fieldbyname('m12').value;
+      end;
+    end else begin
+      yq1.Caption:=fieldbyname('m1').value;
+      pl1.Visible:=true;
+      if fieldbyname('m4').value>'' then begin
+        yq3.Caption:=fieldbyname('m3').value;
+        pl4.Visible:=true;
+        if fieldbyname('m7').value>'' then begin
+          yq6.Caption:=fieldbyname('m6').value;
+          pl7.Visible:=true;
+          if fieldbyname('m10').value>'' then begin
+            yq9.Caption:=fieldbyname('m9').value;
+            pl10.Visible:=true;
+          end else begin
+            yq8.Caption:=fieldbyname('m8').value;
+            if fieldbyname('m9').value>'' then pl9.Visible:=true
+            else pl8.Visible:=true;
+          end;
+        end else begin
+          yq5.Caption:=fieldbyname('m5').value;
+          if fieldbyname('m6').Value>'' then pl6.Visible:=true
+          else pl5.Visible:=true;
+        end;
+      end else begin
+        yq2.Caption:=fieldbyname('m2').value;
+        if fieldbyname('m3').value>'' then pl3.Visible:=true
+        else pl2.Visible:=true;
+      end;
+      yq11.Caption:=fieldbyname('m11').value;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_simpleversion.ppDetailBand1BeforePrint(
+  Sender: TObject);
+begin
+  if m001.Caption>'' then ppdbtext3.Visible:=true else ppdbtext3.Visible:=false;
+  if m002.Caption>'' then ppdbtext4.Visible:=true else ppdbtext4.Visible:=false;
+  if m003.Caption>'' then ppdbtext5.Visible:=true else ppdbtext5.Visible:=false;
+  if m004.Caption>'' then ppdbtext6.Visible:=true else ppdbtext6.Visible:=false;
+  if m005.Caption>'' then ppdbtext7.Visible:=true else ppdbtext7.Visible:=false;
+  if m006.Caption>'' then ppdbtext8.Visible:=true else ppdbtext8.Visible:=false;
+  if m007.Caption>'' then ppdbtext9.Visible:=true else ppdbtext9.Visible:=false;
+  if m008.Caption>'' then ppdbtext10.Visible:=true else ppdbtext10.Visible:=false;
+  if m009.Caption>'' then ppdbtext11.Visible:=true else ppdbtext11.Visible:=false;
+  if m010.Caption>'' then ppdbtext12.Visible:=true else ppdbtext12.Visible:=false;
+  if m011.Caption>'' then ppdbtext13.Visible:=true else ppdbtext13.Visible:=false;
+  if m012.Caption>'' then ppdbtext14.Visible:=true else ppdbtext14.Visible:=false;
+  ppdbtext3.DisplayFormat:='#0'; ppdbtext4.DisplayFormat:='#0'; ppdbtext5.DisplayFormat:='#0';
+  ppdbtext6.DisplayFormat:='#0'; ppdbtext7.DisplayFormat:='#0'; ppdbtext8.DisplayFormat:='#0';
+  ppdbtext9.DisplayFormat:='#0'; ppdbtext10.DisplayFormat:='#0'; ppdbtext11.DisplayFormat:='#0';
+  ppdbtext12.DisplayFormat:='#0'; ppdbtext13.DisplayFormat:='#0'; ppdbtext14.DisplayFormat:='#0';
+  if query4.fieldbyname('seq').value=2 then begin
+    if (query4.fieldbyname('seq1').value=11) or (query4.fieldbyname('seq1').value=31)
+    or (query4.fieldbyname('seq1').value=32) or (query4.fieldbyname('seq1').value=33)
+    or (query4.fieldbyname('seq1').value=51) or (query4.fieldbyname('seq1').value=93)
+    or (query4.fieldbyname('seq1').value=95) or (query4.fieldbyname('seq1').value=97)then begin
+      ppdbtext3.DisplayFormat:='#0%'; ppdbtext4.DisplayFormat:='#0%'; ppdbtext5.DisplayFormat:='#0%';
+      ppdbtext6.DisplayFormat:='#0%'; ppdbtext7.DisplayFormat:='#0%'; ppdbtext8.DisplayFormat:='#0%';
+      ppdbtext9.DisplayFormat:='#0%'; ppdbtext10.DisplayFormat:='#0%'; ppdbtext11.DisplayFormat:='#0%';
+      ppdbtext12.DisplayFormat:='#0%'; ppdbtext13.DisplayFormat:='#0%'; ppdbtext14.DisplayFormat:='#0%';
+    end;
+  end else if (query4.fieldbyname('seq').value=4) or (query4.fieldbyname('seq').value=5) then begin
+    if (query4.fieldbyname('seq1').value=2) or (query4.fieldbyname('seq1').value=5) then begin
+      ppdbtext3.DisplayFormat:='#0%'; ppdbtext4.DisplayFormat:='#0%'; ppdbtext5.DisplayFormat:='#0%';
+      ppdbtext6.DisplayFormat:='#0%'; ppdbtext7.DisplayFormat:='#0%'; ppdbtext8.DisplayFormat:='#0%';
+      ppdbtext9.DisplayFormat:='#0%'; ppdbtext10.DisplayFormat:='#0%'; ppdbtext11.DisplayFormat:='#0%';
+      ppdbtext12.DisplayFormat:='#0%'; ppdbtext13.DisplayFormat:='#0%'; ppdbtext14.DisplayFormat:='#0%';
+    end;
+  end;
+  //
+  {
+  if query4.fieldbyname('seq').value=2 then begin
+    ppline3.Visible:=true;
+    ppdbtext15.Visible:=true;
+    if not query4.fieldbyname('grp').isnull then begin
+      if query4.fieldbyname('grp').value='A' then begin
+        if query4.fieldbyname('cust').value='' then
+          ppshape1.Brush.Color:=$00FEFFE6
+        else ppshape1.Brush.Color:=clWhite;
+      end else if query4.fieldbyname('grp').value='B' then begin
+        if query4.fieldbyname('cust').value='' then
+          ppshape1.Brush.Color:=$00EDB7AF
+        else ppshape1.Brush.Color:=clWhite;
+      end else if query4.fieldbyname('grp').value='C' then begin
+        if query4.fieldbyname('cust').value='' then
+          ppshape1.Brush.Color:=$00ACA9DA
+        else ppshape1.Brush.Color:=clWhite;
+      end else begin
+        ppshape1.Brush.Color:=clWhite;
+        ppline3.Visible:=false;
+        ppdbtext15.Visible:=false;
+      end;
+    end else begin
+      ppshape1.Brush.Color:=clWhite;
+      ppline3.Visible:=false;
+      ppdbtext15.Visible:=false;
+    end;
+  end else begin
+    ppline3.Visible:=false;
+    ppdbtext15.Visible:=false;
+    ppshape1.Brush.Color:=clWhite;
+  end;
+  }
+end;
+
+procedure Tfrmnewcap_simpleversion.ppGroupHeaderBand1BeforePrint(
+  Sender: TObject);
+begin
+  if query4.fieldbyname('seq').value=2 then ppGroupHeaderBand1.Visible:=True
+  else ppGroupHeaderBand1.Visible:=False;
+end;
+
+procedure Tfrmnewcap_simpleversion.ppGroupHeaderBand2BeforePrint(
+  Sender: TObject);
+begin
+  if query4.fieldbyname('seq').value=2 then begin
+    if query4.fieldbyname('grp').value<>'A' then
+      ppGroupHeaderBand2.Visible:=True
+    else ppGroupHeaderBand2.Visible:=false;
+  end else ppGroupHeaderBand2.Visible:=False;
+end;
+
+end.

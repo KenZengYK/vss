@@ -1,0 +1,51 @@
+unit newcap_dhlnotepadformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DBCtrls, StdCtrls, Buttons;
+
+type
+  Tfrmnewcap_dhlnotepad = class(TForm)
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    DBMemo1: TDBMemo;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_dhlnotepad: Tfrmnewcap_dhlnotepad;
+
+implementation
+
+uses mainformu, newcap_wfformu, newcap_wf_detailformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_dhlnotepad.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_dhlnotepad:=nil;
+end;
+
+procedure Tfrmnewcap_dhlnotepad.BitBtn1Click(Sender: TObject);
+begin
+  if label1.Caption='Factory ' then
+  frmnewcap_wf.BitBtn3Click(self)
+  else if label1.Caption='Line ' then
+  if (frmnewcap_wf_detail.Query1.state=dsedit) or (frmnewcap_wf_detail.Query1.state=dsinsert) then frmnewcap_wf_detail.query1.post;
+end;
+
+end.

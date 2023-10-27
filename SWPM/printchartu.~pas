@@ -1,0 +1,32 @@
+unit printchartu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ExtCtrls, QuickRpt, Db, DBTables, TeEngine, Series, TeeProcs, Chart,
+  DBChart, QrTee, DBClient;
+
+type
+  Tfrmprintchart = class(TForm)
+    QuickRep1: TQuickRep;
+    TitleBand1: TQRBand;
+    PageHeaderBand1: TQRBand;
+    QRDBChart1: TQRDBChart;
+    QRChart1: TQRChart;
+    Series1: TFastLineSeries;
+    ClientDataSet1: TClientDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmprintchart: Tfrmprintchart;
+
+implementation
+uses loginu;
+{$R *.DFM}
+
+end.

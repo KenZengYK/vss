@@ -1,0 +1,111 @@
+unit newcap_reportsformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DateUtils, DB, DBClient;
+
+type
+  Tfrmnewcap_reports = class(TForm)
+    BitBtn11: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn1: TBitBtn;
+    BitBtn12: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query2: TClientDataSet;
+    BitBtn3: TBitBtn;
+    procedure BitBtn11Click(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn12Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_reports: Tfrmnewcap_reports;
+
+implementation
+
+uses mainformu, newcapformu, newcap_ftyelementsformu, newcap_comformu,
+  newcap_simpleversionformu, newcap_newformatsformu, newcap_custupdatedformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_reports.BitBtn11Click(Sender: TObject);
+begin
+  if frmnewcap_ftyelements=nil then frmnewcap_ftyelements:=tfrmnewcap_ftyelements.create(nil);
+  frmnewcap_ftyelements.show;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn5Click(Sender: TObject);
+begin
+  if frmnewcap_com=nil then frmnewcap_com:=tfrmnewcap_com.Create(nil);
+  frmnewcap_com.Show;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn1Click(Sender: TObject);
+begin
+  if frmnewcap_simpleversion=nil then frmnewcap_simpleversion:=tfrmnewcap_simpleversion.Create(nil);
+  frmnewcap_simpleversion.sEdit1.Value:=yearof(now);
+  frmnewcap_simpleversion.sEdit2.Value:=monthof(now);
+  frmnewcap_simpleversion.sEdit3.Value:=yearof(now);
+  frmnewcap_simpleversion.sEdit4.Value:=monthof(now);
+  frmnewcap_simpleversion.Show;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn12Click(Sender: TObject);
+var
+  seq:string;
+begin
+  if frmnewcap_newformats=nil then frmnewcap_newformats:=tfrmnewcap_newformats.create(nil);
+  frmnewcap_newformats.spinedit1.value:=yearof(now);
+  frmnewcap_newformats.spinedit2.Value:=1;
+  frmnewcap_newformats.spinedit3.Value:=12;
+  frmnewcap_newformats.spinedit4.value:=1;
+  frmnewcap_newformats.spinedit5.value:=53;
+  frmnewcap_newformats.spinedit2.Enabled:=false;
+  frmnewcap_newformats.spinedit3.Enabled:=false;
+  frmnewcap_newformats.spinedit4.Enabled:=false;
+  frmnewcap_newformats.spinedit5.Enabled:=false;
+  frmnewcap_newformats.spinedit6.value:=yearof(now);
+  frmnewcap_newformats.spinedit8.value:=yearof(now);
+  frmnewcap_newformats.spinedit7.Value:=1;
+  frmnewcap_newformats.spinedit9.Value:=12;
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select min(seq) as q from tbl_cap_ftyelements where sdesc=''Execution''';
+    open;
+    if not fieldbyname('q').isnull then seq:=fieldbyname('q').asstring
+    else seq:='1';
+  end;
+  frmnewcap_newformats.label8.caption:=seq;//'1';
+  frmnewcap_newformats.show;
+end;
+
+procedure Tfrmnewcap_reports.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_reports:=nil;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmnewcap_reports.BitBtn3Click(Sender: TObject);
+begin
+  if frmnewcap_custupdated=nil then frmnewcap_custupdated:=tfrmnewcap_custupdated.Create(nil);
+  frmnewcap_custupdated.Show;
+end;
+
+end.

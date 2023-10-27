@@ -1,0 +1,104 @@
+unit exportgaiformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Mask, rxToolEdit, Buttons, QExport4, QExport4XLS, DB,
+  DBClient;
+
+type
+  Tfrmexportgai = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    ComboBox2: TComboBox;
+    Label3: TLabel;
+    Edit1: TEdit;
+    GroupBox1: TGroupBox;
+    Label4: TLabel;
+    DateEdit1: TDateEdit;
+    Label5: TLabel;
+    DateEdit2: TDateEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    SaveDialog1: TSaveDialog;
+    Query1: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmexportgai: Tfrmexportgai;
+
+implementation
+
+uses mainformu, worksheet;
+
+{$R *.dfm}
+
+procedure Tfrmexportgai.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmexportgai:=nil;
+end;
+
+procedure Tfrmexportgai.BitBtn1Click(Sender: TObject);
+begin
+  screen.Cursor:=crSQLWait;
+  try
+    with query1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftdate,'x4',ptinput);
+      params.createparam(ftdate,'x5',ptinput);
+      commandtext:='execute procedure sp_upd_prj1(:x1,:x2,:x3,:x4,:x5)';
+      params[0].asstring:=combobox1.text;
+      params[1].asstring:=combobox2.text;
+      params[2].asstring:=edit1.text;
+      params[3].asdate:=dateedit1.date;
+      params[4].asdate:=dateedit2.date;
+      execute;
+    end;
+    with query1 do begin
+      close;
+      params.clear;
+      if worksheet1.lbl850.Caption='SPE' then
+        commandtext:='select distinct a.tshop as "Workshop",a.pline as "Line #",a.j_no as "Project #",a.j2_job as "WO #",'
+                    +'a.cstyle as "Cust Style",a.acol as "Clr Code",a.rwo as "RWO #",a.fccs as "QN #",a.dt1 as "Date",'
+                    +'a.lstr as "Def WF",a.sjrs-a.sjrs3 as "Actual WF",a.trs as "Def Mc",a.sjyc as "Actual Mc",a.prj1*100.00/a.xjs/a.eff1 as "Def Sect hr",a.csect as "Curr Sect hr",a.prj1 as "Target",'
+                    +'a.diff_sp as "Actual output",a.eff1 as "Def Eff%",a.eff2_sp as "Actual Eff%",b.tmu as "GSD SAH",a.seq as "Sequence" '
+                    +'from line_shjs a,tblshedule b where a.diff>0.1 and a.flag=''0'' and a.pline=b.pline and a.seq=b.seq'
+      else
+        commandtext:='select distinct a.tshop as "Workshop",a.pline as "Line #",a.j_no as "Project #",a.j2_job as "WO #",'
+                    +'a.cstyle as "Cust Style",a.acol as "Clr Code",a.rwo as "RWO #",a.fccs as "QN #",a.dt1 as "Date",'
+                    +'a.lstr as "Def WF",a.sjrs as "Actual WF",a.trs as "Def Mc",a.sjyc as "Actual Mc",a.prj1*100.00/a.xjs/a.eff1 as "Def Sect hr",a.csect as "Curr Sect hr",a.prj1 as "Target",'
+                    +'a.diff as "Actual output",a.eff1 as "Def Eff%",a.eff2 as "Actual Eff%",b.tmu as "GSD SAH",a.seq as "Sequence" '
+                    +'from line_shjs a,tblshedule b where a.diff>0.1 and a.flag=''0'' and a.pline=b.pline and a.seq=b.seq';
+      if combobox1.text>'' then commandtext:=commandtext+' and a.tplant='''+combobox1.text+'''';
+      if combobox2.text>'' then commandtext:=commandtext+' and a.tshop='''+combobox2.text+'''';
+      if edit1.text>'' then commandtext:=commandtext+' and a.pline='''+edit1.text+'''';
+      if dateedit1.date>0 then commandtext:=commandtext+' and a.dt1>='''+formatdatetime('yyyy-MM-dd',dateedit1.date)+'''';
+      if dateedit2.date>0 then commandtext:=commandtext+' and a.dt1<='''+formatdatetime('yyyy-MM-dd',dateedit2.date)+'''';
+      commandtext:=commandtext+' order by a.tshop,a.pline,a.seq';
+      open;
+      if recordcount>0 then begin
+        savedialog1.Execute;
+        xls1.FileName:=savedialog1.FileName;
+        xls1.Execute;
+      end;
+    end;
+  finally
+    screen.Cursor:=crDefault;
+  end;
+end;
+
+end.

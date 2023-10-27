@@ -1,0 +1,187 @@
+unit aqlflowformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, DBGridEh, Buttons, DB, DBClient, ppProd,
+  ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppCtrls, ppPrnabl,
+  ppBands, ppCache, ppViewr, Txcomp, ppVar, GridsEh, ppParameter;
+
+type
+  Tfrmaqlflow = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    DBGridEh1: TDBGridEh;
+    Label2: TLabel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    BitBtn3: TBitBtn;
+    ppDBPipeline1: TppDBPipeline;
+    ppReport1: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppLabel1: TppLabel;
+    ppShape1: TppShape;
+    ppLabel2: TppLabel;
+    ppLabel4: TppLabel;
+    ppDBText1: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppLabel7: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLabel8: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLabel9: TppLabel;
+    ppDBText6: TppDBText;
+    ppLabel3: TppLabel;
+    ppLabel10: TppLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure Query1AfterOpen(DataSet: TDataSet);
+    procedure querychange(Sender: TField);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure ppReport1PreviewFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmaqlflow: Tfrmaqlflow;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+procedure Tfrmaqlflow.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmaqlflow:=nil;
+end;
+
+procedure Tfrmaqlflow.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmaqlflow.FormShow(Sender: TObject);
+begin
+  combobox1.items.clear;
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select distinct substr(j_no,1,4) as cust from tbl_erpsop';
+    open;
+    first;
+    while not eof do begin
+      combobox1.items.add(fieldbyname('cust').value);
+      application.ProcessMessages;
+      next;
+    end;
+  end;
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_aqlflow_cust';
+    open;
+  end;
+end;
+
+procedure Tfrmaqlflow.ComboBox1Change(Sender: TObject);
+begin
+  with query1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_aqlflow_cust';
+    if combobox1.text>'' then commandtext:=commandtext+' where j_no='''+combobox1.text+'''';
+    open;
+  end;
+end;
+
+procedure Tfrmaqlflow.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  {
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftinteger,'x1',ptinput);
+      params.createparam(ftstring,'x2',ptinput);
+      params.createparam(ftstring,'x3',ptinput);
+      params.createparam(ftstring,'x4',ptinput);
+      params.createparam(ftstring,'x5',ptinput);
+      params.createparam(ftstring,'x6',ptinput);
+      params.createparam(ftstring,'x7',ptinput);
+      params.createparam(ftinteger,'x8',ptinput);
+      commandtext:='update tbl_aqlflow_cust set ftype=:x1,flow1=:x2,flow2=:x3,flow3=:x4,flowd=:x5,tflow=:x6 where j_no=:x7 and seq=:x8';
+      str1:='update tbl_aqlflow_cust set ';
+      str1:=str1+'ftype='+query1.fieldbyname('ftype').asstring+',';
+      str1:=str1+'flow1='''+query1.fieldbyname('flow1').value;
+      str1:=str1+'flow2='''+query1.fieldbyname('flow2').value;
+      str1:=str1+'flow3='''+query1.fieldbyname('flow3').value;
+      str1:=str1+'flowd='''+query1.fieldbyname('flowd').value;
+      str1:=str1+'tflow='''+query1.fieldbyname('tflow').value;
+      params[6].asstring:=query1.fieldbyname('j_no').value;
+      params[7].asinteger:=query1.fieldbyname('seq').value;
+
+      params[0].asinteger:=query1.fieldbyname('ftype').value;
+      params[1].asstring:=query1.fieldbyname('flow1').value;
+      params[2].asstring:=query1.fieldbyname('flow2').value;
+      params[3].asstring:=query1.fieldbyname('flow3').value;
+      params[4].asstring:=query1.fieldbyname('flowd').value;
+      params[5].asstring:=query1.fieldbyname('tflow').value;
+      params[6].asstring:=query1.fieldbyname('j_no').value;
+      params[7].asinteger:=query1.fieldbyname('seq').value;
+      execute;
+    end;
+  end;
+  }
+end;
+
+procedure Tfrmaqlflow.Query1AfterOpen(DataSet: TDataSet);
+begin
+  query1.FieldByName('flowd').OnChange:=querychange;
+end;
+
+procedure Tfrmaqlflow.querychange(Sender: TField);
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select * from tbl_aqlflow where flowd='''+query1.fieldbyname('flowd').value+'''';
+    open;
+    query1.fieldbyname('ftype').value:=fieldbyname('ftype').value;
+    query1.fieldbyname('flow1').value:=fieldbyname('flow1').value;
+    query1.fieldbyname('flow2').value:=fieldbyname('flow2').value;
+    query1.fieldbyname('flow3').value:=fieldbyname('flow3').value;
+    query1.fieldbyname('tflow').value:=fieldbyname('tflow').value;
+  end;
+end;
+
+procedure Tfrmaqlflow.BitBtn2Click(Sender: TObject);
+begin
+  if query1.Active then ppReport1.Print;
+end;
+
+procedure Tfrmaqlflow.ppReport1PreviewFormCreate(Sender: TObject);
+begin
+  ppReport1.PreviewForm.windowstate:=wsMaximized;
+  TppViewer(ppReport1.PreviewForm.Viewer).ZoomPercentage:=100;
+end;
+
+end.

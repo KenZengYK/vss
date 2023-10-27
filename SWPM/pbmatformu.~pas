@@ -1,0 +1,85 @@
+unit pbmatformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, StdCtrls, Buttons, Grids, DBGridEh;
+
+type
+  Tfrmpbmat = class(TForm)
+    DBGridEh1: TDBGridEh;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query1: TClientDataSet;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    DataSource1: TDataSource;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmpbmat: Tfrmpbmat;
+
+implementation
+
+uses mainformu;
+
+{$R *.dfm}
+
+procedure Tfrmpbmat.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmpbmat.Query1AfterPost(DataSet: TDataSet);
+begin
+  if query1.ApplyUpdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftdate,'date',ptinput);
+      params.createparam(ftstring,'marks',ptinput);
+      params.createparam(ftstring,'jno',ptinput);
+      params.createparam(ftstring,'job',ptinput);
+      params.createparam(ftstring,'acol',ptinput);
+      params.createparam(ftstring,'sopno',ptinput);
+      params.createparam(ftinteger,'ordline',ptinput);
+      params.createparam(ftinteger,'seq',ptinput);
+      commandtext:='update tblpbmatmatch set t_date=:date,t_marks=:marks where j_no=:jno and j2_job=:job and acol=:acol and sopno=:sopno and ordline=:ordline and t_seq=:seq';
+      if not query1.fieldbyname('t_date').isnull then
+      params[0].asdate:=query1.fieldbyname('t_date').value;
+      if not query1.fieldbyname('t_marks').isnull then
+      params[1].asstring:=query1.fieldbyname('t_marks').value
+      else params[1].asstring:=' ';
+      params[2].asstring:=query1.fieldbyname('j_no').value;
+      params[3].asstring:=query1.fieldbyname('j2_job').value;
+      params[4].asstring:=query1.fieldbyname('acol').value;
+      params[5].asstring:=query1.fieldbyname('sopno').value;
+      params[6].asinteger:=query1.fieldbyname('ordline').value;
+      params[7].asinteger:=query1.fieldbyname('t_seq').value;
+      execute;
+    end;
+  end;
+end;
+
+procedure Tfrmpbmat.BitBtn1Click(Sender: TObject);
+begin
+  if query1.state=dsedit then query1.post;
+end;
+
+procedure Tfrmpbmat.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmpbmat:=nil;
+end;
+
+end.
+ 

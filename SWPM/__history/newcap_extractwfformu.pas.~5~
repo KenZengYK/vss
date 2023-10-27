@@ -1,0 +1,220 @@
+unit newcap_extractwfformu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, ExtCtrls, DBCtrls, StdCtrls, GridsEh, DBGridEh,
+  Buttons;
+
+type
+  Tfrmnewcap_extractwf = class(TForm)
+    Query1: TClientDataSet;
+    DataSource1: TDataSource;
+    Query2: TClientDataSet;
+    Query3: TClientDataSet;
+    Panel1: TPanel;
+    Label1: TLabel;
+    DBText1: TDBText;
+    Label2: TLabel;
+    DBText2: TDBText;
+    Label3: TLabel;
+    wf001: TLabel;
+    DBGridEh1: TDBGridEh;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Query1AfterPost(DataSet: TDataSet);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure Query1NewRecord(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure DBGridEh1ColEnter(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmnewcap_extractwf: Tfrmnewcap_extractwf;
+
+implementation
+
+uses mainformu, newcap_wfformu;
+
+{$R *.dfm}
+
+procedure Tfrmnewcap_extractwf.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmnewcap_extractwf:=nil;
+end;
+
+procedure Tfrmnewcap_extractwf.Query1AfterPost(DataSet: TDataSet);
+var
+  str1:string;
+begin
+  //if query1.applyupdates(-1)>0 then begin
+    with query2 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'x1',ptinput);
+      params.createparam(ftdate,'x2',ptinput);
+      params.createparam(ftinteger,'x3',ptinput);
+      commandtext:='select * from tbl_cap_wf_detail where tplant=:x1 nad dt=:x2 and seq=:x3';
+      params[0].asstring:=query1.fieldbyname('tplant').value;
+      params[1].asdate:=query1.fieldbyname('dt').value;
+      params[2].asinteger:=query1.fieldbyname('seq').value;
+      open;
+      if not fieldbyname('seq').isnull then begin
+        {
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftfloat,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftstring,'x8',ptinput);
+          params.createparam(ftstring,'x4',ptinput);
+          params.createparam(ftdate,'x5',ptinput);
+          params.createparam(ftinteger,'x6',ptinput);
+          params.createparam(ftstring,'x7',ptinput);
+          commandtext:='update tbl_cap_wf_detail set typ=:x1,qty=:x2,remarks=:x3,todept=:x8 where tplant=:x4 and dt=:x5 and seq=:x6 and typ1=:x7';
+          str1:='update tbl_cap_wf_detail set ';
+          if not query1.fieldbyname('typ').isnull then
+          str1:=str1+'typ='''+query1.fieldbyname('typ').value+''','
+          else str1:=str1+'typ='''',';
+          if not query1.fieldbyname('qty').isnull then
+          str1:=str1+'qty='+query1.fieldbyname('qty').asstring+','
+          else str1:=str1+'qty=0,';
+          if not query1.fieldbyname('remarks').isnull then
+          str1:=str1+'remarks='''+query1.fieldbyname('remarks').value+''','
+          else params[2].asstring:='';
+
+          if not query1.fieldbyname('typ').isnull then
+          params[0].asstring:=query1.fieldbyname('typ').value
+          else params[0].asstring:='';
+          if not query1.fieldbyname('qty').isnull then
+          params[1].asfloat:=query1.fieldbyname('qty').value
+          else params[1].asfloat:=0;
+          if not query1.fieldbyname('remarks').isnull then
+          params[2].asstring:=query1.fieldbyname('remarks').value
+          else params[2].asstring:='';
+          if not query1.fieldbyname('todept').isnull then
+          params[3].asstring:=query1.fieldbyname('todept').value
+          else params[3].asstring:='';
+          params[4].asstring:=query1.fieldbyname('tplant').value;
+          params[5].asdate:=query1.fieldbyname('dt').value;
+          params[6].asinteger:=query1.fieldbyname('seq').value;
+          params[7].asstring:=query1.fieldbyname('typ1').value;
+          execute;
+        end;
+        }
+
+      end else begin
+        with query3 do begin
+          close;
+          params.clear;
+          params.createparam(ftstring,'x1',ptinput);
+          params.createparam(ftfloat,'x2',ptinput);
+          params.createparam(ftstring,'x3',ptinput);
+          params.createparam(ftstring,'x4',ptinput);
+          params.createparam(ftdate,'x5',ptinput);
+          params.createparam(ftinteger,'x6',ptinput);
+          params.createparam(ftstring,'x7',ptinput);
+          params.createparam(ftstring,'x8',ptinput);
+          commandtext:='insert into tbl_cap_wf_detail(typ,qty,remarks,tplant,dt,seq,typ1,todept) values(:x1,:x2,:x3,:x4,:x5,:x6,:x7,:x8)';
+          if not query1.fieldbyname('typ').isnull then
+          params[0].asstring:=query1.fieldbyname('typ').value
+          else params[0].asstring:='';
+          if not query1.fieldbyname('qty').isnull then
+          params[1].asfloat:=query1.fieldbyname('qty').value
+          else params[1].asfloat:=0;
+          if not query1.fieldbyname('remarks').isnull then
+          params[2].asstring:=query1.fieldbyname('remarks').value
+          else params[2].asstring:='';
+          params[3].asstring:=query1.fieldbyname('tplant').value;
+          params[4].asdate:=query1.fieldbyname('dt').value;
+          params[5].asinteger:=query1.fieldbyname('seq').value;
+          params[6].asstring:=query1.fieldbyname('typ1').value;
+          if not query1.fieldbyname('todept').isnull then
+          params[7].asstring:=query1.fieldbyname('todept').value
+          else params[7].asstring:='';
+          execute;
+        end;
+      end;
+    end;
+  //end;
+end;
+
+procedure Tfrmnewcap_extractwf.BitBtn3Click(Sender: TObject);
+begin
+  if (query1.state=dsedit) or (query1.state=dsinsert) then query1.post;
+end;
+
+procedure Tfrmnewcap_extractwf.Query1NewRecord(DataSet: TDataSet);
+var
+  seq:integer;
+begin
+  with query2 do begin
+    close;
+    params.clear;
+    commandtext:='select max(seq) as q from tbl_cap_wf_detail';
+    open;
+    if not fieldbyname('q').isnull then seq:=fieldbyname('q').value+1
+    else seq:=1;
+  end;
+  query1.fieldbyname('tplant').value:=frmnewcap_wf.query1.fieldbyname('tplant').value;
+  query1.fieldbyname('dt').value:=frmnewcap_wf.query1.fieldbyname('dt').value;
+  query1.fieldbyname('seq').value:=seq;
+  query1.fieldbyname('typ1').value:=frmnewcap_wf.Query1.fieldbyname('typ').value;
+  query1.fieldbyname('qty').value:=1;
+end;
+
+procedure Tfrmnewcap_extractwf.BitBtn1Click(Sender: TObject);
+begin
+  dbgrideh1.SetFocus;
+  dbgrideh1.selectedindex:=0;
+  query1.Append;
+end;
+
+procedure Tfrmnewcap_extractwf.BitBtn2Click(Sender: TObject);
+begin
+  if not query1.fieldbyname('seq').isnull then begin
+    if application.MessageBox('Delete this record?','Confirmation',mb_iconquestion+mb_okcancel)=idok then begin
+      with query2 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'x1',ptinput);
+        params.createparam(ftdate,'x2',ptinput);
+        params.createparam(ftinteger,'x3',ptinput);
+        commandtext:='delete from tbl_cap_wf_detail where tplant=:x1 and dt=:x2 and seq=:x3';
+        params[0].asstring:=query1.fieldbyname('tplant').value;
+        params[1].asdate:=query1.fieldbyname('dt').value;
+        params[2].asinteger:=query1.fieldbyname('seq').value;
+        execute;
+      end;
+      query1.delete;
+    end;
+  end;
+end;
+
+procedure Tfrmnewcap_extractwf.DBGridEh1ColEnter(Sender: TObject);
+begin
+  dbgrideh1.columns[2].PickList.Clear;
+  if not query1.fieldbyname('typ').isnull then begin
+    if query1.fieldbyname('typ').value='Lent' then begin
+      dbgrideh1.Columns[2].PickList.Add('Core-tech');
+      dbgrideh1.Columns[2].PickList.Add('Specific Ws');
+      dbgrideh1.Columns[2].PickList.Add('Bonding');
+      dbgrideh1.Columns[2].PickList.Add('Other');
+    end;
+  end;
+end;
+
+end.
