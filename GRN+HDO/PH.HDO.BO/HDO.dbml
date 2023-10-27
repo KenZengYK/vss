@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PH.HDO" Class="HDODataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=S99VF403\SQLSERVER2005;Initial Catalog=PH.HDO;Persist Security Info=True;User ID=ituser" SettingsObjectName="PH.HDO.BO.Properties.Settings" SettingsPropertyName="PH_HDOConnectionString7" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tempa" Member="tempas">
+    <Type Name="tempa" />
+  </Table>
+  <Table Name="dbo.HDOInvoice" Member="HDOInvoices">
+    <Type Name="HDOInvoice">
+      <Column Name="OID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HDO" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Invoice" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Operator" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OperateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IDInvoice" Member="IDInvoices">
+    <Type Name="IDInvoice">
+      <Column Name="OID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HDO" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Invoice" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Material" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProjectNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Suppliers" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Operator" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OperateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stock_In" Member="Stock_Ins">
+    <Type Name="Stock_In">
+      <Column Name="Date" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PO_number" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Invoice" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Project_No" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_Art" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_Group" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Received" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Lot_no" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Uom" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Price" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="Rate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total_THB" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="USE_FULL" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Loc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stock_Out" Member="Stock_Outs">
+    <Type Name="Stock_Out">
+      <Column Name="Date" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PO_number" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Invoice" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Project_No" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_Art" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_Group" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Received" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Lot_no" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Uom" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Price" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="Rate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total_THB" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="USE_FULL" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Loc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockBalanceLog" Member="StockBalanceLogs">
+    <Type Name="StockBalanceLog">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StockRoom" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaterialGroup" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Invoice" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaterialName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ProjectNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PrintDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stock_Balance" Member="Stock_Balances">
+    <Type Name="Stock_Balance">
+      <Column Name="Date" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PO_number" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Invoice" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Project_No" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_Art" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_Group" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Received" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Lot_no" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Qty" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Uom" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Price" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Rate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total_THB" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="USE_FULL" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Loc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stock_InKB" Member="Stock_InKBs">
+    <Type Name="Stock_InKB">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PO_number" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Invoice" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Project_No" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Material_name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_Art" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Material_Group" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Received" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Lot_no" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Uom" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Price" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="Rate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total_THB" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="USE_FULL" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Loc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stock_OutKB" Member="Stock_OutKBs">
+    <Type Name="Stock_OutKB">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PO_number" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Invoice" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Project_No" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Material_name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_Art" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Material_Group" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Received" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Uom" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Price" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="Rate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total_THB" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="USE_FULL" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Loc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stock_BalanceKB" Member="Stock_BalanceKBs">
+    <Type Name="Stock_BalanceKB">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PO_number" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Invoice" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Project_No" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Material_name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Material_Art" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Material_Group" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Received" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Uom" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Price" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="Rate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Total_THB" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="USE_FULL" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Loc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HDOQuantity" Member="HDOQuantities">
+    <Type Name="HDOQuantity">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GRNNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PONO" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="POLine" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PHQty" Type="System.Decimal" DbType="Decimal(11,5)" CanBeNull="true" />
+      <Column Name="GRNQty" Type="System.Decimal" DbType="Decimal(11,5)" CanBeNull="true" />
+      <Column Name="TotalReceivedQty" Type="System.Decimal" DbType="Decimal(11,5)" CanBeNull="true" />
+      <Column Name="ConversationFactor" Type="System.Decimal" DbType="Decimal(11,5)" CanBeNull="true" />
+      <Column Name="SuppUom" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PHUom" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="QtyCompleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GRNStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="HDODelivery_HDOQuantity" Member="HDODelivery" ThisKey="Company,GRNNO" OtherKey="Company,GRNNO" Type="HDODelivery" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HSCodeAveragePrice" Member="HSCodeAveragePrices">
+    <Type Name="HSCodeAveragePrice">
+      <Column Name="HSCode" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HSCodeSeq" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FGType" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TimeFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TimeEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HSMaterialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HSMemo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="HSUnit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TotalCost_RMB" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="TotalWeight_RMB" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="Price_RMB" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="TotalCost_Other" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="TotalWeight_Other" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="Price_Other" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="HSCodePrice" Type="System.Decimal" DbType="Decimal(38,19)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContractFull" Member="ContractFulls">
+    <Type Name="ContractFull">
+      <Column Name="RecId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReciveDate_HK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ERPSupplier" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PackingNo" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="PO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SuppRef" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="PageNo" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="MaterialName" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="ProductLoc" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PHUnit" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="GrnQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WeightHsCode" Type="System.Decimal" DbType="Decimal(10,6)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="TotalCost" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="BoxQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BoxNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Weight_J" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Weight_M" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="HSCodeSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContractNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ItemNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BG_Name" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="BG_Unit" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="BG_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BG_No" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GrnNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HSCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TransferredDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReleasedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HDONo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HDOStatus" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="HDODate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReceivedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BG_WeightAct" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="BG_WeightCal" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="false" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="BG_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContractInfo" Member="ContractInfos">
+    <Type Name="ContractInfo">
+      <Column Name="CraId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContractNo" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemNo" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BG_NO" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="ContractInfo_ContractInfoDetail" Member="ContractInfoDetails" ThisKey="CraId" OtherKey="CraId" Type="ContractInfoDetail" />
+      <Association Name="ContractInfo_ContractItem" Member="ContractItems" ThisKey="CraId" OtherKey="CraId" Type="ContractItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContractInfoDetail" Member="ContractInfoDetails">
+    <Type Name="ContractInfoDetail">
+      <Column Name="CraId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CraDetailId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GrnNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SuppRef" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HSCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="POActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BG_Item" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="ContractInfo_ContractInfoDetail" Member="ContractInfo" ThisKey="CraId" OtherKey="CraId" Type="ContractInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContractItem" Member="ContractItems">
+    <Type Name="ContractItem">
+      <Column Name="CraId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RecId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HSCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BG_Item" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ContractInfo_ContractItem" Member="ContractInfo" ThisKey="CraId" OtherKey="CraId" Type="ContractInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrnImported" Member="GrnImporteds">
+    <Type Name="GrnImported">
+      <Column Name="GRNO59" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LINE59" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DLIN59" Type="System.Decimal" DbType="Decimal(7,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ITEM59" Type="System.String" DbType="NVarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HDOHandling" Member="HDOHandlings">
+    <Type Name="HDOHandling">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HDONo" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PlannedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PlannedBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ReleasedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReleasedBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TransferredDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TransferredBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CustDeclarationNo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HDOReleasedDateInfomation" Member="HDOReleasedDateInfomations">
+    <Type Name="HDOReleasedDateInfomation">
+      <Column Name="HDONo" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HDODate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HDOReleasedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IsShow" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Whse" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Creator" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HDODelivery" Member="HDODeliveries">
+    <Type Name="HDODelivery">
+      <Column Name="Company" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GRNNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Incoterms" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="POTransitDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActualTransitDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ETADate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Received" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GRNStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ReceivedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntranceCustomNO" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="EntranceCustomDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HDONO" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TransitMode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CBM" Type="System.Decimal" DbType="Decimal(10,4)" CanBeNull="true" />
+      <Column Name="PONo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Fty" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ERPSupplier" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TimeFrame" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdviceNoteNo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HDODate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HDOStatus" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="recd59" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRNDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SuppCde" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaterialGrp" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="GRNQty" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="PHUom" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ROLL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PLNN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HDOUser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HDO_Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Whse" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Checked" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TransitQty" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="POUom" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="HDODelivery_HDOQuantity" Member="HDOQuantities" ThisKey="Company,GRNNO" OtherKey="Company,GRNNO" Type="HDOQuantity" />
+    </Type>
+  </Table>
+</Database>

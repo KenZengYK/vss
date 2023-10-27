@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.625, 10" name="PHGDB2">
+  <DataContextMoniker Name="/PHGDB2DataContext" />
+  <nestedChildShapes>
+    <classShape Id="96ad164b-055a-4c34-93b4-7ff0c0dce315" isExpanded="false" absoluteBounds="5.25, 3.875, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_IssueItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2295dfa-8068-438b-b2fe-cead51fe1ee5" absoluteBounds="5.265, 4.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44c43b8f-81e6-4469-b56f-96c6cf33048d" isExpanded="false" absoluteBounds="2.25, 2, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/TypeMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b3332bf-cd2c-4d05-be39-774d6715214e" absoluteBounds="2.2649999999999997, 2.46, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f882405f-d02e-4466-8963-46256da61fca" isExpanded="false" absoluteBounds="4.625, 2, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/TypeDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d695772-e85e-457f-82eb-c3eb2da7ccbc" absoluteBounds="4.64, 2.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.25 : 2.225); (4.625 : 2.225)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PHGDB2DataContext/TypeMaster/TypeMaster_TypeDetail" />
+      <nodes>
+        <classShapeMoniker Id="44c43b8f-81e6-4469-b56f-96c6cf33048d" />
+        <classShapeMoniker Id="f882405f-d02e-4466-8963-46256da61fca" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c7bd4891-fd16-4cc7-8ba6-b897f345d3bb" isExpanded="false" absoluteBounds="2.25, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/TypeSAHRange" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a66fe089-1d81-45b1-9379-2a2d21217b5c" absoluteBounds="2.2649999999999997, 3.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.25 : 2.45); (3.25 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PHGDB2DataContext/TypeMaster/TypeMaster_TypeSAHRange" />
+      <nodes>
+        <classShapeMoniker Id="44c43b8f-81e6-4469-b56f-96c6cf33048d" />
+        <classShapeMoniker Id="c7bd4891-fd16-4cc7-8ba6-b897f345d3bb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d958734a-48ae-46da-9977-89460b3243b9" isExpanded="false" absoluteBounds="2.25, 4.625, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_ReciveItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="24e880f5-a8f0-4b4a-bfee-36ff6301793b" absoluteBounds="2.265, 5.085, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="05b3ba8a-c0ef-4cfe-a42d-3594584809a7" isExpanded="false" absoluteBounds="2.25, 6.5, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_RCItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="400d0c4d-49e8-4c53-8878-94a83fe693f3" absoluteBounds="2.2650000000000006, 6.9600000000000009, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="974f0fdd-02f5-49a9-9ef2-1e7cafded013" isExpanded="false" absoluteBounds="5.25, 7.25, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_WorkTimeBasePrice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a97c49cc-964b-4e23-b41b-4be72002f190" absoluteBounds="5.265, 7.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="555dc6e5-46dd-47e8-82bc-f76370e68b2f" isExpanded="false" absoluteBounds="5.875, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_PriceCount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="989fea07-b145-4167-8fa0-33301f93b340" absoluteBounds="5.89, 3.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dc85c7ca-233f-40b7-9c5a-c475eabcbc18" isExpanded="false" absoluteBounds="2.125, 3.875, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_IssueItem_Text" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94cb3f3a-ba78-407e-b724-2404c85cf51d" absoluteBounds="2.1399999999999997, 4.335, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="30909f3f-7030-4d4a-9533-c5ee3c784a2e" isExpanded="false" absoluteBounds="5.25, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPrice_Order_IDO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc3d5b39-05c2-44d2-a64f-6d3b37db7ab9" absoluteBounds="5.2650000000000006, 5.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="524c6a0b-819e-45e3-91e2-fbf99381ad8d" isExpanded="false" absoluteBounds="9.25, 3.5, 2.875, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPrice_WorkTimeApplication_Master" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c646b834-90f3-4660-a096-aa96cbab8c10" absoluteBounds="9.265, 3.96, 2.8449999999999998, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5c15f7fd-11f9-40b3-99d7-8256f51ec25e" isExpanded="false" absoluteBounds="9.25, 4.375, 3, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPrice_WorkTimeApplication" />
+      <nestedChildShapes>
+        <elementListCompartment Id="80a25a5e-cd1f-447b-a4c6-a47918b4ffce" absoluteBounds="9.265, 4.835, 2.9699999999999998, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.34375 : 3.95); (11.34375 : 4.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PHGDB2DataContext/ByPrice_WorkTimeApplication_Master/ByPrice_WorkTimeApplication_Master_ByPrice_WorkTimeApplication" />
+      <nodes>
+        <classShapeMoniker Id="524c6a0b-819e-45e3-91e2-fbf99381ad8d" />
+        <classShapeMoniker Id="5c15f7fd-11f9-40b3-99d7-8256f51ec25e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6ca93664-e27b-4d84-b3c6-98a9246380ff" isExpanded="false" absoluteBounds="4.625, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0085d005-96ce-45a8-994b-21e37ed28ca4" absoluteBounds="4.64, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fdb286cd-8d12-4829-a2b2-f59e251ad484" isExpanded="false" absoluteBounds="2.25, 5.625, 2, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_ReturnItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84637f46-60c4-40b3-8e01-1a61966fad4c" absoluteBounds="2.265, 6.085, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dcc494be-1ad6-4f53-b53e-877caddef5c3" absoluteBounds="1.25, 7.625, 2.625, 2.1554996744791666">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_Price" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea7dcfc9-cdf4-4d0a-b9d1-03a1b4cdb145" absoluteBounds="1.265, 8.085, 2.5949999999999998, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b2e2597d-4d5b-43a2-a9f2-692011905149" absoluteBounds="9, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PHGDB2DataContext/GetFather_FL_Out" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef3b660f-1caf-4613-aeb8-d584251094ba" absoluteBounds="9.015, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="36f4aec2-9a57-4dc0-a9f5-ce6cbada983a" absoluteBounds="6.75, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PHGDB2DataContext/GetFather_TL_In" />
+      <nestedChildShapes>
+        <elementListCompartment Id="070a4997-cdc5-417c-b8a6-a30dbe69213b" absoluteBounds="6.765, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed609150-d9c6-4e8a-bec8-953641b105b8" absoluteBounds="11.375, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PHGDB2DataContext/GetMaterialData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d4ccb9f-fc39-4400-b658-c4c7272ca88c" absoluteBounds="11.39, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="544688a0-f7fc-4ae7-8ce7-1c80bd6b41e9" isExpanded="false" absoluteBounds="1.75, 1.25, 2.75, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_ELWFilteringMachineHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b810935-e247-4f70-833e-66f836ffdedf" absoluteBounds="1.765, 1.71, 2.7199999999999998, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bc5a7961-a256-4d6f-8d64-95f1e48bd0fd" isExpanded="false" absoluteBounds="1.625, 0.5, 2.5, 0.45">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPiece_ELWFilteringMachineDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1e08abd-a990-4bb5-a7b1-2bd3afff0aee" absoluteBounds="1.64, 0.96, 2.4699999999999998, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.9375 : 1.25); (2.9375 : 0.95)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PHGDB2DataContext/ByPiece_ELWFilteringMachineHeader/ByPiece_ELWFilteringMachineHeader_ByPiece_ELWFilteringMachineDetail" />
+      <nodes>
+        <classShapeMoniker Id="544688a0-f7fc-4ae7-8ce7-1c80bd6b41e9" />
+        <classShapeMoniker Id="bc5a7961-a256-4d6f-8d64-95f1e48bd0fd" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="96e508bb-c356-493b-aa2a-ea23930be0e9" absoluteBounds="5, 4.625, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/PHGDB2DataContext/ByPrice_Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="670feaca-8e58-4314-b71c-f94c2c542c34" absoluteBounds="5.015, 5.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

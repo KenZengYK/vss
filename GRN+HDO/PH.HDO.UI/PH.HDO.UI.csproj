@@ -1,0 +1,1103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8AE05B45-BE47-449D-AD16-FD1ACF5C4F15}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.HDO.UI</RootNamespace>
+    <AssemblyName>PH.HDO.UI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1.UI, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Developer Express .NET v8.1\Sources\DevExpress.DLL\DevExpress.XtraCharts.v8.1.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Developer Express .NET v8.1\Sources\DevExpress.DLL\DevExpress.XtraPivotGrid.v8.1.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v8.1" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Developer Express .NET v8.1\Sources\DevExpress.DLL\DevExpress.XtraReports.v8.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="PH.BasicInfo.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.AuthMgr.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BackEnd.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.ExtendLibrary, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.UI, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ByPiece\CheckWareHousePriceReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\CheckWareHousePriceReport.Designer.cs">
+      <DependentUpon>CheckWareHousePriceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\CheckWorkTimeApplicationReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\CheckWorkTimeApplicationReport.Designer.cs">
+      <DependentUpon>CheckWorkTimeApplicationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\CheckWorkTimeSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\CheckWorkTimeSummary.Designer.cs">
+      <DependentUpon>CheckWorkTimeSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\ELWFilteringMachineDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\ELWFilteringMachineDetailListForm.Designer.cs">
+      <DependentUpon>ELWFilteringMachineDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\ELWFilteringMachineHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\ELWFilteringMachineHeaderDetailForm.Designer.cs">
+      <DependentUpon>ELWFilteringMachineHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\ELWFilteringMachineHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\ELWFilteringMachineHeaderListForm.Designer.cs">
+      <DependentUpon>ELWFilteringMachineHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\ELWFilteringMachineReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ByPiece\ELWFilteringMachineReport.Designer.cs">
+      <DependentUpon>ELWFilteringMachineReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\ELWFilteringMachineReportSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ByPiece\ELWFilteringMachineReportSummary.Designer.cs">
+      <DependentUpon>ELWFilteringMachineReportSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\EmpDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\EmpDetailForm.Designer.cs">
+      <DependentUpon>EmpDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\EmpListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\EmpListForm.Designer.cs">
+      <DependentUpon>EmpListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\FrmDateRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ByPiece\FrmDateRange.Designer.cs">
+      <DependentUpon>FrmDateRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\HandMovement_Isu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ByPiece\HandMovement_Isu.Designer.cs">
+      <DependentUpon>HandMovement_Isu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\HandMovement_Rc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ByPiece\HandMovement_Rc.Designer.cs">
+      <DependentUpon>HandMovement_Rc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\HandMovement_Rec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ByPiece\HandMovement_Rec.Designer.cs">
+      <DependentUpon>HandMovement_Rec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\HandMovement_Ret.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ByPiece\HandMovement_Ret.Designer.cs">
+      <DependentUpon>HandMovement_Ret.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\PriceOrderListForm_IDO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\PriceOrderListForm_IDO.Designer.cs">
+      <DependentUpon>PriceOrderListForm_IDO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\PriceOrderListForm_Material.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\PriceOrderListForm_Material.Designer.cs">
+      <DependentUpon>PriceOrderListForm_Material.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\IsuueItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\IsuueItemList.Designer.cs">
+      <DependentUpon>IsuueItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\PriceOrderDetailForm_IDO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\PriceOrderDetailForm_IDO.Designer.cs">
+      <DependentUpon>PriceOrderDetailForm_IDO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\PriceOrderDetailForm_Material.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\PriceOrderDetailForm_Material.Designer.cs">
+      <DependentUpon>PriceOrderDetailForm_Material.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\PriceDetialForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\PriceDetialForm.Designer.cs">
+      <DependentUpon>PriceDetialForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\PriceListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\PriceListForm.Designer.cs">
+      <DependentUpon>PriceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\RCItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\RCItemList.Designer.cs">
+      <DependentUpon>RCItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\ReciveItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\ReciveItemList.Designer.cs">
+      <DependentUpon>ReciveItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\ReturnItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\ReturnItemList.Designer.cs">
+      <DependentUpon>ReturnItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\TypeCustDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\TypeCustDetail.Designer.cs">
+      <DependentUpon>TypeCustDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\TypeMasterDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\TypeMasterDetail.Designer.cs">
+      <DependentUpon>TypeMasterDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\TypeCustList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\TypeCustList.Designer.cs">
+      <DependentUpon>TypeCustList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\TypeMasterList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\TypeMasterList.Designer.cs">
+      <DependentUpon>TypeMasterList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\TypeSAHRangeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\TypeSAHRangeList.Designer.cs">
+      <DependentUpon>TypeSAHRangeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\TypeSAHRangeDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\TypeSAHRangeDetail.Designer.cs">
+      <DependentUpon>TypeSAHRangeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WareHousePriceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WareHousePriceReport.Designer.cs">
+      <DependentUpon>WareHousePriceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WareHousePriceReport_Sub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WareHousePriceReport_Sub.Designer.cs">
+      <DependentUpon>WareHousePriceReport_Sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationDetailForm.Designer.cs">
+      <DependentUpon>WorkTimeApplicationDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationGroupDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationGroupDetailForm.Designer.cs">
+      <DependentUpon>WorkTimeApplicationGroupDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationListForm.Designer.cs">
+      <DependentUpon>WorkTimeApplicationListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationGroupListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationGroupListForm.Designer.cs">
+      <DependentUpon>WorkTimeApplicationGroupListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationReport_Detail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationReport_Detail.Designer.cs">
+      <DependentUpon>WorkTimeApplicationReport_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeBasePriceDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeBasePriceDetailForm.Designer.cs">
+      <DependentUpon>WorkTimeBasePriceDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeBasePriceListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeBasePriceListForm.Designer.cs">
+      <DependentUpon>WorkTimeBasePriceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimePriceListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimePriceListForm.Designer.cs">
+      <DependentUpon>WorkTimePriceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeReport.Designer.cs">
+      <DependentUpon>WorkTimeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WorkTimeApplicationReport.Designer.cs">
+      <DependentUpon>WorkTimeApplicationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ByPiece\WareHousePriceReport_Summary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ByPiece\WareHousePriceReport_Summary.Designer.cs">
+      <DependentUpon>WareHousePriceReport_Summary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\AttachItemForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contract\AttachItemForm.Designer.cs">
+      <DependentUpon>AttachItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\AttachListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\AttachListForm.Designer.cs">
+      <DependentUpon>AttachListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\AttachMaterialList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\AttachMaterialList.Designer.cs">
+      <DependentUpon>AttachMaterialList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\ContractDetailA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contract\ContractDetailA.Designer.cs">
+      <DependentUpon>ContractDetailA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\ContractFullDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contract\ContractFullDetail.Designer.cs">
+      <DependentUpon>ContractFullDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\ContractFullInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contract\ContractFullInfo.Designer.cs">
+      <DependentUpon>ContractFullInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\ContractItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contract\ContractItemList.Designer.cs">
+      <DependentUpon>ContractItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\ContractItemMaitain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contract\ContractItemMaitain.Designer.cs">
+      <DependentUpon>ContractItemMaitain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\ContractSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contract\ContractSetting.Designer.cs">
+      <DependentUpon>ContractSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\CustomContractListFrom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contract\CustomContractListFrom.Designer.cs">
+      <DependentUpon>CustomContractListFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContracPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContracPrint.Designer.cs">
+      <DependentUpon>FrmContracPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractSelect.Designer.cs">
+      <DependentUpon>FrmContractSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmGuide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmGuide.Designer.cs">
+      <DependentUpon>FrmGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmMiddle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmMiddle.Designer.cs">
+      <DependentUpon>FrmMiddle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmUpdateContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmUpdateContract.Designer.cs">
+      <DependentUpon>FrmUpdateContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\LodingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\LodingForm.Designer.cs">
+      <DependentUpon>LodingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\BatchUpdateCustomInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GRN\BatchUpdateCustomInfoForm.Designer.cs">
+      <DependentUpon>BatchUpdateCustomInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\FrmSelectGrnInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GRN\FrmSelectGrnInfo.Designer.cs">
+      <DependentUpon>FrmSelectGrnInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\GRNWorksheettSummaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GRN\GRNWorksheettSummaryForm.Designer.cs">
+      <DependentUpon>GRNWorksheettSummaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\HDOHandlingDataForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GRN\HDOHandlingDataForm.Designer.cs">
+      <DependentUpon>HDOHandlingDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\HDOHandlingListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GRN\HDOHandlingListFrm.Designer.cs">
+      <DependentUpon>HDOHandlingListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\HDOHandlingQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GRN\HDOHandlingQueryForm.Designer.cs">
+      <DependentUpon>HDOHandlingQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\HDOQuantityListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GRN\HDOQuantityListFrm.Designer.cs">
+      <DependentUpon>HDOQuantityListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\HDODeliveryListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GRN\HDODeliveryListFrm.Designer.cs">
+      <DependentUpon>HDODeliveryListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\GRNNoHDOFrom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GRN\GRNNoHDOFrom.Designer.cs">
+      <DependentUpon>GRNNoHDOFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\HDOReleasedDateForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GRN\HDOReleasedDateForm.Designer.cs">
+      <DependentUpon>HDOReleasedDateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\HDOShippingAdviceForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GRN\HDOShippingAdviceForm.Designer.cs">
+      <DependentUpon>HDOShippingAdviceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\HDOShippingAdviceQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GRN\HDOShippingAdviceQueryForm.Designer.cs">
+      <DependentUpon>HDOShippingAdviceQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\QueryHDOInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GRN\QueryHDOInformation.Designer.cs">
+      <DependentUpon>QueryHDOInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDOInvoiceDetialFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HDOInvoiceDetialFrm.Designer.cs">
+      <DependentUpon>HDOInvoiceDetialFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRN\GRNReportFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GRN\GRNReportFrm.Designer.cs">
+      <DependentUpon>GRNReportFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDOInvoiceListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HDOInvoiceListFrm.Designer.cs">
+      <DependentUpon>HDOInvoiceListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDOQuestionFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HDOQuestionFrom.Designer.cs">
+      <DependentUpon>HDOQuestionFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDOReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HDOReport.Designer.cs">
+      <DependentUpon>HDOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDOSecondReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HDOSecondReport.Designer.cs">
+      <DependentUpon>HDOSecondReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDOStockBalanceFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HDOStockBalanceFrm.Designer.cs">
+      <DependentUpon>HDOStockBalanceFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDOSummary\HDOSumaryFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HDOSummary\HDOSumaryFrm.Designer.cs">
+      <DependentUpon>HDOSumaryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSCode\HSCodeAveragePriceListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HSCode\HSCodeAveragePriceListFrm.Designer.cs">
+      <DependentUpon>HSCodeAveragePriceListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IDInvoiceExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IDInvoiceExcel.Designer.cs">
+      <DependentUpon>IDInvoiceExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IDInvoiceListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IDInvoiceListFrm.Designer.cs">
+      <DependentUpon>IDInvoiceListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputOrOutStock\HdoStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InputOrOutStock\HdoStock.Designer.cs">
+      <DependentUpon>HdoStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockBalanceFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockBalanceFrm.Designer.cs">
+      <DependentUpon>StockBalanceFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockInfoOrOutFrm .cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockInfoOrOutFrm .Designer.cs">
+      <DependentUpon>StockInfoOrOutFrm .cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockInListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockInListFrm.Designer.cs">
+      <DependentUpon>StockInListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockInOutFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockInOutFrm.Designer.cs">
+      <DependentUpon>StockInOutFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockInOutListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockInOutListFrm.Designer.cs">
+      <DependentUpon>StockInOutListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockOutListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InputOrOutStock\StockOutListFrm.Designer.cs">
+      <DependentUpon>StockOutListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackingKB\StockBalanceKBListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackingKB\StockBalanceKBListFrm.Designer.cs">
+      <DependentUpon>StockBalanceKBListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackingKB\StockInKBListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackingKB\StockInKBListFrm.Designer.cs">
+      <DependentUpon>StockInKBListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackingKB\StockInOutKBListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackingKB\StockInOutKBListFrm.Designer.cs">
+      <DependentUpon>StockInOutKBListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackingKB\StockOutKBListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackingKB\StockOutKBListFrm.Designer.cs">
+      <DependentUpon>StockOutKBListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessForm.Designer.cs">
+      <DependentUpon>ProcessForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSCodePackingDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSCodePackingDetailReport.Designer.cs">
+      <DependentUpon>HSCodePackingDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSCodePackingSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSCodePackingSummaryReport.Designer.cs">
+      <DependentUpon>HSCodePackingSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveExecel\SaveFinanceExecelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SaveExecel\SaveFinanceExecelForm.Designer.cs">
+      <DependentUpon>SaveFinanceExecelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveExecel\SaveMaterialForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SaveExecel\SaveMaterialForm.Designer.cs">
+      <DependentUpon>SaveMaterialForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ByPiece\CheckWareHousePriceReport.resx">
+      <DependentUpon>CheckWareHousePriceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\CheckWorkTimeApplicationReport.resx">
+      <DependentUpon>CheckWorkTimeApplicationReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\CheckWorkTimeSummary.resx">
+      <DependentUpon>CheckWorkTimeSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\ELWFilteringMachineDetailListForm.resx">
+      <DependentUpon>ELWFilteringMachineDetailListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\ELWFilteringMachineHeaderDetailForm.resx">
+      <DependentUpon>ELWFilteringMachineHeaderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\ELWFilteringMachineHeaderListForm.resx">
+      <DependentUpon>ELWFilteringMachineHeaderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\ELWFilteringMachineReport.resx">
+      <DependentUpon>ELWFilteringMachineReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\ELWFilteringMachineReportSummary.resx">
+      <DependentUpon>ELWFilteringMachineReportSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\EmpDetailForm.resx">
+      <DependentUpon>EmpDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\EmpListForm.resx">
+      <DependentUpon>EmpListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\FrmDateRange.resx">
+      <DependentUpon>FrmDateRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\HandMovement_Isu.resx">
+      <DependentUpon>HandMovement_Isu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\HandMovement_Rc.resx">
+      <DependentUpon>HandMovement_Rc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\HandMovement_Rec.resx">
+      <DependentUpon>HandMovement_Rec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\HandMovement_Ret.resx">
+      <DependentUpon>HandMovement_Ret.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\PriceOrderListForm_IDO.resx">
+      <DependentUpon>PriceOrderListForm_IDO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\PriceOrderListForm_Material.resx">
+      <DependentUpon>PriceOrderListForm_Material.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\IsuueItemList.resx">
+      <DependentUpon>IsuueItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\PriceOrderDetailForm_IDO.resx">
+      <DependentUpon>PriceOrderDetailForm_IDO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\PriceOrderDetailForm_Material.resx">
+      <DependentUpon>PriceOrderDetailForm_Material.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\PriceDetialForm.resx">
+      <DependentUpon>PriceDetialForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\PriceListForm.resx">
+      <DependentUpon>PriceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\RCItemList.resx">
+      <DependentUpon>RCItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\ReciveItemList.resx">
+      <DependentUpon>ReciveItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\ReturnItemList.resx">
+      <DependentUpon>ReturnItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\TypeCustDetail.resx">
+      <DependentUpon>TypeCustDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\TypeMasterDetail.resx">
+      <DependentUpon>TypeMasterDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\TypeCustList.resx">
+      <DependentUpon>TypeCustList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\TypeMasterList.resx">
+      <DependentUpon>TypeMasterList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\TypeSAHRangeDetail.resx">
+      <DependentUpon>TypeSAHRangeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\TypeSAHRangeList.resx">
+      <DependentUpon>TypeSAHRangeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WareHousePriceReport.resx">
+      <DependentUpon>WareHousePriceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WareHousePriceReport_Sub.resx">
+      <DependentUpon>WareHousePriceReport_Sub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WorkTimeApplicationDetailForm.resx">
+      <DependentUpon>WorkTimeApplicationDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WorkTimeApplicationGroupDetailForm.resx">
+      <DependentUpon>WorkTimeApplicationGroupDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WorkTimeApplicationListForm.resx">
+      <DependentUpon>WorkTimeApplicationListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WorkTimeApplicationGroupListForm.resx">
+      <DependentUpon>WorkTimeApplicationGroupListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WorkTimeApplicationReport_Detail.resx">
+      <DependentUpon>WorkTimeApplicationReport_Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WorkTimeBasePriceDetailForm.resx">
+      <DependentUpon>WorkTimeBasePriceDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WorkTimeBasePriceListForm.resx">
+      <DependentUpon>WorkTimeBasePriceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WorkTimePriceListForm.resx">
+      <DependentUpon>WorkTimePriceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WorkTimeReport.resx">
+      <DependentUpon>WorkTimeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WorkTimeApplicationReport.resx">
+      <DependentUpon>WorkTimeApplicationReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ByPiece\WareHousePriceReport_Summary.resx">
+      <DependentUpon>WareHousePriceReport_Summary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\AttachItemForm.resx">
+      <DependentUpon>AttachItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\AttachListForm.resx">
+      <DependentUpon>AttachListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\AttachMaterialList.resx">
+      <DependentUpon>AttachMaterialList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\ContractDetailA.resx">
+      <DependentUpon>ContractDetailA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\ContractFullDetail.resx">
+      <DependentUpon>ContractFullDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\ContractFullInfo.resx">
+      <DependentUpon>ContractFullInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\ContractItemList.resx">
+      <DependentUpon>ContractItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\ContractItemMaitain.resx">
+      <DependentUpon>ContractItemMaitain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\ContractSetting.resx">
+      <DependentUpon>ContractSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContracPrint.resx">
+      <DependentUpon>FrmContracPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractSelect.resx">
+      <DependentUpon>FrmContractSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmGuide.resx">
+      <DependentUpon>FrmGuide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmMiddle.resx">
+      <DependentUpon>FrmMiddle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmUpdateContract.resx">
+      <DependentUpon>FrmUpdateContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\LodingForm.resx">
+      <DependentUpon>LodingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\BatchUpdateCustomInfoForm.resx">
+      <DependentUpon>BatchUpdateCustomInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\FrmSelectGrnInfo.resx">
+      <DependentUpon>FrmSelectGrnInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\GRNWorksheettSummaryForm.resx">
+      <DependentUpon>GRNWorksheettSummaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\HDOHandlingDataForm.resx">
+      <DependentUpon>HDOHandlingDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\HDOHandlingListFrm.resx">
+      <DependentUpon>HDOHandlingListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\HDOHandlingQueryForm.resx">
+      <DependentUpon>HDOHandlingQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\HDOQuantityListFrm.resx">
+      <DependentUpon>HDOQuantityListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\HDODeliveryListFrm.resx">
+      <DependentUpon>HDODeliveryListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\GRNNoHDOFrom.resx">
+      <DependentUpon>GRNNoHDOFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\HDOReleasedDateForm.resx">
+      <DependentUpon>HDOReleasedDateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\HDOShippingAdviceForm.resx">
+      <DependentUpon>HDOShippingAdviceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\HDOShippingAdviceQueryForm.resx">
+      <DependentUpon>HDOShippingAdviceQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\QueryHDOInformation.resx">
+      <DependentUpon>QueryHDOInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDOInvoiceDetialFrm.resx">
+      <DependentUpon>HDOInvoiceDetialFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRN\GRNReportFrm.resx">
+      <DependentUpon>GRNReportFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDOInvoiceListFrm.resx">
+      <DependentUpon>HDOInvoiceListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDOQuestionFrom.resx">
+      <DependentUpon>HDOQuestionFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDOReport.resx">
+      <DependentUpon>HDOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDOSecondReport.resx">
+      <DependentUpon>HDOSecondReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDOStockBalanceFrm.resx">
+      <DependentUpon>HDOStockBalanceFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDOSummary\HDOSumaryFrm.resx">
+      <DependentUpon>HDOSumaryFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSCode\HSCodeAveragePriceListFrm.resx">
+      <DependentUpon>HSCodeAveragePriceListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IDInvoiceExcel.resx">
+      <DependentUpon>IDInvoiceExcel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IDInvoiceListFrm.resx">
+      <DependentUpon>IDInvoiceListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputOrOutStock\HdoStock.resx">
+      <DependentUpon>HdoStock.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputOrOutStock\StockBalanceFrm.resx">
+      <DependentUpon>StockBalanceFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputOrOutStock\StockInfoOrOutFrm .resx">
+      <DependentUpon>StockInfoOrOutFrm .cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputOrOutStock\StockInListFrm.resx">
+      <DependentUpon>StockInListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputOrOutStock\StockInOutFrm.resx">
+      <DependentUpon>StockInOutFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputOrOutStock\StockInOutListFrm.resx">
+      <DependentUpon>StockInOutListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputOrOutStock\StockOutListFrm.resx">
+      <DependentUpon>StockOutListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackingKB\StockBalanceKBListFrm.resx">
+      <DependentUpon>StockBalanceKBListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackingKB\StockInKBListFrm.resx">
+      <DependentUpon>StockInKBListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackingKB\StockInOutKBListFrm.resx">
+      <DependentUpon>StockInOutKBListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackingKB\StockOutKBListFrm.resx">
+      <DependentUpon>StockOutKBListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessForm.resx">
+      <DependentUpon>ProcessForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSCodePackingDetailReport.resx">
+      <DependentUpon>HSCodePackingDetailReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSCodePackingSummaryReport.resx">
+      <DependentUpon>HSCodePackingSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveExecel\SaveFinanceExecelForm.resx">
+      <DependentUpon>SaveFinanceExecelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveExecel\SaveMaterialForm.resx">
+      <DependentUpon>SaveMaterialForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="image\door_open.png" />
+    <Content Include="image\plugin_add.png" />
+    <Content Include="image\print16_h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.HDO.BackEnd\PH.HDO.BackEnd.csproj">
+      <Project>{956F2AE2-DD8E-4E7D-977F-41BEDADACA91}</Project>
+      <Name>PH.HDO.BackEnd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PH.HDO.BO\PH.HDO.BO.csproj">
+      <Project>{951E6C57-E9C7-41DF-BF93-E207D10886CA}</Project>
+      <Name>PH.HDO.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PH.PHGDB2.BO\PH.PHGDB2.BO.csproj">
+      <Project>{5D10D44E-1B1A-46C7-AC1D-3FE24D17407E}</Project>
+      <Name>PH.PHGDB2.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.HDO.BO.ContractFull.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.ContractInfo.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.HDODelivery.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.HDOHandling.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.HDOInvoice.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.HDOQuantity.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.HDOQueryClass.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.HDOReleasedDateInfomation.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.hdotemp.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.HSCodeAveragePrice.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.Stock_Balance.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.Stock_BalanceKB.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.Stock_In.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.Stock_InKB.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.Stock_Out.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.Stock_OutKB.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.BO.test.datasource" />
+    <None Include="Properties\DataSources\PH.HDO.UI.GRN.GRNWorksheetSummary.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPiece_ELWFilteringMachine.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPiece_ELWFilteringMachineDetail.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPiece_ELWFilteringMachineHeader.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPiece_ELWFilteringMachineSummary.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPiece_Employee.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPiece_IssueItem_Text.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPiece_PriceCount.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPiece_WorkTimeBasePrice.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPrice_Order.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPrice_Order1.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPrice_Order_IDO.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPrice_Order_IDO1.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPrice_WorkTimeApplication.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPrice_WorkTimeApplication1.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.ByPrice_WorkTimeApplication_Master.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.TypeDetail.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.TypeSAHRange.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.TypeSAHRange1.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.WareHouseReport.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.WareHouseReport_Sub.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.WarkTimeReport.datasource" />
+    <None Include="Properties\DataSources\PH.PHGDB2.BO.WorkTimeApplication.datasource" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

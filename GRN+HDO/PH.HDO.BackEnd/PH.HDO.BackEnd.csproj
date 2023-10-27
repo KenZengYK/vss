@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{956F2AE2-DD8E-4E7D-977F-41BEDADACA91}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.HDO.BackEnd</RootNamespace>
+    <AssemblyName>PH.HDO.BackEnd</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Developer Express .NET v8.1\Sources\DevExpress.DLL\DevExpress.Data.v8.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v8.1" />
+    <Reference Include="DevExpress.XtraCharts.v8.1" />
+    <Reference Include="DevExpress.XtraEditors.v8.1" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Developer Express .NET v8.1\Sources\DevExpress.DLL\DevExpress.XtraPrinting.v8.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Developer Express .NET v8.1\Sources\DevExpress.DLL\DevExpress.XtraReports.v8.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="PH.BasicInfo.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BackEnd.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="JOB\HDODescFrom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JOB\HDODescFrom.Designer.cs">
+      <DependentUpon>HDODescFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JOB\HDOStockForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JOB\HDOStockForm.Designer.cs">
+      <DependentUpon>HDOStockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JOB\HDOStockInfoFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JOB\HDOStockInfoFrm.Designer.cs">
+      <DependentUpon>HDOStockInfoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JOB\HDOSumFrom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JOB\HDOSumFrom.Designer.cs">
+      <DependentUpon>HDOSumFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JOB\JobGRNReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JOB\JobGRNReport.Designer.cs">
+      <DependentUpon>JobGRNReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JOB\HDOSummaryForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JOB\HDOSummaryForm.Designer.cs">
+      <DependentUpon>HDOSummaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JOB\HDOThirdFrom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JOB\HDOThirdFrom.Designer.cs">
+      <DependentUpon>HDOThirdFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Report\GRNNoteReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\GRNNoteReport.Designer.cs">
+      <DependentUpon>GRNNoteReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\GRNStockInReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\GRNStockInReport.Designer.cs">
+      <DependentUpon>GRNStockInReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HDOReceivedReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HDOReceivedReport.Designer.cs">
+      <DependentUpon>HDOReceivedReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSCodePackingSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSCodePackingSummaryReport.Designer.cs">
+      <DependentUpon>HSCodePackingSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSHDOSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSHDOSummaryReport.Designer.cs">
+      <DependentUpon>HSHDOSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\OutstandingGRNReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\OutstandingGRNReport.Designer.cs">
+      <DependentUpon>OutstandingGRNReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HDOStockExcelRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HDOStockExcelRpt.Designer.cs">
+      <DependentUpon>HDOStockExcelRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HDODetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HDODetailReport.Designer.cs">
+      <DependentUpon>HDODetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HDOReportThird.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HDOReportThird.Designer.cs">
+      <DependentUpon>HDOReportThird.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HDOStockRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HDOStockRpt.Designer.cs">
+      <DependentUpon>HDOStockRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HDOStockSummmaryRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HDOStockSummmaryRpt.Designer.cs">
+      <DependentUpon>HDOStockSummmaryRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HDOStockTackRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HDOStockTackRpt.Designer.cs">
+      <DependentUpon>HDOStockTackRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HDOSumReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HDOSumReport.Designer.cs">
+      <DependentUpon>HDOSumReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HSCodePackingDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HSCodePackingDetailReport.Designer.cs">
+      <DependentUpon>HSCodePackingDetailReport.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="JOB\HDODescFrom.resx">
+      <DependentUpon>HDODescFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JOB\HDOStockForm.resx">
+      <DependentUpon>HDOStockForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JOB\HDOStockInfoFrm.resx">
+      <DependentUpon>HDOStockInfoFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JOB\HDOSumFrom.resx">
+      <DependentUpon>HDOSumFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JOB\JobGRNReport.resx">
+      <DependentUpon>JobGRNReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JOB\HDOSummaryForm.resx">
+      <DependentUpon>HDOSummaryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JOB\HDOThirdFrom.resx">
+      <DependentUpon>HDOThirdFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\GRNNoteReport.resx">
+      <DependentUpon>GRNNoteReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\GRNStockInReport.resx">
+      <DependentUpon>GRNStockInReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HDOReceivedReport.resx">
+      <DependentUpon>HDOReceivedReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSCodePackingSummaryReport.resx">
+      <DependentUpon>HSCodePackingSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSHDOSummaryReport.resx">
+      <DependentUpon>HSHDOSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\OutstandingGRNReport.resx">
+      <DependentUpon>OutstandingGRNReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HDOStockExcelRpt.resx">
+      <DependentUpon>HDOStockExcelRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HDODetailReport.resx">
+      <DependentUpon>HDODetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HDOReportThird.resx">
+      <DependentUpon>HDOReportThird.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HDOStockRpt.resx">
+      <DependentUpon>HDOStockRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HDOStockSummmaryRpt.resx">
+      <DependentUpon>HDOStockSummmaryRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HDOStockTackRpt.resx">
+      <DependentUpon>HDOStockTackRpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HDOSumReport.resx">
+      <DependentUpon>HDOSumReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HSCodePackingDetailReport.resx">
+      <DependentUpon>HSCodePackingDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="PH.HDO.BO.HDOSummary.datasource" />
+    <None Include="PH.HDO.BO.HDOTemp.datasource" />
+    <None Include="PH.HDO.BO.HDOTempBO.datasource" />
+    <None Include="PH.HDO.BO.HDOTempBO_Packing.datasource" />
+    <None Include="PH.HDO.BO.HSHDOSummaryResult.datasource" />
+    <None Include="PH.HDO.BO.stock.datasource" />
+    <None Include="PH.HDO.BO.StockInfoOut.datasource" />
+    <None Include="PH.HDO.BO.temp.datasource" />
+    <None Include="PH.HDO.BO.tempa.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="temp.datasource" />
+    <None Include="temp1.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.HDO.BO\PH.HDO.BO.csproj">
+      <Project>{951E6C57-E9C7-41DF-BF93-E207D10886CA}</Project>
+      <Name>PH.HDO.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

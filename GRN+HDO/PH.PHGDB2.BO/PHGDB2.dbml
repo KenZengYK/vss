@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PHGDB2" Class="PHGDB2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=S99VF403\SQLSERVER2005;Initial Catalog=PHGDB2;Persist Security Info=True;User ID=ituser" SettingsObjectName="PH.PHGDB2.BO.Properties.Settings" SettingsPropertyName="PHGDB2ConnectionString3" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ByPiece_IssueItem" Member="ByPiece_IssueItems">
+    <Type Name="ByPiece_IssueItem">
+      <Column Name="IssueItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DT_Issue" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaterialType" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IDNUM_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDNUM_C" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsManualInput" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OpMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OpDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypeMaster" Member="TypeMasters">
+    <Type Name="TypeMaster">
+      <Column Name="TypeMaster_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeId" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ISKS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SAH_Rev" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
+      <Column Name="Reciver" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SAHM_Iss" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
+      <Column Name="SAHC_Iss" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
+      <Column Name="Issuer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Price_Ret" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
+      <Column Name="SAH_Ret" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
+      <Column Name="Returner" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RCSAH_M" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
+      <Column Name="RCSAH_C" Type="System.Decimal" DbType="Decimal(8,4)" CanBeNull="true" />
+      <Column Name="RCMan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TypeMaster_TypeDetail" Member="TypeDetails" ThisKey="TypeMaster_Id" OtherKey="TypeMaster_Id" Type="TypeDetail" />
+      <Association Name="TypeMaster_TypeSAHRange" Member="TypeSAHRanges" ThisKey="TypeMaster_Id" OtherKey="TypeMaster_Id" Type="TypeSAHRange" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypeDetail" Member="TypeDetails">
+    <Type Name="TypeDetail">
+      <Column Name="TypeDetail_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeMaster_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjCode" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Responsibler" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ResponsiblerName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TypeMaster_TypeDetail" Member="TypeMaster" ThisKey="TypeMaster_Id" OtherKey="TypeMaster_Id" Type="TypeMaster" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypeSAHRange" Member="TypeSAHRanges">
+    <Type Name="TypeSAHRange">
+      <Column Name="TypeSAH_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeMaster_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyFrom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyTo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SAH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TypeMaster_TypeSAHRange" Member="TypeMaster" ThisKey="TypeMaster_Id" OtherKey="TypeMaster_Id" Type="TypeMaster" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPiece_ReciveItem" Member="ByPiece_ReciveItems">
+    <Type Name="ByPiece_ReciveItem">
+      <Column Name="ReciveItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DT_Recive" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaterialType" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="HDONO" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="IDNUM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsManualInput" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OpMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OpDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReciveMan" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Lot_id" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPiece_RCItem" Member="ByPiece_RCItems">
+    <Type Name="ByPiece_RCItem">
+      <Column Name="OID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaterialType" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="RCNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RCDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RCQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsManualInput" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OpMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OpDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RCMan" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Lot_ID" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Lot_ID1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPiece_WorkTimeBasePrice" Member="ByPiece_WorkTimeBasePrices">
+    <Type Name="ByPiece_WorkTimeBasePrice">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPiece_PriceCount" Member="ByPiece_PriceCounts">
+    <Type Name="ByPiece_PriceCount">
+      <Column Name="OID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmpID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MMQty" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPiece_IssueItem_Text" Member="ByPiece_IssueItem_Texts">
+    <Type Name="ByPiece_IssueItem_Text">
+      <Column Name="IssueItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDO" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="DT_Issue" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaterialType" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ISSUE_QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SAHType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsManualInput" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OpMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OpDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="lot_id" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IssueMan" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPrice_Order_IDO" Member="ByPrice_Order_IDOs">
+    <Type Name="ByPrice_Order_IDO">
+      <Column Name="IDO" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PROJECT_NO" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="pgmn" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ISSUED_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPrice_WorkTimeApplication_Master" Member="ByPrice_WorkTimeApplication_Masters">
+    <Type Name="ByPrice_WorkTimeApplication_Master">
+      <Column Name="ID_Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Group_Code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Application_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Application_Man" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Director" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Director_Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Manager" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Manager_Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsAgree_ApplicationMan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsAgree_Director" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsAgree_Manager" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ByPrice_WorkTimeApplication_Master_ByPrice_WorkTimeApplication" Member="ByPrice_WorkTimeApplications" ThisKey="ID_Code" OtherKey="ID_Code" Type="ByPrice_WorkTimeApplication" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPrice_WorkTimeApplication" Member="ByPrice_WorkTimeApplications">
+    <Type Name="ByPrice_WorkTimeApplication">
+      <Column Name="DetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Group_Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NumB" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Time_Quantum_Start" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Time_Quantum_Due" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Date_Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Time_Quantum" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="Work_desc" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="BaseNumber" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="department" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Reamrk" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="IsAgree_Manager" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsAgree_Director" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ByPrice_WorkTimeApplication_Master_ByPrice_WorkTimeApplication" Member="ByPrice_WorkTimeApplication_Master" ThisKey="ID_Code" OtherKey="ID_Code" Type="ByPrice_WorkTimeApplication_Master" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPiece_Employee" Member="ByPiece_Employees">
+    <Type Name="ByPiece_Employee">
+      <Column Name="EmpId" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmpName" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPiece_ReturnItem" Member="ByPiece_ReturnItems">
+    <Type Name="ByPiece_ReturnItem">
+      <Column Name="ReturnItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaterialType" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ReturnNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DT_Return" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IDNUM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsManualInput" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OpMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OpDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReturnMan" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="lot_id" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPiece_Price" Member="ByPiece_Prices">
+    <Type Name="ByPiece_Price">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ELWFilteringMachineSAH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ELWFilteringMachinePrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GetFather_FL_Out" Member="GetFather_FL_Outs">
+    <Type Name="GetFather_FL_Out">
+      <Column Name="IndexKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="InsertFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FlagTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GetFather_TL_In" Member="GetFather_TL_Ins">
+    <Type Name="GetFather_TL_In">
+      <Column Name="IndexKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="InsertFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FlagTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GetMaterialData" Member="GetMaterialDatas">
+    <Type Name="GetMaterialData">
+      <Column Name="IndexKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="InsertFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FlagTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPiece_ELWFilteringMachineHeader" Member="ByPiece_ELWFilteringMachineHeaders">
+    <Type Name="ByPiece_ELWFilteringMachineHeader">
+      <Column Name="OID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDONo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ProjectNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IssueQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NumOfTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ByPiece_ELWFilteringMachineHeader_ByPiece_ELWFilteringMachineDetail" Member="ByPiece_ELWFilteringMachineDetails" ThisKey="OID" OtherKey="HeaderOID" Type="ByPiece_ELWFilteringMachineDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPiece_ELWFilteringMachineDetail" Member="ByPiece_ELWFilteringMachineDetails">
+    <Type Name="ByPiece_ELWFilteringMachineDetail">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HeaderOID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmpID" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="EmpName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ByPiece_ELWFilteringMachineHeader_ByPiece_ELWFilteringMachineDetail" Member="ByPiece_ELWFilteringMachineHeader" ThisKey="HeaderOID" OtherKey="OID" Type="ByPiece_ELWFilteringMachineHeader" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ByPrice_Order" Member="ByPrice_Orders">
+    <Type Name="ByPrice_Order">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Calculate_Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MaterialType" Type="System.String" DbType="VarChar(800) NOT NULL" CanBeNull="false" />
+      <Column Name="SAH_Type" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OrderMan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
