@@ -1,0 +1,20 @@
+program ido;
+
+uses
+  Forms,
+  idoform in 'idoform.pas' {frmido},
+  selectitem in 'selectitem.pas' {frmselectitem},
+  idocx in 'idocx.pas' {frmidocx},
+  loginform in 'loginform.pas' {frmlogin},
+  frmmmyz in 'frmmmyz.pas' {frmmm},
+  usrform in 'usrform.pas' {frmusr},
+  idoprintu in 'idoprintu.pas' {frmidoprint},
+  findform in 'findform.pas' {frmfind};
+
+{$R *.RES}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(Tfrmlogin, frmlogin);
+  Application.Run;
+end.

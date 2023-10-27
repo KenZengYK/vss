@@ -1,0 +1,16 @@
+exec sp_pb_IssueUpdate_New'+fSuffixTable+'  --> Unplanned的要改名: [sp_pb_IssueUpdate_Unplanned] -->[sp_pb_IssueUpdate_New_Unplanned] 
+
+IDO: sp_pb_IDOConfirm_Reserve_MC
+UPI: cancel exec sp_pb_IDOConfirm_Unplanned  -->改为 sp_pb_IDOConfirm_Reserve_MC_Unplanned
+
+
+exec sp_pb_CancelPickingIDO -->OK
+exec sp_GetMaxIDO_Unplanned -->OK
+exec sp_pb_Update_IssueSubLotNo_Unplanned -->OK
+Call ZPHLIB_AUL.sp_IDOSelectMaterial_Unplanned_New -->Call ZPHLIB_AUL.sp_IDOSelectMaterial_New -->OK
+exec dbo.sp_PB_IDOMatching_Select_Unplanned  -->OK
+exec dbo.sp_PB_IDOMatching_Log_Unplanned -->OK
+exec dbo.sp_PB_IDOMatching_Unlock_Unplanned -->OK
+
+
+sp_pb_Update_ErpSuccess (UPI) --> sp_pb_Update_ErpSuccess_New (IDO)

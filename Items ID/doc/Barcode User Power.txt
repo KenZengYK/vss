@@ -1,0 +1,89 @@
+(1)-----    pc Barcode User Power------------
+Table:
+1.PB_Module
+          MID   int
+	  MName   varchar(100)
+2.PB_Functions
+          FID   int
+	  FName   varchar(100)
+3.PB_ModuleFunc
+          RID   int
+	  MID   int
+	  FID   int
+4.PB_User
+          UID    varchar(10)
+	  Psw   varchar(10)
+	  Site    varchar(10)
+	  IsAdmin   bit
+5.PB_Power
+          UID  varchar(10)
+	  RID  int
+	  Enabel   bit
+
+(2)----Module----
+        1--IDO
+	2--Label
+	3--Material Return
+	4--Issue Material
+	5--Stock Take
+	6-System Information
+(3)----Functions----
+        1--Browse
+	2--From ERP
+	3--To ERP
+	4--From HandHeld
+	5--To HandHeld
+	6--Report
+	7--Delete
+	8--Add
+	9--Modify
+	10-Print Label
+	11-Select Material
+	12-Query
+	13-Confirm
+	14-Delete IDO
+	15-Delete IDO Detail
+	16-Update Qty
+(4) ----ModuleFunc-----
+       --IDO
+                101--Browse
+		108--Add
+		106--Report
+		111--Select Material
+		112--Query
+		113--Confirm
+		114--Delete IDO
+		115--Delete IDO Detail
+
+	--Label
+	        201--Browse
+		202--From ERP
+		210--Print Label
+		206--Report
+
+	--Material Return
+	        301--Browse
+		308--Add
+		309--Modify
+		307--Delete
+		304--From HandHeld
+		306--Report
+		303--To ERP
+
+	--Issue Material
+	        401--Browse
+		405--To HandHeld
+		404--From HandHeld
+		403--To ERP
+		407--Delete
+		406--Report
+
+	--Stock Take
+	        501--Browse
+		502--From ERP
+		505--To HandHeld
+		504--From HandHeld
+		503--To ERP
+		516--Update Qty
+		506--Report
+		507--Delete

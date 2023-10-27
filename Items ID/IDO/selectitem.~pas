@@ -1,0 +1,309 @@
+unit selectitem;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBTables, Grids, DBGridEh, StdCtrls, Buttons, DBClient, filectrl;
+
+type
+  Tfrmselectitem = class(TForm)
+    Query1: TQuery;
+    DataSource1: TDataSource;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Query2: TQuery;
+    Query3: TQuery;
+    ClientDataSet1: TClientDataSet;
+    ClientDataSet5: TClientDataSet;
+    ClientDataSet2: TClientDataSet;
+    DBGridEh1: TDBGridEh;
+    Query4: TQuery;
+    Query5: TQuery;
+    ClientDataSet3: TClientDataSet;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmselectitem: Tfrmselectitem;
+
+implementation
+uses idoform, loginform;
+{$R *.DFM}
+
+procedure Tfrmselectitem.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmselectitem:=nil;
+end;
+
+procedure Tfrmselectitem.BitBtn2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmselectitem.FormShow(Sender: TObject);
+var
+  qty:double;
+begin
+  if not directoryexists('c:\temp') then createdir('c:\temp');
+  Query4.Close;Query5.Close;
+  if fileexists('c:\temp\ido3.db') then deletefile('c:\temp\ido3.db');
+  if not fileexists('c:\temp\ido3.db') then begin
+    with query4 do begin
+      close;
+      sql.clear;
+      sql.add('create table "ido3.db"(sopno char(7),worder char(7),oper integer,opcd char(6),operdesc char(80),mcode char(15),idno char(15),qty numeric,uom char(2),aqty numeric)');
+      execsql;
+    end;
+  end
+  else begin
+    with query4 do begin
+      close;
+      sql.clear;
+      sql.add('delete from ido3');
+      execsql;
+    end;
+  end;
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    commandtext:='delete from ido3';
+    execute;
+  end;
+  if frmido.dbedit10.text<>'' then begin
+    with query1 do begin
+      close;
+      sql.clear;
+      //if uppercase(frmido.edit2.text)<>'P1' then
+      //sql.add('select distinct w1rf40,odsc41,word42 as worder,opsq42 as oper,comp42 as code,sum(corq42) as qty,wuom42 as uom,aqty71 as qty_alloc,sref71 as locn02 from msp42l01,msp41l01,msp40l01,inp71l01 ')
+      //else
+      sql.add('select distinct w1rf40,odsc41,opcd41,word42 as worder,opsq42 as oper,comp42 as code,sum(corq42) as qty,wuom42 as uom,aqty71 as qty_alloc,sref71 as locn02 from msp42,msp41,msp40,inp71 ');
+      sql.add('where cono42=cono40 and word42=word40 and opsq42=opsq41 and cono42=cono41 and word42=word41 and cono71=cono42 and substr(dref71,1,7)=word42 and comp42=catn71 and ');
+      sql.add('substr(dref71,8,4)=substr('+chr(39)+'000'+chr(39)+'||cast(opsq42 as varchar(4)),length('+chr(39)+'000'+chr(39)+'||cast(opsq42 as varchar(4)))-3,4) and cono42=:cono42 and word42=:word42 ');
+      sql.add('group by w1rf40,odsc41,opcd41,word42,opsq42,comp42,wuom42,aqty71,sref71 order by worder,oper,code');
+      prepare;
+      params[0].asstring:=uppercase(frmido.edit2.text);
+      params[1].asstring:=uppercase(frmido.dbedit10.text);
+      open;
+      first;
+      while not eof do begin
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'oper',ptinput);
+          params.createparam(ftstring,'zdh',ptinput);
+          params.createparam(ftstring,'idno',ptinput);
+          commandtext:='select sum(qty) as tqty from ido2 where oper=:oper and zdh=:zdh and idno=:idno';
+          params[0].asinteger:=query1.fieldbyname('oper').value;
+          params[1].asstring:=query1.fieldbyname('worder').value;
+          params[2].asstring:=query1.fieldbyname('locn02').value;
+          open;
+          if not fieldbyname('tqty').isnull then qty:=query1.fieldbyname('qty_alloc').value-fieldbyname('tqty').value
+          else qty:=query1.fieldbyname('qty_alloc').value;
+        end;
+        if qty>0.00 then begin
+         with query4 do begin
+          close;
+          sql.clear;
+          sql.add('select * from ido3');
+          open;
+          append;
+          if not query1.fieldbyname('w1rf40').isnull then
+          fieldbyname('sopno').value:=copy(query1.fieldbyname('w1rf40').value,1,7);
+          fieldbyname('worder').value:=query1.fieldbyname('worder').value;
+          fieldbyname('oper').value:=query1.fieldbyname('oper').value;
+          fieldbyname('opcd').value:=query1.fieldbyname('opcd41').value;
+          fieldbyname('operdesc').value:=query1.fieldbyname('odsc41').value;
+          fieldbyname('mcode').value:=query1.fieldbyname('code').value;
+          fieldbyname('idno').value:=query1.fieldbyname('locn02').value;
+          fieldbyname('qty').value:=query1.fieldbyname('qty').value;
+          fieldbyname('uom').value:=query1.fieldbyname('uom').value;
+          fieldbyname('aqty').value:=qty;//query1.fieldbyname('qty_alloc').value;
+          post;
+         end;
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end
+  else begin
+    with query1 do begin
+      close;
+      sql.clear;
+      //if uppercase(frmido.edit2.text)<>'P1' then
+      //sql.add('select distinct w1rf40,odsc41,word42 as worder,opsq42 as oper,comp42 as code,sum(corq42) as qty,wuom42 as uom,aqty71 as qty_alloc,sref71 as locn02 from msp42l01,msp41l01,msp40l01,inp71l01 ')
+      //else
+      sql.add('select distinct a.w1rf40,odsc41,opcd41,word42 as worder,opsq42 as oper,comp42 as code,sum(corq42) as qty,wuom42 as uom,aqty71 as qty_alloc,sref71 as locn02 from msp42,msp41,msp40 a,inp71,oep40 b ');
+      sql.add('where cono42=a.cono40 and word42=a.word40 and cono42=cono41 and word42=word41 and opsq42=opsq41 and cono71=cono42 and substr(dref71,1,7)=word42 and comp42=catn71 and ');
+      sql.add('substr(dref71,8,4)=substr('+chr(39)+'000'+chr(39)+'||cast(opsq42 as varchar(4)),length('+chr(39)+'000'+chr(39)+'||cast(opsq42 as varchar(4)))-3,4) and cono42=:cono42 and word42=:word42 ');
+      sql.add('and b.cuso40=:cuso40 group by a.w1rf40,odsc41,word42,opsq42,comp42,wuom42,aqty71,sref71 order by worder,oper,code');
+      prepare;
+      params[0].asstring:=uppercase(frmido.edit2.text);
+      params[1].asstring:=uppercase(frmido.dbedit7.text);
+      open;
+      first;
+      while not eof do begin
+        with clientdataset2 do begin
+          close;
+          params.clear;
+          params.createparam(ftinteger,'oper',ptinput);
+          params.createparam(ftstring,'zdh',ptinput);
+          params.createparam(ftstring,'idno',ptinput);
+          commandtext:='select sum(qty) as tqty from ido2 where oper=:oper and zdh=:zdh and idno=:idno';
+          params[0].asinteger:=query1.fieldbyname('oper').value;
+          params[1].asstring:=query1.fieldbyname('worder').value;
+          params[2].asstring:=query1.fieldbyname('locn02').value;
+          open;
+          if not fieldbyname('tqty').isnull then qty:=query1.fieldbyname('qty_alloc').value-fieldbyname('tqty').value
+          else qty:=query1.fieldbyname('qty_alloc').value;
+        end;
+        if qty>0.00 then begin
+         with query4 do begin
+          close;
+          sql.clear;
+          sql.add('select * from ido3');
+          open;
+          append;
+          if not query1.fieldbyname('w1rf40').isnull then
+          fieldbyname('sopno').value:=copy(query1.fieldbyname('w1rf40').value,1,7);
+          fieldbyname('worder').value:=query1.fieldbyname('worder').value;
+          fieldbyname('oper').value:=query1.fieldbyname('oper').value;
+          fieldbyname('opcd').value:=query1.fieldbyname('opcd41').value;
+          fieldbyname('operdesc').value:=query1.fieldbyname('odsc41').value;
+          fieldbyname('mcode').value:=query1.fieldbyname('code').value;
+          fieldbyname('idno').value:=query1.fieldbyname('locn02').value;
+          fieldbyname('qty').value:=query1.fieldbyname('qty').value;
+          fieldbyname('uom').value:=query1.fieldbyname('uom').value;
+          fieldbyname('aqty').value:=qty;//query1.fieldbyname('qty_alloc').value;
+          post;
+         end;
+        end;
+        application.ProcessMessages;
+        next;
+      end;
+    end;
+  end;
+  with query5 do begin
+    close;
+    sql.clear;
+    sql.add('select * from ido3');
+    open;
+    while not eof do begin
+      with clientDataSet3 do begin
+        close;
+        params.Clear;
+        params.CreateParam(ftstring,'dh',ptinput);
+        commandtext:='select * from ie_bzgx where dh=:dh';
+        params[0].AsString:=Query5.fieldbyname('opcd').asstring;
+        open;
+        if (not fieldbyname('mc').isnull) and (fieldbyname('mc').value<>'') then begin
+          query5.edit;
+          query5.fieldbyname('operdesc').value:=fieldbyname('mc').value;
+          query5.post;
+        end;
+      end;
+      next;
+    end;
+    (fieldbyname('qty') as tfloatfield).displayformat:='#0.0000';
+    (fieldbyname('aqty') as tfloatfield).displayformat:='#0.0000';
+  end;
+end;
+
+procedure Tfrmselectitem.BitBtn1Click(Sender: TObject);
+var
+  qaresult,ufd,mfd:string;
+  cd:double;
+  i:integer;
+begin
+  screen.cursor:=crhourglass;
+  if query5.recordcount>0 then begin
+    if dbgrideh1.SelectedRows.Count>0 then begin
+      for i:=0 to dbgrideh1.selectedrows.count-1 do begin
+       query5.GotoBookmark(pointer(dbgrideh1.selectedrows.items[i]));
+       with clientdataset1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'bh',ptinput);
+        params.createparam(ftinteger,'oper',ptinput);
+        params.createparam(ftstring,'idno',ptinput);
+        commandtext:='select * from ido2 where bh=:bh and oper=:oper and idno=:idno';
+        params[0].asstring:=frmido.dbedit1.text;
+        params[1].asinteger:=query5.fieldbyname('oper').value;
+        params[2].asstring:=query5.fieldbyname('idno').value;
+        open;
+        if recordcount=0 then begin
+         frmido.clientdataset1.edit;
+         if not query5.fieldbyname('sopno').isnull then
+         frmido.clientdataset1.fieldbyname('sopno').value:=query5.fieldbyname('sopno').value;
+         frmido.clientdataset1.post;
+         with query3 do begin
+           close;
+           sql.clear;
+           sql.add('select ch6t84,ch8v84,ch5t84,ch4t84 from app84 where cono84=:cono84 and lotn84=:lotn84');
+           prepare;
+           params[0].asstring:=frmido.edit2.text;//'P1';
+           params[1].asstring:=query5.fieldbyname('idno').value;
+           open;
+           if not fieldbyname('ch8v84').isnull then cd:=fieldbyname('ch8v84').value else cd:=0;
+           if not fieldbyname('ch6t84').isnull then qaresult:=fieldbyname('ch6t84').value else qaresult:='';
+           if not fieldbyname('ch5t84').isnull then ufd:=fieldbyname('ch5t84').value else ufd:='';
+           if not fieldbyname('ch4t84').isnull then mfd:=fieldbyname('ch4t84').value else mfd:='';
+         end;
+         with query3 do begin
+          close;
+          sql.clear;
+          sql.add('select tlin40 from inp40 where cono40=:cono40 and tref40=:tref40 and usgc40=:usgc40 and tlno40=:tlno40');
+          prepare;
+          params[0].asstring:=uppercase(frmido.edit2.text);
+          params[1].asstring:=copy(query5.fieldbyname('mcode').value,1,9);
+          params[2].asstring:='1';
+          params[3].asinteger:=2;
+          open;
+         end;
+         with frmido.ClientDataSet2 do begin
+          append;
+          fieldbyname('bh').value:=frmido.clientdataset1.fieldbyname('bh').value;
+          if not query5.fieldbyname('idno').isnull then
+          fieldbyname('idno').value:=query5.fieldbyname('idno').value;
+          fieldbyname('zdh').value:=query5.fieldbyname('worder').value;
+          fieldbyname('aqty').value:=query5.fieldbyname('aqty').value;//qty;
+          fieldbyname('qty').value:=query5.fieldbyname('aqty').value;
+          fieldbyname('wl').value:=query5.fieldbyname('mcode').value;
+          fieldbyname('qaresult').value:=qaresult;
+          fieldbyname('cd').value:=cd;//0.00;
+          fieldbyname('ufd').value:=ufd;//spec2;
+          fieldbyname('mfd').value:=mfd;//spec1;
+          if copy(query5.fieldbyname('mcode').value,10,3)>' ' then
+          fieldbyname('sh').value:=copy(query5.fieldbyname('mcode').value,10,3);
+          fieldbyname('uom').value:=query5.fieldbyname('uom').value;
+          if not query5.fieldbyname('idno').isnull then
+          fieldbyname('wz').value:=copy(query5.fieldbyname('idno').value,1,4);
+          if not query5.fieldbyname('idno').isnull then
+          fieldbyname('sz').value:=copy(query5.fieldbyname('idno').value,5,2);
+          fieldbyname('oper').value:=query5.fieldbyname('oper').value;
+          fieldbyname('opdesc').value:=query5.fieldbyname('operdesc').value;
+          if not query3.fieldbyname('tlin40').isnull then
+          fieldbyname('uwidth').value:=query3.fieldbyname('tlin40').value
+          else fieldbyname('uwidth').value:='0.00';
+          post;
+         end;
+        end;
+       end;
+      end;
+    end;
+  end;
+  close;
+  screen.cursor:=crdefault;
+end;
+
+end.

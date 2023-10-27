@@ -1,0 +1,23 @@
+
+
+1.Status:   [FieldName  is  'Status']
+    --0--    New
+    --1--    To ERP
+    --2--    Print Label,
+    --3--    To HandHeld,
+    --4--     From HandHeld
+    --21--  IDO Confirmed
+
+2.Upload to Erp: [FieldName is 'ErpSuccess']
+  
+   --Null---    Blank
+   ---1------    Success
+   ----0-----    Fail
+
+3.Tabel:
+     PB_FINALID        --Print Label---
+     PB_RETURN      --Material Return--
+     PB_COUNT        --Stock Take--
+     PB_GATEPASS  --Issue Material--
+     IDO1                     --IDO  Main--
+     IDO2                     --IDO  Detail--

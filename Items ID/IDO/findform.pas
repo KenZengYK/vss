@@ -1,0 +1,82 @@
+unit findform;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Db, DBClient, Grids, DBGridEh, ExtCtrls, Buttons;
+
+type
+  Tfrmfind = class(TForm)
+    ClientDataSet1: TClientDataSet;
+    DataSource1: TDataSource;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Label3: TLabel;
+    Edit3: TEdit;
+    Panel2: TPanel;
+    DBGridEh1: TDBGridEh;
+    Panel3: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmfind: Tfrmfind;
+
+implementation
+uses loginform;
+{$R *.DFM}
+
+procedure Tfrmfind.SpeedButton2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmfind.SpeedButton1Click(Sender: TObject);
+begin
+  screen.cursor:=crHourglass;
+  if edit1.text>'' then begin
+    with clientdataset1 do begin
+      close;
+      params.clear;
+      params.createparam(ftstring,'idno',ptinput);
+      commandtext:='select a.* from ido1 a,ido2 b where a.bh=b.bh and b.idno=:idno';
+      params[0].asstring:=edit1.text;
+      open;
+    end;
+  end
+  else begin
+    if edit2.text>'' then begin
+      with clientdataset1 do begin
+        close;
+        params.clear;
+        params.createparam(ftstring,'sopno',ptinput);
+        commandtext:='select * from ido1 where sopno=:sopno';
+        params[0].asstring:=edit2.text;
+        open;
+      end;
+    end
+    else begin
+    end;
+  end;
+  screen.cursor:=crDefault;
+end;
+
+procedure Tfrmfind.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmfind:=nil;
+end;
+
+end.

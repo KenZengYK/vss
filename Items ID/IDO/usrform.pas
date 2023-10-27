@@ -1,0 +1,101 @@
+unit usrform;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBClient, ExtCtrls, StdCtrls, Mask, DBCtrls, Buttons;
+
+type
+  Tfrmusr = class(TForm)
+    ClientDataSet1: TClientDataSet;
+    DataSource1: TDataSource;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    Label1: TLabel;
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    DBCheckBox1: TDBCheckBox;
+    DBCheckBox2: TDBCheckBox;
+    DBCheckBox3: TDBCheckBox;
+    DBCheckBox4: TDBCheckBox;
+    DBNavigator1: TDBNavigator;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure ClientDataSet1NewRecord(DataSet: TDataSet);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmusr: Tfrmusr;
+
+implementation
+uses loginform;
+{$R *.DFM}
+
+procedure Tfrmusr.SpeedButton1Click(Sender: TObject);
+begin
+  dbedit1.setfocus;
+  clientdataset1.append;
+end;
+
+procedure Tfrmusr.SpeedButton3Click(Sender: TObject);
+begin
+  if (clientdataset1.state=dsinsert) or (clientdataset1.state=dsedit) then clientdataset1.post;
+  if clientdataset1.changecount>0 then clientdataset1.applyupdates(-1);
+end;
+
+procedure Tfrmusr.SpeedButton2Click(Sender: TObject);
+begin
+  if clientdataset1.recordcount>0 then begin
+    if application.MessageBox('要刪除此用戶嗎?','提示',mb_iconquestion+mb_okcancel)=idok then begin
+      clientdataset1.delete;
+      clientdataset1.applyupdates(-1);
+    end;
+  end;
+end;
+
+procedure Tfrmusr.SpeedButton4Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmusr.FormShow(Sender: TObject);
+begin
+  with clientdataset1 do begin
+    close;
+    params.clear;
+    commandtext:='select * from idou';
+    open;
+  end;
+end;
+
+procedure Tfrmusr.ClientDataSet1NewRecord(DataSet: TDataSet);
+begin
+  clientdataset1.fieldbyname('r1').value:=false;
+  clientdataset1.fieldbyname('r2').value:=false;
+  clientdataset1.fieldbyname('r3').value:=false;
+  clientdataset1.fieldbyname('r4').value:=false;
+end;
+
+procedure Tfrmusr.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action:=cafree;
+  frmusr:=nil;
+end;
+
+end.
