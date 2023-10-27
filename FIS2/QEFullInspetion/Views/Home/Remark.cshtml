@@ -1,0 +1,144 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["FullInspectionHeader"] = Context.Request.Query["FullInspectionHeader"].ToString();
+    ViewData["Language"] = Context.Request.Cookies["Language"].ToString();
+    ViewData["UserName"] = Context.User.FindFirstValue(ClaimTypes.NameIdentifier);
+    ViewData["OnlyShowTodayData"] = Context.Request.Query["OnlyShowTodayData"].ToString();
+    ViewData["ShowStr"] = "Fty: " + Context.Request.Query["Fty"].ToString() + ", " +
+                          "Ws: " + Context.Request.Query["Ws"].ToString() + ", " +
+                          "Line#: " + Context.Request.Query["Line"].ToString() + ", " +
+                          "Proj#: " + Context.Request.Query["ProjectNo"].ToString() + ", " +
+                          "QN#: " + Context.Request.Query["QNNo"].ToString();
+}
+
+<h2>@Localizer["Remark"]</h2>
+
+@(Html.DevExtreme().DataGrid<QEFullInspetion.Controllers.FullInspectionHeadersViewModel>()
+    .ID("gridRemark")
+    .FocusedRowEnabled(true)
+    .ColumnAutoWidth(true)
+    .DataSource(d => d.WebApi()
+        .Controller("FullInspectionHeaders")
+        .LoadAction("GetByOID")
+        //.LoadParams(new { OID = ViewData["FullInspectionHeader"] })
+        .LoadParams(new { OID = ViewData["FullInspectionHeader"], OnlyShowTodayData = ViewData["OnlyShowTodayData"] })
+
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .DeleteAction("Delete")
+        .Key("Oid")
+    )
+    .ShowBorders(true)
+    .Columns(columns =>
+    {
+        columns.AddFor(m => m.Inspector).Visible(false);
+        columns.AddFor(m => m.TotalDefectiveGarmentQtyShow).AllowEditing(false).Caption(Localizer["Def. Gmts Ttl"].Value).Alignment(HorizontalAlignment.Left).Width(100);
+        columns.AddFor(m => m.TotalRepairedShow).AllowEditing(false).Caption(Localizer["Repaired Ttl"].Value).Alignment(HorizontalAlignment.Left).Width(90);
+        columns.AddFor(m => m.Remark).Caption(Localizer["Remark, if any"].Value).Alignment(HorizontalAlignment.Left);
+
+        columns.Add().Name("CommandButton")
+            .Caption("Function")
+            .Type(GridCommandColumnType.Buttons)
+            .Width(150)
+            .Buttons(b =>
+            {
+                b.Add().Name(GridColumnButtonName.Edit).Text(Localizer["Edit"].Value);
+            });
+    })
+    .Editing(e => e
+        .AllowUpdating(Convert.ToBoolean(ViewData["EditRight"]))
+        .Mode(GridEditMode.Popup)
+        .Popup(p => p
+            .Title("Remark")
+            .ShowTitle(true)
+            .Width(700)
+            .Height(525)
+            .ToolbarItems(items => {
+                items.Add()
+                    .Location(ToolbarItemLocation.After)
+                    .Toolbar(Toolbar.Bottom)
+                    .Widget(w => w.Button()
+                        .OnClick(@<text>function (e){ $("#gridRemark").dxDataGrid("instance").saveEditData();} </text>)
+                        .Text(Localizer["Save"].Value));
+
+                items.Add()
+                    .Location(ToolbarItemLocation.After)
+                    .Toolbar(Toolbar.Bottom)
+                    .Widget(w => w.Button()
+                        .OnClick(@<text>function (e){ $("#gridRemark").dxDataGrid("instance").cancelEditData();} </text>)
+                        .Text(Localizer["Cancel"].Value));
+            })
+
+        )
+        .Form(f=>f.Items(items=> {
+            items.AddGroup()
+                .ColCount(2)
+                .ColSpan(2)
+                .Items(groupItem =>
+                {
+                    groupItem.AddSimpleFor(m => m.TotalDefectiveGarmentQtyShow);
+                    groupItem.AddSimpleFor(m => m.TotalRepairedShow);
+                    groupItem.AddSimpleFor(m => m.Remark).ColSpan(2).Editor(editor => editor.TextArea().Height(100));
+                });
+        })
+        )
+    )
+    .OnToolbarPreparing("toolbar_preparing")
+    .OnCellPrepared("OnCellPrepared")
+)
+
+<script>
+    function toolbar_preparing(e) {
+        var dataGrid = e.component;
+
+        e.toolbarOptions.items.unshift({
+            location: "after",
+            widget: "dxButton",
+            options: {
+                text: '@Localizer["Return"]',
+                width: 80,
+                onClick: function (e) {
+                    window.location.href = '/Home/FullInspectionDetail?FullInspectionHeader=@ViewData["FullInspectionHeader"]&OnlyShowTodayData=@ViewData["OnlyShowTodayData"]' +
+                      "&Fty=@Context.Request.Query["Fty"]&Ws=@Context.Request.Query["Ws"]&Line=@Context.Request.Query["Line"]&ProjectNo=@Context.Request.Query["ProjectNo"]&QNNo=@Context.Request.Query["QNNo"]";
+                }
+            }
+        },{
+            location: "before",
+            widget: "dxButton",
+            options: {
+                text: '@ViewData["ShowStr"]',
+                readonly: true
+           }
+         },{
+            location: "after",
+            widget: "dxButton",
+            options: {
+                icon: "refresh",
+                onClick: function () {
+                    dataGrid.refresh();
+                }
+            }
+        });
+    }
+
+    function OnCellPrepared(e) {
+        if (e.rowType == "header") {
+            if (e.column.name == "TotalDefectiveGarmentQtyShow" || e.column.name == "TotalRepairedShow") {
+                e.cellElement.css("backgroundColor", "rgb(197, 217, 241)");
+            }
+            else if (e.column.name == "Remark") {
+                e.cellElement.css("backgroundColor", "rgb(235, 241, 222)");
+            }
+        }
+        @*else if (e.rowType == "data") {
+            if (e.data.Inspector != '@ViewData["UserName"]') {
+                e.cellElement.find(".dx-link-edit").remove();
+                e.cellElement.find(".dx-link-delete").remove();
+            }
+        }*@
+
+    }
+
+</script>

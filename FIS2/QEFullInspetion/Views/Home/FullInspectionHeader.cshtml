@@ -1,0 +1,558 @@
+﻿<script src="~/js/polyfill.min.js"></script>
+<script src="~/js/exceljs.min.js"></script>
+<script src="~/js/FileSaver.min.js"></script>
+
+@{
+    ViewData["UserName"] = Context.User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+
+<div style="display: inline-flex;">
+    <img src="~/icon/login.png" width="60" height="70" />
+    <h2 style="margin-top:15px;margin-left:5px">@Localizer["Header"]</h2>
+</div>
+
+
+@(Html.DevExtreme().DataGrid<QEFullInspetion.Controllers.FullInspectionHeadersViewModel>()
+    .ID("GridFullInspectionHeaders")
+    .FilterPanel(f => f.Visible(true))
+    .StateStoring(s => s.Enabled(true))
+    .HeaderFilter(h => h.Visible(true).AllowSearch(true).Height(360))
+    .Export(e => e.Enabled(true).Texts(t => t.ExportAll(Localizer["Export all data"].Value)))
+    .OnExporting("exporting")
+
+    .FocusedRowEnabled(true)
+    //.ColumnAutoWidth(true)
+    .Paging(p => p.PageSize(12))
+    .Pager(pager =>
+    {
+        pager.Visible(true);
+        pager.DisplayMode(GridPagerDisplayMode.Full);
+        pager.ShowInfo(true);
+        pager.ShowNavigationButtons(true);
+        pager.InfoText("Page {0} of {1} ({2} rows)");
+    })
+
+    .DataSource(d => d.WebApi()
+        .Controller("FullInspectionHeaders")
+        .LoadAction("Get")
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .DeleteAction("Delete")
+        .Key("Oid")
+    )
+    .ShowBorders(true)
+    .RemoteOperations(true)
+    .OnEditorPreparing("onEditorPreparing")
+    .Columns(columns => {
+        columns.AddFor(m => m.Factory).Width(50).Alignment(HorizontalAlignment.Left)
+            .SetCellValue("SetFactoryValue")
+            .Caption(Localizer["Fty"].Value)
+            .HeaderCellTemplate(Localizer["<text><div>Fty</div></text>"].Value)
+            .Lookup(lookup => lookup
+                .DataSource(d => d.Mvc().Controller("DataHelper").LoadAction("GetFactory").Key("Factory"))
+                .DisplayExpr("Factory")
+                .ValueExpr("Factory")
+            );
+
+        columns.AddFor(m => m.WorkShop).Width(50)
+            .AllowEditing(false)
+            .Caption(Localizer["Ws"].Value)
+            .Alignment(HorizontalAlignment.Left)
+            .HeaderCellTemplate(Localizer["<text><div>Ws</div></text>"].Value);
+
+        columns.AddFor(m => m.Line).Width(70)
+            .Caption(Localizer["Line#"].Value)
+            .AllowSorting(true)
+            .SetCellValue("SetWorkShopValue")
+            .EditCellTemplate(new TemplateName("LineDropDownBoxTemplate"));
+
+        columns.AddFor(m => m.Project).Width(95)
+            .AllowEditing(false)
+            .AllowHeaderFiltering(true)
+            .Caption(Localizer["Proj#"].Value);
+
+        columns.AddFor(m => m.LWO).Width(160)
+            .Alignment(HorizontalAlignment.Left)
+            .Caption(Localizer["QN#"].Value)
+            .AllowSorting(true)
+            .AllowHeaderFiltering(true)
+            .SetCellValue("SetStyleNoValue")
+            .EditCellTemplate(new TemplateName("LWODropDownBoxTemplate"));
+
+        columns.AddFor(m => m.QNQty).Width(50)
+            .Caption(Localizer["QN Qty"].Value)
+            .Alignment(HorizontalAlignment.Left)
+            .AllowHeaderFiltering(false)
+            .HeaderCellTemplate(Localizer["<text><div>QN<br>Qty</div></text>"].Value);
+
+        columns.AddFor(m => m.InspectionQtyShow).Width(75)
+            .AllowEditing(false)
+            .Alignment(HorizontalAlignment.Left)
+            .AllowHeaderFiltering(false)
+            .AllowSorting(false)
+            .HeaderCellTemplate(Localizer["<text><div>Inspected<br>Qty</div></text>"].Value);
+
+        columns.AddFor(m => m.OutstandingQtyShow).Width(50)
+            .AllowEditing(false)
+            .Alignment(HorizontalAlignment.Left)
+            .AllowHeaderFiltering(false)
+            .AllowSorting(false)
+            .HeaderCellTemplate(Localizer["<text><div>O/S<br>Qty</div></text>"].Value);
+
+        columns.AddFor(m => m.InspectionConfirmBy).Width(85)
+            .AllowFiltering(true)
+            .Alignment(HorizontalAlignment.Left)
+            .AllowHeaderFiltering(true)
+            .HeaderCellTemplate(Localizer["<strong><text><div>Cmpl<br>cfmd by</div></text></strong>"].Value);
+
+        columns.AddFor(m => m.ColorCode).Width(45)
+            .AllowEditing(false)
+            .Caption(Localizer["Clr Cde"].Value)
+            .Alignment(HorizontalAlignment.Left)
+            .AllowHeaderFiltering(false)
+            .HeaderCellTemplate(Localizer["<text><div>Clr<br>Cde</div></text>"].Value);
+
+        columns.AddFor(m => m.StyleNo)
+            .AllowEditing(false)
+            .Caption(Localizer["Style#"].Value)
+            .Width(80)
+            .AllowHeaderFiltering(true);
+
+        columns.AddFor(m => m.QNStartDate).Width(90)
+            .AllowEditing(false)
+            .AllowSorting(false)
+            .Caption(Localizer["QN Start dd"].Value)
+            .Format("yyyy-MM-dd")
+            .AllowHeaderFiltering(false)
+            .HeaderCellTemplate(Localizer["<text><div>QN<br>Start dd</div></text>"].Value);
+
+        //columns.AddFor(m => m.InspectionDate).Format("yyyy-MM-dd").Caption("Insp. dd").Alignment(HorizontalAlignment.Left);
+        //columns.AddFor(m => m.Inspector).AllowEditing(false).Caption("Inspector").Alignment(HorizontalAlignment.Left).Width(80);
+
+        columns.AddFor(m => m.LineLeader).Width(85)
+            .Caption(Localizer["Line Leader"].Value)
+            .Alignment(HorizontalAlignment.Left)
+            .AllowHeaderFiltering(true)
+            .HeaderCellTemplate(Localizer["<text><div>Line<br>Leader</div></text>"].Value);
+
+        columns.AddFor(m => m.SewingSupervisior).Width(100)
+            .Caption(Localizer["S. Supervisor"].Value)
+            .Alignment(HorizontalAlignment.Left)
+            .AllowHeaderFiltering(true)
+            .HeaderCellTemplate(Localizer["<text><div>Sewing<br>Supervisor</div></text>"].Value);
+
+
+        columns.Add().Name("CommandButton")
+           .Caption(Localizer["Function"].Value)
+           .Type(GridCommandColumnType.Buttons)
+           .Buttons(b =>
+           {
+               b.Add().Text(Localizer["→Ssheet"].Value).OnClick("OpenDetailForm");
+               b.Add().Name(GridColumnButtonName.Edit).Text(Localizer["Edit"].Value);
+               b.Add().Text(Localizer["Cmpl cfm"].Value).OnClick("ConfirmCompleted").Visible(Convert.ToBoolean(ViewData["ConfirmCompleteRight"]));
+               b.Add().Name(GridColumnButtonName.Delete).Text(Localizer["Delete"].Value);
+           });
+    })
+    .Editing(e => e
+        .AllowAdding(Convert.ToBoolean(ViewData["EditRight"]))
+        .AllowUpdating(Convert.ToBoolean(ViewData["EditRight"]))
+        .AllowDeleting(Convert.ToBoolean(ViewData["DeleteRight"]))
+
+        .Texts(t=> t
+            .AddRow(Localizer["Add inspection by QN"].Value)
+            .SaveRowChanges(Localizer["Save"].Value)
+            .CancelRowChanges(Localizer["Cancel"].Value)
+            .ConfirmDeleteMessage(Localizer["Are you sure you want to delete this record?"].Value)
+        )
+        .Mode(GridEditMode.Popup)
+        .Popup(p => p
+            .Title(Localizer["QE Full Inspection Info"].Value)
+            .ShowTitle(true)
+            .Width(700)
+            .Height(525)
+            @*.ToolbarItems(items => {
+                items.Add()
+                    .Location(ToolbarItemLocation.After)
+                    .Toolbar(Toolbar.Bottom)
+                    .Widget(w => w.Button()
+                        .OnClick(@<text>function (e){ $("#GridFullInspectionHeaders").dxDataGrid("instance").saveEditData();} </text>)
+                        .Text(Localizer["Save"].Value));
+
+                items.Add()
+                    .Location(ToolbarItemLocation.After)
+                    .Toolbar(Toolbar.Bottom)
+                    .Widget(w => w.Button()
+                        .OnClick(@<text>function (e){ $("#GridFullInspectionHeaders").dxDataGrid("instance").cancelEditData();} </text>)
+                        .Text(Localizer["Cancel"].Value));
+            })*@
+        )
+
+    )
+    .OnInitNewRow("OnInitNewRow")
+    .OnCellPrepared("OnCellPrepared")
+    .OnToolbarPreparing("toolbar_preparing")
+    .Summary(s =>
+        s.TotalItems(items =>
+        {
+            items.AddFor(m => m.Factory).SummaryType(SummaryType.Count).CustomizeText("CalTotalFactory");
+            items.AddFor(m => m.WorkShop).SummaryType(SummaryType.Count).CustomizeText("CalTotalWorkShop");
+            items.AddFor(m => m.Line).SummaryType(SummaryType.Count).CustomizeText("CalTotalLine");
+            items.AddFor(m => m.Project).SummaryType(SummaryType.Count).CustomizeText("CalTotalProjectNo");
+            items.AddFor(m => m.LWO).SummaryType(SummaryType.Count).CustomizeText("CalTotalQNNO");
+            //items.AddFor(m => m.InspectionQtyShow).SummaryType(SummaryType.Count).CustomizeText("CalTotalInspectionQty");
+            //items.AddFor(m => m.OutstandingQtyShow).SummaryType(SummaryType.Count).CustomizeText("CalTotalOutstandingQty");
+            items.AddFor(m => m.InspectionConfirmBy).SummaryType(SummaryType.Count).CustomizeText("CalTotalInspectionConfirmBy");
+            items.AddFor(m => m.StyleNo).SummaryType(SummaryType.Count).CustomizeText("CalTotalCustStyleNo");
+            items.AddFor(m => m.LineLeader).SummaryType(SummaryType.Count).CustomizeText("CalTotalLineLeader");
+            items.AddFor(m => m.SewingSupervisior).SummaryType(SummaryType.Count).CustomizeText("CalTotalSewingSupervisior");
+        })
+      )
+)
+
+
+@using (Html.DevExtreme().NamedTemplate("LineDropDownBoxTemplate"))
+{
+    @(Html.DevExtreme().DropDownBox()
+        .DataSource(d => d.Mvc().Controller("DataHelper").LoadAction("GetLine").Key("Line"))
+        .Value(new JS("value"))
+        .ValueExpr("Line")
+        .DisplayExpr("Line")
+        .DropDownOptions(options => options.Width(500))
+        .Option("setValue", new JS("setValue"))
+        .ContentTemplate(new TemplateName("LineContentTemplate"))
+    )
+}
+
+@using (Html.DevExtreme().NamedTemplate("LineContentTemplate"))
+{
+    @(Html.DevExtreme().DataGrid()
+        .DataSource(d => d.Mvc()
+            .Controller("DataHelper")
+            .LoadAction("GetLine")
+            .LoadParams(new {Factory = new JS("factory") })
+            .Key("Line"))
+            .RemoteOperations(true)
+            .Height(250)
+            .Columns(c => {
+                c.Add().DataField("Factory").Caption(Localizer["Fty"].Value);
+                c.Add().DataField("WorkShop").Caption(Localizer["Ws"].Value);
+                c.Add().DataField("Line").Caption(Localizer["Line#"].Value);
+            })
+        .Scrolling(s => s.Mode(GridScrollingMode.Virtual))
+        .HoverStateEnabled(true)
+        .RemoteOperations(true)
+        .Selection(s => s.Mode(SelectionMode.Single))
+        .SelectedRowKeys(new JS("[component.option('value')]"))
+        .FocusedRowEnabled(true)
+        .FocusedRowKey(new JS("component.option('value')"))
+        .OnSelectionChanged("function(selectionChangedArgs) { onSelectionChanged(selectionChangedArgs, component) }")
+    )
+}
+
+@using (Html.DevExtreme().NamedTemplate("LWODropDownBoxTemplate"))
+{
+    @(Html.DevExtreme().DropDownBox()
+        .DataSource(d => d.Mvc().Controller("DataHelper").LoadAction("GetLWO").Key("LWO"))
+        .Value(new JS("value"))
+        .ValueExpr("LWO")
+        .DisplayExpr("LWO")
+        .DropDownOptions(options => options.Width(600))
+        .Option("setValue", new JS("setValue"))
+        .ContentTemplate(new TemplateName("LWOContentTemplate"))
+    )
+}
+
+@using (Html.DevExtreme().NamedTemplate("LWOContentTemplate"))
+{
+    @(Html.DevExtreme().DataGrid()
+        .DataSource(d => d.Mvc()
+            .Controller("DataHelper")
+            .LoadAction("GetLWO")
+            .LoadParams(new { Line = new JS("line") })
+            .Key("LWO"))
+            .RemoteOperations(true)
+            .Height(250)
+            .Columns(c => {
+                c.Add().DataField("Line").Width(60).Caption(Localizer["Line#"].Value);
+                c.Add().DataField("Project").Width(80).Caption(Localizer["Proj#"].Value);
+                c.Add().DataField("LWO").Width(180).Caption(Localizer["QN#"].Value);
+                c.Add().DataField("ColorCode").Width(60).Caption(Localizer["Clr Cde"].Value);
+                c.Add().DataField("StyleNo").Width(90).Caption(Localizer["Style#"].Value);
+                c.Add().DataField("QNQty").Width(90).Caption(Localizer["QN Qty"].Value);
+                c.Add().DataField("SeqNo").Width(70).Caption(Localizer["Seq#"].Value);
+            })
+        .Scrolling(s => s.Mode(GridScrollingMode.Virtual))
+        .HoverStateEnabled(true)
+        .RemoteOperations(true)
+        .Selection(s => s.Mode(SelectionMode.Single))
+        .SelectedRowKeys(new JS("[component.option('value')]"))
+        .FocusedRowEnabled(true)
+        .FocusedRowKey(new JS("component.option('value')"))
+        .OnSelectionChanged("function(selectionChangedArgs) { onLWOSelectionChanged(selectionChangedArgs, component) }")
+    )
+}
+
+<script>
+    var rightList;
+    $(function () {
+         $.ajax({
+             url: "/api/Right/GetUserRight",
+             data: { UserName: '@ViewData["UserName"]', RightObject: "FullInspectionHeader" },
+             type: "get",
+             async: false,
+             dataType: "json",
+             success: function (result) {
+                 rightList = result;
+                 @*if ($.inArray("Delete", result.data) != -1){
+                     @ViewData["DeleteRight"] = true;
+                 }
+                 //if (rightList.data.includes["Delete"] == true) {
+                 //if (rightList.data.includes["Edit"] == true) {
+
+                 if ($.inArray("Edit", result.data) != -1){
+                     @ViewData["EditRight"] = true;
+                 }*@
+             }
+        });
+    })
+
+    var factory;
+    var workShop;
+    var line;
+    var colorCode;
+    var styelNo;
+    var project;
+    var seqNo;
+    var qnQty;
+    function onSelectionChanged(selectionChangedArgs, component) {
+        var setValue = component.option('setValue');
+        var selectedRowKey = selectionChangedArgs.selectedRowKeys[0];
+        var data = selectionChangedArgs.selectedRowsData[0];
+        workShop = data.WorkShop;
+        component.option('value', selectedRowKey);
+        setValue(selectedRowKey);
+        if (selectionChangedArgs.selectedRowKeys.length > 0) {
+            component.close();
+        }
+    }
+
+    function onLWOSelectionChanged(selectionChangedArgs, component) {
+        var setValue = component.option('setValue');
+        var selectedRowKey = selectionChangedArgs.selectedRowKeys[0];
+        var data = selectionChangedArgs.selectedRowsData[0];
+        colorCode = data.ColorCode;
+        styelNo = data.StyleNo;
+        project = data.Project;
+        seqNo = data.SeqNo;
+        qnQty = data.QNQty;
+        component.option('value', selectedRowKey);
+        setValue(selectedRowKey);
+        if (selectionChangedArgs.selectedRowKeys.length > 0) {
+            component.close();
+        }
+    }
+
+    function SetWorkShopValue(newData, value, currentRowData) {
+        newData.Line = value;
+        newData.WorkShop = workShop;
+        line = value;
+
+        //通過Line取得Line Leader、Sewing Supervisor
+        $.ajax({
+            url: "/api/DataHelper/GetPersonnelInformation",
+            data: { Factory: factory, Line: line },
+            type: "get",
+            async: false,
+            dataType: "json",
+            success: function (result) {
+                if (result.data.length > 0) {
+                    //DevExpress.ui.notify("取人员信息成功");
+                    newData.LineLeader = result.data[0].LineLeader;
+                    newData.SewingSupervisior = result.data[0].SewingSupervisor;
+                    //newDate.Inspector = result.EndlineInspector;
+                }
+                else {
+                    DevExpress.ui.notify("取人员信息失败");
+                }
+            }
+        });
+    }
+
+    function SetFactoryValue(newData, value, currentRowData) {
+        newData.Factory = value;
+        factory = value;
+    }
+
+    function SetStyleNoValue(newData, value, currentRowData) {
+        newData.LWO = value;
+        newData.ColorCode = colorCode;
+        newData.StyleNo = styelNo;
+        newData.Project = project;
+        newData.SeqNo = seqNo;
+        newData.QNQty = qnQty;
+    }
+
+    function onEditorPreparing(e) {
+        factory = e.row.data.Factory;
+        line = e.row.data.Line;
+    }
+
+    function OpenDetailForm(e) {
+        window.location.href = "/Home/FullInspectionDetail?FullInspectionHeader=" + e.row.data.Oid + "&OnlyShowTodayData=1" +
+            "&Fty=" + e.row.data.Factory + "&Ws=" + e.row.data.WorkShop + "&Line=" + e.row.data.Line +
+            "&ProjectNo=" + e.row.data.Project + "&QNNo=" + e.row.data.LWO;
+    }
+
+    function OnInitNewRow(e) {
+        e.data.InspectionDate = new Date();
+        e.data.Inspector = '@ViewData["UserName"]';
+    }
+
+
+    function OnCellPrepared(e) {
+        if (e.rowType == "header") {
+            if (e.column.name == "QNQty" || e.column.name == "InspectionQtyShow" || e.column.name =="OutstandingQtyShow" ||
+                e.column.name == "InspectionConfirmBy" ||
+                e.column.name == "InspectionDate" || e.column.name == "Inspector") {
+                e.cellElement.css("backgroundColor", "rgb(235, 241, 222)");
+            }
+            else if (e.column.name != "CommandButton") {
+                e.cellElement.css("backgroundColor", "rgb(197, 217, 241)");
+            }
+        }
+        @*else if (e.rowType == "data") {
+            if (e.data.Inspector != '@ViewData["UserName"]') {
+                e.cellElement.find(".dx-link-edit").remove();
+                e.cellElement.find(".dx-link-delete").remove();
+            }
+        }*@
+    }
+
+    function ConfirmCompleted(e) {
+        //var grid = $("#GridFullInspectionHeaders").dxDataGrid("instance");
+        var grid = e.component;
+        var index = e.row.rowIndex;
+        var confirmValue = grid.cellValue(index, "InspectionConfirmBy");
+        if (confirmValue == null || confirmValue.length == 0) {
+            grid.cellValue(index, "InspectionConfirmBy", '@ViewData["UserName"]');
+            grid.saveEditData();
+            DevExpress.ui.notify('@Localizer["The complete confirm is success"]', 'success');
+            return;
+        }
+        else {
+            if (confirmValue == '@ViewData["UserName"]') {
+                if (confirm('@Localizer["Do you want to cancel confirm?"]')){
+                    grid.cellValue(index, "InspectionConfirmBy", null);
+                    grid.saveEditData();
+                    DevExpress.ui.notify('@Localizer["The cancel confirm is success"]', 'success');
+                }
+            }
+            else {
+                DevExpress.ui.notify('@Localizer["The current QN is cmpl, but not yet shpd"]', 'error');
+            }
+        }
+    }
+
+
+    function toolbar_preparing(e) {
+        var dataGrid = e.component;
+
+        e.toolbarOptions.items.unshift({
+            location: "after",
+            widget: "dxButton",
+            options: {
+                text: '@Localizer["View Report"]',
+                onClick: function (e) {
+                    window.open("/Home/IncompleteList");
+                    //window.location.href = "/Home/IncompleteList";
+                }
+            }
+        },
+
+            @*{
+            location: "before",
+            widget: "dxButton",
+            options: {
+                text: '@Localizer["Inspection (WIP) record"]',
+                onClick: function (e) {
+                    window.open("/Home/IncompleteList");
+                    //window.location.href = "/Home/IncompleteList";
+                }
+            }
+            },*@
+
+            {
+            location: "after",
+            widget: "dxButton",
+            options: {
+                icon: "refresh",
+                hint: '@Localizer["Refresh"]',
+                onClick: function () {
+                    dataGrid.refresh();
+                }
+            }
+        });
+    }
+
+    function exporting(e) {
+        var workbook = new ExcelJS.Workbook();
+        var worksheet = workbook.addWorksheet('Sheet1');
+
+        DevExpress.excelExporter.exportDataGrid({
+            component: e.component,
+            worksheet: worksheet,
+            autoFilterEnabled: true
+        }).then(function () {
+            workbook.xlsx.writeBuffer().then(function (buffer) {
+                saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'End-line inspection Header List.xlsx');
+            });
+        });
+        e.cancel = true;
+    }
+
+    var totalFactory;
+    var totalWorkShop;
+    var totalLine;
+    var totalProjectNo;
+    var totalQNNO;
+    //var totalInspectionQty;
+    //var totalOutstandingQty;
+    var totalInspectionConfirmBy;
+    var totalCustStyleNo;
+    var totalLineLeader;
+    var totalSewingSupervisior;
+    function CalTotalFactory(data) {
+        $.ajax({
+            url: "/api/FullInspectionHeaders/GetHeaderListTotalInformation",
+            type: "get",
+            async: false,
+            dataType: "json",
+            success: function (result) {
+                totalFactory = result.TotalFactory,
+                totalWorkShop = result.TotalWorkShop;
+                totalLine = result.TotalLine,
+                totalProjectNo = result.TotalProjectNo,
+                totalQNNO = result.TotalQNNO,
+                //totalInspectionQty = result.TotalInspectionQty,
+                //totalOutstandingQty = result.TotalOutstandingQty,
+                totalInspectionConfirmBy = result.InspectionConfirmBy;
+                totalCustStyleNo = result.TotalCustStyleNo,
+                totalLineLeader = result.TotalLineLeader,
+                totalSewingSupervisior = result.TotalSewingSupervisior
+            }
+        });
+        return totalFactory;
+    }
+    function CalTotalWorkShop(data) { return totalWorkShop; }
+    function CalTotalLine(data) { return totalLine; }
+    function CalTotalProjectNo(data) { return totalProjectNo; }
+    function CalTotalQNNO(data) { return totalQNNO; }
+    //function CalTotalInspectionQty(data) { return totalInspectionQty; }
+    //function CalTotalOutstandingQty(data) { return totalOutstandingQty; }
+    function CalTotalInspectionConfirmBy(data) { return totalInspectionConfirmBy; }
+    function CalTotalCustStyleNo(data) { return totalCustStyleNo; }
+    function CalTotalLineLeader(data) { return totalLineLeader; }
+    function CalTotalSewingSupervisior(data) { return totalSewingSupervisior; }
+
+</script>
+

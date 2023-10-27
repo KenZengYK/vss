@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "View";
+}
+
+<h2 style="text-align:center">@Localizer["User Login"]</h2>
+
+<div class="form">
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <div class="dx-field-label">@Localizer["User Name"]</div>
+            <div class="dx-field-value">
+                @(Html.DevExtreme().TextBox()
+                    .ID("UserName")
+                    .Value(Context.Request.Cookies["UserName"] == null ? "" : Context.Request.Cookies["UserName"].ToString())
+                    .Placeholder(Localizer["Enter user name"].Value)
+                 )
+            </div>
+        </div>
+
+        <div class="dx-field">
+            <div class="dx-field-label">@Localizer["Password"]</div>
+            <div class="dx-field-value">
+                @(Html.DevExtreme().TextBox()
+                    .ID("Password")
+                    .Value("")
+                    .Mode(TextBoxMode.Password)
+                    .Placeholder(Localizer["Enter password"].Value)
+                    .ShowClearButton(true)
+                )
+            </div>
+        </div>
+
+        <div class="dx-field">
+            <div class="dx-field-label">@Localizer["Language"]</div>
+            <div class="dx-field-value">
+                @(Html.DevExtreme().SelectBox()
+                    .ID("Language")
+                    .Value(Context.Request.Cookies["Language"] == null ? "EN": Context.Request.Cookies["Language"].ToString())
+                    .DataSource(d => d.Mvc()
+                        .Controller("DataHelper")
+                        .LoadAction("GetLanguage")
+                        .LoadMode(DataSourceLoadMode.Raw)
+                    )
+                    .OnValueChanged("OnValueChangedLanguage")
+                 )
+            </div>
+        </div>
+
+        <div class="dx-field-value">
+            @(Html.DevExtreme().Button()
+                 .Text(Localizer["Login"].Value)
+                 .Type(ButtonType.Success)
+                 .StylingMode(ButtonStylingMode.Contained)
+                 .Width(120)
+                 .OnClick("login")
+              )
+        </div>
+    </div>
+</div>
+
+<script>
+    function login(e) {
+        var username = $("#UserName").dxTextBox("option", "value");
+        if (username.length == 0) {
+            DevExpress.ui.notify('@Localizer["Please enter user name"]')
+            return;
+        }
+
+        var password = $("#Password").dxTextBox("option", "value");
+        if (password.length == 0) {
+            DevExpress.ui.notify('@Localizer["Please enter password"]')
+            return;
+        }
+
+        var language = $("#Language").dxSelectBox("option", "value");
+        if (language.length == 0) {
+            DevExpress.ui.notify('@Localizer["Please select a language"]')
+            return;
+        }
+
+        $.ajax({
+            url: "/api/Right/Login",
+            data: { UserName: username, Password: password, Language: language },
+            type: "get",
+            dataType: "json",
+            success: function (result) {
+                if (result.msg == "OK") {
+                    DevExpress.ui.notify('@Localizer["Login has succeeded"]');
+                    location.href = "/Home/FullInspectionHeader";
+                }
+                else {
+                    //DevExpress.ui.notify(result.msg);
+                    DevExpress.ui.notify('@Localizer["User name or password is incorrect"]', 'error');
+                }
+            }
+        });
+    }
+
+    function OnValueChangedLanguage(e) {
+        $.ajax({
+            url: "/api/Right/SetLanguage",
+            data: { Language: e.value },
+            type: "get",
+            async: false,
+            dataType: "json",
+            success: function (result) {
+                if (result.msg == "OK") {
+                    //DevExpress.ui.notify("选择语言：" + e.value);
+                    location.href = "/Home/Login";
+                }
+            }
+        });
+    }
+</script>

@@ -1,0 +1,840 @@
+﻿<script src="~/js/polyfill.min.js"></script>
+<script src="~/js/exceljs.min.js"></script>
+<script src="~/js/FileSaver.min.js"></script>
+
+@{
+    ViewData["FullInspectionHeader"] = Context.Request.Query["FullInspectionHeader"].ToString();
+    ViewData["Language"] = Context.Request.Cookies["Language"].ToString();
+    ViewData["UserName"] = Context.User.FindFirstValue(ClaimTypes.NameIdentifier);
+    ViewData["OnlyShowTodayData"] = Context.Request.Query["OnlyShowTodayData"].ToString();
+    ViewData["ShowStr"] = "Fty: " + Context.Request.Query["Fty"].ToString() + ", " +
+                          "Ws: " + Context.Request.Query["Ws"].ToString() + ", " +
+                          "Line#: " + Context.Request.Query["Line"].ToString() + ", " +
+                          "Proj#: " + Context.Request.Query["ProjectNo"].ToString() + ", " +
+                          "QN#: " + Context.Request.Query["QNNo"].ToString();
+}
+
+@*<link href="~/css/styles.css" rel="stylesheet" />*@
+<h2>@Localizer["Spreadsheet"]</h2>
+
+<div>
+    @(Html.DevExtreme().DataGrid<QEFullInspetion.Controllers.FullInspectionDetailsViewModel>()
+        .ID("gridFullInspectionDetail")
+        .FocusedRowEnabled(true)
+        .Export(e => e.Enabled(true).Texts(t => t.ExportAll(Localizer["Export all data"].Value)))
+        .OnExporting("exporting")
+
+        //.ColumnAutoWidth(true)
+
+        .Paging(p => p.PageSize(12))
+        .Pager(pager => {
+            pager.Visible(true);
+            pager.DisplayMode(GridPagerDisplayMode.Full);
+            pager.ShowInfo(true);
+            pager.ShowNavigationButtons(true);
+            pager.InfoText("Page {0} of {1} ({2} rows)");
+        })
+        .DataSource(d => d.WebApi()
+            .Controller("FullInspectionDetails")
+            .LoadAction("Get")
+            .LoadParams(new { FullInspectionHeader = ViewData["FullInspectionHeader"], OnlyShowTodayData = ViewData["OnlyShowTodayData"] })
+            .InsertAction("Post")
+            .UpdateAction("Put")
+            .DeleteAction("Delete")
+            .Key("Oid")
+        )
+        .Sorting(sort => sort.Mode(GridSortingMode.Single))
+        .ShowBorders(true)
+        .RemoteOperations(true)
+        .RepaintChangesOnly(true)
+        .Editing(e => e
+            .AllowAdding(Convert.ToBoolean(ViewData["EditRight"]))
+            .AllowUpdating(Convert.ToBoolean(ViewData["EditRight"]))
+            .AllowDeleting(Convert.ToBoolean(ViewData["DeleteRight"]))
+            .Mode(GridEditMode.Popup)
+            .Texts(t => t
+                .AddRow(Localizer["Add post box"].Value)
+                .SaveRowChanges(Localizer["Save"].Value)
+                .CancelRowChanges(Localizer["Cancel"].Value)
+                .ConfirmDeleteMessage(Localizer["Are you sure you want to delete this record?"].Value)
+            )
+
+        @*.Popup(p => p
+            .ID("PopupEditForm")
+            .ToolbarItems(items => {
+
+                items.Add()
+                    .Location(ToolbarItemLocation.After)
+                    .Toolbar(Toolbar.Bottom)
+                    .Widget(w => w.Button()
+                    .OnClick("AddDefectPopup")
+                        .Text(Localizer["Add Defect"].Value));
+
+                items.Add()
+                    .Location(ToolbarItemLocation.After)
+                    .Toolbar(Toolbar.Bottom)
+                    .Widget(w => w.Button()
+                    .OnClick(@<text>function (e){ $("#gridFullInspectionDetail").dxDataGrid("instance").saveEditData();} </text>)
+                        .Text(Localizer["Save"].Value));
+
+                items.Add()
+                    .Location(ToolbarItemLocation.After)
+                    .Toolbar(Toolbar.Bottom)
+                    .Widget(w => w.Button()
+                    .OnClick(@<text>function (e){ $("#gridFullInspectionDetail").dxDataGrid("instance").cancelEditData();} </text>)
+                    .Text(Localizer["Cancel"].Value));
+            }))*@
+
+       .Form(f => f.ID("EditForm")
+               .Items(items => {
+                   items.AddGroup()
+                   .Caption(Localizer["PostBox"].Value)
+                   .ColCount(4)
+                   .ColSpan(2)
+                   .Items(groupItems => {
+                       //groupItems.AddSimpleFor(m => m.RecordNoShow);
+                       groupItems.AddSimpleFor(m => m.BoxNo).ValidationRules(v => v.AddRequired().Message(Localizer["Please input a box#"].Value));
+                       groupItems.AddSimpleFor(m => m.Size);
+                       groupItems.AddSimpleFor(m => m.ProductQty)
+                        .ValidationRules(v => {
+                            v.AddRequired().Message(Localizer["Please input pcs"].Value);
+                            v.AddCustom().Message("檢查數超過了QN數").ValidationCallback("ValidationProductQtyCallback");
+                        });
+
+                       groupItems.AddSimpleFor(m => m.DefectiveGarmentQty)
+                        .ValidationRules(v => {
+                            v.AddRequired().Message(Localizer["Please input defective garment qty"].Value);
+                            v.AddCompare()
+                                .ComparisonType(ComparisonOperator.LessThanOrEqual)
+                                .Message(Localizer["The defective garment qty can not be greater than Pcs"].Value)
+                                .ComparisonTarget("ValidationDefectiveGarmentQty");
+                        });
+
+                       //groupItems.AddSimpleFor(m => m.DefectiveGarmentPercent);
+                       groupItems.AddSimpleFor(m => m.RejectStage);
+                       groupItems.AddSimpleFor(m => m.Repaired);
+                       groupItems.AddSimpleFor(m => m.RejectQty);
+                       //groupItems.AddSimpleFor(m => m.CheckPointSigned);
+
+                       groupItems.AddSimpleFor(m => m.InspectionDate).Label(l => l.Text(Localizer["Insp. dd"].Value));
+                   });
+
+                   items.AddGroup().Name("DefectGroup")
+                   .Caption(Localizer["Defective Garment Information"].Value)
+                   .ColCount(4)
+                   .ColSpan(2)
+                   .Items(groupItems => {
+
+                       groupItems.AddSimpleFor(m => m.DefectQty).ColSpan(4)
+                        .Label(l => l.Text(Localizer["A) Defect Cde"].Value))
+                        .Editor(e => e.NumberBox().Width(130).Max(3).Min(1));
+
+                       //.Editor(e => e.NumberBox().Width(120).Max(3).Min(1).OnValueChanged("OnValueChangedDefectQty"));
+
+                       groupItems.AddSimpleFor(m => m.DefectCode1).Label(l => l.Text(Localizer["Cde"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectNameEN1).Label(l => l.Text(Localizer["Desc. (EN)"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectNameCN1).Label(l => l.Text(Localizer["Desc. (CN)"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectNameBD1).Label(l => l.Text(Localizer["Desc. (BD)"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectCode2).Label(l => l.Text(Localizer["Cde"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectNameEN2).Label(l => l.Text(Localizer["Desc. (EN)"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectNameCN2).Label(l => l.Text(Localizer["Desc. (CN)"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectNameBD2).Label(l => l.Text(Localizer["Desc. (BD)"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectCode3).Label(l => l.Text(Localizer["Cde"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectNameEN3).Label(l => l.Text(Localizer["Desc. (EN)"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectNameCN3).Label(l => l.Text(Localizer["Desc. (CN)"].Value));
+                       groupItems.AddSimpleFor(m => m.DefectNameBD3).Label(l => l.Text(Localizer["Desc. (BD)"].Value));
+
+                       groupItems.AddSimpleFor(m => m.PODQty).ColSpan(4)
+                            .Label(l => l.Text(Localizer["B) POD Cde"].Value))
+                            .Editor(e => e.NumberBox().Width(130).Max(3).Min(1));
+
+                       //.Editor(e => e.NumberBox().Width(120).Max(3).Min(1).OnValueChanged("OnValueChangedPODQty"));
+
+                       groupItems.AddSimpleFor(m => m.PODCode1).Label(l => l.Text(Localizer["Cde"].Value));
+                       groupItems.AddSimpleFor(m => m.PODNameEN1).Label(l => l.Text(Localizer["Desc. (EN)"].Value));
+                       groupItems.AddSimpleFor(m => m.PODNameCN1).Label(l => l.Text(Localizer["Desc. (CN)"].Value));
+                       groupItems.AddSimpleFor(m => m.PODNameBD1).Label(l => l.Text(Localizer["Desc. (BD)"].Value));
+                       groupItems.AddSimpleFor(m => m.PODCode2).Label(l => l.Text(Localizer["Cde"].Value));
+                       groupItems.AddSimpleFor(m => m.PODNameEN2).Label(l => l.Text(Localizer["Desc. (EN)"].Value));
+                       groupItems.AddSimpleFor(m => m.PODNameCN2).Label(l => l.Text(Localizer["Desc. (CN)"].Value));
+                       groupItems.AddSimpleFor(m => m.PODNameBD2).Label(l => l.Text(Localizer["Desc. (BD)"].Value));
+                       groupItems.AddSimpleFor(m => m.PODCode3).Label(l => l.Text(Localizer["Cde"].Value));
+                       groupItems.AddSimpleFor(m => m.PODNameEN3).Label(l => l.Text(Localizer["Desc. (EN)"].Value));
+                       groupItems.AddSimpleFor(m => m.PODNameCN3).Label(l => l.Text(Localizer["Desc. (CN)"].Value));
+                       groupItems.AddSimpleFor(m => m.PODNameBD3).Label(l => l.Text(Localizer["Desc. (BD)"].Value));
+                   });
+               }))
+       )
+  .Columns(columns => {
+  columns.AddFor(m => m.Oid).Visible(false);
+  columns.AddFor(m => m.FullInspectionHeader).Visible(false);
+  columns.AddFor(m => m.InspectionDate).Width(90)
+           //.AllowEditing(false)
+           .SortOrder(SortOrder.Asc)
+           .Alignment(HorizontalAlignment.Left)
+           .Format("yyyy-MM-dd")
+           .Caption(Localizer["Insp. dd"].Value)
+           .HeaderCellTemplate(Localizer["<text><div>Insp. dd</div></text>"].Value);
+
+  columns.AddFor(m => m.Inspector).Width(80)
+           .AllowEditing(false)
+           .Caption(Localizer["Inspector"].Value);
+
+  columns.AddFor(m => m.RecordNoShow).Width(50)
+           .AllowEditing(false)
+           .Alignment(HorizontalAlignment.Left)
+           .Caption(Localizer["Data Seq."].Value)
+           .HeaderCellTemplate(Localizer["<text><div>Data<br>Seq.</div></text>"].Value);
+
+  columns.AddFor(m => m.CheckPointSigned).Width(80)
+           .AllowEditing(false)
+           .Caption(Localizer["Chk Pt. Cfmd by"].Value)
+           .Alignment(HorizontalAlignment.Left)
+           .HeaderCellTemplate(Localizer["<text><div>Chk Pt.<br>Cfmd by</div></text>"].Value);
+
+  columns.AddFor(m => m.BoxNo).Width(50)
+           .Alignment(HorizontalAlignment.Left)
+           .HeaderCellTemplate(Localizer["<strong><text><div>Box#</div></text></strong>"].Value);
+
+  columns.AddFor(m => m.Size).Caption(Localizer["Sz"].Value).Alignment(HorizontalAlignment.Left).Width(50)
+               .CellTemplate(@<text><div><%- data.Size %></div></text>)
+                    .Lookup(p => p.DataSource(d => d.Mvc()
+                    .Controller("DataHelper")
+                    .LoadAction("GetSize")
+                    .LoadParams(new { FullInspectionHeader = ViewData["FullInspectionHeader"] })
+                    .Key("Size"))
+                    .DisplayExpr("Size")
+                    .ValueExpr("Size")
+                );
+      columns.AddFor(m => m.ProductQty).Caption(Localizer["Pcs"].Value).Alignment(HorizontalAlignment.Left).Width(50);
+      columns.AddFor(m => m.DefectiveGarmentQty).Width(50)
+              .Alignment(HorizontalAlignment.Left)
+              .Caption(Localizer["Def. Gmts"].Value)
+              .HeaderCellTemplate(Localizer["<text><div>Def.<br>Gmts</div></text>"].Value);
+
+      columns.AddFor(m => m.DefectiveGarmentPercent).Width(68)
+              .Alignment(HorizontalAlignment.Left)
+              .Caption(Localizer["Def.%"].Value)
+              .HeaderCellTemplate(Localizer["<text><div>Def.<br>%</div></text>"].Value);
+
+      columns.AddFor(m => m.RejectStage)
+              .Caption(Localizer["Rej. Stage"].Value)
+              .Alignment(HorizontalAlignment.Left)
+              .Width(50)
+              .Lookup(p => p.DataSource(new JS("RejectStageList")))
+              .HeaderCellTemplate(Localizer["<text><div>Rej.<br>Stage</div></text>"].Value);
+
+      columns.AddFor(m => m.Repaired)
+        .Caption(Localizer["Repaired"].Value)
+        .Alignment(HorizontalAlignment.Center)
+        .Width(70);
+
+      columns.AddFor(m => m.RejectQty).Caption(Localizer["Scrap Qty"].Value).Alignment(HorizontalAlignment.Left).Width(50)
+        .HeaderCellTemplate(Localizer["<text><div>Scrap<br>Qty</div></text>"].Value);
+
+      //疵點
+      columns.AddFor(m => m.DefectQty).Width(63)
+                .Caption(Localizer["A) Defect Cde"].Value)
+                .Alignment(HorizontalAlignment.Left)
+                .HeaderCellTemplate(Localizer["<text><div>Def. Pts<br>Qty</div></text>"].Value);
+
+      columns.AddFor(m => m.DefectCode1).Caption(Localizer["Cde"].Value).Width(60)
+        .Alignment(HorizontalAlignment.Left)
+        .AllowSorting(false)
+        .SetCellValue("SetDefectNameValue1")
+        //.HeaderCellTemplate(Localizer["<text><div>Def.<br>Cde</div></text>"].Value)
+        .EditCellTemplate(new TemplateName("DefectDropDownBoxTemplate"));
+
+
+      columns.AddFor(m => m.DefectNameEN1).Width(130)
+          .AllowEditing(false)
+          .Caption(Localizer["Desc. (EN)"].Value)
+          .Alignment(HorizontalAlignment.Left);
+
+      columns.AddFor(m => m.DefectNameCN1).Width(130)
+          .AllowEditing(false)
+          .Caption(Localizer["Desc. (CN)"].Value)
+          .Visible(ViewData["Language"].ToString() == "CN")
+          .Alignment(HorizontalAlignment.Left);
+      columns.AddFor(m => m.DefectNameBD1).Width(130)
+          .AllowEditing(false)
+          .Caption(Localizer["Desc. (BD)"].Value)
+          .Visible(ViewData["Language"].ToString() == "EN")
+          .Alignment(HorizontalAlignment.Left);
+
+      columns.AddFor(m => m.DefectCode2).Caption(Localizer["Code"].Value).Width(60)
+                  .Alignment(HorizontalAlignment.Left)
+                  .AllowSorting(false)
+                  .SetCellValue("SetDefectNameValue2")
+                  //.HeaderCellTemplate(Localizer["<text><div>Def.<br>Cde</div></text>"].Value)
+                  .EditCellTemplate(new TemplateName("DefectDropDownBoxTemplate"));
+
+
+      columns.AddFor(m => m.DefectNameEN2).Width(130)
+          .AllowEditing(false)
+          .Caption(Localizer["Desc. (EN)"].Value)
+          .Alignment(HorizontalAlignment.Left);
+
+      columns.AddFor(m => m.DefectNameCN2).Width(130)
+          .AllowEditing(false)
+          .Caption(Localizer["Desc. (CN)"].Value)
+          .Visible(ViewData["Language"].ToString() == "CN")
+          .Alignment(HorizontalAlignment.Left);
+      columns.AddFor(m => m.DefectNameBD2).Width(130)
+          .AllowEditing(false)
+          .Caption(Localizer["Desc. (BD)"].Value)
+          .Visible(ViewData["Language"].ToString() == "EN")
+          .Alignment(HorizontalAlignment.Left);
+
+      columns.AddFor(m => m.DefectCode3).Caption(Localizer["Code"].Value).Width(60)
+        .Alignment(HorizontalAlignment.Left)
+        .AllowSorting(false)
+        .SetCellValue("SetDefectNameValue3")
+        //.HeaderCellTemplate(Localizer["<text><div>Def.<br>Cde</div></text>"].Value)
+        .EditCellTemplate(new TemplateName("DefectDropDownBoxTemplate"));
+
+
+      columns.AddFor(m => m.DefectNameEN3).Width(130)
+          .AllowEditing(false)
+          .Caption(Localizer["Desc. (EN)"].Value)
+          .Alignment(HorizontalAlignment.Left);
+
+      columns.AddFor(m => m.DefectNameCN3).Width(130)
+          .AllowEditing(false)
+          .Caption(Localizer["Desc. (CN)"].Value)
+          .Visible(ViewData["Language"].ToString() == "CN")
+          .Alignment(HorizontalAlignment.Left);
+
+      columns.AddFor(m => m.DefectNameBD3).Width(130)
+          .AllowEditing(false)
+          .Caption(Localizer["Desc. (BD)"].Value)
+          .Visible(ViewData["Language"].ToString() == "EN")
+          .Alignment(HorizontalAlignment.Left);
+
+      //疵點位置
+      columns.AddFor(m => m.PODQty).Alignment(HorizontalAlignment.Left).Width(60).HeaderCellTemplate(Localizer["<text><div>POD<br>Qty</div></text>"].Value);
+      columns.AddFor(m => m.PODCode1).Caption(Localizer["Cde"].Value).Width(60)
+              .Alignment(HorizontalAlignment.Left)
+              .AllowSorting(false)
+              .SetCellValue("SetPODNameValue1")
+              //.HeaderCellTemplate(Localizer["<text><div>POD<br>Cde</div></text>"].Value)
+              .EditCellTemplate(new TemplateName("PODDropDownBoxTemplate"));
+      columns.AddFor(m => m.PODNameEN1).Width(130)
+              .AllowEditing(false)
+              .Caption(Localizer["Desc. (EN)"].Value)
+             .Alignment(HorizontalAlignment.Left);
+      columns.AddFor(m => m.PODNameCN1).Width(130)
+              .AllowEditing(false)
+              .Caption(Localizer["Desc. (CN)"].Value)
+              .Visible(ViewData["Language"].ToString() == "CN")
+              .Alignment(HorizontalAlignment.Left);
+      columns.AddFor(m => m.PODNameBD1).Width(130)
+              .AllowEditing(false)
+              .Caption(Localizer["Desc. (BD)"].Value)
+              .Visible(ViewData["Language"].ToString() == "EN")
+              .Alignment(HorizontalAlignment.Left);
+
+      columns.AddFor(m => m.PODCode2).Caption(Localizer["Code"].Value).Width(60)
+             .Alignment(HorizontalAlignment.Left)
+             .AllowSorting(false)
+             .SetCellValue("SetPODNameValue2")
+             //.HeaderCellTemplate(Localizer["<text><div>POD<br>Cde</div></text>"].Value)
+             .EditCellTemplate(new TemplateName("PODDropDownBoxTemplate"));
+      columns.AddFor(m => m.PODNameEN2)
+             .Width(130).AllowEditing(false)
+             .Caption(Localizer["Desc. (EN)"].Value)
+             .Alignment(HorizontalAlignment.Left);
+      columns.AddFor(m => m.PODNameCN2).Width(130)
+             .AllowEditing(false)
+             .Caption(Localizer["Desc. (CN)"].Value)
+             .Visible(ViewData["Language"].ToString() == "CN")
+             .Alignment(HorizontalAlignment.Left);
+      columns.AddFor(m => m.PODNameBD2).Width(130)
+             .AllowEditing(false)
+             .Caption(Localizer["Desc. (BD)"].Value)
+             .Visible(ViewData["Language"].ToString() == "EN")
+             .Alignment(HorizontalAlignment.Left);
+
+      columns.AddFor(m => m.PODCode3).Caption(Localizer["Code"].Value).Width(60)
+             .Alignment(HorizontalAlignment.Left)
+             .AllowSorting(false)
+             .SetCellValue("SetPODNameValue3")
+             //.HeaderCellTemplate(Localizer["<text><div>POD<br>Cde</div></text>"].Value)
+             .EditCellTemplate(new TemplateName("PODDropDownBoxTemplate"));
+      columns.AddFor(m => m.PODNameEN3)
+             .Width(130).AllowEditing(false)
+             .Caption(Localizer["Desc. (EN)"].Value)
+             .Alignment(HorizontalAlignment.Left);
+      columns.AddFor(m => m.PODNameCN3).Width(130)
+             .AllowEditing(false)
+             .Caption(Localizer["Desc. (CN)"].Value)
+             .Visible(ViewData["Language"].ToString() == "CN")
+             .Alignment(HorizontalAlignment.Left);
+      columns.AddFor(m => m.PODNameBD3).Width(130)
+             .AllowEditing(false)
+             .Caption(Localizer["Desc. (BD)"].Value)
+             .Visible(ViewData["Language"].ToString() == "EN")
+             .Alignment(HorizontalAlignment.Left);
+
+      columns.Add().Name("CommandButton")
+             .Caption(Localizer["Function"].Value)
+             .Type(GridCommandColumnType.Buttons)
+             .Buttons(b =>
+             {
+                 //b.Add().Text(Localizer["Add Defect"].Value).OnClick("AddDefect").Visible(Convert.ToBoolean(ViewData["EditRight"]));
+                 b.Add().Name(GridColumnButtonName.Edit).Text(Localizer["Edit"].Value).Visible(Convert.ToBoolean(ViewData["EditRight"]));
+                 b.Add().Name("Remark").Text(Localizer["Remark"].Value).OnClick("onRemarkClick");
+                 b.Add().Text(Localizer["Chk Pt. cfm"].Value).OnClick("CheckPointConfirm").Visible(Convert.ToBoolean(ViewData["ConfirmCheckPointRight"]));
+                 b.Add().Name(GridColumnButtonName.Delete).Text(Localizer["Delete"].Value).Visible(Convert.ToBoolean(ViewData["DeleteRight"]));
+             });
+  })
+        .OnInitNewRow("OnInitNewRow")
+        .OnToolbarPreparing("toolbar_preparing")
+        .OnCellPrepared("OnCellPrepared")
+        .OnEditingStart("OnEditingStart")
+        .Summary(s =>
+            s.TotalItems(items => {
+                items.AddFor(m => m.RecordNoShow).SummaryType(SummaryType.Count).DisplayFormat("Ttl");
+                items.AddFor(m => m.CheckPointSigned).SummaryType(SummaryType.Count).CustomizeText("CalTotalCheckPointSigned");
+                items.AddFor(m => m.BoxNo).SummaryType(SummaryType.Count).CustomizeText("CalTotalBoxNo");
+                items.AddFor(m => m.Size).SummaryType(SummaryType.Count).CustomizeText("CalTotalSize");
+                items.AddFor(m => m.ProductQty).SummaryType(SummaryType.Sum).DisplayFormat("{0}");
+                items.AddFor(m => m.DefectiveGarmentQty).SummaryType(SummaryType.Sum).DisplayFormat("{0}");
+                items.AddFor(m => m.DefectiveGarmentPercent).SummaryType(SummaryType.Count).CustomizeText("CalDefectiveGarmentPercent");
+                items.AddFor(m => m.Repaired).SummaryType(SummaryType.Count).CustomizeText("CalTotalRepaired");
+                items.AddFor(m => m.RejectQty).SummaryType(SummaryType.Count).CustomizeText("CalTotalRejectQty");
+            })
+      )
+)
+
+    @using (Html.DevExtreme().NamedTemplate("DefectDropDownBoxTemplate"))
+    {
+        @(Html.DevExtreme().DropDownBox()
+        .Width(130)
+        .DataSource(d => d.Mvc().Controller("DataHelper").LoadAction("GetDefect").Key("DefectCode"))
+        .Value(new JS("value"))
+        .ValueExpr("DefectCode")
+        .DisplayExpr("DefectCode")
+        .DropDownOptions(options => options.Width(800))
+        .Option("setValue", new JS("setValue"))
+        .ShowClearButton(true)
+        .OnValueChanged("ClearDefect")
+        .ContentTemplate(new TemplateName("DefectContentTemplate"))
+    )
+    }
+
+    @using (Html.DevExtreme().NamedTemplate("DefectContentTemplate"))
+    {
+        @(Html.DevExtreme().DataGrid()
+            .FilterRow(filterRow => filterRow
+                .Visible(true)
+                .ApplyFilter(GridApplyFilterMode.Auto)
+            )
+            .DataSource(d => d.Mvc()
+            .Controller("DataHelper")
+            .LoadAction("GetDefect")
+            .Key("DefectCode"))
+            .RemoteOperations(true)
+            .Height(250)
+            .Columns(c => {
+                c.Add().DataField("DefectCode").Width(90).Caption(Localizer["Def. Cde"].Value);
+                c.Add().DataField("DefectNameEN").Width(180).Caption(Localizer["Defect Desc. (EN)"].Value);
+                c.Add().DataField("DefectNameCN").Width(180).Caption(Localizer["Defect Desc. (CN)"].Value);
+                c.Add().DataField("DefectNameBD").Width(100).Caption(Localizer["Defect Desc. (BD)"].Value);
+            })
+        .Scrolling(s => s.Mode(GridScrollingMode.Virtual))
+        .HoverStateEnabled(true)
+        .RemoteOperations(true)
+        .Selection(s => s.Mode(SelectionMode.Single))
+        .SelectedRowKeys(new JS("[component.option('value')]"))
+        .FocusedRowEnabled(true)
+        .FocusedRowKey(new JS("component.option('value')"))
+        .OnSelectionChanged("function(selectionChangedArgs) { onDefectSelectionChanged(selectionChangedArgs, component) }")
+    )
+    }
+
+    @using (Html.DevExtreme().NamedTemplate("PODDropDownBoxTemplate"))
+    {
+        @(Html.DevExtreme().DropDownBox()
+        .Width(130)
+        .DataSource(d => d.Mvc().Controller("DataHelper").LoadAction("GetPOD").Key("PODCode"))
+        .Value(new JS("value"))
+        .ValueExpr("PODCode")
+        .DisplayExpr("PODCode")
+        .DropDownOptions(options => options.Width(800))
+        .Option("setValue", new JS("setValue"))
+        .ShowClearButton(true)
+        .OnValueChanged("ClearPOD")
+        .ContentTemplate(new TemplateName("PODContentTemplate"))
+    )
+    }
+
+    @using (Html.DevExtreme().NamedTemplate("PODContentTemplate"))
+    {
+        @(Html.DevExtreme().DataGrid()
+            .FilterRow(filterRow => filterRow
+                .Visible(true)
+                .ApplyFilter(GridApplyFilterMode.Auto)
+            )
+
+            .DataSource(d => d.Mvc()
+                .Controller("DataHelper")
+                .LoadAction("GetPOD")
+                .Key("PODCode"))
+                .RemoteOperations(true)
+                .Height(250)
+                .Columns(c => {
+                    c.Add().DataField("PODCode").Width(90).Caption(Localizer["POD Cde"].Value);
+                    c.Add().DataField("PODNameCN").Width(180).Caption(Localizer["POD Desc. (CN)"].Value);
+                    c.Add().DataField("PODNameEN").Width(180).Caption(Localizer["POD Desc. (EN)"].Value);
+                    c.Add().DataField("PODNameBD").Width(100).Caption(Localizer["POD Desc. (BD)"].Value);
+                 })
+        .Scrolling(s => s.Mode(GridScrollingMode.Virtual))
+        .HoverStateEnabled(true)
+        .RemoteOperations(true)
+        .Selection(s => s.Mode(SelectionMode.Single))
+        .SelectedRowKeys(new JS("[component.option('value')]"))
+        .FocusedRowEnabled(true)
+        .FocusedRowKey(new JS("component.option('value')"))
+        .OnSelectionChanged("function(selectionChangedArgs) { onPODSelectionChanged(selectionChangedArgs, component) }")
+    )
+    }
+
+</div>
+
+<script>
+    var defectCode;
+    var defectNameEN;
+    var defectNameCN;
+    var defectNameBD;
+    var podNameEN;
+    var podNameCN;
+    var podNameBD;
+
+    function onDefectSelectionChanged(selectionChangedArgs, component) {
+        var setValue = component.option('setValue');
+        var selectedRowKey = selectionChangedArgs.selectedRowKeys[0];
+        var data = selectionChangedArgs.selectedRowsData[0];
+        defectNameEN = data.DefectNameEN;
+        defectNameCN = data.DefectNameCN;
+        defectNameBD = data.DefectNameBD;
+        component.option('value', selectedRowKey);
+        setValue(selectedRowKey);
+        if (selectionChangedArgs.selectedRowKeys.length > 0) {
+            component.close();
+        }
+    }
+
+    function SetDefectNameValue1(newData, value, currentRowData) {
+        newData.DefectCode1 = value;
+        newData.DefectNameEN1 = value == "" ? "" : defectNameEN;
+        newData.DefectNameCN1 = value == "" ? "" : defectNameCN;
+        newData.DefectNameBD1 = value == "" ? "" : defectNameBD;
+        if (currentRowData.DefectCode3 !== undefined && currentRowData.DefectCode3 !== null && currentRowData.DefectCode3.length > 0) newData.DefectQty = 3
+        else if (currentRowData.DefectCode2 !== undefined && currentRowData.DefectCode2 !== null && currentRowData.DefectCode2.length > 0) newData.DefectQty = 2
+        else { newData.DefectQty = value == "" ? null : 1; }
+    }
+    function SetDefectNameValue2(newData, value, currentRowData) {
+        newData.DefectCode2 = value;
+        newData.DefectNameEN2 = value == "" ? "" : defectNameEN;
+        newData.DefectNameCN2 = value == "" ? "" : defectNameCN;
+        newData.DefectNameBD2 = value == "" ? "" : defectNameBD;
+        if (value == "") {
+            if (currentRowData.DefectCode3 !== undefined && currentRowData.DefectCode3 !== null && currentRowData.DefectCode3.length > 0) newData.DefectQty = 3
+            else if (currentRowData.DefectCode1 !== undefined && currentRowData.DefectCode1 !== null && currentRowData.DefectCode1.length > 0) newData.DefectQty = 1
+            else newData.DefectQty = null;
+        }
+        else {
+            if (currentRowData.DefectCode3 !== undefined && currentRowData.DefectCode3 !== null && currentRowData.DefectCode3.length > 0) newData.DefectQty = 3
+            else { newData.DefectQty = 2; }
+        }
+    }
+    function SetDefectNameValue3(newData, value, currentRowData) {
+        newData.DefectCode3 = value;
+        newData.DefectNameEN3 = value == "" ? "" : defectNameEN;
+        newData.DefectNameCN3 = value == "" ? "" : defectNameCN;
+        newData.DefectNameBD3 = value == "" ? "" : defectNameBD;
+        if (value == "") {
+            if (currentRowData.DefectCode2 !== undefined && currentRowData.DefectCode2 !== null && currentRowData.DefectCode2.length > 0) newData.DefectQty = 2
+            else if (currentRowData.DefectCode1 !== undefined && currentRowData.DefectCode1 !== null && currentRowData.DefectCode1.length > 0) newData.DefectQty = 1
+            else newData.DefectQty = null;
+        }
+        else { newData.DefectQty = 3; }
+    }
+
+    function onPODSelectionChanged(selectionChangedArgs, component) {
+        var setValue = component.option('setValue');
+        var selectedRowKey = selectionChangedArgs.selectedRowKeys[0];
+        var data = selectionChangedArgs.selectedRowsData[0];
+        podNameEN = data.PODNameEN;
+        podNameCN = data.PODNameCN;
+        podNameBD = data.PODNameBD;
+        component.option('value', selectedRowKey);
+        setValue(selectedRowKey);
+        if (selectionChangedArgs.selectedRowKeys.length > 0) {
+            component.close();
+        }
+    }
+
+    function SetPODNameValue1(newData, value, currentRowData) {
+        newData.PODCode1 = value;
+        newData.PODNameEN1 = value == "" ? "" : podNameEN;
+        newData.PODNameCN1 = value == "" ? "" : podNameCN;
+        newData.PODNameBD1 = value == "" ? "" : podNameBD;
+        if (currentRowData.PODCode3 !== undefined && currentRowData.PODCode3 !== null && currentRowData.PODCode3.length > 0) newData.PODQty = 3
+        else if (currentRowData.PODCode2 !== undefined && currentRowData.PODCode2 !== null && currentRowData.PODCode2.length > 0) newData.PODQty = 2
+        else { newData.PODQty = value == "" ? null : 1; }
+    }
+    function SetPODNameValue2(newData, value, currentRowData) {
+        newData.PODCode2 = value;
+        newData.PODNameEN2 = value == "" ? "" : podNameEN;
+        newData.PODNameCN2 = value == "" ? "" : podNameCN;
+        newData.PODNameBD2 = value == "" ? "" : podNameBD;
+        if (value == "") {
+            if (currentRowData.PODCode3 !== undefined && currentRowData.PODCode3 !== null && currentRowData.PODCode3.length > 0) newData.PODQty = 3
+            else if (currentRowData.PODCode1 !== undefined && currentRowData.PODCode1 !== null && currentRowData.PODCode1.length > 0) newData.PODQty = 1
+            else newData.PODQty = null;
+        }
+        else {
+            if (currentRowData.PODCode3 !== undefined && currentRowData.PODCode3 !== null && currentRowData.PODCode3.length > 0) newData.PODQty = 3
+            else { newData.PODQty = 2; }
+        }
+    }
+    function SetPODNameValue3(newData, value, currentRowData) {
+        newData.PODCode3 = value;
+        newData.PODNameEN3 = value == "" ? "" : podNameEN;
+        newData.PODNameCN3 = value == "" ? "" : podNameCN;
+        newData.PODNameBD3 = value == "" ? "" : podNameBD;
+        if (value == "") {
+            if (currentRowData.PODCode2 !== undefined && currentRowData.PODCode2 !== null && currentRowData.PODCode2.length > 0) newData.PODQty = 2
+            else if (currentRowData.PODCode1 !== undefined && currentRowData.PODCode1 !== null && currentRowData.PODCode1.length > 0) newData.PODQty = 1
+            else newData.PODQty = null;
+        }
+        else { newData.PODQty = 3; }
+    }
+
+    function toolbar_preparing(e) {
+        var dataGrid = e.component;
+
+        e.toolbarOptions.items.unshift({
+            location: "after",
+            widget: "dxButton",
+            options: {
+                text: '@Localizer["Return"]',
+                width: 80,
+                onClick: function (e) {
+                    window.location.href = "/Home/FullInspectionHeader";
+                }
+            }
+        },{
+            location: "before",
+            widget: "dxButton",
+            options: {
+                text: '@ViewData["ShowStr"]',
+                readonly: true
+            }
+        }, {
+            location: "before",
+            widget: "dxCheckBox",
+            options: {
+                text: '@Localizer["Only show record checked today"]',
+                name: "chkOnlyShowToadayData",
+                value: @ViewData["OnlyShowTodayData"],
+                onValueChanged: function (e) {
+                    var showdata = e.value ? 1 : 0;
+                    window.location.href = '/Home/FullInspectionDetail?FullInspectionHeader=@ViewData["FullInspectionHeader"]&OnlyShowTodayData=' + showdata +
+                        "&Fty=@Context.Request.Query["Fty"]&Ws=@Context.Request.Query["Ws"]&Line=@Context.Request.Query["Line"]&ProjectNo=@Context.Request.Query["ProjectNo"]&QNNo=@Context.Request.Query["QNNo"]";
+                }
+            }
+        }, {
+            location: "after",
+            widget: "dxButton",
+            options: {
+                icon: "refresh",
+                hint: '@Localizer["Refresh"]',
+                onClick: function () {
+                    dataGrid.refresh();
+                }
+            }
+        });
+    }
+
+    var totalBoxNo;
+    var totalRepaired;
+    var totalSize;
+    var defectiveGarmentPercent;
+    var totalCheckPointSigned;
+    var totalRejectQty;
+    function CalTotalCheckPointSigned(data) {
+        $.ajax({
+            url: "/api/FullInspectionHeaders/GetTotalInformation",
+            data: { FullInspectionHeader: @ViewData["FullInspectionHeader"], OnlyShowTodayData: @ViewData["OnlyShowTodayData"]},
+            type: "get",
+            async: false,
+            dataType: "json",
+            success: function (result) {
+                totalCheckPointSigned = result.TotalCheckPointSigned
+                totalBoxNo = result.TotalBoxNo
+                totalRepaired = result.TotalRepaired
+                totalSize = result.TotalSize,
+                defectiveGarmentPercent = result.DefectiveGarmentPercent,
+                totalRejectQty = result.TotalRejectQty;
+
+            }
+        });
+        return totalCheckPointSigned;
+    }
+    function CalTotalBoxNo(data) { return totalBoxNo; }
+    function CalTotalRepaired(data) { return totalRepaired; }
+    function CalTotalSize(data) { return totalSize; }
+    function CalDefectiveGarmentPercent(data) { return defectiveGarmentPercent; }
+    //function CalTotalCheckPointSigned(data) { return totalCheckPointSigned;}
+    function CalTotalRejectQty(data) { return totalRejectQty; }
+
+    function onRemarkClick(e) {
+        window.location.href = '/Home/Remark?FullInspectionHeader=@ViewData["FullInspectionHeader"]&OnlyShowTodayData=@ViewData["OnlyShowTodayData"]' +
+          "&Fty=@Context.Request.Query["Fty"]&Ws=@Context.Request.Query["Ws"]&Line=@Context.Request.Query["Line"]&ProjectNo=@Context.Request.Query["ProjectNo"]&QNNo=@Context.Request.Query["QNNo"]";
+    }
+
+    function OnCellPrepared(e) {
+        if (e.rowType == "header") {
+            if (e.column.name == "InspectionDate" || e.column.name == "Inspector" ||
+                e.column.name == "RecordNoShow" || e.column.name == "CheckPointSigned" || e.column.name == "DefectQty" ||
+                e.column.name == "DefectCode1" || e.column.name == "DefectNameEN1" || e.column.name == "DefectNameCN1" || e.column.name == "DefectNameBD1" ||
+                e.column.name == "DefectCode2" || e.column.name == "DefectNameEN2" || e.column.name == "DefectNameCN2" || e.column.name == "DefectNameBD2" ||
+                e.column.name == "DefectCode3" || e.column.name == "DefectNameEN3" || e.column.name == "DefectNameCN3" || e.column.name == "DefectNameBD3"){
+                e.cellElement.css("backgroundColor", "rgb(197, 217, 241)");  //蓝色
+            }
+            else if (e.column.name != "CommandButton") {
+                e.cellElement.css("backgroundColor", "rgb(235, 241, 222)");  //黄色
+            }
+        }
+        @*else if (e.rowType == "data") {
+            if (e.data.Inspector != '@ViewData["UserName"]') {
+                e.cellElement.find(".dx-link-edit").remove();
+                e.cellElement.find(".dx-link-delete").remove();
+            }
+        }*@
+
+    }
+
+    function RejectStageList() {
+        var rejlist = [ "1st", "2nd"];
+        return new DevExpress.data.ArrayStore(rejlist);
+    }
+
+    function CheckPointConfirm(e) {
+        var grid = e.component;
+        var index = e.row.rowIndex;
+        var confirmValue = grid.cellValue(index, "CheckPointSigned");
+        if (confirmValue == null || confirmValue.length == 0) {
+            grid.cellValue(index, "CheckPointSigned", '@ViewData["UserName"]');
+            grid.saveEditData();
+            DevExpress.ui.notify('@Localizer["The check point confirm is success"]', 'success');
+            return;
+        }
+        else {
+            DevExpress.ui.notify('@Localizer["The check point is confirmed"]', 'error');
+        }
+
+    }
+
+    function OnInitNewRow(e) {
+        editingIndex = 0;
+
+        e.data.FullInspectionHeader = @ViewData["FullInspectionHeader"];
+        e.data.RejectStage = "1st";
+        e.data.InspectionDate = new Date();
+        e.data.Inspector = '@ViewData["UserName"]';
+
+        //if (isClone) {
+        //    e.data.BoxNo = clonedItem.BoxNo;
+        //    e.data.Size = clonedItem.Size;
+        //    e.data.ProductQty = clonedItem.ProductQty;
+        //    e.data.Repaired = clonedItem.Repaired;
+        //    isClone = false;
+        //}
+    }
+
+    var editingIndex = 0;
+    function OnEditingStart(e) {
+        editingIndex = e.component.getRowIndexByKey(e.key);
+    }
+
+    function ClearDefect(e) {
+        //var grid = $("#gridFullInspectionDetail").dxDataGrid("instance");
+        var setValue = e.component.option('setValue');
+        setValue('');
+    }
+    function ClearPOD(e) {
+        //e.component.option('setValue', '');
+        var setValue = e.component.option('setValue');
+        setValue('');
+    }
+    function ValidationProductQtyCallback(e) {
+        var BanalceQty;
+        var grid = $("#gridFullInspectionDetail").dxDataGrid("instance");
+        var Oid = grid.cellValue(editingIndex, "Oid");
+
+        $.ajax({
+            url: "/api/FullInspectionHeaders/GetQNBalanceQty",
+            data: { FullInspectionHeader: @ViewData["FullInspectionHeader"], FullInspectionDetailOID: Oid },
+            type: "get",
+            async: false,
+            dataType: "json",
+            success: function (result) {
+                BanalceQty = result.BanalceQty
+            }
+        });
+        if (e.value > BanalceQty) {
+            e.rule.message = '@Localizer["The pcs can not be greater than"]' + ' ' + BanalceQty;
+            return false;
+        }
+        return true;
+    }
+    function ValidationDefectiveGarmentQty() {
+        var grid = $("#gridFullInspectionDetail").dxDataGrid("instance");
+        return grid.cellValue(editingIndex, "ProductQty");
+    }
+
+    function exporting(e) {
+        var workbook = new ExcelJS.Workbook();
+        var worksheet = workbook.addWorksheet('Sheet1');
+
+        DevExpress.excelExporter.exportDataGrid({
+            component: e.component,
+            worksheet: worksheet,
+            autoFilterEnabled: true
+        }).then(function () {
+            workbook.xlsx.writeBuffer().then(function (buffer) {
+                saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'End-line inspection Detail List.xlsx');
+            });
+        });
+        e.cancel = true;
+    }
+
+
+    //var isClone = false;
+    //var clonedItem;
+    //function AddDefect(e) {
+    //    var grid = e.component;
+    //    clonedItem = e.row.data;
+    //    isClone = true;
+    //    grid.addRow();
+    //}
+
+    //function AddDefectPopup(e) {
+    //    var grid = $("#gridFullInspectionDetail").dxDataGrid("instance");
+    //    var pc = $("#PopupEditForm").dxPopup("instance");
+
+    //    grid.saveEditData();
+
+    ////    var grid = e.component;
+    ////    grid.saveEditData();
+    ////    clonedItem = e.row.data;
+    ////    isClone = true;
+    ////    grid.addRow();
+    //}
+
+
+</script>

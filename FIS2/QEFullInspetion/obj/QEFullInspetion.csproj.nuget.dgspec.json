@@ -1,0 +1,116 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\VS2019Project\\QEFullInspetion\\QEFullInspetion\\QEFullInspetion.csproj": {}
+  },
+  "projects": {
+    "F:\\VS2019Project\\QEFullInspetion\\QEFullInspetion\\QEFullInspetion.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\VS2019Project\\QEFullInspetion\\QEFullInspetion\\QEFullInspetion.csproj",
+        "projectName": "QEFullInspetion",
+        "projectPath": "F:\\VS2019Project\\QEFullInspetion\\QEFullInspetion\\QEFullInspetion.csproj",
+        "packagesPath": "C:\\Users\\DavidJiang\\.nuget\\packages\\",
+        "outputPath": "F:\\VS2019Project\\QEFullInspetion\\QEFullInspetion\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "F:\\VS2019Project\\QEFullInspetion\\NuGet.Config",
+          "C:\\Users\\DavidJiang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 21.1\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/jiu2oZ38dYm6Ze43Iru7ETtqKEu7WyDih1GYsdg4Lq4Pb8PBsQ/api": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5",
+          "dependencies": {
+            "BuildBundlerMinifier": {
+              "target": "Package",
+              "version": "[2.9.406, )"
+            },
+            "DevExpress.Xpo": {
+              "target": "Package",
+              "version": "[21.1.4, )"
+            },
+            "DevExtreme.AspNet.Core": {
+              "target": "Package",
+              "version": "[21.1.4, )"
+            },
+            "DevExtreme.AspNet.Data": {
+              "target": "Package",
+              "version": "[2.8.2, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
