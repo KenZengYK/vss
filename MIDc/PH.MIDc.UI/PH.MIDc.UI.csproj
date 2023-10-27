@@ -1,0 +1,1511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C24A634E-076F-4ADB-B6D9-EB19FE944486}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.MIDc.UI</RootNamespace>
+    <AssemblyName>PH.MIDc.UI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>false</SignAssembly>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\PHWinApp\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AS400Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AS400Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1.Linq, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="PH.BasicInfo.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\DavidJiang\Desktop\Release\PH.BasicInfo.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Common.DataAccess.OoDb.2.0, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Common.Report.v8.1, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Common, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.ExtendLibrary, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Lang.BO, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.UI, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.RWO.BO3.0, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PHSQLServerInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\EditorStatusManager.cs" />
+    <Compile Include="Config\BrandDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\BrandDetailForm.Designer.cs">
+      <DependentUpon>BrandDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\BrandListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\BrandListForm.Designer.cs">
+      <DependentUpon>BrandListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorCustNameDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorCustNameDetailForm.Designer.cs">
+      <DependentUpon>ColorCustNameDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorCustNameListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorCustNameListForm.Designer.cs">
+      <DependentUpon>ColorCustNameListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupGroupDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupGroupDetailForm.Designer.cs">
+      <DependentUpon>ColorSizeCupGroupDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupGroupListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupGroupListForm.Designer.cs">
+      <DependentUpon>ColorSizeCupGroupListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorSuppNameDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorSuppNameDetailForm.Designer.cs">
+      <DependentUpon>ColorSuppNameDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorSuppNameListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorSuppNameListForm.Designer.cs">
+      <DependentUpon>ColorSuppNameListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\CompositionDefaultDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\CompositionDefaultDetailForm.Designer.cs">
+      <DependentUpon>CompositionDefaultDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\CompositionDefaultListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\CompositionDefaultListForm.Designer.cs">
+      <DependentUpon>CompositionDefaultListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\CustomMaterialElementDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\CustomMaterialElementDetail.Designer.cs">
+      <DependentUpon>CustomMaterialElementDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\CustomMaterialElementList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\CustomMaterialElementList.Designer.cs">
+      <DependentUpon>CustomMaterialElementList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\DeclareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config\DeclareForm.Designer.cs">
+      <DependentUpon>DeclareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ElementDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ElementDetail.Designer.cs">
+      <DependentUpon>ElementDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ElementList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ElementList.Designer.cs">
+      <DependentUpon>ElementList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\HSCodeSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config\HSCodeSelectForm.Designer.cs">
+      <DependentUpon>HSCodeSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\SizeMatrixDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\SizeMatrixDetailForm.Designer.cs">
+      <DependentUpon>SizeMatrixDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\SizeMatrixListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\SizeMatrixListForm.Designer.cs">
+      <DependentUpon>SizeMatrixListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\NewPriceHistoryForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\NewPriceHistoryForm.Designer.cs">
+      <DependentUpon>NewPriceHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FG\BatchUpdateCustomDeclareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FG\BatchUpdateCustomDeclareForm.Designer.cs">
+      <DependentUpon>BatchUpdateCustomDeclareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FG\CustomMaterialDeclare_FGListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FG\CustomMaterialDeclare_FGListForm.Designer.cs">
+      <DependentUpon>CustomMaterialDeclare_FGListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FG\FGStyleHSCodeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FG\FGStyleHSCodeDetailForm.Designer.cs">
+      <DependentUpon>FGStyleHSCodeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FG\FGStyleHSCodeHelper.cs" />
+    <Compile Include="FG\FGStyleHSCodeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FG\FGStyleHSCodeListForm.Designer.cs">
+      <DependentUpon>FGStyleHSCodeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FG\UpdateCompositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FG\UpdateCompositionForm.Designer.cs">
+      <DependentUpon>UpdateCompositionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ActionForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\ActionForm.Designer.cs">
+      <DependentUpon>ActionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\QueryForm.cs">
+    </Compile>
+    <Compile Include="Commands\ColumnSetting.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\Controller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Commands\ImportDBData.cs" />
+    <Compile Include="Commands\PrintHelper.cs" />
+    <Compile Include="Commands\WarrantControl.cs" />
+    <Compile Include="Config\ARateDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ARateListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupRangeBasicInfoDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupRangeBasicInfoDetail.designer.cs">
+      <DependentUpon>ColorSizeCupRangeBasicInfoDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupRangeBasicInfoList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupRangeBasicInfoList.designer.cs">
+      <DependentUpon>ColorSizeCupRangeBasicInfoList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupRangeDetailBasicInfoDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupRangeDetailBasicInfoDetail.designer.cs">
+      <DependentUpon>ColorSizeCupRangeDetailBasicInfoDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupRangeDetailBasicInfoList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorSizeCupRangeDetailBasicInfoList.designer.cs">
+      <DependentUpon>ColorSizeCupRangeDetailBasicInfoList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\EmailNotifyDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\EmailNotifyDetailForm.Designer.cs">
+      <DependentUpon>EmailNotifyDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\EmailNotifyListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\EmailNotifyListForm.Designer.cs">
+      <DependentUpon>EmailNotifyListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\MaterialTypeSizeCupDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\MaterialTypeSizeCupListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\CustomMaterialDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\CustomMaterialListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\DictionaryDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\DictionaryDetailForm.Designer.cs">
+      <DependentUpon>DictionaryDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\DictionaryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\DictionaryListForm.Designer.cs">
+      <DependentUpon>DictionaryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\TechnicalInformationDefaultDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\TechnicalInformationDefaultListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\TechReferInfoDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\TechReferInfoListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\CompositionDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\CompositionDetailDetailForm.Designer.cs">
+      <DependentUpon>CompositionDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\ColorDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\ColorDetailDetailForm.Designer.cs">
+      <DependentUpon>ColorDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ColorDetailForm.Designer.cs">
+      <DependentUpon>ColorDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\ColorDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\ColorDetailListForm.Designer.cs">
+      <DependentUpon>ColorDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ColorListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commands\PHDateFormatter.cs" />
+    <Compile Include="Detail\CompositionDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\CompositionDetailListForm.Designer.cs">
+      <DependentUpon>CompositionDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\CupDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\CupDetailDetailForm.Designer.cs">
+      <DependentUpon>CupDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\CupDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\CupDetailListForm.Designer.cs">
+      <DependentUpon>CupDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\CustomerBrandedDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\CustomerBrandedDetailForm.Designer.cs">
+      <DependentUpon>CustomerBrandedDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\CustomerBrandedListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\CustomerBrandedListForm.Designer.cs">
+      <DependentUpon>CustomerBrandedListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\PriceDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\PriceDetailForm.Designer.cs">
+      <DependentUpon>PriceDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\MatlProcessDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\MatlProcessDetailDetailForm.Designer.cs">
+      <DependentUpon>MatlProcessDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\MatlProcessDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\MatlProcessDetailListForm.Designer.cs">
+      <DependentUpon>MatlProcessDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\TestResultTechListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\CommonGridCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\CommonGridCtrl.Designer.cs">
+      <DependentUpon>CommonGridCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\CommonSinglePriceEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\CommonSinglePriceEditor.Designer.cs">
+      <DependentUpon>CommonSinglePriceEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\CreatePriceItemDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\CreatePriceItemDialogBox.designer.cs">
+      <DependentUpon>CreatePriceItemDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DetailListFormForChangeConfirm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DetailListFormForChangeConfirm.Designer.cs">
+      <DependentUpon>DetailListFormForChangeConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DetailVersionControlCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DetailVersionControlCtrl.Designer.cs">
+      <DependentUpon>DetailVersionControlCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DetailVersionControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\DetailVersionControlForm.Designer.cs">
+      <DependentUpon>DetailVersionControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\EntranceKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\EntranceKeyForm.designer.cs">
+      <DependentUpon>EntranceKeyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\MaterialWeightForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\MaterialWeightForm.Designer.cs">
+      <DependentUpon>MaterialWeightForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\PriceShowCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\PriceShowCtrl.designer.cs">
+      <DependentUpon>PriceShowCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\PricesOfTimeoutListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\PricesOfTimeoutListForm.Designer.cs">
+      <DependentUpon>PricesOfTimeoutListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ShowPriceForConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ShowPriceForConfirmForm.Designer.cs">
+      <DependentUpon>ShowPriceForConfirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SubColorManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SubColorManageForm.Designer.cs">
+      <DependentUpon>SubColorManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\UpAndDownFileForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\UpAndDownFileForm.Designer.cs">
+      <DependentUpon>UpAndDownFileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\CommonGridForSinglePriceCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\CommonGridForSinglePriceCtrl.Designer.cs">
+      <DependentUpon>CommonGridForSinglePriceCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\DialogForChosedMaterialPriceTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\DialogForChosedMaterialPriceTypeForm.Designer.cs">
+      <DependentUpon>DialogForChosedMaterialPriceTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\frmESSESelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\frmESSESelector.Designer.cs">
+      <DependentUpon>frmESSESelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\ImportTariffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\ImportTariffForm.Designer.cs">
+      <DependentUpon>ImportTariffForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\PhotoUpLoadedListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Other\PhotoUpLoadedListForm.designer.cs">
+      <DependentUpon>PhotoUpLoadedListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\PriceChangedListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Other\PriceChangedListForm.Designer.cs">
+      <DependentUpon>PriceChangedListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\SpecAttachedListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Other\SpecAttachedListForm.designer.cs">
+      <DependentUpon>SpecAttachedListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\SuppCodeCompareToMIDcAndERP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\SuppCodeCompareToMIDcAndERP.Designer.cs">
+      <DependentUpon>SuppCodeCompareToMIDcAndERP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\LiabilityReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\LiabilityReport.Designer.cs">
+      <DependentUpon>LiabilityReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialList\MaterialListbyMatTypeReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MaterialList\MaterialListbyMatTypeReport.Designer.cs">
+      <DependentUpon>MaterialListbyMatTypeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialList\MaterialListbySuppReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MaterialList\MaterialListbySuppReport.Designer.cs">
+      <DependentUpon>MaterialListbySuppReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialList\MaterialPDFListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Other\frmSelectData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\InputSuppRefForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\InputSuppRefForm.Designer.cs">
+      <DependentUpon>InputSuppRefForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\LabellingPackagingListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Other\LabellingPackagingListForm.Designer.cs">
+      <DependentUpon>LabellingPackagingListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DetailDetailForm.Designer.cs">
+      <DependentUpon>DetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\DetailQueryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Other\DetailQueryListForm.Designer.cs">
+      <DependentUpon>DetailQueryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\MaterialTypeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\MaterialTypeDetailForm.Designer.cs">
+      <DependentUpon>MaterialTypeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\MaterialTypeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\MaterialTypeListForm.Designer.cs">
+      <DependentUpon>MaterialTypeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DetailListForm.Designer.cs">
+      <DependentUpon>DetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\PriceHistoryDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\PriceHistoryDetailForm.Designer.cs">
+      <DependentUpon>PriceHistoryDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\PriceHistoryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\PriceHistoryListForm.Designer.cs">
+      <DependentUpon>PriceHistoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\RatioPriceDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\RatioPriceDetailForm.Designer.cs">
+      <DependentUpon>RatioPriceDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\RatioPriceListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\RatioPriceListForm.Designer.cs">
+      <DependentUpon>RatioPriceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\RWMDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\RWMDetailForm.Designer.cs">
+      <DependentUpon>RWMDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\RWMListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\RWMListForm.Designer.cs">
+      <DependentUpon>RWMListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SampleOrderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SampleOrderDetailForm.Designer.cs">
+      <DependentUpon>SampleOrderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SampleOrderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SampleOrderListForm.Designer.cs">
+      <DependentUpon>SampleOrderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\SummaryOutStandingMatHSCodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\ColorAllIfoSubSpc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\ColorAllInfo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\ColorAllInfoSub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\ESSEStyleReportDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\ESSEImportTariffReportSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\ESSEImportTariffReportDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\HangTagReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\HangTagReport.Designer.cs">
+      <DependentUpon>HangTagReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\StockReportSummaryStatus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\StockReportSummaryMeter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\MaterialTypeWithCompostion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\RptMAterialSpecification.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\RptSampleOrderPOColor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\RptSampleOrderPOColor.designer.cs">
+      <DependentUpon>RptSampleOrderPOColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\RptSampleOrderPOSKU.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\RptSampleOrderPOSKU.designer.cs">
+      <DependentUpon>RptSampleOrderPOSKU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\RptSampleOrderPOSKUSub.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\RptSampleOrderPOSKUSub.designer.cs">
+      <DependentUpon>RptSampleOrderPOSKUSub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\RptTechInforTest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\StockReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\StockReportSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\StockReportWithCompostion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\SummaryOutStandingMatHSCodeRPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\StockReport3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SampleOrderPO\SampleOrderPODetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleOrderPO\SampleOrderPODetailDetailForm.Designer.cs">
+      <DependentUpon>SampleOrderPODetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SampleOrderPO\SampleOrderPODetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleOrderPO\SampleOrderPODetailForm.Designer.cs">
+      <DependentUpon>SampleOrderPODetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SampleOrderPO\SampleOrderPODetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleOrderPO\SampleOrderPODetailListForm.Designer.cs">
+      <DependentUpon>SampleOrderPODetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SampleOrderPO\SampleOrderPOListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Other\ShipmentLeadtimeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Other\ShipmentLeadtimeDetailForm.Designer.cs">
+      <DependentUpon>ShipmentLeadtimeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\ShipmentLeadtimeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Other\ShipmentLeadtimeListForm.Designer.cs">
+      <DependentUpon>ShipmentLeadtimeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\SizeDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\SizeDetailDetailForm.Designer.cs">
+      <DependentUpon>SizeDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\SizeDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\SizeDetailListForm.Designer.cs">
+      <DependentUpon>SizeDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\SpecDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\SpecDetailForm.Designer.cs">
+      <DependentUpon>SpecDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\SpecialLabelDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\SpecialLabelDetailForm.Designer.cs">
+      <DependentUpon>SpecialLabelDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\SpecialLabelListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\SpecialLabelListForm.Designer.cs">
+      <DependentUpon>SpecialLabelListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\SpecListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\SpecListForm.Designer.cs">
+      <DependentUpon>SpecListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\TechnicalInformationDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\TechnicalInformationDetailForm.Designer.cs">
+      <DependentUpon>TechnicalInformationDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detail\TechnicalInformationListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detail\TechnicalInformationListForm.Designer.cs">
+      <DependentUpon>TechnicalInformationListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Other\SelectDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\SelectDataForm.Designer.cs">
+      <DependentUpon>SelectDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SampleOrderPO\SelectMIDcPriceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleOrderPO\SelectMIDcPriceForm.Designer.cs">
+      <DependentUpon>SelectMIDcPriceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockAsAtDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockAsAtDate.Designer.cs">
+      <DependentUpon>StockAsAtDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Weight\ModifyWeightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Weight\ModifyWeightForm.Designer.cs">
+      <DependentUpon>ModifyWeightForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Weight\WipWeightForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Weight\WipWeightForm.Designer.cs">
+      <DependentUpon>WipWeightForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Weight\WipWeightReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Weight\WipWeightReportForm.Designer.cs">
+      <DependentUpon>WipWeightReportForm.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\BrandDetailForm.resx">
+      <DependentUpon>BrandDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\BrandListForm.resx">
+      <DependentUpon>BrandListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorCustNameDetailForm.resx">
+      <DependentUpon>ColorCustNameDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorCustNameListForm.resx">
+      <DependentUpon>ColorCustNameListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorSizeCupGroupDetailForm.resx">
+      <DependentUpon>ColorSizeCupGroupDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorSizeCupGroupListForm.resx">
+      <DependentUpon>ColorSizeCupGroupListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorSuppNameDetailForm.resx">
+      <DependentUpon>ColorSuppNameDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorSuppNameListForm.resx">
+      <DependentUpon>ColorSuppNameListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CompositionDefaultDetailForm.resx">
+      <DependentUpon>CompositionDefaultDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CompositionDefaultListForm.resx">
+      <DependentUpon>CompositionDefaultListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CustomMaterialElementDetail.resx">
+      <DependentUpon>CustomMaterialElementDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CustomMaterialElementList.resx">
+      <DependentUpon>CustomMaterialElementList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\DeclareForm.resx">
+      <DependentUpon>DeclareForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ElementDetail.resx">
+      <DependentUpon>ElementDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ElementList.resx">
+      <DependentUpon>ElementList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\HSCodeSelectForm.resx">
+      <DependentUpon>HSCodeSelectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\SizeMatrixDetailForm.resx">
+      <DependentUpon>SizeMatrixDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\SizeMatrixListForm.resx">
+      <DependentUpon>SizeMatrixListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\NewPriceHistoryForm.resx">
+      <DependentUpon>NewPriceHistoryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FG\BatchUpdateCustomDeclareForm.resx">
+      <DependentUpon>BatchUpdateCustomDeclareForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FG\CustomMaterialDeclare_FGListForm.resx">
+      <DependentUpon>CustomMaterialDeclare_FGListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FG\FGStyleHSCodeDetailForm.resx">
+      <DependentUpon>FGStyleHSCodeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FG\FGStyleHSCodeListForm.resx">
+      <DependentUpon>FGStyleHSCodeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FG\UpdateCompositionForm.resx">
+      <DependentUpon>UpdateCompositionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ActionForm.resx">
+      <DependentUpon>ActionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ARateDetailForm.resx">
+      <DependentUpon>ARateDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ARateListForm.resx">
+      <DependentUpon>ARateListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorSizeCupRangeBasicInfoDetail.resx">
+      <DependentUpon>ColorSizeCupRangeBasicInfoDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorSizeCupRangeBasicInfoList.resx">
+      <DependentUpon>ColorSizeCupRangeBasicInfoList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorSizeCupRangeDetailBasicInfoDetail.resx">
+      <DependentUpon>ColorSizeCupRangeDetailBasicInfoDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorSizeCupRangeDetailBasicInfoList.resx">
+      <DependentUpon>ColorSizeCupRangeDetailBasicInfoList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\EmailNotifyDetailForm.resx">
+      <DependentUpon>EmailNotifyDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\EmailNotifyListForm.resx">
+      <DependentUpon>EmailNotifyListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\MaterialTypeSizeCupDetailForm.resx">
+      <DependentUpon>MaterialTypeSizeCupDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\MaterialTypeSizeCupListForm.resx">
+      <DependentUpon>MaterialTypeSizeCupListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CustomMaterialDetailForm.resx">
+      <DependentUpon>CustomMaterialDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\CustomMaterialListForm.resx">
+      <DependentUpon>CustomMaterialListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\DictionaryDetailForm.resx">
+      <DependentUpon>DictionaryDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\DictionaryListForm.resx">
+      <DependentUpon>DictionaryListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\TechnicalInformationDefaultDetailForm.resx">
+      <DependentUpon>TechnicalInformationDefaultDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\TechnicalInformationDefaultListForm.resx">
+      <DependentUpon>TechnicalInformationDefaultListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\TechReferInfoDetailForm.resx">
+      <DependentUpon>TechReferInfoDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\TechReferInfoListForm.resx">
+      <DependentUpon>TechReferInfoListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\CompositionDetailDetailForm.resx">
+      <DependentUpon>CompositionDetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\ColorDetailDetailForm.resx">
+      <DependentUpon>ColorDetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorDetailForm.resx">
+      <DependentUpon>ColorDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\ColorDetailListForm.resx">
+      <DependentUpon>ColorDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ColorListForm.resx">
+      <DependentUpon>ColorListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\CompositionDetailListForm.resx">
+      <DependentUpon>CompositionDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\CupDetailDetailForm.resx">
+      <DependentUpon>CupDetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\CupDetailListForm.resx">
+      <DependentUpon>CupDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\CustomerBrandedDetailForm.resx">
+      <DependentUpon>CustomerBrandedDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\CustomerBrandedListForm.resx">
+      <DependentUpon>CustomerBrandedListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\PriceDetailForm.resx">
+      <DependentUpon>PriceDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\MatlProcessDetailDetailForm.resx">
+      <DependentUpon>MatlProcessDetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\MatlProcessDetailListForm.resx">
+      <DependentUpon>MatlProcessDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\TestResultTechListForm.resx">
+      <DependentUpon>TestResultTechListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\CommonGridCtrl.resx">
+      <DependentUpon>CommonGridCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\CommonSinglePriceEditor.resx">
+      <DependentUpon>CommonSinglePriceEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\CreatePriceItemDialogBox.resx">
+      <DependentUpon>CreatePriceItemDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DetailListFormForChangeConfirm.resx">
+      <DependentUpon>DetailListFormForChangeConfirm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DetailVersionControlCtrl.resx">
+      <DependentUpon>DetailVersionControlCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DetailVersionControlForm.resx">
+      <DependentUpon>DetailVersionControlForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\EntranceKeyForm.resx">
+      <DependentUpon>EntranceKeyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\MaterialWeightForm.resx">
+      <DependentUpon>MaterialWeightForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\PriceShowCtrl.resx">
+      <DependentUpon>PriceShowCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\PricesOfTimeoutListForm.resx">
+      <DependentUpon>PricesOfTimeoutListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ShowPriceForConfirmForm.resx">
+      <DependentUpon>ShowPriceForConfirmForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SubColorManageForm.resx">
+      <DependentUpon>SubColorManageForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\UpAndDownFileForm.resx">
+      <DependentUpon>UpAndDownFileForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\CommonGridForSinglePriceCtrl.resx">
+      <DependentUpon>CommonGridForSinglePriceCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\DialogForChosedMaterialPriceTypeForm.resx">
+      <DependentUpon>DialogForChosedMaterialPriceTypeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\frmESSESelector.resx">
+      <DependentUpon>frmESSESelector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\ImportTariffForm.resx">
+      <DependentUpon>ImportTariffForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\PhotoUpLoadedListForm.resx">
+      <DependentUpon>PhotoUpLoadedListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\PriceChangedListForm.resx">
+      <DependentUpon>PriceChangedListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\SpecAttachedListForm.resx">
+      <DependentUpon>SpecAttachedListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\SuppCodeCompareToMIDcAndERP.resx">
+      <DependentUpon>SuppCodeCompareToMIDcAndERP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\LiabilityReport.resx">
+      <DependentUpon>LiabilityReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialList\MaterialListbyMatTypeReport.resx">
+      <DependentUpon>MaterialListbyMatTypeReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialList\MaterialListbySuppReport.resx">
+      <DependentUpon>MaterialListbySuppReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialList\MaterialPDFListForm.resx">
+      <DependentUpon>MaterialPDFListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\InputSuppRefForm.resx">
+      <DependentUpon>InputSuppRefForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\LabellingPackagingListForm.resx">
+      <DependentUpon>LabellingPackagingListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DetailDetailForm.resx">
+      <DependentUpon>DetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\DetailQueryListForm.resx">
+      <DependentUpon>DetailQueryListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\MaterialTypeDetailForm.resx">
+      <DependentUpon>MaterialTypeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\MaterialTypeListForm.resx">
+      <DependentUpon>MaterialTypeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DetailListForm.resx">
+      <DependentUpon>DetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\PriceHistoryDetailForm.resx">
+      <DependentUpon>PriceHistoryDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\PriceHistoryListForm.resx">
+      <DependentUpon>PriceHistoryListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\RatioPriceDetailForm.resx">
+      <DependentUpon>RatioPriceDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\RatioPriceListForm.resx">
+      <DependentUpon>RatioPriceListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\RWMDetailForm.resx">
+      <DependentUpon>RWMDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\RWMListForm.resx">
+      <DependentUpon>RWMListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SampleOrderDetailForm.resx">
+      <DependentUpon>SampleOrderDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SampleOrderListForm.resx">
+      <DependentUpon>SampleOrderListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\SummaryOutStandingMatHSCodeForm.resx">
+      <DependentUpon>SummaryOutStandingMatHSCodeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\ColorAllIfoSubSpc.resx">
+      <DependentUpon>ColorAllIfoSubSpc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\ColorAllInfo.resx">
+      <DependentUpon>ColorAllInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\ColorAllInfoSub.resx">
+      <DependentUpon>ColorAllInfoSub.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\ESSEStyleReportDetail.resx">
+      <DependentUpon>ESSEStyleReportDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\ESSEImportTariffReportSummary.resx">
+      <DependentUpon>ESSEImportTariffReportSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\ESSEImportTariffReportDetail.resx">
+      <DependentUpon>ESSEImportTariffReportDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\HangTagReport.resx">
+      <DependentUpon>HangTagReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\StockReportSummaryStatus.resx">
+      <DependentUpon>StockReportSummaryStatus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\StockReportSummaryMeter.resx">
+      <DependentUpon>StockReportSummaryMeter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\MaterialTypeWithCompostion.resx">
+      <DependentUpon>MaterialTypeWithCompostion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\RptMAterialSpecification.resx">
+      <DependentUpon>RptMAterialSpecification.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\RptSampleOrderPOColor.resx">
+      <DependentUpon>RptSampleOrderPOColor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\RptSampleOrderPOSKU.resx">
+      <DependentUpon>RptSampleOrderPOSKU.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\RptSampleOrderPOSKUSub.resx">
+      <DependentUpon>RptSampleOrderPOSKUSub.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\RptTechInforTest.resx">
+      <DependentUpon>RptTechInforTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\StockReport.resx">
+      <DependentUpon>StockReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\StockReportSummary.resx">
+      <DependentUpon>StockReportSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\StockReportWithCompostion.resx">
+      <DependentUpon>StockReportWithCompostion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\SummaryOutStandingMatHSCodeRPT.resx">
+      <DependentUpon>SummaryOutStandingMatHSCodeRPT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\StockReport3.resx">
+      <DependentUpon>StockReport3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleOrderPO\SampleOrderPODetailDetailForm.resx">
+      <DependentUpon>SampleOrderPODetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleOrderPO\SampleOrderPODetailForm.resx">
+      <DependentUpon>SampleOrderPODetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleOrderPO\SampleOrderPODetailListForm.resx">
+      <DependentUpon>SampleOrderPODetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleOrderPO\SampleOrderPOListForm.resx">
+      <DependentUpon>SampleOrderPOListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\ShipmentLeadtimeDetailForm.resx">
+      <DependentUpon>ShipmentLeadtimeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\ShipmentLeadtimeListForm.resx">
+      <DependentUpon>ShipmentLeadtimeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\SizeDetailDetailForm.resx">
+      <DependentUpon>SizeDetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\SizeDetailListForm.resx">
+      <DependentUpon>SizeDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\SpecDetailForm.resx">
+      <DependentUpon>SpecDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\SpecialLabelDetailForm.resx">
+      <DependentUpon>SpecialLabelDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\SpecialLabelListForm.resx">
+      <DependentUpon>SpecialLabelListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\SpecListForm.resx">
+      <DependentUpon>SpecListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\TechnicalInformationDetailForm.resx">
+      <DependentUpon>TechnicalInformationDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail\TechnicalInformationListForm.resx">
+      <DependentUpon>TechnicalInformationListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\SelectDataForm.resx">
+      <DependentUpon>SelectDataForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleOrderPO\SelectMIDcPriceForm.resx">
+      <DependentUpon>SelectMIDcPriceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockAsAtDate.resx">
+      <DependentUpon>StockAsAtDate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Weight\ModifyWeightForm.resx">
+      <DependentUpon>ModifyWeightForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Weight\WipWeightForm.resx">
+      <DependentUpon>WipWeightForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Weight\WipWeightReportForm.resx">
+      <DependentUpon>WipWeightReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.MIDc.BO.ARate.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.ColorDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.CompositionDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.CustomerBranded.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.CustomMaterial.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.Detail.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.PriceHistory.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.RatioPrice.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.RWM.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.SampleOrder.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.SampleOrderPODetail.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.SizeDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.Spec.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.SpecialLabel.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.TechnicalInformation.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.TechnicalInformationDefault.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.TechReferInfo.datasource" />
+    <None Include="Properties\DataSources\PH.Platform.Misc.BO.Misc_DataDictionary.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.MIDc.BO.ColorSizeCupGroup.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.ColorSizeCupRange.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.ColorSizeCupRangeDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.CupDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.DetailChangeConfirm.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MaterialPrice.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MaterialPriceHeader.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MaterialProcess.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MaterialType.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MaterialTypeSizeCup.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MIDcEmailNotify.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MIDcWizardCls+PriceCls.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MIDcWizardCls.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.PriceChangeCls.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.StockSumStatus.datasource" />
+    <None Include="Resources\page_white_acrobat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.MIDc.BackEnd\PH.MIDc.BackEnd.csproj">
+      <Project>{77663105-6714-4C41-884A-D4C1D4F2342E}</Project>
+      <Name>PH.MIDc.BackEnd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PH.MIDc.BO\PH.MIDc.BO.csproj">
+      <Project>{5D27EFE6-BAAD-4F82-AAB4-9F50D41801E5}</Project>
+      <Name>PH.MIDc.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plugin_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.MIDc.BO.Brand.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.Color.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.ColorSuppCustName.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.CustomMaterialDeclare.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.CustomMaterialDeclare_FG.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.CustomMaterialElement.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.FGComposition.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.FGStyleHSCode.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MaterialWeight.datasource" />
+    <None Include="Properties\DataSources\TestClass.datasource" />
+    <None Include="Resources\Report-Bound.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

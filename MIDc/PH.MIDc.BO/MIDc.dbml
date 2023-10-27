@@ -1,0 +1,937 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PH.MIDc" Class="MIDcDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.2.1.10;Initial Catalog=PH.MIDc;User ID=ituser" SettingsObjectName="PH.MIDc.BO.Properties.Settings" SettingsPropertyName="PH_MIDcConnectionString8" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ARate" Member="ARates">
+    <Type Name="ARate">
+      <Column Name="SupplierUnit" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHUnit" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Rate" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TechReferInfo" Member="TechReferInfos">
+    <Type Name="TechReferInfo">
+      <Column Name="IndexNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustmerID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ReferInfo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ColorDetail" Member="ColorDetails">
+    <Type Name="ColorDetail">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="ColorDetail_SubColorDetail" Member="SubColorDetails" ThisKey="SuppRef,Color" OtherKey="SuppRef,Color" Type="SubColorDetail" />
+      <Association Name="Detail_ColorDetail" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CompositionDetail" Member="CompositionDetails">
+    <Type Name="CompositionDetail">
+      <Column Name="IndexNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Composition" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="YarnCount" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SpecialTerms" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Detail_CompositionDetail" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConvertHS" Member="ConvertHs">
+    <Type Name="ConvertH">
+      <Column Name="hs1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hs2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerBranded" Member="CustomerBrandeds">
+    <Type Name="CustomerBranded">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Branded" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Selection" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Association Name="Detail_CustomerBranded" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DetailImage" Member="DetailImages">
+    <Type Name="DetailImage">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Photo" Type="System.Byte[]" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Detail_DetailImage" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PriceHistory" Member="PriceHistories">
+    <Type Name="PriceHistory">
+      <Column Name="IndexID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HistoryDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,6)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="Detail_PriceHistory" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RatioPrice" Member="RatioPrices">
+    <Type Name="RatioPrice">
+      <Column Name="IndexID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCategory" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,6)" CanBeNull="true" />
+      <Column Name="Ratio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Detail_RatioPrice" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoleField" Member="RoleFields">
+    <Type Name="RoleField">
+      <Column Name="IndexNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ObjectCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ControlName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ControlType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OperationType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OperationValue" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RWM" Member="RWMs">
+    <Type Name="RWM">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWMType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Association Name="Detail_RWM" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SampleOrderPO" Member="SampleOrderPOs">
+    <Type Name="SampleOrderPO">
+      <Column Name="SampleOrderPONo" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CommodityCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PO_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShipmentMode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ContractPerson" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PrintType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POState" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ReadyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReceivedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SupplierUnit" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="SampleOrderPO_SampleOrderPODetail" Member="SampleOrderPODetails" ThisKey="SampleOrderPONo" OtherKey="SampleOrderPONo" Type="SampleOrderPODetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SampleOrderPODetail" Member="SampleOrderPODetails">
+    <Type Name="SampleOrderPODetail">
+      <Column Name="Color" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(15,2)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,6)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="SampleOrderPONo" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="SampleOrderPO_SampleOrderPODetail" Member="SampleOrderPO" ThisKey="SampleOrderPONo" OtherKey="SampleOrderPONo" Type="SampleOrderPO" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Spec" Member="Specs">
+    <Type Name="Spec">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCategory" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierWidth" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Supplier_UsableWidth" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Supplier_Weight_GmSqm" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Weight_GmSqm_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Weight_LinearMeter" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Weight_LinearMeter_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Relaxation_Length_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Relaxation_Width_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Pattern_Length" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Pattern_Length_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Pattern_Width" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Pattern_Width_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Elongation_Length" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Elongation_Length_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Elongation_Width" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Elongation_Width_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Shrinkage_Length_Washing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Shrinkage_Width_Washing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Shrinkage_Length_Ironing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Shrinkage_Width_Ironing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Shrinkage_ColorFasteness" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Supplier_Conditions" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_UsableWidth" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PH_Weight_GmSqm" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Weight_GmSqm_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Weight_LinearMeter" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Weight_LinearMeter_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Relaxation_Length_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Relaxation_Width_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Pattern_Length" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Pattern_Length_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Pattern_Width" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Pattern_Width_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Elongation_Length" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Elongation_Length_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Elongation_Width" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Elongation_Width_Per" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Shrinkage_Length_Washing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Shrinkage_Width_Washing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Shrinkage_Length_Ironing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Shrinkage_Width_Ironing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Shrinkage_ColorFasteness" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PH_Conditions" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Oeko" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Temperature" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Pressure" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Timing" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CoolingTime" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Tester" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pretreatment" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EffectiveDate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="UsableWidth1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="UsableWidth2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Width" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Width2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Weight" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Weight2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Weight3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ShrinkageLenth" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ShrinkageLenth2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ShrinkageLenth3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ShrinkageWidth" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ShrinkageWidth2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ShrinkageWidth3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConstructionWales" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConstructionWales2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConstructionWales3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConstructionCourses" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConstructionCourses2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConstructionCourses3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ElongationEffective" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ElongationEffective2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ElongationLength" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ElongationLength2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ElongationWidth" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ElongationWidth2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusLenght" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusLenght2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusLenght3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusLenght4" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusLenght5" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusLenght6" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusLenght7" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusLenght8" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusWith" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusWith2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusWith3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusWith4" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusWith5" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusWith6" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusWith7" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusWith8" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModulusTest" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ResidualLenght" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ResidualLenght2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ResidualWidth" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ResidualWidth2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RecoveryLength" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RecoveryLength2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RecoveryWidth" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RecoveryWidth2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MIType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MIGauge" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MIOfBar" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MIWidth" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Compostion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Spec_TechInforTest" Member="TechInforTests" ThisKey="SuppRef,Color,ColorCategory" OtherKey="SuppRef,Color,ColorCategory" Type="TechInforTest" />
+      <Association Name="Spec_TechnicalInformation" Member="TechnicalInformations" ThisKey="SuppRef,Color,ColorCategory" OtherKey="SuppRef,Color,ColorCategory" Type="TechnicalInformation" />
+      <Association Name="Detail_Spec" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SpecialLabel" Member="SpecialLabels">
+    <Type Name="SpecialLabel">
+      <Column Name="SpecialLabel" Member="SpecialLabel1" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[Group]" Member="Group" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TechInforTest" Member="TechInforTests">
+    <Type Name="TechInforTest">
+      <Column Name="IndexNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ColorCategory" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IDNr" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StandardWept" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StandardWarp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ElongationWept" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ElongationWarp" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="RecoveryWept" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="RecoveryWarp" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="FapplyWept" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="FapplyWarp" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="AutoResult" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FinalResult" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Spec_TechInforTest" Member="Spec" ThisKey="SuppRef,Color,ColorCategory" OtherKey="SuppRef,Color,ColorCategory" Type="Spec" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TechnicalInformation" Member="TechnicalInformations">
+    <Type Name="TechnicalInformation">
+      <Column Name="IndexID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColorCategory" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TestType" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TestMethod" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Grade" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SpecifyMethod" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="[Group]" Member="Group" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Spec_TechnicalInformation" Member="Spec" ThisKey="SuppRef,Color,ColorCategory" OtherKey="SuppRef,Color,ColorCategory" Type="Spec" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TechnicalInformationDefault" Member="TechnicalInformationDefaults">
+    <Type Name="TechnicalInformationDefault">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TypeGroup" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="TestType" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="TestMethod" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Grade" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="SpecifyMethod" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="TestMethodList" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MaterialProcess" Member="MaterialProcesses">
+    <Type Name="MaterialProcess">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatlForProcess" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemWidth" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="IsMain" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Detail_MaterialProcess" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MIDcUpFile" Member="MIDcUpFiles">
+    <Type Name="MIDcUpFile">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FileContent" Type="System.Byte[]" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Detail_MIDcUpFile" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubColorDetail" Member="SubColorDetails">
+    <Type Name="SubColorDetail">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SubColor" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="ColorDetail_SubColorDetail" Member="ColorDetail" ThisKey="SuppRef,Color" OtherKey="SuppRef,Color" Type="ColorDetail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ColorSizeCupRangeDetail" Member="ColorSizeCupRangeDetails">
+    <Type Name="ColorSizeCupRangeDetail">
+      <Column Name="DataCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ChildDataCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Seq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ColorSizeCupRange_ColorSizeCupRangeDetail" Member="ColorSizeCupRange" ThisKey="DataCode,Category" OtherKey="DataCode,Category" Type="ColorSizeCupRange" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SampleOrder" Member="SampleOrders">
+    <Type Name="SampleOrder">
+      <Column Name="SampleOrderNo" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SeasonNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="SampleOrder_Detail" Member="Details" ThisKey="SampleOrderNo" OtherKey="SampleOrderNo" Type="Detail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MIDcEmailNotify" Member="MIDcEmailNotifies">
+    <Type Name="MIDcEmailNotify">
+      <Column Name="Currt" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[Desc]" Member="Desc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Dept" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ActionUsers" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NotifyUsers" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Available" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewColorDetail" Member="NewColorDetails">
+    <Type Name="NewColorDetail">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(140) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="MaterialPriceHeader_NewColorDetail" Member="MaterialPriceHeader" ThisKey="Version" OtherKey="Version" Type="MaterialPriceHeader" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewCupDetail" Member="NewCupDetails">
+    <Type Name="NewCupDetail">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(140) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="MaterialPriceHeader_NewCupDetail" Member="MaterialPriceHeader" ThisKey="Version" OtherKey="Version" Type="MaterialPriceHeader" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewSizeDetail" Member="NewSizeDetails">
+    <Type Name="NewSizeDetail">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(140) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="MaterialPriceHeader_NewSizeDetail" Member="MaterialPriceHeader" ThisKey="Version" OtherKey="Version" Type="MaterialPriceHeader" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DetailChangeConfirm" Member="DetailChangeConfirms">
+    <Type Name="DetailChangeConfirm">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ChangeType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ChangeUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChangeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ConfirmType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ConfirmUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Association Name="Detail_DetailChangeConfirm" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" />
+      <Association Name="Detail_DetailChangeConfirm1" Member="Detail1" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ColorSizeCupGroup" Member="ColorSizeCupGroups">
+    <Type Name="ColorSizeCupGroup">
+      <Column Name="GroupCode" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlterUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AlterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ColorSizeCupRange" Member="ColorSizeCupRanges">
+    <Type Name="ColorSizeCupRange">
+      <Column Name="DataCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="IsRange" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Seq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ColorSizeCupRange_ColorSizeCupRangeDetail" Member="ColorSizeCupRangeDetails" ThisKey="DataCode,Category" OtherKey="DataCode,Category" Type="ColorSizeCupRangeDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MaterialPriceHeader" Member="MaterialPriceHeaders">
+    <Type Name="MaterialPriceHeader">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PriceType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsMultiPrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EffectFromDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EffectEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(140) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WastageOnCAC" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Relaxtion" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="ValueAdjustAddDyeing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PriceIncrProtect" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="UncertainQuality" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="OthersBuffer" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Association Name="MaterialPriceHeader_NewColorDetail" Member="NewColorDetails" ThisKey="Version" OtherKey="Version" Type="NewColorDetail" />
+      <Association Name="MaterialPriceHeader_NewCupDetail" Member="NewCupDetails" ThisKey="Version" OtherKey="Version" Type="NewCupDetail" />
+      <Association Name="MaterialPriceHeader_NewSizeDetail" Member="NewSizeDetails" ThisKey="Version" OtherKey="Version" Type="NewSizeDetail" />
+      <Association Name="MaterialPriceHeader_MaterialPrice" Member="MaterialPrices" ThisKey="Version" OtherKey="Version" Type="MaterialPrice" />
+      <Association Name="Detail_MaterialPriceHeader" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MaterialTypeSizeCup" Member="MaterialTypeSizeCups">
+    <Type Name="MaterialTypeSizeCup">
+      <Column Name="MatType" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SizeCup" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Seq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MaterialType_MaterialTypeSizeCup" Member="MaterialType" ThisKey="MatType" OtherKey="MaterialType1" Type="MaterialType" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LogMsg" Member="LogMsgs">
+    <Type Name="LogMsg">
+      <Column Name="TimeId" Type="System.String" DbType="NVarChar(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LogType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LogTxt" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CreateOr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_GetSupplierProfile" Member="V_GetSupplierProfiles">
+    <Type Name="V_GetSupplierProfile">
+      <Column Name="ERPSupplier" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Supplier" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TEL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MobilePhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EMail" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Beneficiary" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Agent" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Active" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AttnPerson" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="StandardDev" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="TradingDis" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="FurtherDis" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="CreditDays" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="EstInterest" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="BankCharge" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="StockInterest" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Transportation" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="InlandForwarderHandling" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="InlandTransportation" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="TransitLoadingTransportation" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Frieght" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Frieght_Air" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Frieght_Boat" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="AdditionalFrieght" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="SubCharge" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="DeliveryTerms" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SupplierUOM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShipMode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DischargePort" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DeliveryMode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TransitTimeTruck" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="TransitTimeAir" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="TransitTimeBoat" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="MaterialGroup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DevelopmentCapability" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ProductionLeadtime" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Quality" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Shipment" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OverallService" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Color" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PaymentMethod" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AlphaSequenceField" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PortofDischarge" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="FirstStation" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ForwarderShippingLine" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SuppDelWording" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="WeekOnThisDay" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="SupplierGrp" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BusinessNature" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PaymentTerms" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Multiplepxpolicy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Dimension" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IncotermsEffectivedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PHUOM" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ShipmentTolerant" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WidthSpec" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="UOMConvert" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ForwarderShippingCoName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ForwarderShippingContact" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ForwarderShippingTel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AssignedBy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GoodsPack" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PDD" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PDDDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IQC" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IQCDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FabricTec" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="FabricTecDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PUR" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PURDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HaveSupplementSheet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SupplierGroup" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="AssociatePartner" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CustDependent" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PreparePerson" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PrepareDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ConfirmPerson" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ApprovalPerson" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ApprovalDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SupplierStatusDescription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_PricesOfTimeout" Member="V_PricesOfTimeouts">
+    <Type Name="V_PricesOfTimeout">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PriceType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsMultiPrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EffectFromDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EffectEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(140) NOT NULL" CanBeNull="false" />
+      <Column Name="WastageOnCAC" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Relaxtion" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="ValueAdjustAddDyeing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PriceIncrProtect" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="UncertainQuality" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="OthersBuffer" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WeightMaterial" Member="WeightMaterials">
+    <Type Name="WeightMaterial">
+      <Column Name="MaterialName" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaterialHSCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Seq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="WeightMaterial_WipWeight" Member="WipWeights" ThisKey="MaterialName" OtherKey="MaterialName" Type="WipWeight" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WeightStyle" Member="WeightStyles">
+    <Type Name="WeightStyle">
+      <Column Name="StyleName" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StyleHSCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Seq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="WeightStyle_WipWeight" Member="WipWeights" ThisKey="StyleName" OtherKey="StyleName" Type="WipWeight" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WipWeight" Member="WipWeights">
+    <Type Name="WipWeight">
+      <Column Name="StyleName" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaterialName" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(15,5)" CanBeNull="true" />
+      <Association Name="WeightMaterial_WipWeight" Member="WeightMaterial" ThisKey="MaterialName" OtherKey="MaterialName" Type="WeightMaterial" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="WeightStyle_WipWeight" Member="WeightStyle" ThisKey="StyleName" OtherKey="StyleName" Type="WeightStyle" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Color" Member="Colors">
+    <Type Name="Color">
+      <Column Name="Color" Member="Color1" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Season" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ColorType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PantoneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Color_ColorSuppCustName" Member="ColorSuppCustNames" ThisKey="Color1" OtherKey="ColorID" Type="ColorSuppCustName" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MaterialPrice" Member="MaterialPrices">
+    <Type Name="MaterialPrice">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PriceType" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EffectFromDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EffectEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ColorRange" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(16,9)" CanBeNull="true" />
+      <Column Name="Ratio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(140) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RestLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MaterialPriceHeader_MaterialPrice" Member="MaterialPriceHeader" ThisKey="Version" OtherKey="Version" Type="MaterialPriceHeader" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomMaterialDeclare" Member="CustomMaterialDeclares">
+    <Type Name="CustomMaterialDeclare">
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MidcHSCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ElementNo" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HSCodeSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SortId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IsMailMaterial" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="StandardUnit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DeclareQty" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DeclarePrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Detail_CustomMaterialDeclare" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomMaterialElement" Member="CustomMaterialElements">
+    <Type Name="CustomMaterialElement">
+      <Column Name="IndexNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RecId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomNo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HSCodeSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ElementNo" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SortId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsMailMaterial" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="StandardUnit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DeclareQty" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DeclarePrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="CustomMaterial_CustomMaterialElement" Member="CustomMaterial" ThisKey="IndexNo" OtherKey="Indexno" Type="CustomMaterial" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomMaterial" Member="CustomMaterials">
+    <Type Name="CustomMaterial">
+      <Column Name="Indexno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="materialName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Memo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CustomNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MidcHSCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FGType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IndexValue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="HSCodeSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HSUnit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PriceRatio" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="materialNameCN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="materialNameEN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsMailMaterial" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StandardUnit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DeclareQty" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DeclarePrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HSCodeFlag" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CustomNoBD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="CustomMaterial_CustomMaterialElement" Member="CustomMaterialElements" ThisKey="Indexno" OtherKey="IndexNo" Type="CustomMaterialElement" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HSCodeList" Member="HSCodeLists">
+    <Type Name="HSCodeList">
+      <Column Name="Seq" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HSCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HSCodeBD" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Brand" Member="Brands">
+    <Type Name="Brand">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BrandCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="BrandName_EN" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="BrandName_CN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomMaterialDeclare_FG" Member="CustomMaterialDeclare_FGs">
+    <Type Name="CustomMaterialDeclare_FG">
+      <Column Name="StyleNo" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MidcHSCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ElementNo" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HSCodeSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SortId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedRemark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ColorSuppCustName" Member="ColorSuppCustNames">
+    <Type Name="ColorSuppCustName">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ColorID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ColorName" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Association Name="Color_ColorSuppCustName" Member="Color" ThisKey="ColorID" OtherKey="Color1" Type="Color" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MaterialType" Member="MaterialTypes">
+    <Type Name="MaterialType">
+      <Column Name="MaterialType" Member="MaterialType1" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MaterialGroup" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HsCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Dimension" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SuppSizeCupElement" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="YieldUsage" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CN" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TH" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="HSCodeRMB" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HSCodeXRMB" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="POPCBulkDays_SL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POPCOverseaBulkDays_SL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POPCBulkDays_BD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POPCOverseaBulkDays_BD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MaterialType_MaterialTypeSizeCup" Member="MaterialTypeSizeCups" ThisKey="MaterialType1" OtherKey="MatType" Type="MaterialTypeSizeCup" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Detail" Member="Details">
+    <Type Name="Detail">
+      <Column Name="SampleOrderNo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MaterialType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MaterialCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MIDStatus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PromoteUser" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PromoteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Branded" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Edging_Single" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Edging_DoubleScallops" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Commodity" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Pattern" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Lace" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SpecialLabel" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SeasonNo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RiskItem" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Oeko" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ValueAdjustAddDyeing" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PriceIncrProtect" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="UncertainQuality" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="OthersBuffer" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="WastageOnCAC" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Relaxtion" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="TargetPrice" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Gauge" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Composition" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Density" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="GauagePerinch" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MinOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinColor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinStartProduct" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastQtnRef" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LastQtnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="QtnPriceValidityDays" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QtnPriceExpiryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SubchargeOrder" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SubchargeShipMode" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DyeingMultiple" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PackUnit" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SubPackUnit" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SubPackQty" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="SubPackNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QAStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YarnDays" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GeigeDays" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RunningDays" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ExclusiveBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LeadTimeHYCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LeadTimeGeigeCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LeadTimeRunningCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SupplierUnit" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PHUnit" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SupplierWidth" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="UsableWidth" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="MarkerWidth" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="TubularWidth" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="SupplierWidthS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="UsableWidthS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MarkerWidthS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TubularWidthS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="WeightGmSqm" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="WeightGmSqmS" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SuppM" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="MarkerM" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="TubularM" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="RateToPHUnitBK" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="ScallopHeight" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PerCone" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="DataPreparedBy" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="HangerDataPreparedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Confirmed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ConfirmedBy" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ConfirmDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ApprovedBy" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ApproveDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HangerPassed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HangerPassedBy" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="HangerPassedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FormPassed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FormPassedBy" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FormPassedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HsCode" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="WeightHsCode" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ImageFile" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="AllInPrice1" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="SQMPrice1" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="avgPrice_Supplier1" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="AvgPrice_PH1" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="MaterialGroup" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DestinationPort" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RateToPHUnit1" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="OrderShptLeadtime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Photo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TechWarp" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="TechWept" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="TechWarpF" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="TechWeptF" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="DataPreparedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Dimension" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LiabilityFollowUp" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HangerDataPreparedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SizeMatrix" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AmendmentNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hanger" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="YieldUsage" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SingleRangeSize" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UnitForSize" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="IsPurchaseItem" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Operation" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IsMultiPrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MultiPriceOption" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Liability" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LiabilityForCustomer" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CustomerAppointed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PurchaseWidthOption" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PurchaseWidth" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="HasSpecialPrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HasCustFavorPrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HasVolumePrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HasPeriodPrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TMIDCompleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TMIDCompletedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TMIDCompletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PMIDWIP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PMIDWIPBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PMIDWIPDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PMIDCompleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PMIDCompletedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PMIDCompletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HaveSizeMatrix" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SampleGroup" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="SizeSpec" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HasCollectivePrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OldHSCode" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="HSCodeBD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="David_OldHSCode" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="David_UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PatternShapeRepeatStandard" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PatternShapeRepeatS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PatternShapeRepeatMin" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PatternShapeRepeatMax" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="GramWeightPerPurchaseUnit" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="RiskQA" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="POLastDate" Type="System.DateTime" CanBeNull="true" />
+      <Association Name="Detail_ColorDetail" Member="ColorDetails" ThisKey="SuppRef" OtherKey="SuppRef" Type="ColorDetail" />
+      <Association Name="Detail_CompositionDetail" Member="CompositionDetails" ThisKey="SuppRef" OtherKey="SuppRef" Type="CompositionDetail" />
+      <Association Name="Detail_CustomerBranded" Member="CustomerBrandeds" ThisKey="SuppRef" OtherKey="SuppRef" Type="CustomerBranded" />
+      <Association Name="Detail_DetailImage" Member="DetailImage" ThisKey="SuppRef" OtherKey="SuppRef" Type="DetailImage" Cardinality="One" />
+      <Association Name="Detail_PriceHistory" Member="PriceHistories" ThisKey="SuppRef" OtherKey="SuppRef" Type="PriceHistory" />
+      <Association Name="Detail_RatioPrice" Member="RatioPrices" ThisKey="SuppRef" OtherKey="SuppRef" Type="RatioPrice" />
+      <Association Name="Detail_RWM" Member="RWMs" ThisKey="SuppRef" OtherKey="SuppRef" Type="RWM" />
+      <Association Name="Detail_Spec" Member="Specs" ThisKey="SuppRef" OtherKey="SuppRef" Type="Spec" />
+      <Association Name="Detail_MaterialProcess" Member="MaterialProcesses" ThisKey="SuppRef" OtherKey="SuppRef" Type="MaterialProcess" />
+      <Association Name="Detail_MIDcUpFile" Member="MIDcUpFiles" ThisKey="SuppRef" OtherKey="SuppRef" Type="MIDcUpFile" />
+      <Association Name="Detail_DetailChangeConfirm" Member="DetailChangeConfirms" ThisKey="SuppRef" OtherKey="SuppRef" Type="DetailChangeConfirm" />
+      <Association Name="Detail_DetailChangeConfirm1" Member="DetailChangeConfirms1" ThisKey="SuppRef" OtherKey="SuppRef" Type="DetailChangeConfirm" />
+      <Association Name="Detail_MaterialPriceHeader" Member="MaterialPriceHeaders" ThisKey="SuppRef" OtherKey="SuppRef" Type="MaterialPriceHeader" />
+      <Association Name="Detail_CustomMaterialDeclare" Member="CustomMaterialDeclares" ThisKey="SuppRef" OtherKey="SuppRef" Type="CustomMaterialDeclare" />
+      <Association Name="Detail_MaterialWeight" Member="MaterialWeights" ThisKey="SuppRef" OtherKey="SuppRef" Type="MaterialWeight" />
+      <Association Name="SampleOrder_Detail" Member="SampleOrder" ThisKey="SampleOrderNo" OtherKey="SampleOrderNo" Type="SampleOrder" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MaterialWeight" Member="MaterialWeights">
+    <Type Name="MaterialWeight">
+      <Column Name="OID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SuppRef" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cup" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(15,8)" CanBeNull="true" />
+      <Association Name="Detail_MaterialWeight" Member="Detail" ThisKey="SuppRef" OtherKey="SuppRef" Type="Detail" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

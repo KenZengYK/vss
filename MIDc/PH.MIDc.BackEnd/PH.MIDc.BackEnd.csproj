@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77663105-6714-4C41-884A-D4C1D4F2342E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.MIDc.BackEnd</RootNamespace>
+    <AssemblyName>PH.MIDc.BackEnd</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="PH.BasicInfo.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\DavidJiang\Desktop\Release\PH.BasicInfo.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.AuthMgr.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BackEnd.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.Lang.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.Lang.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.Misc.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.Report.PivotGrid, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonCls.cs" />
+    <Compile Include="Job\JobWipWeightReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Job\JobWipWeightReport.Designer.cs">
+      <DependentUpon>JobWipWeightReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job\StockReportSummary_Job.cs" />
+    <Compile Include="PivotCustomFormatter.cs" />
+    <Compile Include="Report\CompositionReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CompositionReport.Designer.cs">
+      <DependentUpon>CompositionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job\JobLiabilityReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Job\JobLiabilityReport.Designer.cs">
+      <DependentUpon>JobLiabilityReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WeightHSCodeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\WeightHSCodeReport.Designer.cs">
+      <DependentUpon>WeightHSCodeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\StockReportSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\WipWeightReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\WipWeightReport.Designer.cs">
+      <DependentUpon>WipWeightReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\LiabilityReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\LiabilityReport.Designer.cs">
+      <DependentUpon>LiabilityReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\HangTagReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\HangTagReport.Designer.cs">
+      <DependentUpon>HangTagReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MaterialDvpSummaryRept.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MaterialDvpSummaryRept.Designer.cs">
+      <DependentUpon>MaterialDvpSummaryRept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MaterialIdentityAllPriceRept.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MaterialIdentityAllPriceRept.Designer.cs">
+      <DependentUpon>MaterialIdentityAllPriceRept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MaterialIdentityCertificateReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MaterialIdentityCertificateReport.designer.cs">
+      <DependentUpon>MaterialIdentityCertificateReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MaterialListSumReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MaterialListSumReport.Designer.cs">
+      <DependentUpon>MaterialListSumReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job\JobMaterialListbyMatTypeReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Job\JobMaterialListbyMatTypeReport.Designer.cs">
+      <DependentUpon>JobMaterialListbyMatTypeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job\JobMaterialListbySuppReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Job\JobMaterialListbySuppReport.Designer.cs">
+      <DependentUpon>JobMaterialListbySuppReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MaterialListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MaterialListReport.Designer.cs">
+      <DependentUpon>MaterialListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\PriceMatrixReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\PriceMatrixReport.Designer.cs">
+      <DependentUpon>PriceMatrixReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\CompositionReportForMaterialDvpSumRept.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CompositionReportForMaterialDvpSumRept.Designer.cs">
+      <DependentUpon>CompositionReportForMaterialDvpSumRept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\PriceMatrixReportHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\PriceMatrixReportHeader.Designer.cs">
+      <DependentUpon>PriceMatrixReportHeader.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Job\JobWipWeightReport.resx">
+      <DependentUpon>JobWipWeightReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CompositionReport.resx">
+      <DependentUpon>CompositionReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Job\JobLiabilityReport.resx">
+      <DependentUpon>JobLiabilityReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\WeightHSCodeReport.resx">
+      <DependentUpon>WeightHSCodeReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\StockReportSummary.resx">
+      <DependentUpon>StockReportSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\WipWeightReport.resx">
+      <DependentUpon>WipWeightReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\LiabilityReport.resx">
+      <DependentUpon>LiabilityReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HangTagReport.resx">
+      <DependentUpon>HangTagReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MaterialDvpSummaryRept.resx">
+      <DependentUpon>MaterialDvpSummaryRept.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MaterialIdentityAllPriceRept.resx">
+      <DependentUpon>MaterialIdentityAllPriceRept.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MaterialIdentityCertificateReport.resx">
+      <DependentUpon>MaterialIdentityCertificateReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MaterialListSumReport.resx">
+      <DependentUpon>MaterialListSumReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Job\JobMaterialListbyMatTypeReport.resx">
+      <DependentUpon>JobMaterialListbyMatTypeReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Job\JobMaterialListbySuppReport.resx">
+      <DependentUpon>JobMaterialListbySuppReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MaterialListReport.resx">
+      <DependentUpon>MaterialListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\PriceMatrixReport.resx">
+      <DependentUpon>PriceMatrixReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Report\CompositionReportForMaterialDvpSumRept.resx">
+      <DependentUpon>CompositionReportForMaterialDvpSumRept.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\PriceMatrixReportHeader.resx">
+      <DependentUpon>PriceMatrixReportHeader.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.MIDc.BO.ColorSizeMask.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.CompositionDetail.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.Detail.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.GetWipWeightResult.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MaterialPrice.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MaterialPriceHeader.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MaterialWeightHSCodeBO.datasource" />
+    <None Include="Properties\DataSources\PH.MIDc.BO.MIDMaterial.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.MIDc.BO\PH.MIDc.BO.csproj">
+      <Project>{5D27EFE6-BAAD-4F82-AAB4-9F50D41801E5}</Project>
+      <Name>PH.MIDc.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
