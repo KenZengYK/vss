@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="bindingSource1.Name" xml:space="preserve">
+    <value>bindingSource1</value>
+  </metadata>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="PHTable_5470f7aa28554021af43e165dbfc29b7.Name" xml:space="preserve">
+    <value>PHTable_5470f7aa28554021af43e165dbfc29b7</value>
+  </metadata>
+  <metadata name="PHRow_4a97efe6bcba4defb68a710ef2c40ca4.Name" xml:space="preserve">
+    <value>PHRow_4a97efe6bcba4defb68a710ef2c40ca4</value>
+  </metadata>
+  <metadata name="PHCell_0f92d83b72e645bbba957be709ffba4f.Name" xml:space="preserve">
+    <value>PHCell_0f92d83b72e645bbba957be709ffba4f</value>
+  </metadata>
+  <metadata name="PHCell_5a79f7fc01834263ad71c277b5c5282d.Name" xml:space="preserve">
+    <value>PHCell_5a79f7fc01834263ad71c277b5c5282d</value>
+  </metadata>
+  <metadata name="PHCell_46e9ad03db7e46f19e424eb04de91b68.Name" xml:space="preserve">
+    <value>PHCell_46e9ad03db7e46f19e424eb04de91b68</value>
+  </metadata>
+  <metadata name="PHCell_efbaf849e6804dc7b960683471e24f83.Name" xml:space="preserve">
+    <value>PHCell_efbaf849e6804dc7b960683471e24f83</value>
+  </metadata>
+  <metadata name="PHCell_f47c031e64554549a428f2e9c42b0c5f.Name" xml:space="preserve">
+    <value>PHCell_f47c031e64554549a428f2e9c42b0c5f</value>
+  </metadata>
+  <metadata name="PHCell_319c45a1f2ff4b52a171c36f90423dc4.Name" xml:space="preserve">
+    <value>PHCell_319c45a1f2ff4b52a171c36f90423dc4</value>
+  </metadata>
+  <metadata name="PHCell_d63001127fdd4824b1e4d2a2c1fc3f8a.Name" xml:space="preserve">
+    <value>PHCell_d63001127fdd4824b1e4d2a2c1fc3f8a</value>
+  </metadata>
+  <metadata name="PHCell_86d824f600a340b1bd4bcd4e3424ab0d.Name" xml:space="preserve">
+    <value>PHCell_86d824f600a340b1bd4bcd4e3424ab0d</value>
+  </metadata>
+  <metadata name="xrTableCell2.Name" xml:space="preserve">
+    <value>xrTableCell2</value>
+  </metadata>
+  <metadata name="PHCell_5647cd8c87734e0a96563a6fcaefa88a.Name" xml:space="preserve">
+    <value>PHCell_5647cd8c87734e0a96563a6fcaefa88a</value>
+  </metadata>
+  <metadata name="xrCheckBox1.Name" xml:space="preserve">
+    <value>xrCheckBox1</value>
+  </metadata>
+  <metadata name="PHCell_2a51919b90204808a7f30aa60c4e85f2.Name" xml:space="preserve">
+    <value>PHCell_2a51919b90204808a7f30aa60c4e85f2</value>
+  </metadata>
+  <metadata name="PHCell_9f977146b5414c2d837195874910d384.Name" xml:space="preserve">
+    <value>PHCell_9f977146b5414c2d837195874910d384</value>
+  </metadata>
+  <metadata name="PHCell_7671968241ce4e6bb23f6f53164cce58.Name" xml:space="preserve">
+    <value>PHCell_7671968241ce4e6bb23f6f53164cce58</value>
+  </metadata>
+  <metadata name="PHCell_bb662e4c172240318547293c3bfa3a78.Name" xml:space="preserve">
+    <value>PHCell_bb662e4c172240318547293c3bfa3a78</value>
+  </metadata>
+  <metadata name="PHCell_f77f902689e643b6a88afabd4e91658b.Name" xml:space="preserve">
+    <value>PHCell_f77f902689e643b6a88afabd4e91658b</value>
+  </metadata>
+  <metadata name="PHCell_a67a3d5d38164bb79057cf5650e87266.Name" xml:space="preserve">
+    <value>PHCell_a67a3d5d38164bb79057cf5650e87266</value>
+  </metadata>
+  <metadata name="PHCell_4b9c779e2aad4eebb7c9483662512412.Name" xml:space="preserve">
+    <value>PHCell_4b9c779e2aad4eebb7c9483662512412</value>
+  </metadata>
+  <metadata name="PHCell_b8b766c483a1407091c815c31bb7e4c0.Name" xml:space="preserve">
+    <value>PHCell_b8b766c483a1407091c815c31bb7e4c0</value>
+  </metadata>
+  <metadata name="PHCell_db3ba3dde7ea4196899dff1793ce473e.Name" xml:space="preserve">
+    <value>PHCell_db3ba3dde7ea4196899dff1793ce473e</value>
+  </metadata>
+  <metadata name="detailBand1.Name" xml:space="preserve">
+    <value>detailBand1</value>
+  </metadata>
+  <metadata name="PHTable_d3fab37bfbf04608861a86d5e6b6c76e.Name" xml:space="preserve">
+    <value>PHTable_d3fab37bfbf04608861a86d5e6b6c76e</value>
+  </metadata>
+  <metadata name="PHRow_633399646a2a4da583202eadd4a6d31a.Name" xml:space="preserve">
+    <value>PHRow_633399646a2a4da583202eadd4a6d31a</value>
+  </metadata>
+  <metadata name="PHCell_de06e935bef04afab6b5d8de4bc1eea9.Name" xml:space="preserve">
+    <value>PHCell_de06e935bef04afab6b5d8de4bc1eea9</value>
+  </metadata>
+  <metadata name="PHCell_4ec4e271879a4ea7bd2efb9a09d4bf81.Name" xml:space="preserve">
+    <value>PHCell_4ec4e271879a4ea7bd2efb9a09d4bf81</value>
+  </metadata>
+  <metadata name="PHCell_f843c315568e4fd99ced0210cbaf6eaf.Name" xml:space="preserve">
+    <value>PHCell_f843c315568e4fd99ced0210cbaf6eaf</value>
+  </metadata>
+  <metadata name="PHCell_6bc377b9cbd64576b3dab147aa52322e.Name" xml:space="preserve">
+    <value>PHCell_6bc377b9cbd64576b3dab147aa52322e</value>
+  </metadata>
+  <metadata name="PHCell_02fe851020c54783a0812c92f664e0f0.Name" xml:space="preserve">
+    <value>PHCell_02fe851020c54783a0812c92f664e0f0</value>
+  </metadata>
+  <metadata name="PHCell_0319caaf86194f0ab0427e01afa305cb.Name" xml:space="preserve">
+    <value>PHCell_0319caaf86194f0ab0427e01afa305cb</value>
+  </metadata>
+  <metadata name="PHCell_df2e0d578c854e8ebd8607b202895369.Name" xml:space="preserve">
+    <value>PHCell_df2e0d578c854e8ebd8607b202895369</value>
+  </metadata>
+  <metadata name="PHTable_c0411cfa93fe41e1a88e5c1ab96fcc64.Name" xml:space="preserve">
+    <value>PHTable_c0411cfa93fe41e1a88e5c1ab96fcc64</value>
+  </metadata>
+  <metadata name="PHRow_54d0ebfe34734a81b0a61d7ca793803b.Name" xml:space="preserve">
+    <value>PHRow_54d0ebfe34734a81b0a61d7ca793803b</value>
+  </metadata>
+  <metadata name="PHCell_8c225974e04e438cbab5496d5448f15b.Name" xml:space="preserve">
+    <value>PHCell_8c225974e04e438cbab5496d5448f15b</value>
+  </metadata>
+  <metadata name="PHCell_47e33d2df35746e6ac4b696054401a45.Name" xml:space="preserve">
+    <value>PHCell_47e33d2df35746e6ac4b696054401a45</value>
+  </metadata>
+  <metadata name="PHCell_d9a79aa298d2410cb7851c5c5ade1ac2.Name" xml:space="preserve">
+    <value>PHCell_d9a79aa298d2410cb7851c5c5ade1ac2</value>
+  </metadata>
+  <metadata name="PHCell_6768feeb1afb4eec9aa4790942d850a8.Name" xml:space="preserve">
+    <value>PHCell_6768feeb1afb4eec9aa4790942d850a8</value>
+  </metadata>
+  <metadata name="PHCell_4d9f908139664618b8d415b86e7c811b.Name" xml:space="preserve">
+    <value>PHCell_4d9f908139664618b8d415b86e7c811b</value>
+  </metadata>
+  <metadata name="PHRow_21d9dfeae24b445cace2f818f85d3855.Name" xml:space="preserve">
+    <value>PHRow_21d9dfeae24b445cace2f818f85d3855</value>
+  </metadata>
+  <metadata name="PHPageInfo_12f1a24000cf4a439aaa947335e99c2e.Name" xml:space="preserve">
+    <value>PHPageInfo_12f1a24000cf4a439aaa947335e99c2e</value>
+  </metadata>
+  <metadata name="styleHeader.Name" xml:space="preserve">
+    <value>styleHeader</value>
+  </metadata>
+  <metadata name="styleData.Name" xml:space="preserve">
+    <value>styleData</value>
+  </metadata>
+  <metadata name="PHTable_d6a29a857c334aac9759d70164159b26.Name" xml:space="preserve">
+    <value>PHTable_d6a29a857c334aac9759d70164159b26</value>
+  </metadata>
+  <metadata name="PHRow_8f52f22d28d34994a3cbccc73947658d.Name" xml:space="preserve">
+    <value>PHRow_8f52f22d28d34994a3cbccc73947658d</value>
+  </metadata>
+  <metadata name="PHRow_7957862837bc464791569fd21775292f.Name" xml:space="preserve">
+    <value>PHRow_7957862837bc464791569fd21775292f</value>
+  </metadata>
+  <metadata name="PHCell_e5f3ed61283047c883775d92c72d06bd.Name" xml:space="preserve">
+    <value>PHCell_e5f3ed61283047c883775d92c72d06bd</value>
+  </metadata>
+  <metadata name="PHRow_c1cb763c49034cd79b46a5eb7652a6f0.Name" xml:space="preserve">
+    <value>PHRow_c1cb763c49034cd79b46a5eb7652a6f0</value>
+  </metadata>
+  <metadata name="PHCell_76ad13f0218d4e128ad39eb5027eda5d.Name" xml:space="preserve">
+    <value>PHCell_76ad13f0218d4e128ad39eb5027eda5d</value>
+  </metadata>
+  <metadata name="PHCell_ba359700011f40d9a9fcd0325b8a41d3.Name" xml:space="preserve">
+    <value>PHCell_ba359700011f40d9a9fcd0325b8a41d3</value>
+  </metadata>
+  <metadata name="PHCell_48b42497330b43de9665cda060152964.Name" xml:space="preserve">
+    <value>PHCell_48b42497330b43de9665cda060152964</value>
+  </metadata>
+  <metadata name="PHCell_39be383da53a4be09186dab42703ffbd.Name" xml:space="preserve">
+    <value>PHCell_39be383da53a4be09186dab42703ffbd</value>
+  </metadata>
+  <metadata name="xrTableCell1.Name" xml:space="preserve">
+    <value>xrTableCell1</value>
+  </metadata>
+  <metadata name="PHCell_71a0539a47404b0eaa79ee1480cf1835.Name" xml:space="preserve">
+    <value>PHCell_71a0539a47404b0eaa79ee1480cf1835</value>
+  </metadata>
+  <metadata name="PHLabel_a72ea7ba3b844d3cb60c245a114c140a.Name" xml:space="preserve">
+    <value>PHLabel_a72ea7ba3b844d3cb60c245a114c140a</value>
+  </metadata>
+  <metadata name="PHRow_29a3f449592345a1b9bc6feb24fe86fc.Name" xml:space="preserve">
+    <value>PHRow_29a3f449592345a1b9bc6feb24fe86fc</value>
+  </metadata>
+  <metadata name="PHCell_3997273044194dea9b9b1c1fd81bc3b3.Name" xml:space="preserve">
+    <value>PHCell_3997273044194dea9b9b1c1fd81bc3b3</value>
+  </metadata>
+  <metadata name="pageHeaderBand1.Name" xml:space="preserve">
+    <value>pageHeaderBand1</value>
+  </metadata>
+  <metadata name="PHTable_4dc1f610cbd343efbea37a26c6551f76.Name" xml:space="preserve">
+    <value>PHTable_4dc1f610cbd343efbea37a26c6551f76</value>
+  </metadata>
+  <metadata name="PHRow_1a8091fffe384c4aafaf088e39866d81.Name" xml:space="preserve">
+    <value>PHRow_1a8091fffe384c4aafaf088e39866d81</value>
+  </metadata>
+  <metadata name="PHCell_3c0aa3b375f74e418f63a0efafbb452f.Name" xml:space="preserve">
+    <value>PHCell_3c0aa3b375f74e418f63a0efafbb452f</value>
+  </metadata>
+  <metadata name="PHRow_7e174d98dc5942569935a23a1bd14170.Name" xml:space="preserve">
+    <value>PHRow_7e174d98dc5942569935a23a1bd14170</value>
+  </metadata>
+  <metadata name="PHCell_995590d40dd545a3a28d769b08212224.Name" xml:space="preserve">
+    <value>PHCell_995590d40dd545a3a28d769b08212224</value>
+  </metadata>
+  <metadata name="PHCell_b71a0a2729cf45898b435777e6c890fb.Name" xml:space="preserve">
+    <value>PHCell_b71a0a2729cf45898b435777e6c890fb</value>
+  </metadata>
+  <metadata name="PHCell_28aa471da7be45af91f934132e6735cf.Name" xml:space="preserve">
+    <value>PHCell_28aa471da7be45af91f934132e6735cf</value>
+  </metadata>
+  <metadata name="PHCell_87c3e9947ef940e3a9a791831b6610cb.Name" xml:space="preserve">
+    <value>PHCell_87c3e9947ef940e3a9a791831b6610cb</value>
+  </metadata>
+  <metadata name="PHCell_922defec6958423fb15d13ead952d3e2.Name" xml:space="preserve">
+    <value>PHCell_922defec6958423fb15d13ead952d3e2</value>
+  </metadata>
+  <metadata name="PHCell_79578095746549f8ad499b33a882c4ef.Name" xml:space="preserve">
+    <value>PHCell_79578095746549f8ad499b33a882c4ef</value>
+  </metadata>
+  <metadata name="PHCell_4b1587ed3cb945cda890d9f7cecc1e73.Name" xml:space="preserve">
+    <value>PHCell_4b1587ed3cb945cda890d9f7cecc1e73</value>
+  </metadata>
+  <metadata name="PHCell_56d3f12031f74cf88f7a00b094c64467.Name" xml:space="preserve">
+    <value>PHCell_56d3f12031f74cf88f7a00b094c64467</value>
+  </metadata>
+  <metadata name="PHCell_179e8838d1694ad28946a63121f8438b.Name" xml:space="preserve">
+    <value>PHCell_179e8838d1694ad28946a63121f8438b</value>
+  </metadata>
+  <metadata name="xrLabel1.Name" xml:space="preserve">
+    <value>xrLabel1</value>
+  </metadata>
+  <metadata name="PHPageInfo_3d27924738c34bf78b78f3c01e5024d8.Name" xml:space="preserve">
+    <value>PHPageInfo_3d27924738c34bf78b78f3c01e5024d8</value>
+  </metadata>
+  <metadata name="PHTable_72ea86911bf54850922a5b338e501d86.Name" xml:space="preserve">
+    <value>PHTable_72ea86911bf54850922a5b338e501d86</value>
+  </metadata>
+  <metadata name="ReportFooter.Name" xml:space="preserve">
+    <value>ReportFooter</value>
+  </metadata>
+  <metadata name="xrTable1.Name" xml:space="preserve">
+    <value>xrTable1</value>
+  </metadata>
+  <metadata name="xrTableRow1.Name" xml:space="preserve">
+    <value>xrTableRow1</value>
+  </metadata>
+  <metadata name="xrTableCell5.Name" xml:space="preserve">
+    <value>xrTableCell5</value>
+  </metadata>
+  <metadata name="xrTableCell6.Name" xml:space="preserve">
+    <value>xrTableCell6</value>
+  </metadata>
+  <metadata name="GroupHeader1.Name" xml:space="preserve">
+    <value>GroupHeader1</value>
+  </metadata>
+  <metadata name="PHTable_cd3c7b8a76ba474bb4aec87eb4c04d89.Name" xml:space="preserve">
+    <value>PHTable_cd3c7b8a76ba474bb4aec87eb4c04d89</value>
+  </metadata>
+  <metadata name="PHRow_c4f7b854dc7a4d83a8f58e4cb8a18dc2.Name" xml:space="preserve">
+    <value>PHRow_c4f7b854dc7a4d83a8f58e4cb8a18dc2</value>
+  </metadata>
+  <metadata name="PHCell_d7b31851ed3c4d8b93db38a869fe44db.Name" xml:space="preserve">
+    <value>PHCell_d7b31851ed3c4d8b93db38a869fe44db</value>
+  </metadata>
+  <metadata name="PHCell_fef680d78cca400fa14a187f50897707.Name" xml:space="preserve">
+    <value>PHCell_fef680d78cca400fa14a187f50897707</value>
+  </metadata>
+  <metadata name="$this.Name" xml:space="preserve">
+    <value>POPCLevel5b1Report</value>
+  </metadata>
+  <metadata name="$this.SnapToGrid" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+</root>

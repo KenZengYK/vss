@@ -1,0 +1,1526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A7B65611-ABE1-4F85-B2F3-C3453854DBD5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.POPC.UI</RootNamespace>
+    <AssemblyName>PH.POPC.UI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AS400Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1" />
+    <Reference Include="DevExpress.Data.v8.1.Linq, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1" />
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraEditors.v8.1" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraGrid.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraNavBar.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichTextEdit.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraTreeList.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="PH.BasicInfo.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.BasicInfo.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.FabricInspection.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.LWPM.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.MIDc.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.AuthMgr.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.Common, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Email.BO, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.ExtendLibrary, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Lang.BO, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.Misc.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.Report.PivotGrid, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.UI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.WorkFlow.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.RWO.BackEnd3.0, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.RWO.BO3.0, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="RTFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionLog\ActionLogCategoryChoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogCategoryChoiceForm.Designer.cs">
+      <DependentUpon>ActionLogCategoryChoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogCategoryListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogCategoryListForm.Designer.cs">
+      <DependentUpon>ActionLogCategoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogCompleteReasonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionLog\ActionLogCompleteReasonForm.Designer.cs">
+      <DependentUpon>ActionLogCompleteReasonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\AlertLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionLog\AlertLogForm.Designer.cs">
+      <DependentUpon>AlertLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\FollowupSummaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionLog\FollowupSummaryForm.Designer.cs">
+      <DependentUpon>FollowupSummaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\L3ActionLogIncompleteListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActionLog\L3ActionLogIncompleteListForm.Designer.cs">
+      <DependentUpon>L3ActionLogIncompleteListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\SelectL3SplitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionLog\SelectL3SplitForm.Designer.cs">
+      <DependentUpon>SelectL3SplitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionLog\SendEmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionLog\SendEmailForm.Designer.cs">
+      <DependentUpon>SendEmailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClipboardHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common.cs">
+    </Compile>
+    <Compile Include="MasterDB\FieldDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\FieldDetailForm.Designer.cs">
+      <DependentUpon>FieldDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\FieldListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\FieldListForm.Designer.cs">
+      <DependentUpon>FieldListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\Level6CmplLogDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\Level6CmplLogDetailForm.Designer.cs">
+      <DependentUpon>Level6CmplLogDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\Level6CmplLogListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\Level6CmplLogListForm.Designer.cs">
+      <DependentUpon>Level6CmplLogListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\MaterialTypeDropDeadDateDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\MaterialTypeDropDeadDateDetailForm.Designer.cs">
+      <DependentUpon>MaterialTypeDropDeadDateDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDB\MaterialTypeDropDeadDateListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDB\MaterialTypeDropDeadDateListForm.Designer.cs">
+      <DependentUpon>MaterialTypeDropDeadDateListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MIDc\POColorSizeDetailDetailFormMIDc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIDc\POColorSizeDetailListFormMIDc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIDc\PODetailDetailFormMIDc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIDc\PODetailListFormMIDc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIDc\PrintMIDcPOReportsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MIDc\PrintMIDcPOReportsDialog.Designer.cs">
+      <DependentUpon>PrintMIDcPOReportsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MIDc\SelectItemCodeFormMIDc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MIDc\SelectItemCodeFormMIDc.Designer.cs">
+      <DependentUpon>SelectItemCodeFormMIDc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MIDc\SelectMIDcPriceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MIDc\SelectMIDcPriceForm.designer.cs">
+      <DependentUpon>SelectMIDcPriceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\InputGmtColorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPO\InputGmtColorForm.Designer.cs">
+      <DependentUpon>InputGmtColorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\InputReplenishmentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPO\InputReplenishmentsForm.Designer.cs">
+      <DependentUpon>InputReplenishmentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\InputReplenishmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPO\InputReplenishmentForm.Designer.cs">
+      <DependentUpon>InputReplenishmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\InputGmtColorsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPO\InputGmtColorsForm.Designer.cs">
+      <DependentUpon>InputGmtColorsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\InputItemsClassCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPO\InputItemsClassCodeForm.Designer.cs">
+      <DependentUpon>InputItemsClassCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\InputItemClassCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPO\InputItemClassCodeForm.Designer.cs">
+      <DependentUpon>InputItemClassCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POColorSizeDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POColorSizeDetailDetailForm.Designer.cs">
+      <DependentUpon>POColorSizeDetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POColorSizeDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POColorSizeDetailListForm.Designer.cs">
+      <DependentUpon>POColorSizeDetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POColorSizeSplitDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POColorSizeSplitDetailForm.Designer.cs">
+      <DependentUpon>POColorSizeSplitDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POColorSizeSplitListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POColorSizeSplitListForm.Designer.cs">
+      <DependentUpon>POColorSizeSplitListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POConfirmDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POConfirmDetailForm.Designer.cs">
+      <DependentUpon>POConfirmDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POConfirmListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POConfirmListForm.Designer.cs">
+      <DependentUpon>POConfirmListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\PODetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\PODetailDetailForm.Designer.cs">
+      <DependentUpon>PODetailDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\PODetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\PODetailListForm.Designer.cs">
+      <DependentUpon>PODetailListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POSKUBulkSubmissionDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POSKUBulkSubmissionDetailForm.Designer.cs">
+      <DependentUpon>POSKUBulkSubmissionDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POSKUBulkSubmissionListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POSKUBulkSubmissionListForm.Designer.cs">
+      <DependentUpon>POSKUBulkSubmissionListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POSKUColorStdDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POSKUColorStdDetailForm.Designer.cs">
+      <DependentUpon>POSKUColorStdDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POSKUColorStdListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POSKUColorStdListForm.Designer.cs">
+      <DependentUpon>POSKUColorStdListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POSKUDipSubmitDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POSKUDipSubmitDetailForm.Designer.cs">
+      <DependentUpon>POSKUDipSubmitDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POSKUDipSubmitListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POSKUDipSubmitListForm.Designer.cs">
+      <DependentUpon>POSKUDipSubmitListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POSKUOperateDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POSKUOperateDetailForm.Designer.cs">
+      <DependentUpon>POSKUOperateDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POSKUOperateListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POSKUOperateListForm.Designer.cs">
+      <DependentUpon>POSKUOperateListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POSKUTestStatusDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POSKUTestStatusDetailForm.Designer.cs">
+      <DependentUpon>POSKUTestStatusDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POSKUTestStatusListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POSKUTestStatusListForm.Designer.cs">
+      <DependentUpon>POSKUTestStatusListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POTermDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POTermDetailForm.Designer.cs">
+      <DependentUpon>POTermDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POTermListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POTermListForm.Designer.cs">
+      <DependentUpon>POTermListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\SelectWOForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPO\SelectWOForm.Designer.cs">
+      <DependentUpon>SelectWOForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\SelectSizeCup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPO\SelectSizeCup.Designer.cs">
+      <DependentUpon>SelectSizeCup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\SupplierCustomerSizeCupDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\SupplierCustomerSizeCupDetailForm.Designer.cs">
+      <DependentUpon>SupplierCustomerSizeCupDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\SupplierCustomerSizeCupListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\SupplierCustomerSizeCupListForm.Designer.cs">
+      <DependentUpon>SupplierCustomerSizeCupListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notify\EmailHelper.cs" />
+    <Compile Include="Notify\NotifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notify\NotifyForm.Designer.cs">
+      <DependentUpon>NotifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notify\SendingEmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notify\SendingEmailForm.Designer.cs">
+      <DependentUpon>SendingEmailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PDF\Directories.cs" />
+    <Compile Include="PDF\POPDFForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PDF\POPDFForm.Designer.cs">
+      <DependentUpon>POPDFForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POColorShadeUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POColorShadeUpdate.Designer.cs">
+      <DependentUpon>POColorShadeUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POConfirmDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POConfirmDetailForm.Designer.cs">
+      <DependentUpon>POConfirmDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POConfirmListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POConfirmListForm.Designer.cs">
+      <DependentUpon>POConfirmListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POFormatDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POFormatDetailForm.designer.cs">
+      <DependentUpon>POFormatDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POFormatListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POFormatListForm.designer.cs">
+      <DependentUpon>POFormatListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POHeaderListForm2022.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POHeaderListForm2022.Designer.cs">
+      <DependentUpon>POHeaderListForm2022.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\BatchInputBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\BatchInputBoxForm.Designer.cs">
+      <DependentUpon>BatchInputBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\BulkApprovelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POAdviceNotePOListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POAdviceNotePOListForm.Designer.cs">
+      <DependentUpon>POAdviceNotePOListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POPCInAdvanceAddLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\POPCInAdvanceAddLogForm.Designer.cs">
+      <DependentUpon>POPCInAdvanceAddLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POPCLevel1SummaryForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POPCLevel2SummaryForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POPCLevel5Part3Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\InvoiceMatchingPart1BForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\InvoiceMatchingPart1BForm.Designer.cs">
+      <DependentUpon>InvoiceMatchingPart1BForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\InvoiceNumberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\InvoiceNumberForm.Designer.cs">
+      <DependentUpon>InvoiceNumberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\InvoiceMatchingIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\InvoiceMatchingIForm.Designer.cs">
+      <DependentUpon>InvoiceMatchingIForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POPCLevel4Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\PONotifyEnquiryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\PONotifyEnquiryForm.Designer.cs">
+      <DependentUpon>PONotifyEnquiryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POClassCodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POClassCodeForm.Designer.cs">
+      <DependentUpon>POClassCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POPCLevel5Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POTradeMethodListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POTradeMethodListForm.Designer.cs">
+      <DependentUpon>POTradeMethodListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\SelectRWOForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\SelectRWOForm.Designer.cs">
+      <DependentUpon>SelectRWOForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POEmailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\PONotifyDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\PONotifyDetailForm.Designer.cs">
+      <DependentUpon>PONotifyDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\PONotifyListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\PONotifyListForm.Designer.cs">
+      <DependentUpon>PONotifyListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POPCInAdvanceForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\LabDipApprovelForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POLadDipNoPOListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POLadDipNoPOListForm.Designer.cs">
+      <DependentUpon>POLadDipNoPOListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POColorStandardListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POColorStandardListForm.Designer.cs">
+      <DependentUpon>POColorStandardListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\LadDipBulkOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\LadDipBulkOptionForm.Designer.cs">
+      <DependentUpon>LadDipBulkOptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POPCLevel1Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POPCLevel2EntranceKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\POPCLevel2EntranceKeyForm.Designer.cs">
+      <DependentUpon>POPCLevel2EntranceKeyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\ChangeTransitModeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\ChangeTransitModeForm.Designer.cs">
+      <DependentUpon>ChangeTransitModeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSKUSampleListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUSampleListForm.Designer.cs">
+      <DependentUpon>POSKUSampleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSKUDipSubmitListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUDipSubmitListForm.Designer.cs">
+      <DependentUpon>POSKUDipSubmitListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POPCLevel3Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POPCLevel2Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POColorShadeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POColorShadeListForm.Designer.cs">
+      <DependentUpon>POColorShadeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POHeaderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POHeaderListForm.Designer.cs">
+      <DependentUpon>POHeaderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPO\POHeaderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPO\POHeaderDetailForm.Designer.cs">
+      <DependentUpon>POHeaderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POHeaderListFormBak.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POPCEnquiryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\POPCEnquiryForm.Designer.cs">
+      <DependentUpon>POPCEnquiryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSKUTestStatusDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUTestStatusDetailForm.Designer.cs">
+      <DependentUpon>POSKUTestStatusDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSKUTestStatusListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUTestStatusListForm.Designer.cs">
+      <DependentUpon>POSKUTestStatusListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSKUColorStdDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUColorStdDetailForm.Designer.cs">
+      <DependentUpon>POSKUColorStdDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSKUColorStdListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUColorStdListForm.Designer.cs">
+      <DependentUpon>POSKUColorStdListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSKUDipSubmitDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUDipSubmitDetailForm.Designer.cs">
+      <DependentUpon>POSKUDipSubmitDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSKUBulkSubmissionDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUBulkSubmissionDetailForm.Designer.cs">
+      <DependentUpon>POSKUBulkSubmissionDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSKUBulkSubmissionListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUBulkSubmissionListForm.Designer.cs">
+      <DependentUpon>POSKUBulkSubmissionListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSetStatusListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUOperateDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUOperateDetailForm.Designer.cs">
+      <DependentUpon>POSKUOperateDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POSKUOperateListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POSKUOperateListForm.Designer.cs">
+      <DependentUpon>POSKUOperateListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POReportDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POReportDetailForm.Designer.cs">
+      <DependentUpon>POReportDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POReportListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POReportListForm.Designer.cs">
+      <DependentUpon>POReportListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POHeaderDetailFormBak.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POColorSizeDetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POColorSizeDetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIDc\POHeaderDetailFormMIDc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIDc\POHeaderListFormMIDc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\SelectWOSeqNoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\SelectWOSeqNoForm.Designer.cs">
+      <DependentUpon>SelectWOSeqNoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\SubGridViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\SubGridViewForm.Designer.cs">
+      <DependentUpon>SubGridViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportDetailForm.Designer.cs">
+      <DependentUpon>ReportDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportListForm.Designer.cs">
+      <DependentUpon>ReportListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\GRNReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\GRNReport.Designer.cs">
+      <DependentUpon>GRNReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\POPCLevel5Report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\POPCLevel5Report.Designer.cs">
+      <DependentUpon>POPCLevel5Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MultiPOReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\MultiPOReport.Designer.cs">
+      <DependentUpon>MultiPOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\POPCLevel5Part3Report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\POPCLevel5Part3Report.Designer.cs">
+      <DependentUpon>POPCLevel5Part3Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\POPCAnalysisReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\POPCAnalysisReport.Designer.cs">
+      <DependentUpon>POPCAnalysisReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\POPCInAdvanceReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\POPCInAdvanceReport.Designer.cs">
+      <DependentUpon>POPCInAdvanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\POPCReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\POPCReport.Designer.cs">
+      <DependentUpon>POPCReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\POFormatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\POFormatForm.Designer.cs">
+      <DependentUpon>POFormatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\PONewReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\PONewReport.Designer.cs">
+      <DependentUpon>PONewReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MIDc\PONewReportMIDc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIDc\PONewReportMIDc.Designer.cs">
+      <DependentUpon>PONewReportMIDc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\RCReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\RCReport.Designer.cs">
+      <DependentUpon>RCReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SelectRCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\SelectRCForm.Designer.cs">
+      <DependentUpon>SelectRCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ResManager.cs" />
+    <Compile Include="SelectPoFormat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectPoFormat.designer.cs">
+      <DependentUpon>SelectPoFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TermListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TermDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\PoListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\PoListForm.designer.cs">
+      <DependentUpon>PoListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPC\POTermDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\POTermListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\PODetailDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MIDc\POColorSizeDetailDetailFormMIDc.resx">
+      <DependentUpon>POColorSizeDetailDetailFormMIDc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDc\POColorSizeDetailListFormMIDc.resx">
+      <DependentUpon>POColorSizeDetailListFormMIDc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDc\PODetailDetailFormMIDc.resx">
+      <DependentUpon>PODetailDetailFormMIDc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDc\PODetailListFormMIDc.resx">
+      <DependentUpon>PODetailListFormMIDc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDc\PrintMIDcPOReportsDialog.resx">
+      <DependentUpon>PrintMIDcPOReportsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDc\SelectItemCodeFormMIDc.resx">
+      <DependentUpon>SelectItemCodeFormMIDc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDc\SelectMIDcPriceForm.resx">
+      <DependentUpon>SelectMIDcPriceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POColorSizeDetailDetailForm.resx">
+      <DependentUpon>POColorSizeDetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POColorSizeDetailListForm.resx">
+      <DependentUpon>POColorSizeDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POColorSizeSplitDetailForm.resx">
+      <DependentUpon>POColorSizeSplitDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POColorSizeSplitListForm.resx">
+      <DependentUpon>POColorSizeSplitListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POConfirmDetailForm.resx">
+      <DependentUpon>POConfirmDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POConfirmListForm.resx">
+      <DependentUpon>POConfirmListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\PODetailDetailForm.resx">
+      <DependentUpon>PODetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\PODetailListForm.resx">
+      <DependentUpon>PODetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POHeaderDetailForm.resx">
+      <DependentUpon>POHeaderDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POHeaderListForm.resx">
+      <DependentUpon>POHeaderListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POSKUBulkSubmissionDetailForm.resx">
+      <DependentUpon>POSKUBulkSubmissionDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POSKUBulkSubmissionListForm.resx">
+      <DependentUpon>POSKUBulkSubmissionListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POSKUColorStdDetailForm.resx">
+      <DependentUpon>POSKUColorStdDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POSKUColorStdListForm.resx">
+      <DependentUpon>POSKUColorStdListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POSKUDipSubmitDetailForm.resx">
+      <DependentUpon>POSKUDipSubmitDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POSKUDipSubmitListForm.resx">
+      <DependentUpon>POSKUDipSubmitListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POSKUOperateDetailForm.resx">
+      <DependentUpon>POSKUOperateDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POSKUOperateListForm.resx">
+      <DependentUpon>POSKUOperateListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POSKUTestStatusDetailForm.resx">
+      <DependentUpon>POSKUTestStatusDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\POSKUTestStatusListForm.resx">
+      <DependentUpon>POSKUTestStatusListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\SelectSizeCup.resx">
+      <DependentUpon>SelectSizeCup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\SupplierCustomerSizeCupListForm.resx">
+      <DependentUpon>SupplierCustomerSizeCupListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POColorShadeUpdate.resx">
+      <DependentUpon>POColorShadeUpdate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POConfirmDetailForm.resx">
+      <DependentUpon>POConfirmDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POConfirmListForm.resx">
+      <DependentUpon>POConfirmListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POFormatDetailForm.resx">
+      <DependentUpon>POFormatDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POFormatListForm.resx">
+      <DependentUpon>POFormatListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\BulkApprovelForm.resx">
+      <DependentUpon>BulkApprovelForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\LabDipApprovelForm.resx">
+      <DependentUpon>LabDipApprovelForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POLadDipNoPOListForm.resx">
+      <DependentUpon>POLadDipNoPOListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POColorStandardListForm.resx">
+      <DependentUpon>POColorStandardListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\LadDipBulkOptionForm.resx">
+      <DependentUpon>LadDipBulkOptionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCLevel2EntranceKeyForm.resx">
+      <DependentUpon>POPCLevel2EntranceKeyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\ChangeTransitModeForm.resx">
+      <DependentUpon>ChangeTransitModeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUSampleListForm.resx">
+      <DependentUpon>POSKUSampleListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUDipSubmitListForm.resx">
+      <DependentUpon>POSKUDipSubmitListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCLevel3Form.resx">
+      <DependentUpon>POPCLevel3Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCLevel2Form.resx">
+      <DependentUpon>POPCLevel2Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POColorShadeListForm.resx">
+      <DependentUpon>POColorShadeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POHeaderListFormBak.resx">
+      <DependentUpon>POHeaderListFormBak.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCEnquiryForm.resx">
+      <DependentUpon>POPCEnquiryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUTestStatusDetailForm.resx">
+      <DependentUpon>POSKUTestStatusDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUTestStatusListForm.resx">
+      <DependentUpon>POSKUTestStatusListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUColorStdDetailForm.resx">
+      <DependentUpon>POSKUColorStdDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUColorStdListForm.resx">
+      <DependentUpon>POSKUColorStdListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUDipSubmitDetailForm.resx">
+      <DependentUpon>POSKUDipSubmitDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUBulkSubmissionDetailForm.resx">
+      <DependentUpon>POSKUBulkSubmissionDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUBulkSubmissionListForm.resx">
+      <DependentUpon>POSKUBulkSubmissionListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSetStatusListForm.resx">
+      <DependentUpon>POSetStatusListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUOperateDetailForm.resx">
+      <DependentUpon>POSKUOperateDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POSKUOperateListForm.resx">
+      <DependentUpon>POSKUOperateListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POReportDetailForm.resx">
+      <DependentUpon>POReportDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POReportListForm.resx">
+      <DependentUpon>POReportListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POHeaderDetailFormBak.resx">
+      <DependentUpon>POHeaderDetailFormBak.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POColorSizeDetailDetailForm.resx">
+      <DependentUpon>POColorSizeDetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POColorSizeDetailListForm.resx">
+      <DependentUpon>POColorSizeDetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\PODetailListForm.resx">
+      <DependentUpon>PODetailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\PoListForm.resx">
+      <DependentUpon>PoListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POTermDetailForm.resx">
+      <DependentUpon>POTermDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POTermListForm.resx">
+      <DependentUpon>POTermListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\PODetailDetailForm.resx">
+      <DependentUpon>PODetailDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDc\POHeaderDetailFormMIDc.resx">
+      <DependentUpon>POHeaderDetailFormMIDc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDc\POHeaderListFormMIDc.resx">
+      <DependentUpon>POHeaderListFormMIDc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="POPC\SelectItemCodeForm.resx">
+      <DependentUpon>SelectItemCodeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportDetailForm.resx">
+      <DependentUpon>ReportDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportListForm.resx">
+      <DependentUpon>ReportListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\POFormatForm.resx">
+      <DependentUpon>POFormatForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\PONewReport.resx">
+      <DependentUpon>PONewReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDc\PONewReportMIDc.resx">
+      <DependentUpon>PONewReportMIDc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectPoFormat.resx">
+      <DependentUpon>SelectPoFormat.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TermDetailForm.resx">
+      <DependentUpon>TermDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TermListForm.resx">
+      <DependentUpon>TermListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\PH.POPC.BO.POHeader.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="POPC\PODetailListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POPC\SelectItemCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPC\SelectItemCodeForm.Designer.cs">
+      <DependentUpon>SelectItemCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Z_OutstandingPOListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Z_OutstandingPOListForm.Designer.cs">
+      <DependentUpon>Z_OutstandingPOListForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\First.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Last.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.POPC.BO.CustomerSizeCup.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.PHP10.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.PHP11.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POColorShade.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POColorSizeDetail.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POColorSizeSplit.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POConfirm.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.PODetail.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POSKUOperate.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.Report.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.SupplierCustomerSizeCup.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.SupplierSizeCup.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.Term.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.TestStatus.datasource" />
+    <None Include="Resources\Previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.TransitModeTransitPointChange.datasource" />
+    <None Include="Properties\DataSources\PH.Platform.Misc.BO.Misc_DataDictionary.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.ActionLogCategory.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.ActionLogCompleteReason.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.ActionLogDetail.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.ActionLogEmail.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.ActionLogHeader.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.Field.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.InvoiceUnitQty.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.MaterialTypeDropDeadDate.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POAdviceNote.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POChangesMonitor.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POChangesMonitorSummary.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POColorStandard.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POEmail.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POInAdvance.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POItemColor.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POLadDipNoPO.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.PONotify.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POPCLevel1.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.PORC.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.Z_OutstandingPO.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.Project.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.RoundWorkOrder.datasource" />
+    <None Include="Properties\DataSources\PH.RWO.BO.WorkOrder.datasource" />
+    <None Include="Resources\cancel.png" />
+    <EmbeddedResource Include="ActionLog\ActionLogCategoryChoiceForm.resx">
+      <DependentUpon>ActionLogCategoryChoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\ActionLogCategoryListForm.resx">
+      <DependentUpon>ActionLogCategoryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\ActionLogCompleteReasonForm.resx">
+      <DependentUpon>ActionLogCompleteReasonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\AlertLogForm.resx">
+      <DependentUpon>AlertLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\FollowupSummaryForm.resx">
+      <DependentUpon>FollowupSummaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\L3ActionLogIncompleteListForm.resx">
+      <DependentUpon>L3ActionLogIncompleteListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\SelectL3SplitForm.resx">
+      <DependentUpon>SelectL3SplitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionLog\SendEmailForm.resx">
+      <DependentUpon>SendEmailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\FieldDetailForm.resx">
+      <DependentUpon>FieldDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\FieldListForm.resx">
+      <DependentUpon>FieldListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\Level6CmplLogDetailForm.resx">
+      <DependentUpon>Level6CmplLogDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\Level6CmplLogListForm.resx">
+      <DependentUpon>Level6CmplLogListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\MaterialTypeDropDeadDateDetailForm.resx">
+      <DependentUpon>MaterialTypeDropDeadDateDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDB\MaterialTypeDropDeadDateListForm.resx">
+      <DependentUpon>MaterialTypeDropDeadDateListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\InputGmtColorForm.resx">
+      <DependentUpon>InputGmtColorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\InputReplenishmentsForm.resx">
+      <DependentUpon>InputReplenishmentsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\InputReplenishmentForm.resx">
+      <DependentUpon>InputReplenishmentForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\InputGmtColorsForm.resx">
+      <DependentUpon>InputGmtColorsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\InputItemsClassCodeForm.resx">
+      <DependentUpon>InputItemsClassCodeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\InputItemClassCodeForm.resx">
+      <DependentUpon>InputItemClassCodeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPO\SelectWOForm.resx">
+      <DependentUpon>SelectWOForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notify\NotifyForm.resx">
+      <DependentUpon>NotifyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notify\SendingEmailForm.resx">
+      <DependentUpon>SendingEmailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDF\POPDFForm.resx">
+      <DependentUpon>POPDFForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POHeaderListForm2022.resx">
+      <DependentUpon>POHeaderListForm2022.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\BatchInputBoxForm.resx">
+      <DependentUpon>BatchInputBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POAdviceNotePOListForm.resx">
+      <DependentUpon>POAdviceNotePOListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCInAdvanceAddLogForm.resx">
+      <DependentUpon>POPCInAdvanceAddLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCLevel1SummaryForm.resx">
+      <DependentUpon>POPCLevel1SummaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCLevel2SummaryForm.resx">
+      <DependentUpon>POPCLevel2SummaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCLevel5Part3Form.resx">
+      <DependentUpon>POPCLevel5Part3Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\InvoiceMatchingPart1BForm.resx">
+      <DependentUpon>InvoiceMatchingPart1BForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\InvoiceNumberForm.resx">
+      <DependentUpon>InvoiceNumberForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\InvoiceMatchingIForm.resx">
+      <DependentUpon>InvoiceMatchingIForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCLevel4Form.resx">
+      <DependentUpon>POPCLevel4Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\PONotifyEnquiryForm.resx">
+      <DependentUpon>PONotifyEnquiryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POClassCodeForm.resx">
+      <DependentUpon>POClassCodeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCLevel5Form.resx">
+      <DependentUpon>POPCLevel5Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POTradeMethodListForm.resx">
+      <DependentUpon>POTradeMethodListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\SelectRWOForm.resx">
+      <DependentUpon>SelectRWOForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POEmailListForm.resx">
+      <DependentUpon>POEmailListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\PONotifyDetailForm.resx">
+      <DependentUpon>PONotifyDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\PONotifyListForm.resx">
+      <DependentUpon>PONotifyListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCInAdvanceForm.resx">
+      <DependentUpon>POPCInAdvanceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\POPCLevel1Form.resx">
+      <DependentUpon>POPCLevel1Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\SelectWOSeqNoForm.resx">
+      <DependentUpon>SelectWOSeqNoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\SubGridViewForm.resx">
+      <DependentUpon>SubGridViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPC\TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\GRNReport.resx">
+      <DependentUpon>GRNReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\POPCLevel5Report.resx">
+      <DependentUpon>POPCLevel5Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MultiPOReport.resx">
+      <DependentUpon>MultiPOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\POPCLevel5Part3Report.resx">
+      <DependentUpon>POPCLevel5Part3Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\POPCAnalysisReport.resx">
+      <DependentUpon>POPCAnalysisReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\POPCInAdvanceReport.resx">
+      <DependentUpon>POPCInAdvanceReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\POPCReport.resx">
+      <DependentUpon>POPCReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RCReport.resx">
+      <DependentUpon>RCReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SelectRCForm.resx">
+      <DependentUpon>SelectRCForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\add.ico" />
+    <EmbeddedResource Include="Resources\app.ico" />
+    <EmbeddedResource Include="Resources\attachment.ico" />
+    <EmbeddedResource Include="Resources\bold.ico" />
+    <EmbeddedResource Include="Resources\delete.ico" />
+    <None Include="Resources\arrow_down.png" />
+    <Content Include="Resources\ETAM_1.jpg" />
+    <None Include="Resources\Mail.png" />
+    <Content Include="Resources\SendEmailModule.png" />
+    <None Include="Resources\State_Validation_Invalid.png" />
+    <None Include="Resources\State_Validation_Valid.png" />
+    <Content Include="Resources\waiting.gif" />
+    <EmbeddedResource Include="Resources\fontbackcolor.ico" />
+    <EmbeddedResource Include="Resources\fontcolor.ico" />
+    <EmbeddedResource Include="Resources\italic.ico" />
+    <EmbeddedResource Include="Resources\underline.ico" />
+    <EmbeddedResource Include="Z_OutstandingPOListForm.resx">
+      <DependentUpon>Z_OutstandingPOListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.POPC.BackEnd\PH.POPC.BackEnd.csproj">
+      <Project>{AC7EC507-E3BD-4372-B7BC-8758019DA07B}</Project>
+      <Name>PH.POPC.BackEnd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PH.POPC.BO\PH.POPC.BO.csproj">
+      <Project>{7FD70B17-0BA6-4549-AE0C-3A7AEF902FA7}</Project>
+      <Name>PH.POPC.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

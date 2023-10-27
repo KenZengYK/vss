@@ -1,0 +1,964 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC7EC507-E3BD-4372-B7BC-8758019DA07B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.POPC.BackEnd</RootNamespace>
+    <AssemblyName>PH.POPC.BackEnd</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="PH.BasicInfo.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\DavidJiang\Desktop\Release\PH.BasicInfo.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.MIDc.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.AuthMgr.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Release\PH.Platform.BO.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="PH.Platform.Email.BO, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Lang.BO, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Report.PivotGrid, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs" />
+    <Compile Include="CommonHelper\MaterialPriceHelper.cs" />
+    <Compile Include="CustomEditor\RepositoryItemTextEditPopUp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomEditor\TextEditPopUp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Job\AutoEmailHelper.cs" />
+    <Compile Include="Job\JobAutoEmail2Supp.cs" />
+    <Compile Include="Job\JobUpdateErpData.cs" />
+    <Compile Include="MIDcNewformat\Detail\CN\po3DReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\po4DReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poErrorReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poIndividualItemWidthReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poIndividualSpecItemReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poItemsIndividualItemWidthReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poItemsIndividualSpecItemReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poItemsMultipleItemWidthReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poItemsMultipleSpecItemReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poMultipleItemWidthReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poMultipleSpecItemReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poWireBoneDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\CN\poWireBoneReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\po3DReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\po4DReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poErrorReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poIndividualItemWidthReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poIndividualSpecItemReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poItemsIndividualItemWidthReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poItemsIndividualSpecItemReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poItemsMultipleItemWidthReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poItemsMultipleSpecItemReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poMatrixErrorReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poMultipleItemWidthReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poMultipleSpecItemReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poWireBoneDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MIDcNewformat\Detail\EN\poWireBoneReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\GRNReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\GRNReport.Designer.cs">
+      <DependentUpon>GRNReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel5Report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel5Report.Designer.cs">
+      <DependentUpon>POPCLevel5Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\NonMatchingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\NonMatchingReport.Designer.cs">
+      <DependentUpon>NonMatchingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel2SuppPerformanceByItemReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel2SuppPerformanceByItemReport.Designer.cs">
+      <DependentUpon>POPCLevel2SuppPerformanceByItemReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel2SuppPerformanceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel2SuppPerformanceReport.Designer.cs">
+      <DependentUpon>POPCLevel2SuppPerformanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel1WeeklyAmountReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel1WeeklyAmountReport.Designer.cs">
+      <DependentUpon>POPCLevel1WeeklyAmountReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel3CreditCashReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel3CreditCashReport.Designer.cs">
+      <DependentUpon>POPCLevel3CreditCashReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel3ReplacementReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel3ReplacementReport.Designer.cs">
+      <DependentUpon>POPCLevel3ReplacementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel4Report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel4Report.Designer.cs">
+      <DependentUpon>POPCLevel4Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\NotepadReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\NotepadReport.Designer.cs">
+      <DependentUpon>NotepadReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCInAdvanceSpecReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCInAdvanceSpecReport.Designer.cs">
+      <DependentUpon>POPCInAdvanceSpecReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\ItemChangedReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\ItemChangedReport.Designer.cs">
+      <DependentUpon>ItemChangedReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel5b2Report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel5b2Report.Designer.cs">
+      <DependentUpon>POPCLevel5b2Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel5a2Report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel5a2Report.Designer.cs">
+      <DependentUpon>POPCLevel5a2Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel5b1Report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel5b1Report.Designer.cs">
+      <DependentUpon>POPCLevel5b1Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel5a1Report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel5a1Report.Designer.cs">
+      <DependentUpon>POPCLevel5a1Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCInAdvanceSupplementReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCInAdvanceSupplementReport.Designer.cs">
+      <DependentUpon>POPCInAdvanceSupplementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCInAdvanceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCInAdvanceReport.Designer.cs">
+      <DependentUpon>POPCInAdvanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel2aReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel2aReport.Designer.cs">
+      <DependentUpon>POPCLevel2aReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel2bSupplementSheetReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel2bSupplementSheetReport.Designer.cs">
+      <DependentUpon>POPCLevel2bSupplementSheetReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel1aSupplementSheetReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel1aSupplementSheetReport.Designer.cs">
+      <DependentUpon>POPCLevel1aSupplementSheetReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel1bReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel1bReport.Designer.cs">
+      <DependentUpon>POPCLevel1bReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel3aReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel3aReport.Designer.cs">
+      <DependentUpon>POPCLevel3aReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel2bReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel2bReport.Designer.cs">
+      <DependentUpon>POPCLevel2bReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel1aReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCLevel1aReport.Designer.cs">
+      <DependentUpon>POPCLevel1aReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCSummarySupplementSheetReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCSummarySupplementSheetReport.Designer.cs">
+      <DependentUpon>POPCSummarySupplementSheetReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POPCNewformat\POPCSummaryReport.Designer.cs">
+      <DependentUpon>POPCSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\CartonPOReportCH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\CartonPOReportCH.designer.cs">
+      <DependentUpon>CartonPOReportCH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\CartonPOReportEN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\CartonPOReportEN.designer.cs">
+      <DependentUpon>CartonPOReportEN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\ColloidPOReportCH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\ColloidPOReportCH.designer.cs">
+      <DependentUpon>ColloidPOReportCH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\ColloidPOReportEN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\ColloidPOReportEN.designer.cs">
+      <DependentUpon>ColloidPOReportEN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\ETAMReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\ETAMReport1.designer.cs">
+      <DependentUpon>ETAMReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\ETAMReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\ETAMReport2.designer.cs">
+      <DependentUpon>ETAMReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\ETAMReport3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\ETAMReport3.designer.cs">
+      <DependentUpon>ETAMReport3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\StickerPOReportCH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\StickerPOReportCH.designer.cs">
+      <DependentUpon>StickerPOReportCH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\StickerPOReportEN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\StickerPOReportEN.designer.cs">
+      <DependentUpon>StickerPOReportEN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\SubReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\SubReport1.designer.cs">
+      <DependentUpon>SubReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POReport\SubReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="POReport\SubReport2.designer.cs">
+      <DependentUpon>SubReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\BaseInfor\PrintPOForHSHelper.cs" />
+    <Compile Include="PO\ClassGmt\SubClassGmtReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\ClassGmt\SubClassGmtReport.Designer.cs">
+      <DependentUpon>SubClassGmtReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\Detail\SubDetailItemsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\Detail\SubDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\Footer\SubFooterReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\Items\SubItemsPOReport_CN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\Items\SubItemsScOReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\Items\SubItemsPOReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\BaseInfor\SubBaseInforCNReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\BaseInfor\SubBaseInforENReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\Header\SubHeaderReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\Share\poErrorReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\POReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\Share\poMatrixErrorReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\Summary\SubSummaryItemsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\Summary\SubSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\SupplementSheet\CN\SubWireBoneDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\SupplementSheet\CN\Sub3DReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\SupplementSheet\CN\Sub4DReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\SupplementSheet\CN\SubWireBoneReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RC\RCReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RC\RCReport.Designer.cs">
+      <DependentUpon>RCReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\SelectPOForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportJob\SelectPOForm.Designer.cs">
+      <DependentUpon>SelectPOForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TradeMethodHelper.cs" />
+    <Compile Include="PO\SupplementSheet\EN\SubWireBoneDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\SupplementSheet\EN\Sub3DReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\SupplementSheet\EN\Sub4DReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\SupplementSheet\EN\SubWireBoneReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\VATValue\SubVATReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO\VATValue\SubVATReport.Designer.cs">
+      <DependentUpon>SubVATReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobGRNReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobGRNReport.Designer.cs">
+      <DependentUpon>JobGRNReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobMultiPOReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobMultiPOReport.Designer.cs">
+      <DependentUpon>JobMultiPOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobPOReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobPOReport.Designer.cs">
+      <DependentUpon>JobPOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.cs" />
+    <Compile Include="ReportJob\JobNewMIDcPOReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobNewMIDcPOReport.Designer.cs">
+      <DependentUpon>JobNewMIDcPOReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportStream.cs" />
+    <Compile Include="SendReport.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\po3DReport.resx">
+      <DependentUpon>po3DReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\po4DReport.resx">
+      <DependentUpon>po4DReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poErrorReport.resx">
+      <DependentUpon>poErrorReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poIndividualItemWidthReport.resx">
+      <DependentUpon>poIndividualItemWidthReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poIndividualSpecItemReport.resx">
+      <DependentUpon>poIndividualSpecItemReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poItemsIndividualItemWidthReport.resx">
+      <DependentUpon>poItemsIndividualItemWidthReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poItemsIndividualSpecItemReport.resx">
+      <DependentUpon>poItemsIndividualSpecItemReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poItemsMultipleItemWidthReport.resx">
+      <DependentUpon>poItemsMultipleItemWidthReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poItemsMultipleSpecItemReport.resx">
+      <DependentUpon>poItemsMultipleSpecItemReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poMultipleItemWidthReport.resx">
+      <DependentUpon>poMultipleItemWidthReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poMultipleSpecItemReport.resx">
+      <DependentUpon>poMultipleSpecItemReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poWireBoneDetailReport.resx">
+      <DependentUpon>poWireBoneDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\CN\poWireBoneReport.resx">
+      <DependentUpon>poWireBoneReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\po3DReport.resx">
+      <DependentUpon>po3DReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\po4DReport.resx">
+      <DependentUpon>po4DReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poErrorReport.resx">
+      <DependentUpon>poErrorReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poIndividualItemWidthReport.resx">
+      <DependentUpon>poIndividualItemWidthReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poIndividualSpecItemReport.resx">
+      <DependentUpon>poIndividualSpecItemReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poItemsIndividualItemWidthReport.resx">
+      <DependentUpon>poItemsIndividualItemWidthReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poItemsIndividualSpecItemReport.resx">
+      <DependentUpon>poItemsIndividualSpecItemReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poItemsMultipleItemWidthReport.resx">
+      <DependentUpon>poItemsMultipleItemWidthReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poItemsMultipleSpecItemReport.resx">
+      <DependentUpon>poItemsMultipleSpecItemReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poMatrixErrorReport.resx">
+      <DependentUpon>poMatrixErrorReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poMultipleItemWidthReport.resx">
+      <DependentUpon>poMultipleItemWidthReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poMultipleSpecItemReport.resx">
+      <DependentUpon>poMultipleSpecItemReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poWireBoneDetailReport.resx">
+      <DependentUpon>poWireBoneDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDcNewformat\Detail\EN\poWireBoneReport.resx">
+      <DependentUpon>poWireBoneReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\NotepadReport.resx">
+      <DependentUpon>NotepadReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCInAdvanceSpecReport.resx">
+      <DependentUpon>POPCInAdvanceSpecReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\ItemChangedReport.resx">
+      <DependentUpon>ItemChangedReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel5b2Report.resx">
+      <DependentUpon>POPCLevel5b2Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel5a2Report.resx">
+      <DependentUpon>POPCLevel5a2Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel5b1Report.resx">
+      <DependentUpon>POPCLevel5b1Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel5a1Report.resx">
+      <DependentUpon>POPCLevel5a1Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCInAdvanceSupplementReport.resx">
+      <DependentUpon>POPCInAdvanceSupplementReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCInAdvanceReport.resx">
+      <DependentUpon>POPCInAdvanceReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel2aReport.resx">
+      <DependentUpon>POPCLevel2aReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel2bSupplementSheetReport.resx">
+      <DependentUpon>POPCLevel2bSupplementSheetReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel1aSupplementSheetReport.resx">
+      <DependentUpon>POPCLevel1aSupplementSheetReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel1bReport.resx">
+      <DependentUpon>POPCLevel1bReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel3aReport.resx">
+      <DependentUpon>POPCLevel3aReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel2bReport.resx">
+      <DependentUpon>POPCLevel2bReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel1aReport.resx">
+      <DependentUpon>POPCLevel1aReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCSummarySupplementSheetReport.resx">
+      <DependentUpon>POPCSummarySupplementSheetReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCSummaryReport.resx">
+      <DependentUpon>POPCSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="ReportJob\JobNewMIDcPOReport.resx">
+      <DependentUpon>JobNewMIDcPOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="Properties\DataSources\PH.BasicInfo.BO.TradeMethod.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POChangesMonitor.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POColorSizeDetail.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.PODetail.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POHeader.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POItemChange.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POItemChangeMaster.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.PONotify.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POPCLevel2Supplement.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.PORC.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.POWireBoneMatrix.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.RCBO.datasource" />
+    <None Include="Properties\DataSources\PH.POPC.BO.View_POPC_PUR.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.POPC.BO\PH.POPC.BO.csproj">
+      <Project>{7FD70B17-0BA6-4549-AE0C-3A7AEF902FA7}</Project>
+      <Name>PH.POPC.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="POPCNewformat\GRNReport.resx">
+      <DependentUpon>GRNReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel5Report.resx">
+      <DependentUpon>POPCLevel5Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\NonMatchingReport.resx">
+      <DependentUpon>NonMatchingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel2SuppPerformanceByItemReport.resx">
+      <DependentUpon>POPCLevel2SuppPerformanceByItemReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel2SuppPerformanceReport.resx">
+      <DependentUpon>POPCLevel2SuppPerformanceReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel1WeeklyAmountReport.resx">
+      <DependentUpon>POPCLevel1WeeklyAmountReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel3CreditCashReport.resx">
+      <DependentUpon>POPCLevel3CreditCashReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel3ReplacementReport.resx">
+      <DependentUpon>POPCLevel3ReplacementReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POPCNewformat\POPCLevel4Report.resx">
+      <DependentUpon>POPCLevel4Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\CartonPOReportCH.resx">
+      <DependentUpon>CartonPOReportCH.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\CartonPOReportEN.resx">
+      <DependentUpon>CartonPOReportEN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\ColloidPOReportCH.resx">
+      <DependentUpon>ColloidPOReportCH.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\ColloidPOReportEN.resx">
+      <DependentUpon>ColloidPOReportEN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\ETAMReport1.resx">
+      <DependentUpon>ETAMReport1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\ETAMReport2.resx">
+      <DependentUpon>ETAMReport2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\ETAMReport3.resx">
+      <DependentUpon>ETAMReport3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\StickerPOReportCH.resx">
+      <DependentUpon>StickerPOReportCH.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\StickerPOReportEN.resx">
+      <DependentUpon>StickerPOReportEN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\SubReport1.resx">
+      <DependentUpon>SubReport1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POReport\SubReport2.resx">
+      <DependentUpon>SubReport2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\ClassGmt\SubClassGmtReport.resx">
+      <DependentUpon>SubClassGmtReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Detail\SubDetailItemsReport.resx">
+      <DependentUpon>SubDetailItemsReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Detail\SubDetailReport.resx">
+      <DependentUpon>SubDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Footer\SubFooterReport.resx">
+      <DependentUpon>SubFooterReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Items\SubItemsPOReport_CN.resx">
+      <DependentUpon>SubItemsPOReport_CN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Items\SubItemsScOReport.resx">
+      <DependentUpon>SubItemsScOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Items\SubItemsPOReport.resx">
+      <DependentUpon>SubItemsPOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\BaseInfor\SubBaseInforCNReport.resx">
+      <DependentUpon>SubBaseInforCNReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\BaseInfor\SubBaseInforENReport.resx">
+      <DependentUpon>SubBaseInforENReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Header\SubHeaderReport.resx">
+      <DependentUpon>SubHeaderReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Share\poErrorReport.resx">
+      <DependentUpon>poErrorReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\POReport.resx">
+      <DependentUpon>POReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Share\poMatrixErrorReport.resx">
+      <DependentUpon>poMatrixErrorReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Summary\SubSummaryItemsReport.resx">
+      <DependentUpon>SubSummaryItemsReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\Summary\SubSummaryReport.resx">
+      <DependentUpon>SubSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\SupplementSheet\CN\SubWireBoneDetailReport.resx">
+      <DependentUpon>SubWireBoneDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\SupplementSheet\CN\Sub3DReport.resx">
+      <DependentUpon>Sub3DReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\SupplementSheet\CN\Sub4DReport.resx">
+      <DependentUpon>Sub4DReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\SupplementSheet\CN\SubWireBoneReport.resx">
+      <DependentUpon>SubWireBoneReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\SupplementSheet\EN\SubWireBoneDetailReport.resx">
+      <DependentUpon>SubWireBoneDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\SupplementSheet\EN\Sub3DReport.resx">
+      <DependentUpon>Sub3DReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\SupplementSheet\EN\Sub4DReport.resx">
+      <DependentUpon>Sub4DReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\SupplementSheet\EN\SubWireBoneReport.resx">
+      <DependentUpon>SubWireBoneReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\VATValue\SubVATReport.resx">
+      <DependentUpon>SubVATReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RC\RCReport.resx">
+      <DependentUpon>RCReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\JobGRNReport.resx">
+      <DependentUpon>JobGRNReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\JobMultiPOReport.resx">
+      <DependentUpon>JobMultiPOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\JobPOReport.resx">
+      <DependentUpon>JobPOReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\SelectPOForm.resx">
+      <DependentUpon>SelectPOForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
