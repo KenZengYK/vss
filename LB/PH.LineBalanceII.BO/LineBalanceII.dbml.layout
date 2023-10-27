@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 22" name="LineBalanceII">
+  <DataContextMoniker Name="/LineBalanceIIDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4621204e-d2b2-4a12-a663-26915b191986" absoluteBounds="6.875, 14.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/MachineCodeMatch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5478f344-a62f-4a3c-af94-ff0beae2bbda" absoluteBounds="6.8900000000000006, 14.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3a7470a7-a2f7-4726-b701-bc956556ff69" absoluteBounds="0.625, 0.75, 2, 7.5399397786458326">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/StyleMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="76afe107-9ba5-46a5-8ece-7b1324a7c8cd" absoluteBounds="0.64, 1.21, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="267b5f6d-c1a7-4538-b8ae-24bb6ddc171c" absoluteBounds="1, 14, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/BondingMcStyle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="50b6ab6e-2445-4550-82a0-0b79ddcba5ab" absoluteBounds="1.0150000000000001, 14.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1eb7bbdf-9a47-4304-8c64-1229878adfe2" isExpanded="false" absoluteBounds="2.125, 18.5, 2, 0.45">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/LcType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="06bca013-80f2-4809-b210-d0b3eecda31b" absoluteBounds="2.1399999999999997, 18.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e5a0a7e-8dcb-4614-bf47-1c7f10086c3c" absoluteBounds="5.75, 16.75, 2, 5.0400211588541666">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/BondingSpec" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9fe3370a-fc2a-43ac-a2cb-2ae8ccfa8af5" absoluteBounds="5.765, 17.21, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7ad820f0-127f-4c80-a533-f06f5d3093b2" absoluteBounds="4.125, 14, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/BondingOper" />
+      <nestedChildShapes>
+        <elementListCompartment Id="835030bc-2022-43fb-85a1-0afcc7d47071" absoluteBounds="4.14, 14.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a343367d-4304-4cc9-93f7-efad70d91fbe" isExpanded="false" absoluteBounds="2.125, 17, 2, 0.45">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/BondingSpecItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="02293dd1-22c0-41a6-a4fa-386cbc5e6933" absoluteBounds="2.14, 17.46, 1.9700000000000002, 10.249064127604166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.75 : 17.225); (4.125 : 17.225)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LineBalanceIIDataContext/BondingSpec/BondingSpec_BondingSpecItem" />
+      <nodes>
+        <classShapeMoniker Id="4e5a0a7e-8dcb-4614-bf47-1c7f10086c3c" />
+        <classShapeMoniker Id="a343367d-4304-4cc9-93f7-efad70d91fbe" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1ee59fdc-d8e3-4495-89fa-29a5b8804c97" isExpanded="false" absoluteBounds="3.375, 0.875, 2, 0.45">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/StyleProcedure" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a470947b-aa53-49c5-a102-96af747a1d6b" absoluteBounds="3.39, 1.335, 1.9700000000000002, 11.979777018229166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 1.1); (3.375 : 1.1)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LineBalanceIIDataContext/StyleMaster/StyleMaster_StyleProcedure" />
+      <nodes>
+        <classShapeMoniker Id="3a7470a7-a2f7-4726-b701-bc956556ff69" />
+        <classShapeMoniker Id="1ee59fdc-d8e3-4495-89fa-29a5b8804c97" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5f341eb6-fd89-4dcb-bf19-bb4c33d82dad" isExpanded="false" absoluteBounds="3.375, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/StyleProcedure_E" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7216e2d8-4dd6-432a-8750-864c83890505" absoluteBounds="3.39, 2.21, 1.9700000000000002, 11.979777018229166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 1.975); (3.375 : 1.975)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LineBalanceIIDataContext/StyleMaster/StyleMaster_StyleProcedure_E" />
+      <nodes>
+        <classShapeMoniker Id="3a7470a7-a2f7-4726-b701-bc956556ff69" />
+        <classShapeMoniker Id="5f341eb6-fd89-4dcb-bf19-bb4c33d82dad" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e879781e-8873-43bc-a9ab-7e98331649db" isExpanded="false" absoluteBounds="3.5, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/StyleProcedure_F" />
+      <nestedChildShapes>
+        <elementListCompartment Id="964be7b0-c2a7-4feb-9202-ab5160a99ccf" absoluteBounds="3.515, 3.335, 1.9700000000000002, 11.979777018229166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 3.1); (3.5 : 3.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LineBalanceIIDataContext/StyleMaster/StyleMaster_StyleProcedure_F" />
+      <nodes>
+        <classShapeMoniker Id="3a7470a7-a2f7-4726-b701-bc956556ff69" />
+        <classShapeMoniker Id="e879781e-8873-43bc-a9ab-7e98331649db" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7dba5976-36db-4ba2-9407-4de344372905" absoluteBounds="6.75, 2.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LineBalanceIIDataContext/MasterDB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1b89947-37c0-4067-9964-95da9ccb8448" absoluteBounds="6.765, 2.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

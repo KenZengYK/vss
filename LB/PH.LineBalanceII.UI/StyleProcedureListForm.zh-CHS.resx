@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="bandedGridColumn1.Caption" xml:space="preserve">
+    <value>BN次序</value>
+  </data>
+  <data name="bandedGridColumn2.Caption" xml:space="preserve">
+    <value>BN次序</value>
+  </data>
+  <data name="bandedGridColumn3.Caption" xml:space="preserve">
+    <value>指标线</value>
+  </data>
+  <data name="bandedGridColumn4.Caption" xml:space="preserve">
+    <value>指标线</value>
+  </data>
+  <data name="bandedGridColumn5.Caption" xml:space="preserve">
+    <value>支援区</value>
+  </data>
+  <data name="bandedGridColumn6.Caption" xml:space="preserve">
+    <value>尖工区</value>
+  </data>
+  <data name="bandedGridColumn7.Caption" xml:space="preserve">
+    <value>衣车转数</value>
+  </data>
+  <data name="gridBand10.Caption" xml:space="preserve">
+    <value>未作LB</value>
+  </data>
+  <data name="gridBand11.Caption" xml:space="preserve">
+    <value>拆夾LB</value>
+  </data>
+  <data name="gridBand12.Caption" xml:space="preserve">
+    <value>优化LB</value>
+  </data>
+  <data name="gridBand13.Caption" xml:space="preserve">
+    <value>极佳LB(二度优化)</value>
+  </data>
+  <data name="gridBand14.Caption" xml:space="preserve">
+    <value>极佳LB(间时拆)</value>
+  </data>
+  <data name="gridBand15.Caption" xml:space="preserve">
+    <value>极佳LB(平准化)作参考用</value>
+  </data>
+  <data name="gridBand16.Caption" xml:space="preserve">
+    <value>劳动力*</value>
+  </data>
+  <data name="gridBand4.Caption" xml:space="preserve">
+    <value>工作位*</value>
+  </data>
+  <data name="gridBand7.Caption" xml:space="preserve">
+    <value>组别</value>
+  </data>
+  <data name="gridBand8.Caption" xml:space="preserve">
+    <value>工序</value>
+  </data>
+  <data name="gridBand9.Caption" xml:space="preserve">
+    <value>工作位(连衣车)</value>
+  </data>
+  <data name="gridColCJQR.Caption" xml:space="preserve">
+    <value>工序车间确认</value>
+  </data>
+  <data name="gridColCPGS.Caption" xml:space="preserve">
+    <value>重要工序</value>
+  </data>
+  <data name="gridColGCDH.Caption" xml:space="preserve">
+    <value>代号</value>
+  </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>未作LB</value>
+  </data>
+  <data name="gridColumn11.Caption" xml:space="preserve">
+    <value>工序名称</value>
+  </data>
+  <data name="gridColumn12.Caption" xml:space="preserve">
+    <value>种类</value>
+  </data>
+  <data name="gridColumn13.Caption" xml:space="preserve">
+    <value>附件</value>
+  </data>
+  <data name="gridColumn15.Caption" xml:space="preserve">
+    <value>节时产量</value>
+  </data>
+  <data name="gridColumn16.Caption" xml:space="preserve">
+    <value>拆SAH</value>
+  </data>
+  <data name="gridColumn17.Caption" xml:space="preserve">
+    <value>夾SAH</value>
+  </data>
+  <data name="gridColumn19.Caption" xml:space="preserve">
+    <value>优化SAH</value>
+  </data>
+  <data name="gridColumn20.Caption" xml:space="preserve">
+    <value>人移/物移/人物移</value>
+  </data>
+  <data name="gridColumn21.Caption" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="gridColumn22.Caption" xml:space="preserve">
+    <value>主区</value>
+  </data>
+  <data name="gridColumn24.Caption" xml:space="preserve">
+    <value>优化MTM</value>
+  </data>
+  <data name="gridColumn26.Caption" xml:space="preserve">
+    <value>BN次序</value>
+  </data>
+  <data name="gridColumn3.Caption" xml:space="preserve">
+    <value>次序</value>
+  </data>
+  <data name="gridColumn39.Caption" xml:space="preserve">
+    <value>尖工间时支援节件数</value>
+  </data>
+  <data name="gridColumn4.Caption" xml:space="preserve">
+    <value>工序代号</value>
+  </data>
+  <data name="gridColumn40.Caption" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="gridColumn41.Caption" xml:space="preserve">
+    <value>二度优化MTM</value>
+  </data>
+  <data name="gridColumn42.Caption" xml:space="preserve">
+    <value>二度优化SAH</value>
+  </data>
+  <data name="gridColumn43.Caption" xml:space="preserve">
+    <value>间时拆SAH</value>
+  </data>
+  <data name="gridColumn44.Caption" xml:space="preserve">
+    <value>平准化MTM</value>
+  </data>
+  <data name="gridColumn45.Caption" xml:space="preserve">
+    <value>平准化SAH</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="objListGridControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="objListGridControl.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="objListGridControl.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemTextEdit1.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+</root>

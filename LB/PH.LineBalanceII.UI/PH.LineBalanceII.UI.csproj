@@ -1,0 +1,639 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80D9D801-1C63-405F-8C9B-DF5F8FD7FFA3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.LineBalanceII.UI</RootNamespace>
+    <AssemblyName>PH.LineBalanceII.UI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1.Linq, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v8.1" />
+    <Reference Include="DevExpress.XtraCharts.v8.1.UI, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1" />
+    <Reference Include="DevExpress.XtraReports.v8.1" />
+    <Reference Include="DevExpress.XtraReports.v8.1.Import, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichTextEdit.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraTreeList.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v8.1.Design, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="PH.MachineLayoutChart, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.AuthMgr.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.ExtendLibrary, Version=2.0.2.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Lang.BO, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.UI, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.AddIn">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BondingSpec\BondingSpecItemDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\BondingSpecItemDetail.Designer.cs">
+      <DependentUpon>BondingSpecItemDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\BondingSpecItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\BondingSpecItemList.Designer.cs">
+      <DependentUpon>BondingSpecItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\McStyleDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\McStyleDetailForm.Designer.cs">
+      <DependentUpon>McStyleDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\McStyleListForm..cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\McStyleListForm..Designer.cs">
+      <DependentUpon>McStyleListForm..cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\McStyleListForm1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\McTypeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\McTypeDetailForm.Designer.cs">
+      <DependentUpon>McTypeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\McTypeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\McTypeList.Designer.cs">
+      <DependentUpon>McTypeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\McTypeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\McTypeListForm.Designer.cs">
+      <DependentUpon>McTypeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\OperDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\OperDetailForm.Designer.cs">
+      <DependentUpon>OperDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\OperListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\OperListForm.Designer.cs">
+      <DependentUpon>OperListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\Report\RptBondingSpec.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\Report\RptBondingSpec.Designer.cs">
+      <DependentUpon>RptBondingSpec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\Report\RptBondingSpec1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\Report\RptBondingSpec1.Designer.cs">
+      <DependentUpon>RptBondingSpec1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\Report\RptBondingSpec2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\Report\RptBondingSpec2.Designer.cs">
+      <DependentUpon>RptBondingSpec2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\SelectStyle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\SelectStyle.Designer.cs">
+      <DependentUpon>SelectStyle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\SpecDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\SpecDetailForm.Designer.cs">
+      <DependentUpon>SpecDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\SpecListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\SpecListForm.Designer.cs">
+      <DependentUpon>SpecListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\LmTypeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\LmTypeListForm.Designer.cs">
+      <DependentUpon>LmTypeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondingSpec\Report\LmTypeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondingSpec\Report\LmTypeDetailForm.Designer.cs">
+      <DependentUpon>LmTypeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MachineCodeDetialFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MachineCodeDetialFrm.Designer.cs">
+      <DependentUpon>MachineCodeDetialFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MachineCodeListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MachineCodeListFrm.Designer.cs">
+      <DependentUpon>MachineCodeListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperationPrintSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationPrintSetupForm.Designer.cs">
+      <DependentUpon>OperationPrintSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessListFrm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProcessListFrm.Designer.cs">
+      <DependentUpon>ProcessListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Refer\AuthHelper.cs" />
+    <Compile Include="Refer\Commands.cs" />
+    <Compile Include="Refer\ExcelHelper.cs" />
+    <Compile Include="Refer\ExcelHelper_E.cs" />
+    <Compile Include="Refer\ExcelHelper_F.cs" />
+    <Compile Include="Refer\GridFixedColumnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Refer\GridFixedColumnForm.designer.cs">
+      <DependentUpon>GridFixedColumnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Refer\PrintSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Refer\PrintSetupForm.Designer.cs">
+      <DependentUpon>PrintSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\FrmPrintSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FrmPrintSetup.Designer.cs">
+      <DependentUpon>FrmPrintSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MasterDBDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\MasterDBDetailForm.Designer.cs">
+      <DependentUpon>MasterDBDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MasterDBForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\MasterDBForm.Designer.cs">
+      <DependentUpon>MasterDBForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RibbonForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RibbonForm1.Designer.cs">
+      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptAttachInfo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptAttachInfo.Designer.cs">
+      <DependentUpon>rptAttachInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptAttachTest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptAttachTest.Designer.cs">
+      <DependentUpon>rptAttachTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptLineBalance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptLineBalance.Designer.cs">
+      <DependentUpon>rptLineBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptLineBalance_All.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptLineBalance_All.Designer.cs">
+      <DependentUpon>rptLineBalance_All.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FrmPrintAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FrmPrintAll.Designer.cs">
+      <DependentUpon>FrmPrintAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\BOMZHDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\BOMZHDetailForm.Designer.cs">
+      <DependentUpon>BOMZHDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\BOMZHListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\BOMZHListForm.Designer.cs">
+      <DependentUpon>BOMZHListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\CPLBDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\CPLBDetailForm.Designer.cs">
+      <DependentUpon>CPLBDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\CPLBListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\CPLBListForm.Designer.cs">
+      <DependentUpon>CPLBListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\CustomerDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\CustomerDetailForm.Designer.cs">
+      <DependentUpon>CustomerDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\CustomerListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\CustomerListForm.Designer.cs">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\ProcessDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\ProcessDetailForm.Designer.cs">
+      <DependentUpon>ProcessDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\ProcessListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\ProcessListForm.Designer.cs">
+      <DependentUpon>ProcessListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\StatuDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\StatuDetailForm.Designer.cs">
+      <DependentUpon>StatuDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\StatuListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\StatuListForm.Designer.cs">
+      <DependentUpon>StatuListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\WsNameDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\WsNameDetailForm.Designer.cs">
+      <DependentUpon>WsNameDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\WsNameListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\WsNameListForm.Designer.cs">
+      <DependentUpon>WsNameListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleMasterCopy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StyleMasterCopy.Designer.cs">
+      <DependentUpon>StyleMasterCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleMasterDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleMasterDetailForm_E.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleMasterDetailForm_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleMasterListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleProcedureListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleProcedureListForm_E.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleProcedureListForm_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSuffixListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSuffixListForm.Designer.cs">
+      <DependentUpon>StyleSuffixListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleMasterListFormReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StyleMasterListFormReport.Designer.cs">
+      <DependentUpon>StyleMasterListFormReport.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Print.bmp" />
+    <Content Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BondingSpec\BondingSpecItemDetail.resx">
+      <DependentUpon>BondingSpecItemDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\BondingSpecItemList.resx">
+      <DependentUpon>BondingSpecItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\McStyleDetailForm.resx">
+      <DependentUpon>McStyleDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\McStyleListForm..resx">
+      <DependentUpon>McStyleListForm..cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\McStyleListForm1.resx">
+      <DependentUpon>McStyleListForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\McTypeDetailForm.resx">
+      <DependentUpon>McTypeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\McTypeListForm.resx">
+      <DependentUpon>McTypeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\OperDetailForm.resx">
+      <DependentUpon>OperDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\OperListForm.resx">
+      <DependentUpon>OperListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\Report\RptBondingSpec.resx">
+      <DependentUpon>RptBondingSpec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\Report\RptBondingSpec1.resx">
+      <DependentUpon>RptBondingSpec1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\Report\RptBondingSpec2.resx">
+      <DependentUpon>RptBondingSpec2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\SelectStyle.resx">
+      <DependentUpon>SelectStyle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\SpecDetailForm.resx">
+      <DependentUpon>SpecDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\SpecListForm.resx">
+      <DependentUpon>SpecListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\LmTypeListForm.resx">
+      <DependentUpon>LmTypeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondingSpec\Report\LmTypeDetailForm.resx">
+      <DependentUpon>LmTypeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MachineCodeDetialFrm.resx">
+      <DependentUpon>MachineCodeDetialFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MachineCodeListFrm.resx">
+      <DependentUpon>MachineCodeListFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationPrintSetupForm.resx">
+      <DependentUpon>OperationPrintSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrintRibbonControllerResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Refer\GridFixedColumnForm.resx">
+      <DependentUpon>GridFixedColumnForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Refer\PrintSetupForm.resx">
+      <DependentUpon>PrintSetupForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FrmPrintSetup.resx">
+      <DependentUpon>FrmPrintSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MasterDBDetailForm.resx">
+      <DependentUpon>MasterDBDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MasterDBForm.resx">
+      <DependentUpon>MasterDBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RibbonForm1.resx">
+      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptAttachInfo.resx">
+      <DependentUpon>rptAttachInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptAttachTest.resx">
+      <DependentUpon>rptAttachTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptLineBalance.resx">
+      <DependentUpon>rptLineBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptLineBalance_All.resx">
+      <DependentUpon>rptLineBalance_All.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FrmPrintAll.resx">
+      <DependentUpon>FrmPrintAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\BOMZHDetailForm.resx">
+      <DependentUpon>BOMZHDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\BOMZHListForm.resx">
+      <DependentUpon>BOMZHListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\CPLBDetailForm.resx">
+      <DependentUpon>CPLBDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\CPLBListForm.resx">
+      <DependentUpon>CPLBListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\CustomerDetailForm.resx">
+      <DependentUpon>CustomerDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\CustomerListForm.resx">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\ProcessDetailForm.resx">
+      <DependentUpon>ProcessDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\ProcessListForm.resx">
+      <DependentUpon>ProcessListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\StatuDetailForm.resx">
+      <DependentUpon>StatuDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\StatuListForm.resx">
+      <DependentUpon>StatuListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\WsNameDetailForm.resx">
+      <DependentUpon>WsNameDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\WsNameListForm.resx">
+      <DependentUpon>WsNameListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleMasterCopy.resx">
+      <DependentUpon>StyleMasterCopy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleMasterDetailForm.resx">
+      <DependentUpon>StyleMasterDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleMasterDetailForm_E.resx">
+      <DependentUpon>StyleMasterDetailForm_E.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleMasterDetailForm_F.resx">
+      <DependentUpon>StyleMasterDetailForm_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleMasterListForm.resx">
+      <DependentUpon>StyleMasterListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleProcedureListForm.resx">
+      <DependentUpon>StyleProcedureListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleProcedureListForm_E.resx">
+      <DependentUpon>StyleProcedureListForm_E.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleProcedureListForm_F.resx">
+      <DependentUpon>StyleProcedureListForm_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleSuffixListForm.resx">
+      <DependentUpon>StyleSuffixListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleMasterListFormReport.resx">
+      <DependentUpon>StyleMasterListFormReport.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.BondingMcStyle.datasource" />
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.BondingOper.datasource" />
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.BondingSpec.datasource" />
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.BondingSpecItem.datasource" />
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.LcType.datasource" />
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.MachineCodeMatch.datasource" />
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.MasterDB.datasource" />
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.Misc_LcType.datasource" />
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.OpsSpecSheetMaster.datasource" />
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.StyleMaster.datasource" />
+    <None Include="Properties\DataSources\PH.LineBalanceII.BO.StyleProcedure.datasource" />
+    <None Include="Properties\DataSources\PH.Platform.Misc.BO.Misc_DataDictionary.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.LineBalanceII.BO\PH.LineBalanceII.BO.csproj">
+      <Project>{7424F55A-47E0-48F5-A5AC-38C3FD1CB1F6}</Project>
+      <Name>PH.LineBalanceII.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PH.LineBalanceII" Class="LineBalanceIIDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=S99VF403\SQLSERVER2005;Initial Catalog=PH.LineBalanceII;Persist Security Info=True;User ID=ituser" SettingsObjectName="PH.LineBalanceII.BO.Properties.Settings" SettingsPropertyName="PH_LineBalanceIIConnectionString6" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MachineCodeMatch" Member="MachineCodeMatches">
+    <Type Name="MachineCodeMatch">
+      <Column Name="Seq" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="McTypeCN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="McTypeEN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="McCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StyleMaster" Member="StyleMasters">
+    <Type Name="StyleMaster">
+      <Column Name="KHKH" Type="System.String" DbType="VarChar(150) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHKH" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Edition" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ZH" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BKH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CPLB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SizeYJ" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsUsed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Phase" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AuditFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Auditor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Ipack" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BestLineValue" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Selected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CustNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Statu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProcDesc" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ActiveSame" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AuditFlag_Prod" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ConfirmByProd" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="ConfirmDate_Prod" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ConfirmDate_IE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ValidDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SizeYJ_Prod" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PRODSAH" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="SizeYJ_Editon" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CupStyle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SizeStyle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdateConfirmDate_IE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StatuFromBOO1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="StyleMaster_StyleProcedure" Member="StyleProcedures" ThisKey="KHKH,PHKH,Edition,ZH" OtherKey="KHKH,PHKH,Edition,ZH" Type="StyleProcedure" />
+      <Association Name="StyleMaster_StyleProcedure_E" Member="StyleProcedure_Es" ThisKey="KHKH,PHKH,Edition,ZH" OtherKey="KHKH,PHKH,Edition,ZH" Type="StyleProcedure_E" />
+      <Association Name="StyleMaster_StyleProcedure_F" Member="StyleProcedure_Fs" ThisKey="KHKH,PHKH,Edition,ZH" OtherKey="KHKH,PHKH,Edition,ZH" Type="StyleProcedure_F" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BondingMcStyle" Member="BondingMcStyles">
+    <Type Name="BondingMcStyle">
+      <Column Name="McStyleNo" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="McName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TypeNo" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="TypeSeq" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FuncDesc" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LcType" Member="LcTypes">
+    <Type Name="LcType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LmName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BondingSpec" Member="BondingSpecs">
+    <Type Name="BondingSpec">
+      <Column Name="BondingSpec_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CustStyle" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PhStyle" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Notice" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Ktno" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Mtype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageFile" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UpdateInfo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ApplyUser" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Auditer" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AuditDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ImageFile1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ImageFile2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Result" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DependType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Factory" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="BondingSpec_BondingSpecItem" Member="BondingSpecItems" ThisKey="BondingSpec_Id" OtherKey="BondingSpec_Id" Type="BondingSpecItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BondingOper" Member="BondingOpers">
+    <Type Name="BondingOper">
+      <Column Name="BondingOper_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OperNo" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OperName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OperNameEN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="GroupNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BondingSpecItem" Member="BondingSpecItems">
+    <Type Name="BondingSpecItem">
+      <Column Name="BondingSpec_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BondingSpecItem_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OperNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="OrderNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Size" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="Temp_SP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Temp_XP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Temp_SC" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Temp_XC" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Temp_FRC" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Temp_BW" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Temp_YX" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sped_SY" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sped_XY" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sped_CD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Pres_QX" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Pres_SCF" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Pres_SPD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Spec_Temp" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Spec_Time" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Spec_Pres" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="McStyleNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MachineName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Glue_Model" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Glue_Thick" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Glue_Width" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Result" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsXpd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsYx" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsSyl" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsXyl" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsCd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsQx" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsHx" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Pres_HX" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="GroupNo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="BasicAttach" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TempMeterStrap" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UltrasonicTimeDelay" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UltrasonicTimeWelding" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UltrasonicTimeHarden" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UltrasonicRevolution" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UltrasonicPressure" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SingleOrDouble" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PressureStrap" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SutureOrProcess" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OperNameEN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Association Name="BondingSpec_BondingSpecItem" Member="BondingSpec" ThisKey="BondingSpec_Id" OtherKey="BondingSpec_Id" Type="BondingSpec" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StyleProcedure" Member="StyleProcedures">
+    <Type Name="StyleProcedure">
+      <Column Name="KHKH" Type="System.String" DbType="VarChar(150) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHKH" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Edition" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ZH" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="XH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TeamGSD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TeamYH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkSN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CPGS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSDBN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CJBH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHBN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSDCP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CJCP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHCP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WorkName" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="WorkNameEN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="YCDM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YCType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YCTypeEN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YCAdj" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSDSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="JSCL" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CWorkSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="JWorkSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BNCX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHBNCX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JSCBNCX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CJQR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Move" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LDL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="GZW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GZW_Support" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GZW_Floater" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRDH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YHSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BisYHMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BisYHSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="JSCSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="PJHMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PJHSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BestMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BestSAHSN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JGJJ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BeforeJSCCFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BeforeJSCJFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GZWMergeShowValue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BurstNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Width" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Length" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHLineValue" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BestLineValue" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="YCSD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="WKStaitonSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="equation" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="StyleMaster_StyleProcedure" Member="StyleMaster" ThisKey="KHKH,PHKH,Edition,ZH" OtherKey="KHKH,PHKH,Edition,ZH" Type="StyleMaster" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StyleProcedure_E" Member="StyleProcedure_Es">
+    <Type Name="StyleProcedure_E">
+      <Column Name="KHKH" Type="System.String" DbType="VarChar(150) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHKH" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Edition" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ZH" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="XH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TeamGSD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TeamYH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkSN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CPGS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSDBN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CJBH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHBN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSDCP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CJCP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHCP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WorkName" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="WorkNameEN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="YCDM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YCType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YCTypeEN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YCAdj" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSDSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="JSCL" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CWorkSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="JWorkSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BNCX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHBNCX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JSCBNCX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CJQR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Move" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LDL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="GZW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GZW_Support" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GZW_Floater" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRDH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YHSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BisYHMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BisYHSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="JSCSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="PJHMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PJHSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BestMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BestSAHSN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JGJJ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BeforeJSCCFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BeforeJSCJFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GZWMergeShowValue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BurstNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Width" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Length" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHLineValue" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BestLineValue" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="YCSD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,10)" CanBeNull="true" />
+      <Column Name="equation" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="StyleMaster_StyleProcedure_E" Member="StyleMaster" ThisKey="KHKH,PHKH,Edition,ZH" OtherKey="KHKH,PHKH,Edition,ZH" Type="StyleMaster" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StyleProcedure_F" Member="StyleProcedure_Fs">
+    <Type Name="StyleProcedure_F">
+      <Column Name="KHKH" Type="System.String" DbType="VarChar(150) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHKH" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Edition" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ZH" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="XH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TeamGSD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TeamYH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkSN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CPGS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSDBN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CJBH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHBN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSDCP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CJCP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHCP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WorkName" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="WorkNameEN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="YCDM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YCType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YCTypeEN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YCAdj" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GSDSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="JSCL" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CWorkSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="JWorkSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BNCX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHBNCX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JSCBNCX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CJQR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Move" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LDL" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="GZW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GZW_Support" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GZW_Floater" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRDH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YHSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BisYHMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BisYHSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="JSCSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="PJHMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PJHSAHSN" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BestMTM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BestSAHSN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JGJJ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BeforeJSCCFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BeforeJSCJFlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GZWMergeShowValue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BurstNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Width" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Length" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YHLineValue" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BestLineValue" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="YCSD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,10)" CanBeNull="true" />
+      <Column Name="equation" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="StyleMaster_StyleProcedure_F" Member="StyleMaster" ThisKey="KHKH,PHKH,Edition,ZH" OtherKey="KHKH,PHKH,Edition,ZH" Type="StyleMaster" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MasterDB" Member="MasterDBs">
+    <Type Name="MasterDB">
+      <Column Name="OID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cn" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="En" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
