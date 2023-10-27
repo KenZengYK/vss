@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BAF96FE2-D591-47B1-AA0B-4D1F6CC692F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.SPC.UI</RootNamespace>
+    <AssemblyName>PH.SPC.UI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\PHWinApp\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\PHWinApp\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+<Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+<Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+<Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+<Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+    <Reference Include="PH.BO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Common.Report.v7.2.1.2, Version=7.3.3.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="StyleProduceRemarkDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleProduceRemarkListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSizeDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSizeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSortEditionDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSortEditionListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSortDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSortDetailForm.designer.cs">
+      <DependentUpon>StyleSortDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleSortListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSortListForm.designer.cs">
+      <DependentUpon>StyleSortListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleBOMDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleBOMListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSampleProgressSheetDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleSampleProgressSheetListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleDetailForm.designer.cs">
+      <DependentUpon>StyleDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StyleListForm.designer.cs">
+      <DependentUpon>StyleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SampleOrderDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleOrderDetailForm.designer.cs">
+      <DependentUpon>SampleOrderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SampleOrderListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SampleOrderListForm.designer.cs">
+      <DependentUpon>SampleOrderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.SPC.BO\PH.SPC.BO.csproj">
+      <Project>{E6151237-B997-4A9C-B75E-9E229888B9B2}</Project>
+      <Name>PH.SPC.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="StyleProduceRemarkDetailForm.resx">
+      <DependentUpon>StyleProduceRemarkDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleProduceRemarkListForm.resx">
+      <DependentUpon>StyleProduceRemarkListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleSizeDetailForm.resx">
+      <DependentUpon>StyleSizeDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleSizeListForm.resx">
+      <DependentUpon>StyleSizeListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleSortEditionDetailForm.resx">
+      <DependentUpon>StyleSortEditionDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleSortEditionListForm.resx">
+      <DependentUpon>StyleSortEditionListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleSortDetailForm.resx">
+      <DependentUpon>StyleSortDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleSortListForm.resx">
+      <DependentUpon>StyleSortListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleBOMDetailForm.resx">
+      <DependentUpon>StyleBOMDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleBOMListForm.resx">
+      <DependentUpon>StyleBOMListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleSampleProgressSheetDetailForm.resx">
+      <DependentUpon>StyleSampleProgressSheetDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleSampleProgressSheetListForm.resx">
+      <DependentUpon>StyleSampleProgressSheetListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="StyleDetailForm.resx">
+      <DependentUpon>StyleDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleListForm.resx">
+      <DependentUpon>StyleListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleOrderDetailForm.resx">
+      <DependentUpon>SampleOrderDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleOrderListForm.resx">
+      <DependentUpon>SampleOrderListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

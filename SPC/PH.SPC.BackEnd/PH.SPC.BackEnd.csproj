@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{12C3088B-EE76-4BA9-B5EB-735FDD8C3273}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PH.SPC.BackEnd</RootNamespace>
+    <AssemblyName>PH.SPC.BackEnd</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\PHWinApp\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.Utils.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraCharts.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v8.1.Core, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v8.1, Version=8.1.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BackEnd.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO, Version=2.0.2.3, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.BO.Interface, Version=2.0.1.7, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Misc.BO, Version=2.0.2.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Platform.Report.PivotGrid, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PH.Sales.BO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicServer.cs" />
+    <Compile Include="ReportJob\JobBaseAnalyse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobBaseAnalyse.Designer.cs">
+      <DependentUpon>JobBaseAnalyse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobLDSuccessAnalyseDetailReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobLDSuccessAnalyseDetailReport.Designer.cs">
+      <DependentUpon>JobLDSuccessAnalyseDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobLDSuccessAnalyseReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobLDSuccessAnalyseReport.Designer.cs">
+      <DependentUpon>JobLDSuccessAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobSampleApprovalAnalyseReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobSampleApprovalAnalyseReport.Designer.cs">
+      <DependentUpon>JobSampleApprovalAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobSampleMakedAnalyseReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobSampleMakedAnalyseReport.Designer.cs">
+      <DependentUpon>JobSampleMakedAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobSampleOntimeAnalyseDetailReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobSampleOntimeAnalyseDetailReport.Designer.cs">
+      <DependentUpon>JobSampleOntimeAnalyseDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\JobSampleOntimeAnalyseReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobSampleOntimeAnalyseReport.Designer.cs">
+      <DependentUpon>JobSampleOntimeAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportJob\RunETAMMarketingReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportJob\RunWorkNoteReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobSampleMakedAnalyseDetailReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportJob\JobSampleMakedAnalyseDetailReport.Designer.cs">
+      <DependentUpon>JobSampleMakedAnalyseDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Analyse\LDSuccessAnalyseDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Analyse\LDSuccessAnalyseDetailReport.Designer.cs">
+      <DependentUpon>LDSuccessAnalyseDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Analyse\QuotationProcessingStatusReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleApprovalAnalyseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleApprovalAnalyseReport.Designer.cs">
+      <DependentUpon>SampleApprovalAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleMakedAnalyseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleMakedAnalyseReport.Designer.cs">
+      <DependentUpon>SampleMakedAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleOntimeAnalyseDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleOntimeAnalyseDetailReport.Designer.cs">
+      <DependentUpon>SampleOntimeAnalyseDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleOntimeAnalyseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleOntimeAnalyseReport.Designer.cs">
+      <DependentUpon>SampleOntimeAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Analyse\LDSuccessAnalyseReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Analyse\LDSuccessAnalyseReport.Designer.cs">
+      <DependentUpon>LDSuccessAnalyseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Analyse\QuotationProcessingStatusSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Analyse\QuotationProcessingStatusSummaryReport.Designer.cs">
+      <DependentUpon>QuotationProcessingStatusSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleMakedAnalyseDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleMakedAnalyseDetailReport.Designer.cs">
+      <DependentUpon>SampleMakedAnalyseDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Customers\GroupCEP\CEPMarketingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\GroupCEP\CEPPPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\GroupCEP\CEPPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\GroupDEELMT\DEELMTMarketingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\GroupDEELMT\DEELMTPPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\GroupDEELMT\DEELMTPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\CMYR\CMYRMarketingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\CMYR\CMYRPPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\CMYR\CMYRPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\HBI\HBIMarketingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\HBI\HBIPPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\HBI\HBIPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\MAST\MASTMarketingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\MAST\MASTPPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\MAST\MASTPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\SALL\SALLMarketingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\SALL\SALLPPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\SALL\SALLPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\TAMA\TAMAMarketingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\TAMA\TAMAPPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\TAMA\TAMAPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\WARN\WARNMarketingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\WARN\WARNPPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Customers\Single\WARN\WARNPSListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\WorkNoteReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\WorkNoteReport.Designer.cs">
+      <DependentUpon>WorkNoteReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleOntimeAnalyseDetailReportBK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Analyse\SampleOntimeAnalyseDetailReportBK.Designer.cs">
+      <DependentUpon>SampleOntimeAnalyseDetailReportBK.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="ReportJob\JobBaseAnalyse.resx">
+      <DependentUpon>JobBaseAnalyse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportJob\JobSampleMakedAnalyseReport.resx">
+      <DependentUpon>JobSampleMakedAnalyseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Analyse\LDSuccessAnalyseDetailReport.resx">
+      <DependentUpon>LDSuccessAnalyseDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Analyse\QuotationProcessingStatusReport.resx">
+      <DependentUpon>QuotationProcessingStatusReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Analyse\SampleApprovalAnalyseReport.resx">
+      <DependentUpon>SampleApprovalAnalyseReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Analyse\SampleMakedAnalyseReport.resx">
+      <DependentUpon>SampleMakedAnalyseReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Analyse\SampleOntimeAnalyseDetailReport.resx">
+      <DependentUpon>SampleOntimeAnalyseDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Analyse\SampleOntimeAnalyseDetailReportBK.resx">
+      <DependentUpon>SampleOntimeAnalyseDetailReportBK.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Analyse\SampleOntimeAnalyseReport.resx">
+      <DependentUpon>SampleOntimeAnalyseReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Analyse\LDSuccessAnalyseReport.resx">
+      <DependentUpon>LDSuccessAnalyseReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Analyse\QuotationProcessingStatusSummaryReport.resx">
+      <DependentUpon>QuotationProcessingStatusSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Analyse\SampleMakedAnalyseDetailReport.resx">
+      <DependentUpon>SampleMakedAnalyseDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\GroupCEP\CEPMarketingReport.resx">
+      <DependentUpon>CEPMarketingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\GroupCEP\CEPPPSListReport.resx">
+      <DependentUpon>CEPPPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\GroupCEP\CEPPSListReport.resx">
+      <DependentUpon>CEPPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\GroupDEELMT\DEELMTMarketingReport.resx">
+      <DependentUpon>DEELMTMarketingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\GroupDEELMT\DEELMTPPSListReport.resx">
+      <DependentUpon>DEELMTPPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\GroupDEELMT\DEELMTPSListReport.resx">
+      <DependentUpon>DEELMTPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\CMYR\CMYRMarketingReport.resx">
+      <DependentUpon>CMYRMarketingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\CMYR\CMYRPPSListReport.resx">
+      <DependentUpon>CMYRPPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\CMYR\CMYRPSListReport.resx">
+      <DependentUpon>CMYRPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\HBI\HBIMarketingReport.resx">
+      <DependentUpon>HBIMarketingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\HBI\HBIPPSListReport.resx">
+      <DependentUpon>HBIPPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\HBI\HBIPSListReport.resx">
+      <DependentUpon>HBIPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\MAST\MASTMarketingReport.resx">
+      <DependentUpon>MASTMarketingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\MAST\MASTPPSListReport.resx">
+      <DependentUpon>MASTPPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\MAST\MASTPSListReport.resx">
+      <DependentUpon>MASTPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\SALL\SALLMarketingReport.resx">
+      <DependentUpon>SALLMarketingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\SALL\SALLPPSListReport.resx">
+      <DependentUpon>SALLPPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\SALL\SALLPSListReport.resx">
+      <DependentUpon>SALLPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\TAMA\TAMAMarketingReport.resx">
+      <DependentUpon>TAMAMarketingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\TAMA\TAMAPPSListReport.resx">
+      <DependentUpon>TAMAPPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\TAMA\TAMAPSListReport.resx">
+      <DependentUpon>TAMAPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\WARN\WARNMarketingReport.resx">
+      <DependentUpon>WARNMarketingReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\WARN\WARNPPSListReport.resx">
+      <DependentUpon>WARNPPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Customers\Single\WARN\WARNPSListReport.resx">
+      <DependentUpon>WARNPSListReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\WorkNoteReport.resx">
+      <DependentUpon>WorkNoteReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\PH.SPC.BO.ETAM.datasource" />
+    <None Include="Properties\DataSources\PH.SPC.BO.SPCAnalyse.datasource" />
+    <None Include="Properties\DataSources\PH.SPC.BO.SPCAnalyse1.datasource" />
+    <None Include="Properties\DataSources\PH.SPC.BO.StyleSortEdition.datasource" />
+    <None Include="Properties\DataSources\PH.SPC.BO.StyleSortEdition1.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PH.SPC.BO\PH.SPC.BO.csproj">
+      <Project>{E6151237-B997-4A9C-B75E-9E229888B9B2}</Project>
+      <Name>PH.SPC.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

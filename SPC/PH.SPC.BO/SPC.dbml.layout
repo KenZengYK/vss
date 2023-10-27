@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 12.375" name="SPC">
+  <DataContextMoniker Name="/SPCDataContext" />
+  <nestedChildShapes>
+    <classShape Id="11203adc-153f-45e9-85cf-67f091c7d2b7" absoluteBounds="11.75, 4.125, 2, 3.4817427571614576">
+      <DataClassMoniker Name="/SPCDataContext/StyleSize" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b1abd891-bcaf-4208-9bfe-b95b5b2c2b37" absoluteBounds="11.765, 4.585, 1.9700000000000002, 2.921742757161458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e4550f19-6929-4c10-9cdb-918723ef1c15" absoluteBounds="6.25, 3.625, 2, 4.4368412272135416">
+      <DataClassMoniker Name="/SPCDataContext/StyleSort" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6222e49-7975-4257-9155-a514e5108a9a" absoluteBounds="6.265, 4.085, 1.9700000000000002, 3.876841227213542" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aeb63775-74bd-4627-89ae-440facd26d46" isExpanded="false" absoluteBounds="3.5, 11.25, 2, 0.45">
+      <DataClassMoniker Name="/SPCDataContext/SPCCustomer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99a7f2f4-8fb4-431e-b985-421c375128fe" absoluteBounds="3.5149999999999997, 11.71, 1.9700000000000002, 31.001637776692707" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="32333db4-b860-4be8-acf0-5d5adf3738d7" absoluteBounds="9.25, 4.125, 2, 6.15601847330729">
+      <DataClassMoniker Name="/SPCDataContext/StyleSortEdition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8fa09673-21df-4128-9ce9-e9270accfd91" absoluteBounds="9.265, 4.585, 1.9700000000000002, 5.5960184733072911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.25 : 5.86587137858073); (11.75 : 5.86587137858073)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SPCDataContext/StyleSortEdition/StyleSortEdition_StyleSize" />
+      <nodes>
+        <classShapeMoniker Id="32333db4-b860-4be8-acf0-5d5adf3738d7" />
+        <classShapeMoniker Id="11203adc-153f-45e9-85cf-67f091c7d2b7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 6.09342061360677); (9.25 : 6.09342061360677)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SPCDataContext/StyleSort/StyleSort_StyleSortEdition" />
+      <nodes>
+        <classShapeMoniker Id="e4550f19-6929-4c10-9cdb-918723ef1c15" />
+        <classShapeMoniker Id="32333db4-b860-4be8-acf0-5d5adf3738d7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="92a1fd09-97ac-4d66-83e8-0897724b3c9a" absoluteBounds="0.625, 3.625, 2, 8.4482548014322916">
+      <DataClassMoniker Name="/SPCDataContext/SampleOrder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56244967-063e-4b64-959c-c3f78c705d88" absoluteBounds="0.64, 4.085, 1.9700000000000002, 7.888254801432292" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e55f1b36-41fc-4e26-b2d2-f15070aaf7d5" absoluteBounds="3.25, 3.75, 2, 6.9200972493489576">
+      <DataClassMoniker Name="/SPCDataContext/Style" />
+      <nestedChildShapes>
+        <elementListCompartment Id="646e57d9-83cf-4ee2-8835-5fbcbbecc775" absoluteBounds="3.265, 4.21, 1.9700000000000002, 6.360097249348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.25 : 5.90592061360677); (6.25 : 5.90592061360677)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SPCDataContext/Style/Style_StyleSort" />
+      <nodes>
+        <classShapeMoniker Id="e55f1b36-41fc-4e26-b2d2-f15070aaf7d5" />
+        <classShapeMoniker Id="e4550f19-6929-4c10-9cdb-918723ef1c15" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.375 : 10.670097249349); (4.375 : 11.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SPCDataContext/Style/Style_SPCCustomer" />
+      <nodes>
+        <classShapeMoniker Id="e55f1b36-41fc-4e26-b2d2-f15070aaf7d5" />
+        <classShapeMoniker Id="aeb63775-74bd-4627-89ae-440facd26d46" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 7.21004862467448); (3.25 : 7.21004862467448)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SPCDataContext/SampleOrder/SampleOrder_Style" />
+      <nodes>
+        <classShapeMoniker Id="92a1fd09-97ac-4d66-83e8-0897724b3c9a" />
+        <classShapeMoniker Id="e55f1b36-41fc-4e26-b2d2-f15070aaf7d5" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

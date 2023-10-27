@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="Detail.Name" xml:space="preserve">
+    <value>Detail</value>
+  </metadata>
+  <metadata name="xrLabel2.Name" xml:space="preserve">
+    <value>xrLabel2</value>
+  </metadata>
+  <metadata name="bindingSource1.Name" xml:space="preserve">
+    <value>bindingSource1</value>
+  </metadata>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="detail_SampleOrderID.Name" xml:space="preserve">
+    <value>detail_SampleOrderID</value>
+  </metadata>
+  <metadata name="detail_Customer.Name" xml:space="preserve">
+    <value>detail_Customer</value>
+  </metadata>
+  <metadata name="detail_CustDept.Name" xml:space="preserve">
+    <value>detail_CustDept</value>
+  </metadata>
+  <metadata name="detail_CustStyleNr.Name" xml:space="preserve">
+    <value>detail_CustStyleNr</value>
+  </metadata>
+  <metadata name="detail_styleid.Name" xml:space="preserve">
+    <value>detail_styleid</value>
+  </metadata>
+  <metadata name="detail_PCCode.Name" xml:space="preserve">
+    <value>detail_PCCode</value>
+  </metadata>
+  <metadata name="detail_BriefDesr.Name" xml:space="preserve">
+    <value>detail_BriefDesr</value>
+  </metadata>
+  <metadata name="detail_BrandName.Name" xml:space="preserve">
+    <value>detail_BrandName</value>
+  </metadata>
+  <metadata name="detail_GroupName.Name" xml:space="preserve">
+    <value>detail_GroupName</value>
+  </metadata>
+  <metadata name="detail_SeasonCode.Name" xml:space="preserve">
+    <value>detail_SeasonCode</value>
+  </metadata>
+  <metadata name="detail_PatternSource.Name" xml:space="preserve">
+    <value>detail_PatternSource</value>
+  </metadata>
+  <metadata name="detail_ColorStatus.Name" xml:space="preserve">
+    <value>detail_ColorStatus</value>
+  </metadata>
+  <metadata name="detail_MaterialStatus_SampleYardageDate.Name" xml:space="preserve">
+    <value>detail_MaterialStatus_SampleYardageDate</value>
+  </metadata>
+  <metadata name="detail_MaterialStatus_RedyeDate.Name" xml:space="preserve">
+    <value>detail_MaterialStatus_RedyeDate</value>
+  </metadata>
+  <metadata name="detail_MaterialStatus_MidSpec.Name" xml:space="preserve">
+    <value>detail_MaterialStatus_MidSpec</value>
+  </metadata>
+  <metadata name="detail_SampleMakeOrNot.Name" xml:space="preserve">
+    <value>detail_SampleMakeOrNot</value>
+  </metadata>
+  <metadata name="detail_WorkShop.Name" xml:space="preserve">
+    <value>detail_WorkShop</value>
+  </metadata>
+  <metadata name="detail_SPS_SeqNr.Name" xml:space="preserve">
+    <value>detail_SPS_SeqNr</value>
+  </metadata>
+  <metadata name="detail_SPS_IssueDate.Name" xml:space="preserve">
+    <value>detail_SPS_IssueDate</value>
+  </metadata>
+  <metadata name="detail_SPS_DefaultFinishDate.Name" xml:space="preserve">
+    <value>detail_SPS_DefaultFinishDate</value>
+  </metadata>
+  <metadata name="detail_SPS_TrialSampleDate.Name" xml:space="preserve">
+    <value>detail_SPS_TrialSampleDate</value>
+  </metadata>
+  <metadata name="detail_SPS_CurrentFinishDate.Name" xml:space="preserve">
+    <value>detail_SPS_CurrentFinishDate</value>
+  </metadata>
+  <metadata name="detail_QS_MIDc.Name" xml:space="preserve">
+    <value>detail_QS_MIDc</value>
+  </metadata>
+  <metadata name="detail_QS_Pattern.Name" xml:space="preserve">
+    <value>detail_QS_Pattern</value>
+  </metadata>
+  <metadata name="detail_QS_BOM_MarkerDate.Name" xml:space="preserve">
+    <value>detail_QS_BOM_MarkerDate</value>
+  </metadata>
+  <metadata name="detail_QS_BOM_YYDate.Name" xml:space="preserve">
+    <value>detail_QS_BOM_YYDate</value>
+  </metadata>
+  <metadata name="detail_QS_SMVDate.Name" xml:space="preserve">
+    <value>detail_QS_SMVDate</value>
+  </metadata>
+  <metadata name="detail_QS_QTNDate.Name" xml:space="preserve">
+    <value>detail_QS_QTNDate</value>
+  </metadata>
+  <metadata name="detail_Adopted.Name" xml:space="preserve">
+    <value>detail_Adopted</value>
+  </metadata>
+  <metadata name="detail_ERPBomDate.Name" xml:space="preserve">
+    <value>detail_ERPBomDate</value>
+  </metadata>
+  <metadata name="detail_Completed.Name" xml:space="preserve">
+    <value>detail_Completed</value>
+  </metadata>
+  <metadata name="detail_Remarks.Name" xml:space="preserve">
+    <value>detail_Remarks</value>
+  </metadata>
+  <metadata name="PageHeader.Name" xml:space="preserve">
+    <value>PageHeader</value>
+  </metadata>
+  <metadata name="xrLabel1.Name" xml:space="preserve">
+    <value>xrLabel1</value>
+  </metadata>
+  <metadata name="xrPageInfo1.Name" xml:space="preserve">
+    <value>xrPageInfo1</value>
+  </metadata>
+  <metadata name="headerLable.Name" xml:space="preserve">
+    <value>headerLable</value>
+  </metadata>
+  <metadata name="header_StyleInformation.Name" xml:space="preserve">
+    <value>header_StyleInformation</value>
+  </metadata>
+  <metadata name="header_SampleOrderID.Name" xml:space="preserve">
+    <value>header_SampleOrderID</value>
+  </metadata>
+  <metadata name="header_Customer.Name" xml:space="preserve">
+    <value>header_Customer</value>
+  </metadata>
+  <metadata name="header_CustDept.Name" xml:space="preserve">
+    <value>header_CustDept</value>
+  </metadata>
+  <metadata name="header_CustStyleNr.Name" xml:space="preserve">
+    <value>header_CustStyleNr</value>
+  </metadata>
+  <metadata name="header_styleid.Name" xml:space="preserve">
+    <value>header_styleid</value>
+  </metadata>
+  <metadata name="header_PCCode.Name" xml:space="preserve">
+    <value>header_PCCode</value>
+  </metadata>
+  <metadata name="header_BriefDesr.Name" xml:space="preserve">
+    <value>header_BriefDesr</value>
+  </metadata>
+  <metadata name="header_BrandName.Name" xml:space="preserve">
+    <value>header_BrandName</value>
+  </metadata>
+  <metadata name="header_GroupName.Name" xml:space="preserve">
+    <value>header_GroupName</value>
+  </metadata>
+  <metadata name="header_SeasonCode.Name" xml:space="preserve">
+    <value>header_SeasonCode</value>
+  </metadata>
+  <metadata name="header_PatternSource.Name" xml:space="preserve">
+    <value>header_PatternSource</value>
+  </metadata>
+  <metadata name="header_ColorStatus.Name" xml:space="preserve">
+    <value>header_ColorStatus</value>
+  </metadata>
+  <metadata name="header_MaterialStatus.Name" xml:space="preserve">
+    <value>header_MaterialStatus</value>
+  </metadata>
+  <metadata name="header_MaterialStatus_SampleYardageDate.Name" xml:space="preserve">
+    <value>header_MaterialStatus_SampleYardageDate</value>
+  </metadata>
+  <metadata name="header_MaterialStatus_RedyeDate.Name" xml:space="preserve">
+    <value>header_MaterialStatus_RedyeDate</value>
+  </metadata>
+  <metadata name="header_MaterialStatus_MidSpec.Name" xml:space="preserve">
+    <value>header_MaterialStatus_MidSpec</value>
+  </metadata>
+  <metadata name="header_SampleMakeOrNot.Name" xml:space="preserve">
+    <value>header_SampleMakeOrNot</value>
+  </metadata>
+  <metadata name="header_WorkShop.Name" xml:space="preserve">
+    <value>header_WorkShop</value>
+  </metadata>
+  <metadata name="header_SPS.Name" xml:space="preserve">
+    <value>header_SPS</value>
+  </metadata>
+  <metadata name="header_SPS_SeqNr.Name" xml:space="preserve">
+    <value>header_SPS_SeqNr</value>
+  </metadata>
+  <metadata name="header_SPS_IssueDate.Name" xml:space="preserve">
+    <value>header_SPS_IssueDate</value>
+  </metadata>
+  <metadata name="header_SPS_DefaultFinishDate.Name" xml:space="preserve">
+    <value>header_SPS_DefaultFinishDate</value>
+  </metadata>
+  <metadata name="header_SPS_TrialSampleDate.Name" xml:space="preserve">
+    <value>header_SPS_TrialSampleDate</value>
+  </metadata>
+  <metadata name="header_SPS_CurrentFinishDate.Name" xml:space="preserve">
+    <value>header_SPS_CurrentFinishDate</value>
+  </metadata>
+  <metadata name="header_QuotationSatuts.Name" xml:space="preserve">
+    <value>header_QuotationSatuts</value>
+  </metadata>
+  <metadata name="header_QS_MIDc.Name" xml:space="preserve">
+    <value>header_QS_MIDc</value>
+  </metadata>
+  <metadata name="header_QS_Pattern.Name" xml:space="preserve">
+    <value>header_QS_Pattern</value>
+  </metadata>
+  <metadata name="header_QS_BOM.Name" xml:space="preserve">
+    <value>header_QS_BOM</value>
+  </metadata>
+  <metadata name="header_QS_BOM_MarkerDate.Name" xml:space="preserve">
+    <value>header_QS_BOM_MarkerDate</value>
+  </metadata>
+  <metadata name="header_QS_BOM_YYDate.Name" xml:space="preserve">
+    <value>header_QS_BOM_YYDate</value>
+  </metadata>
+  <metadata name="header_QS_SMVDate.Name" xml:space="preserve">
+    <value>header_QS_SMVDate</value>
+  </metadata>
+  <metadata name="header_QS_QTNDate.Name" xml:space="preserve">
+    <value>header_QS_QTNDate</value>
+  </metadata>
+  <metadata name="header_Adopted.Name" xml:space="preserve">
+    <value>header_Adopted</value>
+  </metadata>
+  <metadata name="header_ERPBomDate.Name" xml:space="preserve">
+    <value>header_ERPBomDate</value>
+  </metadata>
+  <metadata name="header_Completed.Name" xml:space="preserve">
+    <value>header_Completed</value>
+  </metadata>
+  <metadata name="header_Remarks.Name" xml:space="preserve">
+    <value>header_Remarks</value>
+  </metadata>
+  <metadata name="csHeader1.Name" xml:space="preserve">
+    <value>csHeader1</value>
+  </metadata>
+  <metadata name="csHeader2.Name" xml:space="preserve">
+    <value>csHeader2</value>
+  </metadata>
+  <metadata name="csDetail.Name" xml:space="preserve">
+    <value>csDetail</value>
+  </metadata>
+  <metadata name="PageFooter.Name" xml:space="preserve">
+    <value>PageFooter</value>
+  </metadata>
+  <metadata name="$this.SnapToGrid" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="$this.Name" xml:space="preserve">
+    <value>CMYRMarketingReport</value>
+  </metadata>
+</root>
